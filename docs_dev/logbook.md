@@ -145,6 +145,83 @@ git clone https://github.com/muzudho/Warabenture-2025.git .
 これでクローン完了。  
 
 
+## さくらのVPSのスケールアップ
+
+Grok に尋ねると、Nuxt + Vue を動かそうと思うと、メモリーは 4GB は欲しいらしい。  
+年額 41,400円。月にすると 3,450円。ゲロ高。  
+
+しかし、払わないとウェブ・アプリケーションの練習が進まない。  
+払う方向で。  
+
+* 以下の作業をこれから行う：
+    * https://manual.sakura.ad.jp/vps/server/disk-expansion/ubuntu-24.04.html
+
+VNCコンソール：
+
+```shell
+dpkg -l gdisk
+    ※gdiskはインストールされているよう。
+
+sudo gdisk -l /dev/vda
+    ※情報が出てくる
+
+lsblk /dev/vda
+    ※情報が出てくる
+
+sudo sgdisk -s /dev/vda
+    ※なんかソートされる
+
+sudo gdisk -l /dev/vda
+    ※ Total free space が増えるはず。
+
+sudo gdisk /dev/vda
+    ※ 質問が出てくるので、以下を入力。 n は新しいパーティションを作るという意味。
+n
+    ※ Partition number はデフォルトのまま使うので、そのままエンター。
+
+    ※ First sector もデフォルトのまま使うので、そのままエンター。
+
+    ※ Last sector もデフォルトのまま使うので、そのままエンター。
+
+    ※ Partition Type もデフォルトの［Linux filesystem］で問題がなければ、そのままエンター。
+
+    ※ 以下のコマンドで、パーティション・テーブルを確認できる。
+p
+    ※ 問題がなければ、以下のコマンドを打鍵。
+w
+    ※ 最終確認。ディスクの書き換えが始まる。
+y
+```
+
+以上はパーティションの作成。以下はファイルシステムの作成。
+
+```shell
+ls /dev/vda3
+    ※ まだ存在しない場合、以下のコマンドでOSを再起動。
+sudo reboot
+    ※ 管理者のユーザー名、パスワードを再入力。
+ls /dev/vda3
+    ※ vda3 がデバイスとして認識されているはず。
+sudo mkfs.ext4 /dev/vda3
+    ※ フォーマットがされるはず。
+sudo mkdir /data
+sudo mount /dev/vda3 /data
+    ※ /dev/vda3 を /data にマウントした。
+mount | grep vda3
+    ※ マウントされていることを確認できるはず。
+lsblk /dev/vda
+    ※ 確認。
+id=$(sudo blkid -o value -s UUID /dev/vda3)
+echo "UUID=${id} /data  ext4  defaults 0 2" | sudo tee -a /etc/fstab
+    ※ OSを再起動してもマウントされるように設定した。
+sudo reboot
+    ※ サーバーを再起動。
+    ※ 管理者のユーザー名、パスワードを再入力。
+sudo gdisk -l /dev/vda
+    ※ マウントされているか確認する。
+```
+
+
 ### Nuxt をビルド：
 
 ```shell
