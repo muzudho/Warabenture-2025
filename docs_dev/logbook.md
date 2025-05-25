@@ -225,6 +225,186 @@ sudo gdisk -l /dev/vda
 ### Nuxt をビルド：
 
 ```shell
+cd warabenture-2025/
 npm install
+    ※データの取得に参加するか聞かれるので答える。
 npm run generate
 ```
+
+
+### Nginx の設定：
+
+```shell
+sudo apt install nginx
+y
+sudo nano /etc/nginx/sites-available/warabenture-2025
+```
+
+📄 `/etc/nginx/sites-available/warabenture-2025`:  
+
+```
+server {
+  listen 80;
+  server_name ＜🌟IPアドレス＞;
+  root /home/ubuntu/warabenture-2025/dist;
+  index index.html;
+  location / {
+    try_files $uri $uri/ /index.html;
+  }
+}
+```
+
+👆 マウスの右クリックで貼り付けして、[Ctrl]+[O]で保存、エンターで抜けて、[Ctrl]+[X]で閉じる。  
+
+```shell
+sudo ln -s /etc/nginx/sites-available/warabenture-2025 /etc/nginx/sites-enabled/
+sudo nginx -t
+    nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+    nginx: configuration file /etc/nginx/nginx.conf test is successful
+    ※ 設定ファイルの構文テストをした。
+sudo systemctl restart nginx
+sudo systemctl status nginx
+    ※ active(running)になっていることを確認。
+sudo chown -R ubuntu:ubuntu /home/ubuntu/warabenture-2025
+sudo chmod -R 755 /home/ubuntu/warabenture-2025/dist
+```
+
+👆 これで設定終わり。  
+
+
+### 表示されない。
+
+```shell
+# IPアドレス確認
+curl http://49.212.140.81/
+
+# ログ確認：
+sudo tail -f /var/log/nginx/error.log
+    ※ 空っぽ
+
+# ログのレベル上げ：
+sudo nano /etc/nginx/nginx.conf
+    ※ httpセクションのロギングのところに error_log /var/log/nginx/error.log debug; 追加。
+sudo systemctl restart nginx
+```
+
+```
+ubuntu@os3-288-33577:~/warabenture-2025/.output$ sudo tail -f /var/log/nginx/error.log
+2025/05/25 22:31:33 [crit] 3942#3942: *2 stat() "/home/ubuntu/warabenture-2025/dist/index.html" failed (13: Permission denied), client: 49.212.140.81, server: 49.212.140.81, request: "GET / HTTP/1.1", host: "49.212.140.81"
+2025/05/25 22:31:33 [error] 3942#3942: *2 rewrite or internal redirection cycle while internally redirecting to "/index.html", client: 49.212.140.81, server: 49.212.140.81, request: "GET / HTTP/1.1", host: "49.212.140.81"
+2025/05/25 22:34:25 [debug] 5567#5567: epoll add event: fd:5 op:1 ev:10000001
+2025/05/25 22:34:25 [debug] 5567#5567: epoll add event: fd:6 op:1 ev:10000001
+2025/05/25 22:34:25 [debug] 5568#5568: epoll add event: fd:5 op:1 ev:10000001
+2025/05/25 22:34:25 [debug] 5568#5568: epoll add event: fd:6 op:1 ev:10000001
+2025/05/25 22:34:25 [debug] 5569#5569: epoll add event: fd:5 op:1 ev:10000001
+2025/05/25 22:34:25 [debug] 5569#5569: epoll add event: fd:6 op:1 ev:10000001
+2025/05/25 22:34:25 [debug] 5570#5570: epoll add event: fd:5 op:1 ev:10000001
+2025/05/25 22:34:25 [debug] 5570#5570: epoll add event: fd:6 op:1 ev:10000001
+```
+
+👆 パーミッション・エラーだ。  
+
+```shell
+# 権限チェック：
+ls -ld /home/ubuntu /home/ubuntu/warabenture-2025 /home/ubuntu/warabenture-2025/dist /home/ubuntu/warabenture-2025/dist/index.html
+    drwxr-x--- 8 ubuntu ubuntu   4096 May 25 21:57 /home/ubuntu
+    drwxrwxr-x 9 ubuntu ubuntu   4096 May 25 22:19 /home/ubuntu/warabenture-2025
+    lrwxrwxrwx 1 ubuntu ubuntu     44 May 25 21:58 /home/ubuntu/warabenture-2025/dist -> /home/ubuntu/warabenture-2025/.output/public
+    -rw-rw-r-- 1 ubuntu ubuntu 105166 May 25 22:19 /home/ubuntu/warabenture-2025/dist/index.html
+
+# 修正：
+sudo chown -R ubuntu:www-data /home/ubuntu/warabenture-2025
+sudo chmod -R 755 /home/ubuntu/warabenture-2025
+sudo chmod -R 644 /home/ubuntu/warabenture-2025/dist/*.html
+sudo chmod 755 /home/ubuntu
+
+# Nginx再起動：
+sudo nginx -t
+sudo systemctl restart nginx
+sudo systemctl status nginx  # active (running)
+
+# Nuxt の静的ファイルを確認：
+ls -l /home/ubuntu/warabenture-2025/dist
+cat /home/ubuntu/warabenture-2025/dist/index.html  # HTML確認
+    ※ なんかファイルは在る。
+
+# nginx設定ファイル確認：
+sudo cat /etc/nginx/sites-available/warabenture-2025
+
+sudo tail -f /var/log/nginx/error.log
+```
+
+### /etc/nginx/sites-enabled/default が有効になってるのが大問題！
+
+```shell
+ls -l /etc/nginx/sites-enabled/
+    total 0
+    lrwxrwxrwx 1 root root 34 May 25 22:00 default -> /etc/nginx/sites-available/default
+    lrwxrwxrwx 1 root root 43 May 25 22:03 warabenture-2025 -> /etc/nginx/sites-available/warabenture-2025
+
+# リンクを外す
+sudo unlink /etc/nginx/sites-enabled/default
+ls -l /etc/nginx/sites-enabled/  # defaultが消えたか確認
+    total 0
+    lrwxrwxrwx 1 root root 43 May 25 22:03 warabenture-2025 -> /etc/nginx/sites-available/warabenture-2025
+
+sudo nginx -t
+sudo systemctl reload nginx
+sudo systemctl status nginx  # active (running)
+```
+
+```shell
+sudo nano /etc/nginx/sites-available/warabenture-2025
+    ※ 更新
+    ※ server_name 49.212.140.81 os3-288-33577.vs.sakura.ne.jp;
+
+sudo nginx -t
+sudo systemctl reload nginx
+sudo systemctl status nginx  # active (running)
+```
+
+```shell
+# アクセスログを見る
+sudo tail -n 20 /var/log/nginx/access.log
+
+sudo netstat -tulnp | grep :80
+    sudo: netstat: command not found
+
+sudo ss -tulnp | grep :80
+    tcp   LISTEN 0      511          0.0.0.0:80         0.0.0.0:*    users:(("nginx",pid=7314,fd=5),("nginx",pid=7313,fd=5),("nginx",pid=7311,fd=5),("nginx",pid=7310,fd=5),("nginx",pid=6188,fd=5))
+```
+
+
+### VNCコンソール:  
+
+```shell
+sudo ufw status
+    Status: inactive
+
+# ポート 80 解放
+sudo ufw allow 80
+    Rules updated
+    Rules updated (v6)
+sudo ufw status
+    Status: inactive
+```
+
+
+### さくらのVPS　＞　パケットフィルター設定
+
+https://manual.sakura.ad.jp/vps/network/packetfilter.html?gad_source=1&gad_campaignid=17299504274&gbraid=0AAAAADrEfxQW-_0gUeYPQ69-ud3u7MNIF&gclid=Cj0KCQjw_8rBBhCFARIsAJrc9yACyz-JYRdAil1EeCjnbbOc71d5PIJuYjIrdU8uGCns3vpeHBOJX6UaAtZyEALw_wcB
+
+```
+Sakura VPSコントロールパネルでパケットフィルターを設定：
+Sakura VPSのコントロールパネルにログイン。
+対象のサーバーを選択し、「グローバルネットワーク」タブをクリック。
+「パケットフィルター設定」をクリック。
+「パケットフィルターを利用する（推奨）」が選択されてるはず（現在SSHのみ許可の状態）。
+「パケットフィルター設定を追加する」をクリック。
+フィルターの種類で「Web」を選択（これがポート80/TCPを許可する設定）。
+プロトコル：TCP、ポート番号：80 が自動で設定されるはず。確認して「設定を保存する」をクリック。
+保存後、設定が反映されるまで数分待つ（即時反映のはずだが、念のため）。
+参考：さくらの公式マニュアル（）や設定ガイド（）。
+```
+
+これで解決。  
