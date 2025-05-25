@@ -408,3 +408,31 @@ Sakura VPSのコントロールパネルにログイン。
 ```
 
 これで解決。  
+
+
+### 開発ローカルPCで、ホームページを更新した。
+
+リモートローカルPCで:  
+
+```shell
+cd ~/warabenture-2025
+pwd
+    /home/ubuntu/warabenture-2025
+
+# 未コミットの変更をすべてリセット：
+git reset --hard
+
+# 追跡されてないファイルやディレクトリ（例: 新規ファイル）を削除：
+git clean -fd
+
+git pull origin main
+
+# 再作成、再起動
+npm install  # 依存関係が更新されてる場合に必要
+npm run build
+#npm run start
+npm run generate
+
+sudo nginx -t
+sudo systemctl restart nginx
+```
