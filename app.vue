@@ -39,13 +39,36 @@
       </div>
       <div class="talk">
         <div class="face-container">
-          <img src="@/assets/img/202101__character__24-o2o2o3o0.png" />
+          <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
         </div>
         <div class="baloon-tail"></div>
         <div class="baloon">
           まあ、そこはゆくゆくは修正だな。
         </div>
       </div>
+      <div class="talk">
+        <div class="face-container">
+          <img src="@/assets/img/202506__character__01--2013-kifuwarabe-o1o1o0.png" />
+        </div>
+        <div class="baloon-tail"></div>
+        <div class="baloon">
+          さっそくイラストを新調したか、<br/>
+          グレードダウンしてないかだぜ？
+        </div>
+      </div>
+      <div class="talk">
+        <div class="face-container">
+          <img src="@/assets/img/202506__character__01--2025-hiyoko-o1o1o0.png" />
+        </div>
+        <div class="baloon-tail"></div>
+        <div class="baloon">
+          Grok に描かせようと、Super Grok にプラン変更しようとしたら、<br/>
+          クレジットカードを拒否されたので、あんたのお父んの手描きになったのよ。<br/>
+          何でクレジットカードが拒否されたのか知らんけど。
+        </div>
+      </div>
+      
+
     </div>
 
     <h2>## [2025-05-24_Sat]</h2>
