@@ -14,6 +14,7 @@
         <div class="face-container">
           <img src="@/assets/img/202101__character__24-o2o2o3o0.png" />
         </div>
+        <div class="baloon-tail"></div>
         <div class="baloon">
           文字は出せるかだぜ？
         </div>
@@ -22,6 +23,7 @@
         <div class="face-container">
           <img src="@/assets/img/202101__character__28--kifuwarabe-futsu-o2o0.png" />
         </div>
+        <div class="baloon-tail"></div>
         <div class="baloon">
           出せてるぜ。
         </div>
@@ -30,6 +32,7 @@
         <div class="face-container">
           <img src="@/assets/img/202108__character__12--ohkina-hiyoko-futsu2-o2o0.png" />
         </div>
+        <div class="baloon-tail"></div>
         <div class="baloon">
           なんか画像がボヤけてない？<br/>サイズもマチマチだし。<br/>グレードダウンしてない？
         </div>
@@ -38,6 +41,7 @@
         <div class="face-container">
           <img src="@/assets/img/202101__character__24-o2o2o3o0.png" />
         </div>
+        <div class="baloon-tail"></div>
         <div class="baloon">
           まあ、そこはゆくゆくは修正だな。
         </div>
@@ -82,14 +86,29 @@ div.talk{
 }
 
 div.face-container{
-  width:110px;
+  width:100px;
 }
 
 div.baloon{
-  height:74px;
   padding-left:16px;
+  padding-top: 12px;
+  padding-bottom:16px;
   padding-right:16px;
   background-color: white;
   border-radius: 16px;
+}
+
+/**
+ *       | 0%   100%
+ *   ----+----------
+ *     0%|         2
+ *    50%|  1
+ *   100%|         3
+ */
+div.baloon-tail {
+  width: 20px;
+  height: 15px;
+  background-color: white; /* 白い背景 */
+  clip-path: polygon(0% 50%, 100% 0%, 100% 100%); /* 上頂点、下底の三角形 */
 }
 </style>
