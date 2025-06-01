@@ -67,7 +67,16 @@
           何でクレジットカードが拒否されたのか知らんけど。
         </div>
       </div>
-      
+      <div class="talk">
+        <div class="face-container">
+          <img src="@/assets/img/202506__character__01--2013-kifuwarabe-o1o1o0.png" />
+        </div>
+        <div class="baloon-tail"></div>
+        <div class="baloon">
+          このトップページは近況を書く日記かだぜ？<br/>
+          メインのコンテンツは何かないのかだぜ？
+        </div>
+      </div>
 
     </div>
 

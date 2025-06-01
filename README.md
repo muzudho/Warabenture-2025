@@ -1,6 +1,6 @@
 # Warabenture-2025
 
-ホームページ。２０２５年から作り直し。
+ホームページ。２０２５年から、一から作り直し。  
 
 # Nuxt Minimal Starter
 
