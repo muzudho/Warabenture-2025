@@ -16,12 +16,8 @@ npm run dev
 # ウェブアプリケーション側で、リポジトリーをクローンするなら：
 cd warabenture-2025
 git pull origin main
-npm install
 
 # ウェブアプリケーション形式のファイルを出力する：
 npm run generate
 # これをしてはいけない： npm run build # 403 Forbidden になる
-
-#sudo systemctl restart nginx
-#    # ubuntuユーザーのパスワードの入力が必要。
 ```
