@@ -91,16 +91,34 @@ h1 {
   color: #EEEEEE;
 }
 
-h2 {
-  background-color: #111111;
-  color: #EEEEEE;
-  margin-left: 60px;
-  padding-left: 4px;
+/* スマホ向けスタイル (画面幅が768px以下) */
+@media screen and (max-width: 768px) {
+  h2 {
+    background-color: #111111;
+    color: #EEEEEE;
+    margin-left: 20px;
+    padding-left: 4px;
+  }
+
+  div.div2 {
+    color: #111111;
+    margin-left: 30px;
+  }
 }
 
-div.div2 {
-  color: #111111;
-  margin-left: 90px;
+/* パソコン向けスタイル (画面幅が769px以上) */
+@media screen and (min-width: 769px) {
+  h2 {
+    background-color: #111111;
+    color: #EEEEEE;
+    margin-left: 60px;
+    padding-left: 4px;
+  }
+
+  div.div2 {
+    color: #111111;
+    margin-left: 90px;
+  }
 }
 
 div.talk{
