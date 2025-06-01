@@ -11,20 +11,36 @@
     <h2>## [2025-06-01_Sun]</h2>
     <div class="div2">
       <div class="talk">
-        <img src="@/assets/img/202101__character__24-o2o2o3o0.png" />
-        <span>文字は出せるかだぜ？</span>
+        <div class="face-container">
+          <img src="@/assets/img/202101__character__24-o2o2o3o0.png" />
+        </div>
+        <div class="baloon">
+          文字は出せるかだぜ？
+        </div>
       </div>
       <div class="talk">
-        <img src="@/assets/img/202101__character__28--kifuwarabe-futsu-o2o0.png" />
-        <span>出せてるぜ。</span>
+        <div class="face-container">
+          <img src="@/assets/img/202101__character__28--kifuwarabe-futsu-o2o0.png" />
+        </div>
+        <div class="baloon">
+          出せてるぜ。
+        </div>
       </div>
       <div class="talk">
-        <img src="@/assets/img/202108__character__12--ohkina-hiyoko-futsu2-o2o0.png" />
-        <span>なんか画像がボヤけてない？<br/>サイズもマチマチだし。</span>
+        <div class="face-container">
+          <img src="@/assets/img/202108__character__12--ohkina-hiyoko-futsu2-o2o0.png" />
+        </div>
+        <div class="baloon">
+          なんか画像がボヤけてない？<br/>サイズもマチマチだし。<br/>グレードダウンしてない？
+        </div>
       </div>
       <div class="talk">
-        <img src="@/assets/img/202101__character__24-o2o2o3o0.png" />
-        <span>まあ、そこはゆくゆくは修正だな。</span>
+        <div class="face-container">
+          <img src="@/assets/img/202101__character__24-o2o2o3o0.png" />
+        </div>
+        <div class="baloon">
+          まあ、そこはゆくゆくは修正だな。
+        </div>
       </div>
     </div>
 
@@ -60,13 +76,20 @@ div.div2 {
   margin-left: 90px;
 }
 
-p.p2 {
-  color: #111111;
-  margin-left: 90px;
-}
-
 div.talk{
   display: flex;
   align-items: center;
+}
+
+div.face-container{
+  width:110px;
+}
+
+div.baloon{
+  height:74px;
+  padding-left:16px;
+  padding-right:16px;
+  background-color: white;
+  border-radius: 16px;
 }
 </style>
