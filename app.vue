@@ -106,6 +106,8 @@ div.div2 {
 div.talk{
   display: flex;
   align-items: center;
+  margin-top: 1px;
+  margin-bottom: 1px;
 }
 
 div.face-container{
