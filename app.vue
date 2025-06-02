@@ -404,7 +404,47 @@
           👆 テキストを書き込む方はイケてない。何かパーミッション設定でも足りてないのか？
         </div>
       </div>
-
+      <div class="talk">
+        <div class="face-container">
+          <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+        </div>
+        <div class="baloon-tail"></div>
+        <div class="baloon">
+          👇 説明書はあるけど。<br>
+          📖 <a target="_blank" href="https://tauri.app/plugin/file-system/#examples">Examples</a>
+        </div>
+      </div>
+      <a target="_blank" href="/img/journal/202506/202506__program__02--2342-tauri-o1oA20o0.png">
+        <img class="scr-shot" src="/img/journal/202506/202506__program__02--2342-tauri-o1oA20o0.png">
+      </a><br/>
+      <div class="talk">
+        <div class="face-container">
+          <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+        </div>
+        <div class="baloon-tail"></div>
+        <div class="baloon">
+          👆 なんか分かってないけど、このように書いたらファイルへのテキスト書き込みはでけた。
+        </div>
+      </div>
+      <div class="talk">
+        <div class="face-container">
+          <img src="@/assets/img/202506__character__01--2013-kifuwarabe-o1o1o0.png" />
+        </div>
+        <div class="baloon-tail"></div>
+        <div class="baloon">
+          やったな！　微速微進、遅々前進だぜ！
+        </div>
+      </div>
+      <div class="talk">
+        <div class="face-container">
+          <img src="@/assets/img/202506__character__01--2025-hiyoko-o1o1o0.png" />
+        </div>
+        <div class="baloon-tail"></div>
+        <div class="baloon">
+          Git Hub のリポジトリーへのリンクも貼っておきましょう。<br>
+          📖 <a target="_blank" href="https://github.com/muzudho/notepad-on-tauri">muzudho / notepad-on-tauri</a>
+        </div>
+      </div>
     </div>
 
     <h2>## [2025-06-01_Sun]</h2>
