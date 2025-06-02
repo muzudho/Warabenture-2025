@@ -213,15 +213,6 @@
           👆 ひとまず、こんな感じか。
         </div>
       </div>
-      <div class="talk">
-        <div class="face-container">
-          <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
-        </div>
-        <div class="baloon-tail"></div>
-        <div class="baloon">
-          👆 ひとまず、こんな感じか。
-        </div>
-      </div>
       <a target="_blank" href="/img/journal/202506/202506__program__02--2010-tauri-o1oA10o0.png">
         <img class="scr-shot" src="/img/journal/202506/202506__program__02--2010-tauri-o1oA10o0.png">
       </a><br/>      
@@ -234,6 +225,39 @@
           👆 スタイルを除くと、ソースはたったの 24 行だぜ。
         </div>
       </div>
+      <div class="talk">
+        <div class="face-container">
+          <img src="@/assets/img/202506__character__01--2013-kifuwarabe-o1o1o0.png" />
+        </div>
+        <div class="baloon-tail"></div>
+        <div class="baloon">
+          ファイルパスを入れるテキストボックスと、ファイルを選択するダイアログボックスが出てくるボタンが欲しいぜ。
+        </div>
+      </div>
+      <a target="_blank" href="/img/journal/202506/202506__program__02--2024-tauri-o1oA11o0.png">
+        <img class="scr-shot" src="/img/journal/202506/202506__program__02--2024-tauri-o1oA11o0.png">
+      </a><br/>      
+      <div class="talk">
+        <div class="face-container">
+          <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+        </div>
+        <div class="baloon-tail"></div>
+        <div class="baloon">
+          👆 テキストボックスと、ボタンの見た目に違いが小さいのイケてないが、<br>
+          スタイルの修正は後回しにしよう。
+        </div>
+      </div>
+      <div class="talk">
+        <div class="face-container">
+          <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+        </div>
+        <div class="baloon-tail"></div>
+        <div class="baloon">
+          ダイアログボックスを出すには、何か設定が要るんだよな。<br>
+          調べるか。
+        </div>
+      </div>
+      
 
       
 
