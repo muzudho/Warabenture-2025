@@ -8,6 +8,167 @@
   <div>
     <h1># ワラベンチャー</h1>
 
+    <h2>## [2025-06-02_Mon]</h2>
+    <div class="div2">
+      <div class="talk">
+        <div class="face-container">
+          <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+        </div>
+        <div class="baloon-tail"></div>
+        <div class="baloon">
+          フロントエンドに Vue、バックエンドに Tauri を使って、デスクトップアプリ制作を練習してみようぜ？<br>
+        </div>
+      </div>
+      <div class="talk">
+        <div class="face-container">
+          <img src="@/assets/img/202506__character__01--2013-kifuwarabe-o1o1o0.png" />
+        </div>
+        <div class="baloon-tail"></div>
+        <div class="baloon">
+          さっそく、このブログを有効的に使い始めたか。
+        </div>
+      </div>
+      <div class="talk">
+        <div class="face-container">
+          <img src="@/assets/img/202506__character__01--2025-hiyoko-o1o1o0.png" />
+        </div>
+        <div class="baloon-tail"></div>
+        <div class="baloon">
+          これはブログじゃないのよ。<br>
+          タグの直打ちで、文章載せるだけにしてはすごい労力……。
+        </div>
+      </div>
+      <div class="talk">
+        <div class="face-container">
+          <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+        </div>
+        <div class="baloon-tail"></div>
+        <div class="baloon">
+          最初の課題でよくあるのはメモ帳だな。<br>
+          テキストボックスに文章を入力して、［保存］ボタンを押したらファイルに保存できて、<br>
+          ［読込］ボタンを押したらテキストファイルを読込むんだぜ。
+        </div>
+      </div>
+      <div class="talk">
+        <div class="face-container">
+          <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+        </div>
+        <div class="baloon-tail"></div>
+        <div class="baloon">
+          Tauri の公式ホームページはここにあるぜ。<br>
+          📖 <a target="_blank" href="https://v2.tauri.app/">Tauri 2.0</a><br>
+        </div>
+      </div>
+      <div class="talk">
+        <div class="face-container">
+          <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+        </div>
+        <div class="baloon-tail"></div>
+        <div class="baloon">
+          Tauri の Get Started を読んでいけだぜ。<br>
+          インストールの説明は省くからな。
+        </div>
+      </div>
+      <img src="@/assets/img/journal/202506/202506__program__02--1159-tauri-o1o0.png"><br/>
+      <div class="talk">
+        <div class="face-container">
+          <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+        </div>
+        <div class="baloon-tail"></div>
+        <div class="baloon">
+          👆 こんな感じでコマンドを打鍵すればいいはず。
+        </div>
+      </div>
+      <img src="@/assets/img/journal/202506/202506__program__02--1205-tauri-o1o1o0.png"><br/>
+      <div class="talk">
+        <div class="face-container">
+          <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+        </div>
+        <div class="baloon-tail"></div>
+        <div class="baloon">
+          👆 色々尋ねられるので、こんな感じで進めたぜ。
+        </div>
+      </div>
+      <img src="@/assets/img/journal/202506/202506__program__02--1209-tauri-o1o2o0.png"><br/>
+      <div class="talk">
+        <div class="face-container">
+          <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+        </div>
+        <div class="baloon-tail"></div>
+        <div class="baloon">
+          👆 Git Hub と連携しておいた。フォルダーの中身はこうなった。
+        </div>
+      </div>
+      <img src="@/assets/img/journal/202506/202506__program__02--1212-tauri-o1o3o0.png"><br/>
+      <div class="talk">
+        <div class="face-container">
+          <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+        </div>
+        <div class="baloon-tail"></div>
+        <div class="baloon">
+          👆 VSCode で開く。 下側のステータスバーを見ると cargo がディレクトリーをチェックしてるので<br>
+          わたしの PC はCPU処理がビジーだとフリーズすることがあるので、終わるまで待って……。<br>
+        </div>
+      </div>
+      <img src="@/assets/img/journal/202506/202506__program__02--1216-tauri-o1o4o0.png"><br/>
+      <div class="talk">
+        <div class="face-container">
+          <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+        </div>
+        <div class="baloon-tail"></div>
+        <div class="baloon">
+          👆 （パワーシェルではなく）コマンドプロンプトで開いて、<br>
+          コマンド［pnpm install］を打鍵。
+        </div>
+      </div>
+      <img src="@/assets/img/journal/202506/202506__program__02--1220-tauri-o1o5o0.png"><br/>
+      <div class="talk">
+        <div class="face-container">
+          <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+        </div>
+        <div class="baloon-tail"></div>
+        <div class="baloon">
+          👆 📁［node_modules］というバカでかいフォルダーが自動生成される。  
+        </div>
+      </div>
+      <div class="talk">
+        <div class="face-container">
+          <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+        </div>
+        <div class="baloon-tail"></div>
+        <div class="baloon">
+          続いて［pnpm tauri dev］というコマンドを打鍵。<br>
+          わたしのケースでは、 379 個の大量のプログラムのコンパイルが走るので数分かかる。
+        </div>
+      </div>
+      <img src="@/assets/img/journal/202506/202506__program__02--1225-tauri-o1o6o0.png"><br/>
+      <div class="talk">
+        <div class="face-container">
+          <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+        </div>
+        <div class="baloon-tail"></div>
+        <div class="baloon">
+          👆 途中で［http://localhost:1420/］という URL が出てくるが、気にしないでほしい。<br>
+          ウェブブラウザーでは、フロントエンドの画面表示のテストはできるが、バックエンドのテストはできない。<br>
+          動作確認に使うには不完全。
+        </div>
+      </div>
+      <img src="@/assets/img/journal/202506/202506__program__02--1229-tauri-o1o7o0.png"><br/>
+      <div class="talk">
+        <div class="face-container">
+          <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+        </div>
+        <div class="baloon-tail"></div>
+        <div class="baloon">
+          👆 コンパイルが終わると、デスクトップアプリが出てくる。<br>
+          動作確認はこれに対して行う。
+        </div>
+      </div>
+
+      
+
+    </div>
+
     <h2>## [2025-06-01_Sun]</h2>
     <div class="div2">
       <div class="talk">
@@ -77,7 +238,6 @@
           メインのコンテンツは何かないのかだぜ？
         </div>
       </div>
-
     </div>
 
     <h2>## [2025-05-24_Sat]</h2>
