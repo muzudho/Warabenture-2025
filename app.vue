@@ -180,9 +180,6 @@
           動作確認はこれに対して行う。
         </div>
       </div>
-
-      
-
     </div>
 
     <h2>## [2025-06-01_Sun]</h2>
@@ -288,6 +285,12 @@ h1 {
   div.div2 {
     color: #111111;
     margin-left: 30px;
+  }
+
+  .div2 img {
+    max-width: 300px;
+    max-height: 300px;
+    object-fit: contain; /* 画像が枠に収まるように調整 */
   }
 }
 
