@@ -189,8 +189,8 @@
           じゃあ、テキストボックスと、［保存］ボタン、［開く］ボタンを置いてくれだぜ。
         </div>
       </div>
-      <a target="_blank" href="/img/journal/202506/202506__program__02--1847-tauri-o1o8o0_mark.png">
-        <img class="scr-shot" src="/img/journal/202506/202506__program__02--1847-tauri-o1o8o0_mark.png">
+      <a target="_blank" href="/img/journal/202506/202506__program__02--1847-tauri-o1o8o0-mark.png">
+        <img class="scr-shot" src="/img/journal/202506/202506__program__02--1847-tauri-o1o8o0-mark.png">
       </a><br/>
       <div class="talk">
         <div class="face-container">
@@ -200,7 +200,43 @@
         <div class="baloon">
           👆 📄 <span class="code-w">src/App.vue</span>ファイルの <span class="code-b">&lt;template&gt;</span>タグの中に、いわゆる HTMLタグを打ち込んでいけばいいはずだぜ。
         </div>
-      </div>      
+      </div>
+      <a target="_blank" href="/img/journal/202506/202506__program__02--2004-tauri-o1o9o0-mark.png">
+        <img class="scr-shot" src="/img/journal/202506/202506__program__02--2004-tauri-o1o9o0-mark.png">
+      </a><br/>      
+      <div class="talk">
+        <div class="face-container">
+          <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+        </div>
+        <div class="baloon-tail"></div>
+        <div class="baloon">
+          👆 ひとまず、こんな感じか。
+        </div>
+      </div>
+      <div class="talk">
+        <div class="face-container">
+          <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+        </div>
+        <div class="baloon-tail"></div>
+        <div class="baloon">
+          👆 ひとまず、こんな感じか。
+        </div>
+      </div>
+      <a target="_blank" href="/img/journal/202506/202506__program__02--2010-tauri-o1oA10o0.png">
+        <img class="scr-shot" src="/img/journal/202506/202506__program__02--2010-tauri-o1oA10o0.png">
+      </a><br/>      
+      <div class="talk">
+        <div class="face-container">
+          <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+        </div>
+        <div class="baloon-tail"></div>
+        <div class="baloon">
+          👆 スタイルを除くと、ソースはたったの 24 行だぜ。
+        </div>
+      </div>
+
+      
+
     </div>
 
     <h2>## [2025-06-01_Sun]</h2>
