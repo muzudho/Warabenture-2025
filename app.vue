@@ -359,8 +359,51 @@
           👆 １行追加するだけでいけた。
         </div>
       </div>
-
-      
+      <div class="talk">
+        <div class="face-container">
+          <img src="@/assets/img/202506__character__01--2025-hiyoko-o1o1o0.png" />
+        </div>
+        <div class="baloon-tail"></div>
+        <div class="baloon">
+          あとは、ファイルの書込みと読込みねぇ。
+        </div>
+      </div>
+      <div class="talk">
+        <div class="face-container">
+          <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+        </div>
+        <div class="baloon-tail"></div>
+        <div class="baloon">
+          👇 ファイルの読み書きの API は以下のページに書いてあるから……。<br>
+          📖 <a target="_blank" href="https://v2.tauri.app/plugin/file-system/">File System</a><br>
+          ページの上から順番に読んで実装しようぜ。
+        </div>
+      </div>
+      <div class="code-b">pnpm tauri add fs</div><br>
+      <a target="_blank" href="/img/journal/202506/202506__program__02--2212-tauri-o1oA18o0.png">
+        <img class="scr-shot" src="/img/journal/202506/202506__program__02--2212-tauri-o1oA18o0.png">
+      </a><br/>
+      <div class="talk">
+        <div class="face-container">
+          <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+        </div>
+        <div class="baloon-tail"></div>
+        <div class="baloon">
+          👆 テキストを読み込む方は上記の通りでいけた。
+        </div>
+      </div>
+      <a target="_blank" href="/img/journal/202506/202506__program__02--2309-tauri-o1oA19o0.png">
+        <img class="scr-shot" src="/img/journal/202506/202506__program__02--2309-tauri-o1oA19o0.png">
+      </a><br/>
+      <div class="talk">
+        <div class="face-container">
+          <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+        </div>
+        <div class="baloon-tail"></div>
+        <div class="baloon">
+          👆 テキストを書き込む方はイケてない。何かパーミッション設定でも足りてないのか？
+        </div>
+      </div>
 
     </div>
 
