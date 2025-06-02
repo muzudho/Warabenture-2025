@@ -70,7 +70,7 @@
         </div>
       </div>
       <a target="_blank" href="/img/journal/202506/202506__program__02--1159-tauri-o1o0.png">
-        <img src="/img/journal/202506/202506__program__02--1159-tauri-o1o0.png">
+        <img class="scr-shot" src="/img/journal/202506/202506__program__02--1159-tauri-o1o0.png">
       </a><br/>
       <div class="talk">
         <div class="face-container">
@@ -82,7 +82,7 @@
         </div>
       </div>
       <a target="_blank" href="/img/journal/202506/202506__program__02--1205-tauri-o1o1o0.png">
-        <img src="/img/journal/202506/202506__program__02--1205-tauri-o1o1o0.png">
+        <img class="scr-shot" src="/img/journal/202506/202506__program__02--1205-tauri-o1o1o0.png">
       </a><br/>
       <div class="talk">
         <div class="face-container">
@@ -106,7 +106,7 @@
         </div>
       </div>
       <a target="_blank" href="/img/journal/202506/202506__program__02--1212-tauri-o1o3o0.png">
-        <img src="/img/journal/202506/202506__program__02--1212-tauri-o1o3o0.png">
+        <img class="scr-shot" src="/img/journal/202506/202506__program__02--1212-tauri-o1o3o0.png">
       </a><br/>
       <div class="talk">
         <div class="face-container">
@@ -119,7 +119,7 @@
         </div>
       </div>
       <a target="_blank" href="/img/journal/202506/202506__program__02--1216-tauri-o1o4o0.png">
-        <img src="/img/journal/202506/202506__program__02--1216-tauri-o1o4o0.png">
+        <img class="scr-shot" src="/img/journal/202506/202506__program__02--1216-tauri-o1o4o0.png">
       </a><br/>
       <div class="talk">
         <div class="face-container">
@@ -132,7 +132,7 @@
         </div>
       </div>
       <a target="_blank" href="/img/journal/202506/202506__program__02--1220-tauri-o1o5o0.png">
-        <img src="/img/journal/202506/202506__program__02--1220-tauri-o1o5o0.png">
+        <img class="scr-shot" src="/img/journal/202506/202506__program__02--1220-tauri-o1o5o0.png">
       </a><br/>
       <div class="talk">
         <div class="face-container">
@@ -154,7 +154,7 @@
         </div>
       </div>
       <a target="_blank" href="/img/journal/202506/202506__program__02--1225-tauri-o1o6o0.png">
-        <img src="/img/journal/202506/202506__program__02--1225-tauri-o1o6o0.png">
+        <img class="scr-shot" src="/img/journal/202506/202506__program__02--1225-tauri-o1o6o0.png">
       </a><br/>
       <div class="talk">
         <div class="face-container">
@@ -168,7 +168,7 @@
         </div>
       </div>
       <a target="_blank" href="/img/journal/202506/202506__program__02--1229-tauri-o1o7o0.png">
-        <img src="/img/journal/202506/202506__program__02--1229-tauri-o1o7o0.png">
+        <img class="scr-shot" src="/img/journal/202506/202506__program__02--1229-tauri-o1o7o0.png">
       </a><br/>
       <div class="talk">
         <div class="face-container">
@@ -190,7 +190,7 @@
         </div>
       </div>
       <a target="_blank" href="/img/journal/202506/202506__program__02--1847-tauri-o1o8o0_mark.png">
-        <img src="/img/journal/202506/202506__program__02--1847-tauri-o1o8o0_mark.png">
+        <img class="scr-shot" src="/img/journal/202506/202506__program__02--1847-tauri-o1o8o0_mark.png">
       </a><br/>
       <div class="talk">
         <div class="face-container">
@@ -286,7 +286,9 @@
 
 <style>
 body{
-  background-color: pink;
+  background-color: hotpink;  /*ショッキングピンク*/
+  /*background-color: pink;*/  /*ピンク*/
+  /* background-color: #DDDDDD; */  /*白っぽいグレー*/
 }
 
 h1 {
@@ -330,6 +332,12 @@ h1 {
   }
 }
 
+/** スクリーンショットの引用 */
+img.scr-shot {
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
 div.talk{
   display: flex;
   align-items: center;
@@ -346,7 +354,7 @@ div.baloon{
   padding-top: 12px;
   padding-bottom:16px;
   padding-right:16px;
-  background-color: white;
+  background-color: #F8F8F8;
   border-radius: 16px;
 }
 
@@ -360,7 +368,7 @@ div.baloon{
 div.baloon-tail {
   width: 20px;
   height: 15px;
-  background-color: white; /* 白い背景 */
+  background-color: #F8F8F8; /* 白い背景 */
   clip-path: polygon(0% 50%, 100% 0%, 100% 100%); /* 上頂点、下底の三角形 */
 }
 
@@ -369,13 +377,16 @@ span.code-b {
   color:#EEEEEE;
   padding-left: 8px;
   padding-right: 8px;
+  box-shadow: inset 1px 1px 4px rgba(255,255,255,1.0);
 }
 
 span.code-w {
   background-color: #EEEEEE;
   color:#111111;
+  border-radius: 8px;
   padding-left: 8px;
   padding-right: 8px;
+  box-shadow: inset 2px 2px 5px rgba(0,0,0,.5);
 }
 
 </style>
