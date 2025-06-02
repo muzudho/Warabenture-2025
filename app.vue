@@ -44,7 +44,7 @@
         </div>
         <div class="baloon-tail"></div>
         <div class="baloon">
-          最初の課題でよくあるのはメモ帳だな。<br>
+          プログラミング練習の最初の課題でよくあるのはメモ帳だな。<br>
           テキストボックスに文章を入力して、［保存］ボタンを押したらファイルに保存できて、<br>
           ［読込］ボタンを押したらテキストファイルを読込むんだぜ。
         </div>
@@ -69,7 +69,9 @@
           インストールの説明は省くからな。
         </div>
       </div>
-      <img src="@/assets/img/journal/202506/202506__program__02--1159-tauri-o1o0.png"><br/>
+      <a target="_blank" href="/img/journal/202506/202506__program__02--1159-tauri-o1o0.png">
+        <img src="/img/journal/202506/202506__program__02--1159-tauri-o1o0.png">
+      </a><br/>
       <div class="talk">
         <div class="face-container">
           <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
@@ -79,7 +81,9 @@
           👆 こんな感じでコマンドを打鍵すればいいはず。
         </div>
       </div>
-      <img src="@/assets/img/journal/202506/202506__program__02--1205-tauri-o1o1o0.png"><br/>
+      <a target="_blank" href="/img/journal/202506/202506__program__02--1205-tauri-o1o1o0.png">
+        <img src="/img/journal/202506/202506__program__02--1205-tauri-o1o1o0.png">
+      </a><br/>
       <div class="talk">
         <div class="face-container">
           <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
@@ -89,7 +93,9 @@
           👆 色々尋ねられるので、こんな感じで進めたぜ。
         </div>
       </div>
-      <img src="@/assets/img/journal/202506/202506__program__02--1209-tauri-o1o2o0.png"><br/>
+      <a target="_blank" href="/img/journal/202506/202506__program__02--1209-tauri-o1o2o0.png">
+        <img src="/img/journal/202506/202506__program__02--1209-tauri-o1o2o0.png">
+      </a><br/>      
       <div class="talk">
         <div class="face-container">
           <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
@@ -99,7 +105,9 @@
           👆 Git Hub と連携しておいた。フォルダーの中身はこうなった。
         </div>
       </div>
-      <img src="@/assets/img/journal/202506/202506__program__02--1212-tauri-o1o3o0.png"><br/>
+      <a target="_blank" href="/img/journal/202506/202506__program__02--1212-tauri-o1o3o0.png">
+        <img src="/img/journal/202506/202506__program__02--1212-tauri-o1o3o0.png">
+      </a><br/>
       <div class="talk">
         <div class="face-container">
           <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
@@ -110,7 +118,9 @@
           わたしの PC はCPU処理がビジーだとフリーズすることがあるので、終わるまで待って……。<br>
         </div>
       </div>
-      <img src="@/assets/img/journal/202506/202506__program__02--1216-tauri-o1o4o0.png"><br/>
+      <a target="_blank" href="/img/journal/202506/202506__program__02--1216-tauri-o1o4o0.png">
+        <img src="/img/journal/202506/202506__program__02--1216-tauri-o1o4o0.png">
+      </a><br/>
       <div class="talk">
         <div class="face-container">
           <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
@@ -121,7 +131,9 @@
           コマンド［pnpm install］を打鍵。
         </div>
       </div>
-      <img src="@/assets/img/journal/202506/202506__program__02--1220-tauri-o1o5o0.png"><br/>
+      <a target="_blank" href="/img/journal/202506/202506__program__02--1220-tauri-o1o5o0.png">
+        <img src="/img/journal/202506/202506__program__02--1220-tauri-o1o5o0.png">
+      </a><br/>
       <div class="talk">
         <div class="face-container">
           <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
@@ -141,7 +153,9 @@
           わたしのケースでは、 379 個の大量のプログラムのコンパイルが走るので数分かかる。
         </div>
       </div>
-      <img src="@/assets/img/journal/202506/202506__program__02--1225-tauri-o1o6o0.png"><br/>
+      <a target="_blank" href="/img/journal/202506/202506__program__02--1225-tauri-o1o6o0.png">
+        <img src="/img/journal/202506/202506__program__02--1225-tauri-o1o6o0.png">
+      </a><br/>
       <div class="talk">
         <div class="face-container">
           <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
@@ -153,7 +167,9 @@
           動作確認に使うには不完全。
         </div>
       </div>
-      <img src="@/assets/img/journal/202506/202506__program__02--1229-tauri-o1o7o0.png"><br/>
+      <a target="_blank" href="/img/journal/202506/202506__program__02--1229-tauri-o1o7o0.png">
+        <img src="/img/journal/202506/202506__program__02--1229-tauri-o1o7o0.png">
+      </a><br/>
       <div class="talk">
         <div class="face-container">
           <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
