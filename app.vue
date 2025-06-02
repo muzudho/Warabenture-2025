@@ -180,6 +180,27 @@
           動作確認はこれに対して行う。
         </div>
       </div>
+      <div class="talk">
+        <div class="face-container">
+          <img src="@/assets/img/202506__character__01--2013-kifuwarabe-o1o1o0.png" />
+        </div>
+        <div class="baloon-tail"></div>
+        <div class="baloon">
+          じゃあ、テキストボックスと、［保存］ボタン、［開く］ボタンを置いてくれだぜ。
+        </div>
+      </div>
+      <a target="_blank" href="/img/journal/202506/202506__program__02--1847-tauri-o1o8o0_mark.png">
+        <img src="/img/journal/202506/202506__program__02--1847-tauri-o1o8o0_mark.png">
+      </a><br/>
+      <div class="talk">
+        <div class="face-container">
+          <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+        </div>
+        <div class="baloon-tail"></div>
+        <div class="baloon">
+          👆 📄 <span class="code-w">src/App.vue</span>ファイルの <span class="code-b">&lt;template&gt;</span>タグの中に、いわゆる HTMLタグを打ち込んでいけばいいはずだぜ。
+        </div>
+      </div>      
     </div>
 
     <h2>## [2025-06-01_Sun]</h2>
@@ -342,4 +363,19 @@ div.baloon-tail {
   background-color: white; /* 白い背景 */
   clip-path: polygon(0% 50%, 100% 0%, 100% 100%); /* 上頂点、下底の三角形 */
 }
+
+span.code-b {
+  background-color: #111111;
+  color:#EEEEEE;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+span.code-w {
+  background-color: #EEEEEE;
+  color:#111111;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
 </style>
