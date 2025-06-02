@@ -7,6 +7,10 @@
   -->
   <div>
     <h1># ワラベンチャー</h1>
+    <div class="div1">
+      今さら、手作りのホームページ。（Created by むずでょ）
+    </div>
+
 
     <h2>## [2025-06-02_Mon]</h2>
     <div class="div2">
@@ -236,7 +240,7 @@
       </div>
       <a target="_blank" href="/img/journal/202506/202506__program__02--2024-tauri-o1oA11o0.png">
         <img class="scr-shot" src="/img/journal/202506/202506__program__02--2024-tauri-o1oA11o0.png">
-      </a><br/>      
+      </a><br/>
       <div class="talk">
         <div class="face-container">
           <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
@@ -254,10 +258,107 @@
         <div class="baloon-tail"></div>
         <div class="baloon">
           ダイアログボックスを出すには、何か設定が要るんだよな。<br>
-          調べるか。
+          調べるか。<br>
+          📖 <a target="_blank" href="https://v2.tauri.app/plugin/dialog/">TAURI　＞　Dialog</a>
         </div>
       </div>
-      
+      <div class="code-b">pnpm tauri add dialog</div>
+      <a target="_blank" href="/img/journal/202506/202506__program__02--2116-tauri-o1oA12o0.png">
+        <img class="scr-shot" src="/img/journal/202506/202506__program__02--2116-tauri-o1oA12o0.png">
+      </a><br/>
+      <div class="talk">
+        <div class="face-container">
+          <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+        </div>
+        <div class="baloon-tail"></div>
+        <div class="baloon">
+          👆 なんか知らんけどエラー出た。
+        </div>
+      </div>
+      <a target="_blank" href="/img/journal/202506/202506__program__02--2119-tauri-o1oA13o0-mark.png">
+        <img class="scr-shot" src="/img/journal/202506/202506__program__02--2119-tauri-o1oA13o0-mark.png">
+      </a><br/>
+      <div class="talk">
+        <div class="face-container">
+          <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+        </div>
+        <div class="baloon-tail"></div>
+        <div class="baloon">
+          👆 えーと、つまり、<span class="code-b">"permissions": []</span>に<span class="code-b">"dialog:default"</span>を追加しようとしたら、<br>
+          もう追加されてたからエラーってことかだぜ？<br>
+          じゃあ<span class="code-b">"dialog:default"</span>を消しといたれ。
+        </div>
+      </div>
+      <a target="_blank" href="/img/journal/202506/202506__program__02--2124-tauri-o1oA14o0.png">
+        <img class="scr-shot" src="/img/journal/202506/202506__program__02--2124-tauri-o1oA14o0.png">
+      </a><br/>
+      <div class="talk">
+        <div class="face-container">
+          <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+        </div>
+        <div class="baloon-tail"></div>
+        <div class="baloon">
+          👆 多分、通ったか？
+        </div>
+      </div>
+      <a target="_blank" href="/img/journal/202506/202506__program__02--2135-tauri-o1oA15o0.png">
+        <img class="scr-shot" src="/img/journal/202506/202506__program__02--2135-tauri-o1oA15o0.png">
+      </a><br/>
+      <div class="talk">
+        <div class="face-container">
+          <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+        </div>
+        <div class="baloon-tail"></div>
+        <div class="baloon">
+          👆 こんな感じで改造して……。
+        </div>
+      </div>
+      <a target="_blank" href="/img/journal/202506/202506__program__02--2142-tauri-o1oA16o0.png">
+        <img class="scr-shot" src="/img/journal/202506/202506__program__02--2142-tauri-o1oA16o0.png">
+      </a><br/>
+      <div class="talk">
+        <div class="face-container">
+          <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+        </div>
+        <div class="baloon-tail"></div>
+        <div class="baloon">
+          👆 ファイル選択ダイアログボックスが出たぜ、オッケー。<br>
+          アンドロイドやアイフォンでは、ファイル選択ダイアログボックスは出せないそうだぜ。
+        </div>
+      </div>
+      <div class="talk">
+        <div class="face-container">
+          <img src="@/assets/img/202506__character__01--2013-kifuwarabe-o1o1o0.png" />
+        </div>
+        <div class="baloon-tail"></div>
+        <div class="baloon">
+          ファイル選択ダイアログボックスで最初に開いているフォルダーは、<br>
+          テキストボックスに書いてあったパスにしてくれだぜ。
+        </div>
+      </div>
+      <div class="talk">
+        <div class="face-container">
+          <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+        </div>
+        <div class="baloon-tail"></div>
+        <div class="baloon">
+          👇 API は以下のページに書いてあるから……。<br>
+          📖 <a target="_blank" href="https://v2.tauri.app/reference/javascript/dialog/#opendialogoptions">OpenDialogOptions</a><br>
+          これ読んで直しておくかだぜ。
+        </div>
+      </div>
+      <a target="_blank" href="/img/journal/202506/202506__program__02--2148-tauri-o1oA17o0-mark.png">
+        <img class="scr-shot" src="/img/journal/202506/202506__program__02--2148-tauri-o1oA17o0-mark.png">
+      </a><br/>
+      <div class="talk">
+        <div class="face-container">
+          <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+        </div>
+        <div class="baloon-tail"></div>
+        <div class="baloon">
+          👆 １行追加するだけでいけた。
+        </div>
+      </div>
 
       
 
@@ -352,21 +453,26 @@ body{
 }
 
 h1 {
-  background-color: #111111;
-  color: #EEEEEE;
+  background-color: darkmagenta;
+  color: khaki;
 }
 
 /* スマホ向けスタイル (画面幅が768px以下) */
 @media screen and (max-width: 768px) {
   h2 {
-    background-color: #111111;
-    color: #EEEEEE;
+    background-color: darkorchid;
+    color: skyblue;
     margin-left: 20px;
     padding-left: 4px;
   }
 
+  div.div1 {
+    color: midnightblue;
+    margin-left: 20px;
+  }
+
   div.div2 {
-    color: #111111;
+    color: midnightblue;
     margin-left: 30px;
   }
 
@@ -380,14 +486,19 @@ h1 {
 /* パソコン向けスタイル (画面幅が769px以上) */
 @media screen and (min-width: 769px) {
   h2 {
-    background-color: #111111;
-    color: #EEEEEE;
+    background-color: darkorchid;
+    color: skyblue;
     margin-left: 60px;
     padding-left: 4px;
   }
 
+  div.div1 {
+    color: midnightblue;
+    margin-left: 60px;
+  }
+
   div.div2 {
-    color: #111111;
+    color: midnightblue;
     margin-left: 90px;
   }
 }
@@ -432,18 +543,46 @@ div.baloon-tail {
   clip-path: polygon(0% 50%, 100% 0%, 100% 100%); /* 上頂点、下底の三角形 */
 }
 
+div.code-b {
+  display:inline-block;
+  background-color: #222222;
+  color:#DDD;
+  margin-top: 12px;
+  margin-bottom: 12px;
+  padding-left: 20px;
+  padding-top: 16px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  border: 1px solid;
+  border-color: #888888 #DDDDDD #DDDDDD #888888;
+  box-shadow: inset 1px 1px 0px #111111, inset -1px -1px 0px #DDDDDD;
+}
+
 span.code-b {
   background-color: #111111;
   color:#EEEEEE;
+  margin-left: 6px;
+  margin-right: 6px;
   padding-left: 8px;
   padding-right: 8px;
   box-shadow: inset 1px 1px 4px rgba(255,255,255,1.0);
+}
+
+div.code-w {
+  background-color: #EEEEEE;
+  color:#111111;
+  border-radius: 8px;
+  padding-left: 8px;
+  padding-right: 8px;
+  box-shadow: inset 2px 2px 5px rgba(0,0,0,.5);
 }
 
 span.code-w {
   background-color: #EEEEEE;
   color:#111111;
   border-radius: 8px;
+  margin-left: 6px;
+  margin-right: 6px;
   padding-left: 8px;
   padding-right: 8px;
   box-shadow: inset 2px 2px 5px rgba(0,0,0,.5);
