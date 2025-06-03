@@ -172,6 +172,33 @@
           👆 これで、［リモート・リポジトリー］にソースコードを置けたぜ。
         </div>
       </div>
+      <div class="code-b">
+        pnpm install
+      </div><br>
+      <div class="talk">
+        <div class="face-container">
+          <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+        </div>
+        <div class="baloon-tail"></div>
+        <div class="baloon">
+          👆 続いて、上記のコマンドを打鍵。<br>
+          📁<span class="code-b">node_modules</span> が自動生成されるぜ。
+        </div>
+      </div>
+      <div class="code-b">
+        pnpm tauri dev
+      </div><br>
+      <div class="talk">
+        <div class="face-container">
+          <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+        </div>
+        <div class="baloon-tail"></div>
+        <div class="baloon">
+          👆 続いて、上記のコマンドを打鍵。<br>
+          数分待てだぜ。<br>
+          開発モードでデスクトップアプリが起動するぜ。
+        </div>
+      </div>
 
       
 
