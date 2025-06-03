@@ -12,6 +12,51 @@
     </div>
 
 
+    <h2>## [2025-06-03_Tue]</h2>
+    <div class="div2">
+      <div class="talk">
+        <div class="face-container">
+          <img src="@/assets/img/202506__character__01--2013-kifuwarabe-o1o1o0.png" />
+        </div>
+        <div class="baloon-tail"></div>
+        <div class="baloon">
+          昨日と話しは変わって、課題No.2だぜ。<br>
+          ディレクトリーを指定したら、その直下のファイル名を一覧してくれるアプリを作ってくれだぜ。
+        </div>
+      </div>
+      <div class="talk">
+        <div class="face-container">
+          <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+        </div>
+        <div class="baloon-tail"></div>
+        <div class="baloon">
+          じゃあ、ファイルパスを入れるテキストボックスと、ファイル選択ダイアログボックスを開くボタン、<br>
+          ［ファイルの一覧］と、その表示を更新する［表示］ボタンがあればいいかだぜ。
+        </div>
+      </div>
+      <div class="talk">
+        <div class="face-container">
+          <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+        </div>
+        <div class="baloon-tail"></div>
+        <div class="baloon">
+          今日のキャパシティ（作業に使える時間）は 6 とするぜ。
+        </div>
+      </div>
+      <div class="talk">
+        <div class="face-container">
+          <img src="@/assets/img/202506__character__01--2025-hiyoko-o1o1o0.png" />
+        </div>
+        <div class="baloon-tail"></div>
+        <div class="baloon">
+          昨日作ったアプリから［Save］機能を削除して、テキストボックスをリストボックスへ付け替え、<br>
+          あとは、ファイル名を一覧する機能が作れるかどうかの調査と実装だから、<br>
+          調査を重めに見て、エフォート（作業にかかる時間見積）は 2 ってところねえ。
+        </div>
+      </div>
+    </div>
+
+
     <h2>## [2025-06-02_Mon]</h2>
     <div class="div2">
       <div class="talk">
@@ -76,6 +121,7 @@
       <a target="_blank" href="/img/journal/202506/202506__program__02--1159-tauri-o1o0.png">
         <img class="scr-shot" src="/img/journal/202506/202506__program__02--1159-tauri-o1o0.png">
       </a><br/>
+      <div class="code-b">pnpm create tauri-app</div>
       <div class="talk">
         <div class="face-container">
           <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
@@ -125,6 +171,7 @@
       <a target="_blank" href="/img/journal/202506/202506__program__02--1216-tauri-o1o4o0.png">
         <img class="scr-shot" src="/img/journal/202506/202506__program__02--1216-tauri-o1o4o0.png">
       </a><br/>
+      <div class="code-b">pnpm install</div>
       <div class="talk">
         <div class="face-container">
           <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
@@ -132,7 +179,7 @@
         <div class="baloon-tail"></div>
         <div class="baloon">
           👆 （パワーシェルではなく）コマンドプロンプトで開いて、<br>
-          コマンド［pnpm install］を打鍵。
+          上記のコマンドを打鍵。
         </div>
       </div>
       <a target="_blank" href="/img/journal/202506/202506__program__02--1220-tauri-o1o5o0.png">
@@ -147,13 +194,14 @@
           👆 📁［node_modules］というバカでかいフォルダーが自動生成される。  
         </div>
       </div>
+      <div class="code-b">pnpm tauri dev</div>
       <div class="talk">
         <div class="face-container">
           <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
         </div>
         <div class="baloon-tail"></div>
         <div class="baloon">
-          続いて［pnpm tauri dev］というコマンドを打鍵。<br>
+          上記のコマンドを打鍵。<br>
           わたしのケースでは、 379 個の大量のプログラムのコンパイルが走るので数分かかる。
         </div>
       </div>
