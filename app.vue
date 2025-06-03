@@ -328,8 +328,69 @@
           まあ、コード書いたが動かないとか、動かない理由の調査とか、思ったよりしてるしな。
         </div>
       </div>
-     
-
+      <div class="code-b">
+        &lt;script setup lang="ts"&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;const itemsVM = ref(["apple", "banana", "cherry"]);<br>
+        &lt;/script&gt;<br>
+        <br>
+        &lt;template&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;select size="5"&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;option v-for="item in itemsVM" :key="item" :value="item"&gt;&lbrace;&lbrace; item &rbrace;&rbrace;&lt;/option&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;/select&gt;<br>
+        &lt;/template&gt;<br>
+      </div><br>
+      <div class="talk">
+        <div class="face-container">
+          <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+        </div>
+        <div class="baloon-tail"></div>
+        <div class="baloon">
+          👆 リストボックスに項目を並べる考え方は、上記のコードで示したぜ。
+        </div>
+      </div>
+      <a target="_blank" href="/img/journal/202506/202506__program__03--2035-tauri-o2oA13o0.png">
+        <img class="scr-shot" src="/img/journal/202506/202506__program__03--2035-tauri-o2oA13o0.png">
+      </a><br/>
+      <div class="talk">
+        <div class="face-container">
+          <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+        </div>
+        <div class="baloon-tail"></div>
+        <div class="baloon">
+          👆 じゃあ、ソースコードは上記な感じで更新。
+        </div>
+      </div>
+      <a target="_blank" href="/img/journal/202506/202506__program__03--2049-tauri-o2oA14o0.png">
+        <img class="scr-shot" src="/img/journal/202506/202506__program__03--2049-tauri-o2oA14o0.png">
+      </a><br/>
+      <div class="talk">
+        <div class="face-container">
+          <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+        </div>
+        <div class="baloon-tail"></div>
+        <div class="baloon">
+          👆 よし、リストボックスにファイル名が入ったぜ。
+        </div>
+      </div>
+      <div class="talk">
+        <div class="face-container">
+          <img src="@/assets/img/202506__character__01--2013-kifuwarabe-o1o1o0.png" />
+        </div>
+        <div class="baloon-tail"></div>
+        <div class="baloon">
+          やったな！　これで課題No.2 もクリアーだぜ！
+        </div>
+      </div>
+      <div class="talk">
+        <div class="face-container">
+          <img src="@/assets/img/202506__character__01--2025-hiyoko-o1o1o0.png" />
+        </div>
+        <div class="baloon-tail"></div>
+        <div class="baloon">
+          かかった時間は 5 ってところねえ。<br>
+          見積りでは 2 ぐらいだったから、調査に 1.5 倍は取られるってとこねえ。
+        </div>
+      </div>
     </div>
 
 
