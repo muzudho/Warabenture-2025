@@ -185,6 +185,28 @@
           📁<span class="code-b">node_modules</span> が自動生成されるぜ。
         </div>
       </div>
+      <a target="_blank" href="/img/journal/202506/202506__program__03--1215-tauri-o2o8o0-mark.png">
+        <img class="scr-shot" src="/img/journal/202506/202506__program__03--1215-tauri-o2o8o0-mark.png">
+      </a><br/>
+      <div class="talk">
+        <div class="face-container">
+          <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+        </div>
+        <div class="baloon-tail"></div>
+        <div class="baloon">
+          👆 続いて、📄<span class="code-w">src-tauri/tauri.conf.json</span>ファイルの内容を編集するぜ。
+        </div>
+      </div>
+      <div class="talk">
+        <div class="face-container">
+          <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+        </div>
+        <div class="baloon-tail"></div>
+        <div class="baloon">
+          また、 📄<span class="code-w">src/App.vue</span>ファイルから［Save］機能を削除し、<br>
+          ［Load］ボタンは［Refresh］とラベルを変えておくぜ。
+        </div>
+      </div>
       <div class="code-b">
         pnpm tauri dev
       </div><br>
@@ -197,6 +219,28 @@
           👆 続いて、上記のコマンドを打鍵。<br>
           数分待てだぜ。<br>
           開発モードでデスクトップアプリが起動するぜ。
+        </div>
+      </div>
+      <a target="_blank" href="/img/journal/202506/202506__program__03--1221-tauri-o2o9o0.png">
+        <img class="scr-shot" src="/img/journal/202506/202506__program__03--1221-tauri-o2o9o0.png">
+      </a><br/>
+      <div class="talk">
+        <div class="face-container">
+          <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+        </div>
+        <div class="baloon-tail"></div>
+        <div class="baloon">
+          👆 こんな感じで、デスクトップアプリのベースをコピーする方法は確立できたな。
+        </div>
+      </div>
+      <div class="talk">
+        <div class="face-container">
+          <img src="@/assets/img/202506__character__01--2013-kifuwarabe-o1o1o0.png" />
+        </div>
+        <div class="baloon-tail"></div>
+        <div class="baloon">
+          じゃあ、とりあえず、そのテキストボックスに<br>
+          指定のディレクトリーの直下にあるファイル名を一覧してくれだぜ。
         </div>
       </div>
 
