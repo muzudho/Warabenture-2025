@@ -243,8 +243,92 @@
           指定のディレクトリーの直下にあるファイル名を一覧してくれだぜ。
         </div>
       </div>
-
-      
+      <div class="talk">
+        <div class="face-container">
+          <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+        </div>
+        <div class="baloon-tail"></div>
+        <div class="baloon">
+          ファイル名を調べるのとか、フロントの機能じゃないだろうから、<br>
+          バックエンドの Tauri フレームワークを使うんだろな、なら言語は Rust か？
+        </div>
+      </div>
+      <a target="_blank" href="/img/journal/202506/202506__program__03--1922-tauri-o2oA10o0.png">
+        <img class="scr-shot" src="/img/journal/202506/202506__program__03--1922-tauri-o2oA10o0.png">
+      </a><br/>
+      <div class="talk">
+        <div class="face-container">
+          <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+        </div>
+        <div class="baloon-tail"></div>
+        <div class="baloon">
+          👆 とりあえず、テンプレートを上記のように変更。<br>
+          Rust で定義している、ファイル一覧を読取る<span class="code-b">get_file_names</span>関数を TpyeScript 側から呼び出しているぜ。
+        </div>
+      </div>
+      <a target="_blank" href="/img/journal/202506/202506__program__03--1928-tauri-o2oA11o0.png">
+        <img class="scr-shot" src="/img/journal/202506/202506__program__03--1928-tauri-o2oA11o0.png">
+      </a><br/>
+      <div class="talk">
+        <div class="face-container">
+          <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+        </div>
+        <div class="baloon-tail"></div>
+        <div class="baloon">
+          👆 Rust 言語の方に、ファイル名一覧を読取る関数を追加。<br>
+          <span class="code-b">invoke_handler</span>ってあたりに関数の名前を追加するのを忘れてはいけないぜ。
+        </div>
+      </div>
+      <a target="_blank" href="/img/journal/202506/202506__program__03--1937-tauri-o2oA12o0.png">
+        <img class="scr-shot" src="/img/journal/202506/202506__program__03--1937-tauri-o2oA12o0.png">
+      </a><br/>
+      <div class="talk">
+        <div class="face-container">
+          <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+        </div>
+        <div class="baloon-tail"></div>
+        <div class="baloon">
+          👆 ファイル名の一覧をカンマ区切りで取れたぜ。
+        </div>
+      </div>
+      <div class="talk">
+        <div class="face-container">
+          <img src="@/assets/img/202506__character__01--2013-kifuwarabe-o1o1o0.png" />
+        </div>
+        <div class="baloon-tail"></div>
+        <div class="baloon">
+          リストボックスに入れてくれだぜ。
+        </div>
+      </div>
+      <div class="talk">
+        <div class="face-container">
+          <img src="@/assets/img/202506__character__01--2025-hiyoko-o1o1o0.png" />
+        </div>
+        <div class="baloon-tail"></div>
+        <div class="baloon">
+          キャパシティ（作業に使える時間）をもう 4 は消費してるわよ。<br>
+          残りは 2 よ。
+        </div>
+      </div>
+      <div class="talk">
+        <div class="face-container">
+          <img src="@/assets/img/202506__character__01--2013-kifuwarabe-o1o1o0.png" />
+        </div>
+        <div class="baloon-tail"></div>
+        <div class="baloon">
+          なんでそんなに速く消費してしまったんだぜ？
+        </div>
+      </div>
+      <div class="talk">
+        <div class="face-container">
+          <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+        </div>
+        <div class="baloon-tail"></div>
+        <div class="baloon">
+          まあ、コード書いたが動かないとか、動かない理由の調査とか、思ったよりしてるしな。
+        </div>
+      </div>
+     
 
     </div>
 
