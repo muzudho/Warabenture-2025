@@ -54,6 +54,127 @@
           調査を重めに見て、エフォート（作業にかかる時間見積）は 2 ってところねえ。
         </div>
       </div>
+      <a target="_blank" href="/img/journal/202506/202506__program__03--1049-tauri-o2o1o0.png">
+        <img class="scr-shot" src="/img/journal/202506/202506__program__03--1049-tauri-o2o1o0.png">
+      </a><br/>
+      <div class="talk">
+        <div class="face-container">
+          <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+        </div>
+        <div class="baloon-tail"></div>
+        <div class="baloon">
+          👆 昨日作ったプログラムから、<span class="code-b">.git</span>と<span class="code-b">node_modules</span>以外のフォルダーとファイルをコピーするぜ。
+        </div>
+      </div>
+      <a target="_blank" href="/img/journal/202506/202506__program__03--1056-tauri-o2o2o0-mark.png">
+        <img class="scr-shot" src="/img/journal/202506/202506__program__03--1056-tauri-o2o2o0-mark.png">
+      </a><br/>
+      <div class="talk">
+        <div class="face-container">
+          <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+        </div>
+        <div class="baloon-tail"></div>
+        <div class="baloon">
+          👆 📁<span class="code-b">file-list-on-tauri</span>を作って、中身を貼り付け。
+        </div>
+      </div>
+      <a target="_blank" href="/img/journal/202506/202506__program__03--1109-tauri-o2o3o0-mark.png">
+        <img class="scr-shot" src="/img/journal/202506/202506__program__03--1109-tauri-o2o3o0-mark.png">
+      </a><br/>
+      <div class="talk">
+        <div class="face-container">
+          <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+        </div>
+        <div class="baloon-tail"></div>
+        <div class="baloon">
+          👆 そのフォルダーを VSCode で開くぜ。
+        </div>
+      </div>
+      <a target="_blank" href="/img/journal/202506/202506__program__03--1127-tauri-o2o4o0-mark.png">
+        <img class="scr-shot" src="/img/journal/202506/202506__program__03--1127-tauri-o2o4o0-mark.png">
+      </a><br/>
+      <div class="code-b">git init</div><br>
+      <div class="talk">
+        <div class="face-container">
+          <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+        </div>
+        <div class="baloon-tail"></div>
+        <div class="baloon">
+          👆 （パワーシェルではなくて）コマンドプロンプトを開いて、上記のコマンドを打鍵するぜ。<br>
+          これにより、カレントディレクトリーに 📁<span class="code-b">.git</span>っていう隠しフォルダーが作成されるぜ。<br>
+          これでローカルＰＣに［ローカル・リポジトリー］を作った。
+        </div>
+      </div>
+      <div class="code-b">git add .</div><br>
+      <div class="talk">
+        <div class="face-container">
+          <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+        </div>
+        <div class="baloon-tail"></div>
+        <div class="baloon">
+          👆 続いて、上記のコマンドを打鍵するぜ。<br>
+          LF を CRLF に変更するぞ、とか改行の変更の警告も出ているがまあいいだろう。<br>
+          これで、全てのファイルを［ステージ］に上げた。
+        </div>
+      </div>
+      <div class="code-b">git commit -m "Initial commit"</div><br>
+      <div class="talk">
+        <div class="face-container">
+          <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+        </div>
+        <div class="baloon-tail"></div>
+        <div class="baloon">
+          👆 続いて、上記のコマンドを打鍵するぜ。<br>
+          ［ステージ］にあったファイルを［ローカル・リポジトリー］へコミットした。<br>
+          コミットってのはファイルを置いたぐらいの感覚を持っていればいい。
+        </div>
+      </div>
+      <a target="_blank" href="/img/journal/202506/202506__program__03--1140-tauri-o2o5o0-mark.png">
+        <img class="scr-shot" src="/img/journal/202506/202506__program__03--1140-tauri-o2o5o0-mark.png">
+      </a><br/>
+      <div class="talk">
+        <div class="face-container">
+          <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+        </div>
+        <div class="baloon-tail"></div>
+        <div class="baloon">
+          👆 続いて、Git Hub で、初期ファイルは何もなしで<span class="code-w">file-list-on-tauri</span>リモート・リポジトリーを新規作成、<br>
+          ［ローカル・リポジトリー］との紐付け方法の説明が書いてあるぜ。
+        </div>
+      </div>
+      <div class="code-b">
+        git remote add origin https://github.com/muzudho/file-list-on-tauri.git
+        git branch -M main
+        git push -u origin main
+      </div><br>
+      <a target="_blank" href="/img/journal/202506/202506__program__03--1146-tauri-o2o6o0-mark.png">
+        <img class="scr-shot" src="/img/journal/202506/202506__program__03--1146-tauri-o2o6o0-mark.png">
+      </a><br/>
+      <div class="talk">
+        <div class="face-container">
+          <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+        </div>
+        <div class="baloon-tail"></div>
+        <div class="baloon">
+          👆 上記のコマンドを打鍵するぜ。［ローカル・リポジトリー］に［リモート・リポジトリー］の場所を教えて、<br>
+          ［ブランチ］を選び、そこへ［ローカル・リポジトリー］のファイルをプッシュしたぜ。
+        </div>
+      </div>
+      <a target="_blank" href="/img/journal/202506/202506__program__03--1150-tauri-o2o7o0.png">
+        <img class="scr-shot" src="/img/journal/202506/202506__program__03--1150-tauri-o2o7o0.png">
+      </a><br/>
+      <div class="talk">
+        <div class="face-container">
+          <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+        </div>
+        <div class="baloon-tail"></div>
+        <div class="baloon">
+          👆 これで、［リモート・リポジトリー］にソースコードを置けたぜ。
+        </div>
+      </div>
+
+      
+
     </div>
 
 
@@ -145,7 +266,7 @@
       </div>
       <a target="_blank" href="/img/journal/202506/202506__program__02--1209-tauri-o1o2o0.png">
         <img src="/img/journal/202506/202506__program__02--1209-tauri-o1o2o0.png">
-      </a><br/>      
+      </a><br/>
       <div class="talk">
         <div class="face-container">
           <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
