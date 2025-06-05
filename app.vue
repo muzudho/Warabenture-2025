@@ -71,6 +71,80 @@
           じゃあ次は、お父んは昼飯を食べろだぜ。
         </div>
       </div>
+      <div class="talk">
+        <div class="face-container">
+          <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+        </div>
+        <div class="baloon-tail"></div>
+        <div class="baloon">
+          <span class="font-x2">✅</span> 昼飯を食べたぜ。<br>
+          １時間ぐらいかかった。わりと時間かかるな。
+        </div>
+      </div>
+      <div class="talk">
+        <div class="face-container">
+          <img src="@/assets/img/202506__character__01--2025-hiyoko-o1o1o0.png" />
+        </div>
+        <div class="baloon-tail"></div>
+        <div class="baloon">
+          生命の維持に必要な活動ですからね。
+        </div>
+      </div>
+      <div class="talk">
+        <div class="face-container">
+          <img src="@/assets/img/202506__character__01--2013-kifuwarabe-o1o1o0.png" />
+        </div>
+        <div class="baloon-tail"></div>
+        <div class="baloon">
+          じゃあ次は、コーヒーを飲んで、歯を磨けだぜ。歯間ブラシも使えよ。
+        </div>
+      </div>
+      <div class="talk">
+        <div class="face-container">
+          <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+        </div>
+        <div class="baloon-tail"></div>
+        <div class="baloon">
+          <span class="font-x2">✅</span> コーヒーを飲んで歯を磨いたぜ。歯間ブラシも使った。
+        </div>
+      </div>
+      <div class="talk">
+        <div class="face-container">
+          <img src="@/assets/img/202506__character__01--2013-kifuwarabe-o1o1o0.png" />
+        </div>
+        <div class="baloon-tail"></div>
+        <div class="baloon">
+          じゃあ次は、フィットネスジムに行けだぜ。帰りに明日の飯２食分を買ってこいだぜ。<br>
+          余裕があればズボンの裾上げのための裁縫セットを買ってこいだぜ。
+        </div>
+      </div>
+      <div class="talk">
+        <div class="face-container">
+          <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+        </div>
+        <div class="baloon-tail"></div>
+        <div class="baloon">
+          ズボンの裾上げのための裁縫セットってどこに売ってんの？
+        </div>
+      </div>
+      <div class="talk">
+        <div class="face-container">
+          <img src="@/assets/img/202506__character__01--2013-kifuwarabe-o1o1o0.png" />
+        </div>
+        <div class="baloon-tail"></div>
+        <div class="baloon">
+          セブンイレブンや、ダイソーなどに売ってるだろ。
+        </div>
+      </div>
+      <div class="talk">
+        <div class="face-container">
+          <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+        </div>
+        <div class="baloon-tail"></div>
+        <div class="baloon">
+          分かったぜ。行ってくるぜ。
+        </div>
+      </div>
     </div>
 
     <h2>## [2025-06-04_Wed]</h2>
