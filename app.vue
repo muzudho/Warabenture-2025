@@ -146,6 +146,65 @@
           分かったぜ。行ってくるぜ。
         </div>
       </div>
+      <div class="talk">
+        <div class="face-container">
+          <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+        </div>
+        <div class="baloon-tail"></div>
+        <div class="baloon">
+          帰宅なう。<br>
+          <span class="font-x2">✅</span>フィットネスジムに行ってきたぜ。<br>
+          <span class="font-x2">✅</span>行きしなに漫画本を売ってきたぜ。３０冊ぐらいで 2000 円ぐらいになったぜ。<br>
+          <span class="font-x2">🤔</span>しかし、何巻まで買ったかのメモ書きをどこに保管しておくかが問題だぜ。
+        </div>
+      </div>
+      <div class="talk">
+        <div class="face-container">
+          <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+        </div>
+        <div class="baloon-tail"></div>
+        <div class="baloon">
+          <span class="font-x2">✅</span>帰り際にはソーイングセットを買ってきたぜ。<br>
+          ユザワヤでスヌーピーの絵柄が入ったやつだぜ、６，０００円。
+        </div>
+      </div>
+      <div class="talk">
+        <div class="face-container">
+          <img src="@/assets/img/202506__character__01--2013-kifuwarabe-o1o1o0.png" />
+        </div>
+        <div class="baloon-tail"></div>
+        <div class="baloon">
+          ６，０００円は高いなあ。元を取るために何本のズボンの裾を上げるつもりだぜ？
+        </div>
+      </div>
+      <div class="talk">
+        <div class="face-container">
+          <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+        </div>
+        <div class="baloon-tail"></div>
+        <div class="baloon">
+          ３本ぐらい……。
+        </div>
+      </div>
+      <div class="talk">
+        <div class="face-container">
+          <img src="@/assets/img/202506__character__01--2025-hiyoko-o1o1o0.png" />
+        </div>
+        <div class="baloon-tail"></div>
+        <div class="baloon">
+          １本２，０００円の裾上げねえ。
+        </div>
+      </div>
+      <div class="talk">
+        <div class="face-container">
+          <img src="@/assets/img/202506__character__01--2013-kifuwarabe-o1o1o0.png" />
+        </div>
+        <div class="baloon-tail"></div>
+        <div class="baloon">
+          夜は集中力が落ちているんで、ズボンの裾上げは明日の朝にしろだぜ。<br>
+          ひとまず、カフェインレス・ブラックコーヒーでも飲んで休めだぜ。
+        </div>
+      </div>
     </div>
 
     <h2>## [2025-06-04_Wed]</h2>
