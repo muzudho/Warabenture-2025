@@ -43,6 +43,34 @@
           じゃあ、お父んはその風呂に入れだぜ。
         </div>
       </div>
+      <div class="talk">
+        <div class="face-container">
+          <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+        </div>
+        <div class="baloon-tail"></div>
+        <div class="baloon">
+          <span class="font-x2">✅</span>風呂に入ってサッパリしたぜ。<br>
+          <span class="font-x2">❌</span>お湯を入れていたはずなのに、ぬるま湯になっていたが……
+        </div>
+      </div>
+      <div class="talk">
+        <div class="face-container">
+          <img src="@/assets/img/202506__character__01--2025-hiyoko-o1o1o0.png" />
+        </div>
+        <div class="baloon-tail"></div>
+        <div class="baloon">
+          ガス代の支払いが滞っているのかしらねえ？
+        </div>
+      </div>
+      <div class="talk">
+        <div class="face-container">
+          <img src="@/assets/img/202506__character__01--2013-kifuwarabe-o1o1o0.png" />
+        </div>
+        <div class="baloon-tail"></div>
+        <div class="baloon">
+          じゃあ次は、お父んは昼飯を食べろだぜ。
+        </div>
+      </div>
     </div>
 
     <h2>## [2025-06-04_Wed]</h2>
