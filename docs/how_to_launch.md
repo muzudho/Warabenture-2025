@@ -9,5 +9,5 @@ pnpm dev
     # `➜ Local:    http://localhost:3000/`
 
 # バックエンドも更新したとき（デスクトップアプリも開く）：
-pnpm tauri dev
+#pnpm tauri dev
 ```
