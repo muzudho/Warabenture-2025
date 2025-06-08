@@ -1,6 +1,6 @@
 # ウェブ・サーバーへのデプロイ方法
 
-```shell
+```bash
 # ウェブアプリケーション側で、リポジトリーをクローンするなら：
 cd warabenture-2025
 git pull origin main
