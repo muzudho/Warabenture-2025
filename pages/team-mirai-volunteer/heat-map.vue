@@ -11,7 +11,7 @@
             <div class="baloon">
                 ［ヒートマップ］神エクセルのダウンロードはこちらから。<br>
                 <br>
-                ダウンロード：<a href="/202506/Heat Map - Saitama[20250609-0535] - Version_1_0_0.xlsm"><span class="font-x2">⏬</span>Heat Map - Saitama[20250609-0535] - Version_1_0_0.xlsm</a>
+                ダウンロード：<a href="/products/202506/Heat Map - Saitama[20250609-0535] - Version_1_0_0.xlsm"><span class="font-x2">⏬</span>Heat Map - Saitama[20250609-0535] - Version_1_0_0.xlsm</a>
             </div>
         </div>
         <a target="_blank" href="/img/journal/202506/202506__teamMirai__09--0531-heatMap15-o1o0.png">
