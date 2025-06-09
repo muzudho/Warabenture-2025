@@ -104,6 +104,16 @@
                 ダウンロード：<a href="/products/202506/Heat Map 2_0_0 - Saitama[20250609-1638].xlsm"><span class="font-x2">⏬</span>Heat Map 2_0_0 - Saitama[20250609-1638].xlsm</a>
             </div>
         </div>
+        <div class="talk">
+            <div class="face-container">
+                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+            </div>
+            <div class="baloon-tail"></div>
+            <div class="baloon">
+                オープンソースだぜ。本文書いてないが MIT ライセンスとでもしておいてくれだぜ。<br>
+                ［国勢調査］のデータを含んでるが、あれのライセンスは何なんだろな？
+            </div>
+        </div>
         <a target="_blank" href="/img/journal/202506/202506__teamMirai__09--1657-heatMap20-o1o0-mark.png">
             <img class="scr-shot" src="/img/journal/202506/202506__teamMirai__09--1657-heatMap20-o1o0-mark.png">
         </a><br/>
