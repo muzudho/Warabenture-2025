@@ -102,7 +102,7 @@
             <div class="baloon">
                 ［ヒートマップ］神エクセルのダウンロードはこちらから。<br>
                 <br>
-                ダウンロード（Ver 3.0.0）：<a href="/products/202506/Heat Map 3_0_0 - Saitama[20250610-0539] - VersionUp.xlsm"><span class="font-x2">⏬</span>Heat Map 3_0_0 - Saitama[20250610-0539] - VersionUp.xlsm</a><br>
+                ダウンロード（Ver 3.0.1）：<a href="/products/202506/Heat Map 3_0_1 - Saitama[20250610-0726] - BugFix.xlsm"><span class="font-x2">⏬</span>Heat Map 3_0_1 - Saitama[20250610-0726] - BugFix.xlsm</a><br>
                 ダウンロード（Ver 2.0.0）：<a href="/products/202506/Heat Map 2_0_0 - Saitama[20250609-1638].xlsm"><span class="font-x2">⏬</span>Heat Map 2_0_0 - Saitama[20250609-1638].xlsm</a>
             </div>
         </div>
