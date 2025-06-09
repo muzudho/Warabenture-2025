@@ -102,8 +102,11 @@
             <div class="baloon">
                 ［ヒートマップ］神エクセルのダウンロードはこちらから。<br>
                 <br>
-                ダウンロード（Ver 3.0.1）：<a href="/products/202506/Heat Map 3_0_1 - Saitama[20250610-0726] - BugFix.xlsm"><span class="font-x2">⏬</span>Heat Map 3_0_1 - Saitama[20250610-0726] - BugFix.xlsm</a><br>
-                ダウンロード（Ver 2.0.0）：<a href="/products/202506/Heat Map 2_0_0 - Saitama[20250609-1638].xlsm"><span class="font-x2">⏬</span>Heat Map 2_0_0 - Saitama[20250609-1638].xlsm</a>
+                （Ver 3.0.1）日本：<a href="/products/202506/Heat Map 3_0_1 - Japan[20250610-0806].xlsm"><span class="font-x2">⏬</span>Heat Map 3_0_1 - Japan[20250610-0806].xlsm</a><br>
+                （Ver 3.0.1）埼玉：<a href="/products/202506/Heat Map 3_0_1 - Saitama[20250610-0726] - BugFix.xlsm"><span class="font-x2">⏬</span>Heat Map 3_0_1 - Saitama[20250610-0726] - BugFix.xlsm</a><br>
+                <br>
+                Old:<br>
+                （Ver 2.0.0）埼玉：<a href="/products/202506/Heat Map 2_0_0 - Saitama[20250609-1638].xlsm"><span class="font-x2">⏬</span>Heat Map 2_0_0 - Saitama[20250609-1638].xlsm</a>
             </div>
         </div>
         <div class="talk">
@@ -125,7 +128,8 @@
             </div>
             <div class="baloon-tail"></div>
             <div class="baloon">
-                👆 インターネットからダウンロードした Excel （エクセル）マクロはブロックされてるから……。
+                👆 マクロの入っているエクセル（上図）は、<br>
+                インターネットからダウンロードするとブロックされてるから……。
             </div>
         </div>
         <a target="_blank" href="/img/journal/202506/202506__teamMirai__09--1700-heatMap21-o1o0-mark.png">
