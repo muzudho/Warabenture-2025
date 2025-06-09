@@ -33,6 +33,18 @@
                 👆 もちろん、表示内容を替えれる。
             </div>
         </div>
+        <a target="_blank" href="/img/journal/202506/202506__teamMirai__10--0814-heatMap28-o2o0.png">
+            <img class="scr-shot" src="/img/journal/202506/202506__teamMirai__10--0814-heatMap28-o2o0.png">
+        </a><br/>
+        <div class="talk">
+            <div class="face-container">
+                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+            </div>
+            <div class="baloon-tail"></div>
+            <div class="baloon">
+                👆 もちろん、ワークブックを新しく作って一から編集すれば、別の地図でヒートマップを表示することも可能。
+            </div>
+        </div>
         <a target="_blank" href="/img/journal/202506/202506__teamMirai__09--1729-heatMap22-o1o0.png">
             <img class="scr-shot" src="/img/journal/202506/202506__teamMirai__09--1729-heatMap22-o1o0.png">
         </a><br/>
