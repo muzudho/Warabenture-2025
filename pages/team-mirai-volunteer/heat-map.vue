@@ -17,13 +17,37 @@
         <a target="_blank" href="/img/journal/202506/202506__teamMirai__09--1610-heatMap16-o1o0.png">
             <img class="scr-shot" src="/img/journal/202506/202506__teamMirai__09--1610-heatMap16-o1o0.png">
         </a><br/>
+        <a target="_blank" href="/img/journal/202506/202506__teamMirai__09--1657-heatMap20-o1o0-mark.png">
+            <img class="scr-shot" src="/img/journal/202506/202506__teamMirai__09--1657-heatMap20-o1o0-mark.png">
+        </a><br/>
         <div class="talk">
             <div class="face-container">
                 <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
             </div>
             <div class="baloon-tail"></div>
             <div class="baloon">
-                👆 ヒートマップを作る神エクセルだぜ。<br>
+                👆 インターネットからダウンロードした Excel （エクセル）マクロはブロックされてるから……。
+            </div>
+        </div>
+        <a target="_blank" href="/img/journal/202506/202506__teamMirai__09--1700-heatMap21-o1o0-mark.png">
+            <img class="scr-shot" src="/img/journal/202506/202506__teamMirai__09--1700-heatMap21-o1o0-mark.png">
+        </a><br/>
+        <div class="talk">
+            <div class="face-container">
+                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+            </div>
+            <div class="baloon-tail"></div>
+            <div class="baloon">
+                👆 ✅チェックしてブロックを外してくれだぜ。
+            </div>
+        </div>
+        <div class="talk">
+            <div class="face-container">
+                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+            </div>
+            <div class="baloon-tail"></div>
+            <div class="baloon">
+                これはヒートマップを作る神エクセルだぜ。<br>
                 使い方はワークブックの中に［手順書_XXXX］ワークシートを入れてあるから、それを読んでくれだぜ。
             </div>
         </div>
@@ -64,6 +88,44 @@
             <div class="baloon">
                 だからそんなやつ、<br>
                 お父んしかいないのに……。
+            </div>
+        </div>
+        <div class="talk">
+            <div class="face-container">
+                <img src="@/assets/img/202506__character__01--2025-hiyoko-o1o1o0.png" />
+            </div>
+            <div class="baloon-tail"></div>
+            <div class="baloon">
+                デスクトップ版のエクセル、現代的に言うと Office 360 を購入してしまえば、<br>
+                あとは VBA だけで完結するから、<br>
+                もう、神エクセルにハマった人は、他の環境が進化しててでも神エクセルをやるのよ。<br>
+            </div>
+        </div>
+        <div class="talk">
+            <div class="face-container">
+                <img src="@/assets/img/202506__character__01--2013-kifuwarabe-o1o1o0.png" />
+            </div>
+            <div class="baloon-tail"></div>
+            <div class="baloon">
+                死んだ巻貝の殻に入るヤドカリみたいだな。
+            </div>
+        </div>
+        <div class="talk">
+            <div class="face-container">
+                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+            </div>
+            <div class="baloon-tail"></div>
+            <div class="baloon">
+                <span class="font-x2">巻貝が良いんだ！</span>スマホにはついていけないんだ！
+            </div>
+        </div>
+        <div class="talk">
+            <div class="face-container">
+                <img src="@/assets/img/202506__character__01--2013-kifuwarabe-o1o1o0.png" />
+            </div>
+            <div class="baloon-tail"></div>
+            <div class="baloon">
+                分かった分かった。
             </div>
         </div>
     </div>
