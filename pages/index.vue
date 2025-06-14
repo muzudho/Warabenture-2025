@@ -5,6 +5,31 @@
         <NuxtLink to="/team-mirai-volunteer">チームみらいボランティア</NuxtLink>のリンクはこちら。
     </div>
 
+    <h2>## [2025-06-15_Mon]</h2>
+    <div class="div2">
+        <a target="_blank" href="/img/journal/202506/202506__tauri__15--0059-CsvCleaningOnTauri-o1o0.png">
+            <img class="scr-shot" src="/img/journal/202506/202506__tauri__15--0059-CsvCleaningOnTauri-o1o0.png">
+        </a><br/>
+        <div class="talk">
+            <div class="face-container">
+                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+            </div>
+            <div class="baloon-tail"></div>
+            <div class="baloon">
+                <span class="font-x2">👆</span>前（2025-06-12_Thu）言ってたツールを作ったぜ。
+            </div>
+        </div>
+        <div class="talk">
+            <div class="face-container">
+                <img src="@/assets/img/202506__character__01--2013-kifuwarabe-o1o1o0.png" />
+            </div>
+            <div class="baloon-tail"></div>
+            <div class="baloon">
+                おつ。
+            </div>
+        </div>
+    </div>
+
     <h2>## [2025-06-12_Thu]</h2>
     <div class="div2">
         <div class="talk">
