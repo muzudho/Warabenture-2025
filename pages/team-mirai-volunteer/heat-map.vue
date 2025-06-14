@@ -115,6 +115,9 @@
                 ［ヒートマップ］神エクセルのダウンロードはこちらから。<br>
                 <br>
                 ↑ New:<br>
+                （Ver 4.1.2）埼玉県：<a href="/products/202506/Heat Map 4_1_2 - Saitama[20250614-2352].xlsm"><span class="font-x2">⏬</span>Heat Map 4_1_2 - Saitama[20250614-2352].xlsm</a><br>
+                （Ver 4.1.2）埼玉県新座市：<a href="/products/202506/Heat Map 4_1_2 - Saitama_Niiza[20250614-2352].xlsm"><span class="font-x2">⏬</span>Heat Map 4_1_2 - Saitama_Niiza[20250614-2352].xlsm</a><br>
+                <br>
                 （Ver 4.1.1）埼玉県新座市（交通追加）：<a href="/products/202506/Heat Map 4_1_1 - Saitama_Niiza[20250611-0956] - AddedAccess.xlsm"><span class="font-x2">⏬</span>Heat Map 4_1_1 - Saitama_Niiza[20250611-0956] - AddedAccess.xlsm</a><br>
                 （Ver 4.1.0）埼玉県新座市：<a href="/products/202506/Heat Map 4_1_0 - Saitama_Niiza[20250611-0754] - VersionUp.xlsm"><span class="font-x2">⏬</span>Heat Map 4_1_0 - Saitama_Niiza[20250611-0754] - VersionUp.xlsm</a><br>
                 （Ver 4.0.0）埼玉：<a href="/products/202506/Heat Map 4_0_0 - Saitama[20250611-0502] - VersionUp.xlsm"><span class="font-x2">⏬</span>Heat Map 4_0_0 - Saitama[20250611-0502] - VersionUp.xlsm</a><br>
