@@ -115,6 +115,7 @@
                 ［ヒートマップ］神エクセルのダウンロードはこちらから。<br>
                 <br>
                 ↑ New:<br>
+                （Ver 4.1.2）日本国：<a href="/products/202506/Heat Map 4_1_2 - Japan[20250615-0050].xlsm"><span class="font-x2">⏬</span>Heat Map 4_1_2 - Japan[20250615-0050].xlsm</a><br>
                 （Ver 4.1.2）埼玉県：<a href="/products/202506/Heat Map 4_1_2 - Saitama[20250614-2352].xlsm"><span class="font-x2">⏬</span>Heat Map 4_1_2 - Saitama[20250614-2352].xlsm</a><br>
                 （Ver 4.1.2）埼玉県新座市：<a href="/products/202506/Heat Map 4_1_2 - Saitama_Niiza[20250614-2352].xlsm"><span class="font-x2">⏬</span>Heat Map 4_1_2 - Saitama_Niiza[20250614-2352].xlsm</a><br>
                 <br>
