@@ -247,6 +247,67 @@
                 じゃあ、今回手で行った操作を自動化するアプリを作ってくれだぜ。
             </div>
         </div>
+        <div class="talk">
+            <div class="face-container">
+                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+            </div>
+            <div class="baloon-tail"></div>
+            <div class="baloon">
+                アプリケーションの名前は <span class="code-w">column-names-sync-on-tauri</span> とかでいいかな。
+            </div>
+        </div>
+        <div class="talk">
+            <div class="face-container">
+                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+            </div>
+            <div class="baloon-tail"></div>
+            <div class="baloon">
+                あれっ？ Cドライブの残り容量が 5 GB しかない！？
+            </div>
+        </div>
+        <div class="talk">
+            <div class="face-container">
+                <img src="@/assets/img/202506__character__01--2013-kifuwarabe-o1o1o0.png" />
+            </div>
+            <div class="baloon-tail"></div>
+            <div class="baloon">
+                Tauri は debug フォルダーがバカでかいそうだぜ。
+            </div>
+        </div>
+        <div class="talk">
+            <div class="face-container">
+                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+            </div>
+            <div class="baloon-tail"></div>
+            <div class="baloon">
+                Grok に対策を聞いてみるか。<br>
+                以下のコードをさくっと実行。
+            </div>
+        </div>
+        <div class="code-b">
+<pre>
+cd src-tauri
+cargo clean
+</pre>
+        </div>
+        <div class="talk">
+            <div class="face-container">
+                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+            </div>
+            <div class="baloon-tail"></div>
+            <div class="baloon">
+                リリースもデバッグもどちらも含めて 14.3 GiB もファイルが消えた……。
+            </div>
+        </div>
+        <div class="talk">
+            <div class="face-container">
+                <img src="@/assets/img/202506__character__01--2013-kifuwarabe-o1o1o0.png" />
+            </div>
+            <div class="baloon-tail"></div>
+            <div class="baloon">
+                Tauri 恐ろしいな……。
+            </div>
+        </div>
     </div>
 
     <h2>## [2025-06-12_Thu]</h2>
