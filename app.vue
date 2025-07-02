@@ -126,7 +126,7 @@ div.baloon-tail {
     clip-path: polygon(0% 50%, 100% 0%, 100% 100%); /* 上頂点、下底の三角形 */
 }
 
-div.code-b {
+div.code-b, pre.code-b {
     display:inline-block;
     background-color: #222222;
     color:#DDD;
