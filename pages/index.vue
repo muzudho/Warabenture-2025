@@ -98,6 +98,33 @@ pnpm dev</pre><br/>
                 コンパイル・エラーの数はだいぶ減った。
             </div>
         </div>
+        <pre class="code-b">
+pnpm install
+pnpm tauri dev</pre>
+        <div class="talk">
+            <div class="face-container">
+                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+            </div>
+            <div class="baloon-tail"></div>
+            <div class="baloon">
+                コンパイル・エラーの数はさらに減った。
+            </div>
+        </div>
+        <pre class="code-b">
+cd src-tauri
+cargo add csv
+
+cd ..
+pnpm tauri dev</pre>
+        <div class="talk">
+            <div class="face-container">
+                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+            </div>
+            <div class="baloon-tail"></div>
+            <div class="baloon">
+                コンパイル・エラーは取れて、ウィンドウも表示されたけど、ウィンドウの内側は真っ白だ……。
+            </div>
+        </div>
     </div>
 
     <h2>## [2025-06-19_Thu]</h2>
