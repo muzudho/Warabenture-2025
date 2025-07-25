@@ -436,3 +436,8 @@ npm run generate
 sudo nginx -t
 sudo systemctl restart nginx
 ```
+
+## [2025-07-25_Fri]
+
+`http` を `https` に対応するため、 `Let's encrypt` を設定しようとしたら、その手順中、 OS の再インストールが必須だった。  
+仕方ないので、OS の再インストールをすることにする。  
