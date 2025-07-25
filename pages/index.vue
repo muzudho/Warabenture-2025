@@ -136,6 +136,60 @@
                 <span class="font-x2">📖</span><a target="_blank" href="https://note.com/doui_lab/n/n37a67a01981a">Vue3 + Nuxt3 + Vuetify3 のクイックスタート</a>
             </div>
         </div>
+        <pre class="code-b">
+pnpm add vuetify@next sass @mdi/font
+pnpm add -D vite-plugin-vuetify</pre>
+        <div class="talk">
+            <div class="face-container">
+                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+            </div>
+            <div class="baloon-tail"></div>
+            <div class="baloon">
+                📄 <span class="code-w">nuxt.config.ts</span> を編集。<br/>
+                以下は追加部分。
+            </div>
+        </div>
+        <pre class="code-b">
+export default defineNuxtConfig({
+    css: ["vuetify/styles", "@mdi/font/css/materialdesignicons.css"],
+    build: {
+        transpile: ["vuetify"],
+    },
+})</pre>
+        <div class="talk">
+            <div class="face-container">
+                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+            </div>
+            <div class="baloon-tail"></div>
+            <div class="baloon">
+                📁 <span class="code-w">plugins</span> フォルダーを作成。<br/>
+                📄 <span class="code-w">vuetify.ts</span> ファイルを作成。<br/>
+            </div>
+        </div>
+        <pre class="code-b">
+import { createVuetify } from "vuetify";
+import * as components from "vuetify/components";
+import * as directives from "vuetify/directives";
+
+export default defineNuxtPlugin((nuxtApp) => {
+  const vuetify = createVuetify({
+    components,
+    directives,
+  });
+
+  nuxtApp.vueApp.use(vuetify);
+});</pre>
+        <div class="talk">
+            <div class="face-container">
+                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+            </div>
+            <div class="baloon-tail"></div>
+            <div class="baloon">
+                以下のコマンドを打鍵。
+            </div>
+        </div>
+        <pre class="code-b">
+pnpm install</pre>
         <div class="talk">
             <div class="face-container">
                 <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
