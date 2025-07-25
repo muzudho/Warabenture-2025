@@ -600,6 +600,91 @@ Step 4: Verifying Your Let's Encrypt Certificate Information</pre>
                 別に何も変わってるようには見えないな……。
             </div>
         </div>
+        <div class="talk">
+            <div class="face-container">
+                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+            </div>
+            <div class="baloon-tail"></div>
+            <div class="baloon">
+                TCPポート80（HTTP）と、443（HTTPS）を開けておく必要があるようだが、<br/>
+                さくらのVPSのコントロールパネルのパケットフィルターを見ると、どちらも全て許可している。<br/>
+                じゃあ、開いてないのは Ubuntu の方か？<br/>
+                <span class="code-b">ufw</span> コマンドを使って開けてみるか？
+            </div>
+        </div>
+        <pre class="code-b">
+sudo ufw status
+    Status: inactive
+
+sudo ufw allow 22
+    Rules updated
+    Rules updated (v6)
+
+sudo ufw enable
+    Command may disrupt existing ssh connections. Proceed with operation (y|n)? y
+    Firewall is active and enabled on system startup
+
+sudo ufw status
+Status: active
+
+To                         Action      From
+--                         ------      ----
+80                         ALLOW       Anywhere                  
+443/tcp                    ALLOW       Anywhere                  
+22                         ALLOW       Anywhere                  
+80 (v6)                    ALLOW       Anywhere (v6)             
+443/tcp (v6)               ALLOW       Anywhere (v6)             
+22 (v6)                    ALLOW       Anywhere (v6)</pre>
+        <div class="talk">
+            <div class="face-container">
+                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+            </div>
+            <div class="baloon-tail"></div>
+            <div class="baloon">
+                これでポートは開いてると思うが、まだダメか。
+            </div>
+        </div>
+        <pre class="code-b">
+sudo certbot certonly --webroot --webroot-path /var/www/html -m ＜🌟メールアドレス＞ -d warabenture.com --agree-tos -n
+    Saving debug log to /var/log/letsencrypt/letsencrypt.log
+    Certificate not yet due for renewal
+
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    Certificate not yet due for renewal; no action taken.
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</pre>
+        <div class="talk">
+            <div class="face-container">
+                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+            </div>
+            <div class="baloon-tail"></div>
+            <div class="baloon">
+                <span class="font-x2">👆</span>上のコマンドを入力すると、<br/>
+                📄<span class="code-w">privkey.pem</span>や 📄<span class="code-w">fullchain.pem</span> が作られるらしい。
+            </div>
+        </div>
+        <pre class="code-b">
+sudo systemctl restart nginx</pre>
+        <div class="talk">
+            <div class="face-container">
+                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+            </div>
+            <div class="baloon-tail"></div>
+            <div class="baloon">
+                変わらん。次は Grok に聞いてみるか……。
+            </div>
+        </div>
+        <pre class="code-b">
+sudo apt update && sudo apt upgrade -y
+sudo apt install certbot python3-certbot-nginx -y
+
+sudo certbot --nginx -d warabenture.com     🌟このコマンドは２回目だからか失敗した
+    🌟 /etc/letsencrypt/live/example.com/ ディレクトリーの下にはファイルが作られている。
+
+sudo systemctl status certbot.timer
+sudo certbot renew --dry-run
+sudo ufw status
+    🌟 80 と 443 が開いていることを確認する
+</pre>
     </div>
 
     <h2>## [2025-07-12_Sat]</h2>
