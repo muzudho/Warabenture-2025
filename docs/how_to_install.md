@@ -10,7 +10,7 @@
 
 ```shell
 npm install -g pnpm
-# ディレクトリーにアクセスする権限がなかったら、 sudo を付けること。
+# sudo はいらないはず。`ubuntu` ユーザーでアクセスできるパーミッションにしてあるはず。
 ```
 
 ## Nuxt と Vuetify 3 の連携
@@ -67,5 +67,5 @@ export default defineNuxtPlugin((nuxtApp) => {
 
 ```shell
 pnpm install
-# ディレクトリーにアクセスする権限がなかったら、 sudo を付けること。
+# sudo はいらないはず。`ubuntu` ユーザーでアクセスできるパーミッションにしてあるはず。
 ```
