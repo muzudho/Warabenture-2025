@@ -482,7 +482,12 @@ sudo apt install -y certbot
 
 # For Nginx users
 sudo apt install -y python3-certbot-nginx
-sudo certbot --nginx -d example.com     🌟SSL証明したいドメインを入れること</pre>
+sudo certbot --nginx -d example.com     🌟SSL証明したいドメインを入れること。
+🌟 すごく時間がかかる。終わるまで待つこと。
+
+# Step 1: Install Certbot on Ubuntu 24.04
+sudo apt update
+</pre>
     </div>
 
     <h2>## [2025-07-12_Sat]</h2>
