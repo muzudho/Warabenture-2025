@@ -379,6 +379,110 @@ pnpm install</pre>
                 しゃあない、やるしかない、OS の再インストールを始めるぜ。
             </div>
         </div>
+        <div class="talk">
+            <div class="face-container">
+                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+            </div>
+            <div class="baloon-tail"></div>
+            <div class="baloon">
+                あっ！　さくらのVPSは、Ubuntu 用の Let's Encrypt のスタートアップスクリプトが無いぜ！
+            </div>
+        </div>
+        <div class="talk">
+            <div class="face-container">
+                <img src="@/assets/img/202506__character__01--2013-kifuwarabe-o1o1o0.png" />
+            </div>
+            <div class="baloon-tail"></div>
+            <div class="baloon">
+                意味無
+            </div>
+        </div>
+        <div class="talk">
+            <div class="face-container">
+                <img src="@/assets/img/202506__character__01--2025-hiyoko-o1o1o0.png" />
+            </div>
+            <div class="baloon-tail"></div>
+            <div class="baloon">
+                自力で Let's Encrypt の設定をするにしても、自動更新のスクリプトも書かないといけなくなるのかしら？
+            </div>
+        </div>
+        <div class="talk">
+            <div class="face-container">
+                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+            </div>
+            <div class="baloon-tail"></div>
+            <div class="baloon">
+                cron を使えってことだろ。
+            </div>
+        </div>
+        <div class="talk">
+            <div class="face-container">
+                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+            </div>
+            <div class="baloon-tail"></div>
+            <div class="baloon">
+                めんどくさ、 Nuxt の方で https に飛ばないようにする方法はないのかだぜ？
+            </div>
+        </div>
+        <div class="talk">
+            <div class="face-container">
+                <img src="@/assets/img/202506__character__01--2013-kifuwarabe-o1o1o0.png" />
+            </div>
+            <div class="baloon-tail"></div>
+            <div class="baloon">
+                その設定はもっとめんどくさい。
+            </div>
+        </div>
+        <div class="talk">
+            <div class="face-container">
+                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+            </div>
+            <div class="baloon-tail"></div>
+            <div class="baloon">
+                くそっ。
+            </div>
+        </div>
+        <div class="talk">
+            <div class="face-container">
+                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+            </div>
+            <div class="baloon-tail"></div>
+            <div class="baloon">
+                じゃあ、SSL証明書、自力で取る。
+            </div>
+        </div>
+        <div class="talk">
+            <div class="face-container">
+                <img src="@/assets/img/202506__character__01--2013-kifuwarabe-o1o1o0.png" />
+            </div>
+            <div class="baloon-tail"></div>
+            <div class="baloon">
+                <span class="font-x2">👇</span>これを読めだぜ。<br/>
+                <br/>
+                <span class="font-x2">📖</span><a target="_blank" href="https://savacan.space-i.com/lets-encrypt%E3%81%A7%E7%84%A1%E6%96%99ssl%E8%A8%BC%E6%98%8E%E6%9B%B8%E3%82%92%E5%8F%96%E5%BE%97%E3%81%99%E3%82%8B/">Let’s Encryptで無料SSL証明書を取得する</a>
+            </div>
+        </div>
+        <div class="talk">
+            <div class="face-container">
+                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+            </div>
+            <div class="baloon-tail"></div>
+            <div class="baloon">
+                Let's encript を入れるには、<span class="code-w">Certbot</span> というツールをインストールしたらいいらしい。<br/>
+                <span class="font-x2">👇</span>Certbot のインストール方法。<br/>
+                <br/>
+                <span class="font-x2">📖</span><a target="_blank" href="https://www.ssdnodes.com/blog/install-lets-encrypt-on-ubuntu-certbot-apache-and-nginx/">How To Install Certbot on Ubuntu 24.04: Set Up Let’s Encrypt for Apache and Nginx</a>
+            </div>
+        </div>
+        <pre class="code-b">
+# Ubuntu 24.04
+# Update packages and install Certbot
+sudo apt update
+sudo apt install -y certbot
+
+# For Nginx users
+sudo apt install -y python3-certbot-nginx
+sudo certbot --nginx -d example.com     🌟SSL証明したいドメインを入れること</pre>
     </div>
 
     <h2>## [2025-07-12_Sat]</h2>
