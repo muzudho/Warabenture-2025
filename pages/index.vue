@@ -262,6 +262,15 @@ pnpm install</pre>
                 なんでリンクをクリックしたら、<span class="code-w">http</span>を勝手に<span class="code-w">https</span>に変えられてしまうの？
             </div>
         </div>
+        <div class="talk">
+            <div class="face-container">
+                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+            </div>
+            <div class="baloon-tail"></div>
+            <div class="baloon">
+                さくらインターネットで簡単に https に対応してくれるサービスとかないかなあ……。
+            </div>
+        </div>
     </div>
 
     <h2>## [2025-07-12_Sat]</h2>
