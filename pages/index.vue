@@ -683,8 +683,21 @@ sudo certbot --nginx -d warabenture.com     🌟このコマンドは２回目�
 sudo systemctl status certbot.timer
 sudo certbot renew --dry-run
 sudo ufw status
-    🌟 80 と 443 が開いていることを確認する
-</pre>
+    🌟 80 と 443 が開いていることを確認する</pre>
+        <div class="talk">
+            <div class="face-container">
+                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+            </div>
+            <div class="baloon-tail"></div>
+            <div class="baloon">
+                <span class="font-x2">👇</span>設定は以上なので、設定できているか確認する。<br/>
+                <br/>
+                <span class="font-x2">📖</span><a target="_blank" href="https://www.whynopadlock.com/">https://www.whynopadlock.com/</a><br/>
+                <span class="font-x2">📖</span><a target="_blank" href="https://www.ssllabs.com/ssltest/">https://www.ssllabs.com/ssltest/</a><br/>
+                <br/>
+                設定できてないな。
+            </div>
+        </div>
     </div>
 
     <h2>## [2025-07-12_Sat]</h2>
