@@ -202,6 +202,15 @@ pnpm install</pre>
                 <span class="font-x2">📖</span><a target="_blank" href="https://warabenture.com/wara-city/map">わらシティ</a>
             </div>
         </div>
+        <div class="talk">
+            <div class="face-container">
+                <img src="@/assets/img/202506__character__01--2013-kifuwarabe-o1o1o0.png" />
+            </div>
+            <div class="baloon-tail"></div>
+            <div class="baloon">
+                サイトが落ちてるぜ。
+            </div>
+        </div>
     </div>
 
     <h2>## [2025-07-12_Sat]</h2>
