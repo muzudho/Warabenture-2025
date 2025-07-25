@@ -211,6 +211,27 @@ pnpm install</pre>
                 サイトが落ちてるぜ。
             </div>
         </div>
+        <div class="talk">
+            <div class="face-container">
+                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+            </div>
+            <div class="baloon-tail"></div>
+            <div class="baloon">
+                モジュールのバージョンが合ってないと Nuxt は容赦なく落とすらしい。<br/>
+                📄 <span class="code-w">package.json</span> ファイルの中のバージョン指定を修正するぜ。
+            </div>
+        </div>
+        <div class="talk">
+            <div class="face-container">
+                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+            </div>
+            <div class="baloon-tail"></div>
+            <div class="baloon">
+                なんか sudo で build コマンドを叩いてしまったからか、ディレクトリーのパーミッションが<span class="code-w">root</span>になってて、<br/>
+                アクセス権限がないとかいうエラーが出てた。<br/>
+                ディレクトリーのパーミッションを<span class="code-w">ubuntu</span>に直すぜ。
+            </div>
+        </div>
     </div>
 
     <h2>## [2025-07-12_Sat]</h2>
