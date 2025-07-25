@@ -131,9 +131,20 @@
             </div>
             <div class="baloon-tail"></div>
             <div class="baloon">
-                以下の記事を頼りに Nuxt と Vuetify3 を連携する。<br/>
+                <span class="font-x2">👇</span>以下の記事を頼りに Nuxt と Vuetify3 を連携する。<br/>
                 <br/>
                 <span class="font-x2">📖</span><a target="_blank" href="https://note.com/doui_lab/n/n37a67a01981a">Vue3 + Nuxt3 + Vuetify3 のクイックスタート</a>
+            </div>
+        </div>
+        <div class="talk">
+            <div class="face-container">
+                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+            </div>
+            <div class="baloon-tail"></div>
+            <div class="baloon">
+                <span class="font-x2">👇</span>連携できてるかな？<br/>
+                <br/>
+                <span class="font-x2">📖</span><a target="_blank" href="https://warabenture.com/wara-city/map">わらシティ</a>
             </div>
         </div>
     </div>
