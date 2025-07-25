@@ -232,6 +232,36 @@ pnpm install</pre>
                 ディレクトリーのパーミッションを<span class="code-w">ubuntu</span>に直すぜ。
             </div>
         </div>
+        <div class="talk">
+            <div class="face-container">
+                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+            </div>
+            <div class="baloon-tail"></div>
+            <div class="baloon">
+                <span class="code-w">http://localhost:3000/wara-city/map</span>というパスでは表示されて、<br/>
+                <span class="code-w">https://warabenture.com/wara-city/map</span>というパスでは表示されない、<br/>
+                Nuxt はなんかルーティングに流儀があんのかな？
+            </div>
+        </div>
+        <div class="talk">
+            <div class="face-container">
+                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+            </div>
+            <div class="baloon-tail"></div>
+            <div class="baloon">
+                <span class="code-w">https://warabenture.com/wara-city/map</span>では表示されないが、<br/>
+                <span class="code-w">http://warabenture.com/wara-city/map/</span>なら表示された……。
+            </div>
+        </div>
+        <div class="talk">
+            <div class="face-container">
+                <img src="@/assets/img/202506__character__01--2025-hiyoko-o1o1o0.png" />
+            </div>
+            <div class="baloon-tail"></div>
+            <div class="baloon">
+                なんでリンクをクリックしたら、<span class="code-w">http</span>を勝手に<span class="code-w">https</span>に変えられてしまうの？
+            </div>
+        </div>
     </div>
 
     <h2>## [2025-07-12_Sat]</h2>
