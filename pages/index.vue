@@ -271,6 +271,36 @@ pnpm install</pre>
                 さくらインターネットで簡単に https に対応してくれるサービスとかないかなあ……。
             </div>
         </div>
+        <div class="talk">
+            <div class="face-container">
+                <img src="@/assets/img/202506__character__01--2013-kifuwarabe-o1o1o0.png" />
+            </div>
+            <div class="baloon-tail"></div>
+            <div class="baloon">
+                <span class="font-x2">👇</span>これを読めだぜ。<br/>
+                <br/>
+                <span class="font-x2">📖</span><a target="_blank" href="https://manual.sakura.ad.jp/vps/startupscript/letsencrypt.html">Let's Encrypt</a>
+            </div>
+        </div>
+        <div class="talk">
+            <div class="face-container">
+                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+            </div>
+            <div class="baloon-tail"></div>
+            <div class="baloon">
+                スタートアップ・スクリプトを実行するために、OSの再インストールをしなければならないみたいだぜ、<br/>
+                したくないぜ。
+            </div>
+        </div>
+        <div class="talk">
+            <div class="face-container">
+                <img src="@/assets/img/202506__character__01--2025-hiyoko-o1o1o0.png" />
+            </div>
+            <div class="baloon-tail"></div>
+            <div class="baloon">
+                スタートアップ時でなくても、今スクリプトを実行することはできないの？
+            </div>
+        </div>
     </div>
 
     <h2>## [2025-07-12_Sat]</h2>
