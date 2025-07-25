@@ -2,7 +2,7 @@
     <v-app>
         <v-main>
             あ。
-            <v-img src="/public/sea.png"></v-img>
+            <v-img src="/sea.png" width="32" height="32"></v-img>
             ん。
         </v-main>
     </v-app>
