@@ -49,6 +49,93 @@
                 勝手にスマホにも対応しようとされるから、デスクトップ画面にピッタリ調整しようとすることはできないんじゃないの？
             </div>
         </div>
+        <div class="talk">
+            <div class="face-container">
+                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+            </div>
+            <div class="baloon-tail"></div>
+            <div class="baloon">
+                次は、さっきのアプリをコピーして、わらシティを作ろう。
+            </div>
+        </div>
+        <a target="_blank" href="/img/journal/202507/202507__warabenture__25--1749-waraCity-o1o0.png">
+            <img class="scr-shot" src="/img/journal/202507/202507__warabenture__25--1749-waraCity-o1o0.png">
+        </a><br/>
+        <div class="talk">
+            <div class="face-container">
+                <img src="@/assets/img/202506__character__01--2013-kifuwarabe-o1o1o0.png" />
+            </div>
+            <div class="baloon-tail"></div>
+            <div class="baloon">
+                何だぜ、これ？
+            </div>
+        </div>
+        <div class="talk">
+            <div class="face-container">
+                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+            </div>
+            <div class="baloon-tail"></div>
+            <div class="baloon">
+                スーパー・ファミコン版のシム・シティのパクリを作るんだぜ。
+            </div>
+        </div>
+        <div class="talk">
+            <div class="face-container">
+                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+            </div>
+            <div class="baloon-tail"></div>
+            <div class="baloon">
+                さっそくこれを、ワラベンチャーのホームページ、つまりここにも移植しよう。
+            </div>
+        </div>
+        <div class="talk">
+            <div class="face-container">
+                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+            </div>
+            <div class="baloon-tail"></div>
+            <div class="baloon">
+                あれっ？　画像が表示されない？
+            </div>
+        </div>
+        <div class="talk">
+            <div class="face-container">
+                <img src="@/assets/img/202506__character__01--2025-hiyoko-o1o1o0.png" />
+            </div>
+            <div class="baloon-tail"></div>
+            <div class="baloon">
+                なんで同じ Vue 3 なのに、そのまんま移植できないの？
+            </div>
+        </div>
+        <div class="talk">
+            <div class="face-container">
+                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+            </div>
+            <div class="baloon-tail"></div>
+            <div class="baloon">
+                HTML のソースに &ltv-img&gt タグがそのまんま出力されてる……、<br/>
+                Nuxt に Vuetify3 が連携されていないんだ。
+            </div>
+        </div>
+        <div class="talk">
+            <div class="face-container">
+                <img src="@/assets/img/202506__character__01--2013-kifuwarabe-o1o1o0.png" />
+            </div>
+            <div class="baloon-tail"></div>
+            <div class="baloon">
+                じゃあ、連携しろだぜ。
+            </div>
+        </div>
+        <div class="talk">
+            <div class="face-container">
+                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+            </div>
+            <div class="baloon-tail"></div>
+            <div class="baloon">
+                以下の記事を頼りに Nuxt と Vuetify3 を連携する。<br/>
+                <br/>
+                <span class="font-x2">📖</span><a target="_blank" href="https://note.com/doui_lab/n/n37a67a01981a">Vue3 + Nuxt3 + Vuetify3 のクイックスタート</a>
+            </div>
+        </div>
     </div>
 
     <h2>## [2025-07-12_Sat]</h2>
