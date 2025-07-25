@@ -137,6 +137,7 @@
             </div>
         </div>
         <pre class="code-b">
+pnpm remove vuetify
 pnpm add vuetify@next sass @mdi/font
 pnpm add -D vite-plugin-vuetify</pre>
         <div class="talk">
