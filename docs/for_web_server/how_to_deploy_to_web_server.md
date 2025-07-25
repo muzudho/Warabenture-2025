@@ -2,7 +2,7 @@
 
 ```bash
 # ウェブアプリケーション側で、リポジトリーをクローンするなら：
-cd warabenture-2025
+cd ~/warabenture-2025
 git pull origin main
 
 # ウェブアプリケーション形式のファイルを出力する：

@@ -698,6 +698,56 @@ sudo ufw status
                 設定できてないな。
             </div>
         </div>
+        <div class="talk">
+            <div class="face-container">
+                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+            </div>
+            <div class="baloon-tail"></div>
+            <div class="baloon">
+                Grok に聞いてみるか。
+            </div>
+        </div>
+        <pre class="code-b">
+🌟80の分から、SSLの記述を削除。
+server {
+    listen 80;
+    server_name 49.212.140.81 os3-288-33577.vs.sakura.ne.jp warabenture.com www.warabenture.com;    🌟ドメイン追加。
+    root /home/ubuntu/warabenture-2025/dist;
+    index index.html;
+
+    location / {
+        try_files $uri $uri/ /index.html;
+    }
+}
+
+🌟80の分を丸ごとコピーして、少し変えて、443の分を作る。
+server {
+    listen 443 ssl;
+    server_name 49.212.140.81 os3-288-33577.vs.sakura.ne.jp warabenture.com www.warabenture.com;
+    root /home/ubuntu/warabenture-2025/dist;
+    index index.html;
+    ssl_certificate /etc/letsencrypt/live/warabenture.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/warabenture.com/privkey.pem;
+
+    location / {
+        try_files $uri $uri/ /index.html;
+    }
+}</pre>
+        <pre class="code-b">
+sudo nginx -t
+sudo systemctl reload nginx
+sudo certbot install --cert-name warabenture.com --nginx
+sudo certbot --nginx -d warabenture.com -d www.warabenture.com
+    🌟 質問されるのでとりあえず 1 を選ぶ</pre>
+        <div class="talk">
+            <div class="face-container">
+                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+            </div>
+            <div class="baloon-tail"></div>
+            <div class="baloon">
+                通った。nginxの設定は、80 と 443 の２つ書く必要があったのか。
+            </div>
+        </div>
     </div>
 
     <h2>## [2025-07-12_Sat]</h2>
