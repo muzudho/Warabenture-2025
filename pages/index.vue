@@ -478,16 +478,128 @@ pnpm install</pre>
 # Ubuntu 24.04
 # Update packages and install Certbot
 sudo apt update
+
+# Step 1: Install Certbot on Ubuntu 24.04
 sudo apt install -y certbot
 
 # For Nginx users
 sudo apt install -y python3-certbot-nginx
-sudo certbot --nginx -d example.com     🌟SSL証明したいドメインを入れること。
-🌟 すごく時間がかかる。終わるまで待つこと。
 
-# Step 1: Install Certbot on Ubuntu 24.04
-sudo apt update
+# Step 2: Install a Let’s Encrypt Certificate Using Certbot
+sudo certbot --nginx -d example.com     🌟example.com のところには、SSL証明したいドメインを入れること。
+
+# Step 3: Configuring Nginx with Let's Encrypt Certificates
+sudo nano /etc/nginx/sites-enabled/default
 </pre>
+        <div class="talk">
+            <div class="face-container">
+                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+            </div>
+            <div class="baloon-tail"></div>
+            <div class="baloon">
+                <span class="font-x2">👇</span>ここで nginx の設定ファイルを書くところだが、既存の設定ファイルは以下の通り。
+                <br/>
+                <span class="font-x2">📄</span><span class="code-w">/etc/nginx/sites-enabled/warabenture-2025</span>
+            </div>
+        </div>
+        <pre class="code-b">
+server {
+    listen 80;
+    server_name ＜🌟IPアドレス＞ ＜🌟ドメイン＞;
+    root /home/ubuntu/warabenture-2025/dist;
+    index index.html;
+    location / {
+        try_files $uri $uri/ /index.html;
+    }
+}</pre>
+        <div class="talk">
+            <div class="face-container">
+                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+            </div>
+            <div class="baloon-tail"></div>
+            <div class="baloon">
+                <span class="font-x2">👇</span>記事のサンプルは以下の通りだが、既存の設定もあるし……。
+            </div>
+        </div>
+        <pre class="code-b">
+server {
+    listen 80;
+    listen [::]:80;
+    server_name www.example.com;
+    access_log off;
+    location / {
+        rewrite ^ https://$host$request_uri? permanent;
+    }
+}
+
+server {
+    listen 443 ssl;
+    listen [::]:443 ssl;
+    server_name www.example.com;    🌟
+    root /var/www/html;
+    index index.php index.html index.htm index.nginx-debian.html;
+    autoindex off;
+    ssl_certificate /etc/letsencrypt/live/www.example.com/fullchain.pem;        🌟
+    ssl_certificate_key /etc/letsencrypt/live/www.example.com/privkey.pem;      🌟
+    ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
+    ssl_ciphers HIGH:!aNULL:!MD5;
+
+    location ~ \.php$ {
+        include snippets/fastcgi-php.conf;
+        fastcgi_pass unix:/var/run/php/php-fpm.sock;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        include fastcgi_params;
+    }
+}</pre>
+        <div class="talk">
+            <div class="face-container">
+                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+            </div>
+            <div class="baloon-tail"></div>
+            <div class="baloon">
+                <span class="font-x2">👇</span>こうすればいいのか？<br/>
+                <br/>
+                <span class="font-x2">📄</span><span class="code-w">/etc/nginx/sites-enabled/warabenture-2025</span>
+            </div>
+        </div>
+        <pre class="code-b">
+server {
+    listen 80;
+    server_name ＜🌟IPアドレス＞ ＜🌟ドメイン＞;
+    root /home/ubuntu/warabenture-2025/dist;
+    index index.html;
+    ssl_certificate /etc/letsencrypt/live/warabenture.com/fullchain.pem;        🌟
+    ssl_certificate_key /etc/letsencrypt/live/warabenture.com/privkey.pem;      🌟
+
+    location / {
+        try_files $uri $uri/ /index.html;
+    }
+}</pre>
+        <div class="talk">
+            <div class="face-container">
+                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+            </div>
+            <div class="baloon-tail"></div>
+            <div class="baloon">
+                📄 <span class="code-w">fullchain.pem</span> ファイルとか置いてないけど……、<br/>
+                もう作られてるのか？ 次へ。
+            </div>
+        </div>
+        <pre class="code-b">
+sudo nginx -t
+sudo systemctl restart nginx
+
+Step 4: Verifying Your Let's Encrypt Certificate Information</pre>
+        <div class="talk">
+            <div class="face-container">
+                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+            </div>
+            <div class="baloon-tail"></div>
+            <div class="baloon">
+                これで Let's encrypt の設定が終わってるはずだが、<br/>
+                別に何も変わってるようには見えないな……。
+            </div>
+        </div>
     </div>
 
     <h2>## [2025-07-12_Sat]</h2>
