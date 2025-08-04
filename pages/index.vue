@@ -732,7 +732,7 @@ server {
     location / {
         try_files $uri $uri/ /index.html;
     }
-}</pre>
+}</pre><br/>
         <pre class="code-b">
 sudo nginx -t
 sudo systemctl reload nginx
