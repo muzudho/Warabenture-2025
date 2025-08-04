@@ -43,7 +43,7 @@ Enter file in which to save the key (C:\Users\muzud/.ssh/id_rsa):
 これでローカルPCの公開鍵はできた。  
 
 
-### さくらのVPSサーバーのOSをインストールする：
+### さくらのVPSサーバーを借りて、そこへOSをインストールする：
 
 * OSインストール方法： 標準OS
 * OS: Ubuntu
@@ -132,7 +132,7 @@ git --version
 ```
 
 
-### リポジトリーをクローン
+### さくらのＶＰＳに、リポジトリーをクローン
 
 さくらのVPSに 📁 `/home/ubuntu/warabenture-2025` を置きたい。  
 
