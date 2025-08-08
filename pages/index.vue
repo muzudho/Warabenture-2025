@@ -2,7 +2,7 @@
     <h1># ワラベンチャー</h1>
     <section class="sec-1">
         今さら、手作りのホームページ。（Created by むずでょ）<br>
-        <NuxtLink to="/team-mirai-volunteer">チームみらいボランティア</NuxtLink>のリンクはこちら。
+        <NuxtLink to="/team-mirai-supporter">チームみらいボランティア</NuxtLink>のリンクはこちら。
     </section>
 
     <h2>## [2025-07-25_Fri]</h2>

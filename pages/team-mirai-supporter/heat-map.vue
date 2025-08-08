@@ -1,5 +1,5 @@
 <template>
-    <NuxtLink to="/">ワラベンチャー</NuxtLink>　＞　<NuxtLink to="/team-mirai-volunteer">チームみらいボランティア</NuxtLink><br>
+    <NuxtLink to="/">ワラベンチャー</NuxtLink>　＞　<NuxtLink to="/team-mirai-supporter">チームみらいサポーター活動</NuxtLink><br>
     <h1>ヒートマップ</h1>
     <section class="sec-1">
         <ul>

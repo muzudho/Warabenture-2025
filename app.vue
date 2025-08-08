@@ -13,7 +13,8 @@
                     -->
                     <router-link to="/">ホーム</router-link> |
                     <router-link to="/about">About</router-link> |
-                    <router-link to="/page-layout">PageLayout</router-link>
+                    <router-link to="/page-layout">PageLayout</router-link> |
+                    <router-link to="/team-mirai-supporter">チームみらいサポーター活動</router-link>
                 </nav>
 
                 <!-- /pages フォルダーの中にある .vue ファイル がここに埋め込まれます。 -->

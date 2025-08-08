@@ -1,10 +1,10 @@
 <template>
     <h1>ワラベンチャー</h1>
-    <h2>チームみらいボランティア</h2>
+    <h2>チームみらいサポーター活動</h2>
     <section class="sec-2">
         <ul>
             <li>
-                <NuxtLink to="/team-mirai-volunteer/heat-map">Heat Map</NuxtLink>
+                <NuxtLink to="/team-mirai-supporter/heat-map">Heat Map</NuxtLink>
             </li>
         </ul>
     </section>
