@@ -16,7 +16,7 @@
                     <router-link to="/page-layout">PageLayout</router-link> |
                     <router-link to="/team-mirai-supporter">チームみらいサポーター活動</router-link> |
                     <router-link to="/wara-city/map">わらシティ</router-link> |
-                    <router-link to="/making">アプリケーション製作の練習</router-link>
+                    <router-link to="/making">メイキング</router-link>
                 </nav>
 
                 <h1># ワラベンチャー</h1>
