@@ -14,7 +14,8 @@
                     <router-link to="/">ホーム</router-link> |
                     <router-link to="/about">About</router-link> |
                     <router-link to="/page-layout">PageLayout</router-link> |
-                    <router-link to="/team-mirai-supporter">チームみらいサポーター活動</router-link>
+                    <router-link to="/team-mirai-supporter">チームみらいサポーター活動</router-link> |
+                    <router-link to="/wara-city/map">わらシティ</router-link>
                 </nav>
 
                 <!-- /pages フォルダーの中にある .vue ファイル がここに埋め込まれます。 -->
@@ -58,6 +59,7 @@
         align-items: center;
         margin-top: 1px;
         margin-bottom: 1px;
+        color: #101010;
     }
 
     div.face-container{
