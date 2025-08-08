@@ -7,6 +7,23 @@
 <style>
     @import '@/styles/warabenture.css';
 
+    :root {
+        /** ハイフン２つで始まる名前は、スタイルシートに渡す引数名 */
+        --warabenture-background-color: hotpink;
+        --warabenture-sec-1-header-bgcolor: darkmagenta;
+        --warabenture-sec-1-header-fgcolor: khaki;
+        --warabenture-sec-2-header-bgcolor: darkorchid;
+        --warabenture-sec-2-header-fgcolor: skyblue;
+        --warabenture-sec-3-header-bgcolor: darkorchid;
+        --warabenture-sec-3-header-fgcolor: skyblue;
+        --warabenture-sec-4-header-bgcolor: darkorchid;
+        --warabenture-sec-4-header-fgcolor: skyblue;
+        --warabenture-sec-5-header-bgcolor: darkorchid;
+        --warabenture-sec-5-header-fgcolor: skyblue;
+        --warabenture-sec-6-header-bgcolor: darkorchid;
+        --warabenture-sec-6-header-fgcolor: skyblue;
+    }
+
     /** スクリーンショットの引用 */
     img.scr-shot {
         margin-top: 8px;

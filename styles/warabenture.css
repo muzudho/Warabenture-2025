@@ -1,10 +1,10 @@
 body{
-    background-color: hotpink;  /* ショッキングピンク */
+    background-color: var(--warabenture-background-color, #f0f0f0);
 }
 
 h1 {
-    background-color: darkmagenta;
-    color: khaki;
+    background-color: var(--warabenture-sec-1-header-bgcolor, #101010);
+    color: var(--warabenture-sec-1-header-fgcolor, #F0F0F0);
     font-size: xx-large;
     padding-left: 4px;
     padding-top: 6px;
@@ -15,8 +15,8 @@ h1 {
 /* スマホ向けスタイル (画面幅が768px以下) */
 @media screen and (max-width: 768px) {
     h2 {
-        background-color: darkorchid;
-        color: skyblue;
+        background-color: var(--warabenture-sec-2-header-bgcolor, #101010);
+        color: var(--warabenture-sec-2-header-fgcolor, #F0F0F0);
         font-size: x-large;
         margin-left: 20px;
         padding-left: 4px;
@@ -25,8 +25,8 @@ h1 {
     }
 
     h3 {
-        background-color: darkorchid;
-        color: skyblue;
+        background-color: var(--warabenture-sec-3-header-bgcolor, #181818);
+        color: var(--warabenture-sec-3-header-fgcolor, #F0F0F0);
         font-size: x-large;
         margin-left: 40px;
         padding-left: 4px;
@@ -35,8 +35,8 @@ h1 {
     }
 
     h4 {
-        background-color: darkorchid;
-        color: skyblue;
+        background-color: var(--warabenture-sec-4-header-bgcolor, #202020);
+        color: var(--warabenture-sec-4-header-fgcolor, #F0F0F0);
         font-size: large;
         margin-left: 60px;
         padding-left: 4px;
@@ -45,8 +45,8 @@ h1 {
     }
 
     h5 {
-        background-color: darkorchid;
-        color: skyblue;
+        background-color: var(--warabenture-sec-5-header-bgcolor, #282828);
+        color: var(--warabenture-sec-5-header-fgcolor, #F0F0F0);
         font-size: large;
         margin-left: 80px;
         padding-left: 4px;
@@ -55,8 +55,8 @@ h1 {
     }
 
     h6 {
-        background-color: darkorchid;
-        color: skyblue;
+        background-color: var(--warabenture-sec-6-header-bgcolor, #303030);
+        color: var(--warabenture-sec-6-header-fgcolor, #F0F0F0);
         font-size: medium;
         margin-left: 100px;
         padding-left: 4px;
@@ -128,8 +128,8 @@ h1 {
 /* パソコン向けスタイル (画面幅が769px以上) */
 @media screen and (min-width: 769px) {
     h2 {
-        background-color: darkorchid;
-        color: skyblue;
+        background-color: var(--warabenture-sec-2-header-bgcolor, #101010);
+        color: var(--warabenture-sec-2-header-fgcolor, #F0F0F0);
         font-size: x-large;
         margin-left: 60px;
         padding-left: 4px;
@@ -138,8 +138,8 @@ h1 {
     }
 
     h3 {
-        background-color: darkorchid;
-        color: skyblue;
+        background-color: var(--warabenture-sec-3-header-bgcolor, #181818);
+        color: var(--warabenture-sec-3-header-fgcolor, #F0F0F0);
         font-size: x-large;
         margin-left: 120px;
         padding-left: 4px;
@@ -148,8 +148,8 @@ h1 {
     }
 
     h4{
-        background-color: darkorchid;
-        color: skyblue;
+        background-color: var(--warabenture-sec-4-header-bgcolor, #202020);
+        color: var(--warabenture-sec-4-header-fgcolor, #F0F0F0);
         font-size: large;
         margin-left: 180px;
         padding-left: 4px;
@@ -158,8 +158,8 @@ h1 {
     }
 
     h5 {
-        background-color: darkorchid;
-        color: skyblue;
+        background-color: var(--warabenture-sec-5-header-bgcolor, #282828);
+        color: var(--warabenture-sec-5-header-fgcolor, #F0F0F0);
         font-size: large;
         margin-left: 240px;
         padding-left: 4px;
@@ -168,8 +168,8 @@ h1 {
     }
 
     h6 {
-        background-color: darkorchid;
-        color: skyblue;
+        background-color: var(--warabenture-sec-6-header-bgcolor, #303030);
+        color: var(--warabenture-sec-6-header-fgcolor, #F0F0F0);
         font-size: medium;
         margin-left: 300px;
         padding-left: 4px;
