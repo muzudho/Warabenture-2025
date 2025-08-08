@@ -1,12 +1,12 @@
 <template>
     <h1># ワラベンチャー</h1>
-    <div class="div1">
+    <section class="sec-1">
         今さら、手作りのホームページ。（Created by むずでょ）<br>
         <NuxtLink to="/team-mirai-volunteer">チームみらいボランティア</NuxtLink>のリンクはこちら。
-    </div>
+    </section>
 
     <h2>## [2025-07-25_Fri]</h2>
-    <div class="div2">
+    <section class="sec-2">
         <a target="_blank" href="/img/journal/202507/202507__warabenture__25--1412-csvCleaning2OnTauri-o1o0.png">
             <img class="scr-shot" src="/img/journal/202507/202507__warabenture__25--1412-csvCleaning2OnTauri-o1o0.png">
         </a><br/>
@@ -748,10 +748,10 @@ sudo certbot --nginx -d warabenture.com -d www.warabenture.com
                 通った。nginxの設定は、80 と 443 の２つ書く必要があったのか。
             </div>
         </div>
-    </div>
+    </section>
 
     <h2>## [2025-07-12_Sat]</h2>
-    <div class="div2">
+    <section class="sec-2">
         <div class="talk">
             <div class="face-container">
                 <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
@@ -901,10 +901,10 @@ pnpm tauri dev</pre>
                 そうか、自動的にレスポンシブ・デザインに対応してもらうには、Ｗｅｂサイトに特化したフレームワークに丸投げした方がいいのか……。
             </div>
         </div>
-    </div>
+    </section>
 
     <h2>## [2025-06-19_Thu]</h2>
-    <div class="div2">
+    <section class="sec-2">
         <div class="talk">
             <div class="face-container">
                 <img src="@/assets/img/202506__character__01--2013-kifuwarabe-o1o1o0.png" />
@@ -1009,10 +1009,10 @@ pnpm tauri dev</pre>
                 キャッシュをクリアーしてやり直し。
             </div>
         </div>
-    </div>
+    </section>
 
     <h2>## [2025-06-15_Sun]</h2>
-    <div class="div2">
+    <section class="sec-2">
         <a target="_blank" href="/img/journal/202506/202506__tauri__15--0059-CsvCleaningOnTauri-o1o0.png">
             <img class="scr-shot" src="/img/journal/202506/202506__tauri__15--0059-CsvCleaningOnTauri-o1o0.png">
         </a><br/>
@@ -1314,10 +1314,10 @@ cargo clean
                 Tauri 恐ろしいな……。
             </div>
         </div>
-    </div>
+    </section>
 
     <h2>## [2025-06-12_Thu]</h2>
-    <div class="div2">
+    <section class="sec-2">
         <div class="talk">
             <div class="face-container">
                 <img src="@/assets/img/202506__character__01--2013-kifuwarabe-o1o1o0.png" />
@@ -1377,10 +1377,10 @@ cargo clean
                 今日は途中で終了。
             </div>
         </div>
-    </div>
+    </section>
 
     <h2>## [2025-06-05_Thu]</h2>
-    <div class="div2">
+    <section class="sec-2">
         <div class="talk">
             <div class="face-container">
                 <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
@@ -1579,10 +1579,10 @@ cargo clean
             ひとまず、カフェインレス・ブラックコーヒーでも飲んで休めだぜ。
         </div>
         </div>
-    </div>
+    </section>
 
     <h2>## [2025-06-04_Wed]</h2>
-    <div class="div2">
+    <section class="sec-2">
         <div class="talk">
             <div class="face-container">
                 <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
@@ -1616,10 +1616,10 @@ cargo clean
             👆 Rust で作った関数の戻り値を、TypeScript 側できっちり受け取れるように修正したぜ。
         </div>
         </div>
-    </div>
+    </section>
 
     <h2>## [2025-06-03_Tue]</h2>
-    <div class="div2">
+    <section class="sec-2">
         <div class="talk">
         <div class="face-container">
             <img src="@/assets/img/202506__character__01--2013-kifuwarabe-o1o1o0.png" />
@@ -1997,11 +1997,11 @@ cargo clean
             見積りでは 2 ぐらいだったから、調査に 1.5 倍は取られるってとこねえ。
         </div>
         </div>
-    </div>
+    </section>
 
 
     <h2>## [2025-06-02_Mon]</h2>
-    <div class="div2">
+    <section class="sec-2">
         <div class="talk">
         <div class="face-container">
             <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
@@ -2436,10 +2436,10 @@ cargo clean
                 📖 <a target="_blank" href="https://github.com/muzudho/notepad-on-tauri">muzudho / notepad-on-tauri</a>
             </div>
         </div>
-    </div>
+    </section>
 
     <h2>## [2025-06-01_Sun]</h2>
-    <div class="div2">
+    <section class="sec-2">
         <div class="talk">
             <div class="face-container">
                 <img src="@/assets/img/202101__character__24-o2o2o3o0.png" />
@@ -2507,12 +2507,12 @@ cargo clean
                 メインのコンテンツは何かないのかだぜ？
             </div>
         </div>
-    </div>
+    </section>
 
     <h2>## [2025-05-24_Sat]</h2>
-    <div class="div2">
+    <section class="sec-2">
         Grok の助けを得て、ホームページ作成中（＾ｑ＾）<br/>
         <img src="@/assets/img/202505__grok__25-warabenture-2.png" />
         <img src="@/assets/img/202505__grok__25-warabenture-1.png" /><br/>
-    </div>
+    </section>
 </template>
