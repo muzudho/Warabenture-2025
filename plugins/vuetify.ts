@@ -29,6 +29,7 @@ export default defineNuxtPlugin((nuxtApp) => {
 // # サブ設定 #
 // ############
 
+// https://vuetifyjs.com/ja/features/theme/#custom-themes
 const myCustomLightTheme = {
     dark: false,
     colors: {
