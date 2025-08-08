@@ -6,4 +6,13 @@ export default defineNuxtConfig({
     build: {
         transpile: ["vuetify"],
     },
+    srcDir: 'src/', // srcフォルダをルートに設定
+    dir: {  // マッピングか？
+        assets: 'assets', // src/assets
+        //components: 'components', // src/components
+        //composables: 'composables', // src/composables
+        pages: 'pages', // src/pages
+        plugins: 'plugins', // src/plugins
+        public: '../public', // /public
+    },
 })
