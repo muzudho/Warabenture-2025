@@ -97,11 +97,6 @@
             padding-left: 124px;
         }
 
-        div.div3 {
-            color: midnightblue;
-            margin-left: 40px;
-        }
-
         .sec-1 img {
             max-width: 300px;
             max-height: 300px;
@@ -213,11 +208,6 @@
 
         section.sec-6 {
             padding-left: 364px;
-        }
-
-        div.div3 {
-            color: midnightblue;
-            margin-left: 180px;
         }
 
         .sec-1 img {

@@ -1,11 +1,13 @@
 <template>
     <NuxtLink to="/">ワラベンチャー</NuxtLink>　＞　<NuxtLink to="/team-mirai-volunteer">チームみらいボランティア</NuxtLink><br>
     <h1>ヒートマップ</h1>
-    <ul>
-        <li><NuxtLink to="#functions">機能紹介</NuxtLink></li>
-        <li><NuxtLink to="#download">ダウンロードはこちらから</NuxtLink></li>
-        <li><NuxtLink to="#chatting">雑談</NuxtLink></li>
-    </ul>
+    <section class="sec-1">
+        <ul>
+            <li><NuxtLink to="#functions">機能紹介</NuxtLink></li>
+            <li><NuxtLink to="#download">ダウンロードはこちらから</NuxtLink></li>
+            <li><NuxtLink to="#chatting">雑談</NuxtLink></li>
+        </ul>
+    </section>
     <h2 id="functions">機能紹介</h2>
     <section class="sec-2">
 
