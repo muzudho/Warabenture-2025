@@ -1,7 +1,3 @@
-body{
-    background-color: var(--warabenture-background-color, #f0f0f0);
-}
-
 h1 {
     background-color: var(--warabenture-sec-1-header-bgcolor, #101010);
     color: var(--warabenture-sec-1-header-fgcolor, #F0F0F0);

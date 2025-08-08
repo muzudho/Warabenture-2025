@@ -1,15 +1,23 @@
 <template>
-    <div>
-        <NuxtPage />
-    </div>
+    <v-app>
+        <v-main>
+            <NuxtLayout>
+
+                <NuxtPage />
+
+            </NuxtLayout>
+        </v-main>
+    </v-app>
 </template>
 
 <style>
     @import '@/styles/warabenture.css';
 
+    /**
+     * NOTE: Vuetify がテーマの機能を持っているので、 plugins/vuetify.ts でもスタイルを設定すること。
+     */
     :root {
         /** ハイフン２つで始まる名前は、スタイルシートに渡す引数名 */
-        --warabenture-background-color: hotpink;
         --warabenture-sec-1-header-bgcolor: darkmagenta;
         --warabenture-sec-1-header-fgcolor: khaki;
         --warabenture-sec-2-header-bgcolor: darkorchid;
