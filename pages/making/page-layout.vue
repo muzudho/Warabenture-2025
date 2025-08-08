@@ -1,7 +1,8 @@
 <template>
     <h2>## ページ・レイアウト</h2>
+    <h2>説明を始める前に、説明ページのレイアウトを決めておこうぜ！</h2>
     <section class="sec-2">
-        このホームページのページ・レイアウトの説明だぜ。<br/>
+        凡例だぜ（＾▽＾）！
     </section>
 
     <v-container>
@@ -45,5 +46,7 @@
             １．１．１．１．１．１号の本文だぜ（＾▽＾）！
         </section>
 
-</v-container>
+    </v-container>
+    <hr/>
+    <router-link to="/making">メイキングに戻る</router-link>
 </template>

@@ -4,6 +4,7 @@
         アプリケーション製作の練習だぜ（＾▽＾）！<br/>
 
         <ul>
+            <li>📖 <router-link to="/page-layout">説明を始める前に、説明ページのレイアウトを決めておこうぜ！</router-link></li>
             <li>📖 <router-link to="/making/mount-practice">onMounted を使う練習だぜ！</router-link></li>
         </ul>
     </section>
