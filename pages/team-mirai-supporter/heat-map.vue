@@ -1,15 +1,16 @@
 <template>
-    <NuxtLink to="/">ワラベンチャー</NuxtLink>　＞　<NuxtLink to="/team-mirai-supporter">チームみらいサポーター活動</NuxtLink><br>
-    <h1>ヒートマップ</h1>
-    <section class="sec-1">
+    <h2>## チームみらいサポーター活動</h2>
+    <h3>### ヒートマップ</h3>
+    <section class="sec-3">
         <ul>
             <li><NuxtLink to="#functions">機能紹介</NuxtLink></li>
             <li><NuxtLink to="#download">ダウンロードはこちらから</NuxtLink></li>
             <li><NuxtLink to="#chatting">雑談</NuxtLink></li>
         </ul>
     </section>
-    <h2 id="functions">機能紹介</h2>
-    <section class="sec-2">
+
+    <h3 id="functions">### 機能紹介</h3>
+    <section class="sec-3">
 
         <a target="_blank" href="/img/journal/202506/202506__teamMirai__09--1610-heatMap16-o1o0.png">
             <img class="scr-shot" src="/img/journal/202506/202506__teamMirai__09--1610-heatMap16-o1o0.png">
@@ -107,8 +108,9 @@
             </div>
         </div>
     </section>
-    <h2 id="download">ダウンロードはこちらから</h2>
-    <section class="sec-2">
+
+    <h3 id="download">### ダウンロードはこちらから</h3>
+    <section class="sec-3">
         <div class="talk">
             <div class="face-container">
                 <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
@@ -169,8 +171,9 @@
             </div>
         </div>
     </section>
-    <h2 id="chatting">雑談</h2>
-    <section class="sec-2">
+
+    <h3 id="chatting">### 雑談</h3>
+    <section class="sec-3">
         <div class="talk">
             <div class="face-container">
                 <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />

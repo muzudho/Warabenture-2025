@@ -1,4 +1,9 @@
 <template>
+    <h2>## ページ・レイアウト</h2>
+    <section class="sec-2">
+        このホームページのページ・レイアウトの説明だぜ。<br/>
+    </section>
+
     <v-container>
         <!-- 上は［巻］＞［編］＞［部］ -->
         <h1>章（1 Chapter）の見出し</h1>

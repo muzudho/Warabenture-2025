@@ -15,8 +15,11 @@
                     <router-link to="/about">About</router-link> |
                     <router-link to="/page-layout">PageLayout</router-link> |
                     <router-link to="/team-mirai-supporter">チームみらいサポーター活動</router-link> |
-                    <router-link to="/wara-city/map">わらシティ</router-link>
+                    <router-link to="/wara-city/map">わらシティ</router-link> |
+                    <router-link to="/programming">アプリケーション製作の練習</router-link>
                 </nav>
+
+                <h1># ワラベンチャー</h1>
 
                 <!-- /pages フォルダーの中にある .vue ファイル がここに埋め込まれます。 -->
                 <NuxtPage />
