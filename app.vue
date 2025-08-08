@@ -97,20 +97,45 @@
             padding-left: 124px;
         }
 
-        div.div2 {
-            color: midnightblue;
-            margin-left: 30px;
-        }
-
         div.div3 {
             color: midnightblue;
             margin-left: 40px;
         }
 
-        .div2 img {
+        .sec-1 img {
             max-width: 300px;
             max-height: 300px;
             object-fit: contain; /* 画像が枠に収まるように調整 */
+        }
+
+        .sec-2 img {
+            max-width: 300px;
+            max-height: 300px;
+            object-fit: contain;
+        }
+
+        .sec-3 img {
+            max-width: 300px;
+            max-height: 300px;
+            object-fit: contain;
+        }
+
+        .sec-4 img {
+            max-width: 300px;
+            max-height: 300px;
+            object-fit: contain;
+        }
+
+        .sec-5 img {
+            max-width: 300px;
+            max-height: 300px;
+            object-fit: contain;
+        }
+
+        .sec-6 img {
+            max-width: 300px;
+            max-height: 300px;
+            object-fit: contain;
         }
     }
 
@@ -190,14 +215,45 @@
             padding-left: 364px;
         }
 
-        div.div2 {
-            color: midnightblue;
-            margin-left: 120px;
-        }
-
         div.div3 {
             color: midnightblue;
             margin-left: 180px;
+        }
+
+        .sec-1 img {
+            max-width: 1024px;  /* PCなので比較的大きなサイズ */
+            max-height: 1024px;
+            object-fit: contain; /* 画像が枠に収まるように調整 */
+        }
+
+        .sec-2 img {
+            max-width: 1024px;
+            max-height: 1024px;
+            object-fit: contain;
+        }
+
+        .sec-3 img {
+            max-width: 1024px;
+            max-height: 1024px;
+            object-fit: contain;
+        }
+
+        .sec-4 img {
+            max-width: 1024px;
+            max-height: 1024px;
+            object-fit: contain;
+        }
+
+        .sec-5 img {
+            max-width: 1024px;
+            max-height: 1024px;
+            object-fit: contain;
+        }
+
+        .sec-6 img {
+            max-width: 1024px;
+            max-height: 1024px;
+            object-fit: contain;
         }
     }
 

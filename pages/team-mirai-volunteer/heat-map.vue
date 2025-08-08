@@ -7,7 +7,8 @@
         <li><NuxtLink to="#chatting">雑談</NuxtLink></li>
     </ul>
     <h2 id="functions">機能紹介</h2>
-    <div class="div2">
+    <section class="sec-2">
+
         <a target="_blank" href="/img/journal/202506/202506__teamMirai__09--1610-heatMap16-o1o0.png">
             <img class="scr-shot" src="/img/journal/202506/202506__teamMirai__09--1610-heatMap16-o1o0.png">
         </a><br/>
@@ -103,9 +104,9 @@
                 使い方はワークブックの中に［手順書_XXXX］ワークシートを入れてあるから、それを読んでくれだぜ。
             </div>
         </div>
-    </div>
+    </section>
     <h2 id="download">ダウンロードはこちらから</h2>
-    <div class="div2">
+    <section class="sec-2">
         <div class="talk">
             <div class="face-container">
                 <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
@@ -165,9 +166,9 @@
                 👆 ✅チェックしてブロックを外してくれだぜ。
             </div>
         </div>
-    </div>
+    </section>
     <h2 id="chatting">雑談</h2>
-    <div class="div2">
+    <section class="sec-2">
         <div class="talk">
             <div class="face-container">
                 <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
@@ -300,7 +301,7 @@
                 うわあ
             </div>
         </div>
-    </div>
+    </section>
 </template>
 
 <script setup>
