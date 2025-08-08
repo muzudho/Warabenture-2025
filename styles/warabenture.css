@@ -1,0 +1,239 @@
+body{
+    background-color: hotpink;  /* ショッキングピンク */
+}
+
+h1 {
+    background-color: darkmagenta;
+    color: khaki;
+    font-size: xx-large;
+    padding-left: 4px;
+    padding-top: 6px;
+    padding-bottom: 2px;
+    text-align: left !important;
+}
+
+/* スマホ向けスタイル (画面幅が768px以下) */
+@media screen and (max-width: 768px) {
+    h2 {
+        background-color: darkorchid;
+        color: skyblue;
+        font-size: x-large;
+        margin-left: 20px;
+        padding-left: 4px;
+        padding-top: 6px;
+        padding-bottom: 2px;
+    }
+
+    h3 {
+        background-color: darkorchid;
+        color: skyblue;
+        font-size: x-large;
+        margin-left: 40px;
+        padding-left: 4px;
+        padding-top: 6px;
+        padding-bottom: 2px;
+    }
+
+    h4 {
+        background-color: darkorchid;
+        color: skyblue;
+        font-size: large;
+        margin-left: 60px;
+        padding-left: 4px;
+        padding-top: 6px;
+        padding-bottom: 2px;
+    }
+
+    h5 {
+        background-color: darkorchid;
+        color: skyblue;
+        font-size: large;
+        margin-left: 80px;
+        padding-left: 4px;
+        padding-top: 6px;
+        padding-bottom: 2px;
+    }
+
+    h6 {
+        background-color: darkorchid;
+        color: skyblue;
+        font-size: medium;
+        margin-left: 100px;
+        padding-left: 4px;
+        padding-top: 6px;
+        padding-bottom: 2px;
+    }
+
+    section.sec-1 {
+        padding-left: 24px;
+    }
+
+    section.sec-2 {
+        padding-left: 44px;
+    }
+
+    section.sec-3 {
+        padding-left: 64px;
+    }
+
+    section.sec-4 {
+        padding-left: 84px;
+    }
+
+    section.sec-5 {
+        padding-left: 104px;
+    }
+
+    section.sec-6 {
+        padding-left: 124px;
+    }
+
+    .sec-1 img {
+        max-width: 300px;
+        max-height: 300px;
+        object-fit: contain; /* 画像が枠に収まるように調整 */
+    }
+
+    .sec-2 img {
+        max-width: 300px;
+        max-height: 300px;
+        object-fit: contain;
+    }
+
+    .sec-3 img {
+        max-width: 300px;
+        max-height: 300px;
+        object-fit: contain;
+    }
+
+    .sec-4 img {
+        max-width: 300px;
+        max-height: 300px;
+        object-fit: contain;
+    }
+
+    .sec-5 img {
+        max-width: 300px;
+        max-height: 300px;
+        object-fit: contain;
+    }
+
+    .sec-6 img {
+        max-width: 300px;
+        max-height: 300px;
+        object-fit: contain;
+    }
+}
+
+/* パソコン向けスタイル (画面幅が769px以上) */
+@media screen and (min-width: 769px) {
+    h2 {
+        background-color: darkorchid;
+        color: skyblue;
+        font-size: x-large;
+        margin-left: 60px;
+        padding-left: 4px;
+        padding-top: 6px;
+        padding-bottom: 2px;
+    }
+
+    h3 {
+        background-color: darkorchid;
+        color: skyblue;
+        font-size: x-large;
+        margin-left: 120px;
+        padding-left: 4px;
+        padding-top: 6px;
+        padding-bottom: 2px;
+    }
+
+    h4{
+        background-color: darkorchid;
+        color: skyblue;
+        font-size: large;
+        margin-left: 180px;
+        padding-left: 4px;
+        padding-top: 6px;
+        padding-bottom: 2px;
+    }
+
+    h5 {
+        background-color: darkorchid;
+        color: skyblue;
+        font-size: large;
+        margin-left: 240px;
+        padding-left: 4px;
+        padding-top: 6px;
+        padding-bottom: 2px;
+    }
+
+    h6 {
+        background-color: darkorchid;
+        color: skyblue;
+        font-size: medium;
+        margin-left: 300px;
+        padding-left: 4px;
+        padding-top: 6px;
+        padding-bottom: 2px;
+    }
+
+    section.sec-1 {
+        padding-left: 64px;
+    }
+
+    section.sec-2 {
+        padding-left: 124px;
+    }
+
+    section.sec-3 {
+        padding-left: 184px;
+    }
+
+    section.sec-4 {
+        padding-left: 244px;
+    }
+
+    section.sec-5 {
+        padding-left: 304px;
+    }
+
+    section.sec-6 {
+        padding-left: 364px;
+    }
+
+    .sec-1 img {
+        max-width: 1024px;  /* PCなので比較的大きなサイズ */
+        max-height: 1024px;
+        object-fit: contain; /* 画像が枠に収まるように調整 */
+    }
+
+    .sec-2 img {
+        max-width: 1024px;
+        max-height: 1024px;
+        object-fit: contain;
+    }
+
+    .sec-3 img {
+        max-width: 1024px;
+        max-height: 1024px;
+        object-fit: contain;
+    }
+
+    .sec-4 img {
+        max-width: 1024px;
+        max-height: 1024px;
+        object-fit: contain;
+    }
+
+    .sec-5 img {
+        max-width: 1024px;
+        max-height: 1024px;
+        object-fit: contain;
+    }
+
+    .sec-6 img {
+        max-width: 1024px;
+        max-height: 1024px;
+        object-fit: contain;
+    }
+}
