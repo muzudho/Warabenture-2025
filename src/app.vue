@@ -36,8 +36,12 @@
      */
     :root {
         /** ハイフン２つで始まる名前は、スタイルシートに渡す引数名 */
+        /*
         --warabenture-sec-1-header-bgcolor: darkmagenta;
         --warabenture-sec-1-header-fgcolor: khaki;
+        */
+        --warabenture-sec-1-header-bgcolor: darkorchid;
+        --warabenture-sec-1-header-fgcolor: skyblue;
         --warabenture-sec-2-header-bgcolor: darkorchid;
         --warabenture-sec-2-header-fgcolor: skyblue;
         --warabenture-sec-3-header-bgcolor: darkorchid;
@@ -48,6 +52,8 @@
         --warabenture-sec-5-header-fgcolor: skyblue;
         --warabenture-sec-6-header-bgcolor: darkorchid;
         --warabenture-sec-6-header-fgcolor: skyblue;
+
+        --warabenture-img-six-sharps: url('/img/warabenture/six-sharps-light-skyblue.png');
     }
 
     /** スクリーンショットの引用 */
