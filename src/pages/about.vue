@@ -30,28 +30,31 @@
         ３つの環境を用意しているぜ（＾▽＾）！
     </section>
 
-    <h4>環境１</h4>
+    <h4>環境１：　デスクトップアプリの練習</h4>
     <section class="sec-4">
         <p>フロントエンド： Vue 3, Vuetify 3</p>
         <p>バックエンド： Tauri 2</p>
         <p>ホスト： Takahashi-PC（ローカルＰＣ）</p>
         <p>ＯＳ： Windows 11</p>
+        <p>ソース： <a target="_blank" href="https://github.com/muzudho/vue-tauri-desktopapp-sample">muzudho / vue-tauri-desktopapp-sample</a></p>
     </section>
 
-    <h4>環境２</h4>
+    <h4>環境２：　ウェブアプリの練習</h4>
     <section class="sec-4">
         <p>フロントエンド： Vue3, Vuetify3</p>
         <p>バックエンド： Nuxt 2</p>
         <p>ホスト： Takahashi-PC（ローカルＰＣ）</p>
         <p>ＯＳ： Windows 11</p>
+        <p>ソース： <a target="_blank" href="https://github.com/muzudho/vue-nuxt-webapp-sample">muzudho / vue-nuxt-webapp-sample</a></p>
     </section>
 
-    <h4>環境３</h4>
+    <h4>環境３：　ワラベンチャー・ホームページ</h4>
     <section class="sec-4">
         <p>フロントエンド： Vue3, Vuetify3</p>
         <p>バックエンド： Nuxt 2</p>
         <p>ホスト： ****（さくらのVPS）</p>
         <p>ＯＳ： Ubuntu</p>
+        <p>ソース： <a target="_blank" href="https://github.com/muzudho/Warabenture-2025">muzudho / Warabenture-2025</a></p>
     </section>
 
     <h4>説明</h4>
