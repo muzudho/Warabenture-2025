@@ -1,7 +1,7 @@
 <template>
     <the-header/>
 
-    <h2>About</h2>
+    <h2>このサイトについて</h2>
     <section class="sec-2">
         <p>ワラベンチャーでは、Ｗｅｂとデスクトップで両用できるアプリケーションを開発していっているぜ（＾▽＾）！</p>
     </section>
