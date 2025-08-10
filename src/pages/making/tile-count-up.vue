@@ -1,6 +1,8 @@
 <template>
-    <h2>カウントアップのアニメーションのテストだぜ！</h2>
-    <section class="sec-2">
+    <the-header/>
+
+    <h3>タイル　＞　でカウントアップのアニメーションするぜ！</h3>
+    <section class="sec-3">
         ここに切り抜いたタイルを表示：<br/>
         <TileAnimation
                 :frames="[
@@ -96,7 +98,7 @@
         ：ここまで。
     </section>
     <hr/>
-    <router-link to="/making">メイキングに戻る</router-link>
+    <router-link to="/making">メイキングの先頭に戻る</router-link>
 </template>
 
 <script setup lang="ts">
@@ -111,8 +113,8 @@
     // + コンポーネント +
     // ++++++++++++++++++
 
-    //import Tile from '@/components/Tile.vue';
     import TileAnimation from '@/components/TileAnimation.vue';
+    import TheHeader from './the-header.vue';
 
     // ##############
     // # 共有データ #

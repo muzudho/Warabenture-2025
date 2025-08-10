@@ -1,13 +1,15 @@
 <template>
-    <h2>カウントアップのテストだぜ！</h2>
-    <section class="sec-2">
+    <the-header/>
+
+    <h3>カウントアップするぜ！</h3>
+    <section class="sec-3">
         <p>カウント: {{ count }}</p>
         <v-btn @click="startTimer">スタート</v-btn>
         <v-btn @click="stopTimer">ストップ</v-btn>
         <v-btn @click="resetTimer">リセット</v-btn>
     </section>
     <hr/>
-    <router-link to="/making">メイキングに戻る</router-link>
+    <router-link to="/making">メイキングの先頭に戻る</router-link>
 </template>
 
 <script setup lang="ts">
@@ -17,6 +19,12 @@
     // ##############
 
     import { onMounted, ref } from 'vue';
+
+    // ++++++++++++++++++
+    // + コンポーネント +
+    // ++++++++++++++++++
+
+    import TheHeader from './the-header.vue';
 
     // ##############
     // # 共有データ #

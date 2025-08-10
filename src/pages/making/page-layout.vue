@@ -1,6 +1,8 @@
 <template>
-    <h2>説明を始める前に、説明ページのレイアウトを決めておこうぜ！</h2>
-    <section class="sec-2">
+    <the-header/>
+
+    <h3>説明を始める前に、説明ページのレイアウトを決めておこうぜ！</h3>
+    <section class="sec-3">
         凡例だぜ（＾▽＾）！
     </section>
 
@@ -44,5 +46,19 @@
 
     </v-container>
     <hr/>
-    <router-link to="/making">メイキングに戻る</router-link>
+    <router-link to="/making">メイキングの先頭に戻る</router-link>
 </template>
+
+<script setup lang="ts">
+
+    // ##############
+    // # インポート #
+    // ##############
+
+    // ++++++++++++++++++
+    // + コンポーネント +
+    // ++++++++++++++++++
+
+    import TheHeader from './the-header.vue';
+
+</script>
