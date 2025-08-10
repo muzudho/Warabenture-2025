@@ -3,11 +3,7 @@
 
     <h2>チームみらいサポーター活動の章だぜ！</h2>
     <section class="sec-2">
-        <ul>
-            <li>
-                <NuxtLink to="/team-mirai-supporter/heat-map">Heat Map</NuxtLink>
-            </li>
-        </ul>
+        <router-link to="/team-mirai-supporter">この章の先頭に戻る</router-link>
     </section>
 </template>
 

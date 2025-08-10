@@ -1,5 +1,6 @@
 <template>
-    <h2>チームみらいサポーター活動</h2>
+    <the-header/>
+
     <h3>ヒートマップ</h3>
     <section class="sec-3">
         <ul>
@@ -309,8 +310,18 @@
     </section>
 </template>
 
-<script setup>
-  // スクリプト（必要ならロジックをここに）
+<script setup lang="ts">
+
+    // ##############
+    // # インポート #
+    // ##############
+
+    // ++++++++++++++++++
+    // + コンポーネント +
+    // ++++++++++++++++++
+
+    import TheHeader from './the-header.vue';
+
 </script>
 
 <style scoped>
