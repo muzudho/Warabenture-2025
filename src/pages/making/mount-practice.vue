@@ -1,5 +1,5 @@
 <template>
-    <h2>## onMounted を使う練習だぜ！</h2>
+    <h2>onMounted を使う練習だぜ！</h2>
 
     <section class="sec-2">
         <p>{{ textVM }}</p>

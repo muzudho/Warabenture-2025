@@ -1,5 +1,5 @@
 <template>
-    <h2>## JSONファイルの読込だぜ！</h2>
+    <h2>JSONファイルの読込だぜ！</h2>
     <section class="sec-2">
         <p>{{ jsonStr }}</p>
     </section>

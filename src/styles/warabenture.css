@@ -233,3 +233,64 @@ h1 {
         object-fit: contain;
     }
 }
+
+/* ヘッダーの先頭に # のアイコンを付ける */
+h1::before {
+    content: "";            /* 指定しないと、画像も表示されない */
+    display:inline-block;
+    width: 64px;            /* 切り抜く画像のサイズ */
+    height: 48px;
+    zoom:0.5;               /* なんか２倍角なので、目視確認で合わせる。 font-size: xx-large; だから？ */
+    background-image: var(--warabenture-img-six-sharps, url('/img/warabenture/six-sharps-light.png'));
+    background-position: -160px 0;
+}
+
+h2::before {
+    content: "";
+    display:inline-block;
+    width: 96px;
+    height: 48px;
+    zoom:0.4;               /* なんか拡大されてるので、目視確認で合わせる。 font-size: x-large; だから？ */
+    background-image: var(--warabenture-img-six-sharps, url('/img/warabenture/six-sharps-light.png'));
+    background-position: -128px 0;
+}
+
+h3::before {
+    content: "";
+    display:inline-block;
+    width: 128px;
+    height: 48px;
+    zoom:0.4;
+    background-image: var(--warabenture-img-six-sharps, url('/img/warabenture/six-sharps-light.png'));
+    background-position: -96px 0;
+}
+
+h4::before {
+    content: "";
+    display:inline-block;
+    width: 160px;
+    height: 48px;
+    zoom:0.3;       /* なんか拡大されてるので、目視確認で合わせる。 font-size: large; だから？ */
+    background-image: var(--warabenture-img-six-sharps, url('/img/warabenture/six-sharps-light.png'));
+    background-position: -64px 0;
+}
+
+h5::before {
+    content: "";
+    display:inline-block;
+    width: 192px;
+    height: 48px;
+    zoom:0.3;       /* なんか拡大されてるので、目視確認で合わせる。 font-size: large; だから？ */
+    background-image: var(--warabenture-img-six-sharps, url('/img/warabenture/six-sharps-light.png'));
+    background-position: -32px 0;
+}
+
+h6::before {
+    content: "";
+    display:inline-block;
+    width: 224px;
+    height: 48px;
+    zoom:0.25;       /* なんか拡大されてるので、目視確認で合わせる。 font-size: medium; だから？ */
+    background-image: var(--warabenture-img-six-sharps, url('/img/warabenture/six-sharps-light.png'));
+    background-position: 0px 0;
+}

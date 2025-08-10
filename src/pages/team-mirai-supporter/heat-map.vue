@@ -1,6 +1,6 @@
 <template>
-    <h2>## チームみらいサポーター活動</h2>
-    <h3>### ヒートマップ</h3>
+    <h2>チームみらいサポーター活動</h2>
+    <h3>ヒートマップ</h3>
     <section class="sec-3">
         <ul>
             <li><NuxtLink to="#functions">機能紹介</NuxtLink></li>
@@ -9,7 +9,7 @@
         </ul>
     </section>
 
-    <h3 id="functions">### 機能紹介</h3>
+    <h3 id="functions">機能紹介</h3>
     <section class="sec-3">
 
         <a target="_blank" href="/img/journal/202506/202506__teamMirai__09--1610-heatMap16-o1o0.png">
@@ -109,7 +109,7 @@
         </div>
     </section>
 
-    <h3 id="download">### ダウンロードはこちらから</h3>
+    <h3 id="download">ダウンロードはこちらから</h3>
     <section class="sec-3">
         <div class="talk">
             <div class="face-container">
@@ -172,7 +172,7 @@
         </div>
     </section>
 
-    <h3 id="chatting">### 雑談</h3>
+    <h3 id="chatting">雑談</h3>
     <section class="sec-3">
         <div class="talk">
             <div class="face-container">

@@ -18,7 +18,7 @@
                     <router-link to="/making">メイキング</router-link>
                 </nav>
 
-                <h1># ワラベンチャー</h1>
+                <h1>ワラベンチャー</h1>
 
                 <!-- /pages フォルダーの中にある .vue ファイル がここに埋め込まれます。 -->
                 <NuxtPage />

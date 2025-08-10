@@ -1,5 +1,5 @@
 <template>
-    <h2>## カウントアップのテストだぜ！</h2>
+    <h2>カウントアップのテストだぜ！</h2>
     <section class="sec-2">
         <p>カウント: {{ count }}</p>
         <v-btn @click="startTimer">スタート</v-btn>

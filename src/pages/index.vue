@@ -3,7 +3,7 @@
         今さら、手作りのホームページ。（Created by むずでょ）<br/>
     </section>
 
-    <h2>## [2025-07-25_Fri]</h2>
+    <h2>[2025-07-25_Fri]</h2>
     <section class="sec-2">
         <a target="_blank" href="/img/journal/202507/202507__warabenture__25--1412-csvCleaning2OnTauri-o1o0.png">
             <img class="scr-shot" src="/img/journal/202507/202507__warabenture__25--1412-csvCleaning2OnTauri-o1o0.png">
@@ -748,7 +748,7 @@ sudo certbot --nginx -d warabenture.com -d www.warabenture.com
         </div>
     </section>
 
-    <h2>## [2025-07-12_Sat]</h2>
+    <h2>[2025-07-12_Sat]</h2>
     <section class="sec-2">
         <div class="talk">
             <div class="face-container">
@@ -901,7 +901,7 @@ pnpm tauri dev</pre>
         </div>
     </section>
 
-    <h2>## [2025-06-19_Thu]</h2>
+    <h2>[2025-06-19_Thu]</h2>
     <section class="sec-2">
         <div class="talk">
             <div class="face-container">
@@ -1009,7 +1009,7 @@ pnpm tauri dev</pre>
         </div>
     </section>
 
-    <h2>## [2025-06-15_Sun]</h2>
+    <h2>[2025-06-15_Sun]</h2>
     <section class="sec-2">
         <a target="_blank" href="/img/journal/202506/202506__tauri__15--0059-CsvCleaningOnTauri-o1o0.png">
             <img class="scr-shot" src="/img/journal/202506/202506__tauri__15--0059-CsvCleaningOnTauri-o1o0.png">
@@ -1314,7 +1314,7 @@ cargo clean
         </div>
     </section>
 
-    <h2>## [2025-06-12_Thu]</h2>
+    <h2>[2025-06-12_Thu]</h2>
     <section class="sec-2">
         <div class="talk">
             <div class="face-container">
@@ -1377,7 +1377,7 @@ cargo clean
         </div>
     </section>
 
-    <h2>## [2025-06-05_Thu]</h2>
+    <h2>[2025-06-05_Thu]</h2>
     <section class="sec-2">
         <div class="talk">
             <div class="face-container">
@@ -1579,7 +1579,7 @@ cargo clean
         </div>
     </section>
 
-    <h2>## [2025-06-04_Wed]</h2>
+    <h2>[2025-06-04_Wed]</h2>
     <section class="sec-2">
         <div class="talk">
             <div class="face-container">
@@ -1616,7 +1616,7 @@ cargo clean
         </div>
     </section>
 
-    <h2>## [2025-06-03_Tue]</h2>
+    <h2>[2025-06-03_Tue]</h2>
     <section class="sec-2">
         <div class="talk">
         <div class="face-container">
@@ -1998,7 +1998,7 @@ cargo clean
     </section>
 
 
-    <h2>## [2025-06-02_Mon]</h2>
+    <h2>[2025-06-02_Mon]</h2>
     <section class="sec-2">
         <div class="talk">
         <div class="face-container">
@@ -2436,7 +2436,7 @@ cargo clean
         </div>
     </section>
 
-    <h2>## [2025-06-01_Sun]</h2>
+    <h2>[2025-06-01_Sun]</h2>
     <section class="sec-2">
         <div class="talk">
             <div class="face-container">
@@ -2507,7 +2507,7 @@ cargo clean
         </div>
     </section>
 
-    <h2>## [2025-05-24_Sat]</h2>
+    <h2>[2025-05-24_Sat]</h2>
     <section class="sec-2">
         Grok の助けを得て、ホームページ作成中（＾ｑ＾）<br/>
         <img src="@/assets/img/202505__grok__25-warabenture-2.png" />

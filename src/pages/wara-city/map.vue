@@ -1,5 +1,5 @@
 <template>
-    <h2>## わらシティ</h2>
+    <h2>わらシティ</h2>
     <v-container class="pa-0" style="position:relative; width:320px; height:320px; overflow: hidden; background-color:black;">
         <v-img src="/products/wara_city/img/tiles/wasteland.png" width="32" height="32" class="ma-0" aspect-ratio="1" style="position:absolute; top:0px; left:0px;" no-gutters></v-img>
         <v-img src="/products/wara_city/img/tiles/sea.png" width="32" height="32" class="ma-0" aspect-ratio="1" style="position:absolute; top:0px; left:32px;" no-gutters></v-img>

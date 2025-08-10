@@ -1,5 +1,5 @@
 <template>
-    <h2>## チームみらいサポーター活動</h2>
+    <h2>チームみらいサポーター活動</h2>
     <section class="sec-2">
         <ul>
             <li>
