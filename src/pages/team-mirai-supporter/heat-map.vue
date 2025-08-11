@@ -13,8 +13,8 @@
     <h3 id="functions">機能紹介</h3>
     <section class="sec-3">
 
-        <a target="_blank" href="/img/journal/202506/202506__teamMirai__09--1610-heatMap16-o1o0.png">
-            <img class="scr-shot" src="/img/journal/202506/202506__teamMirai__09--1610-heatMap16-o1o0.png">
+        <a target="_blank" href="/img/journal/2025-06/202506__teamMirai__09--1610-heatMap16-o1o0.png">
+            <img class="scr-shot" src="/img/journal/2025-06/202506__teamMirai__09--1610-heatMap16-o1o0.png">
         </a><br/>
         <div class="talk">
             <div class="face-container">
@@ -26,8 +26,8 @@
                 右上の凡例にあるように［以上］での比較だけ利用可能。
             </div>
         </div>
-        <a target="_blank" href="/img/journal/202506/202506__teamMirai__09--1730-heatMap23-o1o0.png">
-            <img class="scr-shot" src="/img/journal/202506/202506__teamMirai__09--1730-heatMap23-o1o0.png">
+        <a target="_blank" href="/img/journal/2025-06/202506__teamMirai__09--1730-heatMap23-o1o0.png">
+            <img class="scr-shot" src="/img/journal/2025-06/202506__teamMirai__09--1730-heatMap23-o1o0.png">
         </a><br/>
         <div class="talk">
             <div class="face-container">
@@ -38,8 +38,8 @@
                 👆 もちろん、表示内容を替えれる。
             </div>
         </div>
-        <a target="_blank" href="/img/journal/202506/202506__teamMirai__10--0814-heatMap28-o2o0.png">
-            <img class="scr-shot" src="/img/journal/202506/202506__teamMirai__10--0814-heatMap28-o2o0.png">
+        <a target="_blank" href="/img/journal/2025-06/202506__teamMirai__10--0814-heatMap28-o2o0.png">
+            <img class="scr-shot" src="/img/journal/2025-06/202506__teamMirai__10--0814-heatMap28-o2o0.png">
         </a><br/>
         <div class="talk">
             <div class="face-container">
@@ -50,8 +50,8 @@
                 👆 もちろん、ワークブックを新しく作って一から編集すれば、別の地図でヒートマップを表示することも可能。
             </div>
         </div>
-        <a target="_blank" href="/img/journal/202506/202506__teamMirai__09--1729-heatMap22-o1o0.png">
-            <img class="scr-shot" src="/img/journal/202506/202506__teamMirai__09--1729-heatMap22-o1o0.png">
+        <a target="_blank" href="/img/journal/2025-06/202506__teamMirai__09--1729-heatMap22-o1o0.png">
+            <img class="scr-shot" src="/img/journal/2025-06/202506__teamMirai__09--1729-heatMap22-o1o0.png">
         </a><br/>
         <div class="talk">
             <div class="face-container">
@@ -62,8 +62,8 @@
                 👆 ごく短い文字数のメモにも使える。
             </div>
         </div>
-        <a target="_blank" href="/img/journal/202506/202506__teamMirai__09--1750-heatMap25-o1o0.png">
-            <img class="scr-shot" src="/img/journal/202506/202506__teamMirai__09--1750-heatMap25-o1o0.png">
+        <a target="_blank" href="/img/journal/2025-06/202506__teamMirai__09--1750-heatMap25-o1o0.png">
+            <img class="scr-shot" src="/img/journal/2025-06/202506__teamMirai__09--1750-heatMap25-o1o0.png">
         </a><br/>
         <div class="talk">
             <div class="face-container">
@@ -80,8 +80,8 @@
                 トレードオフだぜ。
             </div>
         </div>
-        <a target="_blank" href="/img/journal/202506/202506__teamMirai__09--1619-heatMap16-o3o0.png">
-            <img class="scr-shot" src="/img/journal/202506/202506__teamMirai__09--1619-heatMap16-o3o0.png">
+        <a target="_blank" href="/img/journal/2025-06/202506__teamMirai__09--1619-heatMap16-o3o0.png">
+            <img class="scr-shot" src="/img/journal/2025-06/202506__teamMirai__09--1619-heatMap16-o3o0.png">
         </a><br/>
         <div class="talk">
             <div class="face-container">
@@ -94,8 +94,8 @@
                 <a target="_blank" href="https://www.e-stat.go.jp/">https://www.e-stat.go.jp/</a>
             </div>
         </div>
-        <a target="_blank" href="/img/journal/202506/202506__teamMirai__09--1740-heatMap24-o1o0.png">
-            <img class="scr-shot" src="/img/journal/202506/202506__teamMirai__09--1740-heatMap24-o1o0.png">
+        <a target="_blank" href="/img/journal/2025-06/202506__teamMirai__09--1740-heatMap24-o1o0.png">
+            <img class="scr-shot" src="/img/journal/2025-06/202506__teamMirai__09--1740-heatMap24-o1o0.png">
         </a><br/>
         <div class="talk">
             <div class="face-container">
@@ -121,18 +121,18 @@
                 ［ヒートマップ］神エクセルのダウンロードはこちらから。<br>
                 <br>
                 ↑ New:<br>
-                （Ver 4.1.2）日本国：<a href="/products/202506/Heat Map 4_1_2 - Japan[20250615-0050].xlsm"><span class="font-x2">⏬</span>Heat Map 4_1_2 - Japan[20250615-0050].xlsm</a><br>
-                （Ver 4.1.2）埼玉県：<a href="/products/202506/Heat Map 4_1_2 - Saitama[20250614-2352].xlsm"><span class="font-x2">⏬</span>Heat Map 4_1_2 - Saitama[20250614-2352].xlsm</a><br>
-                （Ver 4.1.2）埼玉県新座市：<a href="/products/202506/Heat Map 4_1_2 - Saitama_Niiza[20250614-2352].xlsm"><span class="font-x2">⏬</span>Heat Map 4_1_2 - Saitama_Niiza[20250614-2352].xlsm</a><br>
+                （Ver 4.1.2）日本国：<a href="/products/2025-06/Heat Map 4_1_2 - Japan[20250615-0050].xlsm"><span class="font-x2">⏬</span>Heat Map 4_1_2 - Japan[20250615-0050].xlsm</a><br>
+                （Ver 4.1.2）埼玉県：<a href="/products/2025-06/Heat Map 4_1_2 - Saitama[20250614-2352].xlsm"><span class="font-x2">⏬</span>Heat Map 4_1_2 - Saitama[20250614-2352].xlsm</a><br>
+                （Ver 4.1.2）埼玉県新座市：<a href="/products/2025-06/Heat Map 4_1_2 - Saitama_Niiza[20250614-2352].xlsm"><span class="font-x2">⏬</span>Heat Map 4_1_2 - Saitama_Niiza[20250614-2352].xlsm</a><br>
                 <br>
-                （Ver 4.1.1）埼玉県新座市（交通追加）：<a href="/products/202506/Heat Map 4_1_1 - Saitama_Niiza[20250611-0956] - AddedAccess.xlsm"><span class="font-x2">⏬</span>Heat Map 4_1_1 - Saitama_Niiza[20250611-0956] - AddedAccess.xlsm</a><br>
-                （Ver 4.1.0）埼玉県新座市：<a href="/products/202506/Heat Map 4_1_0 - Saitama_Niiza[20250611-0754] - VersionUp.xlsm"><span class="font-x2">⏬</span>Heat Map 4_1_0 - Saitama_Niiza[20250611-0754] - VersionUp.xlsm</a><br>
-                （Ver 4.0.0）埼玉：<a href="/products/202506/Heat Map 4_0_0 - Saitama[20250611-0502] - VersionUp.xlsm"><span class="font-x2">⏬</span>Heat Map 4_0_0 - Saitama[20250611-0502] - VersionUp.xlsm</a><br>
+                （Ver 4.1.1）埼玉県新座市（交通追加）：<a href="/products/2025-06/Heat Map 4_1_1 - Saitama_Niiza[20250611-0956] - AddedAccess.xlsm"><span class="font-x2">⏬</span>Heat Map 4_1_1 - Saitama_Niiza[20250611-0956] - AddedAccess.xlsm</a><br>
+                （Ver 4.1.0）埼玉県新座市：<a href="/products/2025-06/Heat Map 4_1_0 - Saitama_Niiza[20250611-0754] - VersionUp.xlsm"><span class="font-x2">⏬</span>Heat Map 4_1_0 - Saitama_Niiza[20250611-0754] - VersionUp.xlsm</a><br>
+                （Ver 4.0.0）埼玉：<a href="/products/2025-06/Heat Map 4_0_0 - Saitama[20250611-0502] - VersionUp.xlsm"><span class="font-x2">⏬</span>Heat Map 4_0_0 - Saitama[20250611-0502] - VersionUp.xlsm</a><br>
                 <br>
-                （Ver 3.0.1）日本：<a href="/products/202506/Heat Map 3_0_1 - Japan[20250610-0806].xlsm"><span class="font-x2">⏬</span>Heat Map 3_0_1 - Japan[20250610-0806].xlsm</a><br>
-                （Ver 3.0.1）埼玉：<a href="/products/202506/Heat Map 3_0_1 - Saitama[20250610-0726] - BugFix.xlsm"><span class="font-x2">⏬</span>Heat Map 3_0_1 - Saitama[20250610-0726] - BugFix.xlsm</a><br>
+                （Ver 3.0.1）日本：<a href="/products/2025-06/Heat Map 3_0_1 - Japan[20250610-0806].xlsm"><span class="font-x2">⏬</span>Heat Map 3_0_1 - Japan[20250610-0806].xlsm</a><br>
+                （Ver 3.0.1）埼玉：<a href="/products/2025-06/Heat Map 3_0_1 - Saitama[20250610-0726] - BugFix.xlsm"><span class="font-x2">⏬</span>Heat Map 3_0_1 - Saitama[20250610-0726] - BugFix.xlsm</a><br>
                 <br>
-                （Ver 2.0.0）埼玉：<a href="/products/202506/Heat Map 2_0_0 - Saitama[20250609-1638].xlsm"><span class="font-x2">⏬</span>Heat Map 2_0_0 - Saitama[20250609-1638].xlsm</a><br>
+                （Ver 2.0.0）埼玉：<a href="/products/2025-06/Heat Map 2_0_0 - Saitama[20250609-1638].xlsm"><span class="font-x2">⏬</span>Heat Map 2_0_0 - Saitama[20250609-1638].xlsm</a><br>
                 ↓ Old
             </div>
         </div>
@@ -146,8 +146,8 @@
                 ［国勢調査］のデータを含んでるが、あれのライセンスは何なんだろな？
             </div>
         </div>
-        <a target="_blank" href="/img/journal/202506/202506__teamMirai__09--1657-heatMap20-o1o0-mark.png">
-            <img class="scr-shot" src="/img/journal/202506/202506__teamMirai__09--1657-heatMap20-o1o0-mark.png">
+        <a target="_blank" href="/img/journal/2025-06/202506__teamMirai__09--1657-heatMap20-o1o0-mark.png">
+            <img class="scr-shot" src="/img/journal/2025-06/202506__teamMirai__09--1657-heatMap20-o1o0-mark.png">
         </a><br/>
         <div class="talk">
             <div class="face-container">
@@ -159,8 +159,8 @@
                 インターネットからダウンロードするとブロックされてるから……。
             </div>
         </div>
-        <a target="_blank" href="/img/journal/202506/202506__teamMirai__09--1700-heatMap21-o1o0-mark.png">
-            <img class="scr-shot" src="/img/journal/202506/202506__teamMirai__09--1700-heatMap21-o1o0-mark.png">
+        <a target="_blank" href="/img/journal/2025-06/202506__teamMirai__09--1700-heatMap21-o1o0-mark.png">
+            <img class="scr-shot" src="/img/journal/2025-06/202506__teamMirai__09--1700-heatMap21-o1o0-mark.png">
         </a><br/>
         <div class="talk">
             <div class="face-container">

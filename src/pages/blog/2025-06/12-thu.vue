@@ -29,8 +29,8 @@
                 ４７都道府県に対応した変換アプリを作ってくれだぜ。
             </div>
         </div>
-        <a target="_blank" href="/img/journal/202506/202506__tauri__12--2156-csvCleaning-o1o0.png">
-            <img class="scr-shot" src="/img/journal/202506/202506__tauri__12--2156-csvCleaning-o1o0.png">
+        <a target="_blank" href="/img/journal/2025-06/202506__tauri__12--2156-csvCleaning-o1o0.png">
+            <img class="scr-shot" src="/img/journal/2025-06/202506__tauri__12--2156-csvCleaning-o1o0.png">
         </a><br/>
         <div class="talk">
             <div class="face-container">

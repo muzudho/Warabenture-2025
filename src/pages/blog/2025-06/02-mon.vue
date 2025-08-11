@@ -60,8 +60,8 @@
             インストールの説明は省くからな。
         </div>
         </div>
-        <a target="_blank" href="/img/journal/202506/202506__program__02--1159-tauri-o1o0.png">
-        <img class="scr-shot" src="/img/journal/202506/202506__program__02--1159-tauri-o1o0.png">
+        <a target="_blank" href="/img/journal/2025-06/202506__program__02--1159-tauri-o1o0.png">
+        <img class="scr-shot" src="/img/journal/2025-06/202506__program__02--1159-tauri-o1o0.png">
         </a><br/>
         <div class="code-b">pnpm create tauri-app</div>
         <div class="talk">
@@ -73,8 +73,8 @@
             👆 こんな感じでコマンドを打鍵すればいいはず。
         </div>
         </div>
-        <a target="_blank" href="/img/journal/202506/202506__program__02--1205-tauri-o1o1o0.png">
-        <img class="scr-shot" src="/img/journal/202506/202506__program__02--1205-tauri-o1o1o0.png">
+        <a target="_blank" href="/img/journal/2025-06/202506__program__02--1205-tauri-o1o1o0.png">
+        <img class="scr-shot" src="/img/journal/2025-06/202506__program__02--1205-tauri-o1o1o0.png">
         </a><br/>
         <div class="talk">
         <div class="face-container">
@@ -85,8 +85,8 @@
             👆 色々尋ねられるので、こんな感じで進めたぜ。
         </div>
         </div>
-        <a target="_blank" href="/img/journal/202506/202506__program__02--1209-tauri-o1o2o0.png">
-        <img src="/img/journal/202506/202506__program__02--1209-tauri-o1o2o0.png">
+        <a target="_blank" href="/img/journal/2025-06/202506__program__02--1209-tauri-o1o2o0.png">
+        <img src="/img/journal/2025-06/202506__program__02--1209-tauri-o1o2o0.png">
         </a><br/>
         <div class="talk">
         <div class="face-container">
@@ -97,8 +97,8 @@
             👆 Git Hub と連携しておいた。フォルダーの中身はこうなった。
         </div>
         </div>
-        <a target="_blank" href="/img/journal/202506/202506__program__02--1212-tauri-o1o3o0.png">
-        <img class="scr-shot" src="/img/journal/202506/202506__program__02--1212-tauri-o1o3o0.png">
+        <a target="_blank" href="/img/journal/2025-06/202506__program__02--1212-tauri-o1o3o0.png">
+        <img class="scr-shot" src="/img/journal/2025-06/202506__program__02--1212-tauri-o1o3o0.png">
         </a><br/>
         <div class="talk">
         <div class="face-container">
@@ -110,8 +110,8 @@
             わたしの PC はCPU処理がビジーだとフリーズすることがあるので、終わるまで待って……。<br>
         </div>
         </div>
-        <a target="_blank" href="/img/journal/202506/202506__program__02--1216-tauri-o1o4o0.png">
-        <img class="scr-shot" src="/img/journal/202506/202506__program__02--1216-tauri-o1o4o0.png">
+        <a target="_blank" href="/img/journal/2025-06/202506__program__02--1216-tauri-o1o4o0.png">
+        <img class="scr-shot" src="/img/journal/2025-06/202506__program__02--1216-tauri-o1o4o0.png">
         </a><br/>
         <div class="code-b">pnpm install</div>
         <div class="talk">
@@ -124,8 +124,8 @@
             上記のコマンドを打鍵。
         </div>
         </div>
-        <a target="_blank" href="/img/journal/202506/202506__program__02--1220-tauri-o1o5o0.png">
-        <img class="scr-shot" src="/img/journal/202506/202506__program__02--1220-tauri-o1o5o0.png">
+        <a target="_blank" href="/img/journal/2025-06/202506__program__02--1220-tauri-o1o5o0.png">
+        <img class="scr-shot" src="/img/journal/2025-06/202506__program__02--1220-tauri-o1o5o0.png">
         </a><br/>
         <div class="talk">
         <div class="face-container">
@@ -147,8 +147,8 @@
             わたしのケースでは、 379 個の大量のプログラムのコンパイルが走るので数分かかる。
         </div>
         </div>
-        <a target="_blank" href="/img/journal/202506/202506__program__02--1225-tauri-o1o6o0.png">
-        <img class="scr-shot" src="/img/journal/202506/202506__program__02--1225-tauri-o1o6o0.png">
+        <a target="_blank" href="/img/journal/2025-06/202506__program__02--1225-tauri-o1o6o0.png">
+        <img class="scr-shot" src="/img/journal/2025-06/202506__program__02--1225-tauri-o1o6o0.png">
         </a><br/>
         <div class="talk">
         <div class="face-container">
@@ -161,8 +161,8 @@
             動作確認に使うには不完全。
         </div>
         </div>
-        <a target="_blank" href="/img/journal/202506/202506__program__02--1229-tauri-o1o7o0.png">
-        <img class="scr-shot" src="/img/journal/202506/202506__program__02--1229-tauri-o1o7o0.png">
+        <a target="_blank" href="/img/journal/2025-06/202506__program__02--1229-tauri-o1o7o0.png">
+        <img class="scr-shot" src="/img/journal/2025-06/202506__program__02--1229-tauri-o1o7o0.png">
         </a><br/>
         <div class="talk">
         <div class="face-container">
@@ -183,8 +183,8 @@
             じゃあ、テキストボックスと、［保存］ボタン、［開く］ボタンを置いてくれだぜ。
         </div>
         </div>
-        <a target="_blank" href="/img/journal/202506/202506__program__02--1847-tauri-o1o8o0-mark.png">
-        <img class="scr-shot" src="/img/journal/202506/202506__program__02--1847-tauri-o1o8o0-mark.png">
+        <a target="_blank" href="/img/journal/2025-06/202506__program__02--1847-tauri-o1o8o0-mark.png">
+        <img class="scr-shot" src="/img/journal/2025-06/202506__program__02--1847-tauri-o1o8o0-mark.png">
         </a><br/>
         <div class="talk">
         <div class="face-container">
@@ -195,8 +195,8 @@
             👆 📄 <span class="code-w">src/App.vue</span>ファイルの <span class="code-b">&lt;template&gt;</span>タグの中に、いわゆる HTMLタグを打ち込んでいけばいいはずだぜ。
         </div>
         </div>
-        <a target="_blank" href="/img/journal/202506/202506__program__02--2004-tauri-o1o9o0-mark.png">
-        <img class="scr-shot" src="/img/journal/202506/202506__program__02--2004-tauri-o1o9o0-mark.png">
+        <a target="_blank" href="/img/journal/2025-06/202506__program__02--2004-tauri-o1o9o0-mark.png">
+        <img class="scr-shot" src="/img/journal/2025-06/202506__program__02--2004-tauri-o1o9o0-mark.png">
         </a><br/>      
         <div class="talk">
         <div class="face-container">
@@ -207,8 +207,8 @@
             👆 ひとまず、こんな感じか。
         </div>
         </div>
-        <a target="_blank" href="/img/journal/202506/202506__program__02--2010-tauri-o1oA10o0.png">
-        <img class="scr-shot" src="/img/journal/202506/202506__program__02--2010-tauri-o1oA10o0.png">
+        <a target="_blank" href="/img/journal/2025-06/202506__program__02--2010-tauri-o1oA10o0.png">
+        <img class="scr-shot" src="/img/journal/2025-06/202506__program__02--2010-tauri-o1oA10o0.png">
         </a><br/>      
         <div class="talk">
         <div class="face-container">
@@ -228,8 +228,8 @@
             ファイルパスを入れるテキストボックスと、ファイルを選択するダイアログボックスが出てくるボタンが欲しいぜ。
         </div>
         </div>
-        <a target="_blank" href="/img/journal/202506/202506__program__02--2024-tauri-o1oA11o0.png">
-        <img class="scr-shot" src="/img/journal/202506/202506__program__02--2024-tauri-o1oA11o0.png">
+        <a target="_blank" href="/img/journal/2025-06/202506__program__02--2024-tauri-o1oA11o0.png">
+        <img class="scr-shot" src="/img/journal/2025-06/202506__program__02--2024-tauri-o1oA11o0.png">
         </a><br/>
         <div class="talk">
         <div class="face-container">
@@ -253,8 +253,8 @@
         </div>
         </div>
         <div class="code-b">pnpm tauri add dialog</div>
-        <a target="_blank" href="/img/journal/202506/202506__program__02--2116-tauri-o1oA12o0.png">
-        <img class="scr-shot" src="/img/journal/202506/202506__program__02--2116-tauri-o1oA12o0.png">
+        <a target="_blank" href="/img/journal/2025-06/202506__program__02--2116-tauri-o1oA12o0.png">
+        <img class="scr-shot" src="/img/journal/2025-06/202506__program__02--2116-tauri-o1oA12o0.png">
         </a><br/>
         <div class="talk">
         <div class="face-container">
@@ -265,8 +265,8 @@
             👆 なんか知らんけどエラー出た。
         </div>
         </div>
-        <a target="_blank" href="/img/journal/202506/202506__program__02--2119-tauri-o1oA13o0-mark.png">
-        <img class="scr-shot" src="/img/journal/202506/202506__program__02--2119-tauri-o1oA13o0-mark.png">
+        <a target="_blank" href="/img/journal/2025-06/202506__program__02--2119-tauri-o1oA13o0-mark.png">
+        <img class="scr-shot" src="/img/journal/2025-06/202506__program__02--2119-tauri-o1oA13o0-mark.png">
         </a><br/>
         <div class="talk">
         <div class="face-container">
@@ -279,8 +279,8 @@
             じゃあ<span class="code-b">"dialog:default"</span>を消しといたれ。
         </div>
         </div>
-        <a target="_blank" href="/img/journal/202506/202506__program__02--2124-tauri-o1oA14o0.png">
-        <img class="scr-shot" src="/img/journal/202506/202506__program__02--2124-tauri-o1oA14o0.png">
+        <a target="_blank" href="/img/journal/2025-06/202506__program__02--2124-tauri-o1oA14o0.png">
+        <img class="scr-shot" src="/img/journal/2025-06/202506__program__02--2124-tauri-o1oA14o0.png">
         </a><br/>
         <div class="talk">
         <div class="face-container">
@@ -291,8 +291,8 @@
             👆 多分、通ったか？
         </div>
         </div>
-        <a target="_blank" href="/img/journal/202506/202506__program__02--2135-tauri-o1oA15o0.png">
-        <img class="scr-shot" src="/img/journal/202506/202506__program__02--2135-tauri-o1oA15o0.png">
+        <a target="_blank" href="/img/journal/2025-06/202506__program__02--2135-tauri-o1oA15o0.png">
+        <img class="scr-shot" src="/img/journal/2025-06/202506__program__02--2135-tauri-o1oA15o0.png">
         </a><br/>
         <div class="talk">
         <div class="face-container">
@@ -303,8 +303,8 @@
             👆 こんな感じで改造して……。
         </div>
         </div>
-        <a target="_blank" href="/img/journal/202506/202506__program__02--2142-tauri-o1oA16o0.png">
-        <img class="scr-shot" src="/img/journal/202506/202506__program__02--2142-tauri-o1oA16o0.png">
+        <a target="_blank" href="/img/journal/2025-06/202506__program__02--2142-tauri-o1oA16o0.png">
+        <img class="scr-shot" src="/img/journal/2025-06/202506__program__02--2142-tauri-o1oA16o0.png">
         </a><br/>
         <div class="talk">
         <div class="face-container">
@@ -337,8 +337,8 @@
             これ読んで直しておくかだぜ。
         </div>
         </div>
-        <a target="_blank" href="/img/journal/202506/202506__program__02--2148-tauri-o1oA17o0-mark.png">
-        <img class="scr-shot" src="/img/journal/202506/202506__program__02--2148-tauri-o1oA17o0-mark.png">
+        <a target="_blank" href="/img/journal/2025-06/202506__program__02--2148-tauri-o1oA17o0-mark.png">
+        <img class="scr-shot" src="/img/journal/2025-06/202506__program__02--2148-tauri-o1oA17o0-mark.png">
         </a><br/>
         <div class="talk">
         <div class="face-container">
@@ -370,8 +370,8 @@
         </div>
         </div>
         <div class="code-b">pnpm tauri add fs</div><br>
-        <a target="_blank" href="/img/journal/202506/202506__program__02--2212-tauri-o1oA18o0.png">
-        <img class="scr-shot" src="/img/journal/202506/202506__program__02--2212-tauri-o1oA18o0.png">
+        <a target="_blank" href="/img/journal/2025-06/202506__program__02--2212-tauri-o1oA18o0.png">
+        <img class="scr-shot" src="/img/journal/2025-06/202506__program__02--2212-tauri-o1oA18o0.png">
         </a><br/>
         <div class="talk">
         <div class="face-container">
@@ -382,8 +382,8 @@
             👆 テキストを読み込む方は上記の通りでいけた。
         </div>
         </div>
-        <a target="_blank" href="/img/journal/202506/202506__program__02--2309-tauri-o1oA19o0.png">
-        <img class="scr-shot" src="/img/journal/202506/202506__program__02--2309-tauri-o1oA19o0.png">
+        <a target="_blank" href="/img/journal/2025-06/202506__program__02--2309-tauri-o1oA19o0.png">
+        <img class="scr-shot" src="/img/journal/2025-06/202506__program__02--2309-tauri-o1oA19o0.png">
         </a><br/>
         <div class="talk">
         <div class="face-container">
@@ -404,8 +404,8 @@
             📖 <a target="_blank" href="https://tauri.app/plugin/file-system/#examples">Examples</a>
         </div>
         </div>
-        <a target="_blank" href="/img/journal/202506/202506__program__02--2342-tauri-o1oA20o0.png">
-        <img class="scr-shot" src="/img/journal/202506/202506__program__02--2342-tauri-o1oA20o0.png">
+        <a target="_blank" href="/img/journal/2025-06/202506__program__02--2342-tauri-o1oA20o0.png">
+        <img class="scr-shot" src="/img/journal/2025-06/202506__program__02--2342-tauri-o1oA20o0.png">
         </a><br/>
         <div class="talk">
         <div class="face-container">

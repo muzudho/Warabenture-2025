@@ -41,8 +41,8 @@
             調査を重めに見て、エフォート（作業にかかる時間見積）は 2 ってところねえ。
         </div>
         </div>
-        <a target="_blank" href="/img/journal/202506/202506__program__03--1049-tauri-o2o1o0.png">
-        <img class="scr-shot" src="/img/journal/202506/202506__program__03--1049-tauri-o2o1o0.png">
+        <a target="_blank" href="/img/journal/2025-06//202506__program__03--1049-tauri-o2o1o0.png">
+        <img class="scr-shot" src="/img/journal/2025-06/202506__program__03--1049-tauri-o2o1o0.png">
         </a><br/>
         <div class="talk">
         <div class="face-container">
@@ -53,8 +53,8 @@
             👆 昨日作ったプログラムから、<span class="code-b">.git</span>と<span class="code-b">node_modules</span>以外のフォルダーとファイルをコピーするぜ。
         </div>
         </div>
-        <a target="_blank" href="/img/journal/202506/202506__program__03--1056-tauri-o2o2o0-mark.png">
-        <img class="scr-shot" src="/img/journal/202506/202506__program__03--1056-tauri-o2o2o0-mark.png">
+        <a target="_blank" href="/img/journal/2025-06/202506__program__03--1056-tauri-o2o2o0-mark.png">
+        <img class="scr-shot" src="/img/journal/2025-06/202506__program__03--1056-tauri-o2o2o0-mark.png">
         </a><br/>
         <div class="talk">
         <div class="face-container">
@@ -65,8 +65,8 @@
             👆 📁<span class="code-b">file-list-on-tauri</span>を作って、中身を貼り付け。
         </div>
         </div>
-        <a target="_blank" href="/img/journal/202506/202506__program__03--1109-tauri-o2o3o0-mark.png">
-        <img class="scr-shot" src="/img/journal/202506/202506__program__03--1109-tauri-o2o3o0-mark.png">
+        <a target="_blank" href="/img/journal/2025-06/202506__program__03--1109-tauri-o2o3o0-mark.png">
+        <img class="scr-shot" src="/img/journal/2025-06/202506__program__03--1109-tauri-o2o3o0-mark.png">
         </a><br/>
         <div class="talk">
         <div class="face-container">
@@ -77,8 +77,8 @@
             👆 そのフォルダーを VSCode で開くぜ。
         </div>
         </div>
-        <a target="_blank" href="/img/journal/202506/202506__program__03--1127-tauri-o2o4o0-mark.png">
-        <img class="scr-shot" src="/img/journal/202506/202506__program__03--1127-tauri-o2o4o0-mark.png">
+        <a target="_blank" href="/img/journal/2025-06/202506__program__03--1127-tauri-o2o4o0-mark.png">
+        <img class="scr-shot" src="/img/journal/2025-06/202506__program__03--1127-tauri-o2o4o0-mark.png">
         </a><br/>
         <div class="code-b">git init</div><br>
         <div class="talk">
@@ -116,8 +116,8 @@
             コミットってのはファイルを置いたぐらいの感覚を持っていればいい。
         </div>
         </div>
-        <a target="_blank" href="/img/journal/202506/202506__program__03--1140-tauri-o2o5o0-mark.png">
-        <img class="scr-shot" src="/img/journal/202506/202506__program__03--1140-tauri-o2o5o0-mark.png">
+        <a target="_blank" href="/img/journal/2025-06/202506__program__03--1140-tauri-o2o5o0-mark.png">
+        <img class="scr-shot" src="/img/journal/2025-06/202506__program__03--1140-tauri-o2o5o0-mark.png">
         </a><br/>
         <div class="talk">
         <div class="face-container">
@@ -129,8 +129,8 @@
             ［ローカル・リポジトリー］との紐付け方法の説明が書いてあるぜ。
         </div>
         </div>
-        <a target="_blank" href="/img/journal/202506/202506__program__03--1146-tauri-o2o6o0-mark.png">
-            <img class="scr-shot" src="/img/journal/202506/202506__program__03--1146-tauri-o2o6o0-mark.png">
+        <a target="_blank" href="/img/journal/2025-06/202506__program__03--1146-tauri-o2o6o0-mark.png">
+            <img class="scr-shot" src="/img/journal/2025-06/202506__program__03--1146-tauri-o2o6o0-mark.png">
         </a><br/>
         <div class="code-b">
             git remote add origin https://github.com/muzudho/file-list-on-tauri.git<br>
@@ -147,8 +147,8 @@
                 ［ブランチ］を選び、そこへ［ローカル・リポジトリー］のファイルをプッシュしたぜ。
             </div>
         </div>
-        <a target="_blank" href="/img/journal/202506/202506__program__03--1150-tauri-o2o7o0.png">
-        <img class="scr-shot" src="/img/journal/202506/202506__program__03--1150-tauri-o2o7o0.png">
+        <a target="_blank" href="/img/journal/2025-06/202506__program__03--1150-tauri-o2o7o0.png">
+        <img class="scr-shot" src="/img/journal/2025-06/202506__program__03--1150-tauri-o2o7o0.png">
         </a><br/>
         <div class="talk">
         <div class="face-container">
@@ -172,8 +172,8 @@
             📁<span class="code-b">node_modules</span> が自動生成されるぜ。
         </div>
         </div>
-        <a target="_blank" href="/img/journal/202506/202506__program__03--1215-tauri-o2o8o0-mark.png">
-        <img class="scr-shot" src="/img/journal/202506/202506__program__03--1215-tauri-o2o8o0-mark.png">
+        <a target="_blank" href="/img/journal/2025-06/202506__program__03--1215-tauri-o2o8o0-mark.png">
+        <img class="scr-shot" src="/img/journal/2025-06/202506__program__03--1215-tauri-o2o8o0-mark.png">
         </a><br/>
         <div class="talk">
         <div class="face-container">
@@ -208,8 +208,8 @@
             開発モードでデスクトップアプリが起動するぜ。
         </div>
         </div>
-        <a target="_blank" href="/img/journal/202506/202506__program__03--1221-tauri-o2o9o0.png">
-        <img class="scr-shot" src="/img/journal/202506/202506__program__03--1221-tauri-o2o9o0.png">
+        <a target="_blank" href="/img/journal/2025-06/202506__program__03--1221-tauri-o2o9o0.png">
+        <img class="scr-shot" src="/img/journal/2025-06/202506__program__03--1221-tauri-o2o9o0.png">
         </a><br/>
         <div class="talk">
         <div class="face-container">
@@ -240,8 +240,8 @@
             バックエンドの Tauri フレームワークを使うんだろな、なら言語は Rust か？
         </div>
         </div>
-        <a target="_blank" href="/img/journal/202506/202506__program__03--1922-tauri-o2oA10o0.png">
-        <img class="scr-shot" src="/img/journal/202506/202506__program__03--1922-tauri-o2oA10o0.png">
+        <a target="_blank" href="/img/journal/2025-06/202506__program__03--1922-tauri-o2oA10o0.png">
+        <img class="scr-shot" src="/img/journal/2025-06/202506__program__03--1922-tauri-o2oA10o0.png">
         </a><br/>
         <div class="talk">
         <div class="face-container">
@@ -253,8 +253,8 @@
             Rust で定義している、ファイル一覧を読取る<span class="code-b">get_file_names</span>関数を TpyeScript 側から呼び出しているぜ。
         </div>
         </div>
-        <a target="_blank" href="/img/journal/202506/202506__program__03--1928-tauri-o2oA11o0.png">
-        <img class="scr-shot" src="/img/journal/202506/202506__program__03--1928-tauri-o2oA11o0.png">
+        <a target="_blank" href="/img/journal/2025-06/202506__program__03--1928-tauri-o2oA11o0.png">
+        <img class="scr-shot" src="/img/journal/2025-06/202506__program__03--1928-tauri-o2oA11o0.png">
         </a><br/>
         <div class="talk">
         <div class="face-container">
@@ -266,8 +266,8 @@
             <span class="code-b">invoke_handler</span>ってあたりに関数の名前を追加するのを忘れてはいけないぜ。
         </div>
         </div>
-        <a target="_blank" href="/img/journal/202506/202506__program__03--1937-tauri-o2oA12o0.png">
-        <img class="scr-shot" src="/img/journal/202506/202506__program__03--1937-tauri-o2oA12o0.png">
+        <a target="_blank" href="/img/journal/2025-06/202506__program__03--1937-tauri-o2oA12o0.png">
+        <img class="scr-shot" src="/img/journal/2025-06/202506__program__03--1937-tauri-o2oA12o0.png">
         </a><br/>
         <div class="talk">
         <div class="face-container">
@@ -335,8 +335,8 @@
             👆 リストボックスに項目を並べる考え方は、上記のコードで示したぜ。
         </div>
         </div>
-        <a target="_blank" href="/img/journal/202506/202506__program__03--2035-tauri-o2oA13o0.png">
-        <img class="scr-shot" src="/img/journal/202506/202506__program__03--2035-tauri-o2oA13o0.png">
+        <a target="_blank" href="/img/journal/2025-06/202506__program__03--2035-tauri-o2oA13o0.png">
+        <img class="scr-shot" src="/img/journal/2025-06/202506__program__03--2035-tauri-o2oA13o0.png">
         </a><br/>
         <div class="talk">
         <div class="face-container">
@@ -347,8 +347,8 @@
             👆 じゃあ、ソースコードは上記な感じで更新。
         </div>
         </div>
-        <a target="_blank" href="/img/journal/202506/202506__program__03--2049-tauri-o2oA14o0.png">
-        <img class="scr-shot" src="/img/journal/202506/202506__program__03--2049-tauri-o2oA14o0.png">
+        <a target="_blank" href="/img/journal/2025-06/202506__program__03--2049-tauri-o2oA14o0.png">
+        <img class="scr-shot" src="/img/journal/2025-06/202506__program__03--2049-tauri-o2oA14o0.png">
         </a><br/>
         <div class="talk">
         <div class="face-container">

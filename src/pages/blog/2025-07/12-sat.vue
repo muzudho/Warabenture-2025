@@ -119,8 +119,8 @@ pnpm tauri dev</pre>
                 コンパイル・エラーは取れて、ウィンドウも表示されたけど、ウィンドウの内側は真っ白だ……。
             </div>
         </div>
-        <a target="_blank" href="/img/journal/202507/202507__warabenture__12--1713-csvCleaningOnTauri-o1o0.png">
-            <img class="scr-shot" src="/img/journal/202507/202507__warabenture__12--1713-csvCleaningOnTauri-o1o0.png">
+        <a target="_blank" href="/img/journal/2025-07/202507__warabenture__12--1713-csvCleaningOnTauri-o1o0.png">
+            <img class="scr-shot" src="/img/journal/2025-07/202507__warabenture__12--1713-csvCleaningOnTauri-o1o0.png">
         </a><br/>
         <div class="talk">
             <div class="face-container">

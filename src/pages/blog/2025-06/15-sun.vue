@@ -1,8 +1,8 @@
 <template>
     <h3>[2025-06-15_Sun]</h3>
     <section class="sec-3">
-        <a target="_blank" href="/img/journal/202506/202506__tauri__15--0059-CsvCleaningOnTauri-o1o0.png">
-            <img class="scr-shot" src="/img/journal/202506/202506__tauri__15--0059-CsvCleaningOnTauri-o1o0.png">
+        <a target="_blank" href="/img/journal/2025-06/202506__tauri__15--0059-CsvCleaningOnTauri-o1o0.png">
+            <img class="scr-shot" src="/img/journal/2025-06/202506__tauri__15--0059-CsvCleaningOnTauri-o1o0.png">
         </a><br/>
         <div class="talk">
             <div class="face-container">
@@ -74,8 +74,8 @@
                 Grok がいくつか知ってたが、とりあえず <a target="_blank" href="https://qgis.org/">QGIS</a> を使ってみるかだぜ。
             </div>
         </div>
-        <a target="_blank" href="/img/journal/202506/202506__screenshot__15--1901-QGIS-o1o0.png">
-            <img class="scr-shot" src="/img/journal/202506/202506__screenshot__15--1901-QGIS-o1o0.png">
+        <a target="_blank" href="/img/journal/2025-06/202506__screenshot__15--1901-QGIS-o1o0.png">
+            <img class="scr-shot" src="/img/journal/2025-06/202506__screenshot__15--1901-QGIS-o1o0.png">
         </a><br/>
         <div class="talk">
             <div class="face-container">
@@ -104,8 +104,8 @@
                 使えねー。じゃあ［国土地理院］の方を見てみるか……。
             </div>
         </div>
-        <a target="_blank" href="/img/journal/202506/202506__screenshot__15--1928-国土地理院-o1o0.png">
-            <img class="scr-shot" src="/img/journal/202506/202506__screenshot__15--1928-国土地理院-o1o0.png">
+        <a target="_blank" href="/img/journal/2025-06/202506__screenshot__15--1928-国土地理院-o1o0.png">
+            <img class="scr-shot" src="/img/journal/2025-06/202506__screenshot__15--1928-国土地理院-o1o0.png">
         </a><br/>
         <div class="talk">
             <div class="face-container">
@@ -143,8 +143,8 @@
                 じゃあ地図表示は諦めて、データ・クリーニングの方に重点的に取り掛かるかだぜ。
             </div>
         </div>
-        <a target="_blank" href="/img/journal/202506/202506__screenshot__15--2046-埼玉県_市区町村別_世帯数-o1o0.png">
-            <img class="scr-shot" src="/img/journal/202506/202506__screenshot__15--2046-埼玉県_市区町村別_世帯数-o1o0.png">
+        <a target="_blank" href="/img/journal/2025-06/202506__screenshot__15--2046-埼玉県_市区町村別_世帯数-o1o0.png">
+            <img class="scr-shot" src="/img/journal/2025-06/202506__screenshot__15--2046-埼玉県_市区町村別_世帯数-o1o0.png">
         </a><br/>
         <div class="talk">
             <div class="face-container">
@@ -159,8 +159,8 @@
                 行を揃えてデータを見せてくれるツールを作ってくれだぜ。
             </div>
         </div>
-        <a target="_blank" href="/img/journal/202506/202506__screenshot__15--2109-２表のJoin-o1o0.png">
-            <img class="scr-shot" src="/img/journal/202506/202506__screenshot__15--2109-２表のJoin-o1o0.png">
+        <a target="_blank" href="/img/journal/2025-06/202506__screenshot__15--2109-２表のJoin-o1o0.png">
+            <img class="scr-shot" src="/img/journal/2025-06/202506__screenshot__15--2109-２表のJoin-o1o0.png">
         </a><br/>
         <div class="talk">
             <div class="face-container">
@@ -176,8 +176,8 @@
                 </ul>
             </div>
         </div>
-        <a target="_blank" href="/img/journal/202506/202506__screenshot__15--2113-２表のJoin2-o1o0.png">
-            <img class="scr-shot" src="/img/journal/202506/202506__screenshot__15--2113-２表のJoin2-o1o0.png">
+        <a target="_blank" href="/img/journal/2025-06/202506__screenshot__15--2113-２表のJoin2-o1o0.png">
+            <img class="scr-shot" src="/img/journal/2025-06/202506__screenshot__15--2113-２表のJoin2-o1o0.png">
         </a><br/>
         <div class="talk">
             <div class="face-container">
@@ -189,8 +189,8 @@
                 浦和の浦がひらがなより文字コードが小さいのが意味わからんが……。
             </div>
         </div>
-        <a target="_blank" href="/img/journal/202506/202506__screenshot__15--2121-２表のJoin3-o1o0.png">
-            <img class="scr-shot" src="/img/journal/202506/202506__screenshot__15--2121-２表のJoin3-o1o0.png">
+        <a target="_blank" href="/img/journal/2025-06/202506__screenshot__15--2121-２表のJoin3-o1o0.png">
+            <img class="scr-shot" src="/img/journal/2025-06/202506__screenshot__15--2121-２表のJoin3-o1o0.png">
         </a><br/>
         <div class="talk">
             <div class="face-container">
@@ -201,8 +201,8 @@
                 <span class="font-x2">👆</span>手で振り分けたぜ。
             </div>
         </div>
-        <a target="_blank" href="/img/journal/202506/202506__screenshot__15--2128-２表のJoin4-o1o0.png">
-            <img class="scr-shot" src="/img/journal/202506/202506__screenshot__15--2128-２表のJoin4-o1o0.png">
+        <a target="_blank" href="/img/journal/2025-06/202506__screenshot__15--2128-２表のJoin4-o1o0.png">
+            <img class="scr-shot" src="/img/journal/2025-06/202506__screenshot__15--2128-２表のJoin4-o1o0.png">
         </a><br/>
         <div class="talk">
             <div class="face-container">

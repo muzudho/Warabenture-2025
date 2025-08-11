@@ -10,11 +10,11 @@
                 👇 今日は Grok に聞いて、コードのワーニングを掃除しただけだぜ。
             </div>
         </div>
-        <a target="_blank" href="/img/journal/202506/202506__program__04--2248-tauri-o2oA15o0.png">
-            <img class="scr-shot" src="/img/journal/202506/202506__program__04--2248-tauri-o2oA15o0.png">
+        <a target="_blank" href="/img/journal/2025-06/202506__program__04--2248-tauri-o2oA15o0.png">
+            <img class="scr-shot" src="/img/journal/2025-06/202506__program__04--2248-tauri-o2oA15o0.png">
         </a><br/>
-        <a target="_blank" href="/img/journal/202506/202506__program__04--2249-tauri-o2oA16o0.png">
-        <img class="scr-shot" src="/img/journal/202506/202506__program__04--2249-tauri-o2oA16o0.png">
+        <a target="_blank" href="/img/journal/2025-06/202506__program__04--2249-tauri-o2oA16o0.png">
+        <img class="scr-shot" src="/img/journal/2025-06/202506__program__04--2249-tauri-o2oA16o0.png">
         </a><br/>
         <div class="talk">
         <div class="face-container">

@@ -1,0 +1,22 @@
+<template>
+    <h3>[2025-07-25_Fri]</h3>
+    <section class="sec-3">
+
+        <!-- 画像サンプル -->
+        <a target="_blank" href="/img/journal/2025-07/202507__warabenture__25--1412-csvCleaning2OnTauri-o1o0.png">
+            <img class="scr-shot" src="/img/journal/2025-07/202507__warabenture__25--1412-csvCleaning2OnTauri-o1o0.png">
+        </a><br/>
+
+        <!-- お父んのセリフ・サンプル -->
+        <div class="talk">
+            <div class="face-container">
+                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+            </div>
+            <div class="baloon-tail"></div>
+            <div class="baloon">
+                <span class="font-x2">👆</span>お父んトーク
+            </div>
+        </div>
+
+    </section>
+</template>
