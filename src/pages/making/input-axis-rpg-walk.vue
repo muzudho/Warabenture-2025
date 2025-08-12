@@ -7,31 +7,7 @@
 
         <!-- プレイヤー１ -->
         <TileAnimation
-            :frames="[
-                // 上向き
-                {top:   0, left:    0, width: 32, height: 32 },
-                {top:   0, left:   32, width: 32, height: 32 },
-                {top:   0, left:    0, width: 32, height: 32 },
-                {top:   0, left:   32, width: 32, height: 32 },
-
-                // 右向き
-                {top:  32, left:    0, width: 32, height: 32 },
-                {top:  32, left:   32, width: 32, height: 32 },
-                {top:  32, left:    0, width: 32, height: 32 },
-                {top:  32, left:   32, width: 32, height: 32 },
-
-                // 下向き
-                {top:  64, left:    0, width: 32, height: 32 },
-                {top:  64, left:   32, width: 32, height: 32 },
-                {top:  64, left:    0, width: 32, height: 32 },
-                {top:  64, left:   32, width: 32, height: 32 },
-
-                // 左向き
-                {top:  96, left:    0, width: 32, height: 32 },
-                {top:  96, left:   32, width: 32, height: 32 },
-                {top:  96, left:    0, width: 32, height: 32 },
-                {top:  96, left:   32, width: 32, height: 32 },
-            ]"
+            :frames="p1Frames"
             tilemapUrl="/img/making/202508__warabenture__12--2149-kifuwarabe-o1o0.png"
             :slow="slow"
             :time="count"
@@ -66,7 +42,7 @@
     const p1Top = ref<number>(0);       // スプライトのY座標
     const p1Speed = ref<number>(2);     // 移動速度
     const p1Input = <Record<string, boolean>>{  // 入力
-        ArrowUp: false, ArrowDown: false, ArrowLeft: false, ArrowRight: false
+        ArrowUp: false, ArrowRight: false, ArrowDown: false, ArrowLeft: false
     };
     const p1Style = computed(() => ({
         top: `${p1Top.value}px`,
@@ -77,6 +53,34 @@
     const slow = ref<number>(8);   // スローモーションの倍率の初期値
     const timerId = ref<number | null>(null);   // タイマーのIDを保持
 
+    const sourceFrames = {
+        up:[    // 上向き
+            {top:   0, left:    0, width: 32, height: 32 },
+            {top:   0, left:   32, width: 32, height: 32 },
+            {top:   0, left:    0, width: 32, height: 32 },
+            {top:   0, left:   32, width: 32, height: 32 },
+        ],
+        right:[ // 右向き
+            {top:  32, left:    0, width: 32, height: 32 },
+            {top:  32, left:   32, width: 32, height: 32 },
+            {top:  32, left:    0, width: 32, height: 32 },
+            {top:  32, left:   32, width: 32, height: 32 },
+        ],
+        down:[  // 下向き
+            {top:  64, left:    0, width: 32, height: 32 },
+            {top:  64, left:   32, width: 32, height: 32 },
+            {top:  64, left:    0, width: 32, height: 32 },
+            {top:  64, left:   32, width: 32, height: 32 },
+        ],
+        left:[  // 左向き
+            {top:  96, left:    0, width: 32, height: 32 },
+            {top:  96, left:   32, width: 32, height: 32 },
+            {top:  96, left:    0, width: 32, height: 32 },
+            {top:  96, left:   32, width: 32, height: 32 },
+        ]
+    };
+    const p1Frames = ref(sourceFrames["down"]);
+
 
     // ##########
     // # 開始時 #
@@ -85,7 +89,7 @@
     onMounted(() => {
         startGameLoop();
         startTimer();
-        
+
         // キーボードイベント
         window.addEventListener('keydown', (e) => {
             if (p1Input.hasOwnProperty(e.key)) {
@@ -108,18 +112,22 @@
                 // 移動処理
                 if (p1Input.ArrowUp) {
                     p1Top.value -= p1Speed.value;
-                }
-
-                if (p1Input.ArrowDown) {
-                    p1Top.value += p1Speed.value;
-                }
-
-                if (p1Input.ArrowLeft) {
-                    p1Left.value -= p1Speed.value;
+                    p1Frames.value = sourceFrames["up"]
                 }
 
                 if (p1Input.ArrowRight) {
                     p1Left.value += p1Speed.value;
+                    p1Frames.value = sourceFrames["right"];
+                }
+
+                if (p1Input.ArrowDown) {
+                    p1Top.value += p1Speed.value;
+                    p1Frames.value = sourceFrames["down"];
+                }
+
+                if (p1Input.ArrowLeft) {
+                    p1Left.value -= p1Speed.value;
+                    p1Frames.value = sourceFrames["left"];
                 }
 
                 // 次のフレーム

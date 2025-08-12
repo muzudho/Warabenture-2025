@@ -35,7 +35,7 @@
     const p1Top = ref<number>(0);       // スプライトのY座標
     const p1Speed = ref<number>(2);     // 移動速度
     const p1Input = <Record<string, boolean>>{  // 入力
-        ArrowUp: false, ArrowDown: false, ArrowLeft: false, ArrowRight: false
+        ArrowUp: false, ArrowRight: false, ArrowDown: false, ArrowLeft: false
     };
     const p1Style = computed(() => ({
         top: `${p1Top.value}px`,
@@ -72,16 +72,16 @@
                     p1Top.value -= p1Speed.value;
                 }
 
+                if (p1Input.ArrowRight) {
+                    p1Left.value += p1Speed.value;
+                }
+
                 if (p1Input.ArrowDown) {
                     p1Top.value += p1Speed.value;
                 }
 
                 if (p1Input.ArrowLeft) {
                     p1Left.value -= p1Speed.value;
-                }
-
-                if (p1Input.ArrowRight) {
-                    p1Left.value += p1Speed.value;
                 }
 
                 // 次のフレーム
