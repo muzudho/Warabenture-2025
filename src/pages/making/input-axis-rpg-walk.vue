@@ -1,9 +1,11 @@
 <template>
     <the-header/>
 
-    <h3>タイル　＞　でカウントアップのアニメーションするぜ！　＞　ＲＰＧの歩行グラフィック</h3>
+    <h3>上下左右に移動しようぜ！　＞　ＲＰＧの歩行グラフィック</h3>
     <section class="sec-3">
-        ここに切り抜いたタイルを表示：<br/>
+        <p>キーボードの上下左右キーを押してくれだぜ！</p>
+
+        <!-- プレイヤー１ -->
         <TileAnimation
             :frames="[
                 // 上向き
@@ -33,34 +35,11 @@
             tilemapUrl="/img/making/202508__warabenture__12--2149-kifuwarabe-o1o0.png"
             :slow="slow"
             :time="count"
+            class="cursor"
+            :style="p1Style"
             style="zoom:4; image-rendering: pixelated;" /><br/>
-        <!--
-            NOTE: Tauri では left="64" のように数字を渡せるが、 Nuxt では :left="64" のように書かないと数字で渡せないようだ。
-        -->
-        ：ここまで。<br/>
-        <br/>
-        <p>カウント: {{ count }}</p>
-        <v-btn @click="startTimer">スタート</v-btn>
-        <v-btn @click="stopTimer">ストップ</v-btn>
-        <v-btn @click="resetTimer">リセット</v-btn>
 
-        <div class="text-caption">
-            Slow
-        </div>
-        <v-slider
-                v-model="slow"
-                min="2"
-                max="32"
-                step="2"
-                showTicks="always"
-                thumbLabel="always" />
-        <br/>
-        元画像のタイルマップを表示：<br/>
-        <v-img src="/img/making/202508__warabenture__12--2149-kifuwarabe-o1o0.png" style="width:64px; height:128px; zoom: 4; image-rendering: pixelated;"/>
-        ：ここまで。
     </section>
-    <hr/>
-    <router-link to="/making">メイキングの先頭に戻る</router-link>
 </template>
 
 <script setup lang="ts">
@@ -69,13 +48,12 @@
     // # インポート #
     // ##############
 
-    import { ref } from 'vue';
+    import { computed, onMounted, ref } from 'vue';
 
     // ++++++++++++++++++
     // + コンポーネント +
     // ++++++++++++++++++
 
-    import TileAnimation from '@/components/TileAnimation.vue';
     import TheHeader from './the-header.vue';
 
 
@@ -83,14 +61,80 @@
     // # 共有データ #
     // ##############
 
+    // プレイヤー１
+    const p1Left = ref<number>(0);      // スプライトのX座標
+    const p1Top = ref<number>(0);       // スプライトのY座標
+    const p1Speed = ref<number>(2);     // 移動速度
+    const p1Input = <Record<string, boolean>>{  // 入力
+        ArrowUp: false, ArrowDown: false, ArrowLeft: false, ArrowRight: false
+    };
+    const p1Style = computed(() => ({
+        top: `${p1Top.value}px`,
+        left: `${p1Left.value}px`,
+    }));
+
     const count = ref<number>(0);   // カウントの初期値
     const slow = ref<number>(8);   // スローモーションの倍率の初期値
     const timerId = ref<number | null>(null);   // タイマーのIDを保持
 
 
-    // ####################
-    // # イベントハンドラ #
-    // ####################
+    // ##########
+    // # 開始時 #
+    // ##########
+
+    onMounted(() => {
+        startGameLoop();
+        startTimer();
+        
+        // キーボードイベント
+        window.addEventListener('keydown', (e) => {
+            if (p1Input.hasOwnProperty(e.key)) {
+                p1Input[e.key] = true;
+            }
+        });
+        window.addEventListener('keyup', (e) => {
+            if (p1Input.hasOwnProperty(e.key)) {
+                p1Input[e.key] = false;
+            }
+        });
+
+
+        // ################
+        // # サブルーチン #
+        // ################
+
+        function startGameLoop() : void {
+            const update = () => {
+                // 移動処理
+                if (p1Input.ArrowUp) {
+                    p1Top.value -= p1Speed.value;
+                }
+
+                if (p1Input.ArrowDown) {
+                    p1Top.value += p1Speed.value;
+                }
+
+                if (p1Input.ArrowLeft) {
+                    p1Left.value -= p1Speed.value;
+                }
+
+                if (p1Input.ArrowRight) {
+                    p1Left.value += p1Speed.value;
+                }
+
+                // 次のフレーム
+                requestAnimationFrame(update);
+            };
+
+            // 初回呼び出し
+            requestAnimationFrame(update);
+        }
+
+    });
+
+    // ################
+    // # サブルーチン #
+    // ################
 
     function startTimer() : void {
         // 既にタイマーが動いてたら何もしない
@@ -104,17 +148,10 @@
         timerId.value = requestAnimationFrame(tick);
     }
 
-    function stopTimer() : void {
-        // タイマーを停止
-        if (timerId.value) {
-            cancelAnimationFrame(timerId.value);
-            timerId.value = null;
-        }
-    }
-
-    function resetTimer() : void {
-        // カウントをリセットしてタイマーも停止
-        count.value = 0;
-        stopTimer();
-    }    
 </script>
+
+<style scoped>
+    div.cursor {
+        position: relative; width:32px; height:32px;
+    }
+</style>
