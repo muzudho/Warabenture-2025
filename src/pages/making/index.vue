@@ -12,6 +12,7 @@
             <li>📖 <router-link to="/making/tile-crop">タイル　＞　を画像から切り抜くぜ！</router-link></li>
             <li>📖 <router-link to="/making/count-up">カウントアップするぜ！</router-link></li>
             <li>📖 <router-link to="/making/tile-count-up">タイル　＞　でカウントアップのアニメーションするぜ！</router-link></li>
+            <li>📖 <router-link to="/making/tile-count-up-rpg-walk">タイル　＞　でカウントアップのアニメーションするぜ！　＞　ＲＰＧの歩行グラフィック</router-link></li>
         </ul>
     </section>
 </template>

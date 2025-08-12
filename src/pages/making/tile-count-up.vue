@@ -68,7 +68,6 @@
                     {top: 160, left:  288, width: 32, height: 32 },
                 ]"
                 tilemapUrl="/img/making/timer_square.png"
-                :frameNum="60"
                 :slow="slow"
                 :time="count"
                 style="zoom:4; image-rendering: pixelated;" /><br/>

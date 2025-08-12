@@ -23,7 +23,6 @@
     interface Props {
         frames: Rectangle[];
         tilemapUrl: string; // タイルマップ画像のURL
-        frameNum: number; // 総フレーム数
         slow: number; // スローモーションの倍率
         time: number; // 現在の時間（フレーム）
     }
@@ -46,7 +45,7 @@
     }));
 
     const flameIndex = computed(() => {
-        return Math.floor(props.time / props.slow) % props.frameNum;
+        return Math.floor(props.time / props.slow) % props.frames.length;
     });
 
 
