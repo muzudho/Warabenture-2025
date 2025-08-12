@@ -13,6 +13,7 @@
             <li>📖 <router-link to="/making/count-up">カウントアップするぜ！</router-link></li>
             <li>📖 <router-link to="/making/tile-count-up">タイル　＞　でカウントアップのアニメーションするぜ！</router-link></li>
             <li>📖 <router-link to="/making/tile-count-up-rpg-walk">タイル　＞　でカウントアップのアニメーションするぜ！　＞　ＲＰＧの歩行グラフィック</router-link></li>
+            <li>📖 <router-link to="/making/input-axis">上下左右に移動しようぜ！</router-link></li>
         </ul>
     </section>
 </template>
