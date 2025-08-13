@@ -7,12 +7,9 @@
 
         <div style="position:relative; left: 0; top: 0;">
             
-            <!--
-                グリッド
-                NOTE: ループカウンターは 1 から始まるので、1～9の9個のセルを作成。
-            -->
+            <!-- グリッド -->
             <div v-for="i in 9" :key="i"
-                :style="getCellStyle(i - 1)"></div>
+                :style="getCellStyle(i)"></div>
 
             <!-- プレイヤー１ -->
             <TileAnimation
@@ -24,6 +21,7 @@
                 :style="p1Style"
                 style="zoom:4; image-rendering: pixelated;" /><br/>
         </div>
+
 
     </section>
 </template>
@@ -109,26 +107,22 @@
 
     const tableColumns = 3;
     const tableRows = 3;
+    const lastColumnIndex = tableColumns - 1;
+    const lastRowIndex = tableRows - 1;
 
     // ボードの表示位置
     const boardTop = ref<number>(0);
     const boardLeft = ref<number>(0);
     const getCellStyle = computed(() => {
-        return (i:number)=>{
-            // プレイヤーが初期位置にいる場合の、セルの top 位置。
-            const homeLeft = (i % tableColumns) * cellWidth;
-            const homeTop = Math.floor(i / tableRows) * cellHeight;
-
-            return {
-                position: 'absolute',
-                top: `${homeTop + boardTop.value}px`,
-                left: `${homeLeft + boardLeft.value}px`,
-                width: "32px",
-                height: "32px",
-                zoom: 4,
-                border: "solid 1px lightgray",
-            };
-        };
+        return (i:number)=>({
+            position: 'absolute',
+            top: `${Math.floor((i - 1) / 3) * 32 + boardTop.value}px`,
+            left: `${((i - 1) % 3) * 32 + boardLeft.value}px`,
+            width: "32px",
+            height: "32px",
+            zoom: 4,
+            border: "solid 1px lightgray",
+        });
     });
 
 
@@ -193,18 +187,34 @@
                 // 斜め方向の場合、上下を優先する。
                 if (p1Motion.value["xAxis"]==1) {   // 右
                     p1Frames.value = sourceFrames["right"]
-                    boardLeft.value -= p1Speed.value;   // 盤の方をスクロールさせる
+
+                    if (p1Left.value < lastColumnIndex * cellWidth) {    // 境界チェック
+                        //p1Left.value += p1Speed.value;
+                        boardLeft.value -= p1Speed.value;
+                    }
                 } else if (p1Motion.value["xAxis"]==-1) {  // 左
                     p1Frames.value = sourceFrames["left"]
-                    boardLeft.value += p1Speed.value;
+
+                    if (0 < p1Left.value) {    // 境界チェック
+                        //p1Left.value -= p1Speed.value;
+                        boardLeft.value += p1Speed.value;
+                    }
                 }
 
                 if (p1Motion.value["yAxis"]==-1) {  // 上
                     p1Frames.value = sourceFrames["up"]
-                    boardTop.value += p1Speed.value;
+
+                    if (0 < p1Top.value) {    // 境界チェック
+                        //p1Top.value -= p1Speed.value;
+                        boardTop.value += p1Speed.value;
+                    }
                 } else if (p1Motion.value["yAxis"]==1) {   // 下
                     p1Frames.value = sourceFrames["down"]
-                    boardTop.value -= p1Speed.value;
+
+                    if (p1Top.value < lastRowIndex * cellHeight) {    // 境界チェック
+                        //p1Top.value += p1Speed.value;
+                        boardTop.value -= p1Speed.value;
+                    }
                 }
 
                 // 次のフレーム
