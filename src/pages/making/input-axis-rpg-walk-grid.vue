@@ -178,19 +178,19 @@
                 // 移動処理
                 // 斜め方向の場合、上下を優先する。
                 if (p1Motion.value["xAxis"]==1) {   // 右
-                    p1Left.value += p1Speed.value;
                     p1Frames.value = sourceFrames["right"]
+                    p1Left.value += p1Speed.value;
                 } else if (p1Motion.value["xAxis"]==-1) {  // 左
-                    p1Left.value -= p1Speed.value;
                     p1Frames.value = sourceFrames["left"]
+                    p1Left.value -= p1Speed.value;
                 }
 
                 if (p1Motion.value["yAxis"]==-1) {  // 上
-                    p1Top.value -= p1Speed.value;
                     p1Frames.value = sourceFrames["up"]
+                    p1Top.value -= p1Speed.value;
                 } else if (p1Motion.value["yAxis"]==1) {   // 下
-                    p1Top.value += p1Speed.value;
                     p1Frames.value = sourceFrames["down"]
+                    p1Top.value += p1Speed.value;
                 }
 
                 // 次のフレーム

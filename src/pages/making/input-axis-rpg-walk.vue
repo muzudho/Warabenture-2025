@@ -53,32 +53,36 @@
     const slow = ref<number>(8);   // スローモーションの倍率の初期値
     const timerId = ref<number | null>(null);   // タイマーのIDを保持
 
+    // キャラクターの向きと、歩行タイルの指定
+    const cellWidth = 32;
+    const cellHeight = 32;
     const sourceFrames = {
         up:[    // 上向き
-            {top:   0, left:    0, width: 32, height: 32 },
-            {top:   0, left:   32, width: 32, height: 32 },
-            {top:   0, left:    0, width: 32, height: 32 },
-            {top:   0, left:   32, width: 32, height: 32 },
+            {top:  0 * cellHeight, left: 0 * cellWidth, width: cellWidth, height: cellHeight },
+            {top:  0 * cellHeight, left: 1 * cellWidth, width: cellWidth, height: cellHeight },
+            {top:  0 * cellHeight, left: 0 * cellWidth, width: cellWidth, height: cellHeight },
+            {top:  0 * cellHeight, left: 1 * cellWidth, width: cellWidth, height: cellHeight },
         ],
         right:[ // 右向き
-            {top:  32, left:    0, width: 32, height: 32 },
-            {top:  32, left:   32, width: 32, height: 32 },
-            {top:  32, left:    0, width: 32, height: 32 },
-            {top:  32, left:   32, width: 32, height: 32 },
+            {top:  1 * cellHeight, left: 0 * cellWidth, width: cellWidth, height: cellHeight },
+            {top:  1 * cellHeight, left: 1 * cellWidth, width: cellWidth, height: cellHeight },
+            {top:  1 * cellHeight, left: 0 * cellWidth, width: cellWidth, height: cellHeight },
+            {top:  1 * cellHeight, left: 1 * cellWidth, width: cellWidth, height: cellHeight },
         ],
         down:[  // 下向き
-            {top:  64, left:    0, width: 32, height: 32 },
-            {top:  64, left:   32, width: 32, height: 32 },
-            {top:  64, left:    0, width: 32, height: 32 },
-            {top:  64, left:   32, width: 32, height: 32 },
+            {top:  2 * cellHeight, left: 0 * cellWidth, width: cellWidth, height: cellHeight },
+            {top:  2 * cellHeight, left: 1 * cellWidth, width: cellWidth, height: cellHeight },
+            {top:  2 * cellHeight, left: 0 * cellWidth, width: cellWidth, height: cellHeight },
+            {top:  2 * cellHeight, left: 1 * cellWidth, width: cellWidth, height: cellHeight },
         ],
         left:[  // 左向き
-            {top:  96, left:    0, width: 32, height: 32 },
-            {top:  96, left:   32, width: 32, height: 32 },
-            {top:  96, left:    0, width: 32, height: 32 },
-            {top:  96, left:   32, width: 32, height: 32 },
+            {top:  3 * cellHeight, left: 0 * cellWidth, width: cellWidth, height: cellHeight },
+            {top:  3 * cellHeight, left: 1 * cellWidth, width: cellWidth, height: cellHeight },
+            {top:  3 * cellHeight, left: 0 * cellWidth, width: cellWidth, height: cellHeight },
+            {top:  3 * cellHeight, left: 1 * cellWidth, width: cellWidth, height: cellHeight },
         ]
     };
+
     const p1Frames = ref(sourceFrames["down"]);
 
 
