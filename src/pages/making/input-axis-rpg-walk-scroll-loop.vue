@@ -3,15 +3,15 @@
 
     <h3>上下左右に移動しようぜ！　＞　ＲＰＧの歩行グラフィック　＞　循環的スクロール</h3>
     <section class="sec-3">
-        <p>キーボードの上下左右キーを押してくれだぜ！</p>
+        <p>👇キーボードの上下左右キーを押してくれだぜ！</p>
 
-        <div style="position:relative; left: 0; top: 0;">
-            
+        <div :style="boardContainerStyle">
+
             <!--
                 グリッド
                 NOTE: ループカウンターは 1 から始まるので、1～9の9個のセルを作成。
             -->
-            <div v-for="i in 9" :key="i"
+            <div v-for="i in tableArea" :key="i"
                 :style="getCellStyle(i - 1)">{{ i - 1 }}</div>
 
             <!-- プレイヤー１ -->
@@ -23,7 +23,12 @@
                 class="cursor"
                 :style="p1Style"
                 style="zoom:4; image-rendering: pixelated;" /><br/>
+            
+            <!-- 半透明のマスク -->
+            <div style="position:absolute; left:0; top:0; width:192px; height:192px; border:solid 32px rgba(0,0,0,0.5); border-width: 32px; border-bottom-width: 64px; border-right-width:64px; zoom:4;"></div>
         </div>
+
+        <p>👆半透明の黒いマスクのところは画面に映らないようにすればＯｋだぜ（＾～＾）！</p>
 
 
     </section>
@@ -54,8 +59,8 @@
     const cellHeight = 32;
 
     // プレイヤー１
-    const p1Left = ref<number>(cellWidth);      // スプライトのX座標
-    const p1Top = ref<number>(cellHeight);       // スプライトのY座標
+    const p1Left = ref<number>(2 * cellWidth);      // スプライトのX座標
+    const p1Top = ref<number>(2 * cellHeight);       // スプライトのY座標
     const p1Speed = ref<number>(2);     // 移動速度
     const p1Input = <Record<string, boolean>>{  // 入力
         ArrowUp: false, ArrowRight: false, ArrowDown: false, ArrowLeft: false
@@ -108,8 +113,9 @@
         yAxis: 0,   // 負なら上、正なら下
     });
 
-    const tableColumns = 3;
-    const tableRows = 3;
+    const tableColumns = 5;
+    const tableRows = 5;
+    const tableArea = tableColumns * tableRows; // 盤のセル数
 
     /**
      * ユークリッド剰余
@@ -150,6 +156,18 @@
         };
     });
 
+    // ボードを含んでいる領域のスタイル
+    const boardContainerStyle = computed(()=>{
+        const zoom = 4;
+        
+        return {
+            position: 'relative',
+            left: '0',
+            top: '0',
+            width: `${zoom * (tableColumns + 1) * cellWidth}px`,
+            height: `${zoom * (tableRows + 1) * cellHeight}px`,
+        };
+    });
 
     // ##########
     // # 開始時 #

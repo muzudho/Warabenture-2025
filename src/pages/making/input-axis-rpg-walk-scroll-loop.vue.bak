@@ -1,7 +1,7 @@
 <template>
     <the-header/>
 
-    <h3>上下左右に移動しようぜ！　＞　ＲＰＧの歩行グラフィック　＞　原始的スクロール</h3>
+    <h3>上下左右に移動しようぜ！　＞　ＲＰＧの歩行グラフィック　＞　循環的スクロール</h3>
     <section class="sec-3">
         <p>キーボードの上下左右キーを押してくれだぜ！</p>
 
@@ -12,7 +12,7 @@
                 NOTE: ループカウンターは 1 から始まるので、1～9の9個のセルを作成。
             -->
             <div v-for="i in 9" :key="i"
-                :style="getCellStyle(i - 1)"></div>
+                :style="getCellStyle(i - 1)">{{ i - 1 }}</div>
 
             <!-- プレイヤー１ -->
             <TileAnimation
@@ -24,6 +24,7 @@
                 :style="p1Style"
                 style="zoom:4; image-rendering: pixelated;" /><br/>
         </div>
+
 
     </section>
 </template>
@@ -110,6 +111,16 @@
     const tableColumns = 3;
     const tableRows = 3;
 
+    /**
+     * ユークリッド剰余
+     * 
+     * NOTE: 負の剰余は数学の定義では［ユークリッド剰余］と、［トランケート剰余］の２種類あって、プログラム言語ごとにどっちを使ってるか違うから注意。
+     * TypeScript では［トランケート剰余］なので、［ユークリッド剰余］を使いたいときはこれを使う。
+     */
+    function euclideanMod(a: number, b: number): number {
+        return ((a % b) + b) % b;
+    }    
+
     // ボードの表示位置
     const boardTop = ref<number>(0);
     const boardLeft = ref<number>(0);
@@ -118,15 +129,23 @@
             // プレイヤーが初期位置にいる場合の、セルの top 位置。
             const homeLeft = (i % tableColumns) * cellWidth;
             const homeTop = Math.floor(i / tableRows) * cellHeight;
+            const boardWidth = (tableColumns * cellWidth);
+            const boardHeight = (tableRows * cellHeight);
+
+            // NOTE: 循環するだけなら、［剰余］を使えばいける。
+            // 盤の左端列を、右端列へ移動させる。
+            const boardLeftLoop = euclideanMod(homeLeft + boardLeft.value + boardWidth, boardWidth) - homeLeft;
+            const boardTopLoop = euclideanMod(homeTop + boardTop.value + boardHeight, boardHeight) - homeTop;
 
             return {
                 position: 'absolute',
-                top: `${homeTop + boardTop.value}px`,
-                left: `${homeLeft + boardLeft.value}px`,
+                top: `${homeTop + boardTopLoop}px`,
+                left: `${homeLeft + boardLeftLoop}px`,
                 width: "32px",
                 height: "32px",
                 zoom: 4,
                 border: "solid 1px lightgray",
+                textAlign: "center",
             };
         };
     });
