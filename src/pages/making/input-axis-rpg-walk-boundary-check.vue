@@ -46,6 +46,10 @@
     // # 共有データ #
     // ##############
 
+    // 盤データ
+    const cellWidth = 32;
+    const cellHeight = 32;
+
     // プレイヤー１
     const p1Left = ref<number>(0);      // スプライトのX座標
     const p1Top = ref<number>(0);       // スプライトのY座標
@@ -63,8 +67,6 @@
     const timerId = ref<number | null>(null);   // タイマーのIDを保持
 
     // キャラクターの向きと、歩行タイルの指定
-    const cellWidth = 32;
-    const cellHeight = 32;
     const sourceFrames = {
         up:[    // 上向き
             {top:  0 * cellHeight, left: 0 * cellWidth, width: cellWidth, height: cellHeight },
