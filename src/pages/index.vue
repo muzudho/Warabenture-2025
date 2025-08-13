@@ -13,7 +13,7 @@
         以下の円グラフをクリックするとそのページへ飛べるぜ（＾▽＾）！<br/>
     </section>
     <v-card elevation="2" class="pa-4">
-        <canvas id="pieChart" style="border:dashed 4px gray; background-color: white;"></canvas>
+        <canvas id="pieChart" class="pieChartStyle" style="border:dashed 4px gray; background-color: white;"></canvas>
     </v-card>
 </template>
 
@@ -26,6 +26,7 @@
     import { onMounted } from 'vue';
     import { Chart } from 'chart.js/auto';
     import { useRouter } from 'vue-router';
+
 
     // ##############
     // # 共有データ #
@@ -42,12 +43,19 @@
         "/wara-city/map",               // わらシティのURL
     ];
 
+    let chart: Chart | null = null;
+
+
     // ############
     // # 開始処理 #
     // ############
 
     onMounted(() => {
         initChart();
+    });
+
+    onUnmounted(() => {
+        destroyChart(); // チャートの破棄処理
     });
 
     function initChart() {
@@ -107,19 +115,20 @@
         });
     }
 
-    /*
-    beforeUnmount() {
+    function destroyChart() : void {
         if (chart) {
             chart.destroy();
         }
     }
-    */
 
 </script>
 
 <style scoped>
-    canvas {
-        max-width: 400px;
+    canvas.pieChartStyle {
+        min-width: 400px;
+        min-height: 400px;
+        width: 400px;
+        height: 400px;
         margin: 0 auto;
     }
 
