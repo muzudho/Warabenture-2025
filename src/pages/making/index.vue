@@ -16,6 +16,7 @@
             <li>📖 <router-link to="/making/input-axis">上下左右に移動しようぜ！</router-link></li>
             <li>📖 <router-link to="/making/input-axis-rpg-walk">上下左右に移動しようぜ！　＞　ＲＰＧの歩行グラフィック</router-link></li>
             <li>📖 <router-link to="/making/input-axis-rpg-walk-grid">上下左右に移動しようぜ！　＞　ＲＰＧの歩行グラフィック　＞　グリッド吸着</router-link></li>
+            <li>📖 <router-link to="/making/input-axis-rpg-walk-boundary-check">上下左右に移動しようぜ！　＞　ＲＰＧの歩行グラフィック　＞　境界チェック</router-link></li>
         </ul>
     </section>
 </template>
