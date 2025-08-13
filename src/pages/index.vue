@@ -1,6 +1,7 @@
 <template>
     <section class="sec-1">
-        今さら、手作りのホームページ。（Created by むずでょ）<br/>
+        今さら、手作りのホームページ（＾▽＾）！（Created by むずでょ）<v-btn style="visibility: hidden;"></v-btn><br/>
+        <!-- 他のページと縦幅を揃えるために、何の働きもしない空ボタンを置いています。 -->
     </section>
 
     <h2>ホームの章だぜ！</h2>

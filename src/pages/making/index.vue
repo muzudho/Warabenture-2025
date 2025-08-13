@@ -3,7 +3,8 @@
 
     <h2>メイキングの章だぜ！</h2>
     <section class="sec-2">
-        アプリケーション製作の練習だぜ（＾▽＾）！<br/>
+        アプリケーション製作の練習だぜ（＾▽＾）！<v-btn style="visibility: hidden;"></v-btn><br/>
+        <!-- 他のページと縦幅を揃えるために、何の働きもしない空ボタンを置いています。 -->
 
         <ul>
             <li>📖 <router-link to="/making/page-layout">説明を始める前に、説明ページのレイアウトを決めておこうぜ！</router-link></li>
