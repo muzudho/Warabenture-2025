@@ -1,6 +1,6 @@
 <template>
     <section class="sec-1">
-        今さら、手作りのホームページ（＾▽＾）！（Created by むずでょ）<v-btn style="visibility: hidden;"></v-btn><br/>
+        自分のヘタクソさと向き合うのは楽しい。今さら、手作りのホームページ（＾▽＾）！（Created by むずでょ）<v-btn style="visibility: hidden;"></v-btn><br/>
         <!-- 他のページと縦幅を揃えるために、何の働きもしない空ボタンを置いています。 -->
     </section>
 
