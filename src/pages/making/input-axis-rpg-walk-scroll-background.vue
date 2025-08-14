@@ -1,18 +1,23 @@
 <template>
     <the-header/>
 
-    <h3>上下左右に移動しようぜ！　＞　ＲＰＧの歩行グラフィック　＞　循環的スクロール</h3>
+    <h3>上下左右に移動しようぜ！　＞　ＲＰＧの歩行グラフィック　＞　背景的スクロール</h3>
     <section class="sec-3">
-        <p>👇キーボードの上下左右キーを押してくれだぜ！</p>
-
+        <p>👇キーボードの上下左右キーを押してくれだぜ（＾▽＾）！</p>
         <div :style="boardMaskContainerStyle">
 
             <!--
-                グリッド
+                TODO: 背景タイル
                 NOTE: ループカウンターは 1 から始まるので、1～9の9個のセルを作成。
             -->
-            <div v-for="i in tableArea" :key="i"
-                :style="getCellStyle(i - 1)">{{ i - 1 }}</div>
+            <Tile
+                v-for="i in tableArea" :key="i"
+                :style="getCellStyle(i - 1)"
+                :srcLeft="getFloorLeftByCell(i - 1)"
+                srcTop="0"
+                srcWidth="32"
+                srcHeight="32"
+                tilemapUrl="/img/making/tilemap_floor.png" />
 
             <!-- プレイヤー１ -->
             <TileAnimation
@@ -29,7 +34,24 @@
         </div>
 
         <p>👆半透明の黒いマスクのところは画面に映らないようにすればＯｋだぜ（＾～＾）！</p>
-        <p>数字は背景ではなく、セルに付いている番号だぜ（＾▽＾）！</p>
+        <br/>
+
+        <p>👇タイルのインデックスだぜ（＾▽＾）：</p>
+        <div :style="boardContainerStyle">
+            <!--
+                グリッド
+                NOTE: ループカウンターは 1 から始まるので、1～9の9個のセルを作成。
+            -->
+            <div v-for="i in tableArea" :key="i"
+                :style="getCellStyle(i - 1)"
+                style="border:dashed 1px gray;">{{ getTileIndexByCell(i - 1) }}</div>
+        </div>
+        <p>：ここまで。</p>
+        <br/>
+
+        <p>元画像のタイルマップを表示：</p>
+        <v-img src="/img/making/tilemap_floor.png" style="width:128px; height:128px; zoom: 4; image-rendering: pixelated; border:dashed gray 4px;"/>
+        <p>：ここまで。</p>
 
     </section>
 </template>
@@ -46,6 +68,7 @@
     // + コンポーネント +
     // ++++++++++++++++++
 
+    import Tile from '@/components/Tile.vue'; // Tauri だと明示的にインポートを指定する必要がある。
     import TileAnimation from '@/components/TileAnimation.vue'; // Tauri だと明示的にインポートを指定する必要がある。
     import TheHeader from './the-header.vue';
 
@@ -150,8 +173,7 @@
                 width: "32px",
                 height: "32px",
                 zoom: 4,
-                border: "solid 1px lightgray",
-                textAlign: "center",
+                imagePixelated: true,
             };
         };
     });
@@ -169,11 +191,71 @@
         };
     });
 
+    // ボードだけを含んでいる領域のスタイル
+    const boardContainerStyle = computed(()=>{
+        const zoom = 4;
+        
+        return {
+            position: 'relative',
+            left: '0',
+            top: '0',
+            width: `${zoom * tableColumns * cellWidth}px`,
+            height: `${zoom * tableRows * cellHeight}px`,
+        };
+    });
+
+    // 床のタイルマップ
+    const floorTilemapTileNum = 4;
+    const floorTileMapCoordination = computed(() => {   // 座標
+        const tileMap = [];
+        for (let i = 0; i < tableArea; i++) {
+            const cols = i % tableColumns;
+            const rows = Math.floor(i / tableColumns);
+            tileMap.push({ top: rows * cellHeight, left: cols * cellWidth, width: cellWidth, height: cellHeight });
+        }
+        return tileMap;
+    });
+
+    // マップデータ
+    const mapColumns = tableColumns;  // TODO: 10ぐらいにしたい
+    const mapRows = tableRows;  // TODO: 10ぐらいにしたい
+    const mapArea = mapColumns * mapRows;
+
+    // ランダムなマップデータを生成
+    const mapData = computed(() => {
+        const data = [];
+        for (let i = 0; i < mapArea; i++) {
+            data.push(Math.floor(Math.random() * floorTilemapTileNum));  // 0からfloorTilemapTileNum - 1のランダムな整数を配置
+        }
+        return data;
+    });
+
+    const getTileIndexByCell = computed(() => {
+        return (cellIndex: number) => {
+            return mapData.value[cellIndex];
+        };
+    });
+    
+    const getFloorLeftByCell = computed(() => {
+        return (cellIndex: number) => {
+            const tileIndex = mapData.value[cellIndex];
+            return floorTileMapCoordination.value[tileIndex]["left"];
+        };
+    });
+
     // ##########
     // # 開始時 #
     // ##########
 
     onMounted(() => {
+        document.addEventListener('keydown', (event: KeyboardEvent) => {
+            // 上下キーの場合
+            if (event.key === 'ArrowUp' || event.key === 'ArrowDown') {
+                // ブラウザーのデフォルトの上下スクロール動作をキャンセル
+                event.preventDefault();
+            }
+        });        
+
         startGameLoop();
         startTimer();
 
