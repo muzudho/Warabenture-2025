@@ -13,9 +13,7 @@
     <section class="sec-3">
         以下の円グラフをクリックするとそのページへ飛べるぜ（＾▽＾）！<br/>
     </section>
-    <v-card elevation="2" class="pa-4">
-        <canvas id="pieChart" class="pieChartStyle" style="border:dashed 4px gray; background-color: white;"></canvas>
-    </v-card>
+    <canvas id="pieChart" class="pieChartStyle" style="border:dashed 4px gray; background-color: white;"></canvas>
 </template>
 
 <script setup lang="ts">
