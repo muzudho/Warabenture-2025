@@ -8,232 +8,6 @@ h1 {
     text-align: left !important;
 }
 
-/* スマホ向けスタイル (画面幅が768px以下) */
-@media screen and (max-width: 768px) {
-    h2 {
-        background-color: var(--warabenture-sec-2-header-bgcolor, #101010);
-        color: var(--warabenture-sec-2-header-fgcolor, #F0F0F0);
-        font-size: x-large;
-        margin-left: 20px;
-        padding-left: 4px;
-        padding-top: 6px;
-        padding-bottom: 2px;
-    }
-
-    h3 {
-        background-color: var(--warabenture-sec-3-header-bgcolor, #181818);
-        color: var(--warabenture-sec-3-header-fgcolor, #F0F0F0);
-        font-size: x-large;
-        margin-left: 40px;
-        padding-left: 4px;
-        padding-top: 6px;
-        padding-bottom: 2px;
-    }
-
-    h4 {
-        background-color: var(--warabenture-sec-4-header-bgcolor, #202020);
-        color: var(--warabenture-sec-4-header-fgcolor, #F0F0F0);
-        font-size: large;
-        margin-left: 60px;
-        padding-left: 4px;
-        padding-top: 6px;
-        padding-bottom: 2px;
-    }
-
-    h5 {
-        background-color: var(--warabenture-sec-5-header-bgcolor, #282828);
-        color: var(--warabenture-sec-5-header-fgcolor, #F0F0F0);
-        font-size: large;
-        margin-left: 80px;
-        padding-left: 4px;
-        padding-top: 6px;
-        padding-bottom: 2px;
-    }
-
-    h6 {
-        background-color: var(--warabenture-sec-6-header-bgcolor, #303030);
-        color: var(--warabenture-sec-6-header-fgcolor, #F0F0F0);
-        font-size: medium;
-        margin-left: 100px;
-        padding-left: 4px;
-        padding-top: 6px;
-        padding-bottom: 2px;
-    }
-
-    section.sec-1 {
-        padding-left: 24px;
-    }
-
-    section.sec-2 {
-        padding-left: 44px;
-    }
-
-    section.sec-3 {
-        padding-left: 64px;
-    }
-
-    section.sec-4 {
-        padding-left: 84px;
-    }
-
-    section.sec-5 {
-        padding-left: 104px;
-    }
-
-    section.sec-6 {
-        padding-left: 124px;
-    }
-
-    .sec-1 img {
-        max-width: 300px;
-        max-height: 300px;
-        object-fit: contain; /* 画像が枠に収まるように調整 */
-    }
-
-    .sec-2 img {
-        max-width: 300px;
-        max-height: 300px;
-        object-fit: contain;
-    }
-
-    .sec-3 img {
-        max-width: 300px;
-        max-height: 300px;
-        object-fit: contain;
-    }
-
-    .sec-4 img {
-        max-width: 300px;
-        max-height: 300px;
-        object-fit: contain;
-    }
-
-    .sec-5 img {
-        max-width: 300px;
-        max-height: 300px;
-        object-fit: contain;
-    }
-
-    .sec-6 img {
-        max-width: 300px;
-        max-height: 300px;
-        object-fit: contain;
-    }
-}
-
-/* パソコン向けスタイル (画面幅が769px以上) */
-@media screen and (min-width: 769px) {
-    h2 {
-        background-color: var(--warabenture-sec-2-header-bgcolor, #101010);
-        color: var(--warabenture-sec-2-header-fgcolor, #F0F0F0);
-        font-size: x-large;
-        margin-left: 60px;
-        padding-left: 4px;
-        padding-top: 6px;
-        padding-bottom: 2px;
-    }
-
-    h3 {
-        background-color: var(--warabenture-sec-3-header-bgcolor, #181818);
-        color: var(--warabenture-sec-3-header-fgcolor, #F0F0F0);
-        font-size: x-large;
-        margin-left: 120px;
-        padding-left: 4px;
-        padding-top: 6px;
-        padding-bottom: 2px;
-    }
-
-    h4{
-        background-color: var(--warabenture-sec-4-header-bgcolor, #202020);
-        color: var(--warabenture-sec-4-header-fgcolor, #F0F0F0);
-        font-size: large;
-        margin-left: 180px;
-        padding-left: 4px;
-        padding-top: 6px;
-        padding-bottom: 2px;
-    }
-
-    h5 {
-        background-color: var(--warabenture-sec-5-header-bgcolor, #282828);
-        color: var(--warabenture-sec-5-header-fgcolor, #F0F0F0);
-        font-size: large;
-        margin-left: 240px;
-        padding-left: 4px;
-        padding-top: 6px;
-        padding-bottom: 2px;
-    }
-
-    h6 {
-        background-color: var(--warabenture-sec-6-header-bgcolor, #303030);
-        color: var(--warabenture-sec-6-header-fgcolor, #F0F0F0);
-        font-size: medium;
-        margin-left: 300px;
-        padding-left: 4px;
-        padding-top: 6px;
-        padding-bottom: 2px;
-    }
-
-    section.sec-1 {
-        padding-left: 64px;
-    }
-
-    section.sec-2 {
-        padding-left: 124px;
-    }
-
-    section.sec-3 {
-        padding-left: 184px;
-    }
-
-    section.sec-4 {
-        padding-left: 244px;
-    }
-
-    section.sec-5 {
-        padding-left: 304px;
-    }
-
-    section.sec-6 {
-        padding-left: 364px;
-    }
-
-    .sec-1 img {
-        max-width: 1024px;  /* PCなので比較的大きなサイズ */
-        max-height: 1024px;
-        object-fit: contain; /* 画像が枠に収まるように調整 */
-    }
-
-    .sec-2 img {
-        max-width: 1024px;
-        max-height: 1024px;
-        object-fit: contain;
-    }
-
-    .sec-3 img {
-        max-width: 1024px;
-        max-height: 1024px;
-        object-fit: contain;
-    }
-
-    .sec-4 img {
-        max-width: 1024px;
-        max-height: 1024px;
-        object-fit: contain;
-    }
-
-    .sec-5 img {
-        max-width: 1024px;
-        max-height: 1024px;
-        object-fit: contain;
-    }
-
-    .sec-6 img {
-        max-width: 1024px;
-        max-height: 1024px;
-        object-fit: contain;
-    }
-}
-
 /* ヘッダーの先頭に # のアイコンを付ける */
 h1::before {
     content: "";            /* 指定しないと、画像も表示されない */
@@ -293,4 +67,260 @@ h6::before {
     zoom:0.25;       /* なんか拡大されてるので、目視確認で合わせる。 font-size: medium; だから？ */
     background-image: var(--warabenture-img-six-sharps, url('/img/warabenture/six-sharps-light.png'));
     background-position: 0px 0;
+}
+
+/* スマホ向けスタイル (画面幅が768px以下) */
+@media screen and (max-width: 768px) {
+    h2 {
+        background-color: var(--warabenture-sec-2-header-bgcolor, #101010);
+        color: var(--warabenture-sec-2-header-fgcolor, #F0F0F0);
+        font-size: x-large;
+        margin-left: 20px;
+        padding-left: 4px;
+        padding-top: 6px;
+        padding-bottom: 2px;
+    }
+
+    h3 {
+        background-color: var(--warabenture-sec-3-header-bgcolor, #181818);
+        color: var(--warabenture-sec-3-header-fgcolor, #F0F0F0);
+        font-size: x-large;
+        margin-left: 40px;
+        padding-left: 4px;
+        padding-top: 6px;
+        padding-bottom: 2px;
+    }
+
+    h4 {
+        background-color: var(--warabenture-sec-4-header-bgcolor, #202020);
+        color: var(--warabenture-sec-4-header-fgcolor, #F0F0F0);
+        font-size: large;
+        margin-left: 60px;
+        padding-left: 4px;
+        padding-top: 6px;
+        padding-bottom: 2px;
+    }
+
+    h5 {
+        background-color: var(--warabenture-sec-5-header-bgcolor, #282828);
+        color: var(--warabenture-sec-5-header-fgcolor, #F0F0F0);
+        font-size: large;
+        margin-left: 80px;
+        padding-left: 4px;
+        padding-top: 6px;
+        padding-bottom: 2px;
+    }
+
+    h6 {
+        background-color: var(--warabenture-sec-6-header-bgcolor, #303030);
+        color: var(--warabenture-sec-6-header-fgcolor, #F0F0F0);
+        font-size: medium;
+        margin-left: 100px;
+        padding-left: 4px;
+        padding-top: 6px;
+        padding-bottom: 2px;
+    }
+
+    section.sec-1 {
+        margin-left: 24px;
+    }
+
+    section.sec-2 {
+        margin-left: 44px;
+    }
+
+    section.sec-3 {
+        margin-left: 64px;
+    }
+
+    section.sec-4 {
+        margin-left: 84px;
+    }
+
+    section.sec-5 {
+        margin-left: 104px;
+    }
+
+    section.sec-6 {
+        margin-left: 124px;
+    }
+
+    .sec-1 img {
+        max-width: 300px;
+        max-height: 300px;
+        object-fit: contain; /* 画像が枠に収まるように調整 */
+    }
+
+    .sec-2 img {
+        max-width: 300px;
+        max-height: 300px;
+        object-fit: contain;
+    }
+
+    .sec-3 img {
+        max-width: 300px;
+        max-height: 300px;
+        object-fit: contain;
+    }
+
+    .sec-4 img {
+        max-width: 300px;
+        max-height: 300px;
+        object-fit: contain;
+    }
+
+    .sec-5 img {
+        max-width: 300px;
+        max-height: 300px;
+        object-fit: contain;
+    }
+
+    .sec-6 img {
+        max-width: 300px;
+        max-height: 300px;
+        object-fit: contain;
+    }
+
+    /* 親リスト */
+    ul {
+        list-style-type: disc; /* リストのマーカー（点など）を設定 */
+    }
+    /* 子リスト */
+    ul ul {
+        padding-left: 10px; /* インデントを増やす */
+        list-style-type: circle; /* 異なるマーカーでネスト感を出す */
+    }
+    /* さらに深い子リスト */
+    ul ul ul {
+        padding-left: 20px; /* さらにインデント */
+        list-style-type: square;
+    }
+}
+
+/* パソコン向けスタイル (画面幅が769px以上) */
+@media screen and (min-width: 769px) {
+    h2 {
+        background-color: var(--warabenture-sec-2-header-bgcolor, #101010);
+        color: var(--warabenture-sec-2-header-fgcolor, #F0F0F0);
+        font-size: x-large;
+        margin-left: 60px;
+        padding-left: 4px;
+        padding-top: 6px;
+        padding-bottom: 2px;
+    }
+
+    h3 {
+        background-color: var(--warabenture-sec-3-header-bgcolor, #181818);
+        color: var(--warabenture-sec-3-header-fgcolor, #F0F0F0);
+        font-size: x-large;
+        margin-left: 120px;
+        padding-left: 4px;
+        padding-top: 6px;
+        padding-bottom: 2px;
+    }
+
+    h4{
+        background-color: var(--warabenture-sec-4-header-bgcolor, #202020);
+        color: var(--warabenture-sec-4-header-fgcolor, #F0F0F0);
+        font-size: large;
+        margin-left: 180px;
+        padding-left: 4px;
+        padding-top: 6px;
+        padding-bottom: 2px;
+    }
+
+    h5 {
+        background-color: var(--warabenture-sec-5-header-bgcolor, #282828);
+        color: var(--warabenture-sec-5-header-fgcolor, #F0F0F0);
+        font-size: large;
+        margin-left: 240px;
+        padding-left: 4px;
+        padding-top: 6px;
+        padding-bottom: 2px;
+    }
+
+    h6 {
+        background-color: var(--warabenture-sec-6-header-bgcolor, #303030);
+        color: var(--warabenture-sec-6-header-fgcolor, #F0F0F0);
+        font-size: medium;
+        margin-left: 300px;
+        padding-left: 4px;
+        padding-top: 6px;
+        padding-bottom: 2px;
+    }
+
+    section.sec-1 {
+        margin-left: 64px;
+    }
+
+    section.sec-2 {
+        margin-left: 124px;
+    }
+
+    section.sec-3 {
+        margin-left: 184px;
+    }
+
+    section.sec-4 {
+        margin-left: 244px;
+    }
+
+    section.sec-5 {
+        margin-left: 304px;
+    }
+
+    section.sec-6 {
+        margin-left: 364px;
+    }
+
+    .sec-1 img {
+        max-width: 1024px;  /* PCなので比較的大きなサイズ */
+        max-height: 1024px;
+        object-fit: contain; /* 画像が枠に収まるように調整 */
+    }
+
+    .sec-2 img {
+        max-width: 1024px;
+        max-height: 1024px;
+        object-fit: contain;
+    }
+
+    .sec-3 img {
+        max-width: 1024px;
+        max-height: 1024px;
+        object-fit: contain;
+    }
+
+    .sec-4 img {
+        max-width: 1024px;
+        max-height: 1024px;
+        object-fit: contain;
+    }
+
+    .sec-5 img {
+        max-width: 1024px;
+        max-height: 1024px;
+        object-fit: contain;
+    }
+
+    .sec-6 img {
+        max-width: 1024px;
+        max-height: 1024px;
+        object-fit: contain;
+    }
+
+    /* 親リスト */
+    ul {
+        list-style-type: disc; /* リストのマーカー（点など）を設定 */
+    }
+    /* 子リスト */
+    ul ul {
+        padding-left: 40px; /* インデントを増やす */
+        list-style-type: circle; /* 異なるマーカーでネスト感を出す */
+    }
+    /* さらに深い子リスト */
+    ul ul ul {
+        padding-left: 80px; /* さらにインデント */
+        list-style-type: square;
+    }
 }
