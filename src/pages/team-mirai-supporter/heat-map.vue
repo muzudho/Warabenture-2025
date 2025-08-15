@@ -308,6 +308,8 @@
             </div>
         </div>
     </section>
+
+    <the-footer/>
 </template>
 
 <script setup lang="ts">
@@ -320,6 +322,7 @@
     // + コンポーネント +
     // ++++++++++++++++++
 
+    import TheFooter from './the-footer.vue';
     import TheHeader from './the-header.vue';
 
 </script>

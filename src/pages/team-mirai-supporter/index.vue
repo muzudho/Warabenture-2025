@@ -1,5 +1,5 @@
 <template>
-    <the-parent-header/>
+    <the-grand-parent-header/>
 
     <h2>チームみらいサポーター活動の章だぜ！</h2>
     <section class="sec-2">
@@ -7,6 +7,8 @@
             <li>📖 <NuxtLink to="/team-mirai-supporter/heat-map" :style="getPreviousLinkHighlight('/team-mirai-supporter/heat-map')">Heat Map</NuxtLink></li>
         </ul>
     </section>
+
+    <the-grand-parent-footer/>
 </template>
 
 <script setup lang="ts">
@@ -19,7 +21,8 @@
     // + コンポーネント +
     // ++++++++++++++++++
 
-    import TheParentHeader from '../../the-header.vue';
+    import TheGrandParentFooter from '../../the-footer.vue';
+    import TheGrandParentHeader from '../../the-header.vue';
 
 
     // ++++++++++++++++++

@@ -1,9 +1,7 @@
 <template>
-    <the-grand-parent-header/>
-
-    <h2>チームみらいサポーター活動の章だぜ！</h2>
+    <br/>
     <section class="sec-2">
-        <v-btn @click="goToTeamPiraiSupporterPage" v-tooltip="'下の節を閉じる'">❌</v-btn>
+        <v-btn @click="goToTeamPiraiSupporterPage" v-tooltip="'上の節を閉じる'">❌</v-btn>
     </section>
 </template>
 
@@ -13,17 +11,12 @@
     // # インポート #
     // ##############
 
-    // ++++++++++++++++++
-    // + コンポーネント +
-    // ++++++++++++++++++
-
-    import TheGrandParentHeader from '../../the-header.vue';
+    import { useRouter } from 'vue-router';
 
 
     // ############
     // # ルーチン #
     // ############
-    
     const router = useRouter();
 
     function goToTeamPiraiSupporterPage() : void {

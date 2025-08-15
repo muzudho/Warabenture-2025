@@ -1,5 +1,5 @@
 <template>
-    <the-parent-header/>
+    <the-grand-parent-header/>
 
     <h2>ブログ</h2>
     <section class="sec-2">
@@ -29,6 +29,8 @@
     <Blog20250601Sun />
 
     <Blog20250524Sat />
+
+    <the-grand-parent-footer/>
 </template>
 
 <script setup lang="ts">
@@ -41,7 +43,6 @@
     // + コンポーネント +
     // ++++++++++++++++++
 
-    import TheParentHeader from '../../the-header.vue';
     import Blog20250524Sat from './2025-05/24-sat.vue';
     import Blog20250601Sun from './2025-06/01-sun.vue';
     import Blog20250602Mon from './2025-06/02-mon.vue';    
@@ -54,5 +55,7 @@
     import Blog20250712Sat from './2025-07/12-sat.vue';
     import Blog20250725Fri from './2025-07/25-fri.vue';
     import Blog20250811Mon from './2025-08/11-mon.vue';
+    import TheGrandParentFooter from '../../the-footer.vue';
+    import TheGrandParentHeader from '../../the-header.vue';
 
 </script>
