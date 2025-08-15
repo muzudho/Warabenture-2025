@@ -1,5 +1,5 @@
 # Warabenture
-.bak
+*.bak
 private
 
 # Nuxt dev/build outputs

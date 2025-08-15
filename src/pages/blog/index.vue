@@ -41,7 +41,7 @@
     // + コンポーネント +
     // ++++++++++++++++++
 
-    import TheParentHeader from '../the-header.vue';
+    import TheParentHeader from '../../the-header.vue';
     import Blog20250524Sat from './2025-05/24-sat.vue';
     import Blog20250601Sun from './2025-06/01-sun.vue';
     import Blog20250602Mon from './2025-06/02-mon.vue';    

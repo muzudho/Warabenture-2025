@@ -1,4 +1,6 @@
 <template>
+    <!-- ホームに閉じるボタンはありません。 -->
+
     <section class="sec-1">
         自分のヘタクソさと向き合うのは楽しい。今さら、手作りのホームページ（＾▽＾）！（Created by むずでょ）<v-btn style="visibility: hidden;"></v-btn><br/>
         <!-- 他のページと縦幅を揃えるために、何の働きもしない空ボタンを置いています。 -->
@@ -12,8 +14,16 @@
     <h3>このホームページの内容の気分的な割合</h3>
     <section class="sec-3">
         以下の円グラフをクリックするとそのページへ飛べるぜ（＾▽＾）！<br/>
+	    <canvas id="pieChart" class="pieChartStyle" style="border:dashed 4px gray; background-color: white;"></canvas>
     </section>
-    <canvas id="pieChart" class="pieChartStyle" style="border:dashed 4px gray; background-color: white;"></canvas>
+
+    <br/>
+    <section class="sec-1">
+        またのお越しをお待ちしておりますだぜ（＾▽＾）！<v-btn style="visibility: hidden;"></v-btn><br/>
+        <!-- 他のページと縦幅を揃えるために、何の働きもしない空ボタンを置いています。 -->
+    </section>
+
+    <!-- ホームに閉じるボタンはありません。 -->
 </template>
 
 <script setup lang="ts">
@@ -66,7 +76,7 @@
             return;
         }
 
-        new Chart(ctx, {
+        chart = new Chart(ctx, {
             type: 'pie',
             data: {
                 labels: ['ブログ', 'メイキング', 'チームみらいサポーター活動', 'ホーム', 'わらシティ'],
@@ -92,7 +102,7 @@
             options: {
                 responsive: true,
                 plugins: {
-                    legend: {
+                    legend: {   // 凡例
                         position: 'top',
                     },
                     title: {
@@ -103,10 +113,10 @@
                 onClick: (_e, elements) => {
                     if (elements.length > 0) {
                         const index = elements[0].index;
-                        console.log(`index=${index}\nroutes.length=${routes.length}\nroutes[0]=${routes[0]}\nroutes[1]=${routes[1]}\nroutes[2]=${routes[2]}\nroutes[3]=${routes[3]}`);
+                        //console.log(`index=${index}\nroutes.length=${routes.length}\nroutes[0]=${routes[0]}\nroutes[1]=${routes[1]}\nroutes[2]=${routes[2]}\nroutes[3]=${routes[3]}`);
                         // Vue Routerでページ遷移
                         const path = routes[index];
-                        console.log(`path=${path}`);
+                        //console.log(`path=${path}`);
                         router.push(path);
                     }
                 }
@@ -130,10 +140,4 @@
         height: 400px;
         margin: 0 auto;
     }
-
-    /* 円グラフが v-cardの背景色の影響を受けているので、透明にする */
-    .v-card {
-        background-color: transparent !important;
-    }
 </style>
-```

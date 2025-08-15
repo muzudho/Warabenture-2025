@@ -10,6 +10,8 @@
             class="cursor"
             :style="p1Style"></div>
     </section>
+
+    <the-footer/>
 </template>
 
 <script setup lang="ts">
@@ -24,7 +26,9 @@
     // + コンポーネント +
     // ++++++++++++++++++
 
+    import TheFooter from './the-footer.vue';
     import TheHeader from './the-header.vue';
+
 
     // ##############
     // # 共有データ #
@@ -41,6 +45,7 @@
         top: `${p1Top.value}px`,
         left: `${p1Left.value}px`,
     }));
+
 
     // ##########
     // # 開始時 #
@@ -60,6 +65,7 @@
                 p1Input[e.key] = false;
             }
         });
+
 
         // ################
         // # サブルーチン #

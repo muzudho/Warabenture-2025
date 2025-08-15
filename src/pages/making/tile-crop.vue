@@ -16,8 +16,8 @@
         <v-img src="/img/making/tilemap_sample.png" style="width:128px; height:128px;"/>
         ：ここまで。
     </section>
-    <hr/>
-    <router-link to="/making">メイキングの先頭に戻る</router-link>
+    
+    <the-footer/>
 </template>
 
 <script setup lang="ts">
@@ -26,12 +26,12 @@
     // # インポート #
     // ##############
 
-    import Tile from '@/components/Tile.vue';
-
     // ++++++++++++++++++
     // + コンポーネント +
     // ++++++++++++++++++
 
+    import TheFooter from './the-footer.vue';
     import TheHeader from './the-header.vue';
+    import Tile from '../../components/Tile.vue';
 
 </script>

@@ -5,11 +5,14 @@
     <section class="sec-3">
         <p>キーボードの上下左右キーを押してくれだぜ！</p>
 
-        <div style="position:relative; left: 0; top: 0;">
+        <div :style="`position:relative; left: 0; top: 0; height: ${zoom * tableRows * cellHeight}px;`">
             
-            <!-- グリッド -->
-            <div v-for="i in 9" :key="i"
-                :style="`position:absolute; top: ${Math.floor((i - 1) / 3) * 32}px; left: ${((i - 1) % 3) * 32}px; width:32px; height:32px; zoom: 4; border: solid 1px lightgray;`"></div>
+            <!--
+                グリッド
+                NOTE: ループカウンターは 1 から始まるので、1～9の9個のセルを作成。
+            -->
+            <div v-for="i in tableArea" :key="i"
+                :style="`position:absolute; top: ${Math.floor((i - 1) / tableColumns) * cellHeight}px; left: ${((i - 1) % tableColumns) * cellWidth}px; width:${cellWidth}px; height:${cellHeight}px; zoom: ${zoom}; border: solid 1px lightgray;`"></div>
             <!--
                 👆 上記のコードは、以下のコードと同じ。
                 <div style="position:absolute; top: 0px; left: 0px; width:32px; height:32px; zoom: 4; border: solid 1px lightgray;"></div>
@@ -33,11 +36,12 @@
                 :time="count"
                 class="cursor"
                 :style="p1Style"
-                style="zoom:4; image-rendering: pixelated;" /><br/>
+                style="image-rendering: pixelated;" /><br/>
         </div>
 
-
     </section>
+
+    <the-footer/>
 </template>
 
 <script setup lang="ts">
@@ -53,12 +57,16 @@
     // ++++++++++++++++++
 
     import TileAnimation from '@/components/TileAnimation.vue'; // Tauri だと明示的にインポートを指定する必要がある。
+    import TheFooter from './the-footer.vue';
     import TheHeader from './the-header.vue';
 
 
     // ##############
     // # 共有データ #
     // ##############
+
+    // 表示データ
+    const zoom = 4;
 
     // 盤データ
     const cellWidth = 32;
@@ -74,8 +82,10 @@
     const p1Style = computed(() => ({
         top: `${p1Top.value}px`,
         left: `${p1Left.value}px`,
+        zoom: `${zoom}`,
     }));
 
+    // モーション
     const count = ref<number>(0);   // カウントの初期値
     const slow = ref<number>(8);   // スローモーションの倍率の初期値
     const timerId = ref<number | null>(null);   // タイマーのIDを保持
@@ -109,6 +119,8 @@
     };
 
     const p1Frames = ref(sourceFrames["down"]);
+
+    // モーション
     const p1MotionWait = ref(0);  // TODO 入力キーごとに用意したい。
     const moLeft = -1;  // モーション（motion）定数。左に移動する
     const moRight = 1;
@@ -118,6 +130,11 @@
         xAxis: 0,   // 負なら左、正なら右
         yAxis: 0,   // 負なら上、正なら下
     });
+
+    // 盤データ
+    const tableColumns = 3;
+    const tableRows = 3;
+    const tableArea = tableColumns * tableRows; // 盤のセル数
 
 
     // ##########
@@ -147,6 +164,7 @@
 
         function startGameLoop() : void {
             const update = () => {
+                // モーション・タイマー
                 p1MotionWait.value -= 1;
 
                 if (p1MotionWait.value==0) {

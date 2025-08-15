@@ -25,9 +25,10 @@
 
     </section>
 
-    <hr/>
+    <!-- エラーメッセージ欄 -->
     <p v-if="errorMessage" style="color: red;">{{ errorMessage }}</p>
-    <router-link to="/making">メイキングの先頭に戻る</router-link>
+
+    <the-footer/>
 </template>
 
 <script setup lang="ts">
@@ -42,7 +43,9 @@
     // + コンポーネント +
     // ++++++++++++++++++
 
+    import TheFooter from './the-footer.vue';
     import TheHeader from './the-header.vue';
+
 
     // ##############
     // # 共有データ #
@@ -50,6 +53,7 @@
 
     const textVM = ref<string>('読み込み中...');
     const errorMessage = ref<string>('');
+
 
     // ##############
     // # 起動時処理 #

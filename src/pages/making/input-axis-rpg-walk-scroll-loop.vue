@@ -22,16 +22,20 @@
                 :time="count"
                 class="cursor"
                 :style="p1Style"
-                style="zoom:4; image-rendering: pixelated;" /><br/>
+                style="image-rendering: pixelated;" /><br/>
             
             <!-- 半透明のマスク -->
-            <div style="position:absolute; left:0; top:0; width:192px; height:192px; border:solid 32px rgba(0,0,0,0.5); border-width: 32px; border-bottom-width: 64px; border-right-width:64px; zoom:4;"></div>
+            <div
+                :style="`width:${tableColumnsWithMask * cellWidth}px; height:${tableRowsWithMask * cellHeight}px; border-top: solid ${cellHeight}px rgba(0,0,0,0.5); border-right: solid ${2 * cellWidth}px rgba(0,0,0,0.5); border-bottom: solid ${2 * cellHeight}px rgba(0,0,0,0.5); border-left: solid ${cellWidth}px rgba(0,0,0,0.5); zoom:${zoom};`"
+                style="position:absolute; left:0; top:0; image-rendering: pixelated;"></div>
         </div>
 
         <p>👆半透明の黒いマスクのところは画面に映らないようにすればＯｋだぜ（＾～＾）！</p>
         <p>数字は背景ではなく、セルに付いている番号だぜ（＾▽＾）！</p>
 
     </section>
+
+    <the-footer/>
 </template>
 
 <script setup lang="ts">
@@ -47,12 +51,16 @@
     // ++++++++++++++++++
 
     import TileAnimation from '@/components/TileAnimation.vue'; // Tauri だと明示的にインポートを指定する必要がある。
+    import TheFooter from './the-footer.vue';
     import TheHeader from './the-header.vue';
 
 
     // ##############
     // # 共有データ #
     // ##############
+
+    // 表示データ
+    const zoom = 4;
 
     // 盤データ
     const cellWidth = 32;
@@ -68,6 +76,7 @@
     const p1Style = computed(() => ({
         top: `${p1Top.value}px`,
         left: `${p1Left.value}px`,
+        zoom: zoom,
     }));
 
     const count = ref<number>(0);   // カウントの初期値
@@ -113,9 +122,12 @@
         yAxis: 0,   // 負なら上、正なら下
     });
 
+    // 盤データ
     const tableColumns = 5;
     const tableRows = 5;
     const tableArea = tableColumns * tableRows; // 盤のセル数
+    const tableColumnsWithMask = tableColumns + 1
+    const tableRowsWithMask = tableRows + 1
 
     /**
      * ユークリッド剰余
@@ -147,8 +159,8 @@
                 position: 'absolute',
                 top: `${homeTop + boardTopLoop}px`,
                 left: `${homeLeft + boardLeftLoop}px`,
-                width: "32px",
-                height: "32px",
+                width: `${cellWidth}px`,
+                height: `${cellHeight}px`,
                 zoom: 4,
                 border: "solid 1px lightgray",
                 textAlign: "center",
@@ -158,12 +170,10 @@
 
     // ボードとマスクを含んでいる領域のスタイル
     const boardMaskContainerStyle = computed(()=>{
-        const zoom = 4;
-        
         return {
             position: 'relative',
-            left: '0',
-            top: '0',
+            left: 0,
+            top: 0,
             width: `${zoom * (tableColumns + 1) * cellWidth}px`,
             height: `${zoom * (tableRows + 1) * cellHeight}px`,
         };

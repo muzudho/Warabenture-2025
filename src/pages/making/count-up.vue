@@ -8,8 +8,8 @@
         <v-btn @click="stopTimer">ストップ</v-btn>
         <v-btn @click="resetTimer">リセット</v-btn>
     </section>
-    <hr/>
-    <router-link to="/making">メイキングの先頭に戻る</router-link>
+
+    <the-footer/>
 </template>
 
 <script setup lang="ts">
@@ -18,13 +18,15 @@
     // # インポート #
     // ##############
 
-    import { onMounted, ref } from 'vue';
+    import { ref } from 'vue';
 
     // ++++++++++++++++++
     // + コンポーネント +
     // ++++++++++++++++++
 
+    import TheFooter from './the-footer.vue';
     import TheHeader from './the-header.vue';
+
 
     // ##############
     // # 共有データ #
@@ -33,9 +35,6 @@
     const count = ref<number>(0);   // カウントの初期値
     const timerId = ref<number | null>(null);   // タイマーのIDを保持
 
-    onMounted(() => {
-        // コンポーネントがマウントされたときの処理
-    });
 
     // ####################
     // # イベントハンドラ #

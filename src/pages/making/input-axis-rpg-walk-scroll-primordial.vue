@@ -5,8 +5,8 @@
     <section class="sec-3">
         <p>キーボードの上下左右キーを押してくれだぜ！</p>
 
-        <div style="position:relative; left: 0; top: 0;">
-            
+        <div :style="`position:relative; left: 0; top: 0; height:${zoom * tableRows * cellHeight}px;`">
+
             <!--
                 グリッド
                 NOTE: ループカウンターは 1 から始まるので、1～9の9個のセルを作成。
@@ -22,10 +22,12 @@
                 :time="count"
                 class="cursor"
                 :style="p1Style"
-                style="zoom:4; image-rendering: pixelated;" /><br/>
+                style="image-rendering: pixelated;" /><br/>
         </div>
 
     </section>
+
+    <the-footer/>
 </template>
 
 <script setup lang="ts">
@@ -41,12 +43,16 @@
     // ++++++++++++++++++
 
     import TileAnimation from '@/components/TileAnimation.vue'; // Tauri だと明示的にインポートを指定する必要がある。
+    import TheFooter from './the-footer.vue';
     import TheHeader from './the-header.vue';
 
 
     // ##############
     // # 共有データ #
     // ##############
+
+    // 表示データ
+    const zoom = 4;
 
     // 盤データ
     const cellWidth = 32;
@@ -62,6 +68,7 @@
     const p1Style = computed(() => ({
         top: `${p1Top.value}px`,
         left: `${p1Left.value}px`,
+        zoom: `${zoom}`,
     }));
 
     const count = ref<number>(0);   // カウントの初期値
@@ -124,8 +131,8 @@
                 position: 'absolute',
                 top: `${homeTop + boardTop.value}px`,
                 left: `${homeLeft + boardLeft.value}px`,
-                width: "32px",
-                height: "32px",
+                width: `${cellWidth}px`,
+                height: `${cellHeight}px`,
                 zoom: 4,
                 border: "solid 1px lightgray",
             };

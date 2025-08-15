@@ -125,6 +125,6 @@
     // + コンポーネント +
     // ++++++++++++++++++
 
-    import TheParentHeader from '../the-header.vue';
+    import TheParentHeader from '../../the-header.vue';
 
 </script>
