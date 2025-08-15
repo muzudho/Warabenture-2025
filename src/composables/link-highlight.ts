@@ -5,7 +5,7 @@ import { useRouter } from 'vue-router';
  * @param expected 
  * @returns 
  */
-export function getLinkHighlight(expected:string) {
+export function getPreviousLinkHighlight(expected:string) {
     const router = useRouter();
 
     if (expected === router.options.history.state.back) {   // 前のページのパスと比較
