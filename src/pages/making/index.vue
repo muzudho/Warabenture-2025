@@ -22,6 +22,7 @@
             <li>📖 <router-link to="/making/input-axis-rpg-walk-scroll-primordial" :style="getPreviousLinkHighlight('/making/input-axis-rpg-walk-scroll-primordial')">上下左右に移動しようぜ！　＞　ＲＰＧの歩行グラフィック　＞　原始的スクロール</router-link></li>
             <li>📖 <router-link to="/making/input-axis-rpg-walk-scroll-loop" :style="getPreviousLinkHighlight('/making/input-axis-rpg-walk-scroll-loop')">上下左右に移動しようぜ！　＞　ＲＰＧの歩行グラフィック　＞　循環的スクロール</router-link></li>
             <li>📖 <router-link to="/making/input-axis-rpg-walk-scroll-background" :style="getPreviousLinkHighlight('/making/input-axis-rpg-walk-scroll-background')">上下左右に移動しようぜ！　＞　ＲＰＧの歩行グラフィック　＞　背景的スクロール</router-link></li>
+            <li>📖 <router-link to="/making/sprite-routine" :style="getPreviousLinkHighlight('/making/sprite-routine')">スプライト　＞　ルーチン</router-link></li>
         </ul>
     </section>
 
