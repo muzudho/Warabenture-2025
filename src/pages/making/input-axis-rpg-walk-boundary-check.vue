@@ -12,12 +12,12 @@
                 NOTE: ループカウンターは 1 から始まるので、1～9の9個のセルを作成。
             -->
             <div v-for="i in 9" :key="i"
-                :style="`position:absolute; top: ${Math.floor((i - 1) / 3) * 32}px; left: ${((i - 1) % 3) * 32}px; width:32px; height:32px; zoom: 4; border: solid 1px lightgray;`"></div>
+                :style="`position:absolute; top: ${Math.floor((i - 1) / 3) * 32}px; left: ${((i - 1) % 3) * 32}px; width:32px; height:32px; zoom: ${zoom}; border: solid 1px lightgray;`"></div>
 
             <!-- プレイヤー１ -->
             <TileAnimation
                 :frames="p1Frames"
-                tilemapUrl="/img/making/202508__warabenture__12--2149-kifuwarabe-o1o0.png"
+                tilemapUrl="/img/making/202508__warabenture__15--1612-kifuwarabe-o1o0.png"
                 :slow="slow"
                 :time="count"
                 class="cursor"
@@ -25,6 +25,12 @@
                 style="image-rendering: pixelated;" /><br/>
         </div>
 
+    </section>
+
+    <br/>
+    <h3>ソースコード</h3>
+    <section class="sec-3">
+        <source-link/>
     </section>
 
     <the-footer/>
@@ -41,8 +47,12 @@
     // ++++++++++++++++++
     // + コンポーネント +
     // ++++++++++++++++++
+    //
+    // Tauri なら明示的にインポートを指定する必要がある。 Nuxt なら自動でインポートしてくれる場合がある。
+    //
 
-    import TileAnimation from '@/components/TileAnimation.vue'; // Tauri だと明示的にインポートを指定する必要がある。
+    import SourceLink from '../../components/SourceLink.vue';
+    import TileAnimation from '@/components/TileAnimation.vue';
     import TheFooter from './the-footer.vue';
     import TheHeader from './the-header.vue';
 

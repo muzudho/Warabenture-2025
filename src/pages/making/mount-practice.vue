@@ -1,32 +1,19 @@
 <template>
     <the-header/>
 
-    <h3>onMounted を使う練習だぜ！</h3>
+    <h3>ページを開いたとき、閉じたときに処理するぜ！</h3>
     <section class="sec-3">
         <p>{{ textVM }}</p>
-
-        <pre>
-            &lt;script setup lang="ts"&gt;
-                import { onMounted, ref } from 'vue';
-
-                const textVM = ref&lt;string&gt;('読み込み中...');
-                const errorMessage = ref&lt;string&gt;('');
-
-                onMounted(async () =&gt; {
-                    try {
-                        textVM.value = "起動時に処理を行えるぜ（＾▽＾）！";
-                            
-                    } catch (error) {
-                        errorMessage.value = `エラーだぜ: ${error}`; // エラーハンドリング
-                    }
-                });
-            &lt;/script&gt;
-        </pre>
-
     </section>
 
     <!-- エラーメッセージ欄 -->
     <p v-if="errorMessage" style="color: red;">{{ errorMessage }}</p>
+
+    <br/>
+    <h3>ソースコード</h3>
+    <section class="sec-3">
+        <source-link/>
+    </section>
 
     <the-footer/>
 </template>
@@ -37,12 +24,16 @@
     // # インポート #
     // ##############
 
-    import { onMounted, ref } from 'vue';
+    import { onMounted, onUnmounted, ref } from 'vue';
 
     // ++++++++++++++++++
     // + コンポーネント +
     // ++++++++++++++++++
+    //
+    // Tauri なら明示的にインポートを指定する必要がある。 Nuxt なら自動でインポートしてくれる場合がある。
+    //
 
+    import SourceLink from '../../components/SourceLink.vue';
     import TheFooter from './the-footer.vue';
     import TheHeader from './the-header.vue';
 
@@ -61,11 +52,18 @@
 
     // コンポーネントがマウントされたときに実行
     onMounted(async () => {
+        alert("ページを開いたな（＾▽＾）！")
         try {
-            textVM.value = "起動時に処理を行えるぜ（＾▽＾）！";
+            textVM.value = "ページを開いたタイミングで処理を行えるぜ（＾▽＾）！　ソースコードを見てくれよな（＾▽＾）！";
                   
         } catch (error) {
             errorMessage.value = `エラーだぜ: ${error}`; // エラーハンドリング
         }
+    });
+
+    onUnmounted(async () => {
+        alert("ページを閉じたな（＾▽＾）！")
+        // コンポーネントがアンマウントされるときに実行
+        textVM.value = "コンポーネントがアンマウントされたぜ（＾▽＾）！";
     });
 </script>

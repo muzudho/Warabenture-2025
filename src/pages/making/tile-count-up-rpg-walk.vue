@@ -30,7 +30,7 @@
                 {top:  96, left:    0, width: 32, height: 32 },
                 {top:  96, left:   32, width: 32, height: 32 },
             ]"
-            tilemapUrl="/img/making/202508__warabenture__12--2149-kifuwarabe-o1o0.png"
+            tilemapUrl="/img/making/202508__warabenture__15--1612-kifuwarabe-o1o0.png"
             :slow="slow"
             :time="count"
             style="zoom:4; image-rendering: pixelated;" /><br/>
@@ -56,8 +56,14 @@
                 thumbLabel="always" />
         <br/>
         元画像のタイルマップを表示：<br/>
-        <v-img src="/img/making/202508__warabenture__12--2149-kifuwarabe-o1o0.png" style="width:64px; height:128px; zoom: 4; image-rendering: pixelated;"/>
+        <v-img src="/img/making/202508__warabenture__15--1612-kifuwarabe-o1o0.png" style="width:64px; height:128px; zoom: 4; image-rendering: pixelated;"/>
         ：ここまで。
+    </section>
+
+    <br/>
+    <h3>ソースコード</h3>
+    <section class="sec-3">
+        <source-link/>
     </section>
 
     <the-footer/>
@@ -74,7 +80,11 @@
     // ++++++++++++++++++
     // + コンポーネント +
     // ++++++++++++++++++
+    //
+    // Tauri なら明示的にインポートを指定する必要がある。 Nuxt なら自動でインポートしてくれる場合がある。
+    //
 
+    import SourceLink from '../../components/SourceLink.vue';
     import TileAnimation from '@/components/TileAnimation.vue';
     import TheFooter from './the-footer.vue';
     import TheHeader from './the-header.vue';

@@ -3,8 +3,7 @@
 
     <h3>説明を始める前に、説明ページのレイアウトを決めておこうぜ！</h3>
     <section class="sec-3">
-        凡例だぜ（＾▽＾）！
-
+        <p>凡例だぜ（＾▽＾）！</p>
         <v-container style="border:dashed 4px gray;">
             <h1>ワラベンチャー</h1>
             <section class="sec-1">
@@ -45,6 +44,12 @@
         </v-container>
     </section>
 
+    <br/>
+    <h3>ソースコード</h3>
+    <section class="sec-3">
+        <source-link/>
+    </section>
+
     <the-footer/>
 </template>
 
@@ -57,7 +62,11 @@
     // ++++++++++++++++++
     // + コンポーネント +
     // ++++++++++++++++++
+    //
+    // Tauri なら明示的にインポートを指定する必要がある。 Nuxt なら自動でインポートしてくれる場合がある。
+    //
 
+    import SourceLink from '../../components/SourceLink.vue';
     import TheFooter from './the-footer.vue';
     import TheHeader from './the-header.vue';
 
