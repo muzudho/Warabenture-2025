@@ -10,12 +10,23 @@
 <script setup lang="ts">
 
     // ##############
+    // # インポート #
+    // ##############
+    //
+    // Tauri なら明示的にインポートを指定する必要がある。 Nuxt なら自動でインポートしてくれる場合がある。
+    //
+
+    import { ref, onMounted } from 'vue';
+
+
+    // ##############
     // # 共通データ #
     // ##############
 
     const desktopappPath = ref('');
     const webappPath = ref('');
     const warabenturePath = ref('');
+
 
     // ##############
     // # 起動時処理 #

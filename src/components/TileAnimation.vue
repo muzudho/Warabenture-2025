@@ -16,7 +16,7 @@
 
     // NOTE: Tauri なら interface をインポートできる。（Tauri 以外では type を付ける）
     // NOTE: Nuxt なら interface は無いので、import する時は type を付ける
-    import type Rectangle from '@/interfaces/Rectangle';
+    import type Rectangle from '../interfaces/Rectangle';
 
     // ####################################
     // # このコンポーネントが受け取る引数 #
