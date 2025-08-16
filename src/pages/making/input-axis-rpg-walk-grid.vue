@@ -82,7 +82,10 @@
     const cellWidth = 32;
     const cellHeight = 32;
 
-    // プレイヤー１
+    // ++++++++++++++++
+    // + プレイヤー１ +
+    // ++++++++++++++++
+
     const p1Left = ref<number>(0);      // スプライトのX座標
     const p1Top = ref<number>(0);       // スプライトのY座標
     const p1Speed = ref<number>(2);     // 移動速度
@@ -94,6 +97,10 @@
         left: `${p1Left.value}px`,
         zoom: `${zoom}`,
     }));
+
+    // ++++++++++++++
+    // + カウンター +
+    // ++++++++++++++
 
     // モーション
     const count = ref<number>(0);   // カウントの初期値
@@ -141,7 +148,10 @@
         yAxis: 0,   // 負なら上、正なら下
     });
 
-    // 盤データ
+    // ++++++++++++
+    // + 盤データ +
+    // ++++++++++++
+
     const tableColumns = 3;
     const tableRows = 3;
     const tableArea = tableColumns * tableRows; // 盤のセル数

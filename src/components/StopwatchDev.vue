@@ -1,0 +1,85 @@
+<template>
+    <!-- /pages/making/count-up.vue のコンポーネント化 -->
+    <div style="display: inline-block;">
+        <p>カウント: {{ count }}</p>
+        <v-btn @click="startTimer">スタート</v-btn>
+        <v-btn @click="stopTimer">ストップ</v-btn>
+        <v-btn @click="resetTimer">リセット</v-btn>
+    </div>
+</template>
+
+<script setup lang="ts">
+
+    // ##############
+    // # インポート #
+    // ##############
+
+    import { ref } from 'vue';
+
+
+    // ##############################################
+    // # このコンポーネントで起こるカスタムイベント #
+    // ##############################################
+    interface Emits {
+        // イベント名と、変更通知メソッドの引数と、そのメソッドの戻り値。
+        (event: 'countUp', count: number): void;
+    }
+    const emit = defineEmits<Emits>();
+
+
+    // ##############
+    // # 共有データ #
+    // ##############
+
+    const count = ref<number>(0);   // カウントの初期値
+    const timerId = ref<number | null>(null);   // タイマーのIDを保持
+
+
+    // ####################
+    // # イベントハンドラ #
+    // ####################
+
+    function startTimer() : void {
+        // 既にタイマーが動いてたら何もしない
+        if (timerId.value) return;
+
+        // requestAnimationFrameで約16.67ms（60fps）ごとにカウントアップ
+        const tick = () => {
+            count.value += 1;
+            // 親に変更を通知
+            emit('countUp', count.value);
+
+            timerId.value = requestAnimationFrame(tick);
+        };
+        timerId.value = requestAnimationFrame(tick);
+    }
+
+    function stopTimer() : void {
+        // タイマーを停止
+        if (timerId.value) {
+            cancelAnimationFrame(timerId.value);
+            timerId.value = null;
+        }
+    }
+
+    function resetTimer() : void {
+        // カウントをリセットしてタイマーも停止
+        count.value = 0;
+        // 親に変更を通知
+        emit('countUp', count.value);
+
+        stopTimer();
+    }    
+
+
+    // ################
+    // # エクスポーズ #
+    // ################
+
+    defineExpose({
+        startTimer,
+        stopTimer,
+        resetTimer,
+    });
+
+</script>

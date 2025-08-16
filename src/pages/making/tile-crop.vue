@@ -9,14 +9,16 @@
                 :srcTop="32"
                 :srcWidth="32"
                 :srcHeight="64"
-                :tilemapUrl="'/img/making/tilemap_sample.png'" /><br/>
+                tilemapUrl="/img/making/tilemap_sample.png" /><br/>
         <!--
         	NOTE: 👆 Tauri なら srcLeft="64" と書けるが、 Nuxt では :srcLeft="64" と書かないとエラーが出るようだ。
+            数値を直接書くと、 Nuxt では文字列として解釈されてしまう。
         -->
         ：ここまで。<br/>
         <br/>
+
         元画像のタイルマップを表示：<br/>
-        <v-img src="/img/making/tilemap_sample.png" style="width:128px; height:128px;"/>
+        <v-img src="/img/making/tilemap_sample.png" style="width:128px; height:128px; border: dashed 4px gray;"/>
         ：ここまで。
     </section>
     

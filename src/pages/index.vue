@@ -47,6 +47,7 @@
     const routes = [
         "/blog",                        // ブログのURL
         "/making",                      // メイキングのURL
+        "/minigames",                   // ミニゲーム
         "/team-mirai-supporter",        // チームみらいサポーター活動のURL
         "/",                            // ホームのURL
         "/wara-city/map",               // わらシティのURL
@@ -79,12 +80,13 @@
         chart = new Chart(ctx, {
             type: 'pie',
             data: {
-                labels: ['ブログ', 'メイキング', 'チームみらいサポーター活動', 'ホーム', 'わらシティ'],
+                labels: ['ブログ', 'メイキング', 'ミニゲーム', 'チームみらいサポーター活動', 'ホーム', 'わらシティ'],
                 datasets: [{
-                    data: [88, 5, 4, 2, 1],
+                    data: [83, 6, 4, 4, 2, 1],
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.8)', // 赤系
                         'rgba(54, 162, 235, 0.8)', // 青系
+                        'rgba(180, 80, 206, 0.8)',
                         'rgba(255, 206, 86, 0.8)', // 黄系
                         'rgba(75, 192, 192, 0.8)', // 緑系
                         'rgba(153, 102, 255, 0.8)', // 紫系
@@ -92,6 +94,7 @@
                     borderColor: [
                         'rgb(255, 99, 132)',
                         'rgb(54, 162, 235)',
+                        'rgb(180, 80, 206)',
                         'rgb(255, 206, 86)',
                         'rgb(75, 192, 192)',
                         'rgb(153, 102, 255)',
@@ -113,10 +116,8 @@
                 onClick: (_e, elements) => {
                     if (elements.length > 0) {
                         const index = elements[0].index;
-                        //console.log(`index=${index}\nroutes.length=${routes.length}\nroutes[0]=${routes[0]}\nroutes[1]=${routes[1]}\nroutes[2]=${routes[2]}\nroutes[3]=${routes[3]}`);
                         // Vue Routerでページ遷移
                         const path = routes[index];
-                        //console.log(`path=${path}`);
                         router.push(path);
                     }
                 }

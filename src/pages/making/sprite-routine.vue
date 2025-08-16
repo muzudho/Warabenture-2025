@@ -6,22 +6,20 @@
         <p>スプライトに一定の動きをさせるぜ（＾▽＾）</p>
         <br/>
 
-        <p>カウント: {{ count }}</p>
-        <v-btn @click="startTimer">スタート</v-btn>
-        <v-btn @click="stopTimer">ストップ</v-btn>
-        <v-btn @click="resetTimer">リセット</v-btn><br/>
-        <br/>
+        <stopwatch-dev
+            v-on:countUp="(countNum) => { count = countNum; }"
+        /><br/>
 
         <p>ここに切り抜いたタイルを表示：</p>
         <div :style="`height: ${cellHeight}px`" style="position:relative;">
             <Tile
-                    :srcLeft="0"
-                    :srcTop="0"
-                    :srcWidth="cellWidth"
-                    :srcHeight="cellHeight"
-                    :tilemapUrl="'/img/making/sprite-objects-001.png'"
-                    style="position:absolute;"
-                    :style="o1Style" />
+                :srcLeft="0"
+                :srcTop="0"
+                :srcWidth="cellWidth"
+                :srcHeight="cellHeight"
+                :tilemapUrl="'/img/making/sprite-objects-001.png'"
+                style="position:absolute;"
+                :style="o1Style" />
         </div>
         ：ここまで。<br/>
         <br/>
@@ -56,6 +54,7 @@
     //
 
     import SourceLink from '../../components/SourceLink.vue';
+    import StopwatchDev from '../../components/StopwatchDev.vue';
     import Tile from '../../components/Tile.vue';
     import TheFooter from './the-footer.vue';
     import TheHeader from './the-header.vue';
@@ -66,7 +65,6 @@
 
     // タイマー
     const count = ref<number>(0);   // カウントの初期値
-    const timerId = ref<number | null>(null);   // タイマーのIDを保持
 
     // タイル
     const cellWidth = 32;
@@ -81,36 +79,5 @@
         top: `${o1Top.value}px`,
         left: `${o1Left.value + (count.value * o1Speed.value) % 256}px`,
     }));
-
-
-    // ####################
-    // # イベントハンドラ #
-    // ####################
-
-    function startTimer() : void {
-        // 既にタイマーが動いてたら何もしない
-        if (timerId.value) return;
-
-        // requestAnimationFrameで約16.67ms（60fps）ごとにカウントアップ
-        const tick = () => {
-            count.value += 1;
-            timerId.value = requestAnimationFrame(tick);
-        };
-        timerId.value = requestAnimationFrame(tick);
-    }
-
-    function stopTimer() : void {
-        // タイマーを停止
-        if (timerId.value) {
-            cancelAnimationFrame(timerId.value);
-            timerId.value = null;
-        }
-    }
-
-    function resetTimer() : void {
-        // カウントをリセットしてタイマーも停止
-        count.value = 0;
-        stopTimer();
-    }    
 
 </script>
