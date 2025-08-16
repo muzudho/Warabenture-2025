@@ -8,7 +8,7 @@
 
         <ul>
             <li>📖 <router-link to="/making/page-layout" :style="getPreviousLinkHighlight('/making/page-layout')">説明を始める前に、説明ページのレイアウトを決めておこうぜ！</router-link></li>
-            <li>📖 <router-link to="/making/svg-arrow" :style="getPreviousLinkHighlight('/making/svg-arrow')">矢印を描こうぜ！</router-link></li>
+            <li>📖 <router-link to="/making/svg-arrow" :style="getPreviousLinkHighlight('/making/svg-arrow')">グラフを描こうぜ！</router-link></li>
             <li>📖 <router-link to="/making/mount-practice" :style="getPreviousLinkHighlight('/making/mount-practice')">onMounted を使う練習だぜ！</router-link></li>
             <li>📖 <router-link to="/making/json-file-loading" :style="getPreviousLinkHighlight('/making/json-file-loading')">JSONファイルの読込だぜ！</router-link></li>
             <li>📖 <router-link to="/making/tile-crop" :style="getPreviousLinkHighlight('/making/tile-crop')">タイル　＞　を画像から切り抜くぜ！</router-link></li>
