@@ -13,10 +13,22 @@
     // # 共通データ #
     // ##############
 
-    const pagePath = window.location.pathname;  // ページのパス。 例： "/making/tile-count-up"
+    const desktopappPath = ref('');
+    const webappPath = ref('');
+    const warabenturePath = ref('');
 
-    const desktopappPath = `https://github.com/muzudho/vue-tauri-desktopapp-sample/blob/main/src/pages${pagePath}.vue`;
-    const webappPath = `https://github.com/muzudho/vue-nuxt-webapp-sample/blob/main/src/pages${pagePath}.vue`;
-    const warabenturePath = `https://github.com/muzudho/Warabenture-2025/blob/main/src/pages${pagePath}.vue`;
+    // ##############
+    // # 起動時処理 #
+    // ##############
+
+    onMounted(() => {
+        // ページがマウントされたときの処理
+        // NOTE: window オブジェクトはブラウザー専用。サーバー側ではプリレンダリングできないので、マウント後に書く。
+        const pagePath = window.location.pathname;  // ページのパス。 例： "/making/tile-count-up"
+
+        desktopappPath.value = `https://github.com/muzudho/vue-tauri-desktopapp-sample/blob/main/src/pages${pagePath}.vue`;
+        webappPath.value = `https://github.com/muzudho/vue-nuxt-webapp-sample/blob/main/src/pages${pagePath}.vue`;
+        warabenturePath.value = `https://github.com/muzudho/Warabenture-2025/blob/main/src/pages${pagePath}.vue`;
+    });
 
 </script>
