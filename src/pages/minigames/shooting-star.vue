@@ -5,8 +5,8 @@
     <section class="sec-3">
 
         <!-- ゲームの操作方法 -->
-        <v-btn @click="misc.isShowingManual = !misc.isShowingManual">{{ misc.isShowingManual ? 'ゲームの遊び方・操作方法を閉じる' : 'ゲームの遊び方・操作方法を表示' }}</v-btn>
-        <div v-if="misc.isShowingManual">
+        <v-btn @click="app.manual.isShowing = !app.manual.isShowing">{{ app.manual.isShowing ? 'ゲームの遊び方・操作方法を閉じる' : 'ゲームの遊び方・操作方法を表示' }}</v-btn>
+        <div v-if="app.manual.isShowing">
             <p>このゲームは、星を撮影する、という状況を見立てたゲームだぜ。</p>
             <br/>
             <p>操作で使うコントローラーは以下のものだぜ。</p>
@@ -30,22 +30,22 @@
 
         <!-- ボタンを並べる -->
         <div>
-            <v-btn @click="startGame()">{{ misc.startButtonText }}</v-btn>
-            <v-btn @click="pauseGame()">{{ misc.pauseButtonText }}</v-btn>
+            <v-btn @click="onGameStartOrEndButtonPushed()">{{ app.game.isPlaying ? "ゲーム終了" : "ゲームスタート" }}</v-btn>
+            <v-btn @click="onGamePauseOrRestartButtonPushed()">{{ app.game.isPause ? "再開" : "一時停止" }}</v-btn>
 
             <!-- フォーカスを外すためのダミー・ボタンです -->
             <v-btn id="dammyButton">何もしないボタン</v-btn>
             <br/>
 
             <p style="font-size: x-large; margin-top: 8px; margin-bottom: 8px;">
-            スコア： {{ misc.score }}　　残り時間: {{ Math.floor((misc.maxCount - count) / seconds) }} . {{ (misc.maxCount - count) % seconds }}
+            スコア： {{ app.game.score }}　　残り時間: {{ Math.floor((app.game.maxCount - stopwatch1.count) / common.seconds) }} . {{ (app.game.maxCount - stopwatch1.count) % common.seconds }}
             </p>
         </div>
 
         <!-- デバッグに使いたいときは、 display: none; を消してください。 -->
         <stopwatch-dev
-            ref="stopwatch1"
-            v-on:countUp="(countNum) => { count = countNum; }"
+            ref="stopwatch1CompoRef"
+            v-on:countUp="(countNum) => { stopwatch1.count = countNum; }"
             style="display: none;" />
 
         <!-- ゲーム画面領域（宇宙） -->
@@ -54,15 +54,15 @@
                 グリッド
                 NOTE: ループカウンターは 1 から始まるので、1～9の9個のセルを作成。
             -->
-            <div v-for="i in boardArea" :key="i"
-                :style="`position:absolute; top: ${Math.floor((i - 1) / board.cols) * board.cellHeight}px; left: ${((i - 1) % board.cols) * board.cellWidth}px; width:${board.cellWidth}px; height:${board.cellHeight}px; border: solid 1px gray;`"></div>
+            <div v-for="i in board1Area" :key="i"
+                :style="`position:absolute; top: ${Math.floor((i - 1) / board1.cols) * board1.cellHeight}px; left: ${((i - 1) % board1.cols) * board1.cellWidth}px; width:${board1.cellWidth}px; height:${board1.cellHeight}px; border: solid 1px gray;`"></div>
 
             <!-- 星 -->
             <Tile
                 :srcLeft="0"
                 :srcTop="0"
-                :srcWidth="board.cellWidth"
-                :srcHeight="board.cellHeight"
+                :srcWidth="board1.cellWidth"
+                :srcHeight="board1.cellHeight"
                 tilemapUrl="/img/making/sprite-objects-001.png"
                 :style="starStyle"
                 style="position:absolute;" /><br/>
@@ -75,10 +75,10 @@
 
             <!-- リロードのカウントダウン（パイみたいなやつ） -->
             <Tile
-                :srcLeft="reloadTimerTileLeft"
-                :srcTop="reloadTimerTileTop"
-                :srcWidth="board.cellWidth"
-                :srcHeight="board.cellHeight"
+                :srcLeft="reloadPie1TileLeft"
+                :srcTop="reloadPie1TileTop"
+                :srcWidth="board1.cellWidth"
+                :srcHeight="board1.cellHeight"
                 tilemapUrl="/img/making/202508__warabenture__16-2357-8counts-red.png"
                 :style="reloadPieStyle"
                 style="position:absolute;" /><br/>
@@ -98,397 +98,516 @@
             ：ここまで。
         -->
     </section>
+    
+    <br/>
+    <h3>ソースコード</h3>
+    <section class="sec-3">
+        <source-link/>
+    </section>
 
     <the-footer/>
 </template>
 
 <script setup lang="ts">
 
+    console.log("シューティングスター　（上級者向けソースコード版）")
+
     // ##############
     // # インポート #
     // ##############
 
     import { computed, onMounted, reactive, ref, watch } from 'vue';
+    import type { Ref } from 'vue'
 
-    // ++++++++++++++++++
-    // + コンポーネント +
-    // ++++++++++++++++++
+    // ++++++++++++++++++++++++++++++++++
+    // + インポート　＞　コンポーネント +
+    // ++++++++++++++++++++++++++++++++++
 
+    // from の階層が上の順、アルファベット順
+    import SourceLink from '../../components/SourceLink.vue';
     import StopwatchDev from '../../components/StopwatchDev.vue';
+    import Tile from '../../components/Tile.vue';
     import TheFooter from './the-footer.vue';
     import TheHeader from './the-header.vue';
-    import Tile from '../../components/Tile.vue';
 
 
     // ##########
-    // # 効果音 #
+    // # コモン #
     // ##########
+    //
+    // よく使う設定をまとめたもの。特に不変のもの。
+    //
 
-    const volume = 0.3; // 音量
-    let sfxDenied: HTMLAudioElement;            // 拒否音
-    let sfxCameraShutter: HTMLAudioElement;     // カメラで撮影したときの効果音
-    let sfxMiss: HTMLAudioElement;              // ミス音
-    const isSfxDeniedPlaying = ref<boolean>(false);       // ブザー音の再生状態
-    const isSfxCameraShutterPlaying = ref<boolean>(false); // カメラのシャッター音の再生状態
-    const isSfxMissPlaying = ref<boolean>(false);         // ミス音の再生状態
+    const common = <{
+        seconds: number,    // 1秒は60フレーム
+        spriteMotion : {    // モーション（motion）定数
+            left: number,   // カメラのファインダーが左に移動する
+            right: number,
+            up : number,
+            down: number,
+        },
+    }>{
+        seconds: 60,
+        spriteMotion : {
+            left: -1,       // モーション（motion）定数。カメラのファインダーが左に移動する
+            right: 1,
+            up: -1,
+            down: 1,
+        },
+    };
+
+
+    // ############################
+    // # アプリケーション・データ #
+    // ############################
+    //
+    // 今動いているアプリケーションの状態を記録しているデータ。特に可変のもの。
+    //
+
+    const app = reactive<{
+        manual : {                      // ゲームの操作方法・遊び方説明書
+            isShowing: boolean,         // 説明書を表示中
+        },
+        game : {                        // ゲーム
+            score: number,              // 得点
+            isPlaying: boolean,         // ゲーム中
+            isPause: boolean,           // ゲームは一時停止中
+            maxCount: number,           // ゲーム時間は１分
+            scheduleStep: number,       // 星の出現スケジュール
+        },
+    }>({
+        manual : {
+            isShowing: false,
+        },
+        game : {
+            score: 0,
+            isPlaying: false,
+            isPause: false,
+            maxCount: 60 * common.seconds,
+            scheduleStep: 0,
+        },
+    });
+
+
+    // ################
+    // # 読込リソース #
+    // ################
+
+    // ++++++++++++++++++++++++++++
+    // + 読込リソース　＞　効果音 +
+    // ++++++++++++++++++++++++++++
+
+    const sfxConfig = reactive<{
+        volume: number,                    // 音量
+    }>({
+        volume: 0.3,
+    });
+    const sfx = reactive<{
+        denied: {                           // 拒否音
+            audio: HTMLAudioElement | null, // オーディオ・オブジェクト
+            isPlaying: boolean,             // 再生状態
+        },
+        cameraShutter: {                    // カメラで撮影したときの効果音
+            audio: HTMLAudioElement | null,
+            isPlaying: boolean,
+        },
+        miss: {                             // ミス音
+            audio: HTMLAudioElement | null,
+            isPlaying: boolean,
+        },
+    }>({
+        denied: {
+            audio: null,
+            isPlaying: false,
+        },
+        cameraShutter: {
+            audio: null,
+            isPlaying: false,
+        },
+        miss: {
+            audio: null,
+            isPlaying: false,
+        },
+    });
 
     /**
      * 効果音をロードする（jsfxrで作った効果音）
      */
-    function loadSfx() : void {
-        sfxDenied = new Audio('/wav/202508__sfx__17-0200-denied.wav'); // 拒否音
-        sfxDenied.volume = volume;
-        sfxDenied.addEventListener('play', () => { isSfxDeniedPlaying.value = true })
-        sfxDenied.addEventListener('pause', () => { isSfxDeniedPlaying.value = false })
-        sfxDenied.addEventListener('ended', () => { isSfxDeniedPlaying.value = false })
+    function sfxLoad() : void {
+        sfx.denied.audio = new Audio('/wav/202508__sfx__17-0200-denied.wav'); // 拒否音
+        sfx.denied.audio.volume = sfxConfig.volume;
+        sfx.denied.audio.addEventListener('play', () => { sfx.denied.isPlaying = true })
+        sfx.denied.audio.addEventListener('pause', () => { sfx.denied.isPlaying = false })
+        sfx.denied.audio.addEventListener('ended', () => { sfx.denied.isPlaying = false })
 
-        sfxCameraShutter = new Audio('/wav/202508__sfx__16-2117-cameraShutter.wav'); // カメラのシャッター音
-        sfxCameraShutter.volume = volume;
-        sfxCameraShutter.addEventListener('play', () => { isSfxCameraShutterPlaying.value = true })
-        sfxCameraShutter.addEventListener('pause', () => { isSfxCameraShutterPlaying.value = false })
-        sfxCameraShutter.addEventListener('ended', () => { isSfxCameraShutterPlaying.value = false })
+        sfx.cameraShutter.audio = new Audio('/wav/202508__sfx__16-2117-cameraShutter.wav'); // カメラのシャッター音
+        sfx.cameraShutter.audio.volume = sfxConfig.volume;
+        sfx.cameraShutter.audio.addEventListener('play', () => { sfx.cameraShutter.isPlaying = true })
+        sfx.cameraShutter.audio.addEventListener('pause', () => { sfx.cameraShutter.isPlaying = false })
+        sfx.cameraShutter.audio.addEventListener('ended', () => { sfx.cameraShutter.isPlaying = false })
 
-        sfxMiss = new Audio('/wav/202508__sfx__16-2146-miss.wav'); // ミス音
-        sfxMiss.volume = volume;
-        sfxMiss.addEventListener('play', () => { isSfxMissPlaying.value = true })
-        sfxMiss.addEventListener('pause', () => { isSfxMissPlaying.value = false })
-        sfxMiss.addEventListener('ended', () => { isSfxMissPlaying.value = false })
+        sfx.miss.audio = new Audio('/wav/202508__sfx__16-2146-miss.wav'); // ミス音
+        sfx.miss.audio.volume = sfxConfig.volume;
+        sfx.miss.audio.addEventListener('play', () => { sfx.miss.isPlaying = true })
+        sfx.miss.audio.addEventListener('pause', () => { sfx.miss.isPlaying = false })
+        sfx.miss.audio.addEventListener('ended', () => { sfx.miss.isPlaying = false })
     }
 
-    // ##############
-    // # 共有データ #
-    // ##############
 
-    // ++++++
-    // + 盤 +
-    // ++++++
+    // ################
+    // # オブジェクト #
+    // ################
 
-    // 盤データ
-    const board = reactive({
-        cellWidth: 32,
-        cellHeight: 32,
-        cols: 16,
-        rows: 12,
+    // ++++++++++++++++++++++++++++++++++++++
+    // + オブジェクト　＞　ストップウォッチ +
+    // ++++++++++++++++++++++++++++++++++++++
+
+    const stopwatch1CompoRef = ref<InstanceType<typeof StopwatchDev> | null>(null);     // <stopwatch-dev> のインスタンス
+    const stopwatch1 = reactive<{
+        compo: Ref<InstanceType<typeof StopwatchDev> | null>,
+        count: number,                                          // カウント
+    }>({
+        compo: stopwatch1CompoRef,
+        count: 0,
     });
-    const boardArea = board.cols * board.rows; // 盤のセル数
-
-    // 時データ
-    const seconds = 60; // 1秒は60フレーム
-
-    // ++++++++++++++
-    // + カウンター +
-    // ++++++++++++++
-
-    const stopwatch1 = ref<InstanceType<typeof StopwatchDev> | null>(null); // StopwatchDevのインスタンス
-
-    const count = ref<number>(0);   // カウントの初期値
-    watch(count, (newCount) => {
+    watch(()=>stopwatch1.count, (newCount) => {
         // カウントが変わったら、何か処理をしたい。
 
-        // ++++++++++++++++
-        // + スケジュール +
-        // ++++++++++++++++
+        // --------------------------------------------------------
+        // - オブジェクト　＞　ストップウォッチ　＞　スケジュール -
+        // --------------------------------------------------------
 
-        switch (misc.scheduleStep) {
+        switch (app.game.scheduleStep) {
             case 0:
                 // ゲーム開始から1秒後、星表示
-                if (newCount >= 1 * seconds) {
-                    star1.startCount = newCount;
+                if (newCount >= 1 * common.seconds) {
+                    star1.startTime = newCount;
                     star1.startCols = 5;
                     star1.startRows = 3;
                     star1.visibility = 'visible';
-                    misc.scheduleStep += 1;                    
+                    app.game.scheduleStep += 1;                    
                 }
                 break;
             case 1:
                 // ゲーム開始から3秒後、星非表示
-                if (newCount >= 3 * seconds) {
+                if (newCount >= 3 * common.seconds) {
                     star1.visibility = 'hidden';
-                    misc.scheduleStep += 1;
+                    app.game.scheduleStep += 1;
                 }
                 break;
             case 2:
                 // ゲーム開始から4秒後、星表示
-                if (newCount >= 4 * seconds) {
-                    star1.startCount = newCount;
+                if (newCount >= 4 * common.seconds) {
+                    star1.startTime = newCount;
                     star1.startCols = 9;
                     star1.startRows = 9;
                     star1.visibility = 'visible';
-                    misc.scheduleStep += 1;
+                    app.game.scheduleStep += 1;
                 }
                 break;
             case 3:
                 // ゲーム開始から6秒後、星非表示
-                if (newCount >= 6 * seconds) {
+                if (newCount >= 6 * common.seconds) {
                     star1.visibility = 'hidden';
-                    misc.scheduleStep += 1;
+                    app.game.scheduleStep += 1;
                 }
                 break;
             case 4:
                 // ゲーム開始から8秒後、星表示
-                if (newCount >= 8 * seconds) {
-                    star1.startCount = newCount;
+                if (newCount >= 8 * common.seconds) {
+                    star1.startTime = newCount;
                     star1.startCols = 0;
                     star1.startRows = 8;
                     star1.visibility = 'visible';
-                    misc.scheduleStep += 1;
+                    app.game.scheduleStep += 1;
                 }
                 break;
             case 5:
                 // ゲーム開始から10秒後、星非表示
-                if (newCount >= 10 * seconds) {
+                if (newCount >= 10 * common.seconds) {
                     star1.visibility = 'hidden';
-                    misc.scheduleStep += 1;
+                    app.game.scheduleStep += 1;
                 }
                 break;
             case 6:
                 // ゲーム開始から14秒後、星表示
-                if (newCount >= 14 * seconds) {
-                    star1.startCount = newCount;
+                if (newCount >= 14 * common.seconds) {
+                    star1.startTime = newCount;
                     star1.startCols = 12;
                     star1.startRows = 5;
                     star1.visibility = 'visible';
-                    misc.scheduleStep += 1;
+                    app.game.scheduleStep += 1;
                 }
                 break;
             case 7:
                 // ゲーム開始から15秒後、星非表示
-                if (newCount >= 15 * seconds) {
+                if (newCount >= 15 * common.seconds) {
                     star1.visibility = 'hidden';
-                    misc.scheduleStep += 1;
+                    app.game.scheduleStep += 1;
                 }
                 break;
             case 8:
                 // ゲーム開始から19秒後、星表示
-                if (newCount >= 19 * seconds) {
-                    star1.startCount = newCount;
+                if (newCount >= 19 * common.seconds) {
+                    star1.startTime = newCount;
                     star1.startCols = 3;
                     star1.startRows = 3;
                     star1.visibility = 'visible';
-                    misc.scheduleStep += 1;
+                    app.game.scheduleStep += 1;
                 }
                 break;
             case 9:
                 // ゲーム開始から21秒後、星非表示
-                if (newCount >= 21 * seconds) {
+                if (newCount >= 21 * common.seconds) {
                     star1.visibility = 'hidden';
-                    misc.scheduleStep += 1;
+                    app.game.scheduleStep += 1;
                 }
                 break;
             case 10:
                 // ゲーム開始から27秒後、星表示
-                if (newCount >= 27 * seconds) {
-                    star1.startCount = newCount;
+                if (newCount >= 27 * common.seconds) {
+                    star1.startTime = newCount;
                     star1.startCols = 6;
                     star1.startRows = 11;
                     star1.visibility = 'visible';
-                    misc.scheduleStep += 1;
+                    app.game.scheduleStep += 1;
                 }
                 break;
             case 11:
                 // ゲーム開始から29秒後、星非表示
-                if (newCount >= 29 * seconds) {
+                if (newCount >= 29 * common.seconds) {
                     star1.visibility = 'hidden';
-                    misc.scheduleStep += 1;
+                    app.game.scheduleStep += 1;
                 }
                 break;
             case 12:
                 // ゲーム開始から33秒後、星表示
-                if (newCount >= 33 * seconds) {
-                    star1.startCount = newCount;
+                if (newCount >= 33 * common.seconds) {
+                    star1.startTime = newCount;
                     star1.startCols = 4;
                     star1.startRows = 6;
                     star1.visibility = 'visible';
-                    misc.scheduleStep += 1;
+                    app.game.scheduleStep += 1;
                 }
                 break;
             case 13:
                 // ゲーム開始から36秒後、星非表示
-                if (newCount >= 36 * seconds) {
+                if (newCount >= 36 * common.seconds) {
                     star1.visibility = 'hidden';
-                    misc.scheduleStep += 1;
+                    app.game.scheduleStep += 1;
                 }
                 break;
             case 14:
                 // ゲーム開始から39秒後、星表示
-                if (newCount >= 39 * seconds) {
-                    star1.startCount = newCount;
+                if (newCount >= 39 * common.seconds) {
+                    star1.startTime = newCount;
                     star1.startCols = 5;
                     star1.startRows = 0;
                     star1.visibility = 'visible';
-                    misc.scheduleStep += 1;
+                    app.game.scheduleStep += 1;
                 }
                 break;
             case 15:
                 // ゲーム開始から41秒後、星非表示
-                if (newCount >= 41 * seconds) {
+                if (newCount >= 41 * common.seconds) {
                     star1.visibility = 'hidden';
-                    misc.scheduleStep += 1;
+                    app.game.scheduleStep += 1;
                 }
                 break;
             case 16:
                 // ゲーム開始から45秒後、星表示
-                if (newCount >= 45 * seconds) {
-                    star1.startCount = newCount;
+                if (newCount >= 45 * common.seconds) {
+                    star1.startTime = newCount;
                     star1.startCols = 6;
                     star1.startRows = 7;
                     star1.visibility = 'visible';
-                    misc.scheduleStep += 1;
+                    app.game.scheduleStep += 1;
                 }
                 break;
             case 17:
                 // ゲーム開始から48秒後、星非表示
-                if (newCount >= 48 * seconds) {
+                if (newCount >= 48 * common.seconds) {
                     star1.visibility = 'hidden';
-                    misc.scheduleStep += 1;
+                    app.game.scheduleStep += 1;
                 }
                 break;
             case 18:
                 // ゲーム開始から51秒後、星表示
-                if (newCount >= 51 * seconds) {
-                    star1.startCount = newCount;
+                if (newCount >= 51 * common.seconds) {
+                    star1.startTime = newCount;
                     star1.startCols = 7;
                     star1.startRows = 3;
                     star1.visibility = 'visible';
-                    misc.scheduleStep += 1;
+                    app.game.scheduleStep += 1;
                 }
                 break;
             case 19:
                 // ゲーム開始から54秒後、星非表示
-                if (newCount >= 54 * seconds) {
+                if (newCount >= 54 * common.seconds) {
                     star1.visibility = 'hidden';
-                    misc.scheduleStep += 1;
+                    app.game.scheduleStep += 1;
                 }
                 break;
             case 20:
                 // ゲーム開始から57秒後、星表示
-                if (newCount >= 57 * seconds) {
-                    star1.startCount = newCount;
+                if (newCount >= 57 * common.seconds) {
+                    star1.startTime = newCount;
                     star1.startCols = 8;
                     star1.startRows = 9;
                     star1.visibility = 'visible';
-                    misc.scheduleStep += 1;
+                    app.game.scheduleStep += 1;
                 }
                 break;
             case 21:
                 // ゲーム開始から60秒後、星非表示
-                if (newCount >= 59 * seconds) {
+                if (newCount >= 59 * common.seconds) {
                     star1.visibility = 'hidden';
-                    misc.scheduleStep += 1;
+                    app.game.scheduleStep += 1;
                 }
                 break;
         }
 
-        if (newCount >= misc.maxCount) {
+        if (newCount >= app.game.maxCount) {
             // ゲーム停止
-            stopwatch1.value?.stopTimer();  // タイマーをストップ
+            stopwatch1.compo?.stopTimer();  // タイマーをストップ
         }
     });
 
+    // ++++++++++++++++++++++++
+    // + オブジェクト　＞　盤 +
+    // ++++++++++++++++++++++++
+
+    const board1 = reactive({
+        cellWidth: 32,          // セルの横幅（ピクセル）
+        cellHeight: 32,         // セルの縦幅（ピクセル）
+        cols: 16,               // 盤が横に何セルか
+        rows: 12,               // 盤が縦に何セルか
+    });
+    const board1Area = computed(()=>{   // 盤のセル数
+        return board1.cols * board1.rows;
+    });
 
     // ++++++++++++++++++++++++
-    // + オブジェクト１：　星 +
+    // + オブジェクト　＞　星 +
     // ++++++++++++++++++++++++
 
     const star1 = reactive({
-        startCols : 0,  // 出現位置
-        startRows : 0,
-        startCount : 0,
-        visibility: 'hidden' as 'hidden' | 'visible',
+        startCols : 0,          // 星の出現位置。盤の左から何セルか
+        startRows : 0,          // 星の出現位置。盤の上から何セルか
+        startTime : 0,          // 星の出現count時間
+        visibility: 'hidden' as 'hidden' | 'visible',   // 星の表示／非表示
     });
     const star1Cols = computed(()=>{
-        return star1.startCols + Math.floor((count.value - star1.startCount) / 20);
+        return star1.startCols + Math.floor((stopwatch1.count - star1.startTime) / 20);
     });
     const star1Rows = computed(()=>{
         return star1.startRows;
     });
+    const starStyle = computed(() => {
+        return {
+            visibility: star1.visibility,
+            top: `${star1Rows.value * board1.cellHeight}px`,
+            left: `${star1Cols.value * board1.cellWidth}px`,
+            width: `${board1.cellWidth}px`,
+            height: `${board1.cellHeight}px`,
+        };
+    });
 
-    // ++++++++++++++++++++++++++++++++++++
-    // + カメラのファインダー（点線の枠） +
-    // ++++++++++++++++++++++++++++++++++++
+    // ++++++++++++++++++++++++++++++++++++++++++
+    // + オブジェクト　＞　カメラのファインダー +
+    // ++++++++++++++++++++++++++++++++++++++++++
+    //
+    // 点線の枠
+    //
 
     const finder1 = reactive({
-        left: 6 * board.cellWidth,    // スプライトのX座標
-        top: 4 * board.cellHeight,    // スプライトのY座標
-        colNum: 4,              // スプライトの列数
-        rowNum: 3,              // スプライトの行数
-        speed: 4,               // 移動速度
-        input: <Record<string, boolean>>{  // 入力
+        left: 6 * board1.cellWidth,         // スプライトのX座標
+        top: 4 * board1.cellHeight,         // スプライトのY座標
+        colNum: 4,                          // スプライトの列数
+        rowNum: 3,                          // スプライトの行数
+        speed: 4,                           // 移動速度
+        input: <Record<string, boolean>>{   // 入力
             // アルファベット順
             ArrowDown: false, ArrowLeft: false, ArrowUp: false, ArrowRight: false, Enter: false,
         },
-        motionWait: 0,          // 入力キーごとに用意したい
+        motionWait: 0,                      // TODO: 入力キーごとにウェイトを用意したい
         motion: ref<Record<string, number>>({  // 入力
             xAxis: 0,   // 負なら左、正なら右
             yAxis: 0,   // 負なら上、正なら下
         }),
         reloadTime: 0,  // 0 になるまで、入力を受け付けない
     });
+    const finderStyle = computed(() => {
+        return {
+            top: `${finder1.top}px`,
+            left: `${finder1.left}px`,
+            width: `${finder1.colNum * board1.cellWidth}px`,
+            height: `${finder1.rowNum * board1.cellHeight}px`,
+            border: `dashed 4px ${finder1.reloadTime > 0 ? '#d85050' : '#f0f0f0'}`, // リロード中は赤い枠
+        };
+    });
 
-    // モーション
-    const moLeft = -1;  // モーション（motion）定数。左に移動する
-    const moRight = 1;
-    const moUp = -1;
-    const moDown = 1;
+    // ++++++++++++++++++++++++++++++++++++
+    // + オブジェクト　＞　リロード・パイ +
+    // ++++++++++++++++++++++++++++++++++++
+    //
+    // 写真を撮った時にカメラのファインダーの中心で回ってるやつ。
+    //
 
-    // ++++++++++++++++++++++
-    // + リロード・タイマー +
-    // ++++++++++++++++++++++
-
-    const reloadTimerFrames = <Record<number, {top: number, left: number}>>{
-        0: {top: 0 * board.cellHeight, left: 0 * board.cellWidth},
-        1: {top: 0 * board.cellHeight, left: 1 * board.cellWidth},
-        2: {top: 0 * board.cellHeight, left: 2 * board.cellWidth},
-        3: {top: 0 * board.cellHeight, left: 3 * board.cellWidth},
-        4: {top: 1 * board.cellHeight, left: 0 * board.cellWidth},
-        5: {top: 1 * board.cellHeight, left: 1 * board.cellWidth},
-        6: {top: 1 * board.cellHeight, left: 2 * board.cellWidth},
-        7: {top: 1 * board.cellHeight, left: 3 * board.cellWidth},
-    };
-    const reloadTimeWeight = 3 * seconds;
-    const reloadTimerIndex = computed<number>(()=>{
+    const reloadPie1 = reactive<{
+        frames: Record<number, {top: number, left: number}>,
+        weight: number,
+    }>({
+        frames: {
+            0: {top: 0 * board1.cellHeight, left: 0 * board1.cellWidth},
+            1: {top: 0 * board1.cellHeight, left: 1 * board1.cellWidth},
+            2: {top: 0 * board1.cellHeight, left: 2 * board1.cellWidth},
+            3: {top: 0 * board1.cellHeight, left: 3 * board1.cellWidth},
+            4: {top: 1 * board1.cellHeight, left: 0 * board1.cellWidth},
+            5: {top: 1 * board1.cellHeight, left: 1 * board1.cellWidth},
+            6: {top: 1 * board1.cellHeight, left: 2 * board1.cellWidth},
+            7: {top: 1 * board1.cellHeight, left: 3 * board1.cellWidth},
+        },
+        weight: 3 * common.seconds,
+    });
+    const reloadPie1Index = computed<number>(()=>{
         // タイル１枚当たりの時間（フレーム）
-        const frameNum = Object.keys(reloadTimerFrames).length;
-        const unitTime = reloadTimeWeight / frameNum;
+        const frameNum = Object.keys(reloadPie1.frames).length;
+        const unitTime = reloadPie1.weight / frameNum;
         let index = Math.floor(finder1.reloadTime / unitTime);
         if (index >= frameNum) {
             index = frameNum - 1;
         }
         return (frameNum - 1) - index;    // カウントダウン
     });
-    const reloadTimerTileLeft = computed<number>(()=>{
-        return reloadTimerFrames[reloadTimerIndex.value].left;
+    const reloadPie1TileLeft = computed<number>(()=>{
+        return reloadPie1.frames[reloadPie1Index.value].left;
     });
-    const reloadTimerTileTop = computed<number>(()=>{
-        return reloadTimerFrames[reloadTimerIndex.value].top;
+    const reloadPie1TileTop = computed<number>(()=>{
+        return reloadPie1.frames[reloadPie1Index.value].top;
     });
-
-    // ++++++++++
-    // + その他 +
-    // ++++++++++
-
-    const misc = reactive({
-        score: 0,
-        isPlaying: false,
-        isPause: false,
-        isShowingManual: false,
-        startButtonText: "読込中...",
-        pauseButtonText: "読込中...",
-        maxCount: 60 * seconds,     // ゲーム時間は１分。
-        scheduleStep: 0,
+    const reloadPieStyle = computed(() => {
+        return {
+            visibility: finder1.reloadTime > 0 ? 'visible' : 'hidden',
+            top: `${finder1.top + finder1.rowNum * board1.cellHeight / 2 - board1.cellHeight / 2}px`,
+            left: `${finder1.left + finder1.colNum * board1.cellWidth / 2 - board1.cellWidth / 2}px`,
+        };
     });
 
+    
     // ##########
     // # 開始時 #
     // ##########
 
     onMounted(() => {
-        loadSfx();
-        initGame();
-        startGameLoop();
-        //startTimer();
+        sfxLoad();
+        gameInit();
+        gameLoopStart();
 
-        // キーボードイベント
+        // キーボード操作の設定
+        //
+        //      window はブラウザーのオブジェクトなので、マウント後にアクセスします。
+        //
         window.addEventListener('keydown', (e: KeyboardEvent) => {
             // 上下キーの場合
             if (e.key === 'ArrowUp' || e.key === 'ArrowDown') {
@@ -505,87 +624,6 @@
                 finder1.input[e.key] = false;
             }
         });
-
-
-        // ################
-        // # サブルーチン #
-        // ################
-
-        function startGameLoop() : void {
-            const update = () => {
-                // モーション・タイマー
-                finder1.motionWait -= 1;
-
-                if (finder1.reloadTime > 0) {
-                    // リロード中
-                    finder1.reloadTime -= 1;
-                }
-
-                if (finder1.motionWait==0) {
-                    finder1.motion["xAxis"] = 0;    // クリアー
-                    finder1.motion["yAxis"] = 0;
-                }
-                
-                // ++++++++++++++++++++++++++++++
-                // + キー入力をモーションに変換 +
-                // ++++++++++++++++++++++++++++++
-                if (finder1.motionWait<=0) {   // ウェイトが無ければ、入力を受け付ける。
-
-                    if (finder1.input.Enter) {
-                        cameraShot();   // 撮影
-                    }
-
-                    if (finder1.input.ArrowLeft) {
-                        finder1.motion["xAxis"] = moLeft; // 左
-                    }
-
-                    if (finder1.input.ArrowRight) {
-                        finder1.motion["xAxis"] = moRight;  // 右
-                    }
-
-                    if (finder1.input.ArrowUp) {
-                        finder1.motion["yAxis"] = moUp;   // 上
-                    }
-
-                    if (finder1.input.ArrowDown) {
-                        finder1.motion["yAxis"] = moDown;   // 下
-                    }
-
-                    if (finder1.motion["xAxis"]!=0 || finder1.motion["yAxis"]!=0) {
-                        finder1.motionWait = 8;    // フレーム数を設定
-                    }
-                }
-
-                // 移動処理
-                // 斜め方向の場合、上下を優先する。
-                if (finder1.motion["xAxis"]==1) {   // 右
-                    if (finder1.left < (board.cols - finder1.colNum) * board.cellWidth) {    // 境界チェック
-                        finder1.left += finder1.speed;
-                    }
-                } else if (finder1.motion["xAxis"]==-1) {  // 左
-                    if (0 < finder1.left) {    // 境界チェック
-                        finder1.left -= finder1.speed;
-                    }
-                }
-
-                if (finder1.motion["yAxis"]==-1) {  // 上
-                    if (0 < finder1.top) {    // 境界チェック
-                        finder1.top -= finder1.speed;
-                    }
-                } else if (finder1.motion["yAxis"]==1) {   // 下
-                    if (finder1.top < (board.rows - finder1.rowNum) * board.cellHeight) {    // 境界チェック
-                        finder1.top += finder1.speed;
-                    }
-                }
-
-                // 次のフレーム
-                requestAnimationFrame(update);
-            };
-
-            // 初回呼び出し
-            requestAnimationFrame(update);
-        }
-
     });
 
 
@@ -593,47 +631,133 @@
     // # サブルーチン #
     // ################
 
-    function initGame() : void {
-        stopwatch1.value?.resetTimer();  // タイマーをリセット
+    /**
+     * ［ゲームスタート］または［ゲーム終了］ボタン押下時。（状態により切り替わります）
+     */
+    function onGameStartOrEndButtonPushed() : void {
+        document.getElementById("dammyButton")?.focus();    // フォーカスを外すため
 
-        misc.score = 0;
-        misc.isPlaying = false;
-        misc.startButtonText = "ゲームスタート"; // ボタンのテキストを更新
-        misc.isPause = false;
-        misc.pauseButtonText = "一時停止"; // ボタンのテキストを更新
-        misc.scheduleStep = 0;
+        if(app.game.isPlaying) {    // ［ゲーム終了］ボタン
+            // ゲームを終了させます
+            gameInit();
+            return;
+        }
+
+        stopwatch1.compo?.startTimer();  // タイマーをスタート
+
+        app.game.isPlaying = !app.game.isPlaying;
+    }
+
+
+    /**
+     * ［一時停止］または［再開］ボタン押下時。（状態により切り替わります）
+     */
+    function onGamePauseOrRestartButtonPushed() : void {
+        document.getElementById("dammyButton")?.focus();    // フォーカスを外すため
+
+        if(app.game.isPause) {
+            stopwatch1.compo?.startTimer();  // タイマーをスタート
+        } else {
+            stopwatch1.compo?.stopTimer();  // タイマーをストップ
+        }
+
+        app.game.isPause = !app.game.isPause;
+    }
+
+
+    /**
+     * ゲームの初期化
+     */
+    function gameInit() : void {
+        stopwatch1.compo?.resetTimer();  // タイマーをリセット
+
+        app.game.score = 0;
+        app.game.isPlaying = false;
+        app.game.isPause = false;
+        app.game.scheduleStep = 0;
 
         star1.visibility = 'hidden';
     }
 
-    function startGame() : void {
-        document.getElementById("dammyButton")?.focus();    // フォーカスを外すため
 
-        if(misc.isPlaying) {
-            // ゲームを終了させます
-            initGame();
-            return;
-        }
+    /**
+     * ゲームのメインループ開始
+     */
+    function gameLoopStart() : void {
+        const update = () => {
+            // モーション・タイマー
+            finder1.motionWait -= 1;
 
-        stopwatch1.value?.startTimer();  // タイマーをスタート
+            if (finder1.reloadTime > 0) {
+                // リロード中
+                finder1.reloadTime -= 1;
+            }
 
-        misc.startButtonText = "ゲーム終了"; // ボタンのテキストを更新
-        misc.isPlaying = !misc.isPlaying;
+            if (finder1.motionWait==0) {
+                finder1.motion["xAxis"] = 0;    // クリアー
+                finder1.motion["yAxis"] = 0;
+            }
+            
+            // ++++++++++++++++++++++++++++++
+            // + キー入力をモーションに変換 +
+            // ++++++++++++++++++++++++++++++
+            if (finder1.motionWait<=0) {   // ウェイトが無ければ、入力を受け付ける。
+
+                if (finder1.input.Enter) {
+                    cameraShot();   // 撮影
+                }
+
+                if (finder1.input.ArrowLeft) {
+                    finder1.motion["xAxis"] = common.spriteMotion.left; // 左
+                }
+
+                if (finder1.input.ArrowRight) {
+                    finder1.motion["xAxis"] = common.spriteMotion.right;  // 右
+                }
+
+                if (finder1.input.ArrowUp) {
+                    finder1.motion["yAxis"] = common.spriteMotion.up;   // 上
+                }
+
+                if (finder1.input.ArrowDown) {
+                    finder1.motion["yAxis"] = common.spriteMotion.down;   // 下
+                }
+
+                if (finder1.motion["xAxis"]!=0 || finder1.motion["yAxis"]!=0) {
+                    finder1.motionWait = 8;    // フレーム数を設定
+                }
+            }
+
+            // 移動処理
+            // 斜め方向の場合、上下を優先する。
+            if (finder1.motion["xAxis"]==1) {   // 右
+                if (finder1.left < (board1.cols - finder1.colNum) * board1.cellWidth) {    // 境界チェック
+                    finder1.left += finder1.speed;
+                }
+            } else if (finder1.motion["xAxis"]==-1) {  // 左
+                if (0 < finder1.left) {    // 境界チェック
+                    finder1.left -= finder1.speed;
+                }
+            }
+
+            if (finder1.motion["yAxis"]==-1) {  // 上
+                if (0 < finder1.top) {    // 境界チェック
+                    finder1.top -= finder1.speed;
+                }
+            } else if (finder1.motion["yAxis"]==1) {   // 下
+                if (finder1.top < (board1.rows - finder1.rowNum) * board1.cellHeight) {    // 境界チェック
+                    finder1.top += finder1.speed;
+                }
+            }
+
+            // 次のフレーム
+            requestAnimationFrame(update);
+        };
+
+        // 初回呼び出し
+        requestAnimationFrame(update);
     }
 
-    function pauseGame() : void {
-        document.getElementById("dammyButton")?.focus();    // フォーカスを外すため
-
-        if(misc.isPause) {
-            stopwatch1.value?.startTimer();  // タイマーをスタート
-            misc.pauseButtonText = "一時停止"; // ボタンのテキストを更新
-        } else {
-            stopwatch1.value?.stopTimer();  // タイマーをストップ
-            misc.pauseButtonText = "再開"; // ボタンのテキストを更新
-        }
-
-        misc.isPause = !misc.isPause;
-    }
 
     /**
      * カメラショット処理
@@ -642,9 +766,9 @@
 
         if (finder1.reloadTime > 0) {
             // リロード中
-            if (!isSfxDeniedPlaying.value) {
+            if (!sfx.denied.isPlaying) {
                 // ブザー音が停止中なら鳴らす
-                sfxDenied.play();
+                sfx.denied.audio?.play();
             }
 
             // リロード中は何も起こりません。
@@ -652,8 +776,8 @@
         }
 
         // ファインダーの位置とサイズ
-        const finderLeftCols = finder1.left / board.cellWidth;
-        const finderTopCols = finder1.top / board.cellHeight;
+        const finderLeftCols = finder1.left / board1.cellWidth;
+        const finderTopCols = finder1.top / board1.cellHeight;
         const finderRightEndCols = finderLeftCols + finder1.colNum;
         const finderBottomEndCols = finderTopCols + finder1.rowNum;
 
@@ -666,49 +790,27 @@
 
         // 星を含まない
         } else {
-            if (!isSfxMissPlaying.value) {
+            if (!sfx.miss.isPlaying) {
                 // ミス音が停止中なら鳴らす
-                sfxMiss.play();
+                sfx.miss.audio?.play();
             }
         }
 
-        finder1.reloadTime = reloadTimeWeight;  // リロード時間を設定
+        finder1.reloadTime = reloadPie1.weight;  // リロード時間を設定
     }
 
 
+    /**
+     * カメラのファインダーの中に星を収めて撮ったとき。
+     */
     function niceShot() : void {
-        if (!isSfxCameraShutterPlaying.value) {
+        if (!sfx.cameraShutter.isPlaying) {
             // カメラのシャッター音が停止中なら鳴らす
-            sfxCameraShutter.play();
+            sfx.cameraShutter.audio?.play();
         }
 
-        misc.score += 100;
+        app.game.score += 100;
     }
-
-
-    // ############
-    // # スタイル #
-    // ############
-
-    const starStyle = computed(() => ({
-        visibility: star1.visibility,
-        top: `${star1Rows.value * board.cellHeight}px`,
-        left: `${star1Cols.value * board.cellWidth}px`,
-        width: `${board.cellWidth}px`,
-        height: `${board.cellHeight}px`,
-    }));
-    const finderStyle = computed(() => ({
-        top: `${finder1.top}px`,
-        left: `${finder1.left}px`,
-        width: `${finder1.colNum * board.cellWidth}px`,
-        height: `${finder1.rowNum * board.cellHeight}px`,
-        border: `dashed 4px ${finder1.reloadTime > 0 ? '#d85050' : '#f0f0f0'}`, // リロード中は赤い枠
-    }));
-    const reloadPieStyle = computed(() => ({
-        visibility: finder1.reloadTime > 0 ? 'visible' : 'hidden',
-        top: `${finder1.top + finder1.rowNum * board.cellHeight / 2 - board.cellHeight / 2}px`,
-        left: `${finder1.left + finder1.colNum * board.cellWidth / 2 - board.cellWidth / 2}px`,
-    }));
 
 </script>
 

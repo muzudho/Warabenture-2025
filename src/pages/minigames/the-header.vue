@@ -1,5 +1,5 @@
 <template>
-    <the-parent-header/>
+    <the-grand-parent-header/>
 
     <h2>ミニゲームの章だぜ！</h2>
     <section class="sec-2">
