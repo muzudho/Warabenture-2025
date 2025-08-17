@@ -13,12 +13,12 @@
     <h3 id="functions">機能紹介</h3>
     <section class="sec-3">
 
-        <a target="_blank" href="/img/journal/2025-06/202506__teamMirai__09--1610-heatMap16-o1o0.png">
-            <img class="scr-shot" src="/img/journal/2025-06/202506__teamMirai__09--1610-heatMap16-o1o0.png">
+        <a target="_blank" href="/img/journal/2025-06/202506__teamMirai__09-1610-heatMap16-o1o0.png">
+            <img class="scr-shot" src="/img/journal/2025-06/202506__teamMirai__09-1610-heatMap16-o1o0.png">
         </a><br/>
         <div class="talk">
             <div class="face-container">
-                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
             </div>
             <div class="baloon-tail"></div>
             <div class="baloon">
@@ -26,48 +26,48 @@
                 右上の凡例にあるように［以上］での比較だけ利用可能。
             </div>
         </div>
-        <a target="_blank" href="/img/journal/2025-06/202506__teamMirai__09--1730-heatMap23-o1o0.png">
-            <img class="scr-shot" src="/img/journal/2025-06/202506__teamMirai__09--1730-heatMap23-o1o0.png">
+        <a target="_blank" href="/img/journal/2025-06/202506__teamMirai__09-1730-heatMap23-o1o0.png">
+            <img class="scr-shot" src="/img/journal/2025-06/202506__teamMirai__09-1730-heatMap23-o1o0.png">
         </a><br/>
         <div class="talk">
             <div class="face-container">
-                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
             </div>
             <div class="baloon-tail"></div>
             <div class="baloon">
                 👆 もちろん、表示内容を替えれる。
             </div>
         </div>
-        <a target="_blank" href="/img/journal/2025-06/202506__teamMirai__10--0814-heatMap28-o2o0.png">
-            <img class="scr-shot" src="/img/journal/2025-06/202506__teamMirai__10--0814-heatMap28-o2o0.png">
+        <a target="_blank" href="/img/journal/2025-06/202506__teamMirai__10-0814-heatMap28-o2o0.png">
+            <img class="scr-shot" src="/img/journal/2025-06/202506__teamMirai__10-0814-heatMap28-o2o0.png">
         </a><br/>
         <div class="talk">
             <div class="face-container">
-                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
             </div>
             <div class="baloon-tail"></div>
             <div class="baloon">
                 👆 もちろん、ワークブックを新しく作って一から編集すれば、別の地図でヒートマップを表示することも可能。
             </div>
         </div>
-        <a target="_blank" href="/img/journal/2025-06/202506__teamMirai__09--1729-heatMap22-o1o0.png">
-            <img class="scr-shot" src="/img/journal/2025-06/202506__teamMirai__09--1729-heatMap22-o1o0.png">
+        <a target="_blank" href="/img/journal/2025-06/202506__teamMirai__09-1729-heatMap22-o1o0.png">
+            <img class="scr-shot" src="/img/journal/2025-06/202506__teamMirai__09-1729-heatMap22-o1o0.png">
         </a><br/>
         <div class="talk">
             <div class="face-container">
-                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
             </div>
             <div class="baloon-tail"></div>
             <div class="baloon">
                 👆 ごく短い文字数のメモにも使える。
             </div>
         </div>
-        <a target="_blank" href="/img/journal/2025-06/202506__teamMirai__09--1750-heatMap25-o1o0.png">
-            <img class="scr-shot" src="/img/journal/2025-06/202506__teamMirai__09--1750-heatMap25-o1o0.png">
+        <a target="_blank" href="/img/journal/2025-06/202506__teamMirai__09-1750-heatMap25-o1o0.png">
+            <img class="scr-shot" src="/img/journal/2025-06/202506__teamMirai__09-1750-heatMap25-o1o0.png">
         </a><br/>
         <div class="talk">
             <div class="face-container">
-                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
             </div>
             <div class="baloon-tail"></div>
             <div class="baloon">
@@ -80,12 +80,12 @@
                 トレードオフだぜ。
             </div>
         </div>
-        <a target="_blank" href="/img/journal/2025-06/202506__teamMirai__09--1619-heatMap16-o3o0.png">
-            <img class="scr-shot" src="/img/journal/2025-06/202506__teamMirai__09--1619-heatMap16-o3o0.png">
+        <a target="_blank" href="/img/journal/2025-06/202506__teamMirai__09-1619-heatMap16-o3o0.png">
+            <img class="scr-shot" src="/img/journal/2025-06/202506__teamMirai__09-1619-heatMap16-o3o0.png">
         </a><br/>
         <div class="talk">
             <div class="face-container">
-                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
             </div>
             <div class="baloon-tail"></div>
             <div class="baloon">
@@ -94,12 +94,12 @@
                 <a target="_blank" href="https://www.e-stat.go.jp/">https://www.e-stat.go.jp/</a>
             </div>
         </div>
-        <a target="_blank" href="/img/journal/2025-06/202506__teamMirai__09--1740-heatMap24-o1o0.png">
-            <img class="scr-shot" src="/img/journal/2025-06/202506__teamMirai__09--1740-heatMap24-o1o0.png">
+        <a target="_blank" href="/img/journal/2025-06/202506__teamMirai__09-1740-heatMap24-o1o0.png">
+            <img class="scr-shot" src="/img/journal/2025-06/202506__teamMirai__09-1740-heatMap24-o1o0.png">
         </a><br/>
         <div class="talk">
             <div class="face-container">
-                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
             </div>
             <div class="baloon-tail"></div>
             <div class="baloon">
@@ -114,7 +114,7 @@
     <section class="sec-3">
         <div class="talk">
             <div class="face-container">
-                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
             </div>
             <div class="baloon-tail"></div>
             <div class="baloon">
@@ -138,7 +138,7 @@
         </div>
         <div class="talk">
             <div class="face-container">
-                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
             </div>
             <div class="baloon-tail"></div>
             <div class="baloon">
@@ -146,12 +146,12 @@
                 ［国勢調査］のデータを含んでるが、あれのライセンスは何なんだろな？
             </div>
         </div>
-        <a target="_blank" href="/img/journal/2025-06/202506__teamMirai__09--1657-heatMap20-o1o0-mark.png">
-            <img class="scr-shot" src="/img/journal/2025-06/202506__teamMirai__09--1657-heatMap20-o1o0-mark.png">
+        <a target="_blank" href="/img/journal/2025-06/202506__teamMirai__09-1657-heatMap20-o1o0-mark.png">
+            <img class="scr-shot" src="/img/journal/2025-06/202506__teamMirai__09-1657-heatMap20-o1o0-mark.png">
         </a><br/>
         <div class="talk">
             <div class="face-container">
-                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
             </div>
             <div class="baloon-tail"></div>
             <div class="baloon">
@@ -159,12 +159,12 @@
                 インターネットからダウンロードするとブロックされてるから……。
             </div>
         </div>
-        <a target="_blank" href="/img/journal/2025-06/202506__teamMirai__09--1700-heatMap21-o1o0-mark.png">
-            <img class="scr-shot" src="/img/journal/2025-06/202506__teamMirai__09--1700-heatMap21-o1o0-mark.png">
+        <a target="_blank" href="/img/journal/2025-06/202506__teamMirai__09-1700-heatMap21-o1o0-mark.png">
+            <img class="scr-shot" src="/img/journal/2025-06/202506__teamMirai__09-1700-heatMap21-o1o0-mark.png">
         </a><br/>
         <div class="talk">
             <div class="face-container">
-                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
             </div>
             <div class="baloon-tail"></div>
             <div class="baloon">
@@ -177,7 +177,7 @@
     <section class="sec-3">
         <div class="talk">
             <div class="face-container">
-                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
             </div>
             <div class="baloon-tail"></div>
             <div class="baloon">
@@ -193,7 +193,7 @@
         </div>
         <div class="talk">
             <div class="face-container">
-                <img src="@/assets/img/202506__character__01--2013-kifuwarabe-o1o1o0.png" />
+                <img src="@/assets/img/202506__character__01-2013-kifuwarabe-o1o1o0.png" />
             </div>
             <div class="baloon-tail"></div>
             <div class="baloon">
@@ -203,7 +203,7 @@
         </div>
         <div class="talk">
             <div class="face-container">
-                <img src="@/assets/img/202506__character__01--2025-hiyoko-o1o1o0.png" />
+                <img src="@/assets/img/202506__character__01-2025-hiyoko-o1o1o0.png" />
             </div>
             <div class="baloon-tail"></div>
             <div class="baloon">
@@ -212,7 +212,7 @@
         </div>
         <div class="talk">
             <div class="face-container">
-                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
             </div>
             <div class="baloon-tail"></div>
             <div class="baloon">
@@ -222,7 +222,7 @@
         </div>
         <div class="talk">
             <div class="face-container">
-                <img src="@/assets/img/202506__character__01--2013-kifuwarabe-o1o1o0.png" />
+                <img src="@/assets/img/202506__character__01-2013-kifuwarabe-o1o1o0.png" />
             </div>
             <div class="baloon-tail"></div>
             <div class="baloon">
@@ -232,7 +232,7 @@
         </div>
         <div class="talk">
             <div class="face-container">
-                <img src="@/assets/img/202506__character__01--2025-hiyoko-o1o1o0.png" />
+                <img src="@/assets/img/202506__character__01-2025-hiyoko-o1o1o0.png" />
             </div>
             <div class="baloon-tail"></div>
             <div class="baloon">
@@ -243,7 +243,7 @@
         </div>
         <div class="talk">
             <div class="face-container">
-                <img src="@/assets/img/202506__character__01--2013-kifuwarabe-o1o1o0.png" />
+                <img src="@/assets/img/202506__character__01-2013-kifuwarabe-o1o1o0.png" />
             </div>
             <div class="baloon-tail"></div>
             <div class="baloon">
@@ -252,7 +252,7 @@
         </div>
         <div class="talk">
             <div class="face-container">
-                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
             </div>
             <div class="baloon-tail"></div>
             <div class="baloon">
@@ -261,7 +261,7 @@
         </div>
         <div class="talk">
             <div class="face-container">
-                <img src="@/assets/img/202506__character__01--2013-kifuwarabe-o1o1o0.png" />
+                <img src="@/assets/img/202506__character__01-2013-kifuwarabe-o1o1o0.png" />
             </div>
             <div class="baloon-tail"></div>
             <div class="baloon">
@@ -270,7 +270,7 @@
         </div>
         <div class="talk">
             <div class="face-container">
-                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
             </div>
             <div class="baloon-tail"></div>
             <div class="baloon">
@@ -280,7 +280,7 @@
         </div>
         <div class="talk">
             <div class="face-container">
-                <img src="@/assets/img/202506__character__01--2013-kifuwarabe-o1o1o0.png" />
+                <img src="@/assets/img/202506__character__01-2013-kifuwarabe-o1o1o0.png" />
             </div>
             <div class="baloon-tail"></div>
             <div class="baloon">
@@ -290,7 +290,7 @@
         </div>
         <div class="talk">
             <div class="face-container">
-                <img src="@/assets/img/202506__character__01--2025-hiyoko-o1o1o0.png" />
+                <img src="@/assets/img/202506__character__01-2025-hiyoko-o1o1o0.png" />
             </div>
             <div class="baloon-tail"></div>
             <div class="baloon">
@@ -300,7 +300,7 @@
         </div>
         <div class="talk">
             <div class="face-container">
-                <img src="@/assets/img/202506__character__01--2013-kifuwarabe-o1o1o0.png" />
+                <img src="@/assets/img/202506__character__01-2013-kifuwarabe-o1o1o0.png" />
             </div>
             <div class="baloon-tail"></div>
             <div class="baloon">

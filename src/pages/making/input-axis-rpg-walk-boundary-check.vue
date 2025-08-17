@@ -17,7 +17,7 @@
             <!-- プレイヤー１ -->
             <TileAnimation
                 :frames="p1Frames"
-                tilemapUrl="/img/making/202508__warabenture__15--1612-kifuwarabe-o1o0.png"
+                tilemapUrl="/img/making/202508__warabenture__15-1612-kifuwarabe-o1o0.png"
                 :slow="slow"
                 :time="count"
                 class="cursor"

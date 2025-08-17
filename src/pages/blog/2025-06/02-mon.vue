@@ -3,7 +3,7 @@
     <section class="sec-3">
         <div class="talk">
         <div class="face-container">
-            <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+            <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
         </div>
         <div class="baloon-tail"></div>
         <div class="baloon">
@@ -12,7 +12,7 @@
         </div>
         <div class="talk">
         <div class="face-container">
-            <img src="@/assets/img/202506__character__01--2013-kifuwarabe-o1o1o0.png" />
+            <img src="@/assets/img/202506__character__01-2013-kifuwarabe-o1o1o0.png" />
         </div>
         <div class="baloon-tail"></div>
         <div class="baloon">
@@ -21,7 +21,7 @@
         </div>
         <div class="talk">
         <div class="face-container">
-            <img src="@/assets/img/202506__character__01--2025-hiyoko-o1o1o0.png" />
+            <img src="@/assets/img/202506__character__01-2025-hiyoko-o1o1o0.png" />
         </div>
         <div class="baloon-tail"></div>
         <div class="baloon">
@@ -31,7 +31,7 @@
         </div>
         <div class="talk">
         <div class="face-container">
-            <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+            <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
         </div>
         <div class="baloon-tail"></div>
         <div class="baloon">
@@ -42,7 +42,7 @@
         </div>
         <div class="talk">
         <div class="face-container">
-            <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+            <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
         </div>
         <div class="baloon-tail"></div>
         <div class="baloon">
@@ -52,7 +52,7 @@
         </div>
         <div class="talk">
         <div class="face-container">
-            <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+            <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
         </div>
         <div class="baloon-tail"></div>
         <div class="baloon">
@@ -60,49 +60,49 @@
             インストールの説明は省くからな。
         </div>
         </div>
-        <a target="_blank" href="/img/journal/2025-06/202506__program__02--1159-tauri-o1o0.png">
-        <img class="scr-shot" src="/img/journal/2025-06/202506__program__02--1159-tauri-o1o0.png">
+        <a target="_blank" href="/img/journal/2025-06/202506__program__02-1159-tauri-o1o0.png">
+        <img class="scr-shot" src="/img/journal/2025-06/202506__program__02-1159-tauri-o1o0.png">
         </a><br/>
         <div class="code-b">pnpm create tauri-app</div>
         <div class="talk">
         <div class="face-container">
-            <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+            <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
         </div>
         <div class="baloon-tail"></div>
         <div class="baloon">
             👆 こんな感じでコマンドを打鍵すればいいはず。
         </div>
         </div>
-        <a target="_blank" href="/img/journal/2025-06/202506__program__02--1205-tauri-o1o1o0.png">
-        <img class="scr-shot" src="/img/journal/2025-06/202506__program__02--1205-tauri-o1o1o0.png">
+        <a target="_blank" href="/img/journal/2025-06/202506__program__02-1205-tauri-o1o1o0.png">
+        <img class="scr-shot" src="/img/journal/2025-06/202506__program__02-1205-tauri-o1o1o0.png">
         </a><br/>
         <div class="talk">
         <div class="face-container">
-            <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+            <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
         </div>
         <div class="baloon-tail"></div>
         <div class="baloon">
             👆 色々尋ねられるので、こんな感じで進めたぜ。
         </div>
         </div>
-        <a target="_blank" href="/img/journal/2025-06/202506__program__02--1209-tauri-o1o2o0.png">
-        <img src="/img/journal/2025-06/202506__program__02--1209-tauri-o1o2o0.png">
+        <a target="_blank" href="/img/journal/2025-06/202506__program__02-1209-tauri-o1o2o0.png">
+        <img src="/img/journal/2025-06/202506__program__02-1209-tauri-o1o2o0.png">
         </a><br/>
         <div class="talk">
         <div class="face-container">
-            <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+            <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
         </div>
         <div class="baloon-tail"></div>
         <div class="baloon">
             👆 Git Hub と連携しておいた。フォルダーの中身はこうなった。
         </div>
         </div>
-        <a target="_blank" href="/img/journal/2025-06/202506__program__02--1212-tauri-o1o3o0.png">
-        <img class="scr-shot" src="/img/journal/2025-06/202506__program__02--1212-tauri-o1o3o0.png">
+        <a target="_blank" href="/img/journal/2025-06/202506__program__02-1212-tauri-o1o3o0.png">
+        <img class="scr-shot" src="/img/journal/2025-06/202506__program__02-1212-tauri-o1o3o0.png">
         </a><br/>
         <div class="talk">
         <div class="face-container">
-            <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+            <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
         </div>
         <div class="baloon-tail"></div>
         <div class="baloon">
@@ -110,13 +110,13 @@
             わたしの PC はCPU処理がビジーだとフリーズすることがあるので、終わるまで待って……。<br>
         </div>
         </div>
-        <a target="_blank" href="/img/journal/2025-06/202506__program__02--1216-tauri-o1o4o0.png">
-        <img class="scr-shot" src="/img/journal/2025-06/202506__program__02--1216-tauri-o1o4o0.png">
+        <a target="_blank" href="/img/journal/2025-06/202506__program__02-1216-tauri-o1o4o0.png">
+        <img class="scr-shot" src="/img/journal/2025-06/202506__program__02-1216-tauri-o1o4o0.png">
         </a><br/>
         <div class="code-b">pnpm install</div>
         <div class="talk">
         <div class="face-container">
-            <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+            <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
         </div>
         <div class="baloon-tail"></div>
         <div class="baloon">
@@ -124,12 +124,12 @@
             上記のコマンドを打鍵。
         </div>
         </div>
-        <a target="_blank" href="/img/journal/2025-06/202506__program__02--1220-tauri-o1o5o0.png">
-        <img class="scr-shot" src="/img/journal/2025-06/202506__program__02--1220-tauri-o1o5o0.png">
+        <a target="_blank" href="/img/journal/2025-06/202506__program__02-1220-tauri-o1o5o0.png">
+        <img class="scr-shot" src="/img/journal/2025-06/202506__program__02-1220-tauri-o1o5o0.png">
         </a><br/>
         <div class="talk">
         <div class="face-container">
-            <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+            <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
         </div>
         <div class="baloon-tail"></div>
         <div class="baloon">
@@ -139,7 +139,7 @@
         <div class="code-b">pnpm tauri dev</div>
         <div class="talk">
         <div class="face-container">
-            <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+            <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
         </div>
         <div class="baloon-tail"></div>
         <div class="baloon">
@@ -147,12 +147,12 @@
             わたしのケースでは、 379 個の大量のプログラムのコンパイルが走るので数分かかる。
         </div>
         </div>
-        <a target="_blank" href="/img/journal/2025-06/202506__program__02--1225-tauri-o1o6o0.png">
-        <img class="scr-shot" src="/img/journal/2025-06/202506__program__02--1225-tauri-o1o6o0.png">
+        <a target="_blank" href="/img/journal/2025-06/202506__program__02-1225-tauri-o1o6o0.png">
+        <img class="scr-shot" src="/img/journal/2025-06/202506__program__02-1225-tauri-o1o6o0.png">
         </a><br/>
         <div class="talk">
         <div class="face-container">
-            <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+            <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
         </div>
         <div class="baloon-tail"></div>
         <div class="baloon">
@@ -161,12 +161,12 @@
             動作確認に使うには不完全。
         </div>
         </div>
-        <a target="_blank" href="/img/journal/2025-06/202506__program__02--1229-tauri-o1o7o0.png">
-        <img class="scr-shot" src="/img/journal/2025-06/202506__program__02--1229-tauri-o1o7o0.png">
+        <a target="_blank" href="/img/journal/2025-06/202506__program__02-1229-tauri-o1o7o0.png">
+        <img class="scr-shot" src="/img/journal/2025-06/202506__program__02-1229-tauri-o1o7o0.png">
         </a><br/>
         <div class="talk">
         <div class="face-container">
-            <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+            <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
         </div>
         <div class="baloon-tail"></div>
         <div class="baloon">
@@ -176,43 +176,43 @@
         </div>
         <div class="talk">
         <div class="face-container">
-            <img src="@/assets/img/202506__character__01--2013-kifuwarabe-o1o1o0.png" />
+            <img src="@/assets/img/202506__character__01-2013-kifuwarabe-o1o1o0.png" />
         </div>
         <div class="baloon-tail"></div>
         <div class="baloon">
             じゃあ、テキストボックスと、［保存］ボタン、［開く］ボタンを置いてくれだぜ。
         </div>
         </div>
-        <a target="_blank" href="/img/journal/2025-06/202506__program__02--1847-tauri-o1o8o0-mark.png">
-        <img class="scr-shot" src="/img/journal/2025-06/202506__program__02--1847-tauri-o1o8o0-mark.png">
+        <a target="_blank" href="/img/journal/2025-06/202506__program__02-1847-tauri-o1o8o0-mark.png">
+        <img class="scr-shot" src="/img/journal/2025-06/202506__program__02-1847-tauri-o1o8o0-mark.png">
         </a><br/>
         <div class="talk">
         <div class="face-container">
-            <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+            <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
         </div>
         <div class="baloon-tail"></div>
         <div class="baloon">
             👆 📄 <span class="code-w">src/App.vue</span>ファイルの <span class="code-b">&lt;template&gt;</span>タグの中に、いわゆる HTMLタグを打ち込んでいけばいいはずだぜ。
         </div>
         </div>
-        <a target="_blank" href="/img/journal/2025-06/202506__program__02--2004-tauri-o1o9o0-mark.png">
-        <img class="scr-shot" src="/img/journal/2025-06/202506__program__02--2004-tauri-o1o9o0-mark.png">
+        <a target="_blank" href="/img/journal/2025-06/202506__program__02-2004-tauri-o1o9o0-mark.png">
+        <img class="scr-shot" src="/img/journal/2025-06/202506__program__02-2004-tauri-o1o9o0-mark.png">
         </a><br/>      
         <div class="talk">
         <div class="face-container">
-            <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+            <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
         </div>
         <div class="baloon-tail"></div>
         <div class="baloon">
             👆 ひとまず、こんな感じか。
         </div>
         </div>
-        <a target="_blank" href="/img/journal/2025-06/202506__program__02--2010-tauri-o1oA10o0.png">
-        <img class="scr-shot" src="/img/journal/2025-06/202506__program__02--2010-tauri-o1oA10o0.png">
+        <a target="_blank" href="/img/journal/2025-06/202506__program__02-2010-tauri-o1oA10o0.png">
+        <img class="scr-shot" src="/img/journal/2025-06/202506__program__02-2010-tauri-o1oA10o0.png">
         </a><br/>      
         <div class="talk">
         <div class="face-container">
-            <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+            <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
         </div>
         <div class="baloon-tail"></div>
         <div class="baloon">
@@ -221,19 +221,19 @@
         </div>
         <div class="talk">
         <div class="face-container">
-            <img src="@/assets/img/202506__character__01--2013-kifuwarabe-o1o1o0.png" />
+            <img src="@/assets/img/202506__character__01-2013-kifuwarabe-o1o1o0.png" />
         </div>
         <div class="baloon-tail"></div>
         <div class="baloon">
             ファイルパスを入れるテキストボックスと、ファイルを選択するダイアログボックスが出てくるボタンが欲しいぜ。
         </div>
         </div>
-        <a target="_blank" href="/img/journal/2025-06/202506__program__02--2024-tauri-o1oA11o0.png">
-        <img class="scr-shot" src="/img/journal/2025-06/202506__program__02--2024-tauri-o1oA11o0.png">
+        <a target="_blank" href="/img/journal/2025-06/202506__program__02-2024-tauri-o1oA11o0.png">
+        <img class="scr-shot" src="/img/journal/2025-06/202506__program__02-2024-tauri-o1oA11o0.png">
         </a><br/>
         <div class="talk">
         <div class="face-container">
-            <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+            <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
         </div>
         <div class="baloon-tail"></div>
         <div class="baloon">
@@ -243,7 +243,7 @@
         </div>
         <div class="talk">
         <div class="face-container">
-            <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+            <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
         </div>
         <div class="baloon-tail"></div>
         <div class="baloon">
@@ -253,24 +253,24 @@
         </div>
         </div>
         <div class="code-b">pnpm tauri add dialog</div>
-        <a target="_blank" href="/img/journal/2025-06/202506__program__02--2116-tauri-o1oA12o0.png">
-        <img class="scr-shot" src="/img/journal/2025-06/202506__program__02--2116-tauri-o1oA12o0.png">
+        <a target="_blank" href="/img/journal/2025-06/202506__program__02-2116-tauri-o1oA12o0.png">
+        <img class="scr-shot" src="/img/journal/2025-06/202506__program__02-2116-tauri-o1oA12o0.png">
         </a><br/>
         <div class="talk">
         <div class="face-container">
-            <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+            <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
         </div>
         <div class="baloon-tail"></div>
         <div class="baloon">
             👆 なんか知らんけどエラー出た。
         </div>
         </div>
-        <a target="_blank" href="/img/journal/2025-06/202506__program__02--2119-tauri-o1oA13o0-mark.png">
-        <img class="scr-shot" src="/img/journal/2025-06/202506__program__02--2119-tauri-o1oA13o0-mark.png">
+        <a target="_blank" href="/img/journal/2025-06/202506__program__02-2119-tauri-o1oA13o0-mark.png">
+        <img class="scr-shot" src="/img/journal/2025-06/202506__program__02-2119-tauri-o1oA13o0-mark.png">
         </a><br/>
         <div class="talk">
         <div class="face-container">
-            <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+            <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
         </div>
         <div class="baloon-tail"></div>
         <div class="baloon">
@@ -279,36 +279,36 @@
             じゃあ<span class="code-b">"dialog:default"</span>を消しといたれ。
         </div>
         </div>
-        <a target="_blank" href="/img/journal/2025-06/202506__program__02--2124-tauri-o1oA14o0.png">
-        <img class="scr-shot" src="/img/journal/2025-06/202506__program__02--2124-tauri-o1oA14o0.png">
+        <a target="_blank" href="/img/journal/2025-06/202506__program__02-2124-tauri-o1oA14o0.png">
+        <img class="scr-shot" src="/img/journal/2025-06/202506__program__02-2124-tauri-o1oA14o0.png">
         </a><br/>
         <div class="talk">
         <div class="face-container">
-            <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+            <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
         </div>
         <div class="baloon-tail"></div>
         <div class="baloon">
             👆 多分、通ったか？
         </div>
         </div>
-        <a target="_blank" href="/img/journal/2025-06/202506__program__02--2135-tauri-o1oA15o0.png">
-        <img class="scr-shot" src="/img/journal/2025-06/202506__program__02--2135-tauri-o1oA15o0.png">
+        <a target="_blank" href="/img/journal/2025-06/202506__program__02-2135-tauri-o1oA15o0.png">
+        <img class="scr-shot" src="/img/journal/2025-06/202506__program__02-2135-tauri-o1oA15o0.png">
         </a><br/>
         <div class="talk">
         <div class="face-container">
-            <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+            <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
         </div>
         <div class="baloon-tail"></div>
         <div class="baloon">
             👆 こんな感じで改造して……。
         </div>
         </div>
-        <a target="_blank" href="/img/journal/2025-06/202506__program__02--2142-tauri-o1oA16o0.png">
-        <img class="scr-shot" src="/img/journal/2025-06/202506__program__02--2142-tauri-o1oA16o0.png">
+        <a target="_blank" href="/img/journal/2025-06/202506__program__02-2142-tauri-o1oA16o0.png">
+        <img class="scr-shot" src="/img/journal/2025-06/202506__program__02-2142-tauri-o1oA16o0.png">
         </a><br/>
         <div class="talk">
         <div class="face-container">
-            <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+            <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
         </div>
         <div class="baloon-tail"></div>
         <div class="baloon">
@@ -318,7 +318,7 @@
         </div>
         <div class="talk">
         <div class="face-container">
-            <img src="@/assets/img/202506__character__01--2013-kifuwarabe-o1o1o0.png" />
+            <img src="@/assets/img/202506__character__01-2013-kifuwarabe-o1o1o0.png" />
         </div>
         <div class="baloon-tail"></div>
         <div class="baloon">
@@ -328,7 +328,7 @@
         </div>
         <div class="talk">
         <div class="face-container">
-            <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+            <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
         </div>
         <div class="baloon-tail"></div>
         <div class="baloon">
@@ -337,12 +337,12 @@
             これ読んで直しておくかだぜ。
         </div>
         </div>
-        <a target="_blank" href="/img/journal/2025-06/202506__program__02--2148-tauri-o1oA17o0-mark.png">
-        <img class="scr-shot" src="/img/journal/2025-06/202506__program__02--2148-tauri-o1oA17o0-mark.png">
+        <a target="_blank" href="/img/journal/2025-06/202506__program__02-2148-tauri-o1oA17o0-mark.png">
+        <img class="scr-shot" src="/img/journal/2025-06/202506__program__02-2148-tauri-o1oA17o0-mark.png">
         </a><br/>
         <div class="talk">
         <div class="face-container">
-            <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+            <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
         </div>
         <div class="baloon-tail"></div>
         <div class="baloon">
@@ -351,7 +351,7 @@
         </div>
         <div class="talk">
         <div class="face-container">
-            <img src="@/assets/img/202506__character__01--2025-hiyoko-o1o1o0.png" />
+            <img src="@/assets/img/202506__character__01-2025-hiyoko-o1o1o0.png" />
         </div>
         <div class="baloon-tail"></div>
         <div class="baloon">
@@ -360,7 +360,7 @@
         </div>
         <div class="talk">
         <div class="face-container">
-            <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+            <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
         </div>
         <div class="baloon-tail"></div>
         <div class="baloon">
@@ -370,24 +370,24 @@
         </div>
         </div>
         <div class="code-b">pnpm tauri add fs</div><br>
-        <a target="_blank" href="/img/journal/2025-06/202506__program__02--2212-tauri-o1oA18o0.png">
-        <img class="scr-shot" src="/img/journal/2025-06/202506__program__02--2212-tauri-o1oA18o0.png">
+        <a target="_blank" href="/img/journal/2025-06/202506__program__02-2212-tauri-o1oA18o0.png">
+        <img class="scr-shot" src="/img/journal/2025-06/202506__program__02-2212-tauri-o1oA18o0.png">
         </a><br/>
         <div class="talk">
         <div class="face-container">
-            <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+            <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
         </div>
         <div class="baloon-tail"></div>
         <div class="baloon">
             👆 テキストを読み込む方は上記の通りでいけた。
         </div>
         </div>
-        <a target="_blank" href="/img/journal/2025-06/202506__program__02--2309-tauri-o1oA19o0.png">
-        <img class="scr-shot" src="/img/journal/2025-06/202506__program__02--2309-tauri-o1oA19o0.png">
+        <a target="_blank" href="/img/journal/2025-06/202506__program__02-2309-tauri-o1oA19o0.png">
+        <img class="scr-shot" src="/img/journal/2025-06/202506__program__02-2309-tauri-o1oA19o0.png">
         </a><br/>
         <div class="talk">
         <div class="face-container">
-            <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+            <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
         </div>
         <div class="baloon-tail"></div>
         <div class="baloon">
@@ -396,7 +396,7 @@
         </div>
         <div class="talk">
         <div class="face-container">
-            <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+            <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
         </div>
         <div class="baloon-tail"></div>
         <div class="baloon">
@@ -404,12 +404,12 @@
             📖 <a target="_blank" href="https://tauri.app/plugin/file-system/#examples">Examples</a>
         </div>
         </div>
-        <a target="_blank" href="/img/journal/2025-06/202506__program__02--2342-tauri-o1oA20o0.png">
-        <img class="scr-shot" src="/img/journal/2025-06/202506__program__02--2342-tauri-o1oA20o0.png">
+        <a target="_blank" href="/img/journal/2025-06/202506__program__02-2342-tauri-o1oA20o0.png">
+        <img class="scr-shot" src="/img/journal/2025-06/202506__program__02-2342-tauri-o1oA20o0.png">
         </a><br/>
         <div class="talk">
         <div class="face-container">
-            <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+            <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
         </div>
         <div class="baloon-tail"></div>
         <div class="baloon">
@@ -418,7 +418,7 @@
         </div>
         <div class="talk">
         <div class="face-container">
-            <img src="@/assets/img/202506__character__01--2013-kifuwarabe-o1o1o0.png" />
+            <img src="@/assets/img/202506__character__01-2013-kifuwarabe-o1o1o0.png" />
         </div>
         <div class="baloon-tail"></div>
         <div class="baloon">
@@ -427,7 +427,7 @@
         </div>
         <div class="talk">
             <div class="face-container">
-                <img src="@/assets/img/202506__character__01--2025-hiyoko-o1o1o0.png" />
+                <img src="@/assets/img/202506__character__01-2025-hiyoko-o1o1o0.png" />
             </div>
             <div class="baloon-tail"></div>
             <div class="baloon">

@@ -1,12 +1,12 @@
 <template>
     <h3>[2025-07-25_Fri]</h3>
     <section class="sec-3">
-        <a target="_blank" href="/img/journal/2025-07/202507__warabenture__25--1412-csvCleaning2OnTauri-o1o0.png">
-            <img class="scr-shot" src="/img/journal/2025-07/202507__warabenture__25--1412-csvCleaning2OnTauri-o1o0.png">
+        <a target="_blank" href="/img/journal/2025-07/202507__warabenture__25-1412-csvCleaning2OnTauri-o1o0.png">
+            <img class="scr-shot" src="/img/journal/2025-07/202507__warabenture__25-1412-csvCleaning2OnTauri-o1o0.png">
         </a><br/>
         <div class="talk">
             <div class="face-container">
-                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
             </div>
             <div class="baloon-tail"></div>
             <div class="baloon">
@@ -15,19 +15,19 @@
         </div>
         <div class="talk">
             <div class="face-container">
-                <img src="@/assets/img/202506__character__01--2013-kifuwarabe-o1o1o0.png" />
+                <img src="@/assets/img/202506__character__01-2013-kifuwarabe-o1o1o0.png" />
             </div>
             <div class="baloon-tail"></div>
             <div class="baloon">
                 じゃあ、画面に合わせてきっちり詰めるのは、できないんだろ。
             </div>
         </div>
-        <a target="_blank" href="/img/journal/2025-07/202507__warabenture__25--1437-csvCleaning2OnTauri-o1o0.png">
-            <img class="scr-shot" src="/img/journal/2025-07/202507__warabenture__25--1437-csvCleaning2OnTauri-o1o0.png">
+        <a target="_blank" href="/img/journal/2025-07/202507__warabenture__25-1437-csvCleaning2OnTauri-o1o0.png">
+            <img class="scr-shot" src="/img/journal/2025-07/202507__warabenture__25-1437-csvCleaning2OnTauri-o1o0.png">
         </a><br/>
         <div class="talk">
             <div class="face-container">
-                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
             </div>
             <div class="baloon-tail"></div>
             <div class="baloon">
@@ -36,7 +36,7 @@
         </div>
         <div class="talk">
             <div class="face-container">
-                <img src="@/assets/img/202506__character__01--2025-hiyoko-o1o1o0.png" />
+                <img src="@/assets/img/202506__character__01-2025-hiyoko-o1o1o0.png" />
             </div>
             <div class="baloon-tail"></div>
             <div class="baloon">
@@ -45,19 +45,19 @@
         </div>
         <div class="talk">
             <div class="face-container">
-                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
             </div>
             <div class="baloon-tail"></div>
             <div class="baloon">
                 次は、さっきのアプリをコピーして、わらシティを作ろう。
             </div>
         </div>
-        <a target="_blank" href="/img/journal/2025-07/202507__warabenture__25--1749-waraCity-o1o0.png">
-            <img class="scr-shot" src="/img/journal/2025-07/202507__warabenture__25--1749-waraCity-o1o0.png">
+        <a target="_blank" href="/img/journal/2025-07/202507__warabenture__25-1749-waraCity-o1o0.png">
+            <img class="scr-shot" src="/img/journal/2025-07/202507__warabenture__25-1749-waraCity-o1o0.png">
         </a><br/>
         <div class="talk">
             <div class="face-container">
-                <img src="@/assets/img/202506__character__01--2013-kifuwarabe-o1o1o0.png" />
+                <img src="@/assets/img/202506__character__01-2013-kifuwarabe-o1o1o0.png" />
             </div>
             <div class="baloon-tail"></div>
             <div class="baloon">
@@ -66,7 +66,7 @@
         </div>
         <div class="talk">
             <div class="face-container">
-                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
             </div>
             <div class="baloon-tail"></div>
             <div class="baloon">
@@ -75,7 +75,7 @@
         </div>
         <div class="talk">
             <div class="face-container">
-                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
             </div>
             <div class="baloon-tail"></div>
             <div class="baloon">
@@ -84,7 +84,7 @@
         </div>
         <div class="talk">
             <div class="face-container">
-                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
             </div>
             <div class="baloon-tail"></div>
             <div class="baloon">
@@ -93,7 +93,7 @@
         </div>
         <div class="talk">
             <div class="face-container">
-                <img src="@/assets/img/202506__character__01--2025-hiyoko-o1o1o0.png" />
+                <img src="@/assets/img/202506__character__01-2025-hiyoko-o1o1o0.png" />
             </div>
             <div class="baloon-tail"></div>
             <div class="baloon">
@@ -102,7 +102,7 @@
         </div>
         <div class="talk">
             <div class="face-container">
-                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
             </div>
             <div class="baloon-tail"></div>
             <div class="baloon">
@@ -112,7 +112,7 @@
         </div>
         <div class="talk">
             <div class="face-container">
-                <img src="@/assets/img/202506__character__01--2013-kifuwarabe-o1o1o0.png" />
+                <img src="@/assets/img/202506__character__01-2013-kifuwarabe-o1o1o0.png" />
             </div>
             <div class="baloon-tail"></div>
             <div class="baloon">
@@ -121,7 +121,7 @@
         </div>
         <div class="talk">
             <div class="face-container">
-                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
             </div>
             <div class="baloon-tail"></div>
             <div class="baloon">
@@ -136,7 +136,7 @@ pnpm add vuetify@next sass @mdi/font
 pnpm add -D vite-plugin-vuetify</pre>
         <div class="talk">
             <div class="face-container">
-                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
             </div>
             <div class="baloon-tail"></div>
             <div class="baloon">
@@ -153,7 +153,7 @@ export default defineNuxtConfig({
 })</pre>
         <div class="talk">
             <div class="face-container">
-                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
             </div>
             <div class="baloon-tail"></div>
             <div class="baloon">
@@ -176,7 +176,7 @@ export default defineNuxtPlugin((nuxtApp) => {
 });</pre>
         <div class="talk">
             <div class="face-container">
-                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
             </div>
             <div class="baloon-tail"></div>
             <div class="baloon">
@@ -187,7 +187,7 @@ export default defineNuxtPlugin((nuxtApp) => {
 pnpm install</pre>
         <div class="talk">
             <div class="face-container">
-                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
             </div>
             <div class="baloon-tail"></div>
             <div class="baloon">
@@ -198,7 +198,7 @@ pnpm install</pre>
         </div>
         <div class="talk">
             <div class="face-container">
-                <img src="@/assets/img/202506__character__01--2013-kifuwarabe-o1o1o0.png" />
+                <img src="@/assets/img/202506__character__01-2013-kifuwarabe-o1o1o0.png" />
             </div>
             <div class="baloon-tail"></div>
             <div class="baloon">
@@ -207,7 +207,7 @@ pnpm install</pre>
         </div>
         <div class="talk">
             <div class="face-container">
-                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
             </div>
             <div class="baloon-tail"></div>
             <div class="baloon">
@@ -217,7 +217,7 @@ pnpm install</pre>
         </div>
         <div class="talk">
             <div class="face-container">
-                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
             </div>
             <div class="baloon-tail"></div>
             <div class="baloon">
@@ -228,7 +228,7 @@ pnpm install</pre>
         </div>
         <div class="talk">
             <div class="face-container">
-                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
             </div>
             <div class="baloon-tail"></div>
             <div class="baloon">
@@ -239,7 +239,7 @@ pnpm install</pre>
         </div>
         <div class="talk">
             <div class="face-container">
-                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
             </div>
             <div class="baloon-tail"></div>
             <div class="baloon">
@@ -249,7 +249,7 @@ pnpm install</pre>
         </div>
         <div class="talk">
             <div class="face-container">
-                <img src="@/assets/img/202506__character__01--2025-hiyoko-o1o1o0.png" />
+                <img src="@/assets/img/202506__character__01-2025-hiyoko-o1o1o0.png" />
             </div>
             <div class="baloon-tail"></div>
             <div class="baloon">
@@ -258,7 +258,7 @@ pnpm install</pre>
         </div>
         <div class="talk">
             <div class="face-container">
-                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
             </div>
             <div class="baloon-tail"></div>
             <div class="baloon">
@@ -267,7 +267,7 @@ pnpm install</pre>
         </div>
         <div class="talk">
             <div class="face-container">
-                <img src="@/assets/img/202506__character__01--2013-kifuwarabe-o1o1o0.png" />
+                <img src="@/assets/img/202506__character__01-2013-kifuwarabe-o1o1o0.png" />
             </div>
             <div class="baloon-tail"></div>
             <div class="baloon">
@@ -278,7 +278,7 @@ pnpm install</pre>
         </div>
         <div class="talk">
             <div class="face-container">
-                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
             </div>
             <div class="baloon-tail"></div>
             <div class="baloon">
@@ -288,7 +288,7 @@ pnpm install</pre>
         </div>
         <div class="talk">
             <div class="face-container">
-                <img src="@/assets/img/202506__character__01--2025-hiyoko-o1o1o0.png" />
+                <img src="@/assets/img/202506__character__01-2025-hiyoko-o1o1o0.png" />
             </div>
             <div class="baloon-tail"></div>
             <div class="baloon">
@@ -297,7 +297,7 @@ pnpm install</pre>
         </div>
         <div class="talk">
             <div class="face-container">
-                <img src="@/assets/img/202506__character__01--2013-kifuwarabe-o1o1o0.png" />
+                <img src="@/assets/img/202506__character__01-2013-kifuwarabe-o1o1o0.png" />
             </div>
             <div class="baloon-tail"></div>
             <div class="baloon">
@@ -306,7 +306,7 @@ pnpm install</pre>
         </div>
         <div class="talk">
             <div class="face-container">
-                <img src="@/assets/img/202506__character__01--2025-hiyoko-o1o1o0.png" />
+                <img src="@/assets/img/202506__character__01-2025-hiyoko-o1o1o0.png" />
             </div>
             <div class="baloon-tail"></div>
             <div class="baloon">
@@ -315,7 +315,7 @@ pnpm install</pre>
         </div>
         <div class="talk">
             <div class="face-container">
-                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
             </div>
             <div class="baloon-tail"></div>
             <div class="baloon">
@@ -324,7 +324,7 @@ pnpm install</pre>
         </div>
         <div class="talk">
             <div class="face-container">
-                <img src="@/assets/img/202506__character__01--2013-kifuwarabe-o1o1o0.png" />
+                <img src="@/assets/img/202506__character__01-2013-kifuwarabe-o1o1o0.png" />
             </div>
             <div class="baloon-tail"></div>
             <div class="baloon">
@@ -335,7 +335,7 @@ pnpm install</pre>
         </div>
         <div class="talk">
             <div class="face-container">
-                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
             </div>
             <div class="baloon-tail"></div>
             <div class="baloon">
@@ -347,7 +347,7 @@ pnpm install</pre>
         </div>
         <div class="talk">
             <div class="face-container">
-                <img src="@/assets/img/202506__character__01--2025-hiyoko-o1o1o0.png" />
+                <img src="@/assets/img/202506__character__01-2025-hiyoko-o1o1o0.png" />
             </div>
             <div class="baloon-tail"></div>
             <div class="baloon">
@@ -356,7 +356,7 @@ pnpm install</pre>
         </div>
         <div class="talk">
             <div class="face-container">
-                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
             </div>
             <div class="baloon-tail"></div>
             <div class="baloon">
@@ -366,7 +366,7 @@ pnpm install</pre>
         </div>
         <div class="talk">
             <div class="face-container">
-                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
             </div>
             <div class="baloon-tail"></div>
             <div class="baloon">
@@ -375,7 +375,7 @@ pnpm install</pre>
         </div>
         <div class="talk">
             <div class="face-container">
-                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
             </div>
             <div class="baloon-tail"></div>
             <div class="baloon">
@@ -384,7 +384,7 @@ pnpm install</pre>
         </div>
         <div class="talk">
             <div class="face-container">
-                <img src="@/assets/img/202506__character__01--2013-kifuwarabe-o1o1o0.png" />
+                <img src="@/assets/img/202506__character__01-2013-kifuwarabe-o1o1o0.png" />
             </div>
             <div class="baloon-tail"></div>
             <div class="baloon">
@@ -393,7 +393,7 @@ pnpm install</pre>
         </div>
         <div class="talk">
             <div class="face-container">
-                <img src="@/assets/img/202506__character__01--2025-hiyoko-o1o1o0.png" />
+                <img src="@/assets/img/202506__character__01-2025-hiyoko-o1o1o0.png" />
             </div>
             <div class="baloon-tail"></div>
             <div class="baloon">
@@ -402,7 +402,7 @@ pnpm install</pre>
         </div>
         <div class="talk">
             <div class="face-container">
-                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
             </div>
             <div class="baloon-tail"></div>
             <div class="baloon">
@@ -411,7 +411,7 @@ pnpm install</pre>
         </div>
         <div class="talk">
             <div class="face-container">
-                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
             </div>
             <div class="baloon-tail"></div>
             <div class="baloon">
@@ -420,7 +420,7 @@ pnpm install</pre>
         </div>
         <div class="talk">
             <div class="face-container">
-                <img src="@/assets/img/202506__character__01--2013-kifuwarabe-o1o1o0.png" />
+                <img src="@/assets/img/202506__character__01-2013-kifuwarabe-o1o1o0.png" />
             </div>
             <div class="baloon-tail"></div>
             <div class="baloon">
@@ -429,7 +429,7 @@ pnpm install</pre>
         </div>
         <div class="talk">
             <div class="face-container">
-                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
             </div>
             <div class="baloon-tail"></div>
             <div class="baloon">
@@ -438,7 +438,7 @@ pnpm install</pre>
         </div>
         <div class="talk">
             <div class="face-container">
-                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
             </div>
             <div class="baloon-tail"></div>
             <div class="baloon">
@@ -447,7 +447,7 @@ pnpm install</pre>
         </div>
         <div class="talk">
             <div class="face-container">
-                <img src="@/assets/img/202506__character__01--2013-kifuwarabe-o1o1o0.png" />
+                <img src="@/assets/img/202506__character__01-2013-kifuwarabe-o1o1o0.png" />
             </div>
             <div class="baloon-tail"></div>
             <div class="baloon">
@@ -458,7 +458,7 @@ pnpm install</pre>
         </div>
         <div class="talk">
             <div class="face-container">
-                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
             </div>
             <div class="baloon-tail"></div>
             <div class="baloon">
@@ -487,7 +487,7 @@ sudo nano /etc/nginx/sites-enabled/default
 </pre>
         <div class="talk">
             <div class="face-container">
-                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
             </div>
             <div class="baloon-tail"></div>
             <div class="baloon">
@@ -508,7 +508,7 @@ server {
 }</pre>
         <div class="talk">
             <div class="face-container">
-                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
             </div>
             <div class="baloon-tail"></div>
             <div class="baloon">
@@ -547,7 +547,7 @@ server {
 }</pre>
         <div class="talk">
             <div class="face-container">
-                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
             </div>
             <div class="baloon-tail"></div>
             <div class="baloon">
@@ -571,7 +571,7 @@ server {
 }</pre>
         <div class="talk">
             <div class="face-container">
-                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
             </div>
             <div class="baloon-tail"></div>
             <div class="baloon">
@@ -586,7 +586,7 @@ sudo systemctl restart nginx
 Step 4: Verifying Your Let's Encrypt Certificate Information</pre>
         <div class="talk">
             <div class="face-container">
-                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
             </div>
             <div class="baloon-tail"></div>
             <div class="baloon">
@@ -596,7 +596,7 @@ Step 4: Verifying Your Let's Encrypt Certificate Information</pre>
         </div>
         <div class="talk">
             <div class="face-container">
-                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
             </div>
             <div class="baloon-tail"></div>
             <div class="baloon">
@@ -631,7 +631,7 @@ To                         Action      From
 22 (v6)                    ALLOW       Anywhere (v6)</pre>
         <div class="talk">
             <div class="face-container">
-                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
             </div>
             <div class="baloon-tail"></div>
             <div class="baloon">
@@ -648,7 +648,7 @@ sudo certbot certonly --webroot --webroot-path /var/www/html -m ＜🌟メール
     - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</pre>
         <div class="talk">
             <div class="face-container">
-                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
             </div>
             <div class="baloon-tail"></div>
             <div class="baloon">
@@ -660,7 +660,7 @@ sudo certbot certonly --webroot --webroot-path /var/www/html -m ＜🌟メール
 sudo systemctl restart nginx</pre>
         <div class="talk">
             <div class="face-container">
-                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
             </div>
             <div class="baloon-tail"></div>
             <div class="baloon">
@@ -680,7 +680,7 @@ sudo ufw status
     🌟 80 と 443 が開いていることを確認する</pre>
         <div class="talk">
             <div class="face-container">
-                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
             </div>
             <div class="baloon-tail"></div>
             <div class="baloon">
@@ -694,7 +694,7 @@ sudo ufw status
         </div>
         <div class="talk">
             <div class="face-container">
-                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
             </div>
             <div class="baloon-tail"></div>
             <div class="baloon">
@@ -735,7 +735,7 @@ sudo certbot --nginx -d warabenture.com -d www.warabenture.com
     🌟 質問されるのでとりあえず 1 を選ぶ</pre>
         <div class="talk">
             <div class="face-container">
-                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
             </div>
             <div class="baloon-tail"></div>
             <div class="baloon">

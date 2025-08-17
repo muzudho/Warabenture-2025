@@ -3,7 +3,7 @@
     <section class="sec-3">
         <div class="talk">
             <div class="face-container">
-                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
             </div>
             <div class="baloon-tail"></div>
             <div class="baloon">
@@ -13,7 +13,7 @@
         </div>
         <div class="talk">
             <div class="face-container">
-                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
             </div>
             <div class="baloon-tail"></div>
             <div class="baloon">
@@ -84,7 +84,7 @@ cd ..
 pnpm dev</pre><br/>
         <div class="talk">
             <div class="face-container">
-                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
             </div>
             <div class="baloon-tail"></div>
             <div class="baloon">
@@ -97,7 +97,7 @@ pnpm install
 pnpm tauri dev</pre>
         <div class="talk">
             <div class="face-container">
-                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
             </div>
             <div class="baloon-tail"></div>
             <div class="baloon">
@@ -112,19 +112,19 @@ cd ..
 pnpm tauri dev</pre>
         <div class="talk">
             <div class="face-container">
-                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
             </div>
             <div class="baloon-tail"></div>
             <div class="baloon">
                 コンパイル・エラーは取れて、ウィンドウも表示されたけど、ウィンドウの内側は真っ白だ……。
             </div>
         </div>
-        <a target="_blank" href="/img/journal/2025-07/202507__warabenture__12--1713-csvCleaningOnTauri-o1o0.png">
-            <img class="scr-shot" src="/img/journal/2025-07/202507__warabenture__12--1713-csvCleaningOnTauri-o1o0.png">
+        <a target="_blank" href="/img/journal/2025-07/202507__warabenture__12-1713-csvCleaningOnTauri-o1o0.png">
+            <img class="scr-shot" src="/img/journal/2025-07/202507__warabenture__12-1713-csvCleaningOnTauri-o1o0.png">
         </a><br/>
         <div class="talk">
             <div class="face-container">
-                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
             </div>
             <div class="baloon-tail"></div>
             <div class="baloon">
@@ -133,7 +133,7 @@ pnpm tauri dev</pre>
         </div>
         <div class="talk">
             <div class="face-container">
-                <img src="@/assets/img/202506__character__01--2013-kifuwarabe-o1o1o0.png" />
+                <img src="@/assets/img/202506__character__01-2013-kifuwarabe-o1o1o0.png" />
             </div>
             <div class="baloon-tail"></div>
             <div class="baloon">
@@ -143,7 +143,7 @@ pnpm tauri dev</pre>
         </div>
         <div class="talk">
             <div class="face-container">
-                <img src="@/assets/img/202506__character__01--1951-kifuwarabeNoOton-o1o2o0.png" />
+                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
             </div>
             <div class="baloon-tail"></div>
             <div class="baloon">

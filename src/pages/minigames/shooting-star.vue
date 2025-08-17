@@ -79,7 +79,7 @@
                 :srcTop="reloadTimerTileTop"
                 :srcWidth="board.cellWidth"
                 :srcHeight="board.cellHeight"
-                tilemapUrl="/img/making/202508__warabenture__16--2357-8counts-red.png"
+                tilemapUrl="/img/making/202508__warabenture__16-2357-8counts-red.png"
                 :style="reloadPieStyle"
                 style="position:absolute;" /><br/>
                 
@@ -94,7 +94,7 @@
             <br/>
             <p>元画像のタイルマップを表示：</p>
             <v-img src="/img/making/sprite-objects-001.png" style="width:128px; height:128px; border: dashed 4px gray;"/><br/>
-            <v-img src="/img/making/202508__warabenture__16--2357-8counts-red.png" style="width:128px; height:64px; border: dashed 4px gray;"/><br/>
+            <v-img src="/img/making/202508__warabenture__16-2357-8counts-red.png" style="width:128px; height:64px; border: dashed 4px gray;"/><br/>
             ：ここまで。
         -->
     </section>
@@ -136,19 +136,19 @@
      * 効果音をロードする（jsfxrで作った効果音）
      */
     function loadSfx() : void {
-        sfxDenied = new Audio('/wav/202508__sfx__17--0200-denied.wav'); // 拒否音
+        sfxDenied = new Audio('/wav/202508__sfx__17-0200-denied.wav'); // 拒否音
         sfxDenied.volume = volume;
         sfxDenied.addEventListener('play', () => { isSfxDeniedPlaying.value = true })
         sfxDenied.addEventListener('pause', () => { isSfxDeniedPlaying.value = false })
         sfxDenied.addEventListener('ended', () => { isSfxDeniedPlaying.value = false })
 
-        sfxCameraShutter = new Audio('/wav/202508__sfx__16--2117-cameraShutter.wav'); // カメラのシャッター音
+        sfxCameraShutter = new Audio('/wav/202508__sfx__16-2117-cameraShutter.wav'); // カメラのシャッター音
         sfxCameraShutter.volume = volume;
         sfxCameraShutter.addEventListener('play', () => { isSfxCameraShutterPlaying.value = true })
         sfxCameraShutter.addEventListener('pause', () => { isSfxCameraShutterPlaying.value = false })
         sfxCameraShutter.addEventListener('ended', () => { isSfxCameraShutterPlaying.value = false })
 
-        sfxMiss = new Audio('/wav/202508__sfx__16--2146-miss.wav'); // ミス音
+        sfxMiss = new Audio('/wav/202508__sfx__16-2146-miss.wav'); // ミス音
         sfxMiss.volume = volume;
         sfxMiss.addEventListener('play', () => { isSfxMissPlaying.value = true })
         sfxMiss.addEventListener('pause', () => { isSfxMissPlaying.value = false })

@@ -30,7 +30,7 @@
                 {top:  96, left:    0, width: 32, height: 32 },
                 {top:  96, left:   32, width: 32, height: 32 },
             ]"
-            tilemapUrl="/img/making/202508__warabenture__15--1612-kifuwarabe-o1o0.png"
+            tilemapUrl="/img/making/202508__warabenture__15-1612-kifuwarabe-o1o0.png"
             :slow="slow"
             :time="count"
             style="zoom:4; image-rendering: pixelated;" /><br/>
@@ -56,7 +56,7 @@
                 thumbLabel="always" />
         <br/>
         元画像のタイルマップを表示：<br/>
-        <v-img src="/img/making/202508__warabenture__15--1612-kifuwarabe-o1o0.png" style="width:64px; height:128px; zoom: 4; image-rendering: pixelated;"/>
+        <v-img src="/img/making/202508__warabenture__15-1612-kifuwarabe-o1o0.png" style="width:64px; height:128px; zoom: 4; image-rendering: pixelated;"/>
         ：ここまで。
     </section>
 
