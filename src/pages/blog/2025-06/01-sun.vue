@@ -12,7 +12,7 @@
         </div>
         <div class="talk">
             <div class="face-container">
-                <img src="@/assets/img/202101__character__28--kifuwarabe-futsu-o2o0.png" />
+                <img src="@/assets/img/202101__character__28-kifuwarabe-futsu-o2o0.png" />
             </div>
             <div class="baloon-tail"></div>
             <div class="baloon">
@@ -21,7 +21,7 @@
         </div>
         <div class="talk">
             <div class="face-container">
-                <img src="@/assets/img/202108__character__12--ohkina-hiyoko-futsu2-o2o0.png" />
+                <img src="@/assets/img/202108__character__12-ohkina-hiyoko-futsu2-o2o0.png" />
             </div>
             <div class="baloon-tail"></div>
             <div class="baloon">
