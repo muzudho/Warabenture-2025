@@ -116,7 +116,7 @@
     // # インポート #
     // ##############
 
-    import { computed, onMounted, reactive, ref, watch } from 'vue';
+    import { computed, onMounted, onUnmounted, reactive, ref, watch } from 'vue';
     import type { Ref } from 'vue'
 
     // ++++++++++++++++++++++++++++++++++
@@ -202,7 +202,7 @@
     }>({
         volume: 0.3,
     });
-    const sfx = reactive<{
+    const sfx = <{                  // リアクティブにする必要はないことから、リアクティブにはしません。
         denied: {                           // 拒否音
             audio: HTMLAudioElement | null, // オーディオ・オブジェクト
             isPlaying: boolean,             // 再生状態
@@ -215,7 +215,7 @@
             audio: HTMLAudioElement | null,
             isPlaying: boolean,
         },
-    }>({
+    }>{
         denied: {
             audio: null,
             isPlaying: false,
@@ -228,7 +228,7 @@
             audio: null,
             isPlaying: false,
         },
-    });
+    };
 
     /**
      * 効果音をロードする（jsfxrで作った効果音）
@@ -624,6 +624,30 @@
                 finder1.input[e.key] = false;
             }
         });
+    });
+
+
+    onUnmounted(()=>{
+        // 効果音のメモリ解放を真面目に行う場合
+        if (sfx.denied.audio) {
+            sfx.denied.audio.pause();
+            sfx.denied.audio.src = '';
+            sfx.denied.audio.load(); // バッファクリア
+            // イベントリスナー解除（必要なら）
+            // sfxDeniedAudio.removeEventListener('ended', handler);
+        }
+
+        if (sfx.cameraShutter.audio) {
+            sfx.cameraShutter.audio.pause();
+            sfx.cameraShutter.audio.src = '';
+            sfx.cameraShutter.audio.load(); // バッファクリア
+        }
+
+        if (sfx.miss.audio) {
+            sfx.miss.audio.pause();
+            sfx.miss.audio.src = '';
+            sfx.miss.audio.load(); // バッファクリア
+        }
     });
 
 

@@ -116,7 +116,7 @@
     // # インポート #
     // ##############
 
-    import { computed, onMounted, ref, watch } from 'vue';
+    import { computed, onMounted, onUnmounted, ref, watch } from 'vue';
     //
     // ［初級者向けのソースコード］では、 reactive は使いません。
     //
@@ -173,11 +173,11 @@
     const sfxConfigVolume = 0.3;                        // 音量
 
     let sfxDeniedAudio: HTMLAudioElement;               // 拒否音
-    const sfxDeniedIsPlaying = ref<boolean>(false);     // 拒否音の再生状態
+    let sfxDeniedIsPlaying: boolean = false;            // 拒否音の再生状態
     let sfxCameraShutterAudio: HTMLAudioElement;        // カメラで撮影したときの効果音
-    const sfxCameraShutterIsPlaying = ref<boolean>(false);  //
+    let sfxCameraShutterIsPlaying: boolean = false;     //
     let sfxMissAudio: HTMLAudioElement;                 // ミス音
-    const sfxMissIsPlaying = ref<boolean>(false);       //
+    let sfxMissIsPlaying: boolean = false;              //
 
     /**
      * 効果音をロードする（jsfxrで作った効果音）
@@ -185,21 +185,21 @@
     function sfxLoad() : void {
         sfxDeniedAudio = new Audio('/wav/202508__sfx__17-0200-denied.wav'); // 拒否音
         sfxDeniedAudio.volume = sfxConfigVolume;
-        sfxDeniedAudio.addEventListener('play', () => { sfxDeniedIsPlaying.value = true })
-        sfxDeniedAudio.addEventListener('pause', () => { sfxDeniedIsPlaying.value = false })
-        sfxDeniedAudio.addEventListener('ended', () => { sfxDeniedIsPlaying.value = false })
+        sfxDeniedAudio.addEventListener('play', () => { sfxDeniedIsPlaying = true })
+        sfxDeniedAudio.addEventListener('pause', () => { sfxDeniedIsPlaying = false })
+        sfxDeniedAudio.addEventListener('ended', () => { sfxDeniedIsPlaying = false })
 
         sfxCameraShutterAudio = new Audio('/wav/202508__sfx__16-2117-cameraShutter.wav'); // カメラのシャッター音
         sfxCameraShutterAudio.volume = sfxConfigVolume;
-        sfxCameraShutterAudio.addEventListener('play', () => { sfxCameraShutterIsPlaying.value = true })
-        sfxCameraShutterAudio.addEventListener('pause', () => { sfxCameraShutterIsPlaying.value = false })
-        sfxCameraShutterAudio.addEventListener('ended', () => { sfxCameraShutterIsPlaying.value = false })
+        sfxCameraShutterAudio.addEventListener('play', () => { sfxCameraShutterIsPlaying = true })
+        sfxCameraShutterAudio.addEventListener('pause', () => { sfxCameraShutterIsPlaying = false })
+        sfxCameraShutterAudio.addEventListener('ended', () => { sfxCameraShutterIsPlaying = false })
 
         sfxMissAudio = new Audio('/wav/202508__sfx__16-2146-miss.wav'); // ミス音
         sfxMissAudio.volume = sfxConfigVolume;
-        sfxMissAudio.addEventListener('play', () => { sfxMissIsPlaying.value = true })
-        sfxMissAudio.addEventListener('pause', () => { sfxMissIsPlaying.value = false })
-        sfxMissAudio.addEventListener('ended', () => { sfxMissIsPlaying.value = false })
+        sfxMissAudio.addEventListener('play', () => { sfxMissIsPlaying = true })
+        sfxMissAudio.addEventListener('pause', () => { sfxMissIsPlaying = false })
+        sfxMissAudio.addEventListener('ended', () => { sfxMissIsPlaying = false })
     }
 
 
@@ -562,6 +562,30 @@
     });
 
 
+    onUnmounted(()=>{
+        // 効果音のメモリ解放を真面目に行う場合
+        if (sfxDeniedAudio) {
+            sfxDeniedAudio.pause();
+            sfxDeniedAudio.src = '';
+            sfxDeniedAudio.load(); // バッファクリア
+            // イベントリスナー解除（必要なら）
+            // sfxDeniedAudio.removeEventListener('ended', handler);
+        }
+
+        if (sfxCameraShutterAudio) {
+            sfxCameraShutterAudio.pause();
+            sfxCameraShutterAudio.src = '';
+            sfxCameraShutterAudio.load(); // バッファクリア
+        }
+
+        if (sfxMissAudio) {
+            sfxMissAudio.pause();
+            sfxMissAudio.src = '';
+            sfxMissAudio.load(); // バッファクリア
+        }
+    });
+
+
     // ################
     // # サブルーチン #
     // ################
@@ -701,7 +725,7 @@
 
         if (finder1ReloadTime.value > 0) {
             // リロード中
-            if (!sfxDeniedIsPlaying.value) {
+            if (!sfxDeniedIsPlaying) {
                 // ブザー音が停止中なら鳴らす
                 sfxDeniedAudio.play();
             }
@@ -725,7 +749,7 @@
 
         // 星を含まない
         } else {
-            if (!sfxMissIsPlaying.value) {
+            if (!sfxMissIsPlaying) {
                 // ミス音が停止中なら鳴らす
                 sfxMissAudio.play();
             }
@@ -739,7 +763,7 @@
      * カメラのファインダーの中に星を収めて撮ったとき。
      */
     function niceShot() : void {
-        if (!sfxCameraShutterIsPlaying.value) {
+        if (!sfxCameraShutterIsPlaying) {
             // カメラのシャッター音が停止中なら鳴らす
             sfxCameraShutterAudio.play();
         }
