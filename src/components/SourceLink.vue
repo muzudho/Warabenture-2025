@@ -19,6 +19,17 @@
     import { ref, onMounted } from 'vue';
 
 
+    // ####################################
+    // # このコンポーネントが受け取る引数 #
+    // ####################################
+
+    interface Props {
+        pagePath?: string | null;  // ページのパス。指定しなければ現在のページのパス。 例： "/making/tile-count-up"
+    }
+    // デフォルト値を設定
+    const props = defineProps<Props>();
+
+
     // ##############
     // # 共通データ #
     // ##############
@@ -34,12 +45,17 @@
 
     onMounted(() => {
         // ページがマウントされたときの処理
-        // NOTE: window オブジェクトはブラウザー専用。サーバー側ではプリレンダリングできないので、マウント後に書く。
-        const pagePath = window.location.pathname;  // ページのパス。 例： "/making/tile-count-up"
+        let pagePathWithExtension: string;
+        if (props.pagePath == null) {
+            // NOTE: window オブジェクトはブラウザー専用。サーバー側ではプリレンダリングできないので、マウント後に書く。
+            pagePathWithExtension = `${window.location.pathname}.vue`;  // ページのパス。 例： "/making/tile-count-up"
+        } else {
+            pagePathWithExtension = `${props.pagePath}.vue`;
+        }
 
-        desktopappPath.value = `https://github.com/muzudho/vue-tauri-desktopapp-sample/blob/main/src/pages${pagePath}.vue`;
-        webappPath.value = `https://github.com/muzudho/vue-nuxt-webapp-sample/blob/main/src/pages${pagePath}.vue`;
-        warabenturePath.value = `https://github.com/muzudho/Warabenture-2025/blob/main/src/pages${pagePath}.vue`;
+        desktopappPath.value = `https://github.com/muzudho/vue-tauri-desktopapp-sample/blob/main/src/pages${pagePathWithExtension}`;
+        webappPath.value = `https://github.com/muzudho/vue-nuxt-webapp-sample/blob/main/src/pages${pagePathWithExtension}`;
+        warabenturePath.value = `https://github.com/muzudho/Warabenture-2025/blob/main/src/pages${pagePathWithExtension}`;
     });
 
 </script>

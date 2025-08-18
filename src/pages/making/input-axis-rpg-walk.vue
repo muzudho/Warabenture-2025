@@ -1,29 +1,33 @@
 <template>
-    <the-header/>
+    <h4>ＲＰＧの歩行グラフィック</h4>
+    <section class="sec-4">
+        <p>キーボード操作方法</p>
+        <ul>
+            <li><span class="code-key">↑</span><span class="code-key">↓</span><span class="code-key">←</span><span class="code-key">→</span>キー　…　上下左右に動かすぜ！</li>
+            <li><span class="code-key">（スペース）</span>キー　…　位置を最初の状態に戻すぜ。</li>
+        </ul>
+        <br/>
 
-    <h3>上下左右に移動しようぜ！　＞　ＲＰＧの歩行グラフィック</h3>
-    <section class="sec-3">
-        <p>キーボードの上下左右キーを押してくれだぜ！</p>
-
-        <!-- プレイヤー１ -->
-        <TileAnimation
-            :frames="p1Frames"
-            tilemapUrl="/img/making/202508__warabenture__15-1612-kifuwarabe-o1o0.png"
-            :slow="slow"
-            :time="count"
-            class="cursor"
-            :style="p1Style"
-            style="zoom:4; image-rendering: pixelated;" /><br/>
+        <div :style="`width: ${4 * board1SquareWidth}px; height: ${4 * board1SquareHeight}px; background-color:lightpink;`">
+            <!-- プレイヤー１ -->
+            <TileAnimation
+                :frames="player1Frames"
+                tilemapUrl="/img/making/202508__warabenture__15-1612-kifuwarabe-o1o0.png"
+                :slow="player1AnimationSlow"
+                :time="stopwatch1Count"
+                class="cursor"
+                :style="player1Style"
+                style="zoom:4; image-rendering: pixelated;" /><br/>
+        </div>
 
     </section>
 
     <br/>
-    <h3>ソースコード</h3>
-    <section class="sec-3">
-        <source-link/>
+    <h4><span class="parent-header-lights-out">ＲＰＧの歩行グラフィック　＞　</span>ソースコード</h4>
+    <section class="sec-4">
+        <source-link
+            pagePath="/making/input-axis-rpg-walk"/>
     </section>
-
-    <the-footer/>
 </template>
 
 <script setup lang="ts">
@@ -33,6 +37,9 @@
     // ##############
 
     import { computed, onMounted, ref } from 'vue';
+    //
+    // 👆 ［初級者向けのソースコード］では、 reactive は使いません。
+    //
 
     // ++++++++++++++++++
     // + コンポーネント +
@@ -43,63 +50,69 @@
 
     import SourceLink from '../../components/SourceLink.vue';
     import TileAnimation from '@/components/TileAnimation.vue';
-    import TheFooter from './the-footer.vue';
-    import TheHeader from './the-header.vue';
 
 
-    // ##############
-    // # 共有データ #
-    // ##############
+    // ################
+    // # オブジェクト #
+    // ################
 
-    // 盤データ
-    const cellWidth = 32;
-    const cellHeight = 32;
+    // ++++++++++++++++++++++++++++++++++++++
+    // + オブジェクト　＞　ストップウォッチ +
+    // ++++++++++++++++++++++++++++++++++++++
 
-    // プレイヤー１
-    const p1Left = ref<number>(0);      // スプライトのX座標
-    const p1Top = ref<number>(0);       // スプライトのY座標
-    const p1Speed = ref<number>(2);     // 移動速度
-    const p1Input = <Record<string, boolean>>{  // 入力
-        ArrowUp: false, ArrowRight: false, ArrowDown: false, ArrowLeft: false
+    const stopwatch1Count = ref<number>(0);                 // カウントの初期値
+    const stopwatch1TimerId = ref<number | null>(null);     // タイマーのIDを保持
+
+    // ++++++++++++++++++++++++
+    // + オブジェクト　＞　盤 +
+    // ++++++++++++++++++++++++
+
+    const board1SquareWidth = 32;
+    const board1SquareHeight = 32;
+
+    // ++++++++++++++++++++++++++++++++
+    // + オブジェクト　＞　プレイヤー +
+    // ++++++++++++++++++++++++++++++++
+
+    const player1Left = ref<number>(0);      // スプライトのX座標
+    const player1Top = ref<number>(0);       // スプライトのY座標
+    const player1Speed = ref<number>(2);     // 移動速度
+    const player1Input = <Record<string, boolean>>{  // 入力
+        " ": false, ArrowUp: false, ArrowRight: false, ArrowDown: false, ArrowLeft: false
     };
-    const p1Style = computed(() => ({
-        top: `${p1Top.value}px`,
-        left: `${p1Left.value}px`,
+    const player1AnimationSlow = ref<number>(8);    // アニメーションのスローモーションの倍率の初期値
+    const player1Style = computed(() => ({
+        top: `${player1Top.value}px`,
+        left: `${player1Left.value}px`,
     }));
-
-    const count = ref<number>(0);   // カウントの初期値
-    const slow = ref<number>(8);   // スローモーションの倍率の初期値
-    const timerId = ref<number | null>(null);   // タイマーのIDを保持
-
     // キャラクターの向きと、歩行タイルの指定
-    const sourceFrames = {
+    const player1SourceFrames = {
         up:[    // 上向き
-            {top:  0 * cellHeight, left: 0 * cellWidth, width: cellWidth, height: cellHeight },
-            {top:  0 * cellHeight, left: 1 * cellWidth, width: cellWidth, height: cellHeight },
-            {top:  0 * cellHeight, left: 0 * cellWidth, width: cellWidth, height: cellHeight },
-            {top:  0 * cellHeight, left: 1 * cellWidth, width: cellWidth, height: cellHeight },
+            {top:  0 * board1SquareHeight, left: 0 * board1SquareWidth, width: board1SquareWidth, height: board1SquareHeight },
+            {top:  0 * board1SquareHeight, left: 1 * board1SquareWidth, width: board1SquareWidth, height: board1SquareHeight },
+            {top:  0 * board1SquareHeight, left: 0 * board1SquareWidth, width: board1SquareWidth, height: board1SquareHeight },
+            {top:  0 * board1SquareHeight, left: 1 * board1SquareWidth, width: board1SquareWidth, height: board1SquareHeight },
         ],
         right:[ // 右向き
-            {top:  1 * cellHeight, left: 0 * cellWidth, width: cellWidth, height: cellHeight },
-            {top:  1 * cellHeight, left: 1 * cellWidth, width: cellWidth, height: cellHeight },
-            {top:  1 * cellHeight, left: 0 * cellWidth, width: cellWidth, height: cellHeight },
-            {top:  1 * cellHeight, left: 1 * cellWidth, width: cellWidth, height: cellHeight },
+            {top:  1 * board1SquareHeight, left: 0 * board1SquareWidth, width: board1SquareWidth, height: board1SquareHeight },
+            {top:  1 * board1SquareHeight, left: 1 * board1SquareWidth, width: board1SquareWidth, height: board1SquareHeight },
+            {top:  1 * board1SquareHeight, left: 0 * board1SquareWidth, width: board1SquareWidth, height: board1SquareHeight },
+            {top:  1 * board1SquareHeight, left: 1 * board1SquareWidth, width: board1SquareWidth, height: board1SquareHeight },
         ],
         down:[  // 下向き
-            {top:  2 * cellHeight, left: 0 * cellWidth, width: cellWidth, height: cellHeight },
-            {top:  2 * cellHeight, left: 1 * cellWidth, width: cellWidth, height: cellHeight },
-            {top:  2 * cellHeight, left: 0 * cellWidth, width: cellWidth, height: cellHeight },
-            {top:  2 * cellHeight, left: 1 * cellWidth, width: cellWidth, height: cellHeight },
+            {top:  2 * board1SquareHeight, left: 0 * board1SquareWidth, width: board1SquareWidth, height: board1SquareHeight },
+            {top:  2 * board1SquareHeight, left: 1 * board1SquareWidth, width: board1SquareWidth, height: board1SquareHeight },
+            {top:  2 * board1SquareHeight, left: 0 * board1SquareWidth, width: board1SquareWidth, height: board1SquareHeight },
+            {top:  2 * board1SquareHeight, left: 1 * board1SquareWidth, width: board1SquareWidth, height: board1SquareHeight },
         ],
         left:[  // 左向き
-            {top:  3 * cellHeight, left: 0 * cellWidth, width: cellWidth, height: cellHeight },
-            {top:  3 * cellHeight, left: 1 * cellWidth, width: cellWidth, height: cellHeight },
-            {top:  3 * cellHeight, left: 0 * cellWidth, width: cellWidth, height: cellHeight },
-            {top:  3 * cellHeight, left: 1 * cellWidth, width: cellWidth, height: cellHeight },
+            {top:  3 * board1SquareHeight, left: 0 * board1SquareWidth, width: board1SquareWidth, height: board1SquareHeight },
+            {top:  3 * board1SquareHeight, left: 1 * board1SquareWidth, width: board1SquareWidth, height: board1SquareHeight },
+            {top:  3 * board1SquareHeight, left: 0 * board1SquareWidth, width: board1SquareWidth, height: board1SquareHeight },
+            {top:  3 * board1SquareHeight, left: 1 * board1SquareWidth, width: board1SquareWidth, height: board1SquareHeight },
         ]
     };
-
-    const p1Frames = ref(sourceFrames["down"]);
+    const player1Frames = ref(player1SourceFrames["down"]);
 
 
     // ##########
@@ -107,73 +120,85 @@
     // ##########
 
     onMounted(() => {
-        startGameLoop();
-        startTimer();
-
         // キーボードイベント
-        window.addEventListener('keydown', (e) => {
-            if (p1Input.hasOwnProperty(e.key)) {
-                p1Input[e.key] = true;
+        window.addEventListener('keydown', (e: KeyboardEvent) => {
+            // ［スペース］［↑］［↓］キーの場合
+            if (e.key === ' ' || e.key === 'ArrowUp' || e.key === 'ArrowDown') {
+                // ブラウザーのデフォルトの上下スクロール動作をキャンセル
+                e.preventDefault();
+            }
+
+            if (player1Input.hasOwnProperty(e.key)) {
+                player1Input[e.key] = true;
             }
         });
-        window.addEventListener('keyup', (e) => {
-            if (p1Input.hasOwnProperty(e.key)) {
-                p1Input[e.key] = false;
+        window.addEventListener('keyup', (e: KeyboardEvent) => {
+            if (player1Input.hasOwnProperty(e.key)) {
+                player1Input[e.key] = false;
             }
         });
 
-
-        // ################
-        // # サブルーチン #
-        // ################
-
-        function startGameLoop() : void {
-            const update = () => {
-                // 移動処理
-                if (p1Input.ArrowUp) {
-                    p1Frames.value = sourceFrames["up"]
-                    p1Top.value -= p1Speed.value;
-                }
-
-                if (p1Input.ArrowRight) {
-                    p1Frames.value = sourceFrames["right"];
-                    p1Left.value += p1Speed.value;
-                }
-
-                if (p1Input.ArrowDown) {
-                    p1Frames.value = sourceFrames["down"];
-                    p1Top.value += p1Speed.value;
-                }
-
-                if (p1Input.ArrowLeft) {
-                    p1Frames.value = sourceFrames["left"];
-                    p1Left.value -= p1Speed.value;
-                }
-
-                // 次のフレーム
-                requestAnimationFrame(update);
-            };
-
-            // 初回呼び出し
-            requestAnimationFrame(update);
-        }
-
+        gameLoopStart();
+        stopwatch1Start();
     });
+
 
     // ################
     // # サブルーチン #
     // ################
 
-    function startTimer() : void {
+    function gameLoopStart() : void {
+        const update = () => {
+
+            // 位置のリセット
+            if (player1Input[" "]) {
+                player1Top.value = 0;
+                player1Left.value = 0;
+            }
+
+            // 移動処理
+            if (player1Input.ArrowUp) {
+                player1Frames.value = player1SourceFrames["up"]
+                player1Top.value -= player1Speed.value;
+            }
+
+            if (player1Input.ArrowRight) {
+                player1Frames.value = player1SourceFrames["right"];
+                player1Left.value += player1Speed.value;
+            }
+
+            if (player1Input.ArrowDown) {
+                player1Frames.value = player1SourceFrames["down"];
+                player1Top.value += player1Speed.value;
+            }
+
+            if (player1Input.ArrowLeft) {
+                player1Frames.value = player1SourceFrames["left"];
+                player1Left.value -= player1Speed.value;
+            }
+
+            // 次のフレーム
+            requestAnimationFrame(update);
+        };
+
+        // 初回呼び出し
+        requestAnimationFrame(update);
+    }
+
+
+    /**
+     * ストップウォッチ１開始
+     */
+    function stopwatch1Start() : void {
         // 既にタイマーが動いてたら何もしない
-        if (timerId.value) return;
+        if (stopwatch1TimerId.value) return;
 
         // requestAnimationFrameで約16.67ms（60fps）ごとにカウントアップ
         const tick = () => {
-            count.value += 1;
-            timerId.value = requestAnimationFrame(tick);
+            stopwatch1Count.value += 1;
+            stopwatch1TimerId.value = requestAnimationFrame(tick);
         };
-        timerId.value = requestAnimationFrame(tick);
+        stopwatch1TimerId.value = requestAnimationFrame(tick);
     }
 
 </script>
