@@ -1,6 +1,6 @@
 <template>
 
-    <h4><span class="parent-header">ＲＰＧの歩行グラフィック　＞　</span>原始的スクロール</h4>
+    <h4><span class="parent-header">ＲＰＧの歩行グラフィック　＞　</span>ボード・原始的スクロール</h4>
     <section class="sec-4">
         <p>キーボード操作方法</p>
         <ul>
@@ -8,6 +8,12 @@
             <li><span class="code-key">（スペース）</span>キー　…　位置を最初の状態に戻すぜ。</li>
         </ul>
         <br/>
+
+        <!-- ストップウォッチ。デバッグに使いたいときは、 display: none; を消してください。 -->
+        <stopwatch
+            ref="stopwatch1Ref"
+            v-on:countUp="(countNum) => { stopwatch1Count = countNum; }"
+            style="display: none;" />
 
         <div :style="`position:relative; left: 0; top: 0; height:${commonZoom * board1Ranks * board1SquareHeight}px;`">
 
@@ -36,7 +42,7 @@
     </section>
 
     <br/>
-    <h4><span class="parent-header-lights-out">ＲＰＧの歩行グラフィック　＞　</span><span class="parent-header">原始的スクロール　＞　</span>ソースコード</h4>
+    <h4><span class="parent-header-lights-out">ＲＰＧの歩行グラフィック　＞　</span><span class="parent-header">ボード・原始的スクロール　＞　</span>ソースコード</h4>
     <section class="sec-4">
         <source-link
             pagePath="/making/input-axis-rpg-walk-scroll-primordial"/>
@@ -51,6 +57,7 @@
     // ##############
 
     import { computed, onMounted, ref } from 'vue';
+    import type { CSSProperties } from 'csstype';
 
     // ++++++++++++++++++
     // + コンポーネント +
@@ -59,7 +66,9 @@
     // Tauri なら明示的にインポートを指定する必要がある。 Nuxt なら自動でインポートしてくれる場合がある。
     //
 
+    // from の階層が上の順、アルファベット順
     import SourceLink from '../../components/SourceLink.vue';
+    import Stopwatch from '../../components/Stopwatch.vue';
     import TileAnimation from '@/components/TileAnimation.vue';
 
 
@@ -85,8 +94,8 @@
     // + オブジェクト　＞　ストップウォッチ +
     // ++++++++++++++++++++++++++++++++++++++
 
+    const stopwatch1Ref = ref<InstanceType<typeof Stopwatch> | null>(null); // Stopwatch のインスタンス
     const stopwatch1Count = ref<number>(0);   // カウントの初期値
-    const stopwatch1TimerId = ref<number | null>(null);   // タイマーのIDを保持
 
     // ++++++++++++++++++++++++
     // + オブジェクト　＞　盤 +
@@ -103,7 +112,9 @@
     // ボードの表示位置
     const boardTop = ref<number>(0);
     const boardLeft = ref<number>(0);
-    const getSquareStyle = computed(() => {
+    const getSquareStyle = computed<
+        (i:number)=>CSSProperties
+    >(() => {
         return (i:number)=>{
             // プレイヤーが初期位置にいる場合の、セルの top 位置。
             const homeLeft = (i % board1Files) * board1SquareWidth;
@@ -125,13 +136,14 @@
     // + オブジェクト　＞　プレイヤー +
     // ++++++++++++++++++++++++++++++++
 
-    const player1Left = ref<number>(2 * board1SquareWidth);      // スプライトのX座標
-    const player1Top = ref<number>(2 * board1SquareHeight);       // スプライトのY座標
-    const player1Speed = ref<number>(2);     // 移動速度
-    const player1Input = <Record<string, boolean>>{  // 入力
+    const player1Left = ref<number>(2 * board1SquareWidth);     // スプライトのX座標
+    const player1Top = ref<number>(2 * board1SquareHeight);     // スプライトのY座標
+    const player1Speed = ref<number>(2);                        // 移動速度
+    const player1Input = <Record<string, boolean>>{             // 入力
         " ": false, ArrowUp: false, ArrowRight: false, ArrowDown: false, ArrowLeft: false
     };
-    const player1AnimationSlow = ref<number>(8);   // アニメーションのスローモーションの倍率の初期値
+    const player1AnimationSlow = ref<number>(8);    // アニメーションのスローモーションの倍率の初期値
+    const player1AnimationWalkingFrames = 16;       // 歩行フレーム数
     const player1Style = computed(() => ({
         top: `${player1Top.value}px`,
         left: `${player1Left.value}px`,
@@ -194,15 +206,15 @@
             }
         });
 
-        startGameLoop();
-        startTimer();
+        gameLoopStart();
+        stopwatch1Ref.value?.timerStart();  // タイマーをスタート
 
 
         // ################
         // # サブルーチン #
         // ################
 
-        function startGameLoop() : void {
+        function gameLoopStart() : void {
             const update = () => {
                 player1MotionWait.value -= 1;
 
@@ -238,7 +250,7 @@
                     }
 
                     if (p1Motion.value["xAxis"]!=0 || p1Motion.value["yAxis"]!=0) {
-                        player1MotionWait.value = 16;    // フレーム数を設定
+                        player1MotionWait.value = player1AnimationWalkingFrames;
                     }
                 }
 
@@ -269,22 +281,6 @@
         }
 
     });
-
-    // ################
-    // # サブルーチン #
-    // ################
-
-    function startTimer() : void {
-        // 既にタイマーが動いてたら何もしない
-        if (stopwatch1TimerId.value) return;
-
-        // requestAnimationFrameで約16.67ms（60fps）ごとにカウントアップ
-        const tick = () => {
-            stopwatch1Count.value += 1;
-            stopwatch1TimerId.value = requestAnimationFrame(tick);
-        };
-        stopwatch1TimerId.value = requestAnimationFrame(tick);
-    }
 
 </script>
 

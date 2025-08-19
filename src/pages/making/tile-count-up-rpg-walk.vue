@@ -31,29 +31,30 @@
                 {top:  96, left:   32, width: 32, height: 32 },
             ]"
             tilemapUrl="/img/making/202508__warabenture__15-1612-kifuwarabe-o1o0.png"
-            :slow="slow"
-            :time="count"
+            :slow="player1AnimationSlow"
+            :time="stopwatch1Count"
             style="zoom:4; image-rendering: pixelated;" /><br/>
         <!--
             NOTE: Tauri では left="64" のように数字を渡せるが、 Nuxt では :left="64" のように書かないと数字で渡せないようだ。
         -->
         ：ここまで。<br/>
         <br/>
-        <p>カウント: {{ count }}</p>
-        <v-btn @click="startTimer">スタート</v-btn>
-        <v-btn @click="stopTimer">ストップ</v-btn>
-        <v-btn @click="resetTimer">リセット</v-btn>
+
+        <!-- ストップウォッチ。表示します。 -->
+        <stopwatch
+            ref="stopwatch1Ref"
+            v-on:countUp="(countNum) => { stopwatch1Count = countNum; }" />
 
         <div class="text-caption">
             Slow
         </div>
         <v-slider
-                v-model="slow"
-                min="2"
-                max="32"
-                step="2"
-                showTicks="always"
-                thumbLabel="always" />
+            v-model="player1AnimationSlow"
+            min="2"
+            max="32"
+            step="2"
+            showTicks="always"
+            thumbLabel="always" />
         <br/>
         元画像のタイルマップを表示：<br/>
         <v-img src="/img/making/202508__warabenture__15-1612-kifuwarabe-o1o0.png" style="width:64px; height:128px; zoom: 4; image-rendering: pixelated;"/>
@@ -84,48 +85,30 @@
     // Tauri なら明示的にインポートを指定する必要がある。 Nuxt なら自動でインポートしてくれる場合がある。
     //
 
+    // from の階層が上の順、アルファベット順
     import SourceLink from '../../components/SourceLink.vue';
-    import TileAnimation from '@/components/TileAnimation.vue';
+    import Stopwatch from '../../components/Stopwatch.vue';
+    import TileAnimation from '../../components/TileAnimation.vue';
     import TheFooter from './the-footer.vue';
     import TheHeader from './the-header.vue';
 
 
-    // ##############
-    // # 共有データ #
-    // ##############
+    // ################
+    // # オブジェクト #
+    // ################
 
-    const count = ref<number>(0);   // カウントの初期値
-    const slow = ref<number>(8);   // スローモーションの倍率の初期値
-    const timerId = ref<number | null>(null);   // タイマーのIDを保持
+    // ++++++++++++++++++++++++++++++++++++++
+    // + オブジェクト　＞　ストップウォッチ +
+    // ++++++++++++++++++++++++++++++++++++++
+
+    const stopwatch1Ref = ref<InstanceType<typeof Stopwatch> | null>(null); // Stopwatch のインスタンス
+    const stopwatch1Count = ref<number>(0);   // カウントの初期値
 
 
-    // ####################
-    // # イベントハンドラ #
-    // ####################
+    // ++++++++++++++++++++++++++++++++
+    // + オブジェクト　＞　プレイヤー +
+    // ++++++++++++++++++++++++++++++++
 
-    function startTimer() : void {
-        // 既にタイマーが動いてたら何もしない
-        if (timerId.value) return;
+    const player1AnimationSlow = ref<number>(8);   // スローモーションの倍率の初期値
 
-        // requestAnimationFrameで約16.67ms（60fps）ごとにカウントアップ
-        const tick = () => {
-            count.value += 1;
-            timerId.value = requestAnimationFrame(tick);
-        };
-        timerId.value = requestAnimationFrame(tick);
-    }
-
-    function stopTimer() : void {
-        // タイマーを停止
-        if (timerId.value) {
-            cancelAnimationFrame(timerId.value);
-            timerId.value = null;
-        }
-    }
-
-    function resetTimer() : void {
-        // カウントをリセットしてタイマーも停止
-        count.value = 0;
-        stopTimer();
-    }    
 </script>

@@ -1,6 +1,6 @@
 <template>
 
-    <h4><span class="parent-header">ＲＰＧの歩行グラフィック　＞　</span>境界チェック</h4>
+    <h4><span class="parent-header">ＲＰＧの歩行グラフィック　＞　</span>フェース・原始的シフト</h4>
     <section class="sec-4">
         <p>キーボード操作方法</p>
         <ul>
@@ -9,18 +9,20 @@
         </ul>
         <br/>
 
-        <div :style="`position:relative; left: 0; top: 0; height: ${commonZoom * board1Ranks * board1SquareHeight}px;`">
-            
-            <!-- プレイヤー１の初期位置 -->
-            <div :style="`position:absolute; left: ${4 * board1SquareWidth}px; top: ${4 * board1SquareHeight}px; width: ${4 * board1SquareWidth}px; height: ${4 * board1SquareHeight}px; background-color: lightpink;`">
-            </div>
+        <!-- ストップウォッチ。デバッグに使いたいときは、 display: none; を消してください。 -->
+        <stopwatch
+            ref="stopwatch1Ref"
+            v-on:countUp="(countNum) => { stopwatch1Count = countNum; }"
+            style="display: none;" />
+
+        <div :style="board1Style">
 
             <!--
                 グリッド
                 NOTE: ループカウンターは 1 から始まるので、1～9の9個のセルを作成。
             -->
-            <div v-for="i in 9" :key="i"
-                :style="`position:absolute; top: ${Math.floor((i - 1) / 3) * 32}px; left: ${((i - 1) % 3) * 32}px; width:32px; height:32px; zoom: ${commonZoom}; border: solid 1px lightgray;`"></div>
+            <div v-for="i in board1Area" :key="i"
+                :style="getSquareStyle(i - 1)">{{ getFaceNumber(i - 1) }}</div>
 
             <!-- プレイヤー１ -->
             <TileAnimation
@@ -31,15 +33,17 @@
                 class="cursor"
                 :style="player1Style"
                 style="image-rendering: pixelated;" /><br/>
-        </div>
+            </div>
 
+        <p>👆 タイルは動いていないぜ（＾▽＾）！</p>
+        <p>だから、数字がタイルの上を入れ替わっている（＝シフトしている）ぜ（＾▽＾）！</p>
     </section>
 
     <br/>
-    <h4><span class="parent-header-lights-out">ＲＰＧの歩行グラフィック　＞　</span><span class="parent-header">境界チェック　＞　</span>ソースコード</h4>
+    <h4><span class="parent-header-lights-out">ＲＰＧの歩行グラフィック　＞　</span><span class="parent-header">フェース・原始的シフト　＞　</span>ソースコード</h4>
     <section class="sec-4">
         <source-link
-            pagePath="/making/input-axis-rpg-walk-boundary-check"/>
+            pagePath="/making/input-axis-rpg-walk-scroll-loop"/>
     </section>
 </template>
 
@@ -50,6 +54,9 @@
     // ##############
 
     import { computed, onMounted, ref } from 'vue';
+    // 👆 ［初級者向けのソースコード］では、 reactive は使いません。
+
+    import type { CSSProperties } from 'csstype';
 
     // ++++++++++++++++++
     // + コンポーネント +
@@ -58,8 +65,10 @@
     // Tauri なら明示的にインポートを指定する必要がある。 Nuxt なら自動でインポートしてくれる場合がある。
     //
 
+    // from の階層が上の順、アルファベット順
     import SourceLink from '../../components/SourceLink.vue';
-    import TileAnimation from '@/components/TileAnimation.vue';
+    import Stopwatch from '../../components/Stopwatch.vue';
+    import TileAnimation from '../../components/TileAnimation.vue';
 
 
     // ##########
@@ -84,8 +93,8 @@
     // + オブジェクト　＞　ストップウォッチ +
     // ++++++++++++++++++++++++++++++++++++++
 
+    const stopwatch1Ref = ref<InstanceType<typeof Stopwatch> | null>(null); // Stopwatch のインスタンス
     const stopwatch1Count = ref<number>(0);   // カウントの初期値
-    const stopwatch1TimerId = ref<number | null>(null);   // タイマーのIDを保持
 
     // ++++++++++++++++++++++++
     // + オブジェクト　＞　盤 +
@@ -93,26 +102,107 @@
 
     const board1SquareWidth = 32;
     const board1SquareHeight = 32;
-    const board1Files = 3;
-    const board1Ranks = 3;
-    const board1lastFileIndex = board1Files - 1;
-    const board1lastRankIndex = board1Ranks - 1;
+    const board1Files = 5;
+    const board1Ranks = 5;
+    const board1Area = computed(()=> {  // 盤のマス数
+        return board1Files * board1Ranks;
+    });
+    const board1Style = computed<CSSProperties>(()=>{ // ボードとマスクを含んでいる領域のスタイル
+        return {
+            position: 'relative',
+            left: "0",
+            top: "0",
+            width: `${commonZoom * board1Files * board1SquareWidth}px`,
+            height: `${commonZoom * board1Ranks * board1SquareHeight}px`,
+        };
+    });
+    const getSquareStyle = computed<
+        (i:number)=>CSSProperties
+    >(() => {
+        return (i:number)=>{
+            // プレイヤーが初期位置にいる場合の、マスの位置。
+            const homeLeft = (i % board1Files) * board1SquareWidth;
+            const homeTop = Math.floor(i / board1Ranks) * board1SquareHeight;
+
+            return {
+                position: 'absolute',
+                top: `${homeTop}px`,
+                left: `${homeLeft}px`,
+                width: `${board1SquareWidth}px`,
+                height: `${board1SquareHeight}px`,
+                zoom: 4,
+                border: "solid 1px lightgray",
+                textAlign: "center",
+            };
+        };
+    });    
+
+    // ++++++++++++++++++++++++++++++++++
+    // + オブジェクト　＞　盤コンテンツ +
+    // ++++++++++++++++++++++++**++++++++
+    //
+    // 盤上に表示されるもの。
+    //
+
+    const contents1FileNum = board1Files;       // 列数
+    const contents1RankNum = board1Ranks;       // 行数
+
+    /**
+     * 変換
+     * @param tileIndex マス番号
+     * @returns [筋番号, 段番号]
+     */
+    function tileIndexToTileFileRank(tileIndex: number) : number[] {
+        // プレイヤーが右へ１マス移動したら、盤コンテンツは全行が左へ１つ移動する。
+        const file = tileIndex % board1Files;
+        const rank = Math.floor(tileIndex / board1Ranks);
+
+        return [file, rank];
+    }
+
+    function contentsFileRankToContentsIndex(contentsFile: number, contentsRank: number) : number {
+        return contentsRank * contents1FileNum + contentsFile;
+    }
+
+    const contents1OriginFile = ref<number>(0);    // 盤コンテンツの左上隅のタイルは、盤タイルの左から何番目か。
+    const contents1OriginRank = ref<number>(0);    // 盤コンテンツの左上隅のタイルは、盤タイルの上から何番目か。
+    const contents1Data = ref<string[]>([
+        "00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24",
+    ]);
+    const getFaceNumber = computed(() => {
+        return (tileIndex: number)=>{
+            let [tileFile, tileRank] = tileIndexToTileFileRank(tileIndex);
+
+            // タイル上のインデックスを、コンテンツ上のインデックスへ変換：
+            const contentsFile = tileFile - contents1OriginFile.value; // プレイヤーが右へ１マス移動したら、盤コンテンツは全行が左へ１つ移動する。
+            const contentsRank = tileRank - contents1OriginRank.value; // プレイヤーが下へ１マス移動したら、盤コンテンツは全行が上へ１つ移動する。
+
+            // コンテンツのサイズの範囲外になるところには、"-" でも表示しておく
+            if (contentsFile < 0 || contents1FileNum <= contentsFile || contentsRank < 0 || contents1RankNum <= contentsRank) {
+                return "-";
+            }
+            
+            // コンテンツ上の位置が示すデータを返す
+            const contentsIndex = contentsFileRankToContentsIndex(contentsFile, contentsRank);
+            return  contents1Data.value[contentsIndex];
+        };
+    });    
 
     // ++++++++++++++++++++++++++++++++
     // + オブジェクト　＞　プレイヤー +
     // ++++++++++++++++++++++++++++++++
 
-    const player1Left = ref<number>(1 * board1SquareWidth);      // スプライトのX座標
-    const player1Top = ref<number>(1 * board1SquareHeight);       // スプライトのY座標
-    const player1Speed = ref<number>(2);     // 移動速度
-    const player1Input = <Record<string, boolean>>{  // 入力
+    const player1Left: number = 2 * board1SquareWidth;      // スプライトのX座標
+    const player1Top: number = 2 * board1SquareHeight;      // スプライトのY座標
+    const player1Input = <Record<string, boolean>>{         // 入力
         " ": false, ArrowUp: false, ArrowRight: false, ArrowDown: false, ArrowLeft: false
     };
-    const player1AnimationSlow = ref<number>(8);   // アニメーションのスローモーションの倍率の初期値
+    const player1AnimationSlow = ref<number>(8);    // アニメーションのスローモーションの倍率の初期値
+    const player1AnimationWalkingFrames = 16;       // 歩行フレーム数
     const player1Style = computed(() => ({
-        top: `${player1Top.value}px`,
-        left: `${player1Left.value}px`,
-        zoom: `${commonZoom}`,
+        top: `${player1Top}px`,
+        left: `${player1Left}px`,
+        zoom: commonZoom,
     }));
     const player1SourceFrames = {   // キャラクターの向きと、歩行タイルの指定
         up:[    // 上向き
@@ -141,13 +231,13 @@
         ]
     };
     const player1Frames = ref(player1SourceFrames["down"]);
-    const player1MotionWait = ref(0);  // TODO 入力キーごとに用意したい。
-    const player1Motion = ref<Record<string, number>>({  // 入力
+    const player1MotionWait = ref(0);  // TODO: モーション入力拒否時間。入力キーごとに用意したい。
+    const player1Motion = ref<Record<string, number>>({  // モーションへの入力
         xAxis: 0,   // 負なら左、正なら右
         yAxis: 0,   // 負なら上、正なら下
     });
 
-    
+
     // ##########
     // # 開始時 #
     // ##########
@@ -172,7 +262,7 @@
         });
 
         gameLoopStart();
-        stopwatch1Start();
+        stopwatch1Ref.value?.timerStart();  // タイマーをスタート
     });
 
 
@@ -197,8 +287,8 @@
 
                 // 位置のリセット
                 if (player1Input[" "]) {
-                    player1Top.value = 1 * board1SquareHeight;
-                    player1Left.value = 1 * board1SquareWidth;
+                    contents1OriginFile.value = 0;
+                    contents1OriginRank.value = 0;
                 }
 
                 // 移動
@@ -219,37 +309,25 @@
                 }
 
                 if (player1Motion.value["xAxis"]!=0 || player1Motion.value["yAxis"]!=0) {
-                    player1MotionWait.value = 16;    // フレーム数を設定
+                    player1MotionWait.value = player1AnimationWalkingFrames;
                 }
-            }
 
-            // 移動処理
-            // 斜め方向の場合、上下を優先する。
-            if (player1Motion.value["xAxis"]==1) {   // 右
-                player1Frames.value = player1SourceFrames["right"]
-
-                if (player1Left.value < board1lastFileIndex * board1SquareWidth) {    // 境界チェック
-                    player1Left.value += player1Speed.value;
+                // 移動処理
+                // 斜め方向の場合、上下を優先する。
+                if (player1Motion.value["xAxis"]==1) {   // 右
+                    player1Frames.value = player1SourceFrames["right"]
+                    contents1OriginFile.value -= 1;   // コンテンツの方をスクロールさせる
+                } else if (player1Motion.value["xAxis"]==-1) {  // 左
+                    player1Frames.value = player1SourceFrames["left"]
+                    contents1OriginFile.value += 1;
                 }
-            } else if (player1Motion.value["xAxis"]==-1) {  // 左
-                player1Frames.value = player1SourceFrames["left"]
 
-                if (0 < player1Left.value) {    // 境界チェック
-                    player1Left.value -= player1Speed.value;
-                }
-            }
-
-            if (player1Motion.value["yAxis"]==-1) {  // 上
-                player1Frames.value = player1SourceFrames["up"]
-
-                if (0 < player1Top.value) {    // 境界チェック
-                    player1Top.value -= player1Speed.value;
-                }
-            } else if (player1Motion.value["yAxis"]==1) {   // 下
-                player1Frames.value = player1SourceFrames["down"]
-
-                if (player1Top.value < board1lastRankIndex * board1SquareHeight) {    // 境界チェック
-                    player1Top.value += player1Speed.value;
+                if (player1Motion.value["yAxis"]==-1) {  // 上
+                    player1Frames.value = player1SourceFrames["up"]
+                    contents1OriginRank.value += 1;
+                } else if (player1Motion.value["yAxis"]==1) {   // 下
+                    player1Frames.value = player1SourceFrames["down"]
+                    contents1OriginRank.value -= 1;
                 }
             }
 
@@ -259,22 +337,6 @@
 
         // 初回呼び出し
         requestAnimationFrame(update);
-    }
-
-
-    /**
-     * ストップウォッチ１開始
-     */
-    function stopwatch1Start() : void {
-        // 既にタイマーが動いてたら何もしない
-        if (stopwatch1TimerId.value) return;
-
-        // requestAnimationFrameで約16.67ms（60fps）ごとにカウントアップ
-        const tick = () => {
-            stopwatch1Count.value += 1;
-            stopwatch1TimerId.value = requestAnimationFrame(tick);
-        };
-        stopwatch1TimerId.value = requestAnimationFrame(tick);
     }
 
 </script>

@@ -1,10 +1,10 @@
 <template>
     <!-- /pages/making/count-up.vue のコンポーネント化 -->
     <div style="display: inline-block;">
-        <p>カウント: {{ count }}</p>
-        <v-btn @click="startTimer">スタート</v-btn>
-        <v-btn @click="stopTimer">ストップ</v-btn>
-        <v-btn @click="resetTimer">リセット</v-btn>
+        <p>カウント: {{ timer1Count }}</p>
+        <v-btn @click="timerStart">スタート</v-btn>
+        <v-btn @click="timerStop">ストップ</v-btn>
+        <v-btn @click="timerReset">リセット</v-btn>
     </div>
 </template>
 
@@ -14,12 +14,13 @@
     // # インポート #
     // ##############
 
-    import { ref } from 'vue';
+    import { onUnmounted, ref } from 'vue';
 
 
     // ##############################################
     // # このコンポーネントで起こるカスタムイベント #
     // ##############################################
+
     interface Emits {
         // イベント名と、変更通知メソッドの引数と、そのメソッドの戻り値。
         (event: 'countUp', count: number): void;
@@ -27,48 +28,64 @@
     const emit = defineEmits<Emits>();
 
 
+    // ################
+    // # オブジェクト #
+    // ################
+
+    // ++++++++++++
+    // + タイマー +
+    // ++++++++++++
+
+    const timer1Count = ref<number>(0);   // カウントの初期値
+    const timer1Id = ref<number | null>(null);   // タイマーのIDを保持
+
+
     // ##############
-    // # 共有データ #
+    // # 開始と終了 #
     // ##############
 
-    const count = ref<number>(0);   // カウントの初期値
-    const timerId = ref<number | null>(null);   // タイマーのIDを保持
+    /**
+     * 終了時
+     */
+    onUnmounted(()=>{
+        timerStop();    // タイマーを止めます
+    });
 
 
     // ####################
     // # イベントハンドラ #
     // ####################
 
-    function startTimer() : void {
+    function timerStart() : void {
         // 既にタイマーが動いてたら何もしない
-        if (timerId.value) return;
+        if (timer1Id.value) return;
 
         // requestAnimationFrameで約16.67ms（60fps）ごとにカウントアップ
         const tick = () => {
-            count.value += 1;
+            timer1Count.value += 1;
             // 親に変更を通知
-            emit('countUp', count.value);
+            emit('countUp', timer1Count.value);
 
-            timerId.value = requestAnimationFrame(tick);
+            timer1Id.value = requestAnimationFrame(tick);
         };
-        timerId.value = requestAnimationFrame(tick);
+        timer1Id.value = requestAnimationFrame(tick);
     }
 
-    function stopTimer() : void {
+    function timerStop() : void {
         // タイマーを停止
-        if (timerId.value) {
-            cancelAnimationFrame(timerId.value);
-            timerId.value = null;
+        if (timer1Id.value) {
+            cancelAnimationFrame(timer1Id.value);
+            timer1Id.value = null;
         }
     }
 
-    function resetTimer() : void {
+    function timerReset() : void {
         // カウントをリセットしてタイマーも停止
-        count.value = 0;
+        timer1Count.value = 0;
         // 親に変更を通知
-        emit('countUp', count.value);
+        emit('countUp', timer1Count.value);
 
-        stopTimer();
+        timerStop();
     }    
 
 
@@ -77,9 +94,9 @@
     // ################
 
     defineExpose({
-        startTimer,
-        stopTimer,
-        resetTimer,
+        timerStart,
+        timerStop,
+        timerReset,
     });
 
 </script>

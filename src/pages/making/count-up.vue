@@ -4,9 +4,9 @@
     <h3>カウントアップするぜ！</h3>
     <section class="sec-3">
         <p>カウント: {{ count }}</p>
-        <v-btn @click="startTimer">スタート</v-btn>
-        <v-btn @click="stopTimer">ストップ</v-btn>
-        <v-btn @click="resetTimer">リセット</v-btn>
+        <v-btn @click="timerStart">スタート</v-btn>
+        <v-btn @click="timerStop">ストップ</v-btn>
+        <v-btn @click="timerReset">リセット</v-btn>
     </section>
 
     <br/>
@@ -50,7 +50,7 @@
     // # イベントハンドラ #
     // ####################
 
-    function startTimer() : void {
+    function timerStart() : void {
         // 既にタイマーが動いてたら何もしない
         if (timerId.value) return;
 
@@ -62,7 +62,7 @@
         timerId.value = requestAnimationFrame(tick);
     }
 
-    function stopTimer() : void {
+    function timerStop() : void {
         // タイマーを停止
         if (timerId.value) {
             cancelAnimationFrame(timerId.value);
@@ -70,10 +70,10 @@
         }
     }
 
-    function resetTimer() : void {
+    function timerReset() : void {
         // カウントをリセットしてタイマーも停止
         count.value = 0;
-        stopTimer();
+        timerStop();
     }    
 
 </script>

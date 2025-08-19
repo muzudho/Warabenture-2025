@@ -6,9 +6,8 @@
         <p>スプライトに一定の動きをさせるぜ（＾▽＾）</p>
         <br/>
 
-        <stopwatch-dev
-            v-on:countUp="(countNum) => { count = countNum; }"
-        /><br/>
+        <stopwatch
+            v-on:countUp="(countNum) => { count = countNum; }"/><br/>
 
         <p>ここに切り抜いたタイルを表示：</p>
         <div :style="`height: ${cellHeight}px`" style="position:relative;">
@@ -54,7 +53,7 @@
     //
 
     import SourceLink from '../../components/SourceLink.vue';
-    import StopwatchDev from '../../components/StopwatchDev.vue';
+    import Stopwatch from '../../components/Stopwatch.vue';
     import Tile from '../../components/Tile.vue';
     import TheFooter from './the-footer.vue';
     import TheHeader from './the-header.vue';

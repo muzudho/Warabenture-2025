@@ -34,7 +34,7 @@
             <v-btn @click="onGamePauseOrRestartButtonPushed()">{{ app.game.isPause ? "再開" : "一時停止" }}</v-btn>
 
             <!-- フォーカスを外すためのダミー・ボタンです -->
-            <v-btn id="dammyButton">何もしないボタン</v-btn>
+            <v-btn ref="noopButton">何もしないボタン</v-btn>
             <br/>
 
             <p style="font-size: x-large; margin-top: 8px; margin-bottom: 8px;">
@@ -42,9 +42,9 @@
             </p>
         </div>
 
-        <!-- デバッグに使いたいときは、 display: none; を消してください。 -->
-        <stopwatch-dev
-            ref="stopwatch1CompoRef"
+        <!-- ストップウォッチ。デバッグに使いたいときは、 display: none; を消してください。 -->
+        <stopwatch
+            ref="stopwatch1Ref"
             v-on:countUp="(countNum) => { stopwatch1.count = countNum; }"
             style="display: none;" />
 
@@ -118,6 +118,7 @@
 
     import { computed, onMounted, onUnmounted, reactive, ref, watch } from 'vue';
     import type { Ref } from 'vue'
+    import { VBtn } from 'vuetify/components';
 
     // ++++++++++++++++++++++++++++++++++
     // + インポート　＞　コンポーネント +
@@ -125,7 +126,7 @@
 
     // from の階層が上の順、アルファベット順
     import SourceLink from '../../components/SourceLink.vue';
-    import StopwatchDev from '../../components/StopwatchDev.vue';
+    import Stopwatch from '../../components/Stopwatch.vue';
     import Tile from '../../components/Tile.vue';
     import TheFooter from './the-footer.vue';
     import TheHeader from './the-header.vue';
@@ -259,15 +260,21 @@
     // ################
 
     // ++++++++++++++++++++++++++++++++++++++
+    // + オブジェクト　＞　何もしないボタン +
+    // ++++++++++++++++++++++++++++++++++++++
+
+    const noopButton = ref<InstanceType<typeof VBtn> | null>(null);
+
+    // ++++++++++++++++++++++++++++++++++++++
     // + オブジェクト　＞　ストップウォッチ +
     // ++++++++++++++++++++++++++++++++++++++
 
-    const stopwatch1CompoRef = ref<InstanceType<typeof StopwatchDev> | null>(null);     // <stopwatch-dev> のインスタンス
+    const stopwatch1Ref = ref<InstanceType<typeof Stopwatch> | null>(null);     // <stopwatch-dev> のインスタンス
     const stopwatch1 = reactive<{
-        compo: Ref<InstanceType<typeof StopwatchDev> | null>,
+        compo: Ref<InstanceType<typeof Stopwatch> | null>,
         count: number,                                          // カウント
     }>({
-        compo: stopwatch1CompoRef,
+        compo: stopwatch1Ref,
         count: 0,
     });
     watch(()=>stopwatch1.count, (newCount) => {
@@ -469,7 +476,7 @@
 
         if (newCount >= app.game.maxCount) {
             // ゲーム停止
-            stopwatch1.compo?.stopTimer();  // タイマーをストップ
+            stopwatch1.compo?.timerStop();  // タイマーをストップ
         }
     });
 
@@ -537,6 +544,9 @@
         }),
         reloadTime: 0,  // 0 になるまで、入力を受け付けない
     });
+    const finder1Conf = {
+        animationWalkingFrames: 8,          // 歩行フレーム数
+    };
     const finderStyle = computed(() => {
         return {
             top: `${finder1.top}px`,
@@ -659,7 +669,7 @@
      * ［ゲームスタート］または［ゲーム終了］ボタン押下時。（状態により切り替わります）
      */
     function onGameStartOrEndButtonPushed() : void {
-        document.getElementById("dammyButton")?.focus();    // フォーカスを外すため
+        focusRemove();  // フォーカスを外す
 
         if(app.game.isPlaying) {    // ［ゲーム終了］ボタン
             // ゲームを終了させます
@@ -667,7 +677,7 @@
             return;
         }
 
-        stopwatch1.compo?.startTimer();  // タイマーをスタート
+        stopwatch1.compo?.timerStart();  // タイマーをスタート
 
         app.game.isPlaying = !app.game.isPlaying;
     }
@@ -677,12 +687,12 @@
      * ［一時停止］または［再開］ボタン押下時。（状態により切り替わります）
      */
     function onGamePauseOrRestartButtonPushed() : void {
-        document.getElementById("dammyButton")?.focus();    // フォーカスを外すため
+        focusRemove();  // フォーカスを外す
 
         if(app.game.isPause) {
-            stopwatch1.compo?.startTimer();  // タイマーをスタート
+            stopwatch1.compo?.timerStart();  // タイマーをスタート
         } else {
-            stopwatch1.compo?.stopTimer();  // タイマーをストップ
+            stopwatch1.compo?.timerStop();  // タイマーをストップ
         }
 
         app.game.isPause = !app.game.isPause;
@@ -693,7 +703,7 @@
      * ゲームの初期化
      */
     function gameInit() : void {
-        stopwatch1.compo?.resetTimer();  // タイマーをリセット
+        stopwatch1.compo?.timerReset();  // タイマーをリセット
 
         app.game.score = 0;
         app.game.isPlaying = false;
@@ -748,7 +758,7 @@
                 }
 
                 if (finder1.motion["xAxis"]!=0 || finder1.motion["yAxis"]!=0) {
-                    finder1.motionWait = 8;    // フレーム数を設定
+                    finder1.motionWait = finder1Conf.animationWalkingFrames;
                 }
             }
 
@@ -834,6 +844,16 @@
         }
 
         app.game.score += 100;
+    }
+
+
+    /**
+     * フォーカスを外すのが上手くいかないため、［何もしないボタン］にフォーカスを合わせます。
+     */
+    function focusRemove() : void {
+        if (noopButton.value) {
+            noopButton.value.$el.focus();    // $el は、<v-btn> 要素の中の <button> 要素。
+        }
     }
 
 </script>
