@@ -11,7 +11,7 @@
         ウェブ・アプリケーションのホームだぜ（＾▽＾）！<br/>
     </section>
 
-    <h3>このホームページの内容の気分的な割合</h3>
+    <h3>ホームページ制作者のわたしが選ぶこのホームページで力を入れてる割合</h3>
     <section class="sec-3">
         以下の円グラフをクリックするとそのページへ飛べるぜ（＾▽＾）！<br/>
 	    <canvas id="pieChart" class="pieChartStyle" style="border:dashed 4px gray; background-color: white;"></canvas>
@@ -50,7 +50,7 @@
         "/minigames",                   // ミニゲーム
         "/team-mirai-supporter",        // チームみらいサポーター活動のURL
         "/",                            // ホームのURL
-        "/wara-city/map",               // わらシティのURL
+        //"/wara-city/map",               // わらシティのURL
     ];
 
     let chart: Chart | null = null;
@@ -80,24 +80,25 @@
         chart = new Chart(ctx, {
             type: 'pie',
             data: {
-                labels: ['ブログ', 'メイキング', 'ミニゲーム', 'チームみらいサポーター活動', 'ホーム', 'わらシティ'],
+                labels: ['ブログ', 'メイキング', 'ミニゲーム', 'チームみらいサポーター活動', 'ホーム', 'このサイトについて'],
+                // , 'わらシティ'
                 datasets: [{
-                    data: [83, 6, 4, 4, 2, 1],
+                    data: [85, 10, 2, 1, 1,1],
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.8)', // 赤系
                         'rgba(54, 162, 235, 0.8)', // 青系
-                        'rgba(180, 80, 206, 0.8)',
+                        'rgba(153, 102, 255, 0.8)', // 紫系
                         'rgba(255, 206, 86, 0.8)', // 黄系
                         'rgba(75, 192, 192, 0.8)', // 緑系
-                        'rgba(153, 102, 255, 0.8)', // 紫系
+                        'rgba(255, 54, 206, 0.8)',
                     ],
                     borderColor: [
                         'rgb(255, 99, 132)',
                         'rgb(54, 162, 235)',
-                        'rgb(180, 80, 206)',
+                        'rgb(153, 102, 255)',
                         'rgb(255, 206, 86)',
                         'rgb(75, 192, 192)',
-                        'rgb(153, 102, 255)',
+                        'rgb(255, 54, 206)',
                     ],
                     borderWidth: 2,
                 }]
@@ -110,7 +111,7 @@
                     },
                     title: {
                         display: true,
-                        text: 'このホームページの内容の気分的な割合'
+                        text: 'ホームページ制作者のわたしが選ぶこのホームページで力を入れてる割合'
                     }
                 },
                 onClick: (_e, elements) => {
