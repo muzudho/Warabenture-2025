@@ -156,7 +156,7 @@
                 width: `${board1SquareWidth}px`,
                 height: `${board1SquareHeight}px`,
                 zoom: 4,
-                border: "solid 1px lightgray",
+                border: `solid 1px ${i % 2 == 0 ? 'darkgray' : 'lightgray'}`,
                 textAlign: "center",
             };
         };
@@ -181,7 +181,7 @@
      * @param tileIndex マス番号
      * @returns [筋番号, 段番号]
      */
-    function tileIndexToTileFileRank(tileIndex: number) : number[] {
+    function tileIndexToTileFileRank(tileIndex: number) : [number, number] {
         // プレイヤーが右へ１マス移動したら、盤コンテンツは全行が左へ１つ移動する。
         const file = tileIndex % board1FileNum;
         const rank = Math.floor(tileIndex / board1RankNum);

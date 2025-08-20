@@ -25,7 +25,14 @@
                 NOTE: ループカウンターは 1 から始まるので、1～9の9個のセルを作成。
             -->
             <div v-for="i in board1Area" :key="i"
-                :style="`position:absolute; top: ${Math.floor((i - 1) / board1Files) * board1SquareHeight}px; left: ${((i - 1) % board1Files) * board1SquareWidth}px; width:${board1SquareWidth}px; height:${board1SquareHeight}px; zoom: ${commonZoom}; border: solid 1px lightgray;`"></div>
+                :style="`
+                    position:absolute;
+                    top: ${Math.floor((i - 1) / board1Files) * board1SquareHeight}px;
+                    left: ${((i - 1) % board1Files) * board1SquareWidth}px;
+                    width:${board1SquareWidth}px;
+                    height:${board1SquareHeight}px;
+                    zoom: ${commonZoom};
+                    border: solid 1px ${(i - 1) % 2 == 0 ? 'darkgray' : 'lightgray'};`"></div>
             <!--
                 👆 上記のコードは、以下のコードと同じ。
                 <div style="position:absolute; top: 0px; left: 0px; width:32px; height:32px; zoom: 4; border: solid 1px lightgray;"></div>
