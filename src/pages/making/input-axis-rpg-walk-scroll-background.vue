@@ -1,6 +1,6 @@
 <template>
 
-    <h4><span class="parent-header">ＲＰＧの歩行グラフィック　＞　</span>ボード・循環スクロール画像付き</h4>
+    <h4><span class="parent-header">ＲＰＧの歩行グラフィック　＞　</span>盤の循環スクロール、数字柄付き</h4>
     <section class="sec-4">
         <p>キーボード操作方法</p>
         <ul>
@@ -71,7 +71,7 @@
     </section>
 
     <br/>
-    <h4><span class="parent-header-lights-out">ＲＰＧの歩行グラフィック　＞　</span><span class="parent-header">ボード・循環スクロール画像付き　＞　</span>ソースコード</h4>
+    <h4><span class="parent-header-lights-out">ＲＰＧの歩行グラフィック　＞　</span><span class="parent-header">盤の循環スクロール、数字柄付き　＞　</span>ソースコード</h4>
     <section class="sec-4">
         <source-link
             pagePath="/making/input-axis-rpg-walk-scroll-background"/>
@@ -87,7 +87,14 @@
     import { computed, onMounted, ref } from 'vue';
     // 👆 ［初級者向けのソースコード］では、 reactive は使いません。
 
-    import type { CSSProperties } from 'csstype';
+
+    // ++++++++++++++
+    // + 互換性対応 +
+    // ++++++++++++++
+
+
+    import type { CompatibleStyleValue }  from '../../compatibles/compatible-style-value';
+
 
     // ++++++++++++++++++
     // + コンポーネント +
@@ -145,7 +152,7 @@
     const board1FilesWithMask = board1FileNum + 1
     const board1RanksWithMask = board1RankNum + 1
     const getSquareStyle = computed<
-        (i:number)=>CSSProperties
+        (i:number)=>CompatibleStyleValue
     >(() => {
         return (i:number)=>{
             // プレイヤーが初期位置にいる場合の、セルの top 位置。
@@ -170,7 +177,7 @@
             };
         };
     });
-    const board1MaskContainerStyle = computed<CSSProperties>(()=>{  // ボードとマスクを含んでいる領域のスタイル
+    const board1MaskContainerStyle = computed<CompatibleStyleValue>(()=>{  // ボードとマスクを含んでいる領域のスタイル
         return {
             position: 'relative',
             left: "0",
@@ -179,7 +186,7 @@
             height: `${commonZoom * board1RanksWithMask * board1SquareHeight}px`,
         };
     });
-    const board1ContainerStyle = computed<CSSProperties>(()=>{  // ボードだけを含んでいる領域のスタイル
+    const board1ContainerStyle = computed<CompatibleStyleValue>(()=>{  // ボードだけを含んでいる領域のスタイル
         const zoom = 4;
         
         return {
@@ -234,7 +241,7 @@
     };
     const player1AnimationSlow = ref<number>(8);    // アニメーションのスローモーションの倍率の初期値
     const player1AnimationWalkingFrames = 16;       // 歩行フレーム数
-    const player1Style = computed<CSSProperties>(() => ({
+    const player1Style = computed<CompatibleStyleValue>(() => ({
         top: `${player1Top.value}px`,
         left: `${player1Left.value}px`,
         zoom: commonZoom,

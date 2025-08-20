@@ -1,6 +1,6 @@
 <template>
 
-    <h4><span class="parent-header">ＲＰＧの歩行グラフィック　＞　</span>ボード・循環スクロール</h4>
+    <h4><span class="parent-header">ＲＰＧの歩行グラフィック　＞　</span>盤の循環スクロール</h4>
     <section class="sec-4">
         <p>キーボード操作方法</p>
         <ul>
@@ -35,7 +35,7 @@
             
             <!-- 半透明のマスク -->
             <div
-                :style="`width:${board1FilesWithMask * board1SquareWidth}px; height:${board1RanksWithMask * board1SquareHeight}px; border-top: solid ${board1SquareHeight}px rgba(0,0,0,0.5); border-right: solid ${2 * board1SquareWidth}px rgba(0,0,0,0.5); border-bottom: solid ${2 * board1SquareHeight}px rgba(0,0,0,0.5); border-left: solid ${board1SquareWidth}px rgba(0,0,0,0.5); zoom:${commonZoom};`"
+                :style="`width:${board1WithMaskFileNum * board1SquareWidth}px; height:${board1WithMaskRankNum * board1SquareHeight}px; border-top: solid ${board1SquareHeight}px rgba(0,0,0,0.5); border-right: solid ${2 * board1SquareWidth}px rgba(0,0,0,0.5); border-bottom: solid ${2 * board1SquareHeight}px rgba(0,0,0,0.5); border-left: solid ${board1SquareWidth}px rgba(0,0,0,0.5); zoom:${commonZoom};`"
                 style="position:absolute; left:0; top:0; image-rendering: pixelated;"></div>
         </div>
 
@@ -45,7 +45,7 @@
     </section>
 
     <br/>
-    <h4><span class="parent-header-lights-out">ＲＰＧの歩行グラフィック　＞　</span><span class="parent-header">ボード・循環スクロール　＞　</span>ソースコード</h4>
+    <h4><span class="parent-header-lights-out">ＲＰＧの歩行グラフィック　＞　</span><span class="parent-header">盤の循環スクロール　＞　</span>ソースコード</h4>
     <section class="sec-4">
         <source-link
             pagePath="/making/input-axis-rpg-walk-scroll-loop"/>
@@ -122,8 +122,8 @@
     const board1Area = computed(()=> {  // 盤のマス数
         return board1FileNum * board1RankNum;
     });
-    const board1FilesWithMask = board1FileNum + 1
-    const board1RanksWithMask = board1RankNum + 1
+    const board1WithMaskFileNum = board1FileNum + 1   // マスク付きの場合の列数
+    const board1WithMaskRankNum = board1RankNum + 1
     const getSquareStyle = computed<
         (i:number)=>CompatibleStyleValue
     >(() => {

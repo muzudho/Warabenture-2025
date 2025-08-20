@@ -1,6 +1,6 @@
 <template>
 
-    <h4>ターゲット</h4>
+    <h4>標的</h4>
     <section class="sec-4">
         <p>キーボード操作方法</p>
         <ul>
@@ -19,7 +19,7 @@
     </section>
 
     <br/>
-    <h4><span class="parent-header-lights-out">ターゲット　＞　</span>ソースコード</h4>
+    <h4><span class="parent-header-lights-out">標的　＞　</span>ソースコード</h4>
     <section class="sec-4">
         <source-link
             pagePath="/making/input-axis-target"/>

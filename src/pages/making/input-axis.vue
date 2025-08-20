@@ -17,6 +17,7 @@
     <input-axis-rpg-walk-face-shift-boundary/><br/>
     <input-axis-rpg-walk-face-shift-loop/><br/>
     <input-axis-rpg-walk-face-shift-contents-size-variable/><br/>
+    <input-axis-rpg-walk-board-scroll-loop-and-face-shift-primordial/><br/>
     <input-axis-rpg-walk-scroll-background/><br/>
 
     <br/>
@@ -48,6 +49,7 @@
     import InputAxisRpgWalkScrollBackground from './input-axis-rpg-walk-scroll-background.vue';
     import InputAxisRpgWalkBoardScrollLoop from './input-axis-rpg-walk-board-scroll-loop.vue';
     import InputAxisRpgWalkFaceShiftPrimordial from './input-axis-rpg-walk-face-shift-primordial.vue';
+    import InputAxisRpgWalkBoardScrollLoopAndFaceShiftPrimordial from './input-axis-rpg-walk-board-scroll-loop-and-face-shift-primordial.vue';
     import InputAxisRpgWalkFaceShiftBoundary from './input-axis-rpg-walk-face-shift-boundary.vue';
     import InputAxisRpgWalkFaceShiftContentsSizeVariable from './input-axis-rpg-walk-face-shift-contents-size-variable.vue';
     import InputAxisRpgWalkFaceShiftLoop from './input-axis-rpg-walk-face-shift-loop.vue';
