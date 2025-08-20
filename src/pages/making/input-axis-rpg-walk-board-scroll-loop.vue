@@ -61,7 +61,14 @@
     import { computed, onMounted, ref } from 'vue';
     // 👆 ［初級者向けのソースコード］では、 reactive は使いません。
 
-    import type { CSSProperties } from 'csstype';
+
+    // ++++++++++++++
+    // + 互換性対応 +
+    // ++++++++++++++
+
+
+    import type { CompatibleStyleValue }  from '../../compatibles/compatible-style-value';
+
 
     // ++++++++++++++++++
     // + コンポーネント +
@@ -118,7 +125,7 @@
     const board1FilesWithMask = board1FileNum + 1
     const board1RanksWithMask = board1RankNum + 1
     const getSquareStyle = computed<
-        (i:number)=>CSSProperties
+        (i:number)=>CompatibleStyleValue
     >(() => {
         return (i:number)=>{
             // プレイヤーが初期位置にいる場合の、マスの位置。
@@ -144,7 +151,7 @@
             };
         };
     });    
-    const board1MaskContainerStyle = computed<CSSProperties>(()=>{ // ボードとマスクを含んでいる領域のスタイル
+    const board1MaskContainerStyle = computed<CompatibleStyleValue>(()=>{ // ボードとマスクを含んでいる領域のスタイル
         return {
             position: 'relative',
             left: "0",
@@ -170,7 +177,7 @@
     };
     const player1AnimationSlow = ref<number>(8);    // アニメーションのスローモーションの倍率の初期値
     const player1AnimationWalkingFrames = 16;       // 歩行フレーム数
-    const player1Style = computed<CSSProperties>(() => ({
+    const player1Style = computed<CompatibleStyleValue>(() => ({
         top: `${player1Top.value}px`,
         left: `${player1Left.value}px`,
         zoom: commonZoom,

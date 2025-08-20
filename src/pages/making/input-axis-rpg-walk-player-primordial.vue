@@ -45,7 +45,14 @@
     import { computed, onMounted, ref } from 'vue';
     // 👆 ［初級者向けのソースコード］では、 reactive は使いません。
 
-    import type { CSSProperties } from 'csstype';
+
+    // ++++++++++++++
+    // + 互換性対応 +
+    // ++++++++++++++
+
+
+    import type { CompatibleStyleValue }  from '../../compatibles/compatible-style-value';
+
 
     // ++++++++++++++++++
     // + コンポーネント +
@@ -89,7 +96,7 @@
         " ": false, ArrowUp: false, ArrowRight: false, ArrowDown: false, ArrowLeft: false
     };
     const player1AnimationSlow = ref<number>(8);    // アニメーションのスローモーションの倍率の初期値
-    const player1Style = computed<CSSProperties>(() => ({
+    const player1Style = computed<CompatibleStyleValue>(() => ({
         top: `${player1Top.value}px`,
         left: `${player1Left.value}px`,
     }));

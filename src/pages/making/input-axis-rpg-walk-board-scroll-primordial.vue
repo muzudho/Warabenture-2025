@@ -57,7 +57,15 @@
     // ##############
 
     import { computed, onMounted, ref } from 'vue';
-    import type { CSSProperties } from 'csstype';
+
+
+    // ++++++++++++++
+    // + 互換性対応 +
+    // ++++++++++++++
+
+
+    import type { CompatibleStyleValue }  from '../../compatibles/compatible-style-value';
+
 
     // ++++++++++++++++++
     // + コンポーネント +
@@ -113,7 +121,7 @@
     const boardTop = ref<number>(0);
     const boardLeft = ref<number>(0);
     const getSquareStyle = computed<
-        (i:number)=>CSSProperties
+        (i:number)=>CompatibleStyleValue
     >(() => {
         return (i:number)=>{
             // プレイヤーが初期位置にいる場合の、セルの top 位置。
