@@ -70,7 +70,7 @@
     <h4><span class="parent-header-lights-out">ＲＰＧの歩行グラフィック　＞　</span><span class="parent-header">数字柄のシフト、数字柄のサイズ可変　＞　</span>ソースコード</h4>
     <section class="sec-4">
         <source-link
-            pagePath="/making/input-axis-rpg-walk-scroll-loop"/>
+            pagePath="/making/input-axis-rpg-walk-face-shift-contents-size-variable"/>
     </section>
 </template>
 

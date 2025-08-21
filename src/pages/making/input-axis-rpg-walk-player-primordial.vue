@@ -1,5 +1,5 @@
 <template>
-    <h4>ＲＰＧの歩行グラフィック　＞　登場人物の原始的ウォーキング</h4>
+    <h4>ＲＰＧの歩行グラフィック　＞　自機の原始的ウォーキング</h4>
     <section class="sec-4">
         <p>キーボード操作方法</p>
         <ul>
@@ -29,10 +29,10 @@
     </section>
 
     <br/>
-    <h4><span class="parent-header-lights-out">ＲＰＧの歩行グラフィック　＞　</span><span class="parent-header">登場人物の原始的ウォーキング</span>　＞　ソースコード</h4>
+    <h4><span class="parent-header-lights-out">ＲＰＧの歩行グラフィック　＞　</span><span class="parent-header">自機の原始的ウォーキング</span>　＞　ソースコード</h4>
     <section class="sec-4">
         <source-link
-            pagePath="/making/input-axis-rpg-walk"/>
+            pagePath="/making/input-axis-rpg-walk-player-primordial"/>
     </section>
 </template>
 

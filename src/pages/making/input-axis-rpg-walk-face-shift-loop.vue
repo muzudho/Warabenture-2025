@@ -43,7 +43,7 @@
     <h4><span class="parent-header-lights-out">ＲＰＧの歩行グラフィック　＞　</span><span class="parent-header">数字柄の循環シフト　＞　</span>ソースコード</h4>
     <section class="sec-4">
         <source-link
-            pagePath="/making/input-axis-rpg-walk-scroll-loop"/>
+            pagePath="/making/input-axis-rpg-walk-face-shift-loop"/>
     </section>
 </template>
 
