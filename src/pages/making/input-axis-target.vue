@@ -1,11 +1,34 @@
 <template>
 
+    <!-- ボタンの押しっぱなし機能 -->
+    <button-repeat ref="buttonRepeat1Ref"/>
+
     <h4>標的</h4>
     <section class="sec-4">
+        <!-- タッチパネルでも操作できるように、ボタンを置いておきます。キーボードの操作説明も兼ねます。 -->
         <p>キーボード操作方法</p>
         <ul>
-            <li><span class="code-key">↑</span><span class="code-key">↓</span><span class="code-key">←</span><span class="code-key">→</span>キー　…　上下左右に動かすぜ！</li>
-            <li><span class="code-key">（スペース）</span>キー　…　位置を最初の状態に戻すぜ。</li>
+            <li>
+                <v-btn class="code-key hidden"/>
+                <v-btn class="code-key" @mousedown="buttonRepeat1Ref?.start(onUpButtonPressed);" @mouseup="buttonRepeat1Ref?.stop(onUpButtonReleased);" @mouseleave="buttonRepeat1Ref?.stop(onUpButtonReleased);">↑</v-btn>
+                <br/>
+                <v-btn class="code-key" @mousedown="buttonRepeat1Ref?.start(onLeftButtonPressed)" @mouseup="buttonRepeat1Ref?.justStop()" @mouseleave="buttonRepeat1Ref?.justStop()">←</v-btn>
+                <v-btn class="code-key hidden"/>
+                <v-btn class="code-key" @mousedown="buttonRepeat1Ref?.start(onRightButtonPressed)" @mouseup="buttonRepeat1Ref?.justStop()" @mouseleave="buttonRepeat1Ref?.justStop()">→</v-btn>
+                　…　自機を上下左右へ、印字を逆方向へ動かすぜ！
+                <br/>
+                <v-btn class="code-key hidden"/>
+                <v-btn class="code-key" @mousedown="buttonRepeat1Ref?.start(onDownButtonPressed)" @mouseup="buttonRepeat1Ref?.justStop()" @mouseleave="buttonRepeat1Ref?.justStop()">↓</v-btn>
+                <br/>
+            </li>
+            <li><v-btn class="code-key" @mousedown="onSpaceButtonPressed()" @mouseup="onSpaceButtonReleased()">（スペース）</v-btn>　…　自機、印字の位置を最初に有ったところに戻すぜ。</li>
+            <li>
+                <!-- フォーカスを外すためのダミー・ボタンです -->
+                <v-btn
+                    class="noop-key"
+                    ref="noopButton"
+                    v-tooltip="'PCでのマウス操作で、フォーカスがコントロールに残って邪魔になるときは、このボタンを押してくれだぜ'" >何もしないボタン</v-btn><br/>
+            </li>
         </ul>
         <br/>
 
@@ -13,7 +36,7 @@
             <!-- プレイヤー１（点線の枠） -->
             <div
                 class="cursor"
-                :style="target1Style"></div>
+                :style="player1Style"></div>
         </div>
 
     </section>
@@ -34,9 +57,10 @@
     // ##############
 
     import { computed, onMounted, ref } from 'vue';
-    //
     // 👆 ［初級者向けのソースコード］では、 reactive は使いません。
-    //
+
+    import { VBtn } from 'vuetify/components';
+
 
     // ++++++++++++++++++
     // + コンポーネント +
@@ -45,12 +69,27 @@
     // Tauri なら明示的にインポートを指定する必要がある。 Nuxt なら自動でインポートしてくれる場合がある。
     //
 
+
+    // from の階層が上の順、アルファベット順
+    import ButtonRepeat from '../../components/ButtonRepeat.vue';
     import SourceLink from '../../components/SourceLink.vue';
 
 
     // ################
     // # オブジェクト #
     // ################
+
+    // ++++++++++++++++++++++++++++++++++++++
+    // + オブジェクト　＞　何もしないボタン +
+    // ++++++++++++++++++++++++++++++++++++++
+
+    const noopButton = ref<InstanceType<typeof VBtn> | null>(null);
+
+    // ++++++++++++++++++++++++++++++++++++++++++++
+    // + オブジェクト　＞　ボタン押しっぱなし機能 +
+    // ++++++++++++++++++++++++++++++++++++++++++++
+
+    const buttonRepeat1Ref = ref<InstanceType<typeof ButtonRepeat> | null>(null);
 
     // ++++++++++++++++++++++++
     // + オブジェクト　＞　盤 +
@@ -59,22 +98,22 @@
     const board1SquareWidth = 32;
     const board1SquareHeight = 32;
 
-    // ++++++++++++++++++++++++++++++++
-    // + オブジェクト　＞　ターゲット +
-    // ++++++++++++++++++++++++++++++++
+    // ++++++++++++++++++++++++++++
+    // + オブジェクト　＞　自機１ +
+    // ++++++++++++++++++++++++++++
     //
     // 点線の枠。
     //
 
-    const target1Left = ref<number>(0);      // スプライトのX座標
-    const target1Top = ref<number>(0);       // スプライトのY座標
-    const target1Speed = ref<number>(2);     // 移動速度
-    const target1Input = <Record<string, boolean>>{  // 入力
+    const player1Left = ref<number>(0);      // スプライトのX座標
+    const player1Top = ref<number>(0);       // スプライトのY座標
+    const player1Speed = ref<number>(2);     // 移動速度
+    const player1Input = <Record<string, boolean>>{  // 入力
         " ": false, ArrowUp: false, ArrowRight: false, ArrowDown: false, ArrowLeft: false
     };
-    const target1Style = computed(() => ({
-        top: `${target1Top.value}px`,
-        left: `${target1Left.value}px`,
+    const player1Style = computed(() => ({
+        left: `${player1Left.value}px`,
+        top: `${player1Top.value}px`,
     }));
 
 
@@ -85,24 +124,23 @@
     onMounted(() => {
         // キーボードイベント
         window.addEventListener('keydown', (e: KeyboardEvent) => {
-            // ［スペース］［↑］［↓］キーの場合
-            if (e.key === ' ' || e.key === 'ArrowUp' || e.key === 'ArrowDown') {
+            // ［↑］［↓］キーの場合
+            if (e.key === 'ArrowUp' || e.key === 'ArrowDown') {
                 // ブラウザーのデフォルトの上下スクロール動作をキャンセル
                 e.preventDefault();
             }
 
-            if (target1Input.hasOwnProperty(e.key)) {
-                target1Input[e.key] = true;
+            if (player1Input.hasOwnProperty(e.key)) {
+                player1Input[e.key] = true;
             }
         });
         window.addEventListener('keyup', (e: KeyboardEvent) => {
-            if (target1Input.hasOwnProperty(e.key)) {
-                target1Input[e.key] = false;
+            if (player1Input.hasOwnProperty(e.key)) {
+                player1Input[e.key] = false;
             }
         });
 
         gameLoopStart();
-
     });
 
 
@@ -117,26 +155,29 @@
         const update = () => {
 
             // 位置のリセット
-            if (target1Input[" "]) {
-                target1Top.value = 0;
-                target1Left.value = 0;
+            if (player1Input[" "]) {
+                player1Top.value = 0;
+                player1Left.value = 0;
             }
 
-            // 移動処理                
-            if (target1Input.ArrowUp) {
-                target1Top.value -= target1Speed.value;
+            // ++++++++++++++
+            // + 移動を処理 +
+            // ++++++++++++++
+
+            if (player1Input.ArrowLeft) {   // 左
+                player1Left.value -= player1Speed.value;
             }
 
-            if (target1Input.ArrowRight) {
-                target1Left.value += target1Speed.value;
+            if (player1Input.ArrowUp) {     // 上
+                player1Top.value -= player1Speed.value;
             }
 
-            if (target1Input.ArrowDown) {
-                target1Top.value += target1Speed.value;
+            if (player1Input.ArrowRight) {  // 右
+                player1Left.value += player1Speed.value;
             }
 
-            if (target1Input.ArrowLeft) {
-                target1Left.value -= target1Speed.value;
+            if (player1Input.ArrowDown) {   // 下
+                player1Top.value += player1Speed.value;
             }
 
             // 次のフレーム
@@ -145,6 +186,59 @@
 
         // 初回呼び出し
         requestAnimationFrame(update);
+    }
+
+
+    /**
+     * 左。
+     */
+    function onLeftButtonPressed() : void {
+        player1Left.value -= player1Speed.value;
+    }
+
+
+    /**
+     * 上。
+     */
+    function onUpButtonPressed() : void {
+        player1Top.value -= player1Speed.value;
+    }
+
+
+    /**
+     * 上ボタンを放したとき。
+     */
+    function onUpButtonReleased() : void {
+        // 処理が書けるという例。
+    }
+
+
+    /**
+     * 右。
+     */
+    function onRightButtonPressed() : void {
+        player1Left.value += player1Speed.value;
+    }
+
+
+    /**
+     * 下。
+     */
+    function onDownButtonPressed() : void {
+        player1Top.value += player1Speed.value;
+    }
+
+
+    /**
+     * スペースキー。
+     */
+    function onSpaceButtonPressed() : void {
+        player1Top.value = 0;
+        player1Left.value = 0;
+    }
+
+
+    function onSpaceButtonReleased() : void {
     }
 
 </script>
