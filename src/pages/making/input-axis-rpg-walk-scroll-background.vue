@@ -149,8 +149,9 @@
     const board1Area = computed(()=> {  // 盤のマス数
         return board1FileNum * board1RankNum;
     });
-    const board1FilesWithMask = board1FileNum + 1
-    const board1RanksWithMask = board1RankNum + 1
+    const board1WithMaskBottomRightMargin = 1;          // マスクは右下に１マス分多く作ります。
+    const board1FilesWithMask = board1FileNum + board1WithMaskBottomRightMargin
+    const board1RanksWithMask = board1RankNum + board1WithMaskBottomRightMargin
     const getSquareStyle = computed<
         (i:number)=>CompatibleStyleValue
     >(() => {

@@ -387,6 +387,24 @@ span.code-key {
     font-weight: 900;
     font-size: smaller; /** ドロップシャドウを付けた見た目が大きくなるため、文字サイズを小さくしてバランスを取ります */
 }
+button.code-key {
+    background-color: #e0e0e0;
+    color:#101010;
+    margin: 4px;
+    padding-right: 8px;
+    padding-left: 8px;
+    box-shadow: 1px 1px 4px rgba(51,51,51,1.0);
+    font-weight: 900;
+    font-size: smaller; /** ドロップシャドウを付けた見た目が大きくなるため、文字サイズを小さくしてバランスを取ります */
+}
+button.noop-key {
+    margin: 4px;
+    padding-right: 8px;
+    padding-left: 8px;
+    box-shadow: 1px 1px 4px rgba(51,51,51,1.0);
+    font-weight: 900;
+    font-size: smaller; /** ドロップシャドウを付けた見た目が大きくなるため、文字サイズを小さくしてバランスを取ります */
+}
 
 span.font-x2 {
     font-size: 200%;
@@ -401,4 +419,9 @@ span.parent-header {
 span.parent-header-lights-out {
     font-size: small;
     color:slategray;
+}
+
+/* 非表示 */
+.hidden {
+  visibility: hidden;
 }

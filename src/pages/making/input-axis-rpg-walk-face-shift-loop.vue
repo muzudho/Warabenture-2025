@@ -109,18 +109,18 @@
 
     const board1SquareWidth = 32;
     const board1SquareHeight = 32;
-    const board1Files = 5;
-    const board1Ranks = 5;
+    const board1FileNum = 5;
+    const board1RankNum = 5;
     const board1Area = computed(()=> {  // 盤のマス数
-        return board1Files * board1Ranks;
+        return board1FileNum * board1RankNum;
     });
     const board1Style = computed<CompatibleStyleValue>(()=>{ // ボードとマスクを含んでいる領域のスタイル
         return {
             position: 'relative',
             left: "0",
             top: "0",
-            width: `${commonZoom * board1Files * board1SquareWidth}px`,
-            height: `${commonZoom * board1Ranks * board1SquareHeight}px`,
+            width: `${commonZoom * board1FileNum * board1SquareWidth}px`,
+            height: `${commonZoom * board1RankNum * board1SquareHeight}px`,
         };
     });
     const getSquareStyle = computed<
@@ -128,8 +128,8 @@
     >(() => {
         return (i:number)=>{
             // プレイヤーが初期位置にいる場合の、マスの位置。
-            const homeLeft = (i % board1Files) * board1SquareWidth;
-            const homeTop = Math.floor(i / board1Ranks) * board1SquareHeight;
+            const homeLeft = (i % board1FileNum) * board1SquareWidth;
+            const homeTop = Math.floor(i / board1RankNum) * board1SquareHeight;
 
             return {
                 position: 'absolute',
@@ -144,15 +144,20 @@
         };
     });    
 
-    // ++++++++++++++++++++++++++++++++++
-    // + オブジェクト　＞　盤コンテンツ +
-    // ++++++++++++++++++++++++**++++++++
+    // ++++++++++++++++++++++++++
+    // + オブジェクト　＞　印字 +
+    // ++++++++++++++++++++++++**
     //
-    // 盤上に表示されるもの。
+    // 盤上に表示される数字柄、絵柄など。
     //
 
-    const contents1FileNum = board1Files;       // 列数
-    const contents1RankNum = board1Ranks;       // 行数
+    const printing1FileNum = board1FileNum;       // 列数
+    const printing1RankNum = board1RankNum;       // 行数
+    const printing1File = ref<number>(0);    // 印字の左上隅のタイルは、盤タイルの左から何番目か。
+    const printing1Rank = ref<number>(0);    // 印字の左上隅のタイルは、盤タイルの上から何番目か。
+    const printing1Data = ref<string[]>([
+        "00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24",
+    ]);
 
     /**
      * 変換
@@ -160,37 +165,32 @@
      * @returns [筋番号, 段番号]
      */
     function tileIndexToTileFileRank(tileIndex: number) : number[] {
-        // プレイヤーが右へ１マス移動したら、盤コンテンツは全行が左へ１つ移動する。
-        const file = tileIndex % board1Files;
-        const rank = Math.floor(tileIndex / board1Ranks);
+        // プレイヤーが右へ１マス移動したら、印字は全行が左へ１つ移動する。
+        const file = tileIndex % board1FileNum;
+        const rank = Math.floor(tileIndex / board1RankNum);
 
         return [file, rank];
     }
 
     function contentsFileRankToContentsIndex(contentsFile: number, contentsRank: number) : number {
-        return contentsRank * contents1FileNum + contentsFile;
+        return contentsRank * printing1FileNum + contentsFile;
     }
 
-    const contents1OriginFile = ref<number>(0);    // 盤コンテンツの左上隅のタイルは、盤タイルの左から何番目か。
-    const contents1OriginRank = ref<number>(0);    // 盤コンテンツの左上隅のタイルは、盤タイルの上から何番目か。
-    const contents1Data = ref<string[]>([
-        "00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24",
-    ]);
     const getFaceNumber = computed(() => {
         return (tileIndex: number)=>{
             let [tileFile, tileRank] = tileIndexToTileFileRank(tileIndex);
 
-            // タイル上のインデックスを、コンテンツ上のインデックスへ変換：
-            let contentsFile = tileFile - contents1OriginFile.value; // プレイヤーが右へ１マス移動したら、盤コンテンツは全行が左へ１つ移動する。
-            let contentsRank = tileRank - contents1OriginRank.value; // プレイヤーが下へ１マス移動したら、盤コンテンツは全行が上へ１つ移動する。
+            // タイル上のインデックスを、印字上のインデックスへ変換：
+            let contentsFile = tileFile - printing1File.value; // プレイヤーが右へ１マス移動したら、印字は全行が左へ１つ移動する。
+            let contentsRank = tileRank - printing1Rank.value; // プレイヤーが下へ１マス移動したら、印字は全行が上へ１つ移動する。
             
             // 端でループする
-            contentsFile = euclideanMod(contentsFile, contents1FileNum);
-            contentsRank = euclideanMod(contentsRank, contents1RankNum);
+            contentsFile = euclideanMod(contentsFile, printing1FileNum);
+            contentsRank = euclideanMod(contentsRank, printing1RankNum);
 
-            // コンテンツ上の位置が示すデータを返す
+            // 印字上の位置が示すデータを返す
             const contentsIndex = contentsFileRankToContentsIndex(contentsFile, contentsRank);
-            return  contents1Data.value[contentsIndex];
+            return  printing1Data.value[contentsIndex];
         };
     });    
 
@@ -304,8 +304,8 @@
 
                 // 位置のリセット
                 if (player1Input[" "]) {
-                    contents1OriginFile.value = 0;
-                    contents1OriginRank.value = 0;
+                    printing1File.value = 0;
+                    printing1Rank.value = 0;
                 }
 
                 // 移動
@@ -333,18 +333,18 @@
                 // 斜め方向の場合、上下を優先する。
                 if (player1Motion.value["xAxis"]==1) {   // 右
                     player1Frames.value = player1SourceFrames["right"]
-                    contents1OriginFile.value -= 1;   // コンテンツの方をスクロールさせる
+                    printing1File.value -= 1;   // 印字の方をスクロールさせる
                 } else if (player1Motion.value["xAxis"]==-1) {  // 左
                     player1Frames.value = player1SourceFrames["left"]
-                    contents1OriginFile.value += 1;
+                    printing1File.value += 1;
                 }
 
                 if (player1Motion.value["yAxis"]==-1) {  // 上
                     player1Frames.value = player1SourceFrames["up"]
-                    contents1OriginRank.value += 1;
+                    printing1Rank.value += 1;
                 } else if (player1Motion.value["yAxis"]==1) {   // 下
                     player1Frames.value = player1SourceFrames["down"]
-                    contents1OriginRank.value -= 1;
+                    printing1Rank.value -= 1;
                 }
             }
 
