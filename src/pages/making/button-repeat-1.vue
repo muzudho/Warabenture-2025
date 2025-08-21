@@ -14,7 +14,7 @@
             <li>
                 <v-btn
                     class="code-key"
-                    @touchstart.prevent="onRepeatStart(onUpButtonPressed)"
+                    @touchstart.prevent="onRepeatStart($event, onUpButtonPressed)"
                     @touchend="onRepeatStop(onUpButtonReleased)"
                     @touchcancel="onRepeatStop(onUpButtonReleased)"
                     @touchleave="onRepeatStop(onUpButtonReleased)"
@@ -169,7 +169,7 @@
     function onRepeatHandleMouseDown(e: MouseEvent | TouchEvent, callback:()=>void) : void {
         // タッチイベントを除外
         if (e.type === 'mousedown' && !('touches' in e)) {
-            onRepeatStart(callback);
+            onRepeatStart(e, callback);
         }        
     }
 
@@ -177,7 +177,9 @@
     /**
      * 長押し開始
      */
-    function onRepeatStart(callback:()=>void) : void {      
+    function onRepeatStart(e: MouseEvent | TouchEvent, callback:()=>void) : void {      
+        e.preventDefault(); // ブラウザのデフォルトのタッチ動作（長押しなど）をキャンセル
+
         callback();   // 即時実行
         
         const intervalTime = 17;    // インターバルの時間（ミリ秒）は調整可能

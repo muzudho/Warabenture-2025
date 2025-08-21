@@ -1,10 +1,74 @@
 <template>
+
+    <!-- ボタンの押しっぱなし機能 -->
+    <button-repeat ref="buttonRepeat1Ref"/>
+
     <h4>ＲＰＧの歩行グラフィック　＞　自機の原始的ウォーキング</h4>
     <section class="sec-4">
         <p>キーボード操作方法</p>
         <ul>
-            <li><span class="code-key">↑</span><span class="code-key">↓</span><span class="code-key">←</span><span class="code-key">→</span>キー　…　上下左右に動かすぜ！</li>
-            <li><span class="code-key">（スペース）</span>キー　…　位置を最初の状態に戻すぜ。</li>
+            <li>
+                <v-btn class="code-key hidden"/>
+                <v-btn
+                    class="code-key"
+                    @touchstart.prevent="buttonRepeat1Ref?.start($event, onUpButtonPressed);"
+                    @touchend="buttonRepeat1Ref?.stop(onUpButtonReleased);"
+                    @touchcancel="buttonRepeat1Ref?.stop(onUpButtonReleased);"
+                    @touchleave="buttonRepeat1Ref?.stop(onUpButtonReleased);"
+                    @mousedown.prevent="buttonRepeat1Ref?.handleMouseDown($event, onUpButtonPressed)"
+                    @mouseup="buttonRepeat1Ref?.stop(onUpButtonReleased);"
+                    @mouseleave="buttonRepeat1Ref?.stop(onUpButtonReleased);"
+                >↑</v-btn>
+                <br/>
+                <v-btn
+                    class="code-key"
+                    @touchstart.prevent="buttonRepeat1Ref?.start($event, onLeftButtonPressed);"
+                    @touchend="buttonRepeat1Ref?.stop(onLeftButtonReleased);"
+                    @touchcancel="buttonRepeat1Ref?.stop(onLeftButtonReleased);"
+                    @touchleave="buttonRepeat1Ref?.stop(onLeftButtonReleased);"
+                    @mousedown.prevent="buttonRepeat1Ref?.handleMouseDown($event, onLeftButtonPressed)"
+                    @mouseup="buttonRepeat1Ref?.stop(onLeftButtonReleased);"
+                    @mouseleave="buttonRepeat1Ref?.stop(onLeftButtonReleased);"
+                >←</v-btn>
+                <v-btn class="code-key hidden"/>
+                <v-btn
+                    class="code-key"
+                    @touchstart.prevent="buttonRepeat1Ref?.start($event, onRightButtonPressed);"
+                    @touchend="buttonRepeat1Ref?.stop(onRightButtonReleased);"
+                    @touchcancel="buttonRepeat1Ref?.stop(onRightButtonReleased);"
+                    @touchleave="buttonRepeat1Ref?.stop(onRightButtonReleased);"
+                    @mousedown.prevent="buttonRepeat1Ref?.handleMouseDown($event, onRightButtonPressed)"
+                    @mouseup="buttonRepeat1Ref?.stop(onRightButtonReleased);"
+                    @mouseleave="buttonRepeat1Ref?.stop(onRightButtonReleased);"
+                >→</v-btn>
+                　…　上下左右に動かすぜ！
+                <br/>
+                <v-btn class="code-key hidden"/>
+                <v-btn
+                    class="code-key"
+                    @touchstart.prevent="buttonRepeat1Ref?.start($event, onDownButtonPressed);"
+                    @touchend="buttonRepeat1Ref?.stop(onDownButtonReleased);"
+                    @touchcancel="buttonRepeat1Ref?.stop(onDownButtonReleased);"
+                    @touchleave="buttonRepeat1Ref?.stop(onDownButtonReleased);"
+                    @mousedown.prevent="buttonRepeat1Ref?.handleMouseDown($event, onDownButtonPressed)"
+                    @mouseup="buttonRepeat1Ref?.stop(onDownButtonReleased);"
+                    @mouseleave="buttonRepeat1Ref?.stop(onDownButtonReleased);"
+                >↓</v-btn>
+                <br/>
+            </li>
+            <li>
+                <v-btn
+                    class="code-key"
+                    @touchstart.prevent="buttonRepeat1Ref?.start($event, onSpaceButtonPressed);"
+                    @touchend="buttonRepeat1Ref?.stop(onSpaceButtonReleased);"
+                    @touchcancel="buttonRepeat1Ref?.stop(onSpaceButtonReleased);"
+                    @touchleave="buttonRepeat1Ref?.stop(onSpaceButtonReleased);"
+                    @mousedown.prevent="buttonRepeat1Ref?.handleMouseDown($event, onSpaceButtonPressed)"
+                    @mouseup="buttonRepeat1Ref?.stop(onSpaceButtonReleased);"
+                    @mouseleave="buttonRepeat1Ref?.stop(onSpaceButtonReleased);"
+                >（スペース）</v-btn>
+                　…　位置を最初の状態に戻すぜ。
+            </li>
         </ul>
         <br/>
 
@@ -45,14 +109,11 @@
     import { computed, onMounted, ref } from 'vue';
     // 👆 ［初級者向けのソースコード］では、 reactive は使いません。
 
-
     // ++++++++++++++
     // + 互換性対応 +
     // ++++++++++++++
 
-
     import type { CompatibleStyleValue }  from '../../compatibles/compatible-style-value';
-
 
     // ++++++++++++++++++
     // + コンポーネント +
@@ -62,6 +123,7 @@
     //
 
     // from の階層が上の順、アルファベット順
+    import ButtonRepeat from '../../components/ButtonRepeat.vue';
     import SourceLink from '../../components/SourceLink.vue';
     import Stopwatch from '../../components/Stopwatch.vue';
     import TileAnimation from '../../components/TileAnimation.vue';
@@ -70,6 +132,12 @@
     // ################
     // # オブジェクト #
     // ################
+
+    // ++++++++++++++++++++++++++++++++++++++++++++
+    // + オブジェクト　＞　ボタン押しっぱなし機能 +
+    // ++++++++++++++++++++++++++++++++++++++++++++
+
+    const buttonRepeat1Ref = ref<InstanceType<typeof ButtonRepeat> | null>(null);
 
     // ++++++++++++++++++++++++++++++++++++++
     // + オブジェクト　＞　ストップウォッチ +
@@ -198,6 +266,71 @@
 
         // 初回呼び出し
         requestAnimationFrame(update);
+    }
+
+
+    /**
+     * 左。
+     */
+    function onLeftButtonPressed() : void {
+        player1Input.ArrowLeft = true;
+    }
+
+
+    function onLeftButtonReleased() : void {
+        player1Input.ArrowLeft = false;
+    }
+
+
+    /**
+     * 上。
+     */
+    function onUpButtonPressed() : void {
+        player1Input.ArrowUp = true;
+    }
+
+
+    function onUpButtonReleased() : void {
+        player1Input.ArrowUp = false;
+    }
+
+
+    /**
+     * 右。
+     */
+    function onRightButtonPressed() : void {
+        player1Input.ArrowRight = true;
+    }
+
+
+    function onRightButtonReleased() : void {
+        player1Input.ArrowRight = false;
+    }
+
+
+    /**
+     * 下。
+     */
+    function onDownButtonPressed() : void {
+        player1Input.ArrowDown = true;
+    }
+
+
+    function onDownButtonReleased() : void {
+        player1Input.ArrowDown = false;
+    }
+
+
+    /**
+     * スペース・キー。
+     */
+    function onSpaceButtonPressed() : void {
+        player1Input[" "] = true;
+    }
+
+
+    function onSpaceButtonReleased() : void {
+        player1Input[" "] = false;
     }
 
 </script>

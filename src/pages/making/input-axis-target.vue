@@ -12,7 +12,7 @@
                 <v-btn class="code-key hidden"/>
                 <v-btn
                     class="code-key"
-                    @touchstart.prevent="buttonRepeat1Ref?.start(onUpButtonPressed);"
+                    @touchstart.prevent="buttonRepeat1Ref?.start($event, onUpButtonPressed);"
                     @touchend="buttonRepeat1Ref?.stop(onUpButtonReleased);"
                     @touchcancel="buttonRepeat1Ref?.stop(onUpButtonReleased);"
                     @touchleave="buttonRepeat1Ref?.stop(onUpButtonReleased);"
@@ -23,7 +23,7 @@
                 <br/>
                 <v-btn
                     class="code-key"
-                    @touchstart.prevent="buttonRepeat1Ref?.start(onLeftButtonPressed);"
+                    @touchstart.prevent="buttonRepeat1Ref?.start($event, onLeftButtonPressed);"
                     @touchend="buttonRepeat1Ref?.justStop();"
                     @touchcancel="buttonRepeat1Ref?.justStop();"
                     @touchleave="buttonRepeat1Ref?.justStop();"
@@ -32,8 +32,9 @@
                     @mouseleave="buttonRepeat1Ref?.justStop();"
                 >←</v-btn>
                 <v-btn class="code-key hidden"/>
-                <v-btn class="code-key"
-                    @touchstart.prevent="buttonRepeat1Ref?.start(onRightButtonPressed);"
+                <v-btn
+                    class="code-key"
+                    @touchstart.prevent="buttonRepeat1Ref?.start($event, onRightButtonPressed);"
                     @touchend="buttonRepeat1Ref?.justStop();"
                     @touchcancel="buttonRepeat1Ref?.justStop();"
                     @touchleave="buttonRepeat1Ref?.justStop();"
@@ -44,8 +45,9 @@
                 　…　自機を上下左右へ、印字を逆方向へ動かすぜ！
                 <br/>
                 <v-btn class="code-key hidden"/>
-                <v-btn class="code-key"
-                    @touchstart.prevent="buttonRepeat1Ref?.start(onDownButtonPressed);"
+                <v-btn
+                    class="code-key"
+                    @touchstart.prevent="buttonRepeat1Ref?.start($event, onDownButtonPressed);"
                     @touchend="buttonRepeat1Ref?.justStop();"
                     @touchcancel="buttonRepeat1Ref?.justStop();"
                     @touchleave="buttonRepeat1Ref?.justStop();"
@@ -61,7 +63,8 @@
                 <v-btn
                     class="noop-key"
                     ref="noopButton"
-                    v-tooltip="'PCでのマウス操作で、フォーカスがコントロールに残って邪魔になるときは、このボタンを押してくれだぜ'" >何もしないボタン</v-btn><br/>
+                    v-tooltip="'PCでのマウス操作で、フォーカスがコントロールに残って邪魔になるときは、このボタンを押してくれだぜ'"
+                >何もしないボタン</v-btn><br/>
             </li>
         </ul>
         <br/>

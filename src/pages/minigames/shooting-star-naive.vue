@@ -1,22 +1,19 @@
 <template>
     <the-header/>
 
+    <!-- ボタンの押しっぱなし機能 -->
+    <button-repeat ref="buttonRepeat1Ref"/>
+
     <h3>シューティング・スター（初級者向けのソースコード）</h3>
     <section class="sec-3">
 
         <!-- ゲームの操作方法 -->
-        <v-btn @click="appManualIsShowing = !appManualIsShowing">{{ appManualIsShowing ? 'ゲームの遊び方・操作方法を閉じる' : 'ゲームの遊び方・操作方法を表示' }}</v-btn>
-        <div v-if="appManualIsShowing">
-            <p>このゲームは、星を撮影する、という状況を見立てたゲームだぜ。</p>
-            <br/>
-            <p>操作で使うコントローラーは以下のものだぜ。</p>
-            <ul>
-                <li>マウスの左クリック: ボタンを押すのに使う</li>
-                <li>キーボードの上下左右キー: カメラのファインダー（点線の長方形だ）を上下左右に移動</li>
-                <li>キーボードのエンターキー: 撮影</li>
-            </ul>
-            <br/>
+        <v-btn @click="appManualIsShowing = !appManualIsShowing">{{ appManualIsShowing ? 'ゲームの遊び方閉じる' : 'ゲームの遊び方を表示' }}</v-btn>
+        <section class="sec-1" v-if="appManualIsShowing">
+            <br>
             <p>
+                このゲームは、星を撮影する、という状況を見立てたゲームだぜ。<br/>
+                <br/>
                 下に黒い画面が見えるように、ウィンドウを広げてくれだぜ。<br/>
                 この黒い画面は宇宙な。<br/>
                 ［ゲームスタート］ボタンを押すと、ゲームが始まるぜ。<br/>
@@ -25,18 +22,110 @@
                 <br/>
                 飽きたら終わりだぜ。<br/>
             </p>
-        </div><br/>
+        </section><br/>
         <br/>
+        <p>ボタン</p>
+        <ul>
+            <li>
+                <!-- ボタンを並べる -->
+                <v-btn
+                    class="code-key"
+                    @touchstart.prevent="buttonRepeat1Ref?.start($event, onGameStartOrEndButtonPushed);"
+                    @touchend="buttonRepeat1Ref?.justStop();"
+                    @touchcancel="buttonRepeat1Ref?.justStop();"
+                    @touchleave="buttonRepeat1Ref?.justStop();"
+                    @mousedown.prevent="buttonRepeat1Ref?.handleMouseDown($event, onGameStartOrEndButtonPushed)"
+                    @mouseup="buttonRepeat1Ref?.justStop();"
+                    @mouseleave="buttonRepeat1Ref?.justStop();"
+                >{{ appGameIsPlaying ? "ゲーム終了" : "ゲームスタート" }}</v-btn>
+                <v-btn
+                    class="code-key"
+                    @touchstart.prevent="buttonRepeat1Ref?.start($event, onGamePauseOrRestartButtonPushed);"
+                    @touchend="buttonRepeat1Ref?.justStop();"
+                    @touchcancel="buttonRepeat1Ref?.justStop();"
+                    @touchleave="buttonRepeat1Ref?.justStop();"
+                    @mousedown.prevent="buttonRepeat1Ref?.handleMouseDown($event, onGamePauseOrRestartButtonPushed)"
+                    @mouseup="buttonRepeat1Ref?.justStop();"
+                    @mouseleave="buttonRepeat1Ref?.justStop();"
+                >{{ appGameIsPause ? "再開" : "一時停止" }}</v-btn>
 
-        <!-- ボタンを並べる -->
+                <!-- フォーカスを外すためのダミー・ボタンです -->
+                <v-btn
+                    class="noop-key"
+                    ref="noopButton"
+                    v-tooltip="'PCでのマウス操作で、フォーカスがコントロールに残って邪魔になるときは、このボタンを押してくれだぜ'"
+                >何もしないボタン</v-btn>
+            </li>
+        </ul>
+        <br/>
+        <p>キーボード操作方法</p>
+        <ul>
+            <li>ＰＣならボタンをマウスクリックか、キーボード操作、スマホならボタンをタッチ。</li>
+            <li>
+                <v-btn class="code-key hidden"/>
+                <v-btn
+                    class="code-key"
+                    @touchstart.prevent="buttonRepeat1Ref?.start($event, onUpButtonPressed);"
+                    @touchend="buttonRepeat1Ref?.stop(onUpButtonReleased);"
+                    @touchcancel="buttonRepeat1Ref?.stop(onUpButtonReleased);"
+                    @touchleave="buttonRepeat1Ref?.stop(onUpButtonReleased);"
+                    @mousedown.prevent="buttonRepeat1Ref?.handleMouseDown($event, onUpButtonPressed)"
+                    @mouseup="buttonRepeat1Ref?.stop(onUpButtonReleased);"
+                    @mouseleave="buttonRepeat1Ref?.stop(onUpButtonReleased);"
+                >↑</v-btn>
+                <br/>
+                <v-btn
+                    class="code-key"
+                    @touchstart.prevent="buttonRepeat1Ref?.start($event, onLeftButtonPressed);"
+                    @touchend="buttonRepeat1Ref?.stop(onLeftButtonReleased);"
+                    @touchcancel="buttonRepeat1Ref?.stop(onLeftButtonReleased);"
+                    @touchleave="buttonRepeat1Ref?.stop(onLeftButtonReleased);"
+                    @mousedown.prevent="buttonRepeat1Ref?.handleMouseDown($event, onLeftButtonPressed)"
+                    @mouseup="buttonRepeat1Ref?.stop(onLeftButtonReleased);"
+                    @mouseleave="buttonRepeat1Ref?.stop(onLeftButtonReleased);"
+                >←</v-btn>
+                <v-btn class="code-key hidden"/>
+                <v-btn
+                    class="code-key"
+                    @touchstart.prevent="buttonRepeat1Ref?.start($event, onRightButtonPressed);"
+                    @touchend="buttonRepeat1Ref?.stop(onRightButtonReleased);"
+                    @touchcancel="buttonRepeat1Ref?.stop(onRightButtonReleased);"
+                    @touchleave="buttonRepeat1Ref?.stop(onRightButtonReleased);"
+                    @mousedown.prevent="buttonRepeat1Ref?.handleMouseDown($event, onRightButtonPressed)"
+                    @mouseup="buttonRepeat1Ref?.stop(onRightButtonReleased);"
+                    @mouseleave="buttonRepeat1Ref?.stop(onRightButtonReleased);"
+                >→</v-btn>
+                　…　カメラのファインダー（点線の長方形だ）を上下左右に移動
+                <br/>
+                <v-btn class="code-key hidden"/>
+                <v-btn
+                    class="code-key"
+                    @touchstart.prevent="buttonRepeat1Ref?.start($event, onDownButtonPressed);"
+                    @touchend="buttonRepeat1Ref?.stop(onDownButtonReleased);"
+                    @touchcancel="buttonRepeat1Ref?.stop(onDownButtonReleased);"
+                    @touchleave="buttonRepeat1Ref?.stop(onDownButtonReleased);"
+                    @mousedown.prevent="buttonRepeat1Ref?.handleMouseDown($event, onDownButtonPressed)"
+                    @mouseup="buttonRepeat1Ref?.stop(onDownButtonReleased);"
+                    @mouseleave="buttonRepeat1Ref?.stop(onDownButtonReleased);"
+                >↓</v-btn>
+                <br/>
+            </li>
+            <li>
+                <v-btn
+                    class="code-key"
+                    @touchstart.prevent="buttonRepeat1Ref?.start($event, onEnterButtonPressed);"
+                    @touchend="buttonRepeat1Ref?.stop(onEnterButtonReleased);"
+                    @touchcancel="buttonRepeat1Ref?.stop(onEnterButtonReleased);"
+                    @touchleave="buttonRepeat1Ref?.stop(onEnterButtonReleased);"
+                    @mousedown.prevent="buttonRepeat1Ref?.handleMouseDown($event, onEnterButtonPressed)"
+                    @mouseup="buttonRepeat1Ref?.stop(onEnterButtonReleased);"
+                    @mouseleave="buttonRepeat1Ref?.stop(onEnterButtonReleased);"
+                >（エンター）</v-btn>
+                　…　撮影。
+            </li>
+        </ul>
+        <br/>
         <div>
-            <v-btn @click="onGameStartOrEndButtonPushed()">{{ appGameIsPlaying ? "ゲーム終了" : "ゲームスタート" }}</v-btn>
-            <v-btn @click="onGamePauseOrRestartButtonPushed()">{{ appGameIsPause ? "再開" : "一時停止" }}</v-btn>
-
-            <!-- フォーカスを外すためのダミー・ボタンです -->
-            <v-btn ref="noopButton">何もしないボタン</v-btn>
-            <br/>
-
             <p style="font-size: x-large; margin-top: 8px; margin-bottom: 8px;">
             スコア： {{ appGameScore }}　　残り時間: {{ Math.floor((appGameMaxCount - stopwatch1Count) / commonSeconds) }} . {{ (appGameMaxCount - stopwatch1Count) % commonSeconds }}
             </p>
@@ -69,8 +158,8 @@
 
             <!-- カメラのファインダー（点線の枠） -->
             <div
-                class="finder"
-                :style="finderStyle"
+                class="player"
+                :style="playerStyle"
                 style="position:absolute;" ></div>
 
             <!-- リロードのカウントダウン（パイみたいなやつ） -->
@@ -90,7 +179,7 @@
             <p>スケジュール・ステップ: {{ appGameScheduleStep.value }}</p>
             <p>星　行： {{ star1Ranks }}</p>
             <p>星　列： {{ star1Files }}</p>
-            <p>リロード・タイム: {{ finder1ReloadTime.value }}</p>
+            <p>リロード・タイム: {{ player1ReloadTime.value }}</p>
             <br/>
             <p>元画像のタイルマップを表示：</p>
             <v-img src="/img/making/sprite-objects-001.png" style="width:128px; height:128px; border: dashed 4px gray;"/><br/>
@@ -126,6 +215,7 @@
     // ++++++++++++++++++++++++++++++++++
 
     // from の階層が上の順、アルファベット順
+    import ButtonRepeat from '../../components/ButtonRepeat.vue';
     import SourceLink from '../../components/SourceLink.vue';
     import Stopwatch from '../../components/Stopwatch.vue';
     import Tile from '../../components/Tile.vue';
@@ -212,6 +302,12 @@
     // ++++++++++++++++++++++++++++++++++++++
 
     const noopButton = ref<InstanceType<typeof VBtn> | null>(null);
+
+    // ++++++++++++++++++++++++++++++++++++++++++++
+    // + オブジェクト　＞　ボタン押しっぱなし機能 +
+    // ++++++++++++++++++++++++++++++++++++++++++++
+
+    const buttonRepeat1Ref = ref<InstanceType<typeof ButtonRepeat> | null>(null);
 
     // ++++++++++++++++++++++++++++++++++++++
     // + オブジェクト　＞　ストップウォッチ +
@@ -459,36 +555,36 @@
         };
     });
 
-    // ++++++++++++++++++++++++++++++++++++++++++
-    // + オブジェクト　＞　カメラのファインダー +
-    // ++++++++++++++++++++++++++++++++++++++++++
+    // ++++++++++++++++++++++++++++
+    // + オブジェクト　＞　自機１ +
+    // ++++++++++++++++++++++++++++
     //
-    // 点線の枠
+    // カメラのファインダー。点線の枠。
     //
 
-    const finder1Left = ref<number>(6 * board1SquareWidth.value);     // スプライトのX座標
-    const finder1Top = ref<number>(4 * board1SquareHeight.value);     // スプライトのY座標
-    const finder1FileNum = ref<number>(4);                            // スプライトの列数
-    const finder1RankNum = ref<number>(3);                            // スプライトの行数
-    const finder1Speed = ref<number>(4);                              // 移動速度
-    const finder1Input = ref<Record<string, boolean>>({               // 入力
+    const player1Left = ref<number>(6 * board1SquareWidth.value);     // スプライトのX座標
+    const player1Top = ref<number>(4 * board1SquareHeight.value);     // スプライトのY座標
+    const player1FileNum = ref<number>(4);                            // スプライトの列数
+    const player1RankNum = ref<number>(3);                            // スプライトの行数
+    const player1Speed = ref<number>(4);                              // 移動速度
+    const player1Input = <Record<string, boolean>>{                     // 入力
         // アルファベット順
         ArrowDown: false, ArrowLeft: false, ArrowUp: false, ArrowRight: false, Enter: false,
-    });
+    };
     const player1AnimationWalkingFrames = 8;                        // 歩行フレーム数
-    const finder1MotionWait = ref<number>(0);                       // TODO: 入力キーごとにウェイトを用意したい
-    const finder1Motion = ref<Record<string, number>>({             // 入力
+    const player1MotionWait = ref<number>(0);                       // TODO: 入力キーごとにウェイトを用意したい
+    const player1Motion = ref<Record<string, number>>({             // 入力
         xAxis: 0,   // 負なら左、正なら右
         yAxis: 0,   // 負なら上、正なら下
     });
-    const finder1ReloadTime = ref<number>(0);                       // 0 になるまで、入力を受け付けない
-    const finderStyle = computed(() => {
+    const player1ReloadTime = ref<number>(0);                       // 0 になるまで、入力を受け付けない
+    const playerStyle = computed(() => {
         return {
-            top: `${finder1Top.value}px`,
-            left: `${finder1Left.value}px`,
-            width: `${finder1FileNum.value * board1SquareWidth.value}px`,
-            height: `${finder1RankNum.value * board1SquareHeight.value}px`,
-            border: `dashed 4px ${finder1ReloadTime.value > 0 ? '#d85050' : '#f0f0f0'}`, // リロード中は赤い枠
+            top: `${player1Top.value}px`,
+            left: `${player1Left.value}px`,
+            width: `${player1FileNum.value * board1SquareWidth.value}px`,
+            height: `${player1RankNum.value * board1SquareHeight.value}px`,
+            border: `dashed 4px ${player1ReloadTime.value > 0 ? '#d85050' : '#f0f0f0'}`, // リロード中は赤い枠
         };
     });
 
@@ -516,7 +612,7 @@
         // タイル１枚当たりの時間（フレーム）
         const frameNum = Object.keys(reloadPie1Frames).length;
         const unitTime = reloadPie1Weight / frameNum;
-        let index = Math.floor(finder1ReloadTime.value / unitTime);
+        let index = Math.floor(player1ReloadTime.value / unitTime);
         if (index >= frameNum) {
             index = frameNum - 1;
         }
@@ -530,9 +626,9 @@
     });
     const reloadPieStyle = computed(() => {
         return {
-            visibility: finder1ReloadTime.value > 0 ? 'visible' : 'hidden',
-            top: `${finder1Top.value + finder1RankNum.value * board1SquareHeight.value / 2 - board1SquareHeight.value / 2}px`,
-            left: `${finder1Left.value + finder1FileNum.value * board1SquareWidth.value / 2 - board1SquareWidth.value / 2}px`,
+            visibility: player1ReloadTime.value > 0 ? 'visible' : 'hidden',
+            top: `${player1Top.value + player1RankNum.value * board1SquareHeight.value / 2 - board1SquareHeight.value / 2}px`,
+            left: `${player1Left.value + player1FileNum.value * board1SquareWidth.value / 2 - board1SquareWidth.value / 2}px`,
         };
     });
 
@@ -557,13 +653,13 @@
                 e.preventDefault();
             }
 
-            if (finder1Input.value.hasOwnProperty(e.key)) {
-                finder1Input.value[e.key] = true;
+            if (player1Input.hasOwnProperty(e.key)) {
+                player1Input[e.key] = true;
             }
         });
         window.addEventListener('keyup', (e) => {
-            if (finder1Input.value.hasOwnProperty(e.key)) {
-                finder1Input.value[e.key] = false;
+            if (player1Input.hasOwnProperty(e.key)) {
+                player1Input[e.key] = false;
             }
         });
     });
@@ -652,67 +748,67 @@
     function gameLoopStart() : void {
         const update = () => {
             // モーション・タイマー
-            finder1MotionWait.value -= 1;
+            player1MotionWait.value -= 1;
 
-            if (finder1ReloadTime.value > 0) {
+            if (player1ReloadTime.value > 0) {
                 // リロード中
-                finder1ReloadTime.value -= 1;
+                player1ReloadTime.value -= 1;
             }
 
-            if (finder1MotionWait.value==0) {
-                finder1Motion.value["xAxis"] = 0;    // クリアー
-                finder1Motion.value["yAxis"] = 0;
+            if (player1MotionWait.value==0) {
+                player1Motion.value["xAxis"] = 0;    // クリアー
+                player1Motion.value["yAxis"] = 0;
             }
             
             // ++++++++++++++++++++++++++++++
             // + キー入力をモーションに変換 +
             // ++++++++++++++++++++++++++++++
-            if (finder1MotionWait.value<=0) {   // ウェイトが無ければ、入力を受け付ける。
+            if (player1MotionWait.value<=0) {   // ウェイトが無ければ、入力を受け付ける。
 
-                if (finder1Input.value.Enter) {
+                if (player1Input.Enter) {
                     cameraShot();   // 撮影
                 }
 
-                if (finder1Input.value.ArrowLeft) {
-                    finder1Motion.value["xAxis"] = commonSpriteMotionLeft; // 左
+                if (player1Input.ArrowLeft) {
+                    player1Motion.value["xAxis"] = commonSpriteMotionLeft; // 左
                 }
 
-                if (finder1Input.value.ArrowRight) {
-                    finder1Motion.value["xAxis"] = commonSpriteMotionRight;  // 右
+                if (player1Input.ArrowRight) {
+                    player1Motion.value["xAxis"] = commonSpriteMotionRight;  // 右
                 }
 
-                if (finder1Input.value.ArrowUp) {
-                    finder1Motion.value["yAxis"] = commonSpriteMotionUp;   // 上
+                if (player1Input.ArrowUp) {
+                    player1Motion.value["yAxis"] = commonSpriteMotionUp;   // 上
                 }
 
-                if (finder1Input.value.ArrowDown) {
-                    finder1Motion.value["yAxis"] = commonSpriteMotionDown;   // 下
+                if (player1Input.ArrowDown) {
+                    player1Motion.value["yAxis"] = commonSpriteMotionDown;   // 下
                 }
 
-                if (finder1Motion.value["xAxis"]!=0 || finder1Motion.value["yAxis"]!=0) {
-                    finder1MotionWait.value = player1AnimationWalkingFrames;
+                if (player1Motion.value["xAxis"]!=0 || player1Motion.value["yAxis"]!=0) {
+                    player1MotionWait.value = player1AnimationWalkingFrames;
                 }
             }
 
             // 移動処理
             // 斜め方向の場合、上下を優先する。
-            if (finder1Motion.value["xAxis"]==1) {   // 右
-                if (finder1Left.value < (board1Files.value - finder1FileNum.value) * board1SquareWidth.value) {    // 境界チェック
-                    finder1Left.value += finder1Speed.value;
+            if (player1Motion.value["xAxis"]==1) {   // 右
+                if (player1Left.value < (board1Files.value - player1FileNum.value) * board1SquareWidth.value) {    // 境界チェック
+                    player1Left.value += player1Speed.value;
                 }
-            } else if (finder1Motion.value["xAxis"]==-1) {  // 左
-                if (0 < finder1Left.value) {    // 境界チェック
-                    finder1Left.value -= finder1Speed.value;
+            } else if (player1Motion.value["xAxis"]==-1) {  // 左
+                if (0 < player1Left.value) {    // 境界チェック
+                    player1Left.value -= player1Speed.value;
                 }
             }
 
-            if (finder1Motion.value["yAxis"]==-1) {  // 上
-                if (0 < finder1Top.value) {    // 境界チェック
-                    finder1Top.value -= finder1Speed.value;
+            if (player1Motion.value["yAxis"]==-1) {  // 上
+                if (0 < player1Top.value) {    // 境界チェック
+                    player1Top.value -= player1Speed.value;
                 }
-            } else if (finder1Motion.value["yAxis"]==1) {   // 下
-                if (finder1Top.value < (board1Ranks.value - finder1RankNum.value) * board1SquareHeight.value) {    // 境界チェック
-                    finder1Top.value += finder1Speed.value;
+            } else if (player1Motion.value["yAxis"]==1) {   // 下
+                if (player1Top.value < (board1Ranks.value - player1RankNum.value) * board1SquareHeight.value) {    // 境界チェック
+                    player1Top.value += player1Speed.value;
                 }
             }
 
@@ -730,7 +826,7 @@
      */
     function cameraShot() : void {
 
-        if (finder1ReloadTime.value > 0) {
+        if (player1ReloadTime.value > 0) {
             // リロード中
             if (!sfxDeniedIsPlaying) {
                 // ブザー音が停止中なら鳴らす
@@ -742,15 +838,15 @@
         }
 
         // ファインダーの位置とサイズ
-        const finderLeftFiles = finder1Left.value / board1SquareWidth.value;
-        const finderTopRanks = finder1Top.value / board1SquareHeight.value;
-        const finderRightEndFiles = finderLeftFiles + finder1FileNum.value;
-        const finderBottomEndRanks = finderTopRanks + finder1RankNum.value;
+        const playerLeftFiles = player1Left.value / board1SquareWidth.value;
+        const playerTopRanks = player1Top.value / board1SquareHeight.value;
+        const playerRightEndFiles = playerLeftFiles + player1FileNum.value;
+        const playerBottomEndRanks = playerTopRanks + player1RankNum.value;
 
         // ファインダーの枠内に星を含むか？
         if (
-            finderLeftFiles <= star1Files.value && star1Files.value <= finderRightEndFiles &&
-            finderTopRanks <= star1Ranks.value && star1Ranks.value <= finderBottomEndRanks) {
+            playerLeftFiles <= star1Files.value && star1Files.value <= playerRightEndFiles &&
+            playerTopRanks <= star1Ranks.value && star1Ranks.value <= playerBottomEndRanks) {
             // 星を含んだ。
             niceShot();
 
@@ -762,7 +858,7 @@
             }
         }
 
-        finder1ReloadTime.value = reloadPie1Weight;  // リロード時間を設定
+        player1ReloadTime.value = reloadPie1Weight;  // リロード時間を設定
     }
 
 
@@ -788,10 +884,76 @@
         }
     }
 
+
+    /**
+     * 左。
+     */
+    function onLeftButtonPressed() : void {
+        player1Input.ArrowLeft = true;
+    }
+
+
+    function onLeftButtonReleased() : void {
+        player1Input.ArrowLeft = false;
+    }
+
+
+    /**
+     * 上。
+     */
+    function onUpButtonPressed() : void {
+        player1Input.ArrowUp = true;
+    }
+
+
+    function onUpButtonReleased() : void {
+        player1Input.ArrowUp = false;
+    }
+
+
+    /**
+     * 右。
+     */
+    function onRightButtonPressed() : void {
+        player1Input.ArrowRight = true;
+    }
+
+
+    function onRightButtonReleased() : void {
+        player1Input.ArrowRight = false;
+    }
+
+
+    /**
+     * 下。
+     */
+    function onDownButtonPressed() : void {
+        player1Input.ArrowDown = true;
+    }
+
+
+    function onDownButtonReleased() : void {
+        player1Input.ArrowDown = false;
+    }
+
+
+    /**
+     * エンター・キー。
+     */
+    function onEnterButtonPressed() : void {
+        player1Input.Enter = true;
+    }
+
+
+    function onEnterButtonReleased() : void {
+        player1Input.Enter = false;
+    }
+
 </script>
 
 <style scoped>
-    div.finder {
+    /** カメラのファインダー */
+    div.player {
         position: relative; border:dashed 4px #f0f0f0;
     }
 </style>

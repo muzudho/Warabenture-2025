@@ -43,7 +43,7 @@
     function handleMouseDown(e: MouseEvent | TouchEvent, callback:()=>void) : void {
         // タッチイベントを除外
         if (e.type === 'mousedown' && !('touches' in e)) {
-            start(callback);
+            start(e, callback);
         }        
     }
 
@@ -52,7 +52,9 @@
      * 長押し開始
      * @param callback ボタンを押しっぱなしにしているときのコールバック関数
      */
-    function start(callback:()=>void) : void {      
+    function start(e: MouseEvent | TouchEvent, callback:()=>void) : void {
+        e.preventDefault(); // ブラウザのデフォルトのタッチ動作（長押しなど）をキャンセル
+
         callback(); // 即時実行
         
         const intervalTime = 17;    // インターバルの時間（ミリ秒）は調整可能
