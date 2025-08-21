@@ -38,6 +38,17 @@
 
 
     /**
+     * タッチと、クリックを分けます。
+     */
+    function handleMouseDown(e: MouseEvent | TouchEvent, callback:()=>void) : void {
+        // タッチイベントを除外
+        if (e.type === 'mousedown' && !('touches' in e)) {
+            start(callback);
+        }        
+    }
+
+
+    /**
      * 長押し開始
      * @param callback ボタンを押しっぱなしにしているときのコールバック関数
      */
@@ -49,6 +60,7 @@
             callback();
         }, intervalTime);
     }
+
 
     /**
      * 長押し終了
@@ -80,6 +92,7 @@
     // ################
 
     defineExpose({
+        handleMouseDown,
         start,
         stop,
         justStop,

@@ -12,7 +12,16 @@
         <p>キーボード操作方法</p>
         <ul>
             <li>
-                <v-btn class="code-key" @mousedown="onRepeatStart(onUpButtonPressed)" @mouseup="onRepeatStop(onUpButtonReleased)" @mouseleave="onRepeatStop(onUpButtonReleased)">↑</v-btn>
+                <v-btn
+                    class="code-key"
+                    @touchstart.prevent="onRepeatStart(onUpButtonPressed)"
+                    @touchend="onRepeatStop(onUpButtonReleased)"
+                    @touchcancel="onRepeatStop(onUpButtonReleased)"
+                    @touchleave="onRepeatStop(onUpButtonReleased)"
+                    @mousedown.prevent="onRepeatHandleMouseDown($event, onUpButtonPressed)"
+                    @mouseup="onRepeatStop(onUpButtonReleased)"
+                    @mouseleave="onRepeatStop(onUpButtonReleased)"
+                >↑</v-btn>
                 　…　とりあえず、上キーの押しっぱなしが利くようにするぜ！
                 <br/>
             </li>
@@ -155,6 +164,17 @@
 
 
     /**
+     * タッチと、クリックを分けます。
+     */
+    function onRepeatHandleMouseDown(e: MouseEvent | TouchEvent, callback:()=>void) : void {
+        // タッチイベントを除外
+        if (e.type === 'mousedown' && !('touches' in e)) {
+            onRepeatStart(callback);
+        }        
+    }
+
+
+    /**
      * 長押し開始
      */
     function onRepeatStart(callback:()=>void) : void {      
@@ -165,6 +185,7 @@
             callback();
         }, intervalTime);
     }
+
 
     /**
      * 長押し終了

@@ -10,15 +10,49 @@
         <ul>
             <li>
                 <v-btn class="code-key hidden"/>
-                <v-btn class="code-key" @mousedown="buttonRepeat1Ref?.start(onUpButtonPressed);" @mouseup="buttonRepeat1Ref?.stop(onUpButtonReleased);" @mouseleave="buttonRepeat1Ref?.stop(onUpButtonReleased);">↑</v-btn>
+                <v-btn
+                    class="code-key"
+                    @touchstart.prevent="buttonRepeat1Ref?.start(onUpButtonPressed);"
+                    @touchend="buttonRepeat1Ref?.stop(onUpButtonReleased);"
+                    @touchcancel="buttonRepeat1Ref?.stop(onUpButtonReleased);"
+                    @touchleave="buttonRepeat1Ref?.stop(onUpButtonReleased);"
+                    @mousedown.prevent="buttonRepeat1Ref?.handleMouseDown($event, onUpButtonPressed)"
+                    @mouseup="buttonRepeat1Ref?.stop(onUpButtonReleased);"
+                    @mouseleave="buttonRepeat1Ref?.stop(onUpButtonReleased);"
+                >↑</v-btn>
                 <br/>
-                <v-btn class="code-key" @mousedown="buttonRepeat1Ref?.start(onLeftButtonPressed)" @mouseup="buttonRepeat1Ref?.justStop()" @mouseleave="buttonRepeat1Ref?.justStop()">←</v-btn>
+                <v-btn
+                    class="code-key"
+                    @touchstart.prevent="buttonRepeat1Ref?.start(onLeftButtonPressed);"
+                    @touchend="buttonRepeat1Ref?.justStop();"
+                    @touchcancel="buttonRepeat1Ref?.justStop();"
+                    @touchleave="buttonRepeat1Ref?.justStop();"
+                    @mousedown.prevent="buttonRepeat1Ref?.handleMouseDown($event, onLeftButtonPressed)"
+                    @mouseup="buttonRepeat1Ref?.justStop();"
+                    @mouseleave="buttonRepeat1Ref?.justStop();"
+                >←</v-btn>
                 <v-btn class="code-key hidden"/>
-                <v-btn class="code-key" @mousedown="buttonRepeat1Ref?.start(onRightButtonPressed)" @mouseup="buttonRepeat1Ref?.justStop()" @mouseleave="buttonRepeat1Ref?.justStop()">→</v-btn>
+                <v-btn class="code-key"
+                    @touchstart.prevent="buttonRepeat1Ref?.start(onRightButtonPressed);"
+                    @touchend="buttonRepeat1Ref?.justStop();"
+                    @touchcancel="buttonRepeat1Ref?.justStop();"
+                    @touchleave="buttonRepeat1Ref?.justStop();"
+                    @mousedown.prevent="buttonRepeat1Ref?.handleMouseDown($event, onRightButtonPressed)"
+                    @mouseup="buttonRepeat1Ref?.justStop();"
+                    @mouseleave="buttonRepeat1Ref?.justStop();"
+                >→</v-btn>
                 　…　自機を上下左右へ、印字を逆方向へ動かすぜ！
                 <br/>
                 <v-btn class="code-key hidden"/>
-                <v-btn class="code-key" @mousedown="buttonRepeat1Ref?.start(onDownButtonPressed)" @mouseup="buttonRepeat1Ref?.justStop()" @mouseleave="buttonRepeat1Ref?.justStop()">↓</v-btn>
+                <v-btn class="code-key"
+                    @touchstart.prevent="buttonRepeat1Ref?.start(onDownButtonPressed);"
+                    @touchend="buttonRepeat1Ref?.justStop();"
+                    @touchcancel="buttonRepeat1Ref?.justStop();"
+                    @touchleave="buttonRepeat1Ref?.justStop();"
+                    @mousedown.prevent="buttonRepeat1Ref?.handleMouseDown($event, onDownButtonPressed)"
+                    @mouseup="buttonRepeat1Ref?.justStop();"
+                    @mouseleave="buttonRepeat1Ref?.justStop();"
+                >↓</v-btn>
                 <br/>
             </li>
             <li><v-btn class="code-key" @mousedown="onSpaceButtonPressed()" @mouseup="onSpaceButtonReleased()">（スペース）</v-btn>　…　自機、印字の位置を最初に有ったところに戻すぜ。</li>
