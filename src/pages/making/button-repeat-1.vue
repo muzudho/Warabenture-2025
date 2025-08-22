@@ -1,6 +1,6 @@
 <!--
     このページの［ボタンの押しっぱなし］機能をコンポーネント化したものがあります。
-    ../../components/ButtonRepeat.vue を参照してください。
+    ../../components/Button20250822.vue を参照してください。
 -->
 
 <template>

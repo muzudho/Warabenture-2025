@@ -2,6 +2,10 @@
     pages/making/button-repeat-1.vue の［ボタンの押しっぱなし］機能のコンポーネント化。
     使用例は
     pages/making/input-axis-target.vue 参照。
+
+    役割は２つ。
+    （１）　ボタンの押しっぱなし（キーリピート）を有効にする。
+    （２）　クリックとタッチ操作の両方に対応する。
 -->
 
 <template>
@@ -33,17 +37,24 @@
     // ##########
 
     onUnmounted(()=>{
-        justStop();
+        release();
     });
 
 
     /**
      * タッチと、クリックを分けます。
      */
-    function handleMouseDown(e: MouseEvent | TouchEvent, callback:()=>void) : void {
+    function handleMouseDown(
+            e: MouseEvent | TouchEvent,
+            callback:()=>void,
+            options: {
+                repeat?: boolean
+            } = {
+                repeat: false
+            }) : void {
         // タッチイベントを除外
         if (e.type === 'mousedown' && !('touches' in e)) {
-            start(e, callback);
+            press(e, callback, options);
         }        
     }
 
@@ -52,15 +63,30 @@
      * 長押し開始
      * @param callback ボタンを押しっぱなしにしているときのコールバック関数
      */
-    function start(e: MouseEvent | TouchEvent, callback:()=>void) : void {
+    function press(
+            e: MouseEvent | TouchEvent,
+            callback:()=>void,
+            options: {
+                repeat?: boolean
+            } = {
+                repeat: false
+            }) : void {
+
+        // 未指定のメンバーにデフォルト値をセット：
+        options = {
+            repeat: options.repeat ?? false
+        };
+
         e.preventDefault(); // ブラウザのデフォルトのタッチ動作（長押しなど）をキャンセル
 
         callback(); // 即時実行
         
-        const intervalTime = 17;    // インターバルの時間（ミリ秒）は調整可能
-        appManualKeyRepeatTimerId.value = setInterval(() => {   // 指定の間隔で繰り返し実行
-            callback();
-        }, intervalTime);
+        if (options.repeat) {
+            const intervalTime = 17;    // インターバルの時間（ミリ秒）は調整可能
+            appManualKeyRepeatTimerId.value = setInterval(() => {   // 指定の間隔で繰り返し実行
+                callback();
+            }, intervalTime);
+        }
     }
 
 
@@ -68,23 +94,14 @@
      * 長押し終了
      * @param callback ボタンを放したときのコールバック関数
      */
-    function stop(callback:()=>void) {
+    function release(callback?:()=>void) {
         if (appManualKeyRepeatTimerId.value) {
             clearInterval(appManualKeyRepeatTimerId.value);    // インターバルをクリア
             appManualKeyRepeatTimerId.value = null;
 
-            callback(); // 即時実行
-        }
-    }
-
-
-    /**
-     * ボタンを放したときのコールバックを呼ばずに長押し終了
-     */
-    function justStop() {
-        if (appManualKeyRepeatTimerId.value) {
-            clearInterval(appManualKeyRepeatTimerId.value);    // インターバルをクリア
-            appManualKeyRepeatTimerId.value = null;
+            if (callback) {
+                callback(); // 即時実行
+            }
         }
     }
 
@@ -95,9 +112,8 @@
 
     defineExpose({
         handleMouseDown,
-        start,
-        stop,
-        justStop,
+        press,
+        release
     });
 
 </script>

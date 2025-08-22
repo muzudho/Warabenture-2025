@@ -70,7 +70,7 @@
     const cellHeight = 32;
 
     // オブジェクト１
-    // プレイヤー１
+    // 自機１
     const o1Left = ref<number>(0);      // スプライトのX座標
     const o1Top = ref<number>(0);       // スプライトのY座標
     const o1Speed = ref<number>(2);     // 移動速度

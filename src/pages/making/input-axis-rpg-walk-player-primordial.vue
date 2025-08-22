@@ -1,7 +1,7 @@
 <template>
 
-    <!-- ボタンの押しっぱなし機能 -->
-    <button-repeat ref="buttonRepeat1Ref"/>
+    <!-- ボタン機能拡張 -->
+    <button-20250822 ref="button1Ref"/>
 
     <h4>ＲＰＧの歩行グラフィック　＞　自機の原始的ウォーキング</h4>
     <section class="sec-4">
@@ -11,63 +11,63 @@
                 <v-btn class="code-key hidden"/>
                 <v-btn
                     class="code-key"
-                    @touchstart.prevent="buttonRepeat1Ref?.start($event, onUpButtonPressed);"
-                    @touchend="buttonRepeat1Ref?.stop(onUpButtonReleased);"
-                    @touchcancel="buttonRepeat1Ref?.stop(onUpButtonReleased);"
-                    @touchleave="buttonRepeat1Ref?.stop(onUpButtonReleased);"
-                    @mousedown.prevent="buttonRepeat1Ref?.handleMouseDown($event, onUpButtonPressed)"
-                    @mouseup="buttonRepeat1Ref?.stop(onUpButtonReleased);"
-                    @mouseleave="buttonRepeat1Ref?.stop(onUpButtonReleased);"
+                    @touchstart.prevent="button1Ref?.press($event, onUpButtonPressed, {repeat: true});"
+                    @touchend="button1Ref?.release(onUpButtonReleased);"
+                    @touchcancel="button1Ref?.release(onUpButtonReleased);"
+                    @touchleave="button1Ref?.release(onUpButtonReleased);"
+                    @mousedown.prevent="button1Ref?.handleMouseDown($event, onUpButtonPressed, {repeat: true})"
+                    @mouseup="button1Ref?.release(onUpButtonReleased);"
+                    @mouseleave="button1Ref?.release(onUpButtonReleased);"
                 >↑</v-btn>
                 <br/>
                 <v-btn
                     class="code-key"
-                    @touchstart.prevent="buttonRepeat1Ref?.start($event, onLeftButtonPressed);"
-                    @touchend="buttonRepeat1Ref?.stop(onLeftButtonReleased);"
-                    @touchcancel="buttonRepeat1Ref?.stop(onLeftButtonReleased);"
-                    @touchleave="buttonRepeat1Ref?.stop(onLeftButtonReleased);"
-                    @mousedown.prevent="buttonRepeat1Ref?.handleMouseDown($event, onLeftButtonPressed)"
-                    @mouseup="buttonRepeat1Ref?.stop(onLeftButtonReleased);"
-                    @mouseleave="buttonRepeat1Ref?.stop(onLeftButtonReleased);"
+                    @touchstart.prevent="button1Ref?.press($event, onLeftButtonPressed, {repeat: true});"
+                    @touchend="button1Ref?.release(onLeftButtonReleased);"
+                    @touchcancel="button1Ref?.release(onLeftButtonReleased);"
+                    @touchleave="button1Ref?.release(onLeftButtonReleased);"
+                    @mousedown.prevent="button1Ref?.handleMouseDown($event, onLeftButtonPressed, {repeat: true})"
+                    @mouseup="button1Ref?.release(onLeftButtonReleased);"
+                    @mouseleave="button1Ref?.release(onLeftButtonReleased);"
                 >←</v-btn>
                 <v-btn class="code-key hidden"/>
                 <v-btn
                     class="code-key"
-                    @touchstart.prevent="buttonRepeat1Ref?.start($event, onRightButtonPressed);"
-                    @touchend="buttonRepeat1Ref?.stop(onRightButtonReleased);"
-                    @touchcancel="buttonRepeat1Ref?.stop(onRightButtonReleased);"
-                    @touchleave="buttonRepeat1Ref?.stop(onRightButtonReleased);"
-                    @mousedown.prevent="buttonRepeat1Ref?.handleMouseDown($event, onRightButtonPressed)"
-                    @mouseup="buttonRepeat1Ref?.stop(onRightButtonReleased);"
-                    @mouseleave="buttonRepeat1Ref?.stop(onRightButtonReleased);"
+                    @touchstart.prevent="button1Ref?.press($event, onRightButtonPressed, {repeat: true});"
+                    @touchend="button1Ref?.release(onRightButtonReleased);"
+                    @touchcancel="button1Ref?.release(onRightButtonReleased);"
+                    @touchleave="button1Ref?.release(onRightButtonReleased);"
+                    @mousedown.prevent="button1Ref?.handleMouseDown($event, onRightButtonPressed, {repeat: true})"
+                    @mouseup="button1Ref?.release(onRightButtonReleased);"
+                    @mouseleave="button1Ref?.release(onRightButtonReleased);"
                 >→</v-btn>
                 　…　上下左右に動かすぜ！
                 <br/>
                 <v-btn class="code-key hidden"/>
                 <v-btn
                     class="code-key"
-                    @touchstart.prevent="buttonRepeat1Ref?.start($event, onDownButtonPressed);"
-                    @touchend="buttonRepeat1Ref?.stop(onDownButtonReleased);"
-                    @touchcancel="buttonRepeat1Ref?.stop(onDownButtonReleased);"
-                    @touchleave="buttonRepeat1Ref?.stop(onDownButtonReleased);"
-                    @mousedown.prevent="buttonRepeat1Ref?.handleMouseDown($event, onDownButtonPressed)"
-                    @mouseup="buttonRepeat1Ref?.stop(onDownButtonReleased);"
-                    @mouseleave="buttonRepeat1Ref?.stop(onDownButtonReleased);"
+                    @touchstart.prevent="button1Ref?.press($event, onDownButtonPressed, {repeat: true});"
+                    @touchend="button1Ref?.release(onDownButtonReleased);"
+                    @touchcancel="button1Ref?.release(onDownButtonReleased);"
+                    @touchleave="button1Ref?.release(onDownButtonReleased);"
+                    @mousedown.prevent="button1Ref?.handleMouseDown($event, onDownButtonPressed, {repeat: true})"
+                    @mouseup="button1Ref?.release(onDownButtonReleased);"
+                    @mouseleave="button1Ref?.release(onDownButtonReleased);"
                 >↓</v-btn>
                 <br/>
             </li>
             <li>
                 <v-btn
                     class="code-key"
-                    @touchstart.prevent="buttonRepeat1Ref?.start($event, onSpaceButtonPressed);"
-                    @touchend="buttonRepeat1Ref?.stop(onSpaceButtonReleased);"
-                    @touchcancel="buttonRepeat1Ref?.stop(onSpaceButtonReleased);"
-                    @touchleave="buttonRepeat1Ref?.stop(onSpaceButtonReleased);"
-                    @mousedown.prevent="buttonRepeat1Ref?.handleMouseDown($event, onSpaceButtonPressed)"
-                    @mouseup="buttonRepeat1Ref?.stop(onSpaceButtonReleased);"
-                    @mouseleave="buttonRepeat1Ref?.stop(onSpaceButtonReleased);"
+                    @touchstart.prevent="button1Ref?.press($event, onSpaceButtonPressed, {repeat: true});"
+                    @touchend="button1Ref?.release(onSpaceButtonReleased);"
+                    @touchcancel="button1Ref?.release(onSpaceButtonReleased);"
+                    @touchleave="button1Ref?.release(onSpaceButtonReleased);"
+                    @mousedown.prevent="button1Ref?.handleMouseDown($event, onSpaceButtonPressed, {repeat: true})"
+                    @mouseup="button1Ref?.release(onSpaceButtonReleased);"
+                    @mouseleave="button1Ref?.release(onSpaceButtonReleased);"
                 >（スペース）</v-btn>
-                　…　位置を最初の状態に戻すぜ。
+                　…　自機をホームに戻すぜ。
             </li>
         </ul>
         <br/>
@@ -78,8 +78,31 @@
             v-on:countUp="(countNum) => { stopwatch1Count = countNum; }"
             style="display: none;" />
 
-        <div :style="`width: ${4 * board1SquareWidth}px; height: ${4 * board1SquareHeight}px; background-color:lightpink;`">
-            <!-- プレイヤー１ -->
+        <!--
+            ゲーム領域
+            キャラクターより２倍角ぐらい大きく。
+        -->
+        <div
+            style="position: relative;"
+            :style="`
+                width: ${2 * appZoom * board1SquareWidth}px;
+                height: ${2 * appZoom * board1SquareHeight}px;
+            `"
+        >
+            <!-- 自機の基準位置 -->
+            <div
+                :style="`
+                    left: ${player1HomeLeft}px;
+                    top: ${player1HomeTop}px;
+                    width: ${board1SquareWidth}px;
+                    height: ${board1SquareHeight}px;
+                    zoom: ${appZoom};
+                    background-color:lightpink;
+                `"
+                style="position: absolute;">
+            </div>
+
+            <!-- 自機１ -->
             <TileAnimation
                 :frames="player1Frames"
                 tilemapUrl="/img/making/202508__warabenture__15-1612-kifuwarabe-o1o0.png"
@@ -87,8 +110,49 @@
                 :time="stopwatch1Count"
                 class="cursor"
                 :style="player1Style"
-                style="zoom:4; image-rendering: pixelated;" /><br/>
+                style="position: absolute; image-rendering: pixelated;" /><br/>
         </div>
+
+        <br/>
+        <!-- 設定 -->
+        <v-btn
+            class="code-key"
+            @touchstart.prevent="button1Ref?.press($event, onConfigButtonPressed);"
+            @touchend="button1Ref?.release();"
+            @touchcancel="button1Ref?.release();"
+            @touchleave="button1Ref?.release();"
+            @mousedown.prevent="button1Ref?.handleMouseDown($event, onConfigButtonPressed)"
+            @mouseup="button1Ref?.release();"
+            @mouseleave="button1Ref?.release();"
+        >{{ appConfigIsShowing ? '⚙️設定を終わる' : '⚙️設定を表示' }}</v-btn>
+        <section v-if="appConfigIsShowing" class="sec-1">
+            <br/>
+            <v-slider
+                label="ズーム"
+                v-model="appZoom"
+                :min="0.5"
+                :max="4"
+                step="0.5"
+                showTicks="always"
+                thumbLabel="always" />
+            <v-slider
+                label="自機のホーム　＞　筋"
+                v-model="player1HomeFile"
+                :min="0"
+                :max="1"
+                step="1"
+                showTicks="always"
+                thumbLabel="always" />
+            <v-slider
+                label="自機のホーム　＞　段"
+                v-model="player1HomeRank"
+                :min="0"
+                :max="1"
+                step="1"
+                showTicks="always"
+                thumbLabel="always" />
+            <br/>
+        </section>
 
     </section>
 
@@ -123,10 +187,21 @@
     //
 
     // from の階層が上の順、アルファベット順
-    import ButtonRepeat from '../../components/ButtonRepeat.vue';
+    import Button20250822 from '../../components/Button20250822.vue';
     import SourceLink from '../../components/SourceLink.vue';
     import Stopwatch from '../../components/Stopwatch.vue';
     import TileAnimation from '../../components/TileAnimation.vue';
+
+
+    // ############################
+    // # アプリケーション・データ #
+    // ############################
+    //
+    // 今動いているアプリケーションの状態を記録しているデータ。特に可変のもの。
+    //
+
+    const appConfigIsShowing = ref<boolean>(false);                 // 操作方法等を表示中
+    const appZoom = ref<number>(4);
 
 
     // ################
@@ -137,7 +212,7 @@
     // + オブジェクト　＞　ボタン押しっぱなし機能 +
     // ++++++++++++++++++++++++++++++++++++++++++++
 
-    const buttonRepeat1Ref = ref<InstanceType<typeof ButtonRepeat> | null>(null);
+    const button1Ref = ref<InstanceType<typeof Button20250822> | null>(null);
 
     // ++++++++++++++++++++++++++++++++++++++
     // + オブジェクト　＞　ストップウォッチ +
@@ -153,12 +228,25 @@
     const board1SquareWidth = 32;
     const board1SquareHeight = 32;
 
-    // ++++++++++++++++++++++++++++++++
-    // + オブジェクト　＞　プレイヤー +
-    // ++++++++++++++++++++++++++++++++
+    // ++++++++++++++++++++++++++++++++++++
+    // + オブジェクト　＞　自機１のホーム +
+    // ++++++++++++++++++++++++++++++++++++
 
-    const player1Left = ref<number>(0);      // スプライトのX座標
-    const player1Top = ref<number>(0);       // スプライトのY座標
+    const player1HomeFile = ref<number>(0);     // 基準位置
+    const player1HomeRank = ref<number>(0);
+    const player1HomeLeft = computed(()=>{
+        return player1HomeFile.value * board1SquareWidth;
+    });
+    const player1HomeTop = computed(()=>{
+        return player1HomeRank.value * board1SquareHeight;
+    });
+
+    // ++++++++++++++++++++++++++++
+    // + オブジェクト　＞　自機１ +
+    // ++++++++++++++++++++++++++++
+
+    const player1Left = ref<number>(player1HomeLeft.value);      // スプライトの位置
+    const player1Top = ref<number>(player1HomeTop.value);
     const player1Speed = ref<number>(2);     // 移動速度
     const player1Input = <Record<string, boolean>>{  // 入力
         " ": false, ArrowUp: false, ArrowRight: false, ArrowDown: false, ArrowLeft: false
@@ -167,6 +255,7 @@
     const player1Style = computed<CompatibleStyleValue>(() => ({
         top: `${player1Top.value}px`,
         left: `${player1Left.value}px`,
+        zoom: appZoom.value,
     }));
     // キャラクターの向きと、歩行タイルの指定
     const player1SourceFrames = {
@@ -235,8 +324,8 @@
 
             // 位置のリセット
             if (player1Input[" "]) {
-                player1Top.value = 0;
-                player1Left.value = 0;
+                player1Left.value = player1HomeLeft.value;
+                player1Top.value = player1HomeTop.value;
             }
 
             // 移動処理
@@ -331,6 +420,14 @@
 
     function onSpaceButtonReleased() : void {
         player1Input[" "] = false;
+    }
+
+
+    /**
+     * 設定ボタン。
+     */
+    function onConfigButtonPressed() : void {
+        appConfigIsShowing.value = !appConfigIsShowing.value;
     }
 
 </script>
