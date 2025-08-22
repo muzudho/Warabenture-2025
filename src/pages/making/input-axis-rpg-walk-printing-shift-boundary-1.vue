@@ -5,6 +5,41 @@
 
     <h4><span class="parent-header">ＲＰＧの歩行グラフィック　＞　</span>数字柄のシフト、盤の端処理</h4>
     <section class="sec-4">
+        <br/>
+
+        <!-- ストップウォッチ。デバッグに使いたいときは、 display: none; を消してください。 -->
+        <stopwatch
+            ref="stopwatch1Ref"
+            v-on:countUp="(countNum) => { stopwatch1Count = countNum; }"
+            style="display: none;" />
+
+        <!-- 盤領域 -->
+        <div :style="board1Style">
+
+            <!--
+                グリッド
+                NOTE: ループカウンターは 1 から始まるので、1～9の9個のセルを作成。
+            -->
+            <div v-for="i in board1Area" :key="i"
+                :style="getSquareStyle(i - 1)"
+            >{{ getFaceNumber(i - 1) }}
+            </div>
+
+            <!-- 自機１ -->
+            <TileAnimation
+                :frames="player1Frames"
+                tilemapUrl="/img/making/202508__warabenture__15-1612-kifuwarabe-o1o0.png"
+                :slow="player1AnimationSlow"
+                :time="stopwatch1Count"
+                class="player"
+                :style="player1Style"
+                style="image-rendering: pixelated;" /><br/>
+        </div>
+        <p>👆 ヨコ：１０、タテ：１０のサイズのフィールドを歩いてみてくれだぜ（＾▽＾）！</p>
+        <p>上下左右の端に画面外が見えないようにロックがかかるか、また、盤の端まで歩けるか、試してみてくれだぜ（＾▽＾）！</p>
+        <br/>
+
+        <!-- タッチパネルでも操作できるように、ボタンを置いておきます。キーボードの操作説明も兼ねます。 -->
         <p>キーボード操作方法</p>
         <ul>
             <li>
@@ -41,7 +76,6 @@
                     @mouseup="button1Ref?.release(onRightButtonReleased);"
                     @mouseleave="button1Ref?.release(onRightButtonReleased);"
                 >→</v-btn>
-                　…　上下左右に動かすぜ！
                 <br/>
                 <v-btn class="code-key hidden"/>
                 <v-btn
@@ -54,6 +88,7 @@
                     @mouseup="button1Ref?.release(onDownButtonReleased);"
                     @mouseleave="button1Ref?.release(onDownButtonReleased);"
                 >↓</v-btn>
+                　…　上下左右に動かすぜ！
                 <br/>
             </li>
             <li>
@@ -67,16 +102,10 @@
                     @mouseup="button1Ref?.release(onSpaceButtonReleased);"
                     @mouseleave="button1Ref?.release(onSpaceButtonReleased);"
                 >（スペース）</v-btn>
-                　…　位置を最初の状態に戻すぜ。
+                　…　印字をホームに戻すぜ。
             </li>
         </ul>
         <br/>
-
-        <!-- ストップウォッチ。デバッグに使いたいときは、 display: none; を消してください。 -->
-        <stopwatch
-            ref="stopwatch1Ref"
-            v-on:countUp="(countNum) => { stopwatch1Count = countNum; }"
-            style="display: none;" />
 
         <v-switch
             v-model="appBoundaryIsLock"
@@ -97,36 +126,13 @@
             </section>
         <!-- フォーカスを外すためのダミー・ボタンです -->
         <v-btn ref="noopButton">何もしないボタン</v-btn>
-
-        <div :style="board1Style">
-
-            <!--
-                グリッド
-                NOTE: ループカウンターは 1 から始まるので、1～9の9個のセルを作成。
-            -->
-            <div v-for="i in board1Area" :key="i"
-                :style="getSquareStyle(i - 1)">{{ getFaceNumber(i - 1) }}</div>
-
-            <!-- 自機１ -->
-            <TileAnimation
-                :frames="player1Frames"
-                tilemapUrl="/img/making/202508__warabenture__15-1612-kifuwarabe-o1o0.png"
-                :slow="player1AnimationSlow"
-                :time="stopwatch1Count"
-                class="player"
-                :style="player1Style"
-                style="image-rendering: pixelated;" /><br/>
-            </div>
-
-        <p>👆 ヨコ：１０、タテ：１０のサイズのフィールドを歩いてみてくれだぜ（＾▽＾）！</p>
-        <p>上下左右の端に画面外が見えないようにロックがかかるか、また、盤の端まで歩けるか、試してみてくれだぜ（＾▽＾）！</p>
     </section>
 
     <br/>
     <h4><span class="parent-header-lights-out">ＲＰＧの歩行グラフィック　＞　</span><span class="parent-header">数字柄のシフト、盤の端処理　＞　</span>ソースコード</h4>
     <section class="sec-4">
         <source-link
-            pagePath="/making/input-axis-rpg-walk-printing-shift-boundary"/>
+            pagePath="/making/input-axis-rpg-walk-printing-shift-boundary-1"/>
     </section>
 </template>
 
@@ -146,9 +152,7 @@
     // + 互換性対応 +
     // ++++++++++++++
 
-
     import type { CompatibleStyleValue }  from '../../compatibles/compatible-style-value';
-
 
     // ++++++++++++++++++
     // + コンポーネント +
@@ -171,7 +175,6 @@
     // よく使う設定をまとめたもの。特に不変のもの。
     //
 
-    const commonZoom = 4;
     const commonSpriteMotionToTop = -1;  // モーション（motion）定数。上に移動する
     const commonSpriteMotionToRight = 1;
     const commonSpriteMotionToBottom = 1;
@@ -185,6 +188,7 @@
     // 今動いているアプリケーションの状態を記録しているデータ。特に可変のもの。
     //
 
+    const appZoom = 4;
     const appBoundaryIsLock = ref<boolean>(true);                   // ［画面外隠し］を管理（true: ロックする, false: ロックしない）
     watch(appBoundaryIsLock, (newValue: boolean)=>{
         appBoundaryWalkingEdgeIsEnabled.value = newValue;
@@ -232,8 +236,8 @@
             position: 'relative',
             left: "0",
             top: "0",
-            width: `${commonZoom * board1Files * board1SquareWidth}px`,
-            height: `${commonZoom * board1Ranks * board1SquareHeight}px`,
+            width: `${appZoom * board1Files * board1SquareWidth}px`,
+            height: `${appZoom * board1Ranks * board1SquareHeight}px`,
         };
     });
     const getSquareStyle = computed<
@@ -338,7 +342,7 @@
     const player1Style = computed(() => ({
         top: `${player1Top.value}px`,
         left: `${player1Left.value}px`,
-        zoom: commonZoom,
+        zoom: appZoom,
     }));
     const player1SourceFrames = {   // キャラクターの向きと、歩行タイルの指定
         up:[    // 上向き

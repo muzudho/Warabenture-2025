@@ -3,7 +3,7 @@
     <!-- ボタン機能拡張 -->
     <button-20250822 ref="button1Ref"/>
 
-    <h4><span class="parent-header">ＲＰＧの歩行グラフィック　＞　</span>盤の原始的スクロール、グリッド吸着</h4>
+    <h4><span class="parent-header">ＲＰＧの歩行グラフィック　＞　</span>数字柄の循環シフト</h4>
     <section class="sec-4">
         <br/>
 
@@ -13,53 +13,30 @@
             v-on:countUp="(countNum) => { stopwatch1Count = countNum; }"
             style="display: none;" />
 
-        <!-- 盤領域
-            盤の大きさと同じ。かつ、自機を含められる大きさ。
-        -->
-        <div
-            :style="`
-                width: ${board1FileNum * appZoom * board1SquareWidth >= (player1HomeFile + 1) * appZoom * board1SquareWidth ? board1FileNum * appZoom * board1SquareWidth : (player1HomeFile + 1) * appZoom * board1SquareWidth}px;
-                height: ${board1RankNum * appZoom * board1SquareHeight >= (player1HomeRank + 1) * appZoom * board1SquareHeight ? board1RankNum * appZoom * board1SquareHeight : (player1HomeRank + 1) * appZoom * board1SquareHeight}px;
-            `"
-            style="
-                position: relative;
-            ">
-
-            <!-- 盤のホーム１
-                自機ではなく、盤のホームであることに注意してください。
-            -->
-            <div
-                :style="`
-                    width: ${board1FileNum * board1SquareWidth}px;
-                    height: ${board1RankNum * board1SquareHeight}px;
-                    zoom: ${appZoom};
-                `"
-                style="
-                    position:absolute;
-                    left: 0px;
-                    top: 0px;
-                    background-color: lightgreen;
-                ">
-            </div>
+        <!-- 盤領域 -->
+        <div :style="board1Style">
 
             <!--
-                タイルのグリッド。
+                グリッド
                 NOTE: ループカウンターは 1 から始まるので、1～9の9個のセルを作成。
             -->
             <div v-for="i in board1Area" :key="i"
-                :style="getSquareStyle(i - 1)">
+                :style="getSquareStyle(i - 1)"
+            >{{ getFaceNumber(i - 1) }}
             </div>
 
             <!-- 自機１ -->
-            <tile-animation
+            <TileAnimation
                 :frames="player1Frames"
                 tilemapUrl="/img/making/202508__warabenture__15-1612-kifuwarabe-o1o0.png"
                 :slow="player1AnimationSlow"
                 :time="stopwatch1Count"
                 class="player"
                 :style="player1Style"
-                style="image-rendering: pixelated;" />
+                style="image-rendering: pixelated;" /><br/>
         </div>
+        <p>👆 タイルは動いていないぜ（＾▽＾）！</p>
+        <p>だから、数字がタイルの上を入れ替わっている（＝シフトしている）ぜ（＾▽＾）！</p>
         <br/>
 
         <!-- タッチパネルでも操作できるように、ボタンを置いておきます。キーボードの操作説明も兼ねます。 -->
@@ -111,7 +88,7 @@
                     @mouseup="button1Ref?.release(onDownButtonReleased);"
                     @mouseleave="button1Ref?.release(onDownButtonReleased);"
                 >↓</v-btn>
-                　…　盤を上下左右に動かすぜ！
+                　…　上下左右に動かすぜ！
                 <br/>
             </li>
             <li>
@@ -125,67 +102,18 @@
                     @mouseup="button1Ref?.release(onSpaceButtonReleased);"
                     @mouseleave="button1Ref?.release(onSpaceButtonReleased);"
                 >（スペース）</v-btn>
-                　…　盤をホームに戻すぜ。
-            </li>
-            <li>
-                <!-- フォーカスを外すためのダミー・ボタンです -->
-                <v-btn
-                    class="noop-key"
-                    ref="noopButton"
-                    v-tooltip="'PCでのマウス操作で、フォーカスがコントロールに残って邪魔になるときは、このボタンを押してくれだぜ'"
-                >何もしないボタン</v-btn><br/>
+                　…　印字をホームに戻すぜ。
             </li>
         </ul>
-
         <br/>
-        <!-- 設定 -->
-        <v-btn
-            class="code-key"
-            @touchstart.prevent="button1Ref?.press($event, onConfigButtonPressed);"
-            @touchend="button1Ref?.release();"
-            @touchcancel="button1Ref?.release();"
-            @touchleave="button1Ref?.release();"
-            @mousedown.prevent="button1Ref?.handleMouseDown($event, onConfigButtonPressed)"
-            @mouseup="button1Ref?.release();"
-            @mouseleave="button1Ref?.release();"
-        >{{ appConfigIsShowing ? '⚙️設定を終わる' : '⚙️設定を表示' }}</v-btn>
-        <section v-if="appConfigIsShowing" class="sec-1">
-            <br/>
-            <v-slider
-                label="ズーム"
-                v-model="appZoom"
-                :min="0.5"
-                :max="4"
-                step="0.5"
-                showTicks="always"
-                thumbLabel="always" />
-            <v-slider
-                label="盤の筋の数"
-                v-model="board1FileNum"
-                :min="0"
-                :max="6"
-                step="1"
-                showTicks="always"
-                thumbLabel="always" />
-            <v-slider
-                label="盤の段の数"
-                v-model="board1RankNum"
-                :min="0"
-                :max="6"
-                step="1"
-                showTicks="always"
-                thumbLabel="always" />
-            <br/>
-        </section>
     </section>
 
     <br/>
-    <h4><span class="parent-header-lights-out">ＲＰＧの歩行グラフィック　＞　</span><span class="parent-header">盤の原始的スクロール、グリッド吸着　＞　</span>ソースコード</h4>
+    <h4><span class="parent-header-lights-out">ＲＰＧの歩行グラフィック　＞　</span><span class="parent-header">数字柄の循環シフト　＞　</span>ソースコード</h4>
     <section class="sec-4">
         <source-link
-            pagePath="/making/input-axis-rpg-walk-board-scroll-primordial"/>
+            pagePath="/making/input-axis-rpg-walk-printing-shift-loop-1"/>
     </section>
-
 </template>
 
 <script setup lang="ts">
@@ -196,9 +124,6 @@
 
     import { computed, onMounted, ref } from 'vue';
     // 👆 ［初級者向けのソースコード］では、 reactive は使いません。
-
-    import { VBtn } from 'vuetify/components';
-
 
     // ++++++++++++++
     // + 互換性対応 +
@@ -228,8 +153,8 @@
     //
 
     const commonSpriteMotionLeft = -1;  // モーション（motion）定数。左に移動する
-    const commonSpriteMotionUp = -1;
     const commonSpriteMotionRight = 1;
+    const commonSpriteMotionUp = -1;
     const commonSpriteMotionDown = 1;
 
 
@@ -240,23 +165,16 @@
     // 今動いているアプリケーションの状態を記録しているデータ。特に可変のもの。
     //
 
-    const appConfigIsShowing = ref<boolean>(false);    // 操作方法等を表示中
-    const appZoom = ref<number>(4);     // ズーム
+    const appZoom = 4;
 
 
     // ################
     // # オブジェクト #
     // ################
 
-    // ++++++++++++++++++++++++++++++++++++++
-    // + オブジェクト　＞　何もしないボタン +
-    // ++++++++++++++++++++++++++++++++++++++
-
-    const noopButton = ref<InstanceType<typeof VBtn> | null>(null);
-
-    // ++++++++++++++++++++++++++++++++
-    // + オブジェクト　＞　ボタン拡張 +
-    // ++++++++++++++++++++++++++++++++
+    // ++++++++++++++++++++++++++++++++++++++++++++
+    // + オブジェクト　＞　ボタン押しっぱなし機能 +
+    // ++++++++++++++++++++++++++++++++++++++++++++
 
     const button1Ref = ref<InstanceType<typeof Button20250822> | null>(null);
 
@@ -267,88 +185,114 @@
     const stopwatch1Ref = ref<InstanceType<typeof Stopwatch> | null>(null); // Stopwatch のインスタンス
     const stopwatch1Count = ref<number>(0);   // カウントの初期値
 
-    // ++++++++++++++++++++++++++++++++++
-    // + オブジェクト　＞　盤１のホーム +
-    // ++++++++++++++++++++++++++++++++++
-    //
-    // このサンプルでは、ピンク色に着色しているマスです。
-    // 自機ではなく、盤のホームであることに注意してください。
-    //
-
     // ++++++++++++++++++++++++
     // + オブジェクト　＞　盤 +
     // ++++++++++++++++++++++++
 
     const board1SquareWidth = 32;
     const board1SquareHeight = 32;
-    const board1FileNum = ref<number>(5);   // 筋の数。マスクを含めた盤サイズ。ただし、右側と下側に１マス余分に付いているマスクは含まない。
-    const board1RankNum = ref<number>(5);   // 段の数
+    const board1FileNum = 5;
+    const board1RankNum = 5;
     const board1Area = computed(()=> {  // 盤のマス数
-        return board1FileNum.value * board1RankNum.value;
+        return board1FileNum * board1RankNum;
     });
-    const board1Top = ref<number>(0);   // ボードの表示位置
-    const board1Left = ref<number>(0);
+    const board1Style = computed<CompatibleStyleValue>(()=>{ // ボードとマスクを含んでいる領域のスタイル
+        return {
+            position: 'relative',
+            left: "0",
+            top: "0",
+            width: `${appZoom * board1FileNum * board1SquareWidth}px`,
+            height: `${appZoom * board1RankNum * board1SquareHeight}px`,
+        };
+    });
     const getSquareStyle = computed<
         (i:number)=>CompatibleStyleValue
     >(() => {
         return (i:number)=>{
-            // プレイヤーが初期位置にいる場合の、セルの top 位置。
-            const homeLeft = (i % board1FileNum.value) * board1SquareWidth;
-            const homeTop = Math.floor(i / board1FileNum.value) * board1SquareHeight;
+            // プレイヤーが初期位置にいる場合の、マスの位置。
+            const homeLeft = (i % board1FileNum) * board1SquareWidth;
+            const homeTop = Math.floor(i / board1RankNum) * board1SquareHeight;
 
             return {
                 position: 'absolute',
-                top: `${homeTop + board1Top.value}px`,
-                left: `${homeLeft + board1Left.value}px`,
+                top: `${homeTop}px`,
+                left: `${homeLeft}px`,
                 width: `${board1SquareWidth}px`,
                 height: `${board1SquareHeight}px`,
-                zoom: appZoom.value,
+                zoom: 4,
                 border: `solid 1px ${i % 2 == 0 ? 'darkgray' : 'lightgray'}`,
+                textAlign: "center",
             };
         };
-    });
-    const board1AnimationWalkingFrames = 16;       // 盤が歩行と同じフレーム数で動く
-    const board1MotionWait = ref(0);    // TODO: モーション入力拒否時間。入力キーごとに用意したい。
-    const board1Motion = ref<Record<string, number>>({    // モーションへの入力
-        goToRight: 0,   // 負なら左、正なら右
-        goToBottom: 0,   // 負なら上、正なら下
-    });
+    });    
 
-
-    // ++++++++++++++++++++++++++++++++++++
-    // + オブジェクト　＞　自機１のホーム +
-    // ++++++++++++++++++++++++++++++++++++
+    // ++++++++++++++++++++++++++
+    // + オブジェクト　＞　印字 +
+    // ++++++++++++++++++++++++**
     //
-    // このサンプルでは、ピンク色に着色しているマスはありません。
+    // 盤上に表示される数字柄、絵柄など。
     //
 
-    const player1HomeFile: number = 2;    // ホーム
-    const player1HomeRank: number = 2;
+    const printing1FileNum = board1FileNum;       // 列数
+    const printing1RankNum = board1RankNum;       // 行数
+    const printing1File = ref<number>(0);    // 印字の左上隅のタイルは、盤タイルの左から何番目か。
+    const printing1Rank = ref<number>(0);    // 印字の左上隅のタイルは、盤タイルの上から何番目か。
+    const printing1Data = ref<string[]>([
+        "00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24",
+    ]);
 
+    /**
+     * 変換
+     * @param tileIndex マス番号
+     * @returns [筋番号, 段番号]
+     */
+    function tileIndexToTileFileRank(tileIndex: number) : number[] {
+        // プレイヤーが右へ１マス移動したら、印字は全行が左へ１つ移動する。
+        const file = tileIndex % board1FileNum;
+        const rank = Math.floor(tileIndex / board1RankNum);
 
-    // ++++++++++++++++++++++++++++
-    // + オブジェクト　＞　自機１ +
-    // ++++++++++++++++++++++++++++
+        return [file, rank];
+    }
 
-    const player1Left = ref<number>(2 * board1SquareWidth);    // スプライトの位置
-    const player1Top = ref<number>(2 * board1SquareHeight);
-    const player1Speed = ref<number>(2);    // 移動速度
-    const player1Input = <Record<string, boolean>>{    // 入力
+    function contentsFileRankToContentsIndex(contentsFile: number, contentsRank: number) : number {
+        return contentsRank * printing1FileNum + contentsFile;
+    }
+
+    const getFaceNumber = computed(() => {
+        return (tileIndex: number)=>{
+            let [tileFile, tileRank] = tileIndexToTileFileRank(tileIndex);
+
+            // タイル上のインデックスを、印字上のインデックスへ変換：
+            let contentsFile = tileFile - printing1File.value; // プレイヤーが右へ１マス移動したら、印字は全行が左へ１つ移動する。
+            let contentsRank = tileRank - printing1Rank.value; // プレイヤーが下へ１マス移動したら、印字は全行が上へ１つ移動する。
+            
+            // 端でループする
+            contentsFile = euclideanMod(contentsFile, printing1FileNum);
+            contentsRank = euclideanMod(contentsRank, printing1RankNum);
+
+            // 印字上の位置が示すデータを返す
+            const contentsIndex = contentsFileRankToContentsIndex(contentsFile, contentsRank);
+            return  printing1Data.value[contentsIndex];
+        };
+    });    
+
+    // ++++++++++++++++++++++++++++++++
+    // + オブジェクト　＞　プレイヤー +
+    // ++++++++++++++++++++++++++++++++
+
+    const player1Left: number = 2 * board1SquareWidth;      // スプライトのX座標
+    const player1Top: number = 2 * board1SquareHeight;      // スプライトのY座標
+    const player1Input = <Record<string, boolean>>{         // 入力
         " ": false, ArrowUp: false, ArrowRight: false, ArrowDown: false, ArrowLeft: false
     };
     const player1AnimationSlow = ref<number>(8);    // アニメーションのスローモーションの倍率の初期値
-    const player1Style = computed<CompatibleStyleValue>(() => ({
-        top: `${player1Top.value}px`,
-        left: `${player1Left.value}px`,
-        zoom: appZoom.value,
+    const player1AnimationWalkingFrames = 16;       // 歩行フレーム数
+    const player1Style = computed(() => ({
+        top: `${player1Top}px`,
+        left: `${player1Left}px`,
+        zoom: appZoom,
     }));
     const player1SourceFrames = {   // キャラクターの向きと、歩行タイルの指定
-        left:[  // 左向き
-            {top:  3 * board1SquareHeight, left: 0 * board1SquareWidth, width: board1SquareWidth, height: board1SquareHeight },
-            {top:  3 * board1SquareHeight, left: 1 * board1SquareWidth, width: board1SquareWidth, height: board1SquareHeight },
-            {top:  3 * board1SquareHeight, left: 0 * board1SquareWidth, width: board1SquareWidth, height: board1SquareHeight },
-            {top:  3 * board1SquareHeight, left: 1 * board1SquareWidth, width: board1SquareWidth, height: board1SquareHeight },
-        ],
         up:[    // 上向き
             {top:  0 * board1SquareHeight, left: 0 * board1SquareWidth, width: board1SquareWidth, height: board1SquareHeight },
             {top:  0 * board1SquareHeight, left: 1 * board1SquareWidth, width: board1SquareWidth, height: board1SquareHeight },
@@ -367,8 +311,19 @@
             {top:  2 * board1SquareHeight, left: 0 * board1SquareWidth, width: board1SquareWidth, height: board1SquareHeight },
             {top:  2 * board1SquareHeight, left: 1 * board1SquareWidth, width: board1SquareWidth, height: board1SquareHeight },
         ],
+        left:[  // 左向き
+            {top:  3 * board1SquareHeight, left: 0 * board1SquareWidth, width: board1SquareWidth, height: board1SquareHeight },
+            {top:  3 * board1SquareHeight, left: 1 * board1SquareWidth, width: board1SquareWidth, height: board1SquareHeight },
+            {top:  3 * board1SquareHeight, left: 0 * board1SquareWidth, width: board1SquareWidth, height: board1SquareHeight },
+            {top:  3 * board1SquareHeight, left: 1 * board1SquareWidth, width: board1SquareWidth, height: board1SquareHeight },
+        ]
     };
     const player1Frames = ref(player1SourceFrames["down"]);
+    const player1MotionWait = ref(0);  // TODO: モーション入力拒否時間。入力キーごとに用意したい。
+    const player1Motion = ref<Record<string, number>>({  // モーションへの入力
+        xAxis: 0,   // 負なら左、正なら右
+        yAxis: 0,   // 負なら上、正なら下
+    });
 
 
     // ##########
@@ -378,8 +333,8 @@
     onMounted(() => {
         // キーボードイベント
         window.addEventListener('keydown', (e: KeyboardEvent) => {
-            // ［↑］［↓］キーの場合
-            if (e.key === 'ArrowUp' || e.key === 'ArrowDown') {
+            // ［スペース］［↑］［↓］キーの場合
+            if (e.key === ' ' || e.key === 'ArrowUp' || e.key === 'ArrowDown') {
                 // ブラウザーのデフォルトの上下スクロール動作をキャンセル
                 e.preventDefault();
             }
@@ -404,75 +359,75 @@
     // ################
 
     /**
+     * ユークリッド剰余
+     * 
+     * NOTE: 負の剰余は数学の定義では［ユークリッド剰余］と、［トランケート剰余］の２種類あって、プログラム言語ごとにどっちを使ってるか違うから注意。
+     * TypeScript では［トランケート剰余］なので、［ユークリッド剰余］を使いたいときはこれを使う。
+     */
+    function euclideanMod(a: number, b: number): number {
+        return ((a % b) + b) % b;
+    }
+
+
+    /**
      * ゲームのメインループ開始
      */
     function gameLoopStart() : void {
         const update = () => {
-            board1MotionWait.value -= 1;    // モーション・タイマー
+            player1MotionWait.value -= 1;
 
-            if (board1MotionWait.value==0) {
-                // モーションのクリアー
-                board1Motion.value["goToRight"] = 0;
-                board1Motion.value["goToBottom"] = 0;
+            if (player1MotionWait.value==0) {
+                player1Motion.value["xAxis"] = 0;    // クリアー
+                player1Motion.value["yAxis"] = 0;
             }
             
-            // ++++++++++++++++++++++++++++++
-            // + キー入力をモーションに変換 +
-            // ++++++++++++++++++++++++++++++
-            if (board1MotionWait.value<=0) {   // ウェイトが無ければ、入力を受け付ける。
+            // 入力（上下左右への移動）をモーションに変換
+            if (player1MotionWait.value<=0) {   // ウェイトが無ければ、入力を受け付ける。
 
                 // 位置のリセット
                 if (player1Input[" "]) {
-                    board1Top.value = 0;
-                    board1Left.value = 0;
+                    printing1File.value = 0;
+                    printing1Rank.value = 0;
                 }
 
-                // 方向キー
-                if (player1Input.ArrowLeft) {    // 左
-                    board1Motion.value["goToRight"] = commonSpriteMotionLeft;
+                // 移動
+                if (player1Input.ArrowLeft) {
+                    player1Motion.value["xAxis"] = commonSpriteMotionLeft; // 左
                 }
 
-                if (player1Input.ArrowRight) {    // 右
-                    board1Motion.value["goToRight"] = commonSpriteMotionRight;
+                if (player1Input.ArrowRight) {
+                    player1Motion.value["xAxis"] = commonSpriteMotionRight;  // 右
                 }
 
-                if (player1Input.ArrowUp) {    // 上
-                    board1Motion.value["goToBottom"] = commonSpriteMotionUp;
+                if (player1Input.ArrowUp) {
+                    player1Motion.value["yAxis"] = commonSpriteMotionUp;   // 上
                 }
 
-                if (player1Input.ArrowDown) {    // 下
-                    board1Motion.value["goToBottom"] = commonSpriteMotionDown;
+                if (player1Input.ArrowDown) {
+                    player1Motion.value["yAxis"] = commonSpriteMotionDown;   // 下
                 }
 
-                // モーションの入力があれば、ウェイトを入れる。
-                if (board1Motion.value["goToRight"]!=0 || board1Motion.value["goToBottom"]!=0) {
-                    board1MotionWait.value = board1AnimationWalkingFrames;
+                if (player1Motion.value["xAxis"]!=0 || player1Motion.value["yAxis"]!=0) {
+                    player1MotionWait.value = player1AnimationWalkingFrames;
                 }
-            }
 
-            // ++++++++++++++
-            // + 移動を処理 +
-            // ++++++++++++++
-            //
-            // 斜め方向の場合、上下を優先する。
-            if (board1Motion.value["goToRight"]==1) {    // 右
-                player1Frames.value = player1SourceFrames["right"]    // 画像の向きを更新
-                board1Left.value -= player1Speed.value;    // 盤の方を、キー入力とは逆方向へスクロールさせる
+                // 移動処理
+                // 斜め方向の場合、上下を優先する。
+                if (player1Motion.value["xAxis"]==1) {   // 右
+                    player1Frames.value = player1SourceFrames["right"]
+                    printing1File.value -= 1;   // 印字の方をスクロールさせる
+                } else if (player1Motion.value["xAxis"]==-1) {  // 左
+                    player1Frames.value = player1SourceFrames["left"]
+                    printing1File.value += 1;
+                }
 
-            } else if (board1Motion.value["goToRight"]==-1) {  // 左
-                player1Frames.value = player1SourceFrames["left"]
-                board1Left.value += player1Speed.value;
-
-            }
-
-            if (board1Motion.value["goToBottom"]==-1) {  // 上
-                player1Frames.value = player1SourceFrames["up"]
-                board1Top.value += player1Speed.value;
-
-            } else if (board1Motion.value["goToBottom"]==1) {   // 下
-                player1Frames.value = player1SourceFrames["down"]
-                board1Top.value -= player1Speed.value;
-
+                if (player1Motion.value["yAxis"]==-1) {  // 上
+                    player1Frames.value = player1SourceFrames["up"]
+                    printing1Rank.value += 1;
+                } else if (player1Motion.value["yAxis"]==1) {   // 下
+                    player1Frames.value = player1SourceFrames["down"]
+                    printing1Rank.value -= 1;
+                }
             }
 
             // 次のフレーム
@@ -546,14 +501,6 @@
 
     function onSpaceButtonReleased() : void {
         player1Input[" "] = false;
-    }
-
-
-    /**
-     * 設定ボタン。
-     */
-    function onConfigButtonPressed() : void {
-        appConfigIsShowing.value = !appConfigIsShowing.value;
     }
 
 </script>

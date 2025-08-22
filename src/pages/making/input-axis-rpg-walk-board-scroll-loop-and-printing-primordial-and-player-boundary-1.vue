@@ -5,6 +5,64 @@
 
     <h4><span class="parent-header">ＲＰＧの歩行グラフィック　＞　</span>盤の循環スクロール、数字柄の原始的シフト、自機の端歩き</h4>
     <section class="sec-4">
+        <br/>
+
+        <!-- ストップウォッチ。デバッグに使いたいときは、 display: none; を消してください。 -->
+        <stopwatch
+            ref="stopwatch1Ref"
+            v-on:countUp="(countNum) => { stopwatch1Count = countNum; }"
+            style="display: none;" />
+
+        <!-- 盤領域 -->
+        <div :style="board1Style">
+
+            <!--
+                タイルのグリッド。
+                NOTE: ループカウンターは 1 から始まるので、1～9の9個のセルを作成。
+            -->
+            <div v-for="i in board1Area" :key="i"
+                :style="getSquareStyle(i - 1)"
+            >{{ getPrintingNumber(i - 1) }}
+            </div>
+
+            <!-- 自機１ -->
+            <tile-animation
+                :frames="player1Frames"
+                tilemapUrl="/img/making/202508__warabenture__15-1612-kifuwarabe-o1o0.png"
+                :slow="player1AnimationSlow"
+                :time="stopwatch1Count"
+                class="player"
+                :style="player1Style"
+                style="image-rendering: pixelated;" /><br/>
+            
+            <!-- 半透明のマスク -->
+            <div
+                :style="`
+                    width:${board1WithMaskFileNum * board1SquareWidth}px;
+                    height:${board1WithMaskRankNum * board1SquareHeight}px;
+                    border-top: solid ${board1WithMaskSizeSquare * board1SquareHeight}px rgba(0,0,0,0.5);
+                    border-right: solid ${(board1WithMaskSizeSquare + board1WithMaskBottomRightMargin) * board1SquareWidth}px rgba(0,0,0,0.5);
+                    border-bottom: solid ${(board1WithMaskSizeSquare + board1WithMaskBottomRightMargin) * board1SquareHeight}px rgba(0,0,0,0.5);
+                    border-left: solid ${board1WithMaskSizeSquare * board1SquareWidth}px rgba(0,0,0,0.5);
+                    zoom:${appZoom};
+                `"
+                style="position:absolute; left:0; top:0; image-rendering: pixelated;">
+            </div>
+        </div>
+
+        <div>
+            印字x={{ printing1Left }}　｜　人x={{ player1Left }}<br/>
+            印字y={{ printing1Top  }}　｜　人y={{ player1Top  }}<br/>
+        </div>
+        <br/>
+
+        <p>
+            👆 フィールドの端まで歩いてみてくれだぜ（＾▽＾）！<br/>
+            上下左右の端に画面外が見えないようにロックがかかるか、また、盤の端まで歩けるか、試してみてくれだぜ（＾▽＾）！<br/>
+        </p>
+        <br/>
+
+        <!-- タッチパネルでも操作できるように、ボタンを置いておきます。キーボードの操作説明も兼ねます。 -->
         <p>キーボード操作方法</p>
         <ul>
             <li>
@@ -41,7 +99,6 @@
                     @mouseup="button1Ref?.release(onRightButtonReleased);"
                     @mouseleave="button1Ref?.release(onRightButtonReleased);"
                 >→</v-btn>
-                　…　自機を上下左右へ、印字を逆方向へ動かすぜ！
                 <br/>
                 <v-btn class="code-key hidden"/>
                 <v-btn
@@ -54,6 +111,7 @@
                     @mouseup="button1Ref?.release(onDownButtonReleased);"
                     @mouseleave="button1Ref?.release(onDownButtonReleased);"
                 >↓</v-btn>
+                　…　自機を上下左右へ、印字を逆方向へ動かすぜ！
                 <br/>
             </li>
             <li>
@@ -79,58 +137,6 @@
             </li>
         </ul>
         <br/>
-
-        <!-- ストップウォッチ。デバッグに使いたいときは、 display: none; を消してください。 -->
-        <stopwatch
-            ref="stopwatch1Ref"
-            v-on:countUp="(countNum) => { stopwatch1Count = countNum; }"
-            style="display: none;" />
-
-        <div :style="board1Style">
-
-            <!--
-                タイルのグリッド。
-                NOTE: ループカウンターは 1 から始まるので、1～9の9個のセルを作成。
-            -->
-            <div v-for="i in board1Area" :key="i"
-                :style="getSquareStyle(i - 1)">{{ getPrintingNumber(i - 1) }}</div>
-
-            <!-- 自機１ -->
-            <tile-animation
-                :frames="player1Frames"
-                tilemapUrl="/img/making/202508__warabenture__15-1612-kifuwarabe-o1o0.png"
-                :slow="player1AnimationSlow"
-                :time="stopwatch1Count"
-                class="player"
-                :style="player1Style"
-                style="image-rendering: pixelated;" /><br/>
-            
-            <!-- 半透明のマスク -->
-            <div
-                :style="`
-                    width:${board1WithMaskFileNum * board1SquareWidth}px;
-                    height:${board1WithMaskRankNum * board1SquareHeight}px;
-                    border-top: solid ${board1WithMaskSizeSquare * board1SquareHeight}px rgba(0,0,0,0.5);
-                    border-right: solid ${(board1WithMaskSizeSquare + board1WithMaskBottomRightMargin) * board1SquareWidth}px rgba(0,0,0,0.5);
-                    border-bottom: solid ${(board1WithMaskSizeSquare + board1WithMaskBottomRightMargin) * board1SquareHeight}px rgba(0,0,0,0.5);
-                    border-left: solid ${board1WithMaskSizeSquare * board1SquareWidth}px rgba(0,0,0,0.5);
-                    zoom:${commonZoom};
-                `"
-                style="position:absolute; left:0; top:0; image-rendering: pixelated;"></div>
-        </div>
-
-        <div>
-            印字x={{ printing1Left }}　｜　人x={{ player1Left }}<br/>
-            印字y={{ printing1Top  }}　｜　人y={{ player1Top  }}<br/>
-        </div>
-        <br/>
-
-        <p>
-            👆 フィールドの端まで歩いてみてくれだぜ（＾▽＾）！<br/>
-            上下左右の端に画面外が見えないようにロックがかかるか、また、盤の端まで歩けるか、試してみてくれだぜ（＾▽＾）！<br/>
-        </p>
-        <br/>
-
 
         <!-- 設定 -->
         <v-btn @click="appManualIsShowing = !appManualIsShowing">{{ appManualIsShowing ? '⚙️設定を終わる' : '⚙️設定を表示' }}</v-btn>
@@ -243,7 +249,7 @@
     <h4><span class="parent-header-lights-out">ＲＰＧの歩行グラフィック　＞　</span><span class="parent-header">盤の循環スクロール、数字柄の原始的シフト、自機の端歩き　＞　</span>ソースコード</h4>
     <section class="sec-4">
         <source-link
-            pagePath="/making/input-axis-rpg-walk-board-loop-scroll-and-printing-primordial-and-player-boundary-1"/>
+            pagePath="/making/input-axis-rpg-walk-board-scroll-loop-and-printing-primordial-and-player-boundary-1"/>
     </section>
 </template>
 
@@ -258,14 +264,11 @@
 
     import { VBtn } from 'vuetify/components';
 
-
     // ++++++++++++++
     // + 互換性対応 +
     // ++++++++++++++
 
-
     import type { CompatibleStyleValue }  from '../../compatibles/compatible-style-value';
-
 
     // ++++++++++++++++++
     // + コンポーネント +
@@ -288,11 +291,10 @@
     // よく使う設定をまとめたもの。特に不変のもの。
     //
 
-    const commonZoom = 4;
     const commonSpriteMotionLeft = -1;  // モーション（motion）定数。左。
-    const commonSpriteMotionTop = -1;
+    const commonSpriteMotionUp = -1;
     const commonSpriteMotionRight = 1;
-    const commonSpriteMotionBottom = 1;
+    const commonSpriteMotionDown = 1;
 
 
     // ############################
@@ -302,6 +304,7 @@
     // 今動いているアプリケーションの状態を記録しているデータ。特に可変のもの。
     //
 
+    const appZoom = 4;
     const appManualIsShowing = ref<boolean>(false);                 // 操作方法等を表示中
     const appBoundaryIsLock = ref<boolean>(true);                   // ［画面外隠し］を管理（true: ロックする, false: ロックしない）
     watch(appBoundaryIsLock, (newValue: boolean)=>{
@@ -368,8 +371,8 @@
             position: 'relative',
             left: "0",
             top: "0",
-            width: `${commonZoom * board1WithMaskFileNum.value * board1SquareWidth}px`,
-            height: `${commonZoom * board1WithMaskRankNum.value * board1SquareHeight}px`,
+            width: `${appZoom * board1WithMaskFileNum.value * board1SquareWidth}px`,
+            height: `${appZoom * board1WithMaskRankNum.value * board1SquareHeight}px`,
         };
     });
     const getSquareStyle = computed<
@@ -578,7 +581,7 @@
     const player1Style = computed<CompatibleStyleValue>(() => ({
         left: `${player1Left.value}px`,
         top: `${player1Top.value}px`,
-        zoom: commonZoom,
+        zoom: appZoom,
     }));
     const player1SourceFrames = {   // キャラクターの向きと、歩行タイルの指定
         left:[  // 左向き
@@ -810,11 +813,11 @@
                 }
 
                 if (player1Input.ArrowUp) {    // 上
-                    player1Motion.value["lookBottom"] = commonSpriteMotionTop;
+                    player1Motion.value["lookBottom"] = commonSpriteMotionUp;
 
                     // ホーム・ポジションより下に居ればホームに近づける。
                     if (player1Rank.value > player1HomeRank.value) {
-                        player1Motion.value["goToBottom"] = commonSpriteMotionTop;
+                        player1Motion.value["goToBottom"] = commonSpriteMotionUp;
                     } else {
                         let willShift: boolean = true;
                         if (appBoundaryIsLock.value) {
@@ -858,22 +861,22 @@
                         }
 
                         if (willShift) {
-                            printing1Motion.value["wrapAroundBottom"] = commonSpriteMotionBottom;     // 印字は、キー入力とは逆向きへ進める
+                            printing1Motion.value["wrapAroundBottom"] = commonSpriteMotionDown;     // 印字は、キー入力とは逆向きへ進める
                         } else if (appBoundaryWalkingEdge.value) {
                             // ［盤の端まで歩ける］
                             if (player1Rank.value > 0 + board1WithMaskSizeSquare.value) {
-                                player1Motion.value["goToBottom"] = commonSpriteMotionTop;
+                                player1Motion.value["goToBottom"] = commonSpriteMotionUp;
                             }
                         }
                     }
                 }
 
                 if (player1Input.ArrowDown) {   // 下
-                    player1Motion.value["lookBottom"] = commonSpriteMotionBottom;
+                    player1Motion.value["lookBottom"] = commonSpriteMotionDown;
 
                     // ホーム・ポジションより上に居ればホームに近づける。
                     if (player1Rank.value < player1HomeRank.value) {
-                        player1Motion.value["goToBottom"] = commonSpriteMotionBottom;
+                        player1Motion.value["goToBottom"] = commonSpriteMotionDown;
                     } else {
                         let willShift: boolean = true;
                         if (appBoundaryIsLock.value) {
@@ -926,11 +929,11 @@
                         }
 
                         if (willShift) {
-                            printing1Motion.value["wrapAroundBottom"] = commonSpriteMotionTop;    // 印字は、キー入力とは逆向きへ進める
+                            printing1Motion.value["wrapAroundBottom"] = commonSpriteMotionUp;    // 印字は、キー入力とは逆向きへ進める
                         } else if (appBoundaryWalkingEdge.value) {
                             // ［盤の端まで歩ける］
                             if (player1Rank.value < board1RankNum.value - board1WithMaskSizeSquare.value - 1) {
-                                player1Motion.value["goToBottom"] = commonSpriteMotionBottom;
+                                player1Motion.value["goToBottom"] = commonSpriteMotionDown;
                             }
                         }
                     }
@@ -948,9 +951,9 @@
                 printing1Left.value += printing1Speed.value;
             }
 
-            if (printing1Motion.value["wrapAroundBottom"] == commonSpriteMotionTop) {  // 上
+            if (printing1Motion.value["wrapAroundBottom"] == commonSpriteMotionUp) {  // 上
                 printing1Top.value -= printing1Speed.value;
-            } else if (printing1Motion.value["wrapAroundBottom"] == commonSpriteMotionBottom) {   // 下
+            } else if (printing1Motion.value["wrapAroundBottom"] == commonSpriteMotionDown) {   // 下
                 printing1Top.value += printing1Speed.value;
             }
 
@@ -961,17 +964,17 @@
                 player1Left.value += printing1Speed.value;
             }
 
-            if (player1Motion.value["goToBottom"] == commonSpriteMotionTop) {   // 上
+            if (player1Motion.value["goToBottom"] == commonSpriteMotionUp) {   // 上
                 player1Top.value -= printing1Speed.value;
-            } else if (player1Motion.value["goToBottom"] == commonSpriteMotionBottom) { // 下
+            } else if (player1Motion.value["goToBottom"] == commonSpriteMotionDown) { // 下
                 player1Top.value += printing1Speed.value;
             }
 
             if (player1MotionWait.value <= 0) { // モーション開始時に１回だけ実行される
                 // 自機の向きを更新、タテヨコ同時入力の場合、上下を優先する：
-                if (player1Motion.value["lookBottom"] == commonSpriteMotionTop) {   // 上
+                if (player1Motion.value["lookBottom"] == commonSpriteMotionUp) {   // 上
                     player1Frames.value = player1SourceFrames["up"]
-                } else if (player1Motion.value["lookBottom"] == commonSpriteMotionBottom) { // 下
+                } else if (player1Motion.value["lookBottom"] == commonSpriteMotionDown) { // 下
                     player1Frames.value = player1SourceFrames["down"]
                 } else if (player1Motion.value["lookRight"] == commonSpriteMotionLeft) {    // 左
                     player1Frames.value = player1SourceFrames["left"]

@@ -5,80 +5,6 @@
 
     <h4><span class="parent-header">ＲＰＧの歩行グラフィック　＞　</span>盤の循環スクロール、絵柄付き</h4>
     <section class="sec-4">
-        <!-- タッチパネルでも操作できるように、ボタンを置いておきます。キーボードの操作説明も兼ねます。 -->
-        <p>キーボード操作方法</p>
-        <ul>
-            <li>
-                <v-btn class="code-key hidden"/>
-                <v-btn
-                    class="code-key"
-                    @touchstart.prevent="button1Ref?.press($event, onUpButtonPressed, {repeat: true});"
-                    @touchend="button1Ref?.release(onUpButtonReleased);"
-                    @touchcancel="button1Ref?.release(onUpButtonReleased);"
-                    @touchleave="button1Ref?.release(onUpButtonReleased);"
-                    @mousedown.prevent="button1Ref?.handleMouseDown($event, onUpButtonPressed, {repeat: true})"
-                    @mouseup="button1Ref?.release(onUpButtonReleased);"
-                    @mouseleave="button1Ref?.release(onUpButtonReleased);"
-                >↑</v-btn>
-                <br/>
-                <v-btn
-                    class="code-key"
-                    @touchstart.prevent="button1Ref?.press($event, onLeftButtonPressed, {repeat: true});"
-                    @touchend="button1Ref?.release(onLeftButtonReleased);"
-                    @touchcancel="button1Ref?.release(onLeftButtonReleased);"
-                    @touchleave="button1Ref?.release(onLeftButtonReleased);"
-                    @mousedown.prevent="button1Ref?.handleMouseDown($event, onLeftButtonPressed, {repeat: true})"
-                    @mouseup="button1Ref?.release(onLeftButtonReleased);"
-                    @mouseleave="button1Ref?.release(onLeftButtonReleased);"
-                >←</v-btn>
-                <v-btn class="code-key hidden"/>
-                <v-btn
-                    class="code-key"
-                    @touchstart.prevent="button1Ref?.press($event, onRightButtonPressed, {repeat: true});"
-                    @touchend="button1Ref?.release(onRightButtonReleased);"
-                    @touchcancel="button1Ref?.release(onRightButtonReleased);"
-                    @touchleave="button1Ref?.release(onRightButtonReleased);"
-                    @mousedown.prevent="button1Ref?.handleMouseDown($event, onRightButtonPressed, {repeat: true})"
-                    @mouseup="button1Ref?.release(onRightButtonReleased);"
-                    @mouseleave="button1Ref?.release(onRightButtonReleased);"
-                >→</v-btn>
-                　…　自機を上下左右へ、印字を逆方向へ動かすぜ！
-                <br/>
-                <v-btn class="code-key hidden"/>
-                <v-btn
-                    class="code-key"
-                    @touchstart.prevent="button1Ref?.press($event, onDownButtonPressed, {repeat: true});"
-                    @touchend="button1Ref?.release(onDownButtonReleased);"
-                    @touchcancel="button1Ref?.release(onDownButtonReleased);"
-                    @touchleave="button1Ref?.release(onDownButtonReleased);"
-                    @mousedown.prevent="button1Ref?.handleMouseDown($event, onDownButtonPressed, {repeat: true})"
-                    @mouseup="button1Ref?.release(onDownButtonReleased);"
-                    @mouseleave="button1Ref?.release(onDownButtonReleased);"
-                >↓</v-btn>
-                <br/>
-            </li>
-            <li>
-                <v-btn
-                    class="code-key"
-                    @touchstart.prevent="button1Ref?.press($event, onSpaceButtonPressed, {repeat: true});"
-                    @touchend="button1Ref?.release(onSpaceButtonReleased);"
-                    @touchcancel="button1Ref?.release(onSpaceButtonReleased);"
-                    @touchleave="button1Ref?.release(onSpaceButtonReleased);"
-                    @mousedown.prevent="button1Ref?.handleMouseDown($event, onSpaceButtonPressed, {repeat: true})"
-                    @mouseup="button1Ref?.release(onSpaceButtonReleased);"
-                    @mouseleave="button1Ref?.release(onSpaceButtonReleased);"
-                >（スペース）</v-btn>
-                　…　自機、印字の位置を最初に有ったところに戻すぜ。
-            </li>
-            <li>
-                <!-- フォーカスを外すためのダミー・ボタンです -->
-                <v-btn
-                    class="noop-key"
-                    ref="noopButton"
-                    v-tooltip="'PCでのマウス操作で、フォーカスがコントロールに残って邪魔になるときは、このボタンを押してくれだぜ'"
-                >何もしないボタン</v-btn><br/>
-            </li>
-        </ul>
         <br/>
 
         <!-- ストップウォッチ。デバッグに使いたいときは、 display: none; を消してください。 -->
@@ -152,7 +78,83 @@
             style="image-rendering: pixelated; border:dashed gray 1px;"/>
         <p>：ここまで。</p>
 
+
+        <!-- タッチパネルでも操作できるように、ボタンを置いておきます。キーボードの操作説明も兼ねます。 -->
+        <p>キーボード操作方法</p>
+        <ul>
+            <li>
+                <v-btn class="code-key hidden"/>
+                <v-btn
+                    class="code-key"
+                    @touchstart.prevent="button1Ref?.press($event, onUpButtonPressed, {repeat: true});"
+                    @touchend="button1Ref?.release(onUpButtonReleased);"
+                    @touchcancel="button1Ref?.release(onUpButtonReleased);"
+                    @touchleave="button1Ref?.release(onUpButtonReleased);"
+                    @mousedown.prevent="button1Ref?.handleMouseDown($event, onUpButtonPressed, {repeat: true})"
+                    @mouseup="button1Ref?.release(onUpButtonReleased);"
+                    @mouseleave="button1Ref?.release(onUpButtonReleased);"
+                >↑</v-btn>
+                <br/>
+                <v-btn
+                    class="code-key"
+                    @touchstart.prevent="button1Ref?.press($event, onLeftButtonPressed, {repeat: true});"
+                    @touchend="button1Ref?.release(onLeftButtonReleased);"
+                    @touchcancel="button1Ref?.release(onLeftButtonReleased);"
+                    @touchleave="button1Ref?.release(onLeftButtonReleased);"
+                    @mousedown.prevent="button1Ref?.handleMouseDown($event, onLeftButtonPressed, {repeat: true})"
+                    @mouseup="button1Ref?.release(onLeftButtonReleased);"
+                    @mouseleave="button1Ref?.release(onLeftButtonReleased);"
+                >←</v-btn>
+                <v-btn class="code-key hidden"/>
+                <v-btn
+                    class="code-key"
+                    @touchstart.prevent="button1Ref?.press($event, onRightButtonPressed, {repeat: true});"
+                    @touchend="button1Ref?.release(onRightButtonReleased);"
+                    @touchcancel="button1Ref?.release(onRightButtonReleased);"
+                    @touchleave="button1Ref?.release(onRightButtonReleased);"
+                    @mousedown.prevent="button1Ref?.handleMouseDown($event, onRightButtonPressed, {repeat: true})"
+                    @mouseup="button1Ref?.release(onRightButtonReleased);"
+                    @mouseleave="button1Ref?.release(onRightButtonReleased);"
+                >→</v-btn>
+                <br/>
+                <v-btn class="code-key hidden"/>
+                <v-btn
+                    class="code-key"
+                    @touchstart.prevent="button1Ref?.press($event, onDownButtonPressed, {repeat: true});"
+                    @touchend="button1Ref?.release(onDownButtonReleased);"
+                    @touchcancel="button1Ref?.release(onDownButtonReleased);"
+                    @touchleave="button1Ref?.release(onDownButtonReleased);"
+                    @mousedown.prevent="button1Ref?.handleMouseDown($event, onDownButtonPressed, {repeat: true})"
+                    @mouseup="button1Ref?.release(onDownButtonReleased);"
+                    @mouseleave="button1Ref?.release(onDownButtonReleased);"
+                >↓</v-btn>
+                　…　自機を上下左右へ、印字を逆方向へ動かすぜ！
+                <br/>
+            </li>
+            <li>
+                <v-btn
+                    class="code-key"
+                    @touchstart.prevent="button1Ref?.press($event, onSpaceButtonPressed, {repeat: true});"
+                    @touchend="button1Ref?.release(onSpaceButtonReleased);"
+                    @touchcancel="button1Ref?.release(onSpaceButtonReleased);"
+                    @touchleave="button1Ref?.release(onSpaceButtonReleased);"
+                    @mousedown.prevent="button1Ref?.handleMouseDown($event, onSpaceButtonPressed, {repeat: true})"
+                    @mouseup="button1Ref?.release(onSpaceButtonReleased);"
+                    @mouseleave="button1Ref?.release(onSpaceButtonReleased);"
+                >（スペース）</v-btn>
+                　…　自機、印字の位置を最初に有ったところに戻すぜ。
+            </li>
+            <li>
+                <!-- フォーカスを外すためのダミー・ボタンです -->
+                <v-btn
+                    class="noop-key"
+                    ref="noopButton"
+                    v-tooltip="'PCでのマウス操作で、フォーカスがコントロールに残って邪魔になるときは、このボタンを押してくれだぜ'"
+                >何もしないボタン</v-btn><br/>
+            </li>
+        </ul>
         <br/>
+
         <!-- 設定 -->
         <v-btn
             class="code-key"
@@ -176,7 +178,6 @@
                 thumbLabel="always" />
             <br/>
         </section>
-
     </section>
 
     <br/>
@@ -227,9 +228,9 @@
     //
 
     const commonSpriteMotionLeft = -1;  // モーション（motion）定数。左。
-    const commonSpriteMotionTop = -1;
+    const commonSpriteMotionUp = -1;
     const commonSpriteMotionRight = 1;
-    const commonSpriteMotionBottom = 1;
+    const commonSpriteMotionDown = 1;
 
 
     // ############################
@@ -511,13 +512,13 @@
                 }
 
                 if (player1Input.ArrowUp) {    // 上
-                    player1Motion.value["lookBottom"] = commonSpriteMotionTop;
-                    printing1Motion.value["wrapAroundBottom"] = commonSpriteMotionBottom;     // 印字は、キー入力とは逆向きへ進める
+                    player1Motion.value["lookBottom"] = commonSpriteMotionUp;
+                    printing1Motion.value["wrapAroundBottom"] = commonSpriteMotionDown;     // 印字は、キー入力とは逆向きへ進める
                 }
 
                 if (player1Input.ArrowDown) {   // 下
-                    player1Motion.value["lookBottom"] = commonSpriteMotionBottom;
-                    printing1Motion.value["wrapAroundBottom"] = commonSpriteMotionTop;    // 印字は、キー入力とは逆向きへ進める
+                    player1Motion.value["lookBottom"] = commonSpriteMotionDown;
+                    printing1Motion.value["wrapAroundBottom"] = commonSpriteMotionUp;    // 印字は、キー入力とは逆向きへ進める
                 }
             }
 
@@ -532,9 +533,9 @@
                 printing1Left.value += printing1Speed.value;
             }
 
-            if (printing1Motion.value["wrapAroundBottom"] == commonSpriteMotionTop) {  // 上
+            if (printing1Motion.value["wrapAroundBottom"] == commonSpriteMotionUp) {  // 上
                 printing1Top.value -= printing1Speed.value;
-            } else if (printing1Motion.value["wrapAroundBottom"] == commonSpriteMotionBottom) {   // 下
+            } else if (printing1Motion.value["wrapAroundBottom"] == commonSpriteMotionDown) {   // 下
                 printing1Top.value += printing1Speed.value;
             }
 
@@ -545,7 +546,7 @@
             //     player1Left.value += printing1Speed.value;
             // }
 
-            // if (player1Motion.value["goToBottom"] == commonSpriteMotionTop) {   // 上
+            // if (player1Motion.value["goToBottom"] == commonSpriteMotionUp) {   // 上
             //     player1Top.value -= printing1Speed.value;
             // } else if (player1Motion.value["goToBottom"] == commonSpriteMotionBottom) { // 下
             //     player1Top.value += printing1Speed.value;
@@ -553,9 +554,9 @@
 
             if (player1MotionWait.value <= 0) { // モーション開始時に１回だけ実行される
                 // 自機の向きを更新、タテヨコ同時入力の場合、上下を優先する：
-                if (player1Motion.value["lookBottom"] == commonSpriteMotionTop) {   // 上
+                if (player1Motion.value["lookBottom"] == commonSpriteMotionUp) {   // 上
                     player1Frames.value = player1SourceFrames["up"]
-                } else if (player1Motion.value["lookBottom"] == commonSpriteMotionBottom) { // 下
+                } else if (player1Motion.value["lookBottom"] == commonSpriteMotionDown) { // 下
                     player1Frames.value = player1SourceFrames["down"]
                 } else if (player1Motion.value["lookRight"] == commonSpriteMotionLeft) {    // 左
                     player1Frames.value = player1SourceFrames["left"]

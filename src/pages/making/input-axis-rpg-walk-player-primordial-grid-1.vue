@@ -3,8 +3,70 @@
     <!-- ボタン機能拡張 -->
     <button-20250822 ref="button1Ref"/>
 
-    <h4><span class="parent-header">ＲＰＧの歩行グラフィック　＞　</span>数字柄の原始的シフト</h4>
+    <h4><span class="parent-header">ＲＰＧの歩行グラフィック　＞　</span>自機のグリッド吸着</h4>
     <section class="sec-4">
+        <br/>
+
+        <!-- ストップウォッチ。デバッグに使いたいときは、 display: none; を消してください。 -->
+        <stopwatch
+            ref="stopwatch1Ref"
+            v-on:countUp="(countNum) => { stopwatch1Count = countNum; }"
+            style="display: none;" />
+
+        <!-- 盤領域
+            自機より３倍角ぐらい大きく。
+        -->
+        <div
+            :style="`
+                width: ${3 * appZoom * board1SquareWidth}px;
+                height: ${3 * appZoom * board1SquareHeight}px;
+            `"
+            style="
+                position: relative;
+            ">
+
+            <!-- 自機のホーム１ -->
+            <div
+                :style="`
+                    left: ${player1HomeLeft}px;
+                    top: ${player1HomeTop}px;
+                    width: ${board1SquareWidth}px;
+                    height: ${board1SquareHeight}px;
+                    zoom: ${appZoom};
+                `"
+                style="
+                    position: absolute;
+                    background-color: lightpink;
+                ">
+            </div>
+
+            <!--
+                グリッド
+                NOTE: ループカウンターは 1 から始まるので、1～9の9個のセルを作成。
+            -->
+            <div v-for="i in board1Area" :key="i"
+                :style="`
+                    position:absolute;
+                    top: ${Math.floor((i - 1) / board1FileNum) * board1SquareHeight}px;
+                    left: ${((i - 1) % board1FileNum) * board1SquareWidth}px;
+                    width:${board1SquareWidth}px;
+                    height:${board1SquareHeight}px;
+                    zoom: ${appZoom};
+                    border: solid 1px ${(i - 1) % 2 == 0 ? 'darkgray' : 'lightgray'};`"></div>
+
+            <!-- 自機１ -->
+            <tile-animation
+                :frames="player1Frames"
+                tilemapUrl="/img/making/202508__warabenture__15-1612-kifuwarabe-o1o0.png"
+                :slow="player1AnimationSlow"
+                :time="stopwatch1Count"
+                class="player"
+                :style="player1Style"
+                style="image-rendering: pixelated;" />
+        </div>
+        <br/>
+
+        <!-- タッチパネルでも操作できるように、ボタンを置いておきます。キーボードの操作説明も兼ねます。 -->
         <p>キーボード操作方法</p>
         <ul>
             <li>
@@ -41,7 +103,6 @@
                     @mouseup="button1Ref?.release(onRightButtonReleased);"
                     @mouseleave="button1Ref?.release(onRightButtonReleased);"
                 >→</v-btn>
-                　…　上下左右に動かすぜ！
                 <br/>
                 <v-btn class="code-key hidden"/>
                 <v-btn
@@ -54,6 +115,7 @@
                     @mouseup="button1Ref?.release(onDownButtonReleased);"
                     @mouseleave="button1Ref?.release(onDownButtonReleased);"
                 >↓</v-btn>
+                　…　上下左右に動かすぜ！
                 <br/>
             </li>
             <li>
@@ -67,46 +129,81 @@
                     @mouseup="button1Ref?.release(onSpaceButtonReleased);"
                     @mouseleave="button1Ref?.release(onSpaceButtonReleased);"
                 >（スペース）</v-btn>
-                位置を最初の状態に戻すぜ。
+                　…　自機をホームに戻すぜ。
+            </li>
+            <li>
+                <!-- フォーカスを外すためのダミー・ボタンです -->
+                <v-btn
+                    class="noop-key"
+                    ref="noopButton"
+                    v-tooltip="'PCでのマウス操作で、フォーカスがコントロールに残って邪魔になるときは、このボタンを押してくれだぜ'"
+                >何もしないボタン</v-btn><br/>
             </li>
         </ul>
+
         <br/>
-
-        <!-- ストップウォッチ。デバッグに使いたいときは、 display: none; を消してください。 -->
-        <stopwatch
-            ref="stopwatch1Ref"
-            v-on:countUp="(countNum) => { stopwatch1Count = countNum; }"
-            style="display: none;" />
-
-        <div :style="board1Style">
-
-            <!--
-                グリッド
-                NOTE: ループカウンターは 1 から始まるので、1～9の9個のセルを作成。
-            -->
-            <div v-for="i in board1Area" :key="i"
-                :style="getSquareStyle(i - 1)">{{ getFaceNumber(i - 1) }}</div>
-
-            <!-- 自機１ -->
-            <TileAnimation
-                :frames="player1Frames"
-                tilemapUrl="/img/making/202508__warabenture__15-1612-kifuwarabe-o1o0.png"
-                :slow="player1AnimationSlow"
-                :time="stopwatch1Count"
-                class="player"
-                :style="player1Style"
-                style="image-rendering: pixelated;" /><br/>
-            </div>
-
-        <p>👆 タイルは動いていないぜ（＾▽＾）！</p>
-        <p>だから、数字がタイルの上を入れ替わっている（＝シフトしている）ぜ（＾▽＾）！</p>
+        <!-- 設定 -->
+        <v-btn
+            class="code-key"
+            @touchstart.prevent="button1Ref?.press($event, onConfigButtonPressed);"
+            @touchend="button1Ref?.release();"
+            @touchcancel="button1Ref?.release();"
+            @touchleave="button1Ref?.release();"
+            @mousedown.prevent="button1Ref?.handleMouseDown($event, onConfigButtonPressed)"
+            @mouseup="button1Ref?.release();"
+            @mouseleave="button1Ref?.release();"
+        >{{ appConfigIsShowing ? '⚙️設定を終わる' : '⚙️設定を表示' }}</v-btn>
+        <section v-if="appConfigIsShowing" class="sec-1">
+            <br/>
+            <v-slider
+                label="ズーム"
+                v-model="appZoom"
+                :min="0.5"
+                :max="4"
+                step="0.5"
+                showTicks="always"
+                thumbLabel="always" />
+            <v-slider
+                label="自機のホーム　＞　筋"
+                v-model="player1HomeFile"
+                :min="0"
+                :max="2"
+                step="1"
+                showTicks="always"
+                thumbLabel="always" />
+            <v-slider
+                label="自機のホーム　＞　段"
+                v-model="player1HomeRank"
+                :min="0"
+                :max="2"
+                step="1"
+                showTicks="always"
+                thumbLabel="always" />
+            <v-slider
+                label="盤の筋の数"
+                v-model="board1FileNum"
+                :min="0"
+                :max="6"
+                step="1"
+                showTicks="always"
+                thumbLabel="always" />
+            <v-slider
+                label="盤の段の数"
+                v-model="board1RankNum"
+                :min="0"
+                :max="6"
+                step="1"
+                showTicks="always"
+                thumbLabel="always" />
+            <br/>
+        </section>
     </section>
 
     <br/>
-    <h4><span class="parent-header-lights-out">ＲＰＧの歩行グラフィック　＞　</span><span class="parent-header">数字柄の原始的シフト　＞　</span>ソースコード</h4>
+    <h4><span class="parent-header-lights-out">ＲＰＧの歩行グラフィック　＞　</span><span class="parent-header">自機のグリッド吸着　＞　</span>ソースコード</h4>
     <section class="sec-4">
         <source-link
-            pagePath="/making/input-axis-rpg-walk-printing-shift-primordial"/>
+            pagePath="/making/input-axis-rpg-walk-player-primordial-grid-1"/>
     </section>
 </template>
 
@@ -146,16 +243,32 @@
     // よく使う設定をまとめたもの。特に不変のもの。
     //
 
-    const commonZoom = 4;
     const commonSpriteMotionLeft = -1;  // モーション（motion）定数。左に移動する
     const commonSpriteMotionRight = 1;
     const commonSpriteMotionUp = -1;
     const commonSpriteMotionDown = 1;
 
 
+    // ############################
+    // # アプリケーション・データ #
+    // ############################
+    //
+    // 今動いているアプリケーションの状態を記録しているデータ。特に可変のもの。
+    //
+
+    const appConfigIsShowing = ref<boolean>(false);     // 操作方法等を表示中
+    const appZoom = ref<number>(4);     // ズーム
+
+
     // ################
     // # オブジェクト #
     // ################
+
+    // ++++++++++++++++++++++++++++++++
+    // + オブジェクト　＞　ボタン拡張 +
+    // ++++++++++++++++++++++++++++++++
+
+    const button1Ref = ref<InstanceType<typeof Button20250822> | null>(null);
 
     // ++++++++++++++++++++++++++++++++++++++
     // + オブジェクト　＞　ストップウォッチ +
@@ -164,121 +277,57 @@
     const stopwatch1Ref = ref<InstanceType<typeof Stopwatch> | null>(null); // Stopwatch のインスタンス
     const stopwatch1Count = ref<number>(0);   // カウントの初期値
 
-    // ++++++++++++++++++++++++++++++++++++++++++++
-    // + オブジェクト　＞　ボタン押しっぱなし機能 +
-    // ++++++++++++++++++++++++++++++++++++++++++++
-
-    const button1Ref = ref<InstanceType<typeof Button20250822> | null>(null);
-
     // ++++++++++++++++++++++++
     // + オブジェクト　＞　盤 +
     // ++++++++++++++++++++++++
 
     const board1SquareWidth = 32;
     const board1SquareHeight = 32;
-    const board1FileNum = 5;
-    const board1RankNum = 5;
+    const board1FileNum = ref<number>(3);      // 筋の数
+    const board1RankNum = ref<number>(3);      // 段の数
     const board1Area = computed(()=> {  // 盤のマス数
-        return board1FileNum * board1RankNum;
+        return board1FileNum.value * board1RankNum.value;
     });
-    const board1Style = computed<CompatibleStyleValue>(()=>{ // ボードとマスクを含んでいる領域のスタイル
-        return {
-            position: 'relative',
-            left: "0",
-            top: "0",
-            width: `${commonZoom * board1FileNum * board1SquareWidth}px`,
-            height: `${commonZoom * board1RankNum * board1SquareHeight}px`,
-        };
-    });
-    const getSquareStyle = computed<
-        (i:number)=>CompatibleStyleValue
-    >(() => {
-        return (i:number)=>{
-            // プレイヤーが初期位置にいる場合の、マスの位置。
-            const homeLeft = (i % board1FileNum) * board1SquareWidth;
-            const homeTop = Math.floor(i / board1RankNum) * board1SquareHeight;
 
-            return {
-                position: 'absolute',
-                top: `${homeTop}px`,
-                left: `${homeLeft}px`,
-                width: `${board1SquareWidth}px`,
-                height: `${board1SquareHeight}px`,
-                zoom: 4,
-                border: `solid 1px ${i % 2 == 0 ? 'darkgray' : 'lightgray'}`,
-                textAlign: "center",
-            };
-        };
-    });    
-
-    // ++++++++++++++++++++++++++
-    // + オブジェクト　＞　印字 +
-    // ++++++++++++++++++++++++**
+    // ++++++++++++++++++++++++++++++++++++
+    // + オブジェクト　＞　自機１のホーム +
+    // ++++++++++++++++++++++++++++++++++++
     //
-    // 盤上に表示される数字柄、絵柄など。
+    // このサンプルでは、ピンク色に着色しているマスです。
     //
 
-    const printing1FileNum = board1FileNum;       // 列数
-    const printing1RankNum = board1RankNum;       // 行数
-    const printing1File = ref<number>(0);    // 印字の左上隅のタイルは、盤タイルの左から何番目か。
-    const printing1Rank = ref<number>(0);    // 印字の左上隅のタイルは、盤タイルの上から何番目か。
-    const printing1Data = ref<string[]>([
-        "00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24",
-    ]);
+    const player1HomeFile = ref<number>(1);     // ホーム
+    const player1HomeRank = ref<number>(1);
+    const player1HomeLeft = computed(()=>{
+        return player1HomeFile.value * board1SquareWidth;
+    });
+    const player1HomeTop = computed(()=>{
+        return player1HomeRank.value * board1SquareHeight;
+    });
 
-    /**
-     * 変換
-     * @param tileIndex マス番号
-     * @returns [筋番号, 段番号]
-     */
-    function tileIndexToTileFileRank(tileIndex: number) : number[] {
-        // プレイヤーが右へ１マス移動したら、印字は全行が左へ１つ移動する。
-        const file = tileIndex % board1FileNum;
-        const rank = Math.floor(tileIndex / board1RankNum);
+    // ++++++++++++++++++++++++++++
+    // + オブジェクト　＞　自機１ +
+    // ++++++++++++++++++++++++++++
 
-        return [file, rank];
-    }
-
-    function contentsFileRankToContentsIndex(contentsFile: number, contentsRank: number) : number {
-        return contentsRank * printing1FileNum + contentsFile;
-    }
-
-    const getFaceNumber = computed(() => {
-        return (tileIndex: number)=>{
-            let [tileFile, tileRank] = tileIndexToTileFileRank(tileIndex);
-
-            // タイル上のインデックスを、印字上のインデックスへ変換：
-            const contentsFile = tileFile - printing1File.value; // プレイヤーが右へ１マス移動したら、印字は全行が左へ１つ移動する。
-            const contentsRank = tileRank - printing1Rank.value; // プレイヤーが下へ１マス移動したら、印字は全行が上へ１つ移動する。
-
-            // 印字のサイズの範囲外になるところには、"-" でも表示しておく
-            if (contentsFile < 0 || printing1FileNum <= contentsFile || contentsRank < 0 || printing1RankNum <= contentsRank) {
-                return "-";
-            }
-            
-            // 印字上の位置が示すデータを返す
-            const contentsIndex = contentsFileRankToContentsIndex(contentsFile, contentsRank);
-            return  printing1Data.value[contentsIndex];
-        };
-    });    
-
-    // ++++++++++++++++++++++++++++++++
-    // + オブジェクト　＞　プレイヤー +
-    // ++++++++++++++++++++++++++++++++
-
-    const player1Left: number = 2 * board1SquareWidth;      // スプライトのX座標
-    const player1Top: number = 2 * board1SquareHeight;      // スプライトのY座標
-    const player1Input = <Record<string, boolean>>{         // 入力
+    const player1Left = ref<number>(player1HomeLeft.value);    // スプライトの位置
+    const player1Top = ref<number>(player1HomeTop.value);
+    const player1Speed = ref<number>(2);    // 移動速度
+    const player1Input = <Record<string, boolean>>{    // 入力
         " ": false, ArrowUp: false, ArrowRight: false, ArrowDown: false, ArrowLeft: false
     };
     const player1AnimationSlow = ref<number>(8);    // アニメーションのスローモーションの倍率の初期値
-    const player1AnimationWalkingFrames = 16;       // 歩行フレーム数
-    const player1Style = computed(() => ({
-        top: `${player1Top}px`,
-        left: `${player1Left}px`,
-        zoom: commonZoom,
+    const player1Style = computed<CompatibleStyleValue>(() => ({
+        top: `${player1Top.value}px`,
+        left: `${player1Left.value}px`,
+        zoom: appZoom.value,
     }));
     const player1SourceFrames = {   // キャラクターの向きと、歩行タイルの指定
+        left:[  // 左向き
+            {top:  3 * board1SquareHeight, left: 0 * board1SquareWidth, width: board1SquareWidth, height: board1SquareHeight },
+            {top:  3 * board1SquareHeight, left: 1 * board1SquareWidth, width: board1SquareWidth, height: board1SquareHeight },
+            {top:  3 * board1SquareHeight, left: 0 * board1SquareWidth, width: board1SquareWidth, height: board1SquareHeight },
+            {top:  3 * board1SquareHeight, left: 1 * board1SquareWidth, width: board1SquareWidth, height: board1SquareHeight },
+        ],
         up:[    // 上向き
             {top:  0 * board1SquareHeight, left: 0 * board1SquareWidth, width: board1SquareWidth, height: board1SquareHeight },
             {top:  0 * board1SquareHeight, left: 1 * board1SquareWidth, width: board1SquareWidth, height: board1SquareHeight },
@@ -297,18 +346,13 @@
             {top:  2 * board1SquareHeight, left: 0 * board1SquareWidth, width: board1SquareWidth, height: board1SquareHeight },
             {top:  2 * board1SquareHeight, left: 1 * board1SquareWidth, width: board1SquareWidth, height: board1SquareHeight },
         ],
-        left:[  // 左向き
-            {top:  3 * board1SquareHeight, left: 0 * board1SquareWidth, width: board1SquareWidth, height: board1SquareHeight },
-            {top:  3 * board1SquareHeight, left: 1 * board1SquareWidth, width: board1SquareWidth, height: board1SquareHeight },
-            {top:  3 * board1SquareHeight, left: 0 * board1SquareWidth, width: board1SquareWidth, height: board1SquareHeight },
-            {top:  3 * board1SquareHeight, left: 1 * board1SquareWidth, width: board1SquareWidth, height: board1SquareHeight },
-        ]
     };
     const player1Frames = ref(player1SourceFrames["down"]);
-    const player1MotionWait = ref(0);  // TODO: モーション入力拒否時間。入力キーごとに用意したい。
-    const player1Motion = ref<Record<string, number>>({  // モーションへの入力
-        xAxis: 0,   // 負なら左、正なら右
-        yAxis: 0,   // 負なら上、正なら下
+    const player1AnimationWalkingFrames = 16;       // 歩行フレーム数
+    const player1MotionWait = ref(0);    // TODO: モーション入力拒否時間。入力キーごとに用意したい。
+    const player1Motion = ref<Record<string, number>>({    // モーションへの入力
+        goToRight: 0,   // 負なら左、正なら右
+        goToBottom: 0,   // 負なら上、正なら下
     });
 
 
@@ -349,60 +393,65 @@
      */
     function gameLoopStart() : void {
         const update = () => {
-            player1MotionWait.value -= 1;
+            player1MotionWait.value -= 1;    // モーション・タイマー
 
             if (player1MotionWait.value==0) {
-                player1Motion.value["xAxis"] = 0;    // クリアー
-                player1Motion.value["yAxis"] = 0;
+                player1Motion.value["goToRight"] = 0;    // クリアー
+                player1Motion.value["goToBottom"] = 0;
             }
-            
-            // 入力（上下左右への移動）をモーションに変換
+
+            // ++++++++++++++++++++++++++++++
+            // + キー入力をモーションに変換 +
+            // ++++++++++++++++++++++++++++++
             if (player1MotionWait.value<=0) {   // ウェイトが無ければ、入力を受け付ける。
 
                 // 位置のリセット
                 if (player1Input[" "]) {
-                    printing1File.value = 0;
-                    printing1Rank.value = 0;
+                    player1Top.value = 1 * board1SquareHeight;
+                    player1Left.value = 1 * board1SquareWidth;
                 }
 
                 // 移動
                 if (player1Input.ArrowLeft) {
-                    player1Motion.value["xAxis"] = commonSpriteMotionLeft; // 左
+                    player1Motion.value["goToRight"] = commonSpriteMotionLeft; // 左
                 }
 
                 if (player1Input.ArrowRight) {
-                    player1Motion.value["xAxis"] = commonSpriteMotionRight;  // 右
+                    player1Motion.value["goToRight"] = commonSpriteMotionRight;  // 右
                 }
 
                 if (player1Input.ArrowUp) {
-                    player1Motion.value["yAxis"] = commonSpriteMotionUp;   // 上
+                    player1Motion.value["goToBottom"] = commonSpriteMotionUp;   // 上
                 }
 
                 if (player1Input.ArrowDown) {
-                    player1Motion.value["yAxis"] = commonSpriteMotionDown;   // 下
+                    player1Motion.value["goToBottom"] = commonSpriteMotionDown;   // 下
                 }
 
-                if (player1Motion.value["xAxis"]!=0 || player1Motion.value["yAxis"]!=0) {
+                if (player1Motion.value["goToRight"]!=0 || player1Motion.value["goToBottom"]!=0) {
                     player1MotionWait.value = player1AnimationWalkingFrames;
                 }
+            }
 
-                // 移動処理
-                // 斜め方向の場合、上下を優先する。
-                if (player1Motion.value["xAxis"]==1) {   // 右
-                    player1Frames.value = player1SourceFrames["right"]
-                    printing1File.value -= 1;   // 印字の方をスクロールさせる
-                } else if (player1Motion.value["xAxis"]==-1) {  // 左
-                    player1Frames.value = player1SourceFrames["left"]
-                    printing1File.value += 1;
-                }
+            // ++++++++++++++
+            // + 移動を処理 +
+            // ++++++++++++++
+            //
+            // 斜め方向の場合、上下を優先する。
+            if (player1Motion.value["goToRight"]==1) {    // 右
+                player1Frames.value = player1SourceFrames["right"]    // 向きを変える
+                player1Left.value += player1Speed.value;
+            } else if (player1Motion.value["goToRight"]==-1) {    // 左
+                player1Frames.value = player1SourceFrames["left"]
+                player1Left.value -= player1Speed.value;
+            }
 
-                if (player1Motion.value["yAxis"]==-1) {  // 上
-                    player1Frames.value = player1SourceFrames["up"]
-                    printing1Rank.value += 1;
-                } else if (player1Motion.value["yAxis"]==1) {   // 下
-                    player1Frames.value = player1SourceFrames["down"]
-                    printing1Rank.value -= 1;
-                }
+            if (player1Motion.value["goToBottom"]==-1) {    // 上
+                player1Frames.value = player1SourceFrames["up"]
+                player1Top.value -= player1Speed.value;
+            } else if (player1Motion.value["goToBottom"]==1) {    // 下
+                player1Frames.value = player1SourceFrames["down"]
+                player1Top.value += player1Speed.value;
             }
 
             // 次のフレーム
@@ -478,6 +527,13 @@
         player1Input[" "] = false;
     }
 
+
+    /**
+     * 設定ボタン。
+     */
+    function onConfigButtonPressed() : void {
+        appConfigIsShowing.value = !appConfigIsShowing.value;
+    }
 
 </script>
 

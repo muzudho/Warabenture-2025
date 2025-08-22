@@ -147,7 +147,7 @@
     <h4><span class="parent-header-lights-out">標的　＞　</span>ソースコード</h4>
     <section class="sec-4">
         <source-link
-            pagePath="/making/input-axis-target"/>
+            pagePath="/making/input-axis-target-1"/>
     </section>
 
 </template>
