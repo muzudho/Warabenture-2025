@@ -126,8 +126,8 @@
                 >何もしないボタン</v-btn><br/>
             </li>
         </ul>
-
         <br/>
+
         <!-- 設定 -->
         <v-btn
             class="code-key"
@@ -213,8 +213,8 @@
     // 今動いているアプリケーションの状態を記録しているデータ。特に可変のもの。
     //
 
-    const appConfigIsShowing = ref<boolean>(false);     // 操作方法等を表示中
-    const appZoom = ref<number>(4);     // ズーム
+    const appConfigIsShowing = ref<boolean>(false);    // 操作方法等を表示中
+    const appZoom = ref<number>(4);    // ズーム
 
 
     // ################

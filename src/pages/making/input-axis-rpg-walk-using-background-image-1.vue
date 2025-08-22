@@ -16,10 +16,23 @@
         <!-- 盤領域 -->
         <div :style="board1Style">
 
-            <!--
-                タイルのグリッド。
-                NOTE: ループカウンターは 1 から始まるので、1～9の9個のセルを作成。
-            -->
+            <!-- 自機のホーム１ -->
+            <div
+                :style="`
+                    left: ${player1HomeLeft}px;
+                    top: ${player1HomeTop}px;
+                    width: ${board1SquareWidth}px;
+                    height: ${board1SquareHeight}px;
+                `"
+                style="
+                    position: absolute;
+                    border: dashed 4px lightpink;
+                    z-index: 10;
+                ">
+                <!-- zoom: ${appZoom}; -->
+            </div>
+
+            <!-- タイルのグリッド -->
             <Tile
                 v-for="i in board1Area" :key="i"
                 :style="getSquareStyle(i - 1)"
@@ -52,7 +65,8 @@
                     border-bottom: solid ${(board1WithMaskSizeSquare + board1WithMaskBottomRightMargin) * board1SquareHeight}px rgba(0,0,0,0.5);
                     border-left: solid ${board1WithMaskSizeSquare * board1SquareWidth}px rgba(0,0,0,0.5);
                 `"
-                style="position:absolute; left:0; top:0; image-rendering: pixelated;"></div>
+                style="position:absolute; left:0; top:0; image-rendering: pixelated;">
+            </div>
         </div>
 
         <p>👆半透明の黒いマスクのところは画面に映らないようにすればＯｋだぜ（＾～＾）！</p>
@@ -176,6 +190,22 @@
                 step="0.5"
                 showTicks="always"
                 thumbLabel="always" />
+            <v-slider
+                label="自機のホーム　＞　筋"
+                v-model="player1HomeFile"
+                :min="0"
+                :max="4"
+                step="1"
+                showTicks="always"
+                thumbLabel="always" />
+            <v-slider
+                label="自機のホーム　＞　段"
+                v-model="player1HomeRank"
+                :min="0"
+                :max="4"
+                step="1"
+                showTicks="always"
+                thumbLabel="always" />
             <br/>
         </section>
     </section>
@@ -241,7 +271,7 @@
     //
 
     const appConfigIsShowing = ref<boolean>(false);    // 操作方法等を表示中
-    const appZoom = ref<number>(4);
+    const appZoom = ref<number>(4);    // ズーム
 
 
     // ################
@@ -254,9 +284,9 @@
 
     const noopButton = ref<InstanceType<typeof VBtn> | null>(null);
 
-    // ++++++++++++++++++++++++++++++++++++++++++++
-    // + オブジェクト　＞　ボタン押しっぱなし機能 +
-    // ++++++++++++++++++++++++++++++++++++++++++++
+    // ++++++++++++++++++++++++++++++++
+    // + オブジェクト　＞　ボタン拡張 +
+    // ++++++++++++++++++++++++++++++++
 
     const button1Ref = ref<InstanceType<typeof Button20250822> | null>(null);
 
@@ -273,15 +303,15 @@
 
     const board1SquareWidth = 32;
     const board1SquareHeight = 32;
-    const board1FileNum = 5;  // 筋の数
-    const board1RankNum = 5;  // 段の数
+    const board1FileNum = ref<number>(5);   // 筋の数
+    const board1RankNum = ref<number>(5);   // 段の数
     const board1Area = computed(()=> {  // 盤のマス数
-        return board1FileNum * board1RankNum;
+        return board1FileNum.value * board1RankNum.value;
     });
     const board1WithMaskSizeSquare = ref<number>(1);    // マスクの幅（単位：マス）
     const board1WithMaskBottomRightMargin = 1;          // マスクは右下に１マス分多く作ります。
-    const board1WithMaskFileNum = board1FileNum + board1WithMaskBottomRightMargin
-    const board1WithMaskRankNum = board1RankNum + board1WithMaskBottomRightMargin
+    const board1WithMaskFileNum = board1FileNum.value + board1WithMaskBottomRightMargin
+    const board1WithMaskRankNum = board1RankNum.value + board1WithMaskBottomRightMargin
     const board1Style = computed<CompatibleStyleValue>(()=>{  // ボードとマスクを含んでいる領域のスタイル
         return {
             position: 'relative',
@@ -297,11 +327,11 @@
     >(() => {
         return (i:number)=>{
             // プレイヤーが初期位置にいる場合の、マスの位置。
-            const homeLeft = (i % board1FileNum) * board1SquareWidth;
-            const homeTop = Math.floor(i / board1FileNum) * board1SquareHeight;
+            const homeLeft = (i % board1FileNum.value) * board1SquareWidth;
+            const homeTop = Math.floor(i / board1FileNum.value) * board1SquareHeight;
 
-            const bwPx = (board1FileNum * board1SquareWidth);   // 盤の横幅（ピクセル）。右側と下側に余分に付いている１マス分のマスクを含まない。
-            const bhPx = (board1RankNum * board1SquareHeight);
+            const bwPx = (board1FileNum.value * board1SquareWidth);   // 盤の横幅（ピクセル）。右側と下側に余分に付いている１マス分のマスクを含まない。
+            const bhPx = (board1RankNum.value * board1SquareHeight);
 
             // NOTE: 循環するだけなら、［剰余］を使えばいける。
             // 盤の左端列を、右端列へ移動させる。
@@ -324,23 +354,23 @@
             position: 'relative',
             left: "0",
             top: "0",
-            width: `${board1FileNum * board1SquareWidth}px`,
-            height: `${board1RankNum * board1SquareHeight}px`,
+            width: `${board1FileNum.value * board1SquareWidth}px`,
+            height: `${board1RankNum.value * board1SquareHeight}px`,
         };
     });
     const board1FloorTilemapTileNum = 4;  // 床のタイルマップ
     const board1SourceTilemapCoordination = computed(() => {   // 座標
         const tileMap = [];
         for (let i = 0; i < board1Area.value; i++) {
-            const files = i % board1FileNum;
-            const ranks = Math.floor(i / board1FileNum);
+            const files = i % board1FileNum.value;
+            const ranks = Math.floor(i / board1FileNum.value);
             tileMap.push({ top: ranks * board1SquareHeight, left: files * board1SquareWidth, width: board1SquareWidth, height: board1SquareHeight });
         }
         return tileMap;
     });
     const board1MapFiles = board1FileNum;  // マップデータ
     const board1MapRanks = board1RankNum;
-    const board1MapArea = board1MapFiles * board1MapRanks;
+    const board1MapArea = board1MapFiles.value * board1MapRanks.value;
     const getTileIndexBySquare = computed(() => {
         return (squareIndex: number) => {
             return printingMapData.value[squareIndex];
@@ -376,16 +406,30 @@
         return data;
     });
 
+    // ++++++++++++++++++++++++++++++++++++
+    // + オブジェクト　＞　自機１のホーム +
+    // ++++++++++++++++++++++++++++++++++++
+    //
+    // このサンプルでは、ピンク色に着色しているマスです。
+    //
+
+    const player1HomeFile = ref<number>(2);    // ホーム
+    const player1HomeRank = ref<number>(2);
+    const player1HomeLeft = computed(()=>{
+        return player1HomeFile.value * board1SquareWidth;
+    });
+    const player1HomeTop = computed(()=>{
+        return player1HomeRank.value * board1SquareHeight;
+    });
+
     // ++++++++++++++++++++++++++++
     // + オブジェクト　＞　自機１ +
     // ++++++++++++++++++++++++++++
 
     // アニメーションのことを考えると、 File, Rank ではデジタルになってしまうので、 Left, Top で指定したい。
-    const player1HomeFile = ref<number>(2);     // ホーム
-    const player1HomeRank = ref<number>(2);
-    const player1Left = ref<number>(2 * board1SquareWidth);     // スプライトのX座標
-    const player1Top = ref<number>(2 * board1SquareHeight);     // スプライトのY座標
-    const player1Input = <Record<string, boolean>>{             // 入力
+    const player1Left = ref<number>(player1HomeLeft.value);    // スプライトの位置
+    const player1Top = ref<number>(player1HomeTop.value);
+    const player1Input = <Record<string, boolean>>{    // 入力
         ArrowUp: false, ArrowRight: false, ArrowDown: false, ArrowLeft: false
     };
     const player1AnimationSlow = ref<number>(8);    // アニメーションのスローモーションの倍率の初期値
@@ -488,15 +532,17 @@
                 printing1Motion.value["wrapAroundBottom"] = 0;
             }
             
-            // キー入力をモーションに変換
+            // ++++++++++++++++++++++++++++++
+            // + キー入力をモーションに変換 +
+            // ++++++++++++++++++++++++++++++
             if (player1MotionWait.value<=0) {   // ウェイトが無ければ、入力を受け付ける。
 
                 // 位置のリセット
                 if (player1Input[" "]) {
-                    player1Left.value = player1HomeFile.value * board1SquareWidth;   // 自機
-                    player1Top.value = player1HomeRank.value * board1SquareHeight;
-                    printing1Left.value = 0;                                         // 印字
+                    printing1Left.value = 0;    // 印字
                     printing1Top.value = 0;
+                    player1Left.value = player1HomeLeft.value;  // 自機
+                    player1Top.value = player1HomeTop.value;
                 }
 
                 // 移動関連（単発）
@@ -583,16 +629,6 @@
         // 初回呼び出し
         requestAnimationFrame(update);
     }
-
-
-    // /**
-    //  * フォーカスを外すのが上手くいかないため、［何もしないボタン］にフォーカスを合わせます。
-    //  */
-    // function focusRemove() : void {
-    //     if (noopButton.value) {
-    //         noopButton.value.$el.focus();    // $el は、<v-btn> 要素の中の <button> 要素。
-    //     }
-    // }
 
 
     /**

@@ -36,9 +36,22 @@
                 `"
                 style="
                     position:absolute;
-                    left: 0px;
-                    top: 0px;
                     background-color: lightgreen;
+                ">
+            </div>
+
+            <!-- 自機のホーム１ -->
+            <div
+                :style="`
+                    left: ${player1HomeLeft}px;
+                    top: ${player1HomeTop}px;
+                    width: ${board1SquareWidth}px;
+                    height: ${board1SquareHeight}px;
+                    zoom: ${appZoom};
+                `"
+                style="
+                    position: absolute;
+                    background-color: lightpink;
                 ">
             </div>
 
@@ -160,6 +173,22 @@
                 showTicks="always"
                 thumbLabel="always" />
             <v-slider
+                label="自機のホーム　＞　筋"
+                v-model="player1HomeFile"
+                :min="0"
+                :max="4"
+                step="1"
+                showTicks="always"
+                thumbLabel="always" />
+            <v-slider
+                label="自機のホーム　＞　段"
+                v-model="player1HomeRank"
+                :min="0"
+                :max="4"
+                step="1"
+                showTicks="always"
+                thumbLabel="always" />
+            <v-slider
                 label="盤の筋の数"
                 v-model="board1FileNum"
                 :min="0"
@@ -270,7 +299,7 @@
     // + オブジェクト　＞　盤１のホーム +
     // ++++++++++++++++++++++++++++++++++
     //
-    // このサンプルでは、ピンク色に着色しているマスです。
+    // このサンプルでは、黄緑色に着色しているマスです。
     // 自機ではなく、盤のホームであることに注意してください。
     //
 
@@ -318,19 +347,24 @@
     // + オブジェクト　＞　自機１のホーム +
     // ++++++++++++++++++++++++++++++++++++
     //
-    // このサンプルでは、ピンク色に着色しているマスはありません。
+    // このサンプルでは、ピンク色に着色しているマスです。
     //
 
-    const player1HomeFile: number = 2;    // ホーム
-    const player1HomeRank: number = 2;
-
+    const player1HomeFile = ref<number>(2);    // ホーム
+    const player1HomeRank = ref<number>(2);
+    const player1HomeLeft = computed(()=>{
+        return player1HomeFile.value * board1SquareWidth;
+    });
+    const player1HomeTop = computed(()=>{
+        return player1HomeRank.value * board1SquareHeight;
+    });
 
     // ++++++++++++++++++++++++++++
     // + オブジェクト　＞　自機１ +
     // ++++++++++++++++++++++++++++
 
-    const player1Left = ref<number>(2 * board1SquareWidth);    // スプライトの位置
-    const player1Top = ref<number>(2 * board1SquareHeight);
+    const player1Left = ref<number>(player1HomeLeft.value);    // スプライトの位置
+    const player1Top = ref<number>(player1HomeTop.value);
     const player1Speed = ref<number>(2);    // 移動速度
     const player1Input = <Record<string, boolean>>{    // 入力
         " ": false, ArrowUp: false, ArrowRight: false, ArrowDown: false, ArrowLeft: false
@@ -422,8 +456,10 @@
 
                 // 位置のリセット
                 if (player1Input[" "]) {
+                    board1Left.value = 0;   // 盤
                     board1Top.value = 0;
-                    board1Left.value = 0;
+                    player1Left.value = player1HomeLeft.value;  // 自機
+                    player1Top.value = player1HomeTop.value;
                 }
 
                 // 方向キー

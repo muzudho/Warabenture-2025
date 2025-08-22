@@ -16,11 +16,25 @@
         <!-- 盤領域 -->
         <div :style="board1Style">
 
-            <!--
-                タイルのグリッド。
-                NOTE: ループカウンターは 1 から始まるので、1～9の9個のセルを作成。
-            -->
-            <div v-for="i in board1Area" :key="i"
+            <!-- 自機のホーム１ -->
+            <div
+                :style="`
+                    left: ${player1HomeLeft}px;
+                    top: ${player1HomeTop}px;
+                    width: ${board1SquareWidth}px;
+                    height: ${board1SquareHeight}px;
+                `"
+                style="
+                    position: absolute;
+                    background-color: lightpink;
+                ">
+                <!-- zoom: ${appZoom}; -->
+            </div>
+
+            <!-- タイルのグリッド -->
+            <div
+                v-for="i in board1Area"
+                :key="i"
                 :style="getSquareStyle(i - 1)"
             >{{ getPrintingNumber(i - 1) }}
             </div>
@@ -44,9 +58,9 @@
                     border-right: solid ${(board1WithMaskSizeSquare + board1WithMaskBottomRightMargin) * board1SquareWidth}px rgba(0,0,0,0.5);
                     border-bottom: solid ${(board1WithMaskSizeSquare + board1WithMaskBottomRightMargin) * board1SquareHeight}px rgba(0,0,0,0.5);
                     border-left: solid ${board1WithMaskSizeSquare * board1SquareWidth}px rgba(0,0,0,0.5);
-                    zoom:${appZoom};
                 `"
                 style="position:absolute; left:0; top:0; image-rendering: pixelated;">
+                <!-- zoom:${appZoom}; -->
             </div>
         </div>
 
@@ -139,92 +153,108 @@
         <br/>
 
         <!-- 設定 -->
-        <v-btn @click="appManualIsShowing = !appManualIsShowing">{{ appManualIsShowing ? '⚙️設定を終わる' : '⚙️設定を表示' }}</v-btn>
-        <section v-if="appManualIsShowing" class="sec-1">
+        <v-btn
+            class="code-key"
+            @touchstart.prevent="button1Ref?.press($event, onConfigButtonPressed);"
+            @touchend="button1Ref?.release();"
+            @touchcancel="button1Ref?.release();"
+            @touchleave="button1Ref?.release();"
+            @mousedown.prevent="button1Ref?.handleMouseDown($event, onConfigButtonPressed)"
+            @mouseup="button1Ref?.release();"
+            @mouseleave="button1Ref?.release();"
+        >{{ appConfigIsShowing ? '⚙️設定を終わる' : '⚙️設定を表示' }}</v-btn>
+        <section v-if="appConfigIsShowing" class="sec-1">
             <br/>
-            <p>マスクを含んだ盤サイズ。ただし右側と下側に余分に１マス付いたマスクは含まない：</p>
-            <section class="sec-1">
-                <v-slider
-                    label="盤の筋の数"
-                    v-model="board1FileNum"
-                    :min="0"
-                    :max="6"
-                    step="1"
-                    showTicks="always"
-                    thumbLabel="always"
-                    @click="focusRemove()" />
-                <v-slider
-                    label="盤の段の数"
-                    v-model="board1RankNum"
-                    :min="0"
-                    :max="6"
-                    step="1"
-                    showTicks="always"
-                    thumbLabel="always"
-                    @click="focusRemove()" />
-            </section>
+            <v-slider
+                label="ズーム"
+                v-model="appZoom"
+                :min="0.5"
+                :max="4"
+                step="0.5"
+                showTicks="always"
+                thumbLabel="always" />
+            <v-slider
+                label="自機のホーム　＞　筋"
+                v-model="player1HomeFile"
+                :min="0"
+                :max="2"
+                step="1"
+                showTicks="always"
+                thumbLabel="always" />
+            <v-slider
+                label="自機のホーム　＞　段"
+                v-model="player1HomeRank"
+                :min="0"
+                :max="2"
+                step="1"
+                showTicks="always"
+                thumbLabel="always" />
+            <p>盤はマスクを含む。ただし右側と下側に余分に１マス付いたマスクは含まない：</p>
+            <v-slider
+                label="盤の筋の数"
+                v-model="board1FileNum"
+                :min="0"
+                :max="6"
+                step="1"
+                showTicks="always"
+                thumbLabel="always"
+                @click="focusRemove()" />
+            <v-slider
+                label="盤の段の数"
+                v-model="board1RankNum"
+                :min="0"
+                :max="6"
+                step="1"
+                showTicks="always"
+                thumbLabel="always"
+                @click="focusRemove()" />
+            <v-slider
+                label="印字の筋の数"
+                v-model="printing1FileNum"
+                :min="0"
+                :max="10"
+                step="1"
+                showTicks="always"
+                thumbLabel="always"
+                @click="focusRemove()" />
+            <v-slider
+                label="印字の段の数"
+                v-model="printing1RankNum"
+                :min="0"
+                :max="10"
+                step="1"
+                showTicks="always"
+                thumbLabel="always"
+                @click="focusRemove()" />
+            <v-slider
+                label="自機のホームの筋"
+                v-model="player1HomeFile"
+                :min="0"
+                :max="5"
+                step="1"
+                showTicks="always"
+                thumbLabel="always"
+                @click="focusRemove()" />
+            <v-slider
+                label="自機のホームの段"
+                v-model="player1HomeRank"
+                :min="0"
+                :max="5"
+                step="1"
+                showTicks="always"
+                thumbLabel="always"
+                @click="focusRemove()" />
             <br/>
-
-            <p>要はマップデータのサイズ：</p>
-            <section class="sec-1">
-                <v-slider
-                    label="印字の筋の数"
-                    v-model="printing1FileNum"
-                    :min="0"
-                    :max="10"
-                    step="1"
-                    showTicks="always"
-                    thumbLabel="always"
-                    @click="focusRemove()" />
-                <v-slider
-                    label="印字の段の数"
-                    v-model="printing1RankNum"
-                    :min="0"
-                    :max="10"
-                    step="1"
-                    showTicks="always"
-                    thumbLabel="always"
-                    @click="focusRemove()" />
-            </section>
-            <br/>
-
-            <p>自機の画面上の原則固定位置。マスクを含んだサイズ：</p>
-            <section class="sec-1">
-                <v-slider
-                    label="自機の基準の相対筋"
-                    v-model="player1HomeFile"
-                    :min="0"
-                    :max="5"
-                    step="1"
-                    showTicks="always"
-                    thumbLabel="always"
-                    @click="focusRemove()" />
-                <v-slider
-                    label="自機の基準の相対段"
-                    v-model="player1HomeRank"
-                    :min="0"
-                    :max="5"
-                    step="1"
-                    showTicks="always"
-                    thumbLabel="always"
-                    @click="focusRemove()" />
-            </section>
-            <br/>
-
-            <p>マスクのタテヨコ幅。右側と下側は、１マス多めに付きます：</p>
-            <section class="sec-1">
-                <v-slider
-                    label="マスクのタテヨコ幅"
-                    v-model="board1WithMaskSizeSquare"
-                    :min="0"
-                    :max="2"
-                    step="1"
-                    showTicks="always"
-                    thumbLabel="always"
-                    @click="focusRemove()" />
-            </section>
-            <br/>
-
+            <p>マスクの枠の幅。右側と下側は、１マス多めに付きます：</p>
+            <v-slider
+                label="マスクの枠の幅"
+                v-model="board1WithMaskSizeSquare"
+                :min="0"
+                :max="2"
+                step="1"
+                showTicks="always"
+                thumbLabel="always"
+                @click="focusRemove()" />
             <v-switch
                 v-model="appBoundaryIsLock"
                 :label="appBoundaryIsLock ? '［画面外を見せない］中' : '［画面外を見せない］をしていません'"
@@ -242,6 +272,7 @@
                         inset
                         @click="focusRemove()" />
                 </section>
+            <br/>
         </section>
     </section>
 
@@ -304,8 +335,8 @@
     // 今動いているアプリケーションの状態を記録しているデータ。特に可変のもの。
     //
 
-    const appZoom = 4;
-    const appManualIsShowing = ref<boolean>(false);                 // 操作方法等を表示中
+    const appConfigIsShowing = ref<boolean>(false);    // 操作方法等を表示中
+    const appZoom = ref<number>(4);    // ズーム
     const appBoundaryIsLock = ref<boolean>(true);                   // ［画面外隠し］を管理（true: ロックする, false: ロックしない）
     watch(appBoundaryIsLock, (newValue: boolean)=>{
         appBoundaryWalkingEdgeIsEnabled.value = newValue;
@@ -324,9 +355,9 @@
 
     const noopButton = ref<InstanceType<typeof VBtn> | null>(null);
 
-    // ++++++++++++++++++++++++++++++++++++++++++++
-    // + オブジェクト　＞　ボタン押しっぱなし機能 +
-    // ++++++++++++++++++++++++++++++++++++++++++++
+    // ++++++++++++++++++++++++++++++++
+    // + オブジェクト　＞　ボタン拡張 +
+    // ++++++++++++++++++++++++++++++++
 
     const button1Ref = ref<InstanceType<typeof Button20250822> | null>(null);
 
@@ -343,8 +374,8 @@
 
     const board1SquareWidth = 32;
     const board1SquareHeight = 32;
-    const board1FileNum = ref<number>(5);    // マスクを含めた盤サイズ。ただし、右側と下側に１マス余分に付いているマスクは含まない。
-    const board1RankNum = ref<number>(5);
+    const board1FileNum = ref<number>(5);   // 筋の数。ただし、右側と下側に１マス余分に付いているマスクは含まない。
+    const board1RankNum = ref<number>(5);   // 段の数
     const board1Area = computed(()=> {  // 盤のマス数
         return board1FileNum.value * board1RankNum.value;
     });
@@ -371,8 +402,9 @@
             position: 'relative',
             left: "0",
             top: "0",
-            width: `${appZoom * board1WithMaskFileNum.value * board1SquareWidth}px`,
-            height: `${appZoom * board1WithMaskRankNum.value * board1SquareHeight}px`,
+            width: `${board1WithMaskFileNum.value * board1SquareWidth}px`,
+            height: `${board1WithMaskRankNum.value * board1SquareHeight}px`,
+            zoom: appZoom.value,
         };
     });
     const getSquareStyle = computed<
@@ -397,7 +429,7 @@
                 top: `${homeTop + offsetTopLoop}px`,
                 width: `${board1SquareWidth}px`,
                 height: `${board1SquareHeight}px`,
-                zoom: 4,
+                //zoom: 4,
                 border: `solid 1px ${i % 2 == 0 ? 'darkgray' : 'lightgray'}`,
                 textAlign: "center",
             };
@@ -556,15 +588,29 @@
         };
     });
 
+    // ++++++++++++++++++++++++++++++++++++
+    // + オブジェクト　＞　自機１のホーム +
+    // ++++++++++++++++++++++++++++++++++++
+    //
+    // このサンプルでは、ピンク色に着色しているマスです。
+    //
+
+    const player1HomeFile = ref<number>(2);    // ホーム
+    const player1HomeRank = ref<number>(2);
+    const player1HomeLeft = computed(()=>{
+        return player1HomeFile.value * board1SquareWidth;
+    });
+    const player1HomeTop = computed(()=>{
+        return player1HomeRank.value * board1SquareHeight;
+    });
+
     // ++++++++++++++++++++++++++++
     // + オブジェクト　＞　自機１ +
     // ++++++++++++++++++++++++++++
 
-    const player1HomeFile = ref<number>(2);     // ホーム
-    const player1HomeRank = ref<number>(2);
     // アニメーションのことを考えると、 File, Rank ではデジタルになってしまうので、 Left, Top で指定したい。
-    const player1Left = ref<number>(player1HomeFile.value * board1SquareWidth);    // 移動量（単位：ピクセル））
-    const player1Top = ref<number>(player1HomeRank.value * board1SquareHeight);
+    const player1Left = ref<number>(player1HomeLeft.value);    // スプライトの位置
+    const player1Top = ref<number>(player1HomeTop.value);
     const player1File = computed<number>(()=>{
         return Math.round(player1Left.value / board1SquareWidth);
     });
@@ -581,7 +627,7 @@
     const player1Style = computed<CompatibleStyleValue>(() => ({
         left: `${player1Left.value}px`,
         top: `${player1Top.value}px`,
-        zoom: appZoom,
+        //zoom: appZoom.value,
     }));
     const player1SourceFrames = {   // キャラクターの向きと、歩行タイルの指定
         left:[  // 左向き
@@ -1012,38 +1058,9 @@
     }
 
 
-    function onUpButtonPressed() : void {
-        console.log(`↑ボタンを押し付けました。`)
-        player1Input.ArrowUp = true;
-    }
-
-
-    function onUpButtonReleased() : void {
-        console.log(`↑ボタンを放しました。`)
-        player1Input.ArrowUp = false;
-    }
-
-
-    function onRightButtonPressed() : void {
-        player1Input.ArrowRight = true;
-    }
-
-
-    function onRightButtonReleased() : void {
-        player1Input.ArrowRight = false;
-    }
-
-
-    function onDownButtonPressed() : void {
-        player1Input.ArrowDown = true;
-    }
-
-
-    function onDownButtonReleased() : void {
-        player1Input.ArrowDown = false;
-    }
-
-
+    /**
+     * 左。
+     */
     function onLeftButtonPressed() : void {
         player1Input.ArrowLeft = true;
     }
@@ -1054,6 +1071,48 @@
     }
 
 
+    /**
+     * 上。
+     */
+    function onUpButtonPressed() : void {
+        player1Input.ArrowUp = true;
+    }
+
+
+    function onUpButtonReleased() : void {
+        player1Input.ArrowUp = false;
+    }
+
+
+    /**
+     * 右。
+     */
+    function onRightButtonPressed() : void {
+        player1Input.ArrowRight = true;
+    }
+
+
+    function onRightButtonReleased() : void {
+        player1Input.ArrowRight = false;
+    }
+
+
+    /**
+     * 下。
+     */
+    function onDownButtonPressed() : void {
+        player1Input.ArrowDown = true;
+    }
+
+
+    function onDownButtonReleased() : void {
+        player1Input.ArrowDown = false;
+    }
+
+
+    /**
+     * スペース・キー。
+     */
     function onSpaceButtonPressed() : void {
         player1Input[" "] = true;
     }
@@ -1061,6 +1120,14 @@
 
     function onSpaceButtonReleased() : void {
         player1Input[" "] = false;
+    }
+
+
+    /**
+     * 設定ボタン。
+     */
+    function onConfigButtonPressed() : void {
+        appConfigIsShowing.value = !appConfigIsShowing.value;
     }
 
 </script>

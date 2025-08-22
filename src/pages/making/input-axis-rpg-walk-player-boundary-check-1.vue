@@ -40,20 +40,21 @@
                 ">
             </div>
 
-            <!--
-                タイルのグリッド。
-                NOTE: ループカウンターは 1 から始まるので、1～9の9個のセルを作成。
-            -->
-            <div v-for="i in board1Area" :key="i"
+            <!-- タイルのグリッド -->
+            <div
+                v-for="i in board1Area"
+                :key="i"
                 :style="`
-                    position:absolute;
                     top: ${Math.floor((i - 1) / board1FileNum) * board1SquareHeight}px;
                     left: ${((i - 1) % board1FileNum) * board1SquareWidth}px;
                     width:${board1SquareWidth}px;
                     height:${board1SquareHeight}px;
                     zoom: ${appZoom};
                     border: solid 1px ${(i - 1) % 2 == 0 ? 'darkgray' : 'lightgray'};
-                `">
+                `"
+                style="
+                    position:absolute;
+                ">
             </div>
 
             <!-- 自機１ -->
@@ -139,11 +140,11 @@
                     class="noop-key"
                     ref="noopButton"
                     v-tooltip="'PCでのマウス操作で、フォーカスがコントロールに残って邪魔になるときは、このボタンを押してくれだぜ'"
-                >何もしないボタン</v-btn><br/>
+                >何もしないボタン</v-btn>
             </li>
         </ul>
-
         <br/>
+
         <!-- 設定 -->
         <v-btn
             class="code-key"
@@ -259,7 +260,7 @@
     //
 
     const appConfigIsShowing = ref<boolean>(false);    // 操作方法等を表示中
-    const appZoom = ref<number>(4);     // ズーム
+    const appZoom = ref<number>(4);    // ズーム
 
 
     // ################
@@ -319,8 +320,8 @@
     };
     const player1AnimationSlow = ref<number>(8);    // アニメーションのスローモーションの倍率の初期値
     const player1Style = computed<CompatibleStyleValue>(() => ({
-        top: `${player1Top.value}px`,
         left: `${player1Left.value}px`,
+        top: `${player1Top.value}px`,
         zoom: appZoom.value,
     }));
     const player1SourceFrames = {   // キャラクターの向きと、歩行タイルの指定
@@ -399,7 +400,7 @@
 
             if (player1MotionWait.value==0) {
                 // モーションのクリアー
-                player1Motion.value["goToRight"] = 0;
+                player1Motion.value["goToRight"] = 0;   // 自機
                 player1Motion.value["goToBottom"] = 0;
             }
 
@@ -410,7 +411,7 @@
 
                 // 位置のリセット
                 if (player1Input[" "]) {
-                    player1Top.value = 1 * board1SquareHeight;
+                    player1Top.value = 1 * board1SquareHeight;  // 自機
                     player1Left.value = 1 * board1SquareWidth;
                 }
 
