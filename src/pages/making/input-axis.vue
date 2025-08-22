@@ -12,10 +12,10 @@
     <input-axis-rpg-walk-player-grid/><br/>
     <input-axis-rpg-walk-player-boundary-check/><br/>
     <input-axis-rpg-walk-board-scroll-primordial/><br/>
-    <input-axis-rpg-walk-face-shift-primordial/><br/>
-    <input-axis-rpg-walk-face-shift-boundary/><br/>
-    <input-axis-rpg-walk-face-shift-loop/><br/>
-    <input-axis-rpg-walk-face-shift-contents-size-variable/><br/>
+    <input-axis-rpg-walk-printing-shift-primordial/><br/>
+    <input-axis-rpg-walk-printing-shift-boundary/><br/>
+    <input-axis-rpg-walk-printing-shift-loop/><br/>
+    <input-axis-rpg-walk-printing-shift-contents-size-variable/><br/>
     <input-axis-rpg-walk-board-loop-scroll-1/><br/>
     <input-axis-rpg-walk-board-loop-scroll-and-printing-primordial-1/><br/>
     <input-axis-rpg-walk-board-loop-scroll-and-printing-primordial-and-player-boundary-1/><br/>
@@ -49,12 +49,12 @@
     import InputAxisRpgWalkPlayerGrid from './input-axis-rpg-walk-player-grid.vue';
     import InputAxisRpgWalkUsingBackgroundImage1 from './input-axis-rpg-walk-using-background-image-1.vue';
     import InputAxisRpgWalkBoardLoopScroll1 from './input-axis-rpg-walk-board-loop-scroll-1.vue';
-    import InputAxisRpgWalkFaceShiftPrimordial from './input-axis-rpg-walk-face-shift-primordial.vue';
+    import InputAxisRpgWalkPrintingShiftPrimordial from './input-axis-rpg-walk-printing-shift-primordial.vue';
     import InputAxisRpgWalkBoardLoopScrollAndPrintingPrimordial1 from './input-axis-rpg-walk-board-loop-scroll-and-printing-primordial-1.vue';
     import InputAxisRpgWalkBoardLoopScrollAndPrintingPrimordialAndPlayerBoundary1 from './input-axis-rpg-walk-board-loop-scroll-and-printing-primordial-and-player-boundary-1.vue';
-    import InputAxisRpgWalkFaceShiftBoundary from './input-axis-rpg-walk-face-shift-boundary.vue';
-    import InputAxisRpgWalkFaceShiftContentsSizeVariable from './input-axis-rpg-walk-face-shift-contents-size-variable.vue';
-    import InputAxisRpgWalkFaceShiftLoop from './input-axis-rpg-walk-face-shift-loop.vue';
+    import InputAxisRpgWalkPrintingShiftBoundary from './input-axis-rpg-walk-printing-shift-boundary.vue';
+    import InputAxisRpgWalkPrintingShiftContentsSizeVariable from './input-axis-rpg-walk-printing-shift-contents-size-variable.vue';
+    import InputAxisRpgWalkPrintingShiftLoop from './input-axis-rpg-walk-printing-shift-loop.vue';
     import InputAxisRpgWalkBoardScrollPrimordial from './input-axis-rpg-walk-board-scroll-primordial.vue';
     import InputAxisTarget from './input-axis-target.vue';
     import TheFooter from './the-footer.vue';

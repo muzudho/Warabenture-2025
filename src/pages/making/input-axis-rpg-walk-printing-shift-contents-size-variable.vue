@@ -3,7 +3,7 @@
     <!-- ボタン機能拡張 -->
     <button-20250822 ref="button1Ref"/>
 
-    <h4><span class="parent-header">ＲＰＧの歩行グラフィック　＞　</span>数字柄の循環シフト</h4>
+    <h4><span class="parent-header">ＲＰＧの歩行グラフィック　＞　</span>数字柄のシフト、数字柄のサイズ可変</h4>
     <section class="sec-4">
         <p>キーボード操作方法</p>
         <ul>
@@ -41,7 +41,7 @@
                     @mouseup="button1Ref?.release(onRightButtonReleased);"
                     @mouseleave="button1Ref?.release(onRightButtonReleased);"
                 >→</v-btn>
-                キー　…　上下左右に動かすぜ！
+                　…　上下左右に動かすぜ！
                 <br/>
                 <v-btn class="code-key hidden"/>
                 <v-btn
@@ -78,6 +78,33 @@
             v-on:countUp="(countNum) => { stopwatch1Count = countNum; }"
             style="display: none;" />
 
+        <v-slider
+            label="列数"
+            v-model="printing1FileNum"
+            :min="printing1FileMin"
+            :max="printing1FileMax"
+            step="1"
+            showTicks="always"
+            thumbLabel="always"
+            @click="focusRemove()" />
+        <v-slider
+            label="行数"
+            v-model="printing1RankNum"
+            :min="printing1RankMin"
+            :max="printing1RankMax"
+            step="1"
+            showTicks="always"
+            thumbLabel="always"
+            @click="focusRemove()" />
+        <v-switch
+            v-model="appIsLooping"
+            :label="appIsLooping ? '端でループ中' : '端でループしていません'"
+            color="green"
+            inset
+            @click="focusRemove()" />
+        <!-- フォーカスを外すためのダミー・ボタンです -->
+        <v-btn ref="noopButton">何もしないボタン</v-btn>
+
         <div :style="board1Style">
 
             <!--
@@ -93,20 +120,20 @@
                 tilemapUrl="/img/making/202508__warabenture__15-1612-kifuwarabe-o1o0.png"
                 :slow="player1AnimationSlow"
                 :time="stopwatch1Count"
-                class="cursor"
+                class="player"
                 :style="player1Style"
                 style="image-rendering: pixelated;" /><br/>
             </div>
 
-        <p>👆 タイルは動いていないぜ（＾▽＾）！</p>
-        <p>だから、数字がタイルの上を入れ替わっている（＝シフトしている）ぜ（＾▽＾）！</p>
+        <p>👆 上にあるスライダーバーを動かして、タイルに表示される数字を広げたり縮めたりしてみようぜ（＾▽＾）！</p>
+
     </section>
 
     <br/>
-    <h4><span class="parent-header-lights-out">ＲＰＧの歩行グラフィック　＞　</span><span class="parent-header">数字柄の循環シフト　＞　</span>ソースコード</h4>
+    <h4><span class="parent-header-lights-out">ＲＰＧの歩行グラフィック　＞　</span><span class="parent-header">数字柄のシフト、数字柄のサイズ可変　＞　</span>ソースコード</h4>
     <section class="sec-4">
         <source-link
-            pagePath="/making/input-axis-rpg-walk-face-shift-loop"/>
+            pagePath="/making/input-axis-rpg-walk-printing-shift-contents-size-variable"/>
     </section>
 </template>
 
@@ -119,11 +146,15 @@
     import { computed, onMounted, ref } from 'vue';
     // 👆 ［初級者向けのソースコード］では、 reactive は使いません。
 
+    import { VBtn } from 'vuetify/components';
+
+
     // ++++++++++++++
     // + 互換性対応 +
     // ++++++++++++++
 
     import type { CompatibleStyleValue }  from '../../compatibles/compatible-style-value';
+
 
     // ++++++++++++++++++
     // + コンポーネント +
@@ -136,7 +167,7 @@
     import Button20250822 from '../../components/Button20250822.vue';
     import SourceLink from '../../components/SourceLink.vue';
     import Stopwatch from '../../components/Stopwatch.vue';
-    import TileAnimation from '@/components/TileAnimation.vue';
+    import TileAnimation from '../../components/TileAnimation.vue';
 
 
     // ##########
@@ -153,9 +184,25 @@
     const commonSpriteMotionDown = 1;
 
 
+    // ############################
+    // # アプリケーション・データ #
+    // ############################
+    //
+    // 今動いているアプリケーションの状態を記録しているデータ。特に可変のもの。
+    //
+
+    const appIsLooping = ref<boolean>(false);    // ループ状態を管理（true: ループする, false: ループしない）
+
+
     // ################
     // # オブジェクト #
     // ################
+
+    // ++++++++++++++++++++++++++++++++++++++
+    // + オブジェクト　＞　何もしないボタン +
+    // ++++++++++++++++++++++++++++++++++++++
+
+    const noopButton = ref<InstanceType<typeof VBtn> | null>(null);
 
     // ++++++++++++++++++++++++++++++++++++++++++++
     // + オブジェクト　＞　ボタン押しっぱなし機能 +
@@ -218,42 +265,54 @@
     // 盤上に表示される数字柄、絵柄など。
     //
 
-    const printing1FileNum = board1FileNum;       // 列数
-    const printing1RankNum = board1RankNum;       // 行数
+    const printing1FileMin = 0;
+    const printing1RankMin = 0;
+    const printing1FileMax = 10;
+    const printing1RankMax = 10;
+    const printing1FileNum = ref<number>(board1FileNum);       // 列数
+    const printing1RankNum = ref<number>(board1RankNum);       // 行数
     const printing1File = ref<number>(0);    // 印字の左上隅のタイルは、盤タイルの左から何番目か。
     const printing1Rank = ref<number>(0);    // 印字の左上隅のタイルは、盤タイルの上から何番目か。
-    const printing1Data = ref<string[]>([
-        "00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24",
-    ]);
+    const printing1Data = ref<string[]>([]);
+    for (let i=0; i<printing1FileMax * printing1RankMax; i++) {
+        printing1Data.value.push(i.toString().padStart(2, "0"));
+    }
 
     /**
      * 変換
-     * @param tileIndex マス番号
+     * @param index マス番号
      * @returns [筋番号, 段番号]
      */
-    function tileIndexToTileFileRank(tileIndex: number) : number[] {
+    function tileIndexToTileFileRank(index: number) : number[] {
         // プレイヤーが右へ１マス移動したら、印字は全行が左へ１つ移動する。
-        const file = tileIndex % board1FileNum;
-        const rank = Math.floor(tileIndex / board1RankNum);
+        const file = index % board1FileNum;
+        const rank = Math.floor(index / board1RankNum);
 
         return [file, rank];
     }
 
-    function contentsFileRankToContentsIndex(contentsFile: number, contentsRank: number) : number {
-        return contentsRank * printing1FileNum + contentsFile;
+    function contentsFileRankToContentsIndex(file: number, rank: number) : number {
+        return rank * printing1FileNum.value + file;
     }
 
     const getFaceNumber = computed(() => {
+        // 引数に渡されるのは、［盤のタイル番号］
         return (tileIndex: number)=>{
             let [tileFile, tileRank] = tileIndexToTileFileRank(tileIndex);
 
             // タイル上のインデックスを、印字上のインデックスへ変換：
-            let contentsFile = tileFile - printing1File.value; // プレイヤーが右へ１マス移動したら、印字は全行が左へ１つ移動する。
-            let contentsRank = tileRank - printing1Rank.value; // プレイヤーが下へ１マス移動したら、印字は全行が上へ１つ移動する。
-            
-            // 端でループする
-            contentsFile = euclideanMod(contentsFile, printing1FileNum);
-            contentsRank = euclideanMod(contentsRank, printing1RankNum);
+            let contentsFile = tileFile - printing1File.value;
+            let contentsRank = tileRank - printing1Rank.value;
+
+            if (appIsLooping.value) {
+                contentsFile = euclideanMod(contentsFile, printing1FileNum.value); // プレイヤーが右へ１マス移動したら、印字は全行が左へ１つ移動する。
+                contentsRank = euclideanMod(contentsRank, printing1RankNum.value); // プレイヤーが下へ１マス移動したら、印字は全行が上へ１つ移動する。
+            } else {
+                // 印字のサイズの範囲外になるところには、"-" でも表示しておく
+                if (contentsFile < 0 || printing1FileNum.value <= contentsFile || contentsRank < 0 || printing1RankNum.value <= contentsRank) {
+                    return "-";
+                }
+            }
 
             // 印字上の位置が示すデータを返す
             const contentsIndex = contentsFileRankToContentsIndex(contentsFile, contentsRank);
@@ -265,9 +324,9 @@
     // + オブジェクト　＞　プレイヤー +
     // ++++++++++++++++++++++++++++++++
 
-    const player1Left: number = 2 * board1SquareWidth;      // スプライトのX座標
-    const player1Top: number = 2 * board1SquareHeight;      // スプライトのY座標
-    const player1Input = <Record<string, boolean>>{         // 入力
+    const player1Left: number = 2 * board1SquareWidth;       // スプライトのX座標
+    const player1Top: number = 2 * board1SquareHeight;       // スプライトのY座標
+    const player1Input = <Record<string, boolean>>{          // 入力
         " ": false, ArrowUp: false, ArrowRight: false, ArrowDown: false, ArrowLeft: false
     };
     const player1AnimationSlow = ref<number>(8);    // アニメーションのスローモーションの倍率の初期値
@@ -425,6 +484,16 @@
 
 
     /**
+     * フォーカスを外すのが上手くいかないため、［何もしないボタン］にフォーカスを合わせます。
+     */
+    function focusRemove() : void {
+        if (noopButton.value) {
+            noopButton.value.$el.focus();    // $el は、<v-btn> 要素の中の <button> 要素。
+        }
+    }
+
+
+    /**
      * 左。
      */
     function onLeftButtonPressed() : void {
@@ -491,7 +560,7 @@
 </script>
 
 <style scoped>
-    div.cursor {
+    div.player {
         position: relative; width:32px; height:32px;
     }
 </style>

@@ -5,6 +5,7 @@
 
     <h4><span class="parent-header">ＲＰＧの歩行グラフィック　＞　</span>盤の循環スクロール、絵柄付き</h4>
     <section class="sec-4">
+        <!-- タッチパネルでも操作できるように、ボタンを置いておきます。キーボードの操作説明も兼ねます。 -->
         <p>キーボード操作方法</p>
         <ul>
             <li>
@@ -86,6 +87,7 @@
             v-on:countUp="(countNum) => { stopwatch1Count = countNum; }"
             style="display: none;" />
 
+        <!-- 盤領域 -->
         <div :style="board1Style">
 
             <!--
@@ -107,11 +109,14 @@
                 tilemapUrl="/img/making/202508__warabenture__15-1612-kifuwarabe-o1o0.png"
                 :slow="player1AnimationSlow"
                 :time="stopwatch1Count"
-                class="cursor"
+                class="player"
                 :style="player1Style"
                 style="image-rendering: pixelated;" /><br/>
             
-            <!-- 半透明のマスク -->
+            <!--
+                半透明のマスク
+                親要素で zoom を設定しているので、ここで zoom は不要です。
+            -->
             <div
                 :style="`
                     width:${board1WithMaskFileNum * board1SquareWidth}px;
@@ -120,7 +125,6 @@
                     border-right: solid ${(board1WithMaskSizeSquare + board1WithMaskBottomRightMargin) * board1SquareWidth}px rgba(0,0,0,0.5);
                     border-bottom: solid ${(board1WithMaskSizeSquare + board1WithMaskBottomRightMargin) * board1SquareHeight}px rgba(0,0,0,0.5);
                     border-left: solid ${board1WithMaskSizeSquare * board1SquareWidth}px rgba(0,0,0,0.5);
-                    zoom:${commonZoom};
                 `"
                 style="position:absolute; left:0; top:0; image-rendering: pixelated;"></div>
         </div>
@@ -129,7 +133,7 @@
         <br/>
 
         <p>👇タイルのインデックスだぜ（＾▽＾）：</p>
-        <div :style="board1ContainerStyle">
+        <div :style="board1SourceTileSampleStyle">
             <!--
                 グリッド
                 NOTE: ループカウンターは 1 から始まるので、1～9の9個のセルを作成。
@@ -144,9 +148,34 @@
         <p>元画像のタイルマップを表示：</p>
         <v-img
             src="/img/making/tilemap_floor.png"
-            :style="`zoom: ${commonZoom}; width: ${board1SquareWidth}px; height:${board1SquareHeight}px;`"
+            :style="`zoom: ${appZoom}; width: ${board1SquareWidth}px; height:${board1SquareHeight}px;`"
             style="image-rendering: pixelated; border:dashed gray 1px;"/>
         <p>：ここまで。</p>
+
+        <br/>
+        <!-- 設定 -->
+        <v-btn
+            class="code-key"
+            @touchstart.prevent="button1Ref?.press($event, onConfigButtonPressed);"
+            @touchend="button1Ref?.release();"
+            @touchcancel="button1Ref?.release();"
+            @touchleave="button1Ref?.release();"
+            @mousedown.prevent="button1Ref?.handleMouseDown($event, onConfigButtonPressed)"
+            @mouseup="button1Ref?.release();"
+            @mouseleave="button1Ref?.release();"
+        >{{ appConfigIsShowing ? '⚙️設定を終わる' : '⚙️設定を表示' }}</v-btn>
+        <section v-if="appConfigIsShowing" class="sec-1">
+            <br/>
+            <v-slider
+                label="ズーム"
+                v-model="appZoom"
+                :min="0.5"
+                :max="4"
+                step="0.5"
+                showTicks="always"
+                thumbLabel="always" />
+            <br/>
+        </section>
 
     </section>
 
@@ -197,11 +226,21 @@
     // よく使う設定をまとめたもの。特に不変のもの。
     //
 
-    const commonZoom = 4;
     const commonSpriteMotionLeft = -1;  // モーション（motion）定数。左。
     const commonSpriteMotionTop = -1;
     const commonSpriteMotionRight = 1;
     const commonSpriteMotionBottom = 1;
+
+
+    // ############################
+    // # アプリケーション・データ #
+    // ############################
+    //
+    // 今動いているアプリケーションの状態を記録しているデータ。特に可変のもの。
+    //
+
+    const appConfigIsShowing = ref<boolean>(false);    // 操作方法等を表示中
+    const appZoom = ref<number>(4);
 
 
     // ################
@@ -247,8 +286,9 @@
             position: 'relative',
             left: "0",
             top: "0",
-            width: `${commonZoom * board1WithMaskFileNum * board1SquareWidth}px`,
-            height: `${commonZoom * board1WithMaskRankNum * board1SquareHeight}px`,
+            width: `${board1WithMaskFileNum * board1SquareWidth}px`,
+            height: `${board1WithMaskRankNum * board1SquareHeight}px`,
+            zoom: appZoom.value,
         };
     });
     const getSquareStyle = computed<
@@ -273,20 +313,18 @@
                 top: `${homeTop + offsetTopLoop}px`,
                 width: `${board1SquareWidth}px`,
                 height: `${board1SquareHeight}px`,
-                zoom: commonZoom,
+                // 親要素で zoom を設定しているので、ここで zoom は不要です。
                 imagePixelated: true,
             };
         };
     });
-    const board1ContainerStyle = computed<CompatibleStyleValue>(()=>{  // ボードだけを含んでいる領域のスタイル
-        const zoom = 4;
-        
+    const board1SourceTileSampleStyle = computed<CompatibleStyleValue>(()=>{  // ボードだけを含んでいる領域のスタイル
         return {
             position: 'relative',
             left: "0",
             top: "0",
-            width: `${zoom * board1FileNum * board1SquareWidth}px`,
-            height: `${zoom * board1RankNum * board1SquareHeight}px`,
+            width: `${board1FileNum * board1SquareWidth}px`,
+            height: `${board1RankNum * board1SquareHeight}px`,
         };
     });
     const board1FloorTilemapTileNum = 4;  // 床のタイルマップ
@@ -342,7 +380,7 @@
     // ++++++++++++++++++++++++++++
 
     // アニメーションのことを考えると、 File, Rank ではデジタルになってしまうので、 Left, Top で指定したい。
-    const player1HomeFile = ref<number>(2);     // 基準位置
+    const player1HomeFile = ref<number>(2);     // ホーム
     const player1HomeRank = ref<number>(2);
     const player1Left = ref<number>(2 * board1SquareWidth);     // スプライトのX座標
     const player1Top = ref<number>(2 * board1SquareHeight);     // スプライトのY座標
@@ -355,7 +393,7 @@
     const player1Style = computed<CompatibleStyleValue>(() => ({
         left: `${player1Left.value}px`,
         top: `${player1Top.value}px`,
-        zoom: commonZoom,
+        // 親要素で zoom を設定しているので、ここで zoom は不要です。
     }));
     const player1SourceFrames = {   // キャラクターの向きと、歩行タイルの指定
         left:[  // 左向き
@@ -619,10 +657,19 @@
     function onSpaceButtonReleased() : void {
         player1Input[" "] = false;
     }
+
+
+    /**
+     * 設定ボタン。
+     */
+    function onConfigButtonPressed() : void {
+        appConfigIsShowing.value = !appConfigIsShowing.value;
+    }
+
 </script>
 
 <style scoped>
-    div.cursor {
+    div.player {
         position: relative; width:32px; height:32px;
     }
 </style>

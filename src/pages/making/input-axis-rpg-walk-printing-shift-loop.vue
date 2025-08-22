@@ -3,7 +3,7 @@
     <!-- ボタン機能拡張 -->
     <button-20250822 ref="button1Ref"/>
 
-    <h4><span class="parent-header">ＲＰＧの歩行グラフィック　＞　</span>数字柄の原始的シフト</h4>
+    <h4><span class="parent-header">ＲＰＧの歩行グラフィック　＞　</span>数字柄の循環シフト</h4>
     <section class="sec-4">
         <p>キーボード操作方法</p>
         <ul>
@@ -41,7 +41,7 @@
                     @mouseup="button1Ref?.release(onRightButtonReleased);"
                     @mouseleave="button1Ref?.release(onRightButtonReleased);"
                 >→</v-btn>
-                　…　上下左右に動かすぜ！
+                キー　…　上下左右に動かすぜ！
                 <br/>
                 <v-btn class="code-key hidden"/>
                 <v-btn
@@ -67,7 +67,7 @@
                     @mouseup="button1Ref?.release(onSpaceButtonReleased);"
                     @mouseleave="button1Ref?.release(onSpaceButtonReleased);"
                 >（スペース）</v-btn>
-                位置を最初の状態に戻すぜ。
+                　…　位置を最初の状態に戻すぜ。
             </li>
         </ul>
         <br/>
@@ -93,7 +93,7 @@
                 tilemapUrl="/img/making/202508__warabenture__15-1612-kifuwarabe-o1o0.png"
                 :slow="player1AnimationSlow"
                 :time="stopwatch1Count"
-                class="cursor"
+                class="player"
                 :style="player1Style"
                 style="image-rendering: pixelated;" /><br/>
             </div>
@@ -103,10 +103,10 @@
     </section>
 
     <br/>
-    <h4><span class="parent-header-lights-out">ＲＰＧの歩行グラフィック　＞　</span><span class="parent-header">数字柄の原始的シフト　＞　</span>ソースコード</h4>
+    <h4><span class="parent-header-lights-out">ＲＰＧの歩行グラフィック　＞　</span><span class="parent-header">数字柄の循環シフト　＞　</span>ソースコード</h4>
     <section class="sec-4">
         <source-link
-            pagePath="/making/input-axis-rpg-walk-face-shift-primordial"/>
+            pagePath="/making/input-axis-rpg-walk-printing-shift-loop"/>
     </section>
 </template>
 
@@ -136,7 +136,7 @@
     import Button20250822 from '../../components/Button20250822.vue';
     import SourceLink from '../../components/SourceLink.vue';
     import Stopwatch from '../../components/Stopwatch.vue';
-    import TileAnimation from '../../components/TileAnimation.vue';
+    import TileAnimation from '@/components/TileAnimation.vue';
 
 
     // ##########
@@ -157,18 +157,18 @@
     // # オブジェクト #
     // ################
 
+    // ++++++++++++++++++++++++++++++++++++++++++++
+    // + オブジェクト　＞　ボタン押しっぱなし機能 +
+    // ++++++++++++++++++++++++++++++++++++++++++++
+
+    const button1Ref = ref<InstanceType<typeof Button20250822> | null>(null);
+
     // ++++++++++++++++++++++++++++++++++++++
     // + オブジェクト　＞　ストップウォッチ +
     // ++++++++++++++++++++++++++++++++++++++
 
     const stopwatch1Ref = ref<InstanceType<typeof Stopwatch> | null>(null); // Stopwatch のインスタンス
     const stopwatch1Count = ref<number>(0);   // カウントの初期値
-
-    // ++++++++++++++++++++++++++++++++++++++++++++
-    // + オブジェクト　＞　ボタン押しっぱなし機能 +
-    // ++++++++++++++++++++++++++++++++++++++++++++
-
-    const button1Ref = ref<InstanceType<typeof Button20250822> | null>(null);
 
     // ++++++++++++++++++++++++
     // + オブジェクト　＞　盤 +
@@ -248,14 +248,13 @@
             let [tileFile, tileRank] = tileIndexToTileFileRank(tileIndex);
 
             // タイル上のインデックスを、印字上のインデックスへ変換：
-            const contentsFile = tileFile - printing1File.value; // プレイヤーが右へ１マス移動したら、印字は全行が左へ１つ移動する。
-            const contentsRank = tileRank - printing1Rank.value; // プレイヤーが下へ１マス移動したら、印字は全行が上へ１つ移動する。
-
-            // 印字のサイズの範囲外になるところには、"-" でも表示しておく
-            if (contentsFile < 0 || printing1FileNum <= contentsFile || contentsRank < 0 || printing1RankNum <= contentsRank) {
-                return "-";
-            }
+            let contentsFile = tileFile - printing1File.value; // プレイヤーが右へ１マス移動したら、印字は全行が左へ１つ移動する。
+            let contentsRank = tileRank - printing1Rank.value; // プレイヤーが下へ１マス移動したら、印字は全行が上へ１つ移動する。
             
+            // 端でループする
+            contentsFile = euclideanMod(contentsFile, printing1FileNum);
+            contentsRank = euclideanMod(contentsRank, printing1RankNum);
+
             // 印字上の位置が示すデータを返す
             const contentsIndex = contentsFileRankToContentsIndex(contentsFile, contentsRank);
             return  printing1Data.value[contentsIndex];
@@ -343,6 +342,17 @@
     // ################
     // # サブルーチン #
     // ################
+
+    /**
+     * ユークリッド剰余
+     * 
+     * NOTE: 負の剰余は数学の定義では［ユークリッド剰余］と、［トランケート剰余］の２種類あって、プログラム言語ごとにどっちを使ってるか違うから注意。
+     * TypeScript では［トランケート剰余］なので、［ユークリッド剰余］を使いたいときはこれを使う。
+     */
+    function euclideanMod(a: number, b: number): number {
+        return ((a % b) + b) % b;
+    }
+
 
     /**
      * ゲームのメインループ開始
@@ -478,11 +488,10 @@
         player1Input[" "] = false;
     }
 
-
 </script>
 
 <style scoped>
-    div.cursor {
+    div.player {
         position: relative; width:32px; height:32px;
     }
 </style>

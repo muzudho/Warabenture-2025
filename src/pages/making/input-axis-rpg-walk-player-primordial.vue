@@ -5,6 +5,54 @@
 
     <h4>ＲＰＧの歩行グラフィック　＞　自機の原始的ウォーキング</h4>
     <section class="sec-4">
+        <br/>
+
+        <!-- ストップウォッチ。デバッグに使いたいときは、 display: none; を消してください。 -->
+        <stopwatch
+            ref="stopwatch1Ref"
+            v-on:countUp="(countNum) => { stopwatch1Count = countNum; }"
+            style="display: none;" />
+
+        <!-- 盤領域
+            自機より３倍角ぐらい大きく。
+        -->
+        <div
+            :style="`
+                width: ${3 * appZoom * board1SquareWidth}px;
+                height: ${3 * appZoom * board1SquareHeight}px;
+            `"
+            style="
+                position: relative;
+            ">
+
+            <!-- 自機のホーム１ -->
+            <div
+                :style="`
+                    left: ${player1HomeLeft}px;
+                    top: ${player1HomeTop}px;
+                    width: ${board1SquareWidth}px;
+                    height: ${board1SquareHeight}px;
+                    zoom: ${appZoom};
+                `"
+                style="
+                    position: absolute;
+                    background-color: lightpink;
+                ">
+            </div>
+
+            <!-- 自機１ -->
+            <tile-animation
+                :frames="player1Frames"
+                tilemapUrl="/img/making/202508__warabenture__15-1612-kifuwarabe-o1o0.png"
+                :slow="player1AnimationSlow"
+                :time="stopwatch1Count"
+                class="player"
+                :style="player1Style"
+                style="image-rendering: pixelated;" /><br/>
+        </div>
+        <br/>
+
+        <!-- タッチパネルでも操作できるように、ボタンを置いておきます。キーボードの操作説明も兼ねます。 -->
         <p>キーボード操作方法</p>
         <ul>
             <li>
@@ -41,7 +89,6 @@
                     @mouseup="button1Ref?.release(onRightButtonReleased);"
                     @mouseleave="button1Ref?.release(onRightButtonReleased);"
                 >→</v-btn>
-                　…　上下左右に動かすぜ！
                 <br/>
                 <v-btn class="code-key hidden"/>
                 <v-btn
@@ -54,6 +101,7 @@
                     @mouseup="button1Ref?.release(onDownButtonReleased);"
                     @mouseleave="button1Ref?.release(onDownButtonReleased);"
                 >↓</v-btn>
+                　…　上下左右に動かすぜ！
                 <br/>
             </li>
             <li>
@@ -69,49 +117,15 @@
                 >（スペース）</v-btn>
                 　…　自機をホームに戻すぜ。
             </li>
+            <li>
+                <!-- フォーカスを外すためのダミー・ボタンです -->
+                <v-btn
+                    class="noop-key"
+                    ref="noopButton"
+                    v-tooltip="'PCでのマウス操作で、フォーカスがコントロールに残って邪魔になるときは、このボタンを押してくれだぜ'"
+                >何もしないボタン</v-btn><br/>
+            </li>
         </ul>
-        <br/>
-
-        <!-- ストップウォッチ。デバッグに使いたいときは、 display: none; を消してください。 -->
-        <stopwatch
-            ref="stopwatch1Ref"
-            v-on:countUp="(countNum) => { stopwatch1Count = countNum; }"
-            style="display: none;" />
-
-        <!--
-            ゲーム領域
-            キャラクターより２倍角ぐらい大きく。
-        -->
-        <div
-            style="position: relative;"
-            :style="`
-                width: ${2 * appZoom * board1SquareWidth}px;
-                height: ${2 * appZoom * board1SquareHeight}px;
-            `"
-        >
-            <!-- 自機の基準位置 -->
-            <div
-                :style="`
-                    left: ${player1HomeLeft}px;
-                    top: ${player1HomeTop}px;
-                    width: ${board1SquareWidth}px;
-                    height: ${board1SquareHeight}px;
-                    zoom: ${appZoom};
-                    background-color:lightpink;
-                `"
-                style="position: absolute;">
-            </div>
-
-            <!-- 自機１ -->
-            <TileAnimation
-                :frames="player1Frames"
-                tilemapUrl="/img/making/202508__warabenture__15-1612-kifuwarabe-o1o0.png"
-                :slow="player1AnimationSlow"
-                :time="stopwatch1Count"
-                class="cursor"
-                :style="player1Style"
-                style="position: absolute; image-rendering: pixelated;" /><br/>
-        </div>
 
         <br/>
         <!-- 設定 -->
@@ -139,7 +153,7 @@
                 label="自機のホーム　＞　筋"
                 v-model="player1HomeFile"
                 :min="0"
-                :max="1"
+                :max="2"
                 step="1"
                 showTicks="always"
                 thumbLabel="always" />
@@ -147,13 +161,12 @@
                 label="自機のホーム　＞　段"
                 v-model="player1HomeRank"
                 :min="0"
-                :max="1"
+                :max="2"
                 step="1"
                 showTicks="always"
                 thumbLabel="always" />
             <br/>
         </section>
-
     </section>
 
     <br/>
@@ -200,17 +213,17 @@
     // 今動いているアプリケーションの状態を記録しているデータ。特に可変のもの。
     //
 
-    const appConfigIsShowing = ref<boolean>(false);                 // 操作方法等を表示中
-    const appZoom = ref<number>(4);
+    const appConfigIsShowing = ref<boolean>(false);     // 操作方法等を表示中
+    const appZoom = ref<number>(4);     // ズーム
 
 
     // ################
     // # オブジェクト #
     // ################
 
-    // ++++++++++++++++++++++++++++++++++++++++++++
-    // + オブジェクト　＞　ボタン押しっぱなし機能 +
-    // ++++++++++++++++++++++++++++++++++++++++++++
+    // ++++++++++++++++++++++++++++++++
+    // + オブジェクト　＞　ボタン拡張 +
+    // ++++++++++++++++++++++++++++++++
 
     const button1Ref = ref<InstanceType<typeof Button20250822> | null>(null);
 
@@ -219,7 +232,7 @@
     // ++++++++++++++++++++++++++++++++++++++
 
     const stopwatch1Ref = ref<InstanceType<typeof Stopwatch> | null>(null); // Stopwatch のインスタンス
-    const stopwatch1Count = ref<number>(0);                 // カウントの初期値
+    const stopwatch1Count = ref<number>(0);   // カウントの初期値
 
     // ++++++++++++++++++++++++
     // + オブジェクト　＞　盤 +
@@ -231,9 +244,12 @@
     // ++++++++++++++++++++++++++++++++++++
     // + オブジェクト　＞　自機１のホーム +
     // ++++++++++++++++++++++++++++++++++++
+    //
+    // このサンプルでは、ピンク色に着色しているマスです。
+    //
 
-    const player1HomeFile = ref<number>(0);     // 基準位置
-    const player1HomeRank = ref<number>(0);
+    const player1HomeFile = ref<number>(1);     // ホーム
+    const player1HomeRank = ref<number>(1);
     const player1HomeLeft = computed(()=>{
         return player1HomeFile.value * board1SquareWidth;
     });
@@ -245,10 +261,10 @@
     // + オブジェクト　＞　自機１ +
     // ++++++++++++++++++++++++++++
 
-    const player1Left = ref<number>(player1HomeLeft.value);      // スプライトの位置
+    const player1Left = ref<number>(player1HomeLeft.value);     // スプライトの位置
     const player1Top = ref<number>(player1HomeTop.value);
-    const player1Speed = ref<number>(2);     // 移動速度
-    const player1Input = <Record<string, boolean>>{  // 入力
+    const player1Speed = ref<number>(2);                        // 移動速度
+    const player1Input = <Record<string, boolean>>{             // 入力
         " ": false, ArrowUp: false, ArrowRight: false, ArrowDown: false, ArrowLeft: false
     };
     const player1AnimationSlow = ref<number>(8);    // アニメーションのスローモーションの倍率の初期値
@@ -328,25 +344,30 @@
                 player1Top.value = player1HomeTop.value;
             }
 
-            // 移動処理
-            if (player1Input.ArrowUp) {
+            // ++++++++++++++++++++++++++++++++++++++++++++++
+            // + キー入力をモーションに変換　＆　移動を処理 +
+            // ++++++++++++++++++++++++++++++++++++++++++++++
+            //
+            // このサンプルでは、［キー入力をモーションに変換］と、［移動を処理］を分けていません。
+            //            
+            if (player1Input.ArrowLeft) {   // 左
+                player1Frames.value = player1SourceFrames["left"];
+                player1Left.value -= player1Speed.value;
+            }
+            
+            if (player1Input.ArrowUp) { // 上
                 player1Frames.value = player1SourceFrames["up"]
                 player1Top.value -= player1Speed.value;
             }
 
-            if (player1Input.ArrowRight) {
+            if (player1Input.ArrowRight) {  // 右
                 player1Frames.value = player1SourceFrames["right"];
                 player1Left.value += player1Speed.value;
             }
 
-            if (player1Input.ArrowDown) {
+            if (player1Input.ArrowDown) {   // 下
                 player1Frames.value = player1SourceFrames["down"];
                 player1Top.value += player1Speed.value;
-            }
-
-            if (player1Input.ArrowLeft) {
-                player1Frames.value = player1SourceFrames["left"];
-                player1Left.value -= player1Speed.value;
             }
 
             // 次のフレーム
@@ -433,7 +454,7 @@
 </script>
 
 <style scoped>
-    div.cursor {
+    div.player {
         position: relative; width:32px; height:32px;
     }
 </style>
