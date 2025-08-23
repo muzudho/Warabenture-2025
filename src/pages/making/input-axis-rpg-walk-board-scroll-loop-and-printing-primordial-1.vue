@@ -47,7 +47,8 @@
                 :time="stopwatch1Count"
                 class="player"
                 :style="player1Style"
-                style="image-rendering: pixelated;" /><br/>
+                style="image-rendering: pixelated;" />
+            <br/>
             
             <!-- 半透明のマスク -->
             <div
@@ -60,7 +61,6 @@
                     border-left: solid ${board1WithMaskSizeSquare * board1SquareWidth}px rgba(0,0,0,0.5);
                 `"
                 style="position:absolute; left:0; top:0; image-rendering: pixelated;">
-                <!-- zoom:${appZoom}; -->
             </div>
         </div>
 
@@ -189,6 +189,22 @@
                 step="1"
                 showTicks="always"
                 thumbLabel="always" />
+            <v-slider
+                label="盤の筋の数"
+                v-model="board1FileNum"
+                :min="0"
+                :max="board1FileMax"
+                step="1"
+                showTicks="always"
+                thumbLabel="always" />
+            <v-slider
+                label="盤の段の数"
+                v-model="board1RankNum"
+                :min="0"
+                :max="board1RankMax"
+                step="1"
+                showTicks="always"
+                thumbLabel="always" />
             <br/>
         </section>
     </section>
@@ -285,6 +301,8 @@
 
     const board1SquareWidth = 32;
     const board1SquareHeight = 32;
+    const board1FileMax = 6;
+    const board1RankMax = 6;
     const board1FileNum = ref<number>(5);   // 筋の数
     const board1RankNum = ref<number>(5);   // 段の数
     const board1Area = computed(()=> {  // 盤のマス数
@@ -312,6 +330,7 @@
             // プレイヤーが初期位置にいる場合の、マスの位置。
             const homeLeft = (i % board1FileNum.value) * board1SquareWidth;
             const homeTop = Math.floor(i / board1FileNum.value) * board1SquareHeight;
+
             const bwPx = (board1FileNum.value * board1SquareWidth);   // 盤の横幅（ピクセル）。右側と下側に余分に付いている１マス分のマスクを含まない。
             const bhPx = (board1RankNum.value * board1SquareHeight);
 
@@ -326,7 +345,6 @@
                 top: `${homeTop + offsetTopLoop}px`,
                 width: `${board1SquareWidth}px`,
                 height: `${board1SquareHeight}px`,
-                //zoom: appZoom.value,
                 border: `solid 1px ${i % 2 == 0 ? 'darkgray' : 'lightgray'}`,
                 textAlign: "center",
             };
@@ -519,7 +537,7 @@
     const player1Style = computed<CompatibleStyleValue>(() => ({
         left: `${player1Left.value}px`,
         top: `${player1Top.value}px`,
-        //zoom: appZoom.value,
+        // 親要素で zoom を設定しているので、ここで zoom は不要です。
     }));
     const player1SourceFrames = {   // キャラクターの向きと、歩行タイルの指定
         left:[  // 左向き
@@ -613,16 +631,17 @@
                 printing1Motion.value["wrapAroundBottom"] = 0;
             }
             
-            // キー入力をモーションに変換
+            // ++++++++++++++++++++++++++++++
+            // + キー入力をモーションに変換 +
+            // ++++++++++++++++++++++++++++++
             if (player1MotionWait.value<=0) {   // ウェイトが無ければ、入力を受け付ける。
 
                 // 位置のリセット
                 if (player1Input[" "]) {
-                    // ※ 自機の位置は固定なので、自機の位置のリセットはありません。
                     printing1Left.value = 0;    // 印字
                     printing1Top.value = 0;
                     player1Left.value = player1HomeLeft.value;  // 自機
-                    player1Top.value = player1HomeTop.value;  // 自機
+                    player1Top.value = player1HomeTop.value;
                 }
 
                 // 移動関連（単発）
@@ -666,7 +685,7 @@
             }
 
             if (player1MotionWait.value <= 0) { // モーション開始時に１回だけ実行される
-                // 自機の向きを更新、タテヨコ同時入力の場合、上下を優先する： ※ 自機の位置は固定です。
+                // 自機の向きを更新、タテヨコ同時入力の場合、上下を優先する：
                 if (player1Motion.value["lookBottom"] == commonSpriteMotionUp) {   // 上
                     player1Frames.value = player1SourceFrames["up"]
                 } else if (player1Motion.value["lookBottom"] == commonSpriteMotionDown) { // 下

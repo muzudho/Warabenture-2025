@@ -1,7 +1,7 @@
 <!--
     pages/making/button-repeat-1.vue の［ボタンの押しっぱなし］機能のコンポーネント化。
     使用例は
-    pages/making/input-axis-target.vue 参照。
+    pages/making/input-axis-target-1.vue 参照。
 
     役割は２つ。
     （１）　ボタンの押しっぱなし（キーリピート）を有効にする。

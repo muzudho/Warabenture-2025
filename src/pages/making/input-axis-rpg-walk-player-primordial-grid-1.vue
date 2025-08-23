@@ -243,9 +243,9 @@
     // よく使う設定をまとめたもの。特に不変のもの。
     //
 
-    const commonSpriteMotionLeft = -1;  // モーション（motion）定数。左に移動する
-    const commonSpriteMotionRight = 1;
+    const commonSpriteMotionLeft = -1;  // モーション（motion）定数。左。
     const commonSpriteMotionUp = -1;
+    const commonSpriteMotionRight = 1;
     const commonSpriteMotionDown = 1;
 
 
@@ -256,8 +256,8 @@
     // 今動いているアプリケーションの状態を記録しているデータ。特に可変のもの。
     //
 
-    const appConfigIsShowing = ref<boolean>(false);     // 操作方法等を表示中
-    const appZoom = ref<number>(4);     // ズーム
+    const appConfigIsShowing = ref<boolean>(false);    // 操作方法等を表示中
+    const appZoom = ref<number>(4);    // ズーム
 
 
     // ################
@@ -283,8 +283,8 @@
 
     const board1SquareWidth = 32;
     const board1SquareHeight = 32;
-    const board1FileNum = ref<number>(3);      // 筋の数
-    const board1RankNum = ref<number>(3);      // 段の数
+    const board1FileNum = ref<number>(3);    // 筋の数
+    const board1RankNum = ref<number>(3);    // 段の数
     const board1Area = computed(()=> {  // 盤のマス数
         return board1FileNum.value * board1RankNum.value;
     });
@@ -296,7 +296,7 @@
     // このサンプルでは、ピンク色に着色しているマスです。
     //
 
-    const player1HomeFile = ref<number>(1);     // ホーム
+    const player1HomeFile = ref<number>(1);    // ホーム
     const player1HomeRank = ref<number>(1);
     const player1HomeLeft = computed(()=>{
         return player1HomeFile.value * board1SquareWidth;
@@ -317,8 +317,8 @@
     };
     const player1AnimationSlow = ref<number>(8);    // アニメーションのスローモーションの倍率の初期値
     const player1Style = computed<CompatibleStyleValue>(() => ({
-        top: `${player1Top.value}px`,
         left: `${player1Left.value}px`,
+        top: `${player1Top.value}px`,
         zoom: appZoom.value,
     }));
     const player1SourceFrames = {   // キャラクターの向きと、歩行タイルの指定
@@ -363,8 +363,8 @@
     onMounted(() => {
         // キーボードイベント
         window.addEventListener('keydown', (e: KeyboardEvent) => {
-            // ［スペース］［↑］［↓］キーの場合
-            if (e.key === ' ' || e.key === 'ArrowUp' || e.key === 'ArrowDown') {
+            // ［↑］［↓］キーの場合
+            if (e.key === 'ArrowUp' || e.key === 'ArrowDown') {
                 // ブラウザーのデフォルトの上下スクロール動作をキャンセル
                 e.preventDefault();
             }
@@ -436,7 +436,7 @@
             // ++++++++++++++
             // + 移動を処理 +
             // ++++++++++++++
-            //
+
             // 斜め方向の場合、上下を優先する。
             if (player1Motion.value["goToRight"]==1) {    // 右
                 player1Frames.value = player1SourceFrames["right"]    // 向きを変える

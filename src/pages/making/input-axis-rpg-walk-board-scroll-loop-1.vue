@@ -47,7 +47,8 @@
                 :time="stopwatch1Count"
                 class="player"
                 :style="player1Style"
-                style="image-rendering: pixelated;" /><br/>
+                style="image-rendering: pixelated;" />
+            <br/>
             
             <!-- 半透明のマスク -->
             <div
@@ -193,6 +194,22 @@
                 step="1"
                 showTicks="always"
                 thumbLabel="always" />
+            <v-slider
+                label="盤の筋の数"
+                v-model="board1FileNum"
+                :min="0"
+                :max="board1FileMax"
+                step="1"
+                showTicks="always"
+                thumbLabel="always" />
+            <v-slider
+                label="盤の段の数"
+                v-model="board1RankNum"
+                :min="0"
+                :max="board1RankMax"
+                step="1"
+                showTicks="always"
+                thumbLabel="always" />
             <br/>
         </section>
     </section>
@@ -289,6 +306,8 @@
 
     const board1SquareWidth = 32;
     const board1SquareHeight = 32;
+    const board1FileMax = 6;
+    const board1RankMax = 6;
     const board1FileNum = ref<number>(5);   // 筋の数
     const board1RankNum = ref<number>(5);   // 段の数
     const board1Area = computed(()=> {  // 盤のマス数
@@ -330,7 +349,6 @@
                 top: `${homeTop + offsetTopLoop}px`,
                 width: `${board1SquareWidth}px`,
                 height: `${board1SquareHeight}px`,
-                //zoom: appZoom.value,
                 border: `solid 1px ${i % 2 == 0 ? 'darkgray' : 'lightgray'}`,
                 textAlign: "center",
             };
@@ -384,7 +402,6 @@
     const player1Style = computed<CompatibleStyleValue>(() => ({
         left: `${player1Left.value}px`,
         top: `${player1Top.value}px`,
-        //zoom: appZoom.value,
     }));
     const player1SourceFrames = {   // キャラクターの向きと、歩行タイルの指定
         left:[  // 左向き

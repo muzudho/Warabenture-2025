@@ -36,7 +36,7 @@
                 v-for="i in board1Area"
                 :key="i"
                 :style="getSquareStyle(i - 1)"
-            >{{ getFaceNumber(i - 1) }}
+            >{{ getPrintingNumber(i - 1) }}
             </div>
 
             <!-- 自機１ -->
@@ -158,6 +158,22 @@
                 step="1"
                 showTicks="always"
                 thumbLabel="always" />
+            <v-slider
+                label="盤の筋の数"
+                v-model="board1FileNum"
+                :min="0"
+                :max="board1FileMax"
+                step="1"
+                showTicks="always"
+                thumbLabel="always" />
+            <v-slider
+                label="盤の段の数"
+                v-model="board1RankNum"
+                :min="0"
+                :max="board1RankMax"
+                step="1"
+                showTicks="always"
+                thumbLabel="always" />
             <br/>
         </section>
     </section>
@@ -246,18 +262,20 @@
 
     const board1SquareWidth = 32;
     const board1SquareHeight = 32;
-    const board1FileNum = 5;
-    const board1RankNum = 5;
+    const board1FileMax = 6;
+    const board1RankMax = 6;
+    const board1FileNum = ref<number>(5);    // 筋の数
+    const board1RankNum = ref<number>(5);    // 段の数
     const board1Area = computed(()=> {  // 盤のマス数
-        return board1FileNum * board1RankNum;
+        return board1FileNum.value * board1RankNum.value;
     });
     const board1Style = computed<CompatibleStyleValue>(()=>{ // ボードとマスクを含んでいる領域のスタイル
         return {
             position: 'relative',
             left: "0",
             top: "0",
-            width: `${board1FileNum * board1SquareWidth}px`,
-            height: `${board1RankNum * board1SquareHeight}px`,
+            width: `${board1FileNum.value * board1SquareWidth}px`,
+            height: `${board1RankNum.value * board1SquareHeight}px`,
             zoom: appZoom.value,
         };
     });
@@ -266,8 +284,8 @@
     >(() => {
         return (i:number)=>{
             // プレイヤーが初期位置にいる場合の、マスの位置。
-            const homeLeft = (i % board1FileNum) * board1SquareWidth;
-            const homeTop = Math.floor(i / board1RankNum) * board1SquareHeight;
+            const homeLeft = (i % board1FileNum.value) * board1SquareWidth;
+            const homeTop = Math.floor(i / board1FileNum.value) * board1SquareHeight;
 
             return {
                 position: 'absolute',
@@ -275,7 +293,6 @@
                 left: `${homeLeft}px`,
                 width: `${board1SquareWidth}px`,
                 height: `${board1SquareHeight}px`,
-                //zoom: appZoom.value,
                 border: `solid 1px ${i % 2 == 0 ? 'darkgray' : 'lightgray'}`,
                 textAlign: "center",
             };
@@ -289,13 +306,16 @@
     // 盤上に表示される数字柄、絵柄など。
     //
 
-    const printing1FileNum = board1FileNum;       // 列数
-    const printing1RankNum = board1RankNum;       // 行数
+    const printing1FileMax = board1FileMax;     // 印字の最大サイズは、盤の最大サイズと同じものとする。
+    const printing1RankMax = board1RankMax;
+    const printing1FileNum = board1FileNum;     // 列数
+    const printing1RankNum = board1RankNum;     // 行数
     const printing1File = ref<number>(0);    // 印字の左上隅のタイルは、盤タイルの左から何番目か。
     const printing1Rank = ref<number>(0);    // 印字の左上隅のタイルは、盤タイルの上から何番目か。
-    const printing1Data = ref<string[]>([
-        "00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24",
-    ]);
+    const printing1Data = ref<string[]>([]);
+    for (let i=0; i<printing1FileMax * printing1RankMax; i++) {     // 印字データは最初から最大サイズで用意しておく
+        printing1Data.value.push(i.toString().padStart(2, "0"));
+    }
 
     /**
      * 変換
@@ -304,32 +324,32 @@
      */
     function tileIndexToTileFileRank(tileIndex: number) : number[] {
         // プレイヤーが右へ１マス移動したら、印字は全行が左へ１つ移動する。
-        const file = tileIndex % board1FileNum;
-        const rank = Math.floor(tileIndex / board1RankNum);
+        const file = tileIndex % board1FileNum.value;
+        const rank = Math.floor(tileIndex / board1FileNum.value);
 
         return [file, rank];
     }
 
-    function contentsFileRankToContentsIndex(contentsFile: number, contentsRank: number) : number {
-        return contentsRank * printing1FileNum + contentsFile;
+    function printingFileRankToPrintingIndex(file: number, rank: number) : number {
+        return rank * printing1FileNum.value + file;
     }
 
-    const getFaceNumber = computed(() => {
+    const getPrintingNumber = computed(() => {
         return (tileIndex: number)=>{
             let [tileFile, tileRank] = tileIndexToTileFileRank(tileIndex);
 
             // タイル上のインデックスを、印字上のインデックスへ変換：
-            const contentsFile = tileFile - printing1File.value; // プレイヤーが右へ１マス移動したら、印字は全行が左へ１つ移動する。
-            const contentsRank = tileRank - printing1Rank.value; // プレイヤーが下へ１マス移動したら、印字は全行が上へ１つ移動する。
+            const printingFile = tileFile - printing1File.value; // プレイヤーが右へ１マス移動したら、印字は全行が左へ１つ移動する。
+            const printingRank = tileRank - printing1Rank.value; // プレイヤーが下へ１マス移動したら、印字は全行が上へ１つ移動する。
 
             // 印字のサイズの範囲外になるところには、"-" でも表示しておく
-            if (contentsFile < 0 || printing1FileNum <= contentsFile || contentsRank < 0 || printing1RankNum <= contentsRank) {
+            if (printingFile < 0 || printing1FileNum.value <= printingFile || printingRank < 0 || printing1RankNum.value <= printingRank) {
                 return "-";
             }
             
             // 印字上の位置が示すデータを返す
-            const contentsIndex = contentsFileRankToContentsIndex(contentsFile, contentsRank);
-            return  printing1Data.value[contentsIndex];
+            const printingIndex = printingFileRankToPrintingIndex(printingFile, printingRank);
+            return  printing1Data.value[printingIndex];
         };
     });    
 
@@ -359,7 +379,6 @@
         " ": false, ArrowUp: false, ArrowRight: false, ArrowDown: false, ArrowLeft: false
     };
     const player1AnimationSlow = ref<number>(8);    // アニメーションのスローモーションの倍率の初期値
-    const player1AnimationWalkingFrames = 16;       // 歩行フレーム数
     const player1Style = computed<CompatibleStyleValue>(() => ({
         left: `${player1Left.value}px`,
         top: `${player1Top.value}px`,
@@ -392,10 +411,11 @@
         ],
     };
     const player1Frames = ref(player1SourceFrames["down"]);
+    const player1AnimationWalkingFrames = 16;       // 歩行フレーム数
     const player1MotionWait = ref(0);  // TODO: モーション入力拒否時間。入力キーごとに用意したい。
     const player1Motion = ref<Record<string, number>>({  // モーションへの入力
-        xAxis: 0,   // 負なら左、正なら右
-        yAxis: 0,   // 負なら上、正なら下
+        goToRight: 0,   // 負なら左、正なら右
+        goToBottom: 0,   // 負なら上、正なら下
     });
 
 
@@ -436,14 +456,16 @@
      */
     function gameLoopStart() : void {
         const update = () => {
-            player1MotionWait.value -= 1;
+            player1MotionWait.value -= 1;    // モーション・タイマー
 
             if (player1MotionWait.value==0) {
-                player1Motion.value["xAxis"] = 0;    // クリアー
-                player1Motion.value["yAxis"] = 0;
+                player1Motion.value["goToRight"] = 0;    // クリアー
+                player1Motion.value["goToBottom"] = 0;
             }
-            
-            // 入力（上下左右への移動）をモーションに変換
+
+            // ++++++++++++++++++++++++++++++
+            // + キー入力をモーションに変換 +
+            // ++++++++++++++++++++++++++++++
             if (player1MotionWait.value<=0) {   // ウェイトが無ければ、入力を受け付ける。
 
                 // 位置のリセット
@@ -456,39 +478,42 @@
 
                 // 移動
                 if (player1Input.ArrowLeft) {
-                    player1Motion.value["xAxis"] = commonSpriteMotionLeft; // 左
+                    player1Motion.value["goToRight"] = commonSpriteMotionLeft; // 左
                 }
 
                 if (player1Input.ArrowRight) {
-                    player1Motion.value["xAxis"] = commonSpriteMotionRight;  // 右
+                    player1Motion.value["goToRight"] = commonSpriteMotionRight;  // 右
                 }
 
                 if (player1Input.ArrowUp) {
-                    player1Motion.value["yAxis"] = commonSpriteMotionUp;   // 上
+                    player1Motion.value["goToBottom"] = commonSpriteMotionUp;   // 上
                 }
 
                 if (player1Input.ArrowDown) {
-                    player1Motion.value["yAxis"] = commonSpriteMotionDown;   // 下
+                    player1Motion.value["goToBottom"] = commonSpriteMotionDown;   // 下
                 }
 
-                if (player1Motion.value["xAxis"]!=0 || player1Motion.value["yAxis"]!=0) {
+                if (player1Motion.value["goToRight"]!=0 || player1Motion.value["goToBottom"]!=0) {
                     player1MotionWait.value = player1AnimationWalkingFrames;
                 }
 
-                // 移動処理
+            // ++++++++++++++
+            // + 移動を処理 +
+            // ++++++++++++++
+
                 // 斜め方向の場合、上下を優先する。
-                if (player1Motion.value["xAxis"]==1) {   // 右
+                if (player1Motion.value["goToRight"]==1) {   // 右
                     player1Frames.value = player1SourceFrames["right"]
                     printing1File.value -= 1;   // 印字の方をスクロールさせる
-                } else if (player1Motion.value["xAxis"]==-1) {  // 左
+                } else if (player1Motion.value["goToRight"]==-1) {  // 左
                     player1Frames.value = player1SourceFrames["left"]
                     printing1File.value += 1;
                 }
 
-                if (player1Motion.value["yAxis"]==-1) {  // 上
+                if (player1Motion.value["goToBottom"]==-1) {  // 上
                     player1Frames.value = player1SourceFrames["up"]
                     printing1Rank.value += 1;
-                } else if (player1Motion.value["yAxis"]==1) {   // 下
+                } else if (player1Motion.value["goToBottom"]==1) {   // 下
                     player1Frames.value = player1SourceFrames["down"]
                     printing1Rank.value -= 1;
                 }

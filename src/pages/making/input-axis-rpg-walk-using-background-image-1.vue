@@ -34,7 +34,8 @@
 
             <!-- タイルのグリッド -->
             <Tile
-                v-for="i in board1Area" :key="i"
+                v-for="i in board1Area"
+                :key="i"
                 :style="getSquareStyle(i - 1)"
                 :srcLeft="getFloorLeftBySquare(i - 1)"
                 :srcTop="0"
@@ -50,10 +51,10 @@
                 :time="stopwatch1Count"
                 class="player"
                 :style="player1Style"
-                style="image-rendering: pixelated;" /><br/>
+                style="image-rendering: pixelated;" />
+            <br/>
             
-            <!--
-                半透明のマスク
+            <!-- 半透明のマスク
                 親要素で zoom を設定しているので、ここで zoom は不要です。
             -->
             <div
@@ -69,7 +70,9 @@
             </div>
         </div>
 
-        <p>👆半透明の黒いマスクのところは画面に映らないようにすればＯｋだぜ（＾～＾）！</p>
+        <p>
+            👆半透明の黒いマスクのところは画面に映らないようにすればＯｋだぜ（＾～＾）！<br/>
+        </p>
         <br/>
 
         <p>👇タイルのインデックスだぜ（＾▽＾）：</p>
@@ -206,6 +209,22 @@
                 step="1"
                 showTicks="always"
                 thumbLabel="always" />
+            <v-slider
+                label="盤の筋の数"
+                v-model="board1FileNum"
+                :min="0"
+                :max="board1FileMax"
+                step="1"
+                showTicks="always"
+                thumbLabel="always" />
+            <v-slider
+                label="盤の段の数"
+                v-model="board1RankNum"
+                :min="0"
+                :max="board1RankMax"
+                step="1"
+                showTicks="always"
+                thumbLabel="always" />
             <br/>
         </section>
     </section>
@@ -303,6 +322,9 @@
 
     const board1SquareWidth = 32;
     const board1SquareHeight = 32;
+    const board1FileMax = 6;
+    const board1RankMax = 6;
+    const board1AreaMax = board1FileMax * board1RankMax;
     const board1FileNum = ref<number>(5);   // 筋の数
     const board1RankNum = ref<number>(5);   // 段の数
     const board1Area = computed(()=> {  // 盤のマス数
@@ -361,7 +383,7 @@
     const board1FloorTilemapTileNum = 4;  // 床のタイルマップ
     const board1SourceTilemapCoordination = computed(() => {   // 座標
         const tileMap = [];
-        for (let i = 0; i < board1Area.value; i++) {
+        for (let i = 0; i < board1AreaMax; i++) {   // 最大サイズで作っておく。
             const files = i % board1FileNum.value;
             const ranks = Math.floor(i / board1FileNum.value);
             tileMap.push({ top: ranks * board1SquareHeight, left: files * board1SquareWidth, width: board1SquareWidth, height: board1SquareHeight });
@@ -390,6 +412,9 @@
     // 盤上に表示される数字柄、絵柄など。
     //
 
+    const printing1FileMax = board1FileMax; // 印字の最大サイズは、盤の最大サイズと同じものとする。
+    const printing1RankMax = board1RankMax;
+    const printingAreaMax = printing1FileMax * printing1RankMax;
     // アニメーションのことを考えると、 File, Rank ではデジタルになってしまうので、 Left, Top で指定したい。
     const printing1Left = ref<number>(0);
     const printing1Top = ref<number>(0);
@@ -400,7 +425,7 @@
     });
     const printingMapData = computed(() => {    // ランダムなマップデータを生成
         const data = [];
-        for (let i = 0; i < board1MapArea; i++) {
+        for (let i = 0; i < printingAreaMax; i++) { // 最初から最大サイズで用意します。
             data.push(Math.floor(Math.random() * board1FloorTilemapTileNum));  // 0からfloorTilemapTileNum - 1のランダムな整数を配置
         }
         return data;
@@ -430,7 +455,7 @@
     const player1Left = ref<number>(player1HomeLeft.value);    // スプライトの位置
     const player1Top = ref<number>(player1HomeTop.value);
     const player1Input = <Record<string, boolean>>{    // 入力
-        ArrowUp: false, ArrowRight: false, ArrowDown: false, ArrowLeft: false
+        " ": false, ArrowUp: false, ArrowRight: false, ArrowDown: false, ArrowLeft: false
     };
     const player1AnimationSlow = ref<number>(8);    // アニメーションのスローモーションの倍率の初期値
     const player1AnimationFacingFrames = 1;         // 振り向くフレーム数

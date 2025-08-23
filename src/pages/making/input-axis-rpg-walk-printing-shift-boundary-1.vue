@@ -36,7 +36,7 @@
                 v-for="i in board1Area"
                 :key="i"
                 :style="getSquareStyle(i - 1)"
-            >{{ getFaceNumber(i - 1) }}
+            >{{ getPrintingNumber(i - 1) }}
             </div>
 
             <!-- 自機１ -->
@@ -158,13 +158,28 @@
                 step="1"
                 showTicks="always"
                 thumbLabel="always" />
+            <v-slider
+                label="盤の筋の数"
+                v-model="board1FileNum"
+                :min="0"
+                :max="board1FileMax"
+                step="1"
+                showTicks="always"
+                thumbLabel="always" />
+            <v-slider
+                label="盤の段の数"
+                v-model="board1RankNum"
+                :min="0"
+                :max="board1RankMax"
+                step="1"
+                showTicks="always"
+                thumbLabel="always" />
             <v-switch
                 v-model="appBoundaryIsLock"
                 :label="appBoundaryIsLock ? '［画面外を見せない］中' : '［画面外を見せない］をしていません'"
                 color="green"
                 :hideDetails="true"
-                inset
-                @click="focusRemove()" />
+                inset />
                 <section class="sec-1">
                     <v-switch
                         v-model="appBoundaryWalkingEdge"
@@ -172,8 +187,7 @@
                         :label="appBoundaryWalkingEdge ? '［盤の端まで歩ける］を可能中' : '［盤の端まで歩ける］を可能にしていません'"
                         color="green"
                         :hideDetails="true"
-                        inset
-                        @click="focusRemove()" />
+                        inset />
                 </section>
             <!-- フォーカスを外すためのダミー・ボタンです -->
             <v-btn ref="noopButton">何もしないボタン
@@ -281,8 +295,10 @@
 
     const board1SquareWidth = 32;
     const board1SquareHeight = 32;
-    const board1FileNum = ref<number>(5);   // 筋の数
-    const board1RankNum = ref<number>(5);   // 段の数
+    const board1FileMax = 6;
+    const board1RankMax = 6;
+    const board1FileNum = ref<number>(5);    // 筋の数
+    const board1RankNum = ref<number>(5);    // 段の数
     const board1Area = computed(()=> {  // 盤のマス数
         return board1FileNum.value * board1RankNum.value;
     });
@@ -302,7 +318,7 @@
         return (i:number)=>{
             // プレイヤーが初期位置にいる場合の、マスの位置。
             const homeLeft = (i % board1FileNum.value) * board1SquareWidth;
-            const homeTop = Math.floor(i / board1RankNum.value) * board1SquareHeight;
+            const homeTop = Math.floor(i / board1FileNum.value) * board1SquareHeight;
 
             return {
                 position: 'absolute',
@@ -310,12 +326,11 @@
                 left: `${homeLeft}px`,
                 width: `${board1SquareWidth}px`,
                 height: `${board1SquareHeight}px`,
-                //zoom: 4,
                 border: `solid 1px ${i % 2 == 0 ? 'darkgray' : 'lightgray'}`,
                 textAlign: "center",
             };
         };
-    });    
+    });
 
     // ++++++++++++++++++++++++++
     // + オブジェクト　＞　印字 +
@@ -324,48 +339,50 @@
     // 盤上に表示される数字柄、絵柄など。
     //
 
-    const printing1FileNum = 10;            // 列数
-    const printing1RankNum = 10;            // 行数
+    const printing1FileMax = 10;    // 印字の最大サイズは、盤のサイズより大きいです。
+    const printing1RankMax = 10;
+    const printing1FileNum = printing1FileMax;    // 列数
+    const printing1RankNum = printing1RankMax;    // 行数
     const printing1File = ref<number>(-3);  // 印字の左上隅のタイルは、盤タイルの左から何番目か。
     const printing1Rank = ref<number>(-3);  // 印字の左上隅のタイルは、盤タイルの上から何番目か。
     const printing1Data = ref<string[]>([]);
-    for (let i=0; i<printing1FileNum * printing1RankNum; i++) {
+    for (let i=0; i<printing1FileMax * printing1RankMax; i++) { // 印字データは最初から最大サイズで用意しておく
         printing1Data.value.push(i.toString().padStart(2, "0"));
     }
 
     /**
      * 変換
-     * @param tileIndex マス番号
+     * @param index マス番号
      * @returns [筋番号, 段番号]
      */
-    function tileIndexToTileFileRank(tileIndex: number) : number[] {
+    function tileIndexToTileFileRank(index: number) : number[] {
         // プレイヤーが右へ１マス移動したら、印字は全行が左へ１つ移動する。
-        const file = tileIndex % board1FileNum.value;
-        const rank = Math.floor(tileIndex / board1RankNum.value);
+        const file = index % board1FileNum.value;
+        const rank = Math.floor(index / board1FileNum.value);
 
         return [file, rank];
     }
 
-    function contentsFileRankToContentsIndex(contentsFile: number, contentsRank: number) : number {
-        return contentsRank * printing1FileNum + contentsFile;
+    function printingFileRankToPrintingIndex(file: number, rank: number) : number {
+        return rank * printing1FileNum + file;
     }
 
-    const getFaceNumber = computed(() => {
+    const getPrintingNumber = computed(() => {
         return (tileIndex: number)=>{
             let [tileFile, tileRank] = tileIndexToTileFileRank(tileIndex);
 
             // タイル上のインデックスを、印字上のインデックスへ変換：
-            const contentsFile = tileFile - printing1File.value; // プレイヤーが右へ１マス移動したら、印字は全行が左へ１つ移動する。
-            const contentsRank = tileRank - printing1Rank.value; // プレイヤーが下へ１マス移動したら、印字は全行が上へ１つ移動する。
+            const printingFile = tileFile - printing1File.value; // プレイヤーが右へ１マス移動したら、印字は全行が左へ１つ移動する。
+            const printingRank = tileRank - printing1Rank.value; // プレイヤーが下へ１マス移動したら、印字は全行が上へ１つ移動する。
 
             // 印字のサイズの範囲外になるところには、"-" でも表示しておく
-            if (contentsFile < 0 || printing1FileNum <= contentsFile || contentsRank < 0 || printing1RankNum <= contentsRank) {
+            if (printingFile < 0 || printing1FileNum <= printingFile || printingRank < 0 || printing1RankNum <= printingRank) {
                 return "-";
             }
             
             // 印字上の位置が示すデータを返す
-            const contentsIndex = contentsFileRankToContentsIndex(contentsFile, contentsRank);
-            return  printing1Data.value[contentsIndex];
+            const printingIndex = printingFileRankToPrintingIndex(printingFile, printingRank);
+            return  printing1Data.value[printingIndex];
         };
     });    
     const printing1Motion = ref<Record<string, number>>({  // モーションへの入力
@@ -794,16 +811,6 @@
 
         // 初回呼び出し
         requestAnimationFrame(update);
-    }
-
-
-    /**
-     * フォーカスを外すのが上手くいかないため、［何もしないボタン］にフォーカスを合わせます。
-     */
-    function focusRemove() : void {
-        if (noopButton.value) {
-            noopButton.value.$el.focus();    // $el は、<v-btn> 要素の中の <button> 要素。
-        }
     }
 
 

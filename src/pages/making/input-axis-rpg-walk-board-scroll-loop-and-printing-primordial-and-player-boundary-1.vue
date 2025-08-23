@@ -197,8 +197,7 @@
                 :max="6"
                 step="1"
                 showTicks="always"
-                thumbLabel="always"
-                @click="focusRemove()" />
+                thumbLabel="always" />
             <v-slider
                 label="盤の段の数"
                 v-model="board1RankNum"
@@ -206,8 +205,7 @@
                 :max="6"
                 step="1"
                 showTicks="always"
-                thumbLabel="always"
-                @click="focusRemove()" />
+                thumbLabel="always" />
             <v-slider
                 label="印字の筋の数"
                 v-model="printing1FileNum"
@@ -215,8 +213,7 @@
                 :max="10"
                 step="1"
                 showTicks="always"
-                thumbLabel="always"
-                @click="focusRemove()" />
+                thumbLabel="always" />
             <v-slider
                 label="印字の段の数"
                 v-model="printing1RankNum"
@@ -224,8 +221,7 @@
                 :max="10"
                 step="1"
                 showTicks="always"
-                thumbLabel="always"
-                @click="focusRemove()" />
+                thumbLabel="always" />
             <v-slider
                 label="自機のホームの筋"
                 v-model="player1HomeFile"
@@ -233,8 +229,7 @@
                 :max="5"
                 step="1"
                 showTicks="always"
-                thumbLabel="always"
-                @click="focusRemove()" />
+                thumbLabel="always" />
             <v-slider
                 label="自機のホームの段"
                 v-model="player1HomeRank"
@@ -242,8 +237,7 @@
                 :max="5"
                 step="1"
                 showTicks="always"
-                thumbLabel="always"
-                @click="focusRemove()" />
+                thumbLabel="always" />
             <br/>
             <p>マスクの枠の幅。右側と下側は、１マス多めに付きます：</p>
             <v-slider
@@ -253,15 +247,13 @@
                 :max="2"
                 step="1"
                 showTicks="always"
-                thumbLabel="always"
-                @click="focusRemove()" />
+                thumbLabel="always" />
             <v-switch
                 v-model="appBoundaryIsLock"
                 :label="appBoundaryIsLock ? '［画面外を見せない］中' : '［画面外を見せない］をしていません'"
                 color="green"
                 :hideDetails="true"
-                inset
-                @click="focusRemove()" />
+                inset />
                 <section class="sec-1">
                     <v-switch
                         v-model="appBoundaryWalkingEdge"
@@ -269,8 +261,7 @@
                         :label="appBoundaryWalkingEdge ? '［盤の端まで歩ける］を可能中' : '［盤の端まで歩ける］を可能にしていません'"
                         color="green"
                         :hideDetails="true"
-                        inset
-                        @click="focusRemove()" />
+                        inset />
                 </section>
             <br/>
         </section>
@@ -1045,16 +1036,6 @@
 
         // 初回呼び出し
         requestAnimationFrame(update);
-    }
-
-
-    /**
-     * フォーカスを外すのが上手くいかないため、［何もしないボタン］にフォーカスを合わせます。
-     */
-    function focusRemove() : void {
-        if (noopButton.value) {
-            noopButton.value.$el.focus();    // $el は、<v-btn> 要素の中の <button> 要素。
-        }
     }
 
 
