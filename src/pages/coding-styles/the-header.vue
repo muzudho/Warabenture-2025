@@ -1,7 +1,7 @@
 <template>
     <the-grand-parent-header/>
 
-    <h2>メイキングの部だぜ！</h2>
+    <h2>コーディング・スタイルの部だぜ！</h2>
     <section class="sec-2">
         <v-btn @click="goBack" v-tooltip="'下の節を閉じる'">❌</v-btn>
     </section>
@@ -29,7 +29,7 @@
     const router = useRouter();
 
     function goBack() : void {
-        router.push('/making');
+        router.push('/coding-styles');
     }
 
 </script>

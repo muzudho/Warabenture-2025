@@ -14,24 +14,22 @@
             style="display: none;" />
 
         <!-- 盤領域 -->
-        <div :style="board1Style">
+        <div
+            class="board"
+            :style="board1Style">
 
             <!-- 自機のホーム１ -->
             <div
+                class="playerHome"
                 :style="`
-                    left: ${player1HomeLeft}px;
-                    top: ${player1HomeTop}px;
+                    left: ${playerHome1Left}px;
+                    top: ${playerHome1Top}px;
                     width: ${board1SquareWidth}px;
                     height: ${board1SquareHeight}px;
-                `"
-                style="
-                    position: absolute;
-                    background-color: lightpink;
-                ">
-                <!-- zoom: ${appZoom}; -->
+                `">
             </div>
 
-            <!-- タイルのグリッド -->
+            <!-- スクウェアのグリッド -->
             <div
                 v-for="i in board1Area"
                 :key="i"
@@ -46,8 +44,7 @@
                 :slow="player1AnimationSlow"
                 :time="stopwatch1Count"
                 class="player"
-                :style="player1Style"
-                style="image-rendering: pixelated;" />
+                :style="player1Style" />
         </div>
         <p>👆 ヨコ：１０、タテ：１０のサイズのフィールドを歩いてみてくれだぜ（＾▽＾）！</p>
         <p>上下左右の端に画面外が見えないようにロックがかかるか、また、盤の端まで歩けるか、試してみてくれだぜ（＾▽＾）！</p>
@@ -144,7 +141,7 @@
                 thumbLabel="always" />
             <v-slider
                 label="自機のホーム　＞　筋"
-                v-model="player1HomeFile"
+                v-model="playerHome1File"
                 :min="0"
                 :max="2"
                 step="1"
@@ -152,7 +149,7 @@
                 thumbLabel="always" />
             <v-slider
                 label="自機のホーム　＞　段"
-                v-model="player1HomeRank"
+                v-model="playerHome1Rank"
                 :min="0"
                 :max="2"
                 step="1"
@@ -304,9 +301,6 @@
     });
     const board1Style = computed<CompatibleStyleValue>(()=>{ // ボードとマスクを含んでいる領域のスタイル
         return {
-            position: 'relative',
-            left: "0",
-            top: "0",
             width: `${board1FileNum.value * board1SquareWidth}px`,
             height: `${board1RankNum.value * board1SquareHeight}px`,
             zoom: appZoom.value,
@@ -397,22 +391,24 @@
     // このサンプルでは、ピンク色に着色しているマスです。
     //
 
-    const player1HomeFile = ref<number>(2);    // ホーム
-    const player1HomeRank = ref<number>(2);
-    const player1HomeLeft = computed(()=>{
-        return player1HomeFile.value * board1SquareWidth;
+    const playerHome1File = ref<number>(2);    // ホーム
+    const playerHome1Rank = ref<number>(2);
+    const playerHome1Left = computed(()=>{
+        return playerHome1File.value * board1SquareWidth;
     });
-    const player1HomeTop = computed(()=>{
-        return player1HomeRank.value * board1SquareHeight;
+    const playerHome1Top = computed(()=>{
+        return playerHome1Rank.value * board1SquareHeight;
     });
 
     // ++++++++++++++++++++++++++++
     // + オブジェクト　＞　自機１ +
     // ++++++++++++++++++++++++++++
 
+    const player1Width = board1SquareWidth;
+    const player1Height = board1SquareHeight;
     // アニメーションのことを考えると、 File, Rank ではデジタルになってしまうので、 Left, Top で指定したい。
-    const player1Left = ref<number>(player1HomeLeft.value);    // スプライトの位置
-    const player1Top = ref<number>(player1HomeTop.value);
+    const player1Left = ref<number>(playerHome1Left.value);    // スプライトの位置
+    const player1Top = ref<number>(playerHome1Top.value);
     const player1Speed = ref<number>(2);    // 移動速度
     const player1File = computed<number>(()=>{
         return Math.round(player1Left.value / board1SquareWidth);
@@ -429,7 +425,8 @@
     const player1Style = computed<CompatibleStyleValue>(() => ({
         top: `${player1Top.value}px`,
         left: `${player1Left.value}px`,
-        //zoom: appZoom.value,
+        width: `${player1Width}px`,
+        height: `${player1Height}px`,
     }));
     const player1SourceFrames = {   // キャラクターの向きと、歩行タイルの指定
         left:[  // 左向き
@@ -521,8 +518,8 @@
                 if (player1Input[" "]) {
                     printing1File.value = 0;    // 印字
                     printing1Rank.value = 0;
-                    player1Left.value = player1HomeLeft.value;  // 自機
-                    player1Top.value = player1HomeTop.value;
+                    player1Left.value = playerHome1Left.value;  // 自機
+                    player1Top.value = playerHome1Top.value;
                 }
 
                 // 移動
@@ -531,7 +528,7 @@
                     player1Frames.value = player1SourceFrames["right"]    // 向きを変える
 
                     // ホーム・ポジションより左に居ればホームに近づける。
-                    if (player1File.value < player1HomeFile.value) {
+                    if (player1File.value < playerHome1File.value) {
                         player1Motion.value["shiftToRight"] = commonSpriteMotionRight;
                     } else {
                         let willShift: boolean = true;
@@ -596,7 +593,7 @@
                     player1Frames.value = player1SourceFrames["left"]    // 向きを変える
 
                     // ホーム・ポジションより右に居ればホームに近づける。
-                    if (player1File.value > player1HomeFile.value) {
+                    if (player1File.value > playerHome1File.value) {
                         player1Motion.value["shiftToRight"] = commonSpriteMotionLeft;
                     } else {
                         let willShift: boolean = true;
@@ -655,7 +652,7 @@
                     player1Frames.value = player1SourceFrames["up"]    // 向きを変える
 
                     // ホーム・ポジションより下に居ればホームに近づける。
-                    if (player1Rank.value > player1HomeRank.value) {
+                    if (player1Rank.value > playerHome1Rank.value) {
                         player1Motion.value["shiftToBottom"] = commonSpriteMotionUp;
                     } else {
                         let willShift: boolean = true;
@@ -711,7 +708,7 @@
                     player1Frames.value = player1SourceFrames["down"]   // 向きを変える
 
                     // ホーム・ポジションより上に居ればホームに近づける。
-                    if (player1Rank.value < player1HomeRank.value) {
+                    if (player1Rank.value < playerHome1Rank.value) {
                         player1Motion.value["shiftToBottom"] = commonSpriteMotionDown;
                     } else {
                         let willShift: boolean = true;
@@ -889,7 +886,17 @@
 </script>
 
 <style scoped>
-    div.player {
-        position: relative; width:32px; height:32px;
+    div.board { /* 盤１ */
+        position: relative;
+        left: 0;
+        top: 0;
+    }
+    div.playerHome {    /* 自機１のホーム */
+        position: absolute;
+        background-color: lightpink;
+    }
+    div.player {    /* 自機１ */
+        position: relative;
+        image-rendering: pixelated;
     }
 </style>

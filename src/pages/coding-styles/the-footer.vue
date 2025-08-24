@@ -1,9 +1,7 @@
 <template>
-    <the-grand-parent-header/>
-
-    <h2>メイキングの部だぜ！</h2>
+    <br/>
     <section class="sec-2">
-        <v-btn @click="goBack" v-tooltip="'下の節を閉じる'">❌</v-btn>
+        <v-btn @click="goBack" v-tooltip="'上の章を閉じる'">❌</v-btn>
     </section>
 </template>
 
@@ -15,21 +13,13 @@
 
     import { useRouter } from 'vue-router';
 
-    // ++++++++++++++++++
-    // + コンポーネント +
-    // ++++++++++++++++++
-
-    import TheGrandParentHeader from '../../the-header.vue';
-
 
     // ############
     // # ルーチン #
     // ############
-    
     const router = useRouter();
 
     function goBack() : void {
-        router.push('/making');
+        router.push('/coding-styles');
     }
-
 </script>

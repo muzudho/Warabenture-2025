@@ -17,27 +17,18 @@
             自機より３倍角ぐらい大きく。
         -->
         <div
-            :style="`
-                width: ${3 * appZoom * board1SquareWidth}px;
-                height: ${3 * appZoom * board1SquareHeight}px;
-            `"
-            style="
-                position: relative;
-            ">
+            class="board"
+            :style="board1Style">
 
             <!-- 自機のホーム１ -->
             <div
+                class="playerHome"
                 :style="`
-                    left: ${player1HomeLeft}px;
-                    top: ${player1HomeTop}px;
+                    left: ${playerHome1Left}px;
+                    top: ${playerHome1Top}px;
                     width: ${board1SquareWidth}px;
                     height: ${board1SquareHeight}px;
-                    zoom: ${appZoom};
-                `"
-                style="
-                    position: absolute;
-                    background-color: lightpink;
-                ">
+                `">
             </div>
 
             <!--
@@ -51,7 +42,6 @@
                     left: ${((i - 1) % board1FileNum) * board1SquareWidth}px;
                     width:${board1SquareWidth}px;
                     height:${board1SquareHeight}px;
-                    zoom: ${appZoom};
                     border: solid 1px ${(i - 1) % 2 == 0 ? 'darkgray' : 'lightgray'};`"></div>
 
             <!-- 自機１ -->
@@ -61,8 +51,7 @@
                 :slow="player1AnimationSlow"
                 :time="stopwatch1Count"
                 class="player"
-                :style="player1Style"
-                style="image-rendering: pixelated;" />
+                :style="player1Style" />
         </div>
         <br/>
 
@@ -165,7 +154,7 @@
                 thumbLabel="always" />
             <v-slider
                 label="自機のホーム　＞　筋"
-                v-model="player1HomeFile"
+                v-model="playerHome1File"
                 :min="0"
                 :max="2"
                 step="1"
@@ -173,7 +162,7 @@
                 thumbLabel="always" />
             <v-slider
                 label="自機のホーム　＞　段"
-                v-model="player1HomeRank"
+                v-model="playerHome1Rank"
                 :min="0"
                 :max="2"
                 step="1"
@@ -288,6 +277,19 @@
     const board1Area = computed(()=> {  // 盤のマス数
         return board1FileNum.value * board1RankNum.value;
     });
+    const board1Style = computed<CompatibleStyleValue>(()=>{ // ボードとマスクを含んでいる領域のスタイル
+        const boardWidth = board1FileNum.value * board1SquareWidth;
+        const boardHeight = board1RankNum.value * board1SquareHeight;
+        const boardWidthContainsPlayer = (playerHome1File.value + 1) * board1SquareWidth;
+        const boardHeightContainsPlayer = (playerHome1Rank.value + 1) * board1SquareHeight;
+        const width = boardWidth >= boardWidthContainsPlayer ? boardWidth : boardWidthContainsPlayer;
+        const height = boardHeight >= boardHeightContainsPlayer ? boardHeight : boardHeightContainsPlayer;
+        return {
+            width: `${width}px`,
+            height: `${height}px`,
+            zoom: appZoom.value,
+        };
+    });
 
     // ++++++++++++++++++++++++++++++++++++
     // + オブジェクト　＞　自機１のホーム +
@@ -296,21 +298,23 @@
     // このサンプルでは、ピンク色に着色しているマスです。
     //
 
-    const player1HomeFile = ref<number>(1);    // ホーム
-    const player1HomeRank = ref<number>(1);
-    const player1HomeLeft = computed(()=>{
-        return player1HomeFile.value * board1SquareWidth;
+    const playerHome1File = ref<number>(1);    // ホーム
+    const playerHome1Rank = ref<number>(1);
+    const playerHome1Left = computed(()=>{
+        return playerHome1File.value * board1SquareWidth;
     });
-    const player1HomeTop = computed(()=>{
-        return player1HomeRank.value * board1SquareHeight;
+    const playerHome1Top = computed(()=>{
+        return playerHome1Rank.value * board1SquareHeight;
     });
 
     // ++++++++++++++++++++++++++++
     // + オブジェクト　＞　自機１ +
     // ++++++++++++++++++++++++++++
 
-    const player1Left = ref<number>(player1HomeLeft.value);    // スプライトの位置
-    const player1Top = ref<number>(player1HomeTop.value);
+    const player1Width = board1SquareWidth;
+    const player1Height = board1SquareHeight;
+    const player1Left = ref<number>(playerHome1Left.value);    // スプライトの位置
+    const player1Top = ref<number>(playerHome1Top.value);
     const player1Speed = ref<number>(2);    // 移動速度
     const player1Input = <Record<string, boolean>>{    // 入力
         " ": false, ArrowUp: false, ArrowRight: false, ArrowDown: false, ArrowLeft: false
@@ -319,7 +323,8 @@
     const player1Style = computed<CompatibleStyleValue>(() => ({
         left: `${player1Left.value}px`,
         top: `${player1Top.value}px`,
-        zoom: appZoom.value,
+        width: `${player1Width}px`,
+        height: `${player1Height}px`,
     }));
     const player1SourceFrames = {   // キャラクターの向きと、歩行タイルの指定
         left:[  // 左向き
@@ -538,7 +543,15 @@
 </script>
 
 <style scoped>
-    div.player {
-        position: relative; width:32px; height:32px;
+    div.board { /* 盤１ */
+        position: relative;
+    }
+    div.playerHome {    /* 自機１のホーム */
+        position: absolute;
+        background-color: lightpink;
+    }
+    div.player {    /* 自機１ */
+        position: relative;
+        image-rendering: pixelated;
     }
 </style>

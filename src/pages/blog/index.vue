@@ -1,7 +1,7 @@
 <template>
     <the-grand-parent-header/>
 
-    <h2>ブログ</h2>
+    <h2>ブログの部だぜ！</h2>
     <section class="sec-2">
         上の方の記事が新しいぜ（＾▽＾）！<br/>
     </section>

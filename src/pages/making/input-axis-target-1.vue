@@ -11,27 +11,19 @@
             自機と同サイズ。
         -->
         <div
-            :style="`
-                width: ${appZoom * board1SquareWidth}px;
-                height: ${appZoom * board1SquareHeight}px;
-            `"
-            style="
-                position: relative;
-            ">
+            class="board"
+            :style="board1Style">
 
             <!-- 自機のホーム１ -->
             <div
+                class="playerHome"
                 :style="`
                     left: 0px;
                     top: 0px;
                     width: ${board1SquareWidth}px;
                     height: ${board1SquareHeight}px;
                     zoom: ${appZoom};
-                `"
-                style="
-                    position: absolute;
-                    background-color: lightpink;
-                ">
+                `">
             </div>
 
             <!-- 自機１（点線の枠） -->
@@ -163,6 +155,11 @@
 
     import { VBtn } from 'vuetify/components';
 
+    // ++++++++++++++
+    // + 互換性対応 +
+    // ++++++++++++++
+
+    import type { CompatibleStyleValue }  from '../../compatibles/compatible-style-value';
 
     // ++++++++++++++++++
     // + コンポーネント +
@@ -210,6 +207,13 @@
 
     const board1SquareWidth = 32;
     const board1SquareHeight = 32;
+    const board1Style = computed<CompatibleStyleValue>(()=>{  // ボードとマスクを含んでいる領域のスタイル
+        return {
+            width: `${board1SquareWidth}px`,
+            height: `${board1SquareHeight}px`,
+            zoom: appZoom.value,
+        };
+    });
 
     // ++++++++++++++++++++++++++++
     // + オブジェクト　＞　自機１ +
@@ -218,6 +222,8 @@
     // 点線の枠。
     //
 
+    const player1Width = board1SquareWidth;
+    const player1Height = board1SquareHeight;
     const player1Left = ref<number>(0);      // スプライトのX座標
     const player1Top = ref<number>(0);       // スプライトのY座標
     const player1Speed = ref<number>(2);     // 移動速度
@@ -227,6 +233,8 @@
     const player1Style = computed(() => ({
         left: `${player1Left.value}px`,
         top: `${player1Top.value}px`,
+        width: `${player1Width}px`,
+        height: `${player1Height}px`,
         zoom: appZoom.value,
     }));
 
@@ -352,10 +360,6 @@
     }
 
 
-    function onSpaceButtonReleased() : void {
-    }
-
-
     /**
      * 設定ボタン。
      */
@@ -366,9 +370,15 @@
 </script>
 
 <style scoped>
-    div.player {
+    div.board { /* 盤１ */
+        position: relative;
+    }
+    div.playerHome {    /* 自機１のホーム */
+        position: absolute;
+        background-color: lightpink;
+    }
+    div.player {    /* 自機１ */
         position: relative;
         border:dashed 4px green;
-        width:32px; height:32px;
     }
 </style>

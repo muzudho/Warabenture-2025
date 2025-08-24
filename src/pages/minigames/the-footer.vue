@@ -1,7 +1,7 @@
 <template>
     <br/>
     <section class="sec-2">
-        <v-btn @click="goToMinigames" v-tooltip="'上の節を閉じる'">❌</v-btn>
+        <v-btn @click="goBack" v-tooltip="'上の章を閉じる'">❌</v-btn>
     </section>
 </template>
 
@@ -19,7 +19,7 @@
     // ############
     const router = useRouter();
 
-    function goToMinigames() : void {
+    function goBack() : void {
         router.push('/minigames');
     }
 </script>

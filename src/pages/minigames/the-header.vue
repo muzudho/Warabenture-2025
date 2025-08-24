@@ -1,9 +1,9 @@
 <template>
     <the-grand-parent-header/>
 
-    <h2>ミニゲームの章だぜ！</h2>
+    <h2>ミニゲームの部だぜ！</h2>
     <section class="sec-2">
-        <v-btn @click="goToMinigames" v-tooltip="'下の節を閉じる'">❌</v-btn>
+        <v-btn @click="goBack" v-tooltip="'下の節を閉じる'">❌</v-btn>
     </section>
 </template>
 
@@ -27,7 +27,7 @@
     // ############
     const router = useRouter();
 
-    function goToMinigames() : void {
+    function goBack() : void {
         router.push('/minigames');
     }
 </script>

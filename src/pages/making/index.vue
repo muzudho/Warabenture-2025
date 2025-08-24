@@ -1,7 +1,7 @@
 <template>
     <the-grand-parent-header/>
 
-    <h2>メイキングの章だぜ！</h2>
+    <h2>メイキングの部だぜ！</h2>
     <section class="sec-2">
         アプリケーション製作の練習だぜ（＾▽＾）！<v-btn style="visibility: hidden;"></v-btn><br/>
         <!-- 他のページと縦幅を揃えるために、何の働きもしない空ボタンを置いています。 -->

@@ -1,7 +1,7 @@
 <template>
     <the-parent-header/>
 
-    <h2>このサイトについて</h2>
+    <h2>このサイトについての部だぜ！</h2>
     <section class="sec-2">
         <p>こんなとこ読まんでも……（＾～＾）</p>
         <br/>
