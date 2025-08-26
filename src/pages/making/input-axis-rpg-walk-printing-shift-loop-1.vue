@@ -3,7 +3,7 @@
     <!-- ボタン機能拡張 -->
     <button-20250822 ref="button1Ref"/>
 
-    <h4><span class="parent-header">ＲＰＧの歩行グラフィック　＞　</span>数字柄の循環シフト</h4>
+    <h4><span class="parent-header">ＲＰＧの歩行グラフィック　＞　</span>数字柄のシフト、印字の両端つながり</h4>
     <section class="sec-4">
         <br/>
 
@@ -21,12 +21,7 @@
             <!-- 自機のホーム１ -->
             <div
                 class="playerHome"
-                :style="`
-                    left: ${playerHome1Left}px;
-                    top: ${playerHome1Top}px;
-                    width: ${board1SquareWidth}px;
-                    height: ${board1SquareHeight}px;
-                `">
+                :style="playerHome1Style">
             </div>
 
             <!-- スクウェアのグリッド -->
@@ -173,12 +168,18 @@
                 step="1"
                 showTicks="always"
                 thumbLabel="always" />
+            <v-switch
+                v-model="printing1IsLooping"
+                :label="printing1IsLooping ? '［印字の端と端がつながって（ループして）］います' : '［印字の端と端がつながって（ループして）］いません'"
+                color="green"
+                :hideDetails="true"
+                inset />
             <br/>
         </section>
     </section>
 
     <br/>
-    <h4><span class="parent-header-lights-out">ＲＰＧの歩行グラフィック　＞　</span><span class="parent-header">数字柄の循環シフト　＞　</span>ソースコード</h4>
+    <h4><span class="parent-header-lights-out">ＲＰＧの歩行グラフィック　＞　</span><span class="parent-header">数字柄のシフト、印字の両端つながり　＞　</span>ソースコード</h4>
     <section class="sec-4">
         <source-link
             pagePath="/making/input-axis-rpg-walk-printing-shift-loop-1"/>
@@ -193,6 +194,7 @@
 
     import { computed, onMounted, ref } from 'vue';
     // 👆 ［初級者向けのソースコード］では、 reactive は使いません。
+    import type { Ref } from 'vue';
 
     // ++++++++++++++
     // + 互換性対応 +
@@ -213,7 +215,19 @@
     import Stopwatch from '../../components/Stopwatch.vue';
     import TileAnimation from '../../components/TileAnimation.vue';
 
+    // ++++++++++++++++++
+    // + コンポーザブル +
+    // ++++++++++++++++++
 
+    import { euclideanMod } from '../../composables/periodic-table-operation';
+
+    // ********************
+    // * インターフェース *
+    // ********************
+
+    import type Rectangle from '../../interfaces/Rectangle';
+
+    
     // ##########
     // # コモン #
     // ##########
@@ -234,7 +248,7 @@
     // 今動いているアプリケーションの状態を記録しているデータ。特に可変のもの。
     //
 
-    const appConfigIsShowing = ref<boolean>(false);    // 操作方法等を表示中
+    const appConfigIsShowing = ref<boolean>(false);    // 設定を表示中
     const appZoom = ref<number>(4);    // ズーム
 
 
@@ -302,6 +316,7 @@
     // 盤上に表示される数字柄、絵柄など。
     //
 
+    const printing1IsLooping = ref<boolean>(true); // 印字がループする
     const printing1FileMax = board1FileMax; // 印字の最大サイズは、盤の最大サイズと同じものとする。
     const printing1RankMax = board1RankMax;
     const printing1FileNum = board1FileNum; // 列数
@@ -339,9 +354,16 @@
             let printingFile = tileFile - printing1File.value; // プレイヤーが右へ１マス移動したら、印字は全行が左へ１つ移動する。
             let printingRank = tileRank - printing1Rank.value; // プレイヤーが下へ１マス移動したら、印字は全行が上へ１つ移動する。
             
-            // 端でループする
-            printingFile = euclideanMod(printingFile, printing1FileNum.value);
-            printingRank = euclideanMod(printingRank, printing1RankNum.value);
+            if (printing1IsLooping.value) {
+                // 端でループする
+                printingFile = euclideanMod(printingFile, printing1FileNum.value);
+                printingRank = euclideanMod(printingRank, printing1RankNum.value);
+            } else {
+                // 印字のサイズの範囲外になるところには、"-" でも表示しておく
+                if (printingFile < 0 || printing1FileNum.value <= printingFile || printingRank < 0 || printing1RankNum.value <= printingRank) {
+                    return "-";
+                }
+            }
 
             // 印字上の位置が示すデータを返す
             const printingIndex = printingFileRankToPrintingIndex(printingFile, printingRank);
@@ -350,10 +372,11 @@
     });    
 
     // ++++++++++++++++++++++++++++++++++++
-    // + オブジェクト　＞　自機１のホーム +
+    // + オブジェクト　＞　自機のホーム１ +
     // ++++++++++++++++++++++++++++++++++++
     //
     // このサンプルでは、ピンク色に着色しているマスです。
+    // ［自機１］に紐づくホームというわけではなく、［自機のホーム］の１つです。
     //
 
     const playerHome1File = ref<number>(2);    // ホーム
@@ -363,6 +386,14 @@
     });
     const playerHome1Top = computed(()=>{
         return playerHome1Rank.value * board1SquareHeight;
+    });
+    const playerHome1Style = computed<CompatibleStyleValue>(()=>{
+        return {
+            left: `${playerHome1Left.value}px`,
+            top: `${playerHome1Top.value}px`,
+            width: `${board1SquareWidth}px`,
+            height: `${board1SquareHeight}px`,
+        };
     });
 
     // ++++++++++++++++++++++++++++
@@ -410,7 +441,7 @@
             {top:  2 * board1SquareHeight, left: 1 * board1SquareWidth, width: board1SquareWidth, height: board1SquareHeight },
         ],
     };
-    const player1Frames = ref(player1SourceFrames["down"]);
+    const player1Frames : Ref<Rectangle[]> = ref(player1SourceFrames["down"]);
     const player1MotionWait = ref(0);  // TODO: モーション入力拒否時間。入力キーごとに用意したい。
     const player1Motion = ref<Record<string, number>>({  // モーションへの入力
         goToRight: 0,   // 負なら左、正なら右
@@ -449,17 +480,6 @@
     // ################
     // # サブルーチン #
     // ################
-
-    /**
-     * ユークリッド剰余
-     * 
-     * NOTE: 負の剰余は数学の定義では［ユークリッド剰余］と、［トランケート剰余］の２種類あって、プログラム言語ごとにどっちを使ってるか違うから注意。
-     * TypeScript では［トランケート剰余］なので、［ユークリッド剰余］を使いたいときはこれを使う。
-     */
-    function euclideanMod(a: number, b: number): number {
-        return ((a % b) + b) % b;
-    }
-
 
     /**
      * ゲームのメインループ開始
@@ -617,7 +637,7 @@
     div.board { /* 盤１ */
         position: relative;
     }
-    div.playerHome {    /* 自機１のホーム */
+    div.playerHome {    /* 自機のホーム１ */
         position: absolute;
         background-color: lightpink;
     }

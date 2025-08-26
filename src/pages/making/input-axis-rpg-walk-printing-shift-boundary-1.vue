@@ -3,7 +3,7 @@
     <!-- ボタン機能拡張 -->
     <button-20250822 ref="button1Ref"/>
 
-    <h4><span class="parent-header">ＲＰＧの歩行グラフィック　＞　</span>数字柄のシフト、盤の端処理</h4>
+    <h4><span class="parent-header">ＲＰＧの歩行グラフィック　＞　</span>数字柄のシフト、盤の端歩き</h4>
     <section class="sec-4">
         <br/>
 
@@ -21,12 +21,7 @@
             <!-- 自機のホーム１ -->
             <div
                 class="playerHome"
-                :style="`
-                    left: ${playerHome1Left}px;
-                    top: ${playerHome1Top}px;
-                    width: ${board1SquareWidth}px;
-                    height: ${board1SquareHeight}px;
-                `">
+                :style="playerHome1Style">
             </div>
 
             <!-- スクウェアのグリッド -->
@@ -172,16 +167,16 @@
                 showTicks="always"
                 thumbLabel="always" />
             <v-switch
-                v-model="appBoundaryIsLock"
-                :label="appBoundaryIsLock ? '［画面外を見せない］中' : '［画面外を見せない］をしていません'"
+                v-model="printing1OutOfSightIsLock"
+                :label="printing1OutOfSightIsLock ? '［画面外を見せない］中' : '［画面外を見せない］をしていません'"
                 color="green"
                 :hideDetails="true"
                 inset />
                 <section class="sec-1">
                     <v-switch
-                        v-model="appBoundaryWalkingEdge"
-                        :disabled="!appBoundaryWalkingEdgeIsEnabled"
-                        :label="appBoundaryWalkingEdge ? '［盤の端まで歩ける］を可能中' : '［盤の端まで歩ける］を可能にしていません'"
+                        v-model="player1CanBoardEdgeWalking"
+                        :disabled="!player1CanBoardEdgeWalkingIsEnabled"
+                        :label="player1CanBoardEdgeWalking ? '［盤の端まで歩ける］を可能中' : '［盤の端まで歩ける］を可能にしていません'"
                         color="green"
                         :hideDetails="true"
                         inset />
@@ -194,7 +189,7 @@
     </section>
 
     <br/>
-    <h4><span class="parent-header-lights-out">ＲＰＧの歩行グラフィック　＞　</span><span class="parent-header">数字柄のシフト、盤の端処理　＞　</span>ソースコード</h4>
+    <h4><span class="parent-header-lights-out">ＲＰＧの歩行グラフィック　＞　</span><span class="parent-header">数字柄のシフト、盤の端歩き　＞　</span>ソースコード</h4>
     <section class="sec-4">
         <source-link
             pagePath="/making/input-axis-rpg-walk-printing-shift-boundary-1"/>
@@ -209,6 +204,7 @@
 
     import { computed, onMounted, ref, watch } from 'vue';
     // 👆 ［初級者向けのソースコード］では、 reactive は使いません。
+    import type { Ref } from 'vue';
 
     import { VBtn } from 'vuetify/components';
 
@@ -232,6 +228,12 @@
     import Stopwatch from '../../components/Stopwatch.vue';
     import TileAnimation from '../../components/TileAnimation.vue';
 
+    // ********************
+    // * インターフェース *
+    // ********************
+
+    import type Rectangle from '../../interfaces/Rectangle';
+
 
     // ##########
     // # コモン #
@@ -253,14 +255,8 @@
     // 今動いているアプリケーションの状態を記録しているデータ。特に可変のもの。
     //
 
-    const appConfigIsShowing = ref<boolean>(false);    // 操作方法等を表示中
+    const appConfigIsShowing = ref<boolean>(false);    // 設定を表示中
     const appZoom = ref<number>(4);    // ズーム
-    const appBoundaryIsLock = ref<boolean>(true);                   // ［画面外隠し］を管理（true: ロックする, false: ロックしない）
-    watch(appBoundaryIsLock, (newValue: boolean)=>{
-        appBoundaryWalkingEdgeIsEnabled.value = newValue;
-    });
-    const appBoundaryWalkingEdge = ref<boolean>(true);              // ［盤の端の歩行］可能状態を管理（true: 可能にする, false: 可能にしない）
-    const appBoundaryWalkingEdgeIsEnabled = ref<boolean>(true);     // ［盤の端の歩行］可能状態の活性性を管理（true: 不活性にする, false: 活性にする）
 
 
     // ################
@@ -333,6 +329,10 @@
     // 盤上に表示される数字柄、絵柄など。
     //
 
+    const printing1OutOfSightIsLock = ref<boolean>(true);                   // ［画面外隠し］を管理（true: ロックする, false: ロックしない）
+    watch(printing1OutOfSightIsLock, (newValue: boolean)=>{
+        player1CanBoardEdgeWalkingIsEnabled.value = newValue;
+    });
     const printing1FileMax = 10;    // 印字の最大サイズは、盤のサイズより大きいです。
     const printing1RankMax = 10;
     const printing1FileNum = printing1FileMax;    // 列数
@@ -385,10 +385,11 @@
     });
 
     // ++++++++++++++++++++++++++++++++++++
-    // + オブジェクト　＞　自機１のホーム +
+    // + オブジェクト　＞　自機のホーム１ +
     // ++++++++++++++++++++++++++++++++++++
     //
     // このサンプルでは、ピンク色に着色しているマスです。
+    // ［自機１］に紐づくホームというわけではなく、［自機のホーム］の１つです。
     //
 
     const playerHome1File = ref<number>(2);    // ホーム
@@ -398,6 +399,14 @@
     });
     const playerHome1Top = computed(()=>{
         return playerHome1Rank.value * board1SquareHeight;
+    });
+    const playerHome1Style = computed<CompatibleStyleValue>(()=>{
+        return {
+            left: `${playerHome1Left.value}px`,
+            top: `${playerHome1Top.value}px`,
+            width: `${board1SquareWidth}px`,
+            height: `${board1SquareHeight}px`,
+        };
     });
 
     // ++++++++++++++++++++++++++++
@@ -454,12 +463,14 @@
             {top:  2 * board1SquareHeight, left: 1 * board1SquareWidth, width: board1SquareWidth, height: board1SquareHeight },
         ],
     };
-    const player1Frames = ref(player1SourceFrames["down"]);
+    const player1Frames : Ref<Rectangle[]> = ref(player1SourceFrames["down"]);
     const player1MotionWait = ref(0);  // TODO: モーション入力拒否時間。入力キーごとに用意したい。
     const player1Motion = ref<Record<string, number>>({  // モーションへの入力
         shiftToRight: 0,   // 負なら左、正なら右
         shiftToBottom: 0,   // 負なら上、正なら下
     });
+    const player1CanBoardEdgeWalking = ref<boolean>(true);              // ［盤の端の歩行］可能状態を管理（true: 可能にする, false: 可能にしない）
+    const player1CanBoardEdgeWalkingIsEnabled = ref<boolean>(true);     // ［盤の端の歩行］可能状態の活性性を管理（true: 不活性にする, false: 活性にする）
 
 
     // ##########
@@ -532,7 +543,7 @@
                         player1Motion.value["shiftToRight"] = commonSpriteMotionRight;
                     } else {
                         let willShift: boolean = true;
-                        if (appBoundaryIsLock.value) {
+                        if (printing1OutOfSightIsLock.value) {
                             // 見えている画面外が広がるような移動は禁止する：
                             //
                             //  Contents
@@ -579,7 +590,7 @@
                         if (willShift) {
                             printing1Motion.value["shiftToRight"] = commonSpriteMotionLeft;
                         } else {
-                            if (appBoundaryWalkingEdge.value) {
+                            if (player1CanBoardEdgeWalking.value) {
                                 // ［盤の端まで歩ける］
                                 if (player1File.value < board1FileNum.value - 1) {
                                     player1Motion.value["shiftToRight"] = commonSpriteMotionRight;
@@ -597,7 +608,7 @@
                         player1Motion.value["shiftToRight"] = commonSpriteMotionLeft;
                     } else {
                         let willShift: boolean = true;
-                        if (appBoundaryIsLock.value) {
+                        if (printing1OutOfSightIsLock.value) {
                             // 見えている画面外が広がるような移動は禁止する：
                             //
                             //  Contents
@@ -639,7 +650,7 @@
 
                         if (willShift) {
                             printing1Motion.value["shiftToRight"] = commonSpriteMotionRight;
-                        } else if (appBoundaryWalkingEdge.value) {
+                        } else if (player1CanBoardEdgeWalking.value) {
                             // ［盤の端まで歩ける］
                             if (player1File.value > 0) {
                                 player1Motion.value["shiftToRight"] = commonSpriteMotionLeft;
@@ -656,7 +667,7 @@
                         player1Motion.value["shiftToBottom"] = commonSpriteMotionUp;
                     } else {
                         let willShift: boolean = true;
-                        if (appBoundaryIsLock.value) {
+                        if (printing1OutOfSightIsLock.value) {
                             // 見えている画面外が広がるような移動は禁止する：
                             //
                             //  Contents
@@ -695,7 +706,7 @@
 
                         if (willShift) {
                             printing1Motion.value["shiftToBottom"] = commonSpriteMotionDown;
-                        } else if (appBoundaryWalkingEdge.value) {
+                        } else if (player1CanBoardEdgeWalking.value) {
                             // ［盤の端まで歩ける］
                             if (player1Rank.value > 0) {
                                 player1Motion.value["shiftToBottom"] = commonSpriteMotionUp;
@@ -712,7 +723,7 @@
                         player1Motion.value["shiftToBottom"] = commonSpriteMotionDown;
                     } else {
                         let willShift: boolean = true;
-                        if (appBoundaryIsLock.value) {
+                        if (printing1OutOfSightIsLock.value) {
                             // 見えている画面外が広がるような移動は禁止する：
                             //
                             //  Contents
@@ -759,7 +770,7 @@
 
                         if (willShift) {
                             printing1Motion.value["shiftToBottom"] = commonSpriteMotionUp;
-                        } else if (appBoundaryWalkingEdge.value) {
+                        } else if (player1CanBoardEdgeWalking.value) {
                             // ［盤の端まで歩ける］
                             if (player1Rank.value < board1FileNum.value - 1) {
                                 player1Motion.value["shiftToBottom"] = commonSpriteMotionDown;
@@ -891,7 +902,7 @@
         left: 0;
         top: 0;
     }
-    div.playerHome {    /* 自機１のホーム */
+    div.playerHome {    /* 自機のホーム１ */
         position: absolute;
         background-color: lightpink;
     }

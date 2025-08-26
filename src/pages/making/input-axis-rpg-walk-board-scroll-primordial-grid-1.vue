@@ -24,25 +24,14 @@
                 自機ではなく、盤のホームであることに注意してください。
             -->
             <div
-                :style="`
-                    width: ${board1FileNum * board1SquareWidth}px;
-                    height: ${board1RankNum * board1SquareHeight}px;
-                `"
-                style="
-                    position:absolute;
-                    background-color: lightgreen;
-                ">
+                class="boardHome1Style"
+                :style="boardHome1Stlye">
             </div>
 
             <!-- 自機のホーム１ -->
             <div
                 class="playerHome"
-                :style="`
-                    left: ${playerHome1Left}px;
-                    top: ${playerHome1Top}px;
-                    width: ${board1SquareWidth}px;
-                    height: ${board1SquareHeight}px;
-                `">
+                :style="playerHome1Style">
             </div>
 
             <!-- スクウェアのグリッド -->
@@ -213,6 +202,7 @@
 
     import { computed, onMounted, ref } from 'vue';
     // 👆 ［初級者向けのソースコード］では、 reactive は使いません。
+    import type { Ref } from 'vue';
 
     import { VBtn } from 'vuetify/components';
 
@@ -236,6 +226,18 @@
     import Stopwatch from '../../components/Stopwatch.vue';
     import TileAnimation from '../../components/TileAnimation.vue';
 
+    // ++++++++++++++++++
+    // + コンポーザブル +
+    // ++++++++++++++++++
+
+    import type { RpgWalkingImagePosition } from '../../composables/player-controller';
+
+    // ********************
+    // * インターフェース *
+    // ********************
+
+    import type Rectangle from '../../interfaces/Rectangle';
+
 
     // ##########
     // # コモン #
@@ -257,7 +259,7 @@
     // 今動いているアプリケーションの状態を記録しているデータ。特に可変のもの。
     //
 
-    const appConfigIsShowing = ref<boolean>(false);    // 操作方法等を表示中
+    const appConfigIsShowing = ref<boolean>(false);    // 設定を表示中
     const appZoom = ref<number>(4);     // ズーム
 
 
@@ -285,12 +287,19 @@
     const stopwatch1Count = ref<number>(0);   // カウントの初期値
 
     // ++++++++++++++++++++++++++++++++++
-    // + オブジェクト　＞　盤１のホーム +
+    // + オブジェクト　＞　盤のホーム１ +
     // ++++++++++++++++++++++++++++++++++
     //
     // このサンプルでは、黄緑色に着色しているマスです。
-    // 自機ではなく、盤のホームであることに注意してください。
+    // ［盤１］に紐づくホームというわけではなく、［盤のホーム］の１つです。
     //
+
+    const boardHome1Stlye = computed<CompatibleStyleValue>(() => {
+        return {
+            width: `${board1FileNum.value * board1SquareWidth}px`,
+            height: `${board1RankNum.value * board1SquareHeight}px`,
+        };
+    });
 
     // ++++++++++++++++++++++++
     // + オブジェクト　＞　盤 +
@@ -335,6 +344,7 @@
             };
         };
     });
+    const board1Speed = ref<number>(2); // 移動速度
     const board1AnimationWalkingFrames = 16;       // 盤が歩行と同じフレーム数で動く
     const board1MotionWait = ref(0);    // TODO: モーション入力拒否時間。入力キーごとに用意したい。
     const board1Motion = ref<Record<string, number>>({    // モーションへの入力
@@ -342,12 +352,12 @@
         goToBottom: 0,   // 負なら上、正なら下
     });
 
-
     // ++++++++++++++++++++++++++++++++++++
-    // + オブジェクト　＞　自機１のホーム +
+    // + オブジェクト　＞　自機のホーム１ +
     // ++++++++++++++++++++++++++++++++++++
     //
     // このサンプルでは、ピンク色に着色しているマスです。
+    // ［自機１］に紐づくホームというわけではなく、［自機のホーム］の１つです。
     //
 
     const playerHome1File = ref<number>(2);    // ホーム
@@ -358,6 +368,14 @@
     const playerHome1Top = computed(()=>{
         return playerHome1Rank.value * board1SquareHeight;
     });
+    const playerHome1Style = computed<CompatibleStyleValue>(() => {
+        return {
+            left: `${playerHome1Left.value}px`,
+            top: `${playerHome1Top.value}px`,
+            width: `${board1SquareWidth}px`,
+            height: `${board1SquareHeight}px`,
+        };
+    });
 
     // ++++++++++++++++++++++++++++
     // + オブジェクト　＞　自機１ +
@@ -367,18 +385,16 @@
     const player1Height = board1SquareHeight;
     const player1Left = ref<number>(playerHome1Left.value);    // スプライトの位置
     const player1Top = ref<number>(playerHome1Top.value);
-    const player1Speed = ref<number>(2);    // 移動速度
-    const player1Input = <Record<string, boolean>>{    // 入力
-        " ": false, ArrowUp: false, ArrowRight: false, ArrowDown: false, ArrowLeft: false
-    };
     const player1AnimationSlow = ref<number>(8);    // アニメーションのスローモーションの倍率の初期値
-    const player1Style = computed<CompatibleStyleValue>(() => ({
-        top: `${player1Top.value}px`,
-        left: `${player1Left.value}px`,
-        width: `${player1Width}px`,
-        height: `${player1Height}px`,
-    }));
-    const player1SourceFrames = {   // キャラクターの向きと、歩行タイルの指定
+    const player1Style = computed<CompatibleStyleValue>(() => {
+        return {
+            left: `${player1Left.value}px`,
+            top: `${player1Top.value}px`,
+            width: `${player1Width}px`,
+            height: `${player1Height}px`,
+        };
+    });
+    const player1SourceFrames : RpgWalkingImagePosition = {   // キャラクターの向きと、歩行タイルの指定
         left:[  // 左向き
             {top:  3 * board1SquareHeight, left: 0 * board1SquareWidth, width: board1SquareWidth, height: board1SquareHeight },
             {top:  3 * board1SquareHeight, left: 1 * board1SquareWidth, width: board1SquareWidth, height: board1SquareHeight },
@@ -404,7 +420,10 @@
             {top:  2 * board1SquareHeight, left: 1 * board1SquareWidth, width: board1SquareWidth, height: board1SquareHeight },
         ],
     };
-    const player1Frames = ref(player1SourceFrames["down"]);
+    const player1Frames : Ref<Rectangle[]> = ref(player1SourceFrames["down"]);
+    const player1Input = <Record<string, boolean>>{ // 入力
+        " ": false, ArrowUp: false, ArrowRight: false, ArrowDown: false, ArrowLeft: false
+    };
 
 
     // ##########
@@ -467,11 +486,11 @@
 
                 // 方向キー
                 if (player1Input.ArrowLeft) {    // 左
-                    board1Motion.value["goToRight"] = commonSpriteMotionLeft;
+                    board1Motion.value["goToRight"] = commonSpriteMotionRight;   // プレイヤーを左に動かすということは、盤は右に移動します。
                 }
 
                 if (player1Input.ArrowRight) {    // 右
-                    board1Motion.value["goToRight"] = commonSpriteMotionRight;
+                    board1Motion.value["goToRight"] = commonSpriteMotionLeft;
                 }
 
                 if (player1Input.ArrowUp) {    // 上
@@ -493,23 +512,23 @@
             // ++++++++++++++
             //
             // 斜め方向の場合、上下を優先する。
-            if (board1Motion.value["goToRight"]==1) {    // 右
-                player1Frames.value = player1SourceFrames["right"]    // 画像の向きを更新
-                board1Left.value -= player1Speed.value;    // 盤の方を、キー入力とは逆方向へスクロールさせる
+            if (board1Motion.value["goToRight"]==commonSpriteMotionLeft) {  // 左
+                player1Frames.value = player1SourceFrames["right"]  // 画像の向きを更新
+                board1Left.value -= board1Speed.value;  // 盤の方を、キー入力とは逆方向へスクロールさせる
 
-            } else if (board1Motion.value["goToRight"]==-1) {  // 左
+            } else if (board1Motion.value["goToRight"]==commonSpriteMotionRight) {  // 右
                 player1Frames.value = player1SourceFrames["left"]
-                board1Left.value += player1Speed.value;
+                board1Left.value += board1Speed.value;
 
             }
 
-            if (board1Motion.value["goToBottom"]==-1) {  // 上
+            if (board1Motion.value["goToBottom"]==commonSpriteMotionUp) {   // 上
                 player1Frames.value = player1SourceFrames["up"]
-                board1Top.value += player1Speed.value;
+                board1Top.value += board1Speed.value;
 
-            } else if (board1Motion.value["goToBottom"]==1) {   // 下
+            } else if (board1Motion.value["goToBottom"]==commonSpriteMotionDown) {  // 下
                 player1Frames.value = player1SourceFrames["down"]
-                board1Top.value -= player1Speed.value;
+                board1Top.value -= board1Speed.value;
 
             }
 
@@ -603,7 +622,11 @@
     div.square {    /* マス */
         position: absolute;
     }
-    div.playerHome {    /* 自機１のホーム */
+    div.boardHome1Style {   /* 盤のホーム１ */
+        position: absolute;
+        background-color: lightgreen;
+    }
+    div.playerHome {    /* 自機のホーム１ */
         position: absolute;
         background-color: lightpink;
     }

@@ -1,6 +1,6 @@
 <template>
     <section class="sec-1">
-        <v-btn @click="goToHome" v-tooltip="'下の章を閉じる'">❌</v-btn>
+        <v-btn @click="goToHome" v-tooltip="'下の部を閉じる'">❌</v-btn>
         <!--
             <router-link to="/">このサイトのホームへ戻る</router-link>
         -->

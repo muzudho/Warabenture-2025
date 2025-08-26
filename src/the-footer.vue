@@ -1,7 +1,7 @@
 <template>
     <br/>
     <section class="sec-1">
-        <v-btn @click="goToHome" v-tooltip="'上の章を閉じる'">❌</v-btn>
+        <v-btn @click="goToHome" v-tooltip="'上の部を閉じる'">❌</v-btn>
     </section>
 </template>
 

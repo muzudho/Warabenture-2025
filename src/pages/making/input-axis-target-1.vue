@@ -17,13 +17,7 @@
             <!-- 自機のホーム１ -->
             <div
                 class="playerHome"
-                :style="`
-                    left: 0px;
-                    top: 0px;
-                    width: ${board1SquareWidth}px;
-                    height: ${board1SquareHeight}px;
-                    zoom: ${appZoom};
-                `">
+                :style="playerHome1Style">
             </div>
 
             <!-- 自機１（点線の枠） -->
@@ -181,7 +175,7 @@
     // 今動いているアプリケーションの状態を記録しているデータ。特に可変のもの。
     //
 
-    const appConfigIsShowing = ref<boolean>(false);     // 操作方法等を表示中
+    const appConfigIsShowing = ref<boolean>(false);     // 設定を表示中
     const appZoom = ref<number>(1);     // ズーム
 
 
@@ -212,6 +206,21 @@
             width: `${board1SquareWidth}px`,
             height: `${board1SquareHeight}px`,
             zoom: appZoom.value,
+        };
+    });
+
+    // ++++++++++++++++++++++++++++++++++++
+    // + オブジェクト　＞　自機のホーム１ +
+    // ++++++++++++++++++++++++++++++++++++
+    //
+    // このサンプルでは、ピンク色に着色しているマスです。
+    // ［自機１］に紐づくホームというわけではなく、［自機のホーム］の１つです。
+    //
+
+    const playerHome1Style = computed<CompatibleStyleValue>(()=>{
+        return {
+            width: `${board1SquareWidth}px`,
+            height: `${board1SquareHeight}px`,
         };
     });
 
@@ -373,7 +382,7 @@
     div.board { /* 盤１ */
         position: relative;
     }
-    div.playerHome {    /* 自機１のホーム */
+    div.playerHome {    /* 自機のホーム１ */
         position: absolute;
         background-color: lightpink;
     }

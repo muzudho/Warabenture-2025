@@ -1,5 +1,7 @@
 <template>
-    <div class="tile" :style="tileStyle"></div>
+    <div class="tile" :style="tileStyle">
+        <slot></slot>
+    </div>
 </template>
 
 <script setup lang="ts">
