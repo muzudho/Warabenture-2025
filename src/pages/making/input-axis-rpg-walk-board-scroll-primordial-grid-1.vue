@@ -151,6 +151,14 @@
                 showTicks="always"
                 thumbLabel="always" />
             <v-slider
+                label="アニメーションの遅さ"
+                v-model="player1AnimationSlow"
+                :min="1"
+                :max="16"
+                step="1"
+                showTicks="always"
+                thumbLabel="always" />
+            <v-slider
                 label="自機のホーム　＞　筋"
                 v-model="playerHome1File"
                 :min="0"
@@ -385,7 +393,7 @@
     const player1Height = board1SquareHeight;
     const player1Left = ref<number>(playerHome1Left.value);    // スプライトの位置
     const player1Top = ref<number>(playerHome1Top.value);
-    const player1AnimationSlow = ref<number>(8);    // アニメーションのスローモーションの倍率の初期値
+    const player1AnimationSlow = ref<number>(8);    // アニメーションを何倍遅くするか
     const player1Style = computed<CompatibleStyleValue>(() => {
         return {
             left: `${player1Left.value}px`,

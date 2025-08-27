@@ -33,6 +33,13 @@
             </div>
 
             <!-- スクウェアのグリッド -->
+            <!--
+            <div
+                v-for="i in board1Area"
+                :key="i"
+                class="square"
+                :style="getSquareStyleFromTileIndex(i - 1)">
+            -->
             <tile
                 v-for="i in board1Area"
                 :key="i"
@@ -49,8 +56,8 @@
                             printing1Left,
                             printing1Top,
                         ),
-                        -printing1Left / board1SquareWidth,
-                        -printing1Top / board1SquareHeight,
+                        -Math.floor(printing1Left / board1SquareWidth),
+                        -Math.floor(printing1Top / board1SquareHeight),
                         board1FileNum,
                         printing1FileNum,
                         printing1RankNum,
@@ -85,8 +92,8 @@
                             printing1Left,
                             printing1Top,
                         ),
-                        -printing1Left / board1SquareWidth,
-                        -printing1Top / board1SquareHeight,
+                        -Math.floor(printing1Left / board1SquareWidth),
+                        -Math.floor(printing1Top / board1SquareHeight),
                         board1FileNum,
                         printing1FileNum,
                         printing1RankNum,
@@ -105,8 +112,8 @@
                                 printing1Left,
                                 printing1Top,
                             ),
-                            -printing1Left / board1SquareWidth,
-                            -printing1Top / board1SquareHeight,
+                            -Math.floor(printing1Left / board1SquareWidth),
+                            -Math.floor(printing1Top / board1SquareHeight),
                             board1FileNum,
                             printing1FileNum,
                             printing1RankNum,
@@ -114,6 +121,10 @@
                         )
                     )
                 }}</span>
+
+            <!--
+            </div>
+            -->
             </tile>
 
             <!-- 自機１ -->
@@ -252,6 +263,14 @@
                 showTicks="always"
                 thumbLabel="always" />
             <v-slider
+                label="アニメーションの遅さ"
+                v-model="player1AnimationSlow"
+                :min="1"
+                :max="16"
+                step="1"
+                showTicks="always"
+                thumbLabel="always" />
+            <v-slider
                 label="自機のホーム　＞　筋"
                 v-model="playerHome1File"
                 :min="0"
@@ -357,8 +376,8 @@
                             printing1Left,
                             printing1Top,
                         ),
-                        -printing1Left / board1SquareWidth,
-                        -printing1Top / board1SquareHeight,
+                        -Math.floor(printing1Left / board1SquareWidth),
+                        -Math.floor(printing1Top / board1SquareHeight),
                         board1FileNum,
                         printing1FileNum,
                         printing1RankNum,
@@ -423,8 +442,12 @@
     // ++++++++++++++++++
 
     import { getFileAndRankFromIndex, getFixedSquareIndexFromTileIndex, getPrintingIndexFromFixedSquareIndex, wrapAround } from '../../composables/board-operation';
-    import { handlePlayerControllerWithWrapAround, isPlayerInputKey, motionClearIfCountZero, processingMoveAndWait } from '../../composables/player-controller';
-    import type { MotionInput, PlayerInput, PlayerMotion } from '../../composables/player-controller';
+    import {
+        isPlayerInputKey,
+        playerMotionClearIfCountZero, playerImageAndPositionAndWaitUpdate, playerMotionCountDown, playerMotionUpdateByInputWithWrapAround,
+        printingMotionClearIfCountZero, printingImageAndPositionAndWaitUpdate, printingMotionCountDown, printingMotionUpdateByInputWithWrapAround,
+    } from '../../composables/player-controller';
+    import type { PrintingInput, PrintingMotion, PlayerInput, PlayerMotion } from '../../composables/player-controller';
 
     // ********************
     // * インターフェース *
@@ -501,6 +524,8 @@
         (tileIndex:number)=>CompatibleStyleValue
     >(() => {
         return (tileIndex:number)=>{
+            // if (!Number.isInteger(tileIndex)) { throw new Error(`Assertion failed: "tileIndex" must be an integer, got ${tileIndex}`); }
+
             // プレイヤーが初期位置にいる場合の、マスの位置。
             const [tileFile, tileRank] = getFileAndRankFromIndex(tileIndex, board1FileNum.value);
             const homeLeft = tileFile * board1SquareWidth;
@@ -523,7 +548,7 @@
             };
         };
     });
-    const board1FloorTilemapTileNum = 4;  // 床のタイルマップ。ただし、左上隅は画面外の黒なのでそれを除く。
+    const board1FloorTilemapTileNum = 5;  // 床のタイルマップの、左上隅から数えたタイル数
     interface SourceTile {
         left: number,
         top: number,
@@ -551,23 +576,30 @@
     // のちのち自機を１ドットずつ動かすことを考えると、 File, Rank ではデジタルになってしまうので、 Left, Top で指定したい。
     const printing1Left = ref<number>(0);
     const printing1Top = ref<number>(0);
-    const printing1Speed = ref<number>(2);  // 移動速度（単位：ピクセル）
     const printing1SourceTileIndexesBoard = ref<number[]>([]);   // ソース・タイルのインデックスが入っている盤
     // ランダムなマップデータを生成
     for (let i=0; i<printing1AreaMax; i++) {    // 最初から最大サイズで用意します。
         // 左上のタイルは画面外の黒なので、それを避けて設定。
-        const sourceTileIndex = Math.floor(Math.random() * board1FloorTilemapTileNum) + 1;
+        const sourceTileIndex = Math.floor(Math.random() * (board1FloorTilemapTileNum - 1)) + 1;
         printing1SourceTileIndexesBoard.value.push(sourceTileIndex);
     }
-    const printing1Motion = ref<MotionInput>({   // 印字への入力
+    const printing1Input = {  // 入力
+        " ": false,
+    } as PrintingInput;
+    const printing1Motion = ref<PrintingMotion>({   // 印字への入力
+        goToHome: false,    // ホームに戻る
         wrapAroundRight: 0, // 負なら左、正なら右
         wrapAroundBottom: 0,    // 負なら上、正なら下
     });
-    const board1SourceTilemapCoordination : SourceTile[] = [];
+    const printing1MotionSpeed = ref<number>(2);  // 移動速度（単位：ピクセル）
+    const printing1MotionWait = ref<number>(0);   // 排他的モーション時間。
+    const printing1MotionWalkingFrames = 16;       // 歩行フレーム数
+    //const printing1MotionWalkingFrames = 1000*16;       // 歩行フレーム数
+    const printing1SourceTilemapCoordination : SourceTile[] = [];
     for (let i = 0; i < printing1AreaMax; i++) {   // 最大サイズで作っておく。
         const files = i % board1FileNum.value;
         const ranks = Math.floor(i / board1FileNum.value);
-        board1SourceTilemapCoordination.push({ top: ranks * board1SquareHeight, left: files * board1SquareWidth, width: board1SquareWidth, height: board1SquareHeight });
+        printing1SourceTilemapCoordination.push({ top: ranks * board1SquareHeight, left: files * board1SquareWidth, width: board1SquareWidth, height: board1SquareHeight });
     }
 
 
@@ -585,16 +617,24 @@
             }
 
             const sourceTileIndex = printing1SourceTileIndexesBoard.value[printingIndex];
+            // if (!Number.isInteger(printingIndex)) {
+            //     //alert(`Assertion failed: "printingIndex" must be an integer, got ${printingIndex}`);
+            //     throw new Error(`Assertion failed: "printingIndex" must be an integer, got ${printingIndex}`);
+            // }
+            // if (!Number.isInteger(sourceTileIndex)) {
+            //     alert(`Assertion failed: "sourceTileIndex" must be an integer, got ${sourceTileIndex} | printingIndex=${printingIndex}`);
+            //     //throw new Error(`Assertion failed: "sourceTileIndex" must be an integer, got ${sourceTileIndex}`);
+            // }
             return `${sourceTileIndex}`;
         };
     });
 
 
     /**
-     * ソース・タイルマップのタイルの位置 x。
+     * 印字表のインデックスを渡すことで、そこに印字するタイルの、ソースタイルの left を返す。
      */
     const getSourceTileLeftFromPrintingIndex = computed<
-        (printingIndex:number)=>number
+        (printingIndex:number) => number
     >(() => {
         return (printingIndex: number) => {
 
@@ -603,7 +643,13 @@
             }
 
             const sourceTileIndex = printing1SourceTileIndexesBoard.value[printingIndex];
-            return board1SourceTilemapCoordination[sourceTileIndex]["left"];
+
+            try {
+                return printing1SourceTilemapCoordination[sourceTileIndex]["left"];
+            } catch(error) {
+                console.error(`ERROR: ${error} | printingIndex=${printingIndex}`);
+                return 0;
+            }
         };
     });
 
@@ -644,9 +690,7 @@
     const player1Input = {  // 入力
         " ": false, ArrowUp: false, ArrowRight: false, ArrowDown: false, ArrowLeft: false
     } as PlayerInput;
-    const player1AnimationSlow = ref<number>(8);    // アニメーションのスローモーションの倍率の初期値
-    const player1AnimationFacingFrames = 1;         // 振り向くフレーム数
-    const player1AnimationWalkingFrames = 16;       // 歩行フレーム数
+    const player1AnimationSlow = ref<number>(8);    // アニメーションを何倍遅くするか
     const player1Style = computed<CompatibleStyleValue>(() => ({
         left: `${player1Left.value}px`,
         top: `${player1Top.value}px`,
@@ -680,15 +724,19 @@
         ],
     };
     const player1Frames : Ref<Rectangle[]> = ref(player1SourceFrames["down"]);
-    const player1MotionWait = ref<number>(0);  // TODO: モーション入力拒否時間。入力キーごとに用意したい。
-    const player1Motion = ref<PlayerMotion>({  // モーションへの入力
+    const player1Motion = ref<PlayerMotion>({   // モーションへの入力
         lookRight: 0,   // 向きを変える
         lookBottom: 0,
+        goToHome: false,    // ホームに戻る
         goToRight: 0,   // 負なら左、正なら右へ移動する
         goToBottom: 0,  // 負なら上、正なら下へ移動する
     });
-    const player1CanBoardEdgeWalking = ref<boolean>(false);              // ［盤の端の歩行］可能状態を管理（true: 可能にする, false: 可能にしない）
-    const player1CanBoardEdgeWalkingIsEnabled = ref<boolean>(false);     // ［盤の端の歩行］可能状態の活性性を管理（true: 不活性にする, false: 活性にする）
+    const player1MotionSpeed = ref<number>(2);  // 移動速度（単位：ピクセル）
+    const player1MotionWait = ref<number>(0);   // 排他的モーション時間。
+    const player1MotionFacingFrames: number = 1;    // 振り向くフレーム数
+    const player1MotionWalkingFrames: number = 16;  // 歩行フレーム数
+    const player1CanBoardEdgeWalking = ref<boolean>(false); // ［盤の端の歩行］可能状態を管理（true: 可能にする, false: 可能にしない）
+    const player1CanBoardEdgeWalkingIsEnabled = ref<boolean>(false);    // ［盤の端の歩行］可能状態の活性性を管理（true: 不活性にする, false: 活性にする）
 
     // ++++++++++++++++++++++++++++++++
     // + オブジェクト　＞　視界の外１ +
@@ -725,7 +773,7 @@
         });
         window.addEventListener('keyup', (e: KeyboardEvent) => {
             if (isPlayerInputKey(e.key)) {  // 型ガード
-                player1Input[e.key] = false; // 型チェック済み（文字列→キー名）
+                player1Input[e.key] = false;    // 型チェック済み（文字列→キー名）
             }
         });
 
@@ -743,63 +791,100 @@
      */
     function gameLoopStart() : void {
         const update = () => {
-            player1MotionWait.value -= 1;           // モーション・タイマー
+
+            // ++++++++++++++++++++++++
+            // + モーション・タイマー +
+            // ++++++++++++++++++++++++
+
+            printingMotionCountDown(
+                printing1MotionWait,
+            );
+            playerMotionCountDown(
+                player1MotionWait,
+            );
 
             // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
             // + モーション・ウェイトが０のとき、モーションのクリアー +
             // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-            motionClearIfCountZero(
+            printingMotionClearIfCountZero(
+                printing1Motion,
+                printing1MotionWait.value,
+            );
+            playerMotionClearIfCountZero(
                 player1Motion,
                 player1MotionWait.value,
-                printing1Motion
             );
 
             // ++++++++++++++++++++++++++++++
             // + キー入力をモーションに変換 +
             // ++++++++++++++++++++++++++++++
 
-            handlePlayerControllerWithWrapAround(
+            printingMotionUpdateByInputWithWrapAround(
                 printing1OutOfSightIsLock.value,
                 board1SquareWidth,
                 board1SquareHeight,
                 board1FileNum.value,
                 board1RankNum.value,
                 board1WithMaskSizeSquare.value,
+                printing1FileNum.value,
+                printing1RankNum.value,
+                printing1Left.value,
+                printing1Top.value,
+                printing1Input,
+                printing1Motion,
+                printing1MotionWait.value,
                 playerHome1File.value,
                 playerHome1Rank.value,
-                playerHome1Left.value,
-                playerHome1Top.value,
-                player1Left,
-                player1Top,
+                player1Left.value,
+                player1Top.value,
+                player1Input,
+            );
+            playerMotionUpdateByInputWithWrapAround(
+                printing1OutOfSightIsLock.value,
+                board1SquareWidth,
+                board1SquareHeight,
+                board1FileNum.value,
+                board1RankNum.value,
+                board1WithMaskSizeSquare.value,
+                printing1FileNum.value,
+                printing1RankNum.value,
+                printing1Left.value,
+                printing1Top.value,
+                playerHome1File.value,
+                playerHome1Rank.value,
+                player1Left.value,
+                player1Top.value,
                 player1Input,
                 player1Motion,
                 player1MotionWait.value,
                 player1CanBoardEdgeWalking.value,
-                printing1FileNum.value,
-                printing1RankNum.value,
-                printing1Left,
-                printing1Top,
-                printing1Motion,
             );
 
             // ++++++++++++++++++++++++++++++
-            // + 向き・移動・ウェイトを処理 +
+            // + 向き・移動・ウェイトを更新 +
             // ++++++++++++++++++++++++++++++
 
-            processingMoveAndWait(
-                player1Left,
-                player1Top,
-                player1Motion.value,
-                player1MotionWait,
-                player1SourceFrames,
-                player1Frames,
+            printingImageAndPositionAndWaitUpdate(
                 printing1Left,
                 printing1Top,
                 printing1Motion.value,
-                printing1Speed.value,
-                player1AnimationFacingFrames,
-                player1AnimationWalkingFrames,
+                printing1MotionSpeed.value,
+                printing1MotionWait,
+                printing1MotionWalkingFrames,
+            );
+            playerImageAndPositionAndWaitUpdate(
+                playerHome1Left.value,
+                playerHome1Top.value,
+                player1Left,
+                player1Top,
+                player1Motion.value,
+                player1MotionSpeed.value,
+                player1MotionWait,
+                player1SourceFrames,
+                player1Frames,
+                player1MotionFacingFrames,
+                player1MotionWalkingFrames,
             );
 
             // 次のフレーム

@@ -4,7 +4,7 @@
     <h3>タイル　＞　でカウントアップのアニメーションするぜ！　＞　ＲＰＧの歩行グラフィック</h3>
     <section class="sec-3">
         ここに切り抜いたタイルを表示：<br/>
-        <TileAnimation
+        <tile-animation
             :frames="[
                 // 上向き
                 {top:   0, left:    0, width: 32, height: 32 },
@@ -50,9 +50,9 @@
         </div>
         <v-slider
             v-model="player1AnimationSlow"
-            min="2"
+            min="1"
             max="32"
-            step="2"
+            step="1"
             showTicks="always"
             thumbLabel="always" />
         <br/>

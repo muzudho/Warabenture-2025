@@ -60,7 +60,10 @@
         // 既にタイマーが動いてたら何もしない
         if (timer1Id.value) return;
 
-        // requestAnimationFrameで約16.67ms（60fps）ごとにカウントアップ
+        // requestAnimationFrame は、ブラウザーのリフレッシュレートに同期してコールバックを呼び出します。
+        //  60 Hz ディスプレイでは約  60 FPS（1/ 60秒）、
+        // 120 Hz ディスプレイでは約 120 FPS（1/120秒）。
+        // また、ブラウザーやOSがフレームをスキップする場合もあります。
         const tick = () => {
             timer1Count.value += 1;
             // 親に変更を通知

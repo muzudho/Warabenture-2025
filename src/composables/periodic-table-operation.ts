@@ -111,11 +111,19 @@ export function getIndexWhenAddUpFileAndRankOnPeriodicTable(
     offsetFile: number,
     offsetRank: number
 ) : number {
+    // if (!Number.isInteger(baseIndex)) { throw new Error(`Assertion failed: "baseIndex" must be an integer, got ${baseIndex}`); }
+    // if (!Number.isInteger(width)) { throw new Error(`Assertion failed: "width" must be an integer, got ${width}`); }
+    // if (!Number.isInteger(height)) { throw new Error(`Assertion failed: "height" must be an integer, got ${height}`); }
+    // if (!Number.isInteger(offsetFile)) { throw new Error(`Assertion failed: "offsetFile" must be an integer, got ${offsetFile}`); }
+    // if (!Number.isInteger(offsetRank)) { throw new Error(`Assertion failed: "offsetRank" must be an integer, got ${offsetRank}`); }
+
     const fixTileFile = getGroupWhenAddUpColumnNumbersOnPeriodicTable(baseIndex, offsetFile, width);    // 丁寧に書くと［fileIndex = tileIndex % boardFileNum］だが、結局あとで、ユークリッド剰余するので、省いて tileIndex としている。
     const rankIndex = Math.floor(baseIndex / height);
     const fixTileRank = getGroupWhenAddUpColumnNumbersOnPeriodicTable(rankIndex, offsetRank, height);    // 筋方向だけでなく、段方向にも同じ関数が使える。
 
     // 列と行を、インデックスに変換します。
     const fixTileIndex = fixTileRank * width + fixTileFile;
+
+    // if (!Number.isInteger(fixTileIndex)) { throw new Error(`Assertion failed: "fixTileIndex" must be an integer, got ${fixTileIndex}`); }
     return fixTileIndex;
 }

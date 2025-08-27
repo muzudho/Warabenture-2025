@@ -572,7 +572,7 @@
         ArrowDown: false, ArrowLeft: false, ArrowUp: false, ArrowRight: false, Enter: false,
     };
     const player1AnimationWalkingFrames = 8;                        // 歩行フレーム数
-    const player1MotionWait = ref<number>(0);                       // TODO: 入力キーごとにウェイトを用意したい
+    const player1MotionWait = ref<number>(0);   // 排他的モーション時間。
     const player1Motion = ref<Record<string, number>>({             // 入力
         xAxis: 0,   // 負なら左、正なら右
         yAxis: 0,   // 負なら上、正なら下

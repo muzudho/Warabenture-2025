@@ -143,6 +143,14 @@
                 showTicks="always"
                 thumbLabel="always" />
             <v-slider
+                label="アニメーションの遅さ"
+                v-model="player1AnimationSlow"
+                :min="1"
+                :max="16"
+                step="1"
+                showTicks="always"
+                thumbLabel="always" />
+            <v-slider
                 label="自機のホーム　＞　筋"
                 v-model="playerHome1File"
                 :min="0"
@@ -442,7 +450,7 @@
     const player1Input = <Record<string, boolean>>{ // 入力
         " ": false, ArrowUp: false, ArrowRight: false, ArrowDown: false, ArrowLeft: false
     };
-    const player1AnimationSlow = ref<number>(8);    // アニメーションのスローモーションの倍率の初期値
+    const player1AnimationSlow = ref<number>(8);    // アニメーションを何倍遅くするか
     const player1AnimationWalkingFrames = 16;   // 歩行フレーム数
     const player1Style = computed<CompatibleStyleValue>(() => ({
         left: `${player1Left.value}px`,
@@ -478,7 +486,7 @@
         ],
     };
     const player1Frames : Ref<Rectangle[]> = ref(player1SourceFrames["down"]);
-    const player1MotionWait = ref(0);  // TODO: モーション入力拒否時間。入力キーごとに用意したい。
+    const player1MotionWait = ref<number>(0);   // 排他的モーション時間。
     const player1Motion = ref<Record<string, number>>({  // モーションへの入力
         goToRight: 0,   // 負なら左、正なら右
         goToBottom: 0,   // 負なら上、正なら下
