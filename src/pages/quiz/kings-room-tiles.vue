@@ -25,13 +25,6 @@
             v-on:countUp="(countNum) => { stopwatch1Count = countNum; }"
             style="display: none;" />
 
-        <!--
-            NOTE: Tauri と Nuxt で、ファイルパスの通し方が異なる。しかし、コードは同じにしたい。
-            ファイルパスの書き方の推奨は, src="/img/quiz/by-grok/202508__grok__30-1751-papepoKingdom-o2o0.png" だが、
-            nuxt build だとパスを見に行ってくれない。 src="../../../public/img/quiz/by-grok/202508__grok__30-1751-papepoKingdom-o2o0.png" と書くとビルドが通る？
-            nuxt.config.ts で次のように設定： dir:{public: '../public',} // src から見て ../public
-        </img>
-        -->
         <img
             src="/img/quiz/by-grok/202508__grok__30-1751-papepoKingdom-o2o0.png"
             alt="パペポ王国"
@@ -49,11 +42,6 @@
         </p>
         <br/>
 
-         <!-- キフワラニャン
-            ../../../public は省いて、publicフォルダー下からのパスにすること
-            src="/img/quiz/by-grok/202508__grok__30-1229-kifuwaranyan-o2o0.png"
-            src="../../../public/img/quiz/by-grok/202508__grok__30-1229-kifuwaranyan-o2o0.png"
-        -->
         <img
             src="/img/quiz/by-grok/202508__grok__30-1229-kifuwaranyan-o2o0.png"
             alt="勇者キフワラニャン"
@@ -95,37 +83,11 @@
             :isMobileMaybeOption="isMobileMaybeOption">
             床」<br/>
         </talker-kifuwaranyan>
-        <!--
-        <v-row>
-            <v-col cols="2" class="talk-name-small">
-                <img
-                    src="/img/quiz/by-grok/202508__grok__30-1229-kifuwaranyanFace-o3o0.png"
-                    alt="キフワラニャン"
-                    :style="illustration1FaceStyle">
-                </img><br/>
-                キフワラニャン
-            </v-col>
-            <v-col cols="1" class="talk-quot">「</v-col>
-            <v-col>
-                床」<br/>
-            </v-col>
-        </v-row>
-        -->
-        <v-row>
-            <v-col cols="2" class="talk-name-small">
-                <img
-                    src="/img/quiz/by-grok/202508__grok__30-0826-kingFace-o3o0.png"
-                    alt="パペポ王"
-                    :style="illustration1FaceStyle">
-                </img><br/>
-                パペポ王
-            </v-col>
-            <v-col cols="1" class="talk-quot">「</v-col>
-            <v-col>
-                我が城の床タイルを市松模様にしろと<br/>
-                リフォーム会社に命じたのだが……」<br/>
-            </v-col>
-        </v-row>
+        <talker-papepo-king
+            :isMobileMaybeOption="isMobileMaybeOption">
+            我が城の床タイルを市松模様にしろと<br/>
+            リフォーム会社に命じたのだが……」<br/>
+        </talker-papepo-king>
         <br/>
 
         <!-- 印字１　＞　機能 -->
@@ -903,6 +865,7 @@ color = i % 2;
     // ++++++++++++++++++
 
     import TalkerKifuwaranyan from './TalkerKifuwaranyan.vue';
+    import TalkerPapepoKing from './TalkerPapepoKing.vue';
 
     // ++++++++++++++++++
     // + コンポーザブル +

@@ -4,18 +4,12 @@
 
     <v-row>
         <v-col cols="2" class="talk-name-small">
-            <!--
-                NOTE: Tauri と Nuxt で、ファイルパスの通し方が異なる。しかし、コードは同じにしたい。
-                ファイルパスの書き方の推奨は, src="/img/quiz/～中略～.png" のように public フォルダー以下からなので、これに揃えたい。
-                nuxt build だと通常、 src="../../../public/img/quiz/～以下略～.png" のように相対パスを通さないといけない。
-                nuxt.config.ts で public フォルダーへビルドパスを通しておく。次のように設定： dir:{public: '../public',} // src から見て ../public
-            -->
             <img
-                src="/img/quiz/by-grok/202508__grok__30-1229-kifuwaranyanFace-o3o0.png"
-                alt="キフワラニャン"
+                src="/img/quiz/by-grok/202508__grok__30-0826-kingFace-o3o0.png"
+                alt="パペポ王"
                 :style="illustration1FaceStyle(isMobileMaybeOption)">
             </img><br/>
-            キフワラニャン
+            パペポ王
         </v-col>
         <v-col cols="1" class="talk-quot">「</v-col>
         <v-col>
