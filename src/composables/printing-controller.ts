@@ -17,7 +17,7 @@ import { commonSpriteMotionDown, commonSpriteMotionLeft, commonSpriteMotionRight
 
 // ++++++++++++++++++++++++++
 // + オブジェクト　＞　印字 +
-// ++++++++++++++++++++++++**
+// ++++++++++++++++++++++++++
 //
 // 盤上に表示される数字柄、絵柄など。
 //
