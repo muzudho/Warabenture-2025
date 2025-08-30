@@ -80,16 +80,16 @@
             </v-col>
         </v-row>
         <talker
-            src="/img/quiz/by-grok/202508__grok__30-1229-kifuwaranyanFace-o3o0.png"
-            alt="キフワラニャン"
-            name="キフワラニャン"
+            :src="commonKifuwaranyanSrc"
+            :alt="commonKifuwaranyanAlt"
+            :name="commonKifuwaranyanName"
             :isMobileMaybeOption="isMobileMaybeOption">
             床」<br/>
         </talker>
         <talker
-            src="/img/quiz/by-grok/202508__grok__30-0826-kingFace-o3o0.png"
-            alt="パペポ王"
-            name="パペポ王"
+            :src="commonPapepoKingSrc"
+            :alt="commonPapepoKingAlt"
+            :name="commonPapepoKingName"
             :isMobileMaybeOption="isMobileMaybeOption">
             我が城の床タイルを市松模様にしろと<br/>
             リフォーム会社に命じたのだが……」<br/>
@@ -325,9 +325,9 @@
         <br/>
 
         <talker
-            src="/img/quiz/by-grok/202508__grok__30-0826-kingFace-o3o0.png"
-            alt="パペポ王"
-            name="パペポ王"
+            :src="commonPapepoKingSrc"
+            :alt="commonPapepoKingAlt"
+            :name="commonPapepoKingName"
             :isMobileMaybeOption="isMobileMaybeOption">
             ＰＣであればキーボード入力を、<br/>
             スマホであれば👆上のボタンをタップすることで、<br/>
@@ -341,18 +341,18 @@
             ［何もしないボタン］を押せ」<br/>
         </talker>
         <talker
-            src="/img/quiz/by-grok/202508__grok__30-1229-kifuwaranyanFace-o3o0.png"
-            alt="キフワラニャン"
-            name="キフワラニャン"
+            :src="commonKifuwaranyanSrc"
+            :alt="commonKifuwaranyanAlt"
+            :name="commonKifuwaranyanName"
             :isMobileMaybeOption="isMobileMaybeOption">
             おおー、説明的なセリフありがとうございますだぜ。<br/>
             <br/>
             なってるなってる、王よ、床、市松模様になってる」<br/>
         </talker>
         <talker
-            src="/img/quiz/by-grok/202508__grok__30-0826-kingFace-o3o0.png"
-            alt="パペポ王"
-            name="パペポ王"
+            :src="commonPapepoKingSrc"
+            :alt="commonPapepoKingAlt"
+            :name="commonPapepoKingName"
             :isMobileMaybeOption="isMobileMaybeOption">
             では、👇下の［⚙問題設定を表示］ボタンをクリックして、<br/>
             出てくる［盤の筋の全数］スライダーバーを横に１つ動かして例えば１０にし、<br/>
@@ -485,17 +485,17 @@
         <br/>
 
         <talker
-            src="/img/quiz/by-grok/202508__grok__30-0826-kingFace-o3o0.png"
-            alt="パペポ王"
-            name="パペポ王"
+            :src="commonPapepoKingSrc"
+            :alt="commonPapepoKingAlt"
+            :name="commonPapepoKingName"
             :isMobileMaybeOption="isMobileMaybeOption">
             そして一度画面を👆上にスクロールし、先ほどの床を見てから<br/>
             ここに戻ってきてほしい」<br/>
         </talker>
         <talker
-            src="/img/quiz/by-grok/202508__grok__30-1229-kifuwaranyanFace-o3o0.png"
-            alt="キフワラニャン"
-            name="キフワラニャン"
+            :src="commonKifuwaranyanSrc"
+            :alt="commonKifuwaranyanAlt"
+            :name="commonKifuwaranyanName"
             :isMobileMaybeOption="isMobileMaybeOption">
             フーム……、床がストライプになっている……<br/>
             <br/>
@@ -517,9 +517,9 @@
             :style="illustration1Style">
         </img>
         <talker
-            src="/img/quiz/by-grok/202508__grok__30-0826-kingFace-o3o0.png"
-            alt="パペポ王"
-            name="パペポ王"
+            :src="commonPapepoKingSrc"
+            :alt="commonPapepoKingAlt"
+            :name="commonPapepoKingName"
             :isMobileMaybeOption="isMobileMaybeOption">
             リフォーム会社が残した、床のタイルの色を決める魔法の呪文は<br/>
             👇これじゃ」<br/>
@@ -547,16 +547,16 @@ color = i % 2;
         <br/>
 
         <talker
-            src="/img/quiz/by-grok/202508__grok__30-0826-kingFace-o3o0.png"
-            alt="パペポ王"
-            name="パペポ王"
+            :src="commonPapepoKingSrc"
+            :alt="commonPapepoKingAlt"
+            :name="commonPapepoKingName"
             :isMobileMaybeOption="isMobileMaybeOption">
             この呪文を、チョチョイと直してほしい！」<br/>
         </talker>
         <talker
-            src="/img/quiz/by-grok/202508__grok__30-1229-kifuwaranyanFace-o3o0.png"
-            alt="キフワラニャン"
-            name="キフワラニャン"
+            :src="commonKifuwaranyanSrc"
+            :alt="commonKifuwaranyanAlt"
+            :name="commonKifuwaranyanName"
             :isMobileMaybeOption="isMobileMaybeOption">
             おー、お安い御用だぜ。<br/>
             <br/>
@@ -650,9 +650,9 @@ color = i % 2;
         <br/>
 
         <talker
-            src="/img/quiz/by-grok/202508__grok__30-1229-kifuwaranyanFace-o3o0.png"
-            alt="キフワラニャン"
-            name="キフワラニャン"
+            :src="commonKifuwaranyanSrc"
+            :alt="commonKifuwaranyanAlt"
+            :name="commonKifuwaranyanName"
             :isMobileMaybeOption="isMobileMaybeOption">
             上の選択肢を選んだら、<br/>
             画面を👆上にスクロールしてさっきの床を確認して、これで合ってると思ったら、<br/>
@@ -682,16 +682,16 @@ color = i % 2;
                 <br/>
 
                 <talker
-                    src="/img/quiz/by-grok/202508__grok__30-0826-kingFace-o3o0.png"
-                    alt="パペポ王"
-                    name="パペポ王"
+                    :src="commonPapepoKingSrc"
+                    :alt="commonPapepoKingAlt"
+                    :name="commonPapepoKingName"
                     :isMobileMaybeOption="isMobileMaybeOption">
                     おお、さすがキフワラニャン　床が市松模様になったわい」<br/>
                 </talker>
                 <talker
-                    src="/img/quiz/by-grok/202508__grok__30-1229-kifuwaranyanFace-o3o0.png"
-                    alt="キフワラニャン"
-                    name="キフワラニャン"
+                    :src="commonKifuwaranyanSrc"
+                    :alt="commonKifuwaranyanAlt"
+                    :name="commonKifuwaranyanName"
                     :isMobileMaybeOption="isMobileMaybeOption">
                     やったぜ！」<br/>
                 </talker>
@@ -703,16 +703,16 @@ color = i % 2;
                 <br/>
 
                 <talker
-                    src="/img/quiz/by-grok/202508__grok__30-0826-kingFace-o3o0.png"
-                    alt="パペポ王"
-                    name="パペポ王"
+                    :src="commonPapepoKingSrc"
+                    :alt="commonPapepoKingAlt"
+                    :name="commonPapepoKingName"
                     :isMobileMaybeOption="isMobileMaybeOption">
                     全ての部屋の床がストライプになってしまったのう」<br/>
                 </talker>
                 <talker
-                    src="/img/quiz/by-grok/202508__grok__30-1229-kifuwaranyanFace-o3o0.png"
-                    alt="キフワラニャン"
-                    name="キフワラニャン"
+                    :src="commonKifuwaranyanSrc"
+                    :alt="commonKifuwaranyanAlt"
+                    :name="commonKifuwaranyanName"
                     :isMobileMaybeOption="isMobileMaybeOption">
                     なんということだぜ……」<br/>
                 </talker>
@@ -802,6 +802,21 @@ color = i % 2;
     // ********************
 
     import type Rectangle from '../../interfaces/Rectangle';
+
+
+    // ##########
+    // # コモン #
+    // ##########
+    //
+    // よく使う設定をまとめたもの。特に不変のもの。
+    //    
+
+    const commonKifuwaranyanSrc = "/img/quiz/by-grok/202508__grok__30-1229-kifuwaranyanFace-o3o0.png";
+    const commonKifuwaranyanAlt = "キフワラニャン";
+    const commonKifuwaranyanName = "キフワラニャン";
+    const commonPapepoKingSrc = "/img/quiz/by-grok/202508__grok__30-0826-kingFace-o3o0.png";
+    const commonPapepoKingAlt = "パペポ王";
+    const commonPapepoKingName = "パペポ王";
 
 
     // ############################
