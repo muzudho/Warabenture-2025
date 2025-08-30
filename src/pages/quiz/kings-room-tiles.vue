@@ -79,15 +79,21 @@
                 床のことじゃ」<br/>
             </v-col>
         </v-row>
-        <talker-kifuwaranyan
+        <talker
+            src="/img/quiz/by-grok/202508__grok__30-1229-kifuwaranyanFace-o3o0.png"
+            alt="キフワラニャン"
+            name="キフワラニャン"
             :isMobileMaybeOption="isMobileMaybeOption">
             床」<br/>
-        </talker-kifuwaranyan>
-        <talker-papepo-king
+        </talker>
+        <talker
+            src="/img/quiz/by-grok/202508__grok__30-0826-kingFace-o3o0.png"
+            alt="パペポ王"
+            name="パペポ王"
             :isMobileMaybeOption="isMobileMaybeOption">
             我が城の床タイルを市松模様にしろと<br/>
             リフォーム会社に命じたのだが……」<br/>
-        </talker-papepo-king>
+        </talker>
         <br/>
 
         <!-- 印字１　＞　機能 -->
@@ -864,8 +870,7 @@ color = i % 2;
     // + コンポーネント +
     // ++++++++++++++++++
 
-    import TalkerKifuwaranyan from './TalkerKifuwaranyan.vue';
-    import TalkerPapepoKing from './TalkerPapepoKing.vue';
+    import Talker from './Talker.vue';
 
     // ++++++++++++++++++
     // + コンポーザブル +
