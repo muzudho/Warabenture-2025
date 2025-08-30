@@ -5,6 +5,9 @@
 <template>
     <the-header/>
 
+    <!-- 実行環境互換 -->
+    <compatible-runtime-environment ref="compatibleRuntimeEnvironment1Ref"/>
+
     <!-- ボタン機能拡張 -->
     <button-20250822 ref="button1Ref"/>
 
@@ -22,21 +25,92 @@
             v-on:countUp="(countNum) => { stopwatch1Count = countNum; }"
             style="display: none;" />
 
-        <p>
-            隣の国の王様は困っていました。<br/>
-            勇者　キフワラニャン　は呼び出された。<br/>
-        </p>
+        <img
+            src="/img/quiz/by-grok/202508__grok__30-1751-papepoKingdom-o2o0.png"
+            alt="パペポ王国"
+            :style="illustration1Style">
+        </img>
+        <p
+            :style="illustration1CaptionStyle"
+            style="font-size: small; color: gray; text-align: right;">グラフィッカー：　Grok</p>
         <br/>
 
         <p>
-            <img src="/img/quiz/by-grok/202508__grok__30-0826-king-o2o1o0.png" alt="パペポ王"></img><br/>
-            パペポ一世　「　謁見の間の床タイルを市松模様にしろと床大臣に命じたのだが、<br/>
-            部屋によっては、<br/>
-            市松模様になる部屋もあれば、ストライプになる部屋もあるんじゃ。<br/>
-            なんでこんなことになるのかのう。<br/>
-            試しに、下の［問題設定を表示］ボタンをクリックして、出てくるスライダーバーを動かして、部屋のサイズを変えてみてくれ」<br/>
+            ここはパペポ王国。<br/>
+            王様はある悩みを持っていました。<br/>
+            勇者　キフワラニャン　は呼び出されました。<br/>
         </p>
         <br/>
+
+         <!-- キフワラニャン
+            ../../../public は省いて、publicフォルダー下からのパスにすること
+        -->
+        <img
+            src="/img/quiz/by-grok/202508__grok__30-1229-kifuwaranyan-o2o0.png"
+            alt="勇者キフワラニャン"
+            :style="illustration1Style">
+        </img>
+        <v-row>
+            <v-col cols="2" class="talk-name">勇者キフワラニャン</v-col>
+            <v-col cols="1" class="talk-quot">「</v-col>
+            <v-col>
+                わたしは勇者キフワラニャン、<br/>
+                <br/>
+                顔や背景がコロコロ変わるかもしれないが、<br/>
+                気にしないでくれだぜ」<br/>
+            </v-col>
+        </v-row>
+        <br/>
+
+        <!-- パペポ王１ -->
+        <img
+            src="/img/quiz/by-grok/202508__grok__30-0826-king-o2o1o0.png"
+            alt="パペポ王"
+            :style="illustration1Style">
+        </img>
+        <br/>
+
+        <v-row>
+            <v-col cols="2" class="talk-name">パペポ一世</v-col>
+            <v-col cols="1" class="talk-quot">「</v-col>
+            <v-col>
+                おお、よく来た勇者キフワラニャン！<br/>
+                <br/>
+                悩みというのは他の何物でもない、<br/>
+                床のことじゃ」<br/>
+            </v-col>
+        </v-row>
+        <v-row>
+            <v-col cols="2" class="talk-name-small">
+                <img
+                    src="/img/quiz/by-grok/202508__grok__30-1229-kifuwaranyanFace-o3o0.png"
+                    alt="キフワラニャン"
+                    :style="illustration1FaceStyle">
+                </img><br/>
+                キフワラニャン
+            </v-col>
+            <v-col cols="1" class="talk-quot">「</v-col>
+            <v-col>
+                床」<br/>
+            </v-col>
+        </v-row>
+        <v-row>
+            <v-col cols="2" class="talk-name-small">
+                <img
+                    src="/img/quiz/by-grok/202508__grok__30-0826-kingFace-o3o0.png"
+                    alt="パペポ王"
+                    :style="illustration1FaceStyle">
+                </img><br/>
+                パペポ王
+            </v-col>
+            <v-col cols="1" class="talk-quot">「</v-col>
+            <v-col>
+                我が城の床タイルを市松模様にしろと<br/>
+                リフォーム会社に命じたのだが……」<br/>
+            </v-col>
+        </v-row>
+        <br/>
+
         <!-- 印字１　＞　機能 -->
         <printing-making
             ref="printing1Ref"
@@ -237,7 +311,90 @@
                     v-tooltip="'PCでのマウス操作で、フォーカスがコントロールに残って邪魔になるときは、このボタンを押してくれだぜ'"
                 >何もしないボタン</v-btn><br/>
             </li>
+            <li>
+                <!-- お好み設定パネル１ -->
+                <v-btn
+                    class="code-key"
+                    @touchstart.prevent="button1Ref?.press($event, onPreferences1ButtonPressed);"
+                    @touchend="button1Ref?.release();"
+                    @touchcancel="button1Ref?.release();"
+                    @touchleave="button1Ref?.release();"
+                    @mousedown.prevent="button1Ref?.handleMouseDown($event, onPreferences1ButtonPressed)"
+                    @mouseup="button1Ref?.release();"
+                    @mouseleave="button1Ref?.release();"
+                >{{ preferences1IsShowing ? '⚙️お好み設定を終わる' : '⚙️お好み設定を表示' }}</v-btn>
+                <section v-if="preferences1IsShowing" class="sec-1">
+                    <br/>
+                    <v-slider
+                        label="ズーム"
+                        v-model="appZoom"
+                        :min="0.5"
+                        :max="4"
+                        step="0.5"
+                        showTicks="always"
+                        thumbLabel="always" />
+                    <br/>
+                </section>
+            </li>
         </ul>
+        <br/>
+
+        <v-row>
+            <v-col cols="2" class="talk-name-small">
+                <img
+                    src="/img/quiz/by-grok/202508__grok__30-0826-kingFace-o3o0.png"
+                    alt="パペポ王"
+                    :style="illustration1FaceStyle">
+                </img><br/>
+                パペポ王
+            </v-col>
+            <v-col cols="1" class="talk-quot">「</v-col>
+            <v-col>
+                ＰＣであればキーボード入力を、<br/>
+                スマホであれば👆上のボタンをタップすることで、<br/>
+                自機を歩かせることができるんじゃ。<br/>
+                <br/>
+                盤がでかすぎるときは［お好み設定を表示］ボタンをクリックして
+                出てくる［ズーム］スライダーボックスを左右に動かして盤の大きさを調整してほしい。<br/>
+                <br/>
+                もしＰＣ版で例えばスライダーバーにフォーカスが残ってしまい、
+                左右キーを入力したら自機ではなくスライダーバーが動いてしまい腹が立ったときは
+                ［何もしないボタン］を押せ」<br/>
+            </v-col>
+        </v-row>
+        <v-row>
+            <v-col cols="2" class="talk-name-small">
+                <img
+                    src="/img/quiz/by-grok/202508__grok__30-1229-kifuwaranyanFace-o3o0.png"
+                    alt="キフワラニャン"
+                    :style="illustration1FaceStyle">
+                </img><br/>
+                キフワラニャン
+            </v-col>
+            <v-col cols="1" class="talk-quot">「</v-col>
+            <v-col>
+                おおー、説明的なセリフありがとうございますだぜ。<br/>
+                <br/>
+                なってるなってる、王よ、床、市松模様になってる」<br/>
+            </v-col>
+        </v-row>
+        <v-row>
+            <v-col cols="2" class="talk-name-small">
+                <img
+                    src="/img/quiz/by-grok/202508__grok__30-0826-kingFace-o3o0.png"
+                    alt="パペポ王"
+                    :style="illustration1FaceStyle">
+                </img><br/>
+                パペポ王
+            </v-col>
+            <v-col cols="1" class="talk-quot">「</v-col>
+            <v-col>
+                では、👇下の［⚙問題設定を表示］ボタンをクリックして、<br/>
+                出てくる［盤の筋の全数］スライダーバーを横に１つ動かして例えば１０にし、<br/>
+                もう１回［⚙問題設定を終わる］に名前の変わっているボタンを押して設定を閉じ……」<br/>
+            </v-col>
+        </v-row>
+        <br/>
         <br/>
 
         <!-- 問題設定パネル１ -->
@@ -272,30 +429,7 @@
                 thumbLabel="always" />
             <br/>
         </section>
-
-        <!-- お好み設定パネル１ -->
-        <v-btn
-            class="code-key"
-            @touchstart.prevent="button1Ref?.press($event, onPreferences1ButtonPressed);"
-            @touchend="button1Ref?.release();"
-            @touchcancel="button1Ref?.release();"
-            @touchleave="button1Ref?.release();"
-            @mousedown.prevent="button1Ref?.handleMouseDown($event, onPreferences1ButtonPressed)"
-            @mouseup="button1Ref?.release();"
-            @mouseleave="button1Ref?.release();"
-        >{{ preferences1IsShowing ? '⚙️お好み設定を終わる' : '⚙️お好み設定を表示' }}</v-btn>
-        <section v-if="preferences1IsShowing" class="sec-1">
-            <br/>
-            <v-slider
-                label="ズーム"
-                v-model="appZoom"
-                :min="0.5"
-                :max="4"
-                step="0.5"
-                showTicks="always"
-                thumbLabel="always" />
-            <br/>
-        </section>
+        <br/>
 
         <!-- デバッグ情報パネル１ -->
         <!--
@@ -386,42 +520,119 @@
         <br/>
         <br/>
 
-        <p>
-            キフワラニャン　「フーム……、筋の数が偶数のとき、ストライプになってしまう……<br/>
-            これはバグだぜ！」<br/>
-            <!--
-            <section v-if="choices1Num==0 || choices1Num==3 || choices1Num==4">
-            </section>
-            <section v-if="choices1Num==1 || choices1Num==2">
-                キフワラニャン　「おお……、市松模様になっているような……」<br/>
-            </section>
-            -->
-        </p>
+        <v-row>
+            <v-col cols="2" class="talk-name-small">
+                <img
+                    src="/img/quiz/by-grok/202508__grok__30-0826-kingFace-o3o0.png"
+                    alt="パペポ王"
+                    :style="illustration1FaceStyle">
+                </img><br/>
+                パペポ王
+            </v-col>
+            <v-col cols="1" class="talk-quot">「</v-col>
+            <v-col>
+                そして一度画面を👆上にスクロールし、先ほどの床を見てから<br/>
+                ここに戻ってきてほしい」<br/>
+            </v-col>
+        </v-row>
+        <v-row>
+            <v-col cols="2" class="talk-name-small">
+                <img
+                    src="/img/quiz/by-grok/202508__grok__30-1229-kifuwaranyanFace-o3o0.png"
+                    alt="キフワラニャン"
+                    :style="illustration1FaceStyle">
+                </img><br/>
+                キフワラニャン
+            </v-col>
+            <v-col cols="1" class="talk-quot">「</v-col>
+            <v-col>
+                フーム……、床がストライプになっている……<br/>
+                <br/>
+                これはバグだぜ！」<br/>
+            </v-col>
+        </v-row>
+        <!--
+            <p>
+                <section v-if="choices1Num==0 || choices1Num==3 || choices1Num==4">
+                </section>
+                <section v-if="choices1Num==1 || choices1Num==2">
+                    キフワラニャン　「おお……、市松模様になっているような……」<br/>
+                </section>
+            </p>
+            <br/>
+        -->
+        <img
+            src="/img/quiz/by-grok/202508__grok__30-2023-spellScroll-o1o0.png"
+            alt="床のタイルの色を決める呪文"
+            :style="illustration1Style">
+        </img>
+        <v-row>
+            <v-col cols="2" class="talk-name-small">
+                <img
+                    src="/img/quiz/by-grok/202508__grok__30-0826-kingFace-o3o0.png"
+                    alt="パペポ王"
+                    :style="illustration1FaceStyle">
+                </img><br/>
+                パペポ王
+            </v-col>
+            <v-col cols="1" class="talk-quot">「</v-col>
+            <v-col>
+                リフォーム会社が残した、床のタイルの色を決める魔法の呪文は<br/>
+                👇これじゃ」<br/>
+            </v-col>
+        </v-row>
         <br/>
 
-        <p>
-            パペポ王　「床のタイルの色を決めているプログラムの疑似コードは以下の通りじゃ」<br/>
-        </p>
-        <br/>
-
-        <pre>
-// i: タイル番号。左上から右に向かって 0, 1, 2 ...
-
+        <pre
+            class="coding-example">
+// i はタイル番号。左上から右に向かって 0, 1, 2 ... 右端から１段下の左端に続く。
+//
 // そして、
-// color = 0: 白い床
-// color = 1: 赤い床
+// color が 0 なら白い床、
+// color が 1 なら赤い床
 // とするとき、
-
+//
 // 以下の計算式でタイルの色を決める。
+//
 // = 記号は、この記号の右側の計算結果を、左側へ入れる。
 // % 記号は、この記号の左側の数を、右側の数で割った余りを求める。 例） 3 % 2 なら 1。
+//
+
 color = i % 2;
         </pre>
         <br/>
+        <br/>
 
-        <p>
-            キフワラニャン　「どう直したらいいか、👇下の選択肢から選んでくれだぜ！」<br/>
-        </p>
+        <v-row>
+            <v-col cols="2" class="talk-name-small">
+                <img
+                    src="/img/quiz/by-grok/202508__grok__30-0826-kingFace-o3o0.png"
+                    alt="パペポ王"
+                    :style="illustration1FaceStyle">
+                </img><br/>
+                パペポ王
+            </v-col>
+            <v-col cols="1" class="talk-quot">「</v-col>
+            <v-col>
+                この呪文を、チョチョイと直してほしい！」<br/>
+            </v-col>
+        </v-row>
+        <v-row>
+            <v-col cols="2" class="talk-name-small">
+                <img
+                    src="/img/quiz/by-grok/202508__grok__30-1229-kifuwaranyanFace-o3o0.png"
+                    alt="キフワラニャン"
+                    :style="illustration1FaceStyle">
+                </img><br/>
+                キフワラニャン
+            </v-col>
+            <v-col cols="1" class="talk-quot">「</v-col>
+            <v-col>
+                おー、お安い御用だぜ。<br/>
+                <br/>
+                どう直したらいいか、👇下の選択肢から選んでくれだぜ！」<br/>
+            </v-col>
+        </v-row>
         <br/>
 
         <p>
@@ -501,11 +712,24 @@ color = i % 2;
             >未選択にする</v-btn>
         </p>
         <br/>
+        <br/>
 
-        <p>
-            キフワラニャン　「👆上の選択肢を選んだら、ゲーム画面を確認して、これで合ってると思ったら、<br/>
-            👇下の［この答えで確定する］ボタンを押してくれだぜ！」<br/>
-        </p>
+        <v-row>
+            <v-col cols="2" class="talk-name-small">
+                <img
+                    src="/img/quiz/by-grok/202508__grok__30-1229-kifuwaranyanFace-o3o0.png"
+                    alt="キフワラニャン"
+                    :style="illustration1FaceStyle">
+                </img><br/>
+                キフワラニャン
+            </v-col>
+            <v-col cols="1" class="talk-quot">「</v-col>
+            <v-col>
+                上の選択肢を選んだら、<br/>
+                画面を👆上にスクロールしてさっきの床を確認して、これで合ってると思ったら、<br/>
+                👇下の［この答えで確定する］ボタンを押してくれだぜ！」<br/>
+            </v-col>
+        </v-row>
         <br/>
 
         <v-btn
@@ -528,14 +752,70 @@ color = i % 2;
                 <br/>
                 <span class="font-x2">😄</span>正解<br/>
                 <br/>
-                パペポ王　「おお、さすがキフワラニャン　床が市松模様になったわい」<br/>
+
+                <v-row>
+                    <v-col cols="2" class="talk-name-small">
+                        <img
+                            src="/img/quiz/by-grok/202508__grok__30-0826-kingFace-o3o0.png"
+                            alt="パペポ王"
+                            :style="illustration1FaceStyle">
+                        </img><br/>
+                        パペポ王
+                    </v-col>
+                    <v-col cols="1" class="talk-quot">「</v-col>
+                    <v-col>
+                        おお、さすがキフワラニャン　床が市松模様になったわい」<br/>
+                    </v-col>
+                </v-row>
+                <v-row>
+                    <v-col cols="2" class="talk-name-small">
+                        <img
+                            src="/img/quiz/by-grok/202508__grok__30-1229-kifuwaranyanFace-o3o0.png"
+                            alt="キフワラニャン"
+                            :style="illustration1FaceStyle">
+                        </img><br/>
+                        キフワラニャン
+                    </v-col>
+                    <v-col cols="1" class="talk-quot">「</v-col>
+                    <v-col>
+                        やったぜ！」<br/>
+                    </v-col>
+                </v-row>
                 <br/>
             </section>
             <section v-if="choices1Num==3 || choices1Num==4">
                 <br/>
                 <span class="font-x2">😭</span>間違い<br/>
                 <br/>
-                パペポ王　「ストライプになってしまったのう」<br/>
+
+                <v-row>
+                    <v-col cols="2" class="talk-name-small">
+                        <img
+                            src="/img/quiz/by-grok/202508__grok__30-0826-kingFace-o3o0.png"
+                            alt="パペポ王"
+                            :style="illustration1FaceStyle">
+                        </img><br/>
+                        パペポ王
+                    </v-col>
+                    <v-col cols="1" class="talk-quot">「</v-col>
+                    <v-col>
+                        全ての部屋の床がストライプになってしまったのう」<br/>
+                    </v-col>
+                </v-row>
+                <v-row>
+                    <v-col cols="2" class="talk-name-small">
+                        <img
+                            src="/img/quiz/by-grok/202508__grok__30-1229-kifuwaranyanFace-o3o0.png"
+                            alt="キフワラニャン"
+                            :style="illustration1FaceStyle">
+                        </img><br/>
+                        キフワラニャン
+                    </v-col>
+                    <v-col cols="1" class="talk-quot">「</v-col>
+                    <v-col>
+                        なんということだぜ……」<br/>
+                    </v-col>
+                </v-row>
                 <br/>
             </section>
         </section>
@@ -570,6 +850,7 @@ color = i % 2;
     // ++++++++++++++
 
     import type { CompatibleStyleValue }  from '../../compatibles/compatible-style-value';
+    import CompatibleRuntimeEnvironment from '../../components/CompatibleRuntimeEnvironment.vue';
 
     // ++++++++++++++++++
     // + コンポーネント +
@@ -595,11 +876,15 @@ color = i % 2;
 
     import { getFileAndRankFromIndex, getFixedSquareIndexFromTileIndex, getPrintingIndexFromFixedSquareIndex, wrapAround } from '../../composables/board-operation';
     import {
+        getPlayer1File, getPlayer1Rank,
         isPlayerInputKey,
         playerMotionClearIfCountZero, playerImageAndPositionAndWaitUpdate, playerMotionCountDown, playerMotionUpdateByInputWithWrapAround,
-        printingInputCreate, printingMotionClearIfCountZero, printingMotionCreate, printingImageAndPositionAndWaitUpdate, printingMotionCountDown, printingMotionUpdateByInputWithWrapAround,
     } from '../../composables/player-controller';
-    import type { PrintingInput, PrintingMotion, PlayerInput, PlayerMotion } from '../../composables/player-controller';
+    import {
+        checkOutOfSightBottomIsLook, checkOutOfSightLeftIsLook, checkOutOfSightRightIsLook, checkOutOfSightTopIsLook, printingImageAndPositionAndWaitUpdate, printingMotionClearIfCountZero, printingInputCreate, printingMotionCountDown, printingMotionCreate, printingMotionUpdateByInputWithWrapAround,
+    } from '../../composables/printing-controller'
+    import type { PlayerInput, PlayerMotion } from '../../composables/player-controller';
+    import type { PrintingInput, PrintingMotion } from '../../composables/printing-controller';
 
     // ********************
     // * インターフェース *
@@ -621,6 +906,12 @@ color = i % 2;
     // ################
     // # オブジェクト #
     // ################
+
+    // ++++++++++++++++++++++++++++++
+    // + オブジェクト　＞　実行環境 +
+    // ++++++++++++++++++++++++++++++
+
+    const compatibleRuntimeEnvironment1Ref = ref<InstanceType<typeof CompatibleRuntimeEnvironment> | null>(null);
 
     // ++++++++++++++++++++++++++++++++++++
     // + オブジェクト　＞　ボタン機能拡張 +
@@ -682,8 +973,8 @@ color = i % 2;
     const board1Area = computed(()=> {  // 盤のマス数
         return board1FileNum.value * board1RankNum.value;
     });
-    // ※　盤およびその各タイルは、決まりきった位置でオーバーラッピングを繰り返すだけです。座標が大きく移動することはありません。
-
+    // ※　盤およびその各タイルは、決まりきった位置でラップアラウンドを繰り返すだけです。座標が大きく移動することはありません。
+    const board1WithMaskSizeSquare: number = 1; // マスクの幅（単位：マス）
     const board1Style = computed<CompatibleStyleValue>(()=>{    // ボードとマスクを含んでいる領域のスタイル
         return {
             width: `${(board1FileNum.value + outOfSight1WithMaskSizeSquare.value) * board1SquareWidth}px`,
@@ -847,14 +1138,6 @@ color = i % 2;
     const playerHome1Top = computed(()=>{
         return playerHome1Rank.value * board1SquareHeight;
     });
-    // const playerHome1Style = computed<CompatibleStyleValue>(()=>{
-    //     return {
-    //         left: `${playerHome1Left.value}px`,
-    //         top: `${playerHome1Top.value}px`,
-    //         width: `${board1SquareWidth}px`,
-    //         height: `${board1SquareHeight}px`,
-    //     };
-    // });
 
     // ++++++++++++++++++++++++++++
     // + オブジェクト　＞　自機１ +
@@ -917,10 +1200,54 @@ color = i % 2;
     const player1CanBoardEdgeWalkingIsEnabled = ref<boolean>(false);    // ［盤の端の歩行］可能状態の活性性を管理（true: 不活性にする, false: 活性にする）
 
     // ++++++++++++++++++++++++++++++
+    // + オブジェクト　＞　挿絵全般 +
+    // ++++++++++++++++++++++++++++++
+
+    const illustration1Style = computed<CompatibleStyleValue>(()=>{ /* 挿絵 */
+        if (compatibleRuntimeEnvironment1Ref?.value?.isMobileMaybe) {
+            return {
+                width: `256px`,
+            };
+        }
+
+        return {
+            width: `384px`,
+        };
+    });
+    const illustration1CaptionStyle = computed<CompatibleStyleValue>(()=>{  /* 画像の下に付けるキャプション用 */
+        if (compatibleRuntimeEnvironment1Ref?.value?.isMobileMaybe) {
+            return {
+                width: `256px`,
+            };
+        }
+
+        return {
+            width: `384px`,
+        };
+    });
+    const illustration1FaceStyle = computed<CompatibleStyleValue>(()=>{  /* 画像の下に付けるキャプション用 */
+        if (compatibleRuntimeEnvironment1Ref?.value?.isMobileMaybe) {
+            return {
+                width: `80px`,
+            };
+        }
+
+        return {
+            width: `96px`,
+        };
+    });
+
+    // ++++++++++++++++++++++++++++++
     // + オブジェクト　＞　選択肢１ +
     // ++++++++++++++++++++++++++++++
 
     const choices1Num = ref<number>(0);
+
+    // ++++++++++++++++++++++++++++++++++++++++++++++
+    // + オブジェクト　＞　この答えで確定するボタン +
+    // ++++++++++++++++++++++++++++++++++++++++++++++
+
+    const answer1IsShowing = ref<boolean>(false);
 
 
     // ##########
@@ -938,23 +1265,19 @@ color = i % 2;
 
             if (isPlayerInputKey(e.key)) {  // 型ガード
                 player1Input[e.key] = true; // 型チェック済み（文字列→キー名）
+                printing1Input[e.key] = true;
             }
         });
         window.addEventListener('keyup', (e: KeyboardEvent) => {
             if (isPlayerInputKey(e.key)) {  // 型ガード
                 player1Input[e.key] = false;    // 型チェック済み（文字列→キー名）
+                printing1Input[e.key] = false;
             }
         });
 
         gameLoopStart();
         stopwatch1Ref.value?.timerStart();  // タイマーをスタート
     });
-
-    // ++++++++++++++++++++++++++++++++++++++++++++++
-    // + オブジェクト　＞　この答えで確定するボタン +
-    // ++++++++++++++++++++++++++++++++++++++++++++++
-
-    const answer1IsShowing = ref<boolean>(false);
 
     // ################
     // # サブルーチン #
@@ -1008,11 +1331,10 @@ color = i % 2;
                 printing1Input,
                 printing1Motion,
                 printing1MotionWait.value,
-                playerHome1File.value,
-                playerHome1Rank.value,
-                player1Left.value,
-                player1Top.value,
-                player1Input,
+                ()=>{ return getPlayer1File(player1Left.value, board1SquareWidth) > playerHome1File.value; },   // 自機がホーム・ポジションより右に居る
+                ()=>{ return getPlayer1File(player1Left.value, board1SquareWidth) < playerHome1File.value; },   // 自機がホーム・ポジションより左に居る
+                ()=>{ return getPlayer1Rank(player1Top.value, board1SquareHeight) > playerHome1Rank.value; },   // 自機がホーム・ポジションより下に居る
+                ()=>{ return getPlayer1Rank(player1Top.value, board1SquareHeight) < playerHome1Rank.value; },   // 自機がホーム・ポジションより上に居る
             );
             playerMotionUpdateByInputWithWrapAround(
                 printing1OutOfSightIsLock.value,
@@ -1021,10 +1343,6 @@ color = i % 2;
                 board1FileNum.value,
                 board1RankNum.value,
                 outOfSight1Ref.value?.outOfSight1WithMaskSizeSquare ?? 1,
-                printing1FileNum.value,
-                printing1RankNum.value,
-                printing1Left.value,
-                printing1Top.value,
                 playerHome1File.value,
                 playerHome1Rank.value,
                 player1Left.value,
@@ -1033,6 +1351,10 @@ color = i % 2;
                 player1Motion,
                 player1MotionWait.value,
                 player1CanBoardEdgeWalking.value,
+                ()=>{ return checkOutOfSightLeftIsLook(board1SquareWidth, board1WithMaskSizeSquare, printing1Left.value); },    // ここで進むと、左側に外側が見えるなら。
+                ()=>{ return checkOutOfSightRightIsLook(board1SquareWidth, board1WithMaskSizeSquare, board1FileNum.value, printing1FileNum.value, printing1Left.value); },  // ここで進むと、右側に外側が見えるなら。
+                ()=>{ return checkOutOfSightTopIsLook(board1SquareHeight, board1WithMaskSizeSquare, printing1Top.value); }, // ここで進むと、上側に外側が見えるなら。
+                ()=>{ return checkOutOfSightBottomIsLook(board1SquareHeight, board1WithMaskSizeSquare, board1RankNum.value, printing1RankNum.value, printing1Top.value); }, // ここで進むと、下側に外側が見えるなら。
             );
 
             // ++++++++++++++++++++++++++++++
@@ -1075,11 +1397,13 @@ color = i % 2;
      */
     function onLeftButtonPressed() : void {
         player1Input.ArrowLeft = true;
+        printing1Input.ArrowLeft = true;
     }
 
 
     function onLeftButtonReleased() : void {
         player1Input.ArrowLeft = false;
+        printing1Input.ArrowLeft = false;
     }
 
 
@@ -1088,11 +1412,13 @@ color = i % 2;
      */
     function onUpButtonPressed() : void {
         player1Input.ArrowUp = true;
+        printing1Input.ArrowUp = true;
     }
 
 
     function onUpButtonReleased() : void {
         player1Input.ArrowUp = false;
+        printing1Input.ArrowUp = false;
     }
 
 
@@ -1101,11 +1427,13 @@ color = i % 2;
      */
     function onRightButtonPressed() : void {
         player1Input.ArrowRight = true;
+        printing1Input.ArrowRight = true;
     }
 
 
     function onRightButtonReleased() : void {
         player1Input.ArrowRight = false;
+        printing1Input.ArrowRight = false;
     }
 
 
@@ -1114,11 +1442,13 @@ color = i % 2;
      */
     function onDownButtonPressed() : void {
         player1Input.ArrowDown = true;
+        printing1Input.ArrowDown = true;
     }
 
 
     function onDownButtonReleased() : void {
         player1Input.ArrowDown = false;
+        printing1Input.ArrowDown = false;
     }
 
 
@@ -1178,14 +1508,14 @@ color = i % 2;
         position: absolute;
         image-rendering: pixelated;
     }
-    span.board-slidable-tile-index-large {  /* マスの物自体に付いている番号。その場所は、オーバーラッピングしてすり替わることがある。 */
+    span.board-slidable-tile-index-large {  /* マスの物自体に付いている番号。その場所は、ラップアラウンドしてすり替わることがある。 */
         position: absolute;
         width: 100%;
         text-align: center;
         padding-top: 4px;
         font-size: 16px;
     }
-    span.board-slidable-tile-index {  /* マスの物自体に付いている番号。その場所は、オーバーラッピングしてすり替わることがある。 */
+    span.board-slidable-tile-index {  /* マスの物自体に付いている番号。その場所は、ラップアラウンドしてすり替わることがある。 */
         position: absolute;
         width: 100%;
         text-align: center;
@@ -1221,5 +1551,54 @@ color = i % 2;
         position: absolute;
         image-rendering: pixelated;
         z-index: 20;
+    }
+
+/* スマホ向けスタイル (画面幅が768px以下) */
+@media screen and (max-width: 768px) {
+    div.talk-name { /* 名前 */
+        padding-left: 0;
+        padding-right: 0;
+        text-align: right;
+        max-width: 96px;
+    }
+    div.talk-name-small { /* 名前 */
+        padding-left: 0;
+        padding-right: 0;
+        text-align: right;
+        font-size: small;
+        max-width: 96px;
+    }
+}
+/* パソコン向けスタイル (画面幅が769px以上) */
+@media screen and (min-width: 769px) {
+    div.talk-name { /* 名前 */
+        padding-left: 0;
+        padding-right: 0;
+        text-align: right;
+        max-width: 128px;
+    }
+    div.talk-name-small { /* 名前 */
+        padding-left: 0;
+        padding-right: 0;
+        text-align: right;
+        font-size: small;
+        max-width: 128px;
+    }
+}
+
+    div.talk-quot { /* 鍵かっこ */
+        max-width: 16px;
+        padding-left: 0;
+        padding-right: 0;
+        text-align: right;
+    }
+    pre.coding-example {    /* ソースコード例 */
+        display: inline-block;
+        border: dashed 4px gray;
+        color: #303030;
+        background-color: #f0f0f0;
+        padding-left: 24px;
+        padding-top: 16px;
+        padding-right: 24px;
     }
 </style>
