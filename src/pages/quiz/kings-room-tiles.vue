@@ -91,7 +91,8 @@
                 床のことじゃ」<br/>
             </v-col>
         </v-row>
-        <talker-kifuwaranyan>
+        <talker-kifuwaranyan
+            :isMobileMaybeOption="isMobileMaybeOption">
             床」<br/>
         </talker-kifuwaranyan>
         <!--
@@ -945,6 +946,11 @@ color = i % 2;
     // ++++++++++++++++++++++++++++++
 
     const compatibleRuntimeEnvironment1Ref = ref<InstanceType<typeof CompatibleRuntimeEnvironment> | null>(null);
+    const isMobileMaybeOption = computed<
+        boolean | null
+    >(()=>{
+        return compatibleRuntimeEnvironment1Ref.value?.isMobileMaybe ?? null;
+    });
 
     // ++++++++++++++++++++++++++++++++++++
     // + オブジェクト　＞　ボタン機能拡張 +

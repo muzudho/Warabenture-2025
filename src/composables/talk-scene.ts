@@ -2,28 +2,25 @@
 // # インポート #
 // ##############
 
-import type { Ref } from 'vue';
-
 // ++++++++++++++
 // + 互換性対応 +
 // ++++++++++++++
 
 import type { CompatibleStyleValue }  from '../compatibles/compatible-style-value';
 
-// ++++++++++++++++++++++++++++++++++
-// + コンポーネント　＞　互換性対応 +
-// ++++++++++++++++++++++++++++++++++
 
-//import CompatibleRuntimeEnvironment from '../components/CompatibleRuntimeEnvironment.vue';
+// ################
+// # エクスポート #
+// ################
 
 /**
  * 画像の下に付けるキャプションのスタイル
  */
 export const illustration1FaceStyle = computed<
-    (isMobileMaybe: boolean | null) => CompatibleStyleValue
+    (isMobileMaybeOption: boolean | null) => CompatibleStyleValue
 >(()=>{
     return (isMobileMaybeOption: boolean | null) => {
-        const isMobileMaybe: boolean = isMobileMaybeOption != null ? isMobileMaybeOption : false;   // null なら false
+        const isMobileMaybe: boolean = (isMobileMaybeOption == null) ? false : isMobileMaybeOption;
         return {
             width: isMobileMaybe ? '80px' : '96px',
         } as CompatibleStyleValue;

@@ -7,7 +7,7 @@
             <img
                 src="/img/quiz/by-grok/202508__grok__30-1229-kifuwaranyanFace-o3o0.png"
                 alt="キフワラニャン"
-                :style="illustration1FaceStyle(compatibleRuntimeEnvironment1Ref?.isMobileMaybe ?? null)">
+                :style="illustration1FaceStyle(isMobileMaybeOption)">
             </img><br/>
             キフワラニャン
         </v-col>
@@ -37,16 +37,14 @@
     import { illustration1FaceStyle } from "../../composables/talk-scene";
 
 
-    // ################
-    // # オブジェクト #
-    // ################
+    // ####################################
+    // # このコンポーネントが受け取る引数 #
+    // ####################################
 
-    // ++++++++++++++++++++++++++++++
-    // + オブジェクト　＞　実行環境 +
-    // ++++++++++++++++++++++++++++++
-
-    // TODO: props で渡せないか？
-    const compatibleRuntimeEnvironment1Ref = ref<InstanceType<typeof CompatibleRuntimeEnvironment> | null>(null);
+    interface Props {
+        isMobileMaybeOption: boolean | null;
+    }
+    const props = defineProps<Props>();
 
 </script>
 
