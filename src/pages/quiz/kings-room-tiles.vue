@@ -25,10 +25,16 @@
         <p>
             隣の国の王様は困っていました。<br/>
             勇者　キフワラニャン　は呼び出された。<br/>
-            <br/>
-            パペポ一世　「　謁見の間の床タイルを市松模様にしたいのだが、<br/>
-            市松模様になることもあれば、ストライプになることもあるんじゃ。<br/>
-            下の［問題設定を表示］ボタンをクリックして、出てくるスライダーバーを動かしてみてくれ」<br/>
+        </p>
+        <br/>
+
+        <p>
+            <img src="/img/quiz/by-grok/202508__grok__30-0826-king-o2o1o0.png" alt="パペポ王"></img><br/>
+            パペポ一世　「　謁見の間の床タイルを市松模様にしろと床大臣に命じたのだが、<br/>
+            部屋によっては、<br/>
+            市松模様になる部屋もあれば、ストライプになる部屋もあるんじゃ。<br/>
+            なんでこんなことになるのかのう。<br/>
+            試しに、下の［問題設定を表示］ボタンをクリックして、出てくるスライダーバーを動かして、部屋のサイズを変えてみてくれ」<br/>
         </p>
         <br/>
         <!-- 印字１　＞　機能 -->
@@ -141,16 +147,98 @@
                 class="player"
                 :style="player1Style" />
 
-            
+            <!-- スタイルシートのテスト -->
+            <div class="test-1" ></div>
+
             <!-- 視界の外１ -->
-            <out-of-sight-making
+            <out-of-sight
                 ref="outOfSight1Ref"
                 :board1SquareWidth="board1SquareWidth"
                 :board1SquareHeight="board1SquareHeight"
                 :board1FileNum="board1FileNum"
-                :board1RankNum="board1RankNum">
-            </out-of-sight-making>
+                :board1RankNum="board1RankNum"
+                class="parent-mask">
+            </out-of-sight>
         </div>
+        <br/>
+
+        <!-- タッチパネルでも操作できるように、ボタンを置いておきます。キーボードの操作説明も兼ねます。 -->
+        <p>キーボード操作方法</p>
+        <ul>
+            <li>
+                <v-btn class="code-key hidden"/>
+                <v-btn
+                    class="code-key"
+                    @touchstart.prevent="button1Ref?.press($event, onUpButtonPressed, {repeat: true});"
+                    @touchend="button1Ref?.release(onUpButtonReleased);"
+                    @touchcancel="button1Ref?.release(onUpButtonReleased);"
+                    @touchleave="button1Ref?.release(onUpButtonReleased);"
+                    @mousedown.prevent="button1Ref?.handleMouseDown($event, onUpButtonPressed, {repeat: true})"
+                    @mouseup="button1Ref?.release(onUpButtonReleased);"
+                    @mouseleave="button1Ref?.release(onUpButtonReleased);"
+                >↑</v-btn>
+                <br/>
+                <v-btn
+                    class="code-key"
+                    @touchstart.prevent="button1Ref?.press($event, onLeftButtonPressed, {repeat: true});"
+                    @touchend="button1Ref?.release(onLeftButtonReleased);"
+                    @touchcancel="button1Ref?.release(onLeftButtonReleased);"
+                    @touchleave="button1Ref?.release(onLeftButtonReleased);"
+                    @mousedown.prevent="button1Ref?.handleMouseDown($event, onLeftButtonPressed, {repeat: true})"
+                    @mouseup="button1Ref?.release(onLeftButtonReleased);"
+                    @mouseleave="button1Ref?.release(onLeftButtonReleased);"
+                >←</v-btn>
+                <v-btn class="code-key hidden"/>
+                <v-btn
+                    class="code-key"
+                    @touchstart.prevent="button1Ref?.press($event, onRightButtonPressed, {repeat: true});"
+                    @touchend="button1Ref?.release(onRightButtonReleased);"
+                    @touchcancel="button1Ref?.release(onRightButtonReleased);"
+                    @touchleave="button1Ref?.release(onRightButtonReleased);"
+                    @mousedown.prevent="button1Ref?.handleMouseDown($event, onRightButtonPressed, {repeat: true})"
+                    @mouseup="button1Ref?.release(onRightButtonReleased);"
+                    @mouseleave="button1Ref?.release(onRightButtonReleased);"
+                >→</v-btn>
+                <br/>
+                <v-btn class="code-key hidden"/>
+                <v-btn
+                    class="code-key"
+                    @touchstart.prevent="button1Ref?.press($event, onDownButtonPressed, {repeat: true});"
+                    @touchend="button1Ref?.release(onDownButtonReleased);"
+                    @touchcancel="button1Ref?.release(onDownButtonReleased);"
+                    @touchleave="button1Ref?.release(onDownButtonReleased);"
+                    @mousedown.prevent="button1Ref?.handleMouseDown($event, onDownButtonPressed, {repeat: true})"
+                    @mouseup="button1Ref?.release(onDownButtonReleased);"
+                    @mouseleave="button1Ref?.release(onDownButtonReleased);"
+                >↓</v-btn>
+                　…　自機を上下左右へ、印字を逆方向へ動かすぜ！
+                <br/>
+            </li>
+            <!--
+            <li>
+                <v-btn
+                    class="code-key"
+                    @touchstart.prevent="button1Ref?.press($event, onSpaceButtonPressed, {repeat: true});"
+                    @touchend="button1Ref?.release(onSpaceButtonReleased);"
+                    @touchcancel="button1Ref?.release(onSpaceButtonReleased);"
+                    @touchleave="button1Ref?.release(onSpaceButtonReleased);"
+                    @mousedown.prevent="button1Ref?.handleMouseDown($event, onSpaceButtonPressed, {repeat: true})"
+                    @mouseup="button1Ref?.release(onSpaceButtonReleased);"
+                    @mouseleave="button1Ref?.release(onSpaceButtonReleased);"
+                >（スペース）</v-btn>
+                　…　自機、印字の位置を最初に有ったところに戻すぜ。
+            </li>
+            -->
+            <li>
+                <!-- フォーカスを外すためのダミー・ボタンです -->
+                <v-btn
+                    class="noop-key"
+                    ref="noopButton"
+                    v-tooltip="'PCでのマウス操作で、フォーカスがコントロールに残って邪魔になるときは、このボタンを押してくれだぜ'"
+                >何もしないボタン</v-btn><br/>
+            </li>
+        </ul>
+        <br/>
 
         <!-- 問題設定パネル１ -->
         <v-btn
@@ -167,7 +255,7 @@
             <br/>
             <!-- 盤はマスクを含む。ただし右側と下側に余分に１マス付いたマスクは含まない： -->
             <v-slider
-                label="盤の筋の数"
+                label="盤の筋の全数"
                 v-model="board1FileNum"
                 :min="board1FileMin"
                 :max="board1FileMax"
@@ -175,7 +263,7 @@
                 showTicks="always"
                 thumbLabel="always" />
             <v-slider
-                label="盤の段の数"
+                label="盤の段の全数"
                 v-model="board1RankNum"
                 :min="board1RankMin"
                 :max="board1RankMax"
@@ -208,22 +296,250 @@
                 thumbLabel="always" />
             <br/>
         </section>
+
+        <!-- デバッグ情報パネル１ -->
+        <!--
+        <v-btn
+            class="code-key"
+            @touchstart.prevent="button1Ref?.press($event, onDebugInfoButtonPressed);"
+            @touchend="button1Ref?.release();"
+            @touchcancel="button1Ref?.release();"
+            @touchleave="button1Ref?.release();"
+            @mousedown.prevent="button1Ref?.handleMouseDown($event, onDebugInfoButtonPressed)"
+            @mouseup="button1Ref?.release();"
+            @mouseleave="button1Ref?.release();"
+        >{{ debugInfo1IsShowing ? '⚙️デバッグ情報を終わる' : '⚙️デバッグ情報を表示' }}</v-btn>
+        <section v-if="debugInfo1IsShowing" class="sec-1">
+            <br/>
+            <p>👇 設定：</p>
+            <p>
+                board1SquareWidth={{ board1SquareWidth }}<br/>
+                board1SquareHeight={{ board1SquareHeight }}<br/>
+                board1FileNum={{ board1FileNum }}<br/>
+                board1RankNum={{ board1RankNum }}<br/>
+                printing1Left={{ printing1Left }}<br/>
+                printing1Top={{ printing1Top }}<br/>
+                printing1FileNum={{ printing1FileNum }}<br/>
+                printing1RankNum={{ printing1RankNum }}<br/>
+                offsetFile={{ -Math.floor(printing1Left / board1SquareWidth) }}<br/>
+                offsetRank={{ -Math.floor(printing1Top / board1SquareHeight) }}<br/>
+                width={{ board1FileNum }}<br/>
+                width={{ printing1FileNum }}<br/>
+                printing1IsLooping={{ printing1IsLooping }}<br/>
+            </p>
+            <br/>
+
+            <p>
+                tileIndex が 18 のとき、<br/>
+
+            </p>
+            <br/>
+
+            <p>👇 盤の各マス</p>
+            <div
+                v-for="i in board1Area"
+                :key="i">
+                tile-index: {{ i - 1 }} | 
+                fix-index: {{
+                    getFixedSquareIndexFromTileIndex(
+                        i - 1,
+                        board1SquareWidth,
+                        board1SquareHeight,
+                        board1FileNum,
+                        board1RankNum,
+                        printing1Left,
+                        printing1Top,
+                    )
+                }} | 
+                printing: {{
+                    getPrintingIndexFromFixedSquareIndex(
+                        getFixedSquareIndexFromTileIndex(
+                            i - 1,
+                            board1SquareWidth,
+                            board1SquareHeight,
+                            board1FileNum,
+                            board1RankNum,
+                            printing1Left,
+                            printing1Top,
+                        ),
+                        -Math.floor(printing1Left / board1SquareWidth),
+                        -Math.floor(printing1Top / board1SquareHeight),
+                        board1FileNum,
+                        printing1FileNum,
+                        printing1RankNum,
+                        printing1IsLooping,
+                    )
+                }}<br/>
+            </div>
+            <br/>
+            <p>👇 印字表の各マス</p>
+            <div
+                v-for="j in printing1AreaMax"
+                :key="j">
+                printing-index: {{ j - 1 }} | 
+                source-tile-index: {{ printing1SourceTileIndexesBoard[j - 1] }}<br/>
+            </div>
+            <br/>
+        </section>
+        -->
+
         <br/>
         <br/>
 
         <p>
-            キフワラニャン　「フーム……、ストライプになってしまう……<br/>
+            キフワラニャン　「フーム……、筋の数が偶数のとき、ストライプになってしまう……<br/>
             これはバグだぜ！」<br/>
+            <!--
+            <section v-if="choices1Num==0 || choices1Num==3 || choices1Num==4">
+            </section>
+            <section v-if="choices1Num==1 || choices1Num==2">
+                キフワラニャン　「おお……、市松模様になっているような……」<br/>
+            </section>
+            -->
         </p>
         <br/>
 
         <p>
-            ※ここに選択肢を出す。<br/>
-            （１）<br/>
-            （２）<br/>
-            （３）<br/>
-            （４）<br/>
+            パペポ王　「床のタイルの色を決めているプログラムの疑似コードは以下の通りじゃ」<br/>
         </p>
+        <br/>
+
+        <pre>
+// i: タイル番号。左上から右に向かって 0, 1, 2 ...
+
+// そして、
+// color = 0: 白い床
+// color = 1: 赤い床
+// とするとき、
+
+// 以下の計算式でタイルの色を決める。
+// = 記号は、この記号の右側の計算結果を、左側へ入れる。
+// % 記号は、この記号の左側の数を、右側の数で割った余りを求める。 例） 3 % 2 なら 1。
+color = i % 2;
+        </pre>
+        <br/>
+
+        <p>
+            キフワラニャン　「どう直したらいいか、👇下の選択肢から選んでくれだぜ！」<br/>
+        </p>
+        <br/>
+
+        <p>
+            <!--
+            <v-checkbox
+                :hideDetails="true">
+                <template v-slot:label>
+                    <span style="margin-right: 16px;">（１）</span>盤の筋の全数が偶数のとき、偶数段は color の 0, 1 を反転するようにすればよい。
+                </template>
+            </v-checkbox>
+            <v-checkbox
+                :hideDetails="true">
+                <template v-slot:label>
+                    <span style="margin-right: 16px;">（２）</span>盤の筋の全数が偶数のとき、奇数段は color の 0, 1 を反転するようにすればよい。
+                </template>
+            </v-checkbox>
+            <v-checkbox
+                :hideDetails="true">
+                <template v-slot:label>
+                    <span style="margin-right: 16px;">（３）</span>盤の筋の全数が奇数のとき、偶数段は color の 0, 1 を反転するようにすればよい。
+                </template>
+            </v-checkbox>
+            <v-checkbox
+                :hideDetails="true">
+                <template v-slot:label>
+                    <span style="margin-right: 16px;">（４）</span>盤の筋の全数が奇数のとき、奇数段は color の 0, 1 を反転するようにすればよい。
+                </template>
+            </v-checkbox>
+            -->
+            <!--
+            {{ choices1Num }}
+            -->
+            <v-radio-group
+                v-model="choices1Num">
+                <!--
+                <v-radio
+                    :value="0">
+                    <template v-slot:label>
+                        <span style="margin-right: 16px;">（０）</span>未選択
+                    </template>
+                </v-radio>
+                -->
+                <v-radio
+                    :value="1">
+                    <template v-slot:label>
+                        <span style="margin-right: 16px;">（１）</span>盤の筋の全数が偶数のとき、偶数段は color の 0, 1 を反転するようにすればよい。
+                    </template>
+                </v-radio>
+                <v-radio
+                    :value="2">
+                    <template v-slot:label>
+                        <span style="margin-right: 16px;">（２）</span>盤の筋の全数が偶数のとき、奇数段は color の 0, 1 を反転するようにすればよい。
+                    </template>
+                </v-radio>
+                <v-radio
+                    :value="3">
+                    <template v-slot:label>
+                        <span style="margin-right: 16px;">（３）</span>盤の筋の全数が奇数のとき、偶数段は color の 0, 1 を反転するようにすればよい。
+                    </template>
+                </v-radio>
+                <v-radio
+                    :value="4">
+                    <template v-slot:label>
+                        <span style="margin-right: 16px;">（４）</span>盤の筋の全数が奇数のとき、奇数段は color の 0, 1 を反転するようにすればよい。
+                    </template>
+                </v-radio>
+            </v-radio-group>
+            <v-btn
+                class="code-key"
+                @touchstart.prevent="button1Ref?.press($event, onUnchoice1ButtonPressed);"
+                @touchend="button1Ref?.release();"
+                @touchcancel="button1Ref?.release();"
+                @touchleave="button1Ref?.release();"
+                @mousedown.prevent="button1Ref?.handleMouseDown($event, onUnchoice1ButtonPressed)"
+                @mouseup="button1Ref?.release();"
+                @mouseleave="button1Ref?.release();"
+            >未選択にする</v-btn>
+        </p>
+        <br/>
+
+        <p>
+            キフワラニャン　「👆上の選択肢を選んだら、ゲーム画面を確認して、これで合ってると思ったら、<br/>
+            👇下の［この答えで確定する］ボタンを押してくれだぜ！」<br/>
+        </p>
+        <br/>
+
+        <v-btn
+            class="code-key"
+            @touchstart.prevent="button1Ref?.press($event, onAnswer1ButtonPressed);"
+            @touchend="button1Ref?.release();"
+            @touchcancel="button1Ref?.release();"
+            @touchleave="button1Ref?.release();"
+            @mousedown.prevent="button1Ref?.handleMouseDown($event, onAnswer1ButtonPressed)"
+            @mouseup="button1Ref?.release();"
+            @mouseleave="button1Ref?.release();"
+        ><span class="font-x2">{{ answer1IsShowing ? '' : '🆗' }}</span>{{ answer1IsShowing ? '答えを隠す' : 'この答えで確定する' }}</v-btn>
+        <section v-if="answer1IsShowing" class="sec-1">
+            <section v-if="choices1Num==0">
+                <br/>
+                <span class="font-x2">😑</span>答えを選べだぜ<br/>
+                <br/>
+            </section>
+            <section v-if="choices1Num==1 || choices1Num==2">
+                <br/>
+                <span class="font-x2">😄</span>正解<br/>
+                <br/>
+                パペポ王　「おお、さすがキフワラニャン　床が市松模様になったわい」<br/>
+                <br/>
+            </section>
+            <section v-if="choices1Num==3 || choices1Num==4">
+                <br/>
+                <span class="font-x2">😭</span>間違い<br/>
+                <br/>
+                パペポ王　「ストライプになってしまったのう」<br/>
+                <br/>
+            </section>
+        </section>
+        <br/>
 
     </section>
 
@@ -264,12 +580,14 @@
 
     // from の階層が上の順、アルファベット順
     import Button20250822 from '../../components/Button20250822.vue';
-    import OutOfSightMaking from '../../components/OutOfSightMaking.vue';
+    import OutOfSight from '../../components/OutOfSightMaking.vue';
     import PrintingMaking from '../../components/PrintingMaking.vue';
     import SourceLink from '../../components/SourceLink.vue';
     import Stopwatch from '../../components/Stopwatch.vue';
     import Tile from '../../components/Tile.vue';
     import TileAnimation from '../../components/TileAnimation.vue';
+    import TheFooter from './the-footer.vue';
+    import TheHeader from './the-header.vue';
 
     // ++++++++++++++++++
     // + コンポーザブル +
@@ -297,7 +615,7 @@
     // 今動いているアプリケーションの状態を記録しているデータ。特に可変のもの。
     //
 
-    const appZoom = ref<number>(4);    // ズーム
+    const appZoom = ref<number>(2);    // ズーム
 
 
     // ################
@@ -329,11 +647,17 @@
 
     const preferences1IsShowing = ref<boolean>(false);
 
+    // ++++++++++++++++++++++++++++++++++++++++++
+    // + オブジェクト　＞　デバッグ情報パネル１ +
+    // ++++++++++++++++++++++++++++++++++++++++++
+
+    //const debugInfo1IsShowing = ref<boolean>(false);  // デバッグ情報を表示中
+
     // ++++++++++++++++++++++++++++++++
     // + オブジェクト　＞　視界の外１ +
     // ++++++++++++++++++++++++++++++++
 
-    const outOfSight1Ref = ref<InstanceType<typeof OutOfSightMaking> | null>(null);
+    const outOfSight1Ref = ref<InstanceType<typeof OutOfSight> | null>(null);
     const outOfSight1WithMaskSizeSquare = computed({
         get: () => outOfSight1Ref.value?.outOfSight1WithMaskSizeSquare ?? 0, // nullの場合はデフォルト値（例: 0）
         set: (value) => {
@@ -349,12 +673,12 @@
 
     const board1SquareWidth = 32;
     const board1SquareHeight = 32;
-    const board1FileMin = 3;
-    const board1RankMin = 3;
-    const board1FileMax = 10;
-    const board1RankMax = 10;
-    const board1FileNum = ref<number>(5);   // 筋の数。ただし、右側と下側に１マス余分に付いているマスクは含まない。
-    const board1RankNum = ref<number>(5);   // 段の数
+    const board1FileMin = 6;
+    const board1RankMin = 6;
+    const board1FileMax = 16;
+    const board1RankMax = 16;
+    const board1FileNum = ref<number>(9);   // 筋の数。ただし、右側と下側に１マス余分に付いているマスクは含まない。
+    const board1RankNum = ref<number>(9);   // 段の数
     const board1Area = computed(()=> {  // 盤のマス数
         return board1FileNum.value * board1RankNum.value;
     });
@@ -393,7 +717,7 @@
             };
         };
     });
-    const board1FloorTilemapTileNum = 3;  // 床のタイルマップの、左上隅から数えたタイル数
+    //const board1FloorTilemapTileNum = 3;  // 床のタイルマップの、左上隅から数えたタイル数
     interface SourceTile {
         left: number,
         top: number,
@@ -409,66 +733,87 @@
     //
 
     const printing1Ref = ref<InstanceType<typeof PrintingMaking> | null>(null);
+    const printing1IsLooping = ref<boolean>(false);  // ループ状態を管理（true: ループする, false: ループしない）
     const printing1OutOfSightIsLock = ref<boolean>(true);   // ［画面外隠し］を管理（true: ロックする, false: ロックしない）
     watch(printing1OutOfSightIsLock, (newValue: boolean)=>{
         player1CanBoardEdgeWalkingIsEnabled.value = newValue;
     });
-    const printing1IsLooping = ref<boolean>(true);  // ループ状態を管理（true: ループする, false: ループしない）
-    const printing1FileMax = 10;    // 印字の最大サイズは、盤のサイズより大きいです。
-    const printing1RankMax = 10;
+    const printing1FileMax = board1FileMax;
+    const printing1RankMax = board1RankMax;
     const printing1AreaMax = printing1FileMax * printing1RankMax;
-    const printing1FileNum = ref<number>(printing1FileMax);   // 列数
-    const printing1RankNum = ref<number>(printing1RankMax);   // 行数
+    const printing1FileNum = computed<number>({ // 列数。印字表のサイズを、盤と同期。
+        get: () => { return board1FileNum.value; },
+        set: (value) => { board1FileNum.value = value; }
+    });
+    const printing1RankNum = computed<number>({ // 行数。印字表のサイズを、盤と同期。
+        get: () => { return board1RankNum.value; },
+        set: (value) => { board1RankNum.value = value; }
+    });
     // のちのち自機を１ドットずつ動かすことを考えると、 File, Rank ではデジタルになってしまうので、 Left, Top で指定したい。
     const printing1Left = ref<number>(0);
     const printing1Top = ref<number>(0);
-    const printing1SourceTileIndexesBoard = ref<number[]>([]);   // ソース・タイルのインデックスが入っている盤
-    // マップデータを生成
-    // for (let i=0; i<printing1AreaMax; i++) {    // 最初から最大サイズで用意します。
-    //     // 0: 画面外の黒
-    //     // 1: 白い床
-    //     // 2: 赤い床
-    //     const sourceTileIndex = i % (board1FloorTilemapTileNum - 1) + 1;
-    //     printing1SourceTileIndexesBoard.value.push(sourceTileIndex);
-    // }
-    printing1SourceTileIndexesBoard.value.push(2);
-    printing1SourceTileIndexesBoard.value.push(1);
-    printing1SourceTileIndexesBoard.value.push(2);
-    printing1SourceTileIndexesBoard.value.push(1);
-    printing1SourceTileIndexesBoard.value.push(2);
-    printing1SourceTileIndexesBoard.value.push(1);
-    printing1SourceTileIndexesBoard.value.push(2);
-    printing1SourceTileIndexesBoard.value.push(1);
-    printing1SourceTileIndexesBoard.value.push(2);
-    printing1SourceTileIndexesBoard.value.push(1);
-    printing1SourceTileIndexesBoard.value.push(2);
-    printing1SourceTileIndexesBoard.value.push(1);
-    printing1SourceTileIndexesBoard.value.push(2);
-    printing1SourceTileIndexesBoard.value.push(1);
-    printing1SourceTileIndexesBoard.value.push(2);
-    printing1SourceTileIndexesBoard.value.push(1);
-    printing1SourceTileIndexesBoard.value.push(2);
-    printing1SourceTileIndexesBoard.value.push(1);
-    printing1SourceTileIndexesBoard.value.push(2);
-    printing1SourceTileIndexesBoard.value.push(1);
-    printing1SourceTileIndexesBoard.value.push(2);
-    printing1SourceTileIndexesBoard.value.push(1);
-    printing1SourceTileIndexesBoard.value.push(2);
-    printing1SourceTileIndexesBoard.value.push(1);
-    printing1SourceTileIndexesBoard.value.push(2);
-    printing1SourceTileIndexesBoard.value.push(1);
-    printing1SourceTileIndexesBoard.value.push(2);
-    printing1SourceTileIndexesBoard.value.push(1);
-    printing1SourceTileIndexesBoard.value.push(2);
-    printing1SourceTileIndexesBoard.value.push(1);
-    printing1SourceTileIndexesBoard.value.push(2);
-    printing1SourceTileIndexesBoard.value.push(1);
-    printing1SourceTileIndexesBoard.value.push(2);
-    printing1SourceTileIndexesBoard.value.push(1);
-    printing1SourceTileIndexesBoard.value.push(2);
-    printing1SourceTileIndexesBoard.value.push(1);
-    printing1SourceTileIndexesBoard.value.push(2);
-    printing1SourceTileIndexesBoard.value.push(1);
+    
+    const printing1SourceTileIndexesBoard = computed<
+        number[]
+    >(() => {
+        const array: number[] = [];   // ソース・タイルのインデックスが入っている盤
+        const width = printing1FileNum.value;
+        const height = printing1RankNum.value;
+
+        // マップデータを生成。盤サイズが変わるたび更新
+        for (let i=0; i<width * height; i++) {
+            // i: タイル番号。左上から右に向かって 0, 1, 2 ...
+            // color = 0: 白い床
+            // color = 1: 赤い床
+            // とする。
+
+            // 計算式：　タイルの偶数盤を白い床、奇数盤を赤い床にする。
+            let color = i % 2;
+
+            // ここから　クイズの答え：
+            if (choices1Num.value == 1) {
+                // これは正解。
+                // 盤の筋の全数が偶数のとき、偶数段は color の 0, 1 を反転するようにすればよい。
+                const rank = Math.floor(i / width); // タイル番号を分解して rank を抽出
+                if (width % 2 == 0) {
+                    color = (color + 1 * ((rank) % 2)) % 2;
+                }
+            } else if (choices1Num.value == 2) {
+                // これも正解。
+                // 盤の筋の全数が偶数のとき、奇数段は color の 0, 1 を反転するようにすればよい。
+                const rank = Math.floor(i / width);
+                if (width % 2 == 0) {
+                    color = (color + 1 * ((rank + 1) % 2)) % 2;
+                }
+            } else if (choices1Num.value == 3) {
+                // 間違い。常にストライプになる。
+                // 盤の筋の全数が奇数のとき、偶数段は color の 0, 1 を反転するようにすればよい。
+                const rank = Math.floor(i / width); // タイル番号を分解して rank を抽出
+                if (width % 2 == 1) {
+                    color = (color + 1 * ((rank) % 2)) % 2;
+                }
+            } else if (choices1Num.value == 4) {
+                // 間違い。常にストライプになる。
+                // 盤の筋の全数が奇数のとき、奇数段は color の 0, 1 を反転するようにすればよい。
+                const rank = Math.floor(i / width); // タイル番号を分解して rank を抽出
+                if (width % 2 == 1) {
+                    color = (color + 1 * ((rank + 1) % 2)) % 2;
+                }
+            }
+            // ：ここまで　クイズの答え
+
+            // 次に、色をタイルマップ上のタイル番号に変換する。
+            // tileNo = 0: 画面外の黒
+            // tileNo = 1: 白い床
+            // tileNo = 2: 赤い床
+            const tileNo = color + 1;
+
+            array.push(tileNo);
+        }
+
+        return array;
+    });
+
     const printing1Input : PrintingInput = printingInputCreate();
     const printing1Motion = ref<PrintingMotion>(printingMotionCreate());
     const printing1MotionSpeed = ref<number>(2);  // 移動速度（単位：ピクセル）
@@ -494,22 +839,22 @@
     // ［自機１］に紐づくホームというわけではなく、［自機のホーム］の１つです。
     //
 
-    const playerHome1File = ref<number>(2);    // ホーム
-    const playerHome1Rank = ref<number>(2);
+    const playerHome1File = ref<number>(4);    // ホーム
+    const playerHome1Rank = ref<number>(4);
     const playerHome1Left = computed(()=>{
         return playerHome1File.value * board1SquareWidth;
     });
     const playerHome1Top = computed(()=>{
         return playerHome1Rank.value * board1SquareHeight;
     });
-    const playerHome1Style = computed<CompatibleStyleValue>(()=>{
-        return {
-            left: `${playerHome1Left.value}px`,
-            top: `${playerHome1Top.value}px`,
-            width: `${board1SquareWidth}px`,
-            height: `${board1SquareHeight}px`,
-        };
-    });
+    // const playerHome1Style = computed<CompatibleStyleValue>(()=>{
+    //     return {
+    //         left: `${playerHome1Left.value}px`,
+    //         top: `${playerHome1Top.value}px`,
+    //         width: `${board1SquareWidth}px`,
+    //         height: `${board1SquareHeight}px`,
+    //     };
+    // });
 
     // ++++++++++++++++++++++++++++
     // + オブジェクト　＞　自機１ +
@@ -568,8 +913,14 @@
     const player1MotionWait = ref<number>(0);   // 排他的モーション時間。
     const player1MotionFacingFrames: number = 1;    // 振り向くフレーム数
     const player1MotionWalkingFrames: number = 16;  // 歩行フレーム数
-    const player1CanBoardEdgeWalking = ref<boolean>(false); // ［盤の端の歩行］可能状態を管理（true: 可能にする, false: 可能にしない）
+    const player1CanBoardEdgeWalking = ref<boolean>(true); // ［盤の端の歩行］可能状態を管理（true: 可能にする, false: 可能にしない）
     const player1CanBoardEdgeWalkingIsEnabled = ref<boolean>(false);    // ［盤の端の歩行］可能状態の活性性を管理（true: 不活性にする, false: 活性にする）
+
+    // ++++++++++++++++++++++++++++++
+    // + オブジェクト　＞　選択肢１ +
+    // ++++++++++++++++++++++++++++++
+
+    const choices1Num = ref<number>(0);
 
 
     // ##########
@@ -599,6 +950,11 @@
         stopwatch1Ref.value?.timerStart();  // タイマーをスタート
     });
 
+    // ++++++++++++++++++++++++++++++++++++++++++++++
+    // + オブジェクト　＞　この答えで確定するボタン +
+    // ++++++++++++++++++++++++++++++++++++++++++++++
+
+    const answer1IsShowing = ref<boolean>(false);
 
     // ################
     // # サブルーチン #
@@ -715,6 +1071,58 @@
 
 
     /**
+     * 左。
+     */
+    function onLeftButtonPressed() : void {
+        player1Input.ArrowLeft = true;
+    }
+
+
+    function onLeftButtonReleased() : void {
+        player1Input.ArrowLeft = false;
+    }
+
+
+    /**
+     * 上。
+     */
+    function onUpButtonPressed() : void {
+        player1Input.ArrowUp = true;
+    }
+
+
+    function onUpButtonReleased() : void {
+        player1Input.ArrowUp = false;
+    }
+
+
+    /**
+     * 右。
+     */
+    function onRightButtonPressed() : void {
+        player1Input.ArrowRight = true;
+    }
+
+
+    function onRightButtonReleased() : void {
+        player1Input.ArrowRight = false;
+    }
+
+
+    /**
+     * 下。
+     */
+    function onDownButtonPressed() : void {
+        player1Input.ArrowDown = true;
+    }
+
+
+    function onDownButtonReleased() : void {
+        player1Input.ArrowDown = false;
+    }
+
+
+    /**
      * ［問題設定パネル１］を開くボタン。
      */
     function onProblem1ButtonPressed() : void {
@@ -730,9 +1138,39 @@
     }
 
 
+    /**
+     * ［デバッグ情報を表示］ボタン。
+    function onDebugInfoButtonPressed() : void {
+        debugInfo1IsShowing.value = !debugInfo1IsShowing.value;
+    }
+     */
+
+
+    /**
+     * ［未選択にする］ボタン。
+     */
+    function onUnchoice1ButtonPressed() : void {
+        choices1Num.value = 0;
+    }
+
+
+    /**
+     * ［この答えで確定する］ボタン。
+     */
+    function onAnswer1ButtonPressed() : void {
+        answer1IsShowing.value = !answer1IsShowing.value;
+    }
+
 </script>
 
 <style scoped>
+    /* 
+     * マスクの暗さを濃くします。
+     * NOTE: セレクターは、ブラウザーの開発者モードでコピーして持ってくるのが確実。
+     */
+    section.sec-3 > div.board > :deep(.mask) {
+        border-color: rgba(32, 32, 32, 0.9) !important;
+    }
     div.board { /* 盤１ */
         position: relative;
     }

@@ -167,7 +167,7 @@
                 showTicks="always"
                 thumbLabel="always" />
             <v-slider
-                label="盤の筋の数"
+                label="盤の筋の全数"
                 v-model="board1FileNum"
                 :min="0"
                 :max="board1FileMax"
@@ -175,7 +175,7 @@
                 showTicks="always"
                 thumbLabel="always" />
             <v-slider
-                label="盤の段の数"
+                label="盤の段の全数"
                 v-model="board1RankNum"
                 :min="0"
                 :max="board1RankMax"

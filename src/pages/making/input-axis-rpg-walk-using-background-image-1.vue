@@ -272,7 +272,7 @@
                 thumbLabel="always" />
             <p>盤はマスクを含む。ただし右側と下側に余分に１マス付いたマスクは含まない：</p>
             <v-slider
-                label="盤の筋の数"
+                label="盤の筋の全数"
                 v-model="board1FileNum"
                 :min="0"
                 :max="board1FileMax"
@@ -280,7 +280,7 @@
                 showTicks="always"
                 thumbLabel="always" />
             <v-slider
-                label="盤の段の数"
+                label="盤の段の全数"
                 v-model="board1RankNum"
                 :min="0"
                 :max="board1RankMax"
@@ -921,18 +921,18 @@
 
 
     /**
-     * ［デバッグ情報を表示］ボタン。
-     */
-    function onDebugInfoButtonPressed() : void {
-        debugInfo1IsShowing.value = !debugInfo1IsShowing.value;
-    }
-
-
-    /**
      * ［設定パネル１］を開くボタン。
      */
     function onConfig1ButtonPressed() : void {
         config1IsShowing.value = !config1IsShowing.value;
+    }
+
+
+    /**
+     * ［デバッグ情報を表示］ボタン。
+     */
+    function onDebugInfoButtonPressed() : void {
+        debugInfo1IsShowing.value = !debugInfo1IsShowing.value;
     }
 
 </script>

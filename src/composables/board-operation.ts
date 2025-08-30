@@ -143,9 +143,9 @@ export const getPrintingSquareIndexFromTileIndexOLD = computed<
  */
 export function getPrintingIndexFromFixedSquareIndex(
     fixedSquareIndex: number,
-    offsetFile: number,
-    offsetRank: number,
-    width: number,
+    offsetPrintingFile: number,
+    offsetPrintingRank: number,
+    boardFileNum: number,
     printing1FileNum: number,
     printing1RankNum: number,
     printing1IsLooping: boolean
@@ -157,11 +157,11 @@ export function getPrintingIndexFromFixedSquareIndex(
     // if (!Number.isInteger(printing1FileNum)) { throw new Error(`Assertion failed: "printing1FileNum" must be an integer, got ${printing1FileNum}`); }
     // if (!Number.isInteger(printing1RankNum)) { throw new Error(`Assertion failed: "printing1RankNum" must be an integer, got ${printing1RankNum}`); }
 
-    let [squareFile, squareRank] = getFileAndRankFromIndex(fixedSquareIndex, width);
+    let [squareFile, squareRank] = getFileAndRankFromIndex(fixedSquareIndex, boardFileNum);
 
     // 盤上の筋、段を、サブ印字表の筋、段へ変換：
-    let printingFile = squareFile + offsetFile;
-    let printingRank = squareRank + offsetRank;
+    let printingFile = squareFile + offsetPrintingFile;
+    let printingRank = squareRank + offsetPrintingRank;
 
     if (printing1IsLooping) {
         // 端でループする
