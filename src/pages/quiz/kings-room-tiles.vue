@@ -867,7 +867,6 @@ color = i % 2;
     // ++++++++++++++
 
     import type { CompatibleStyleValue }  from '../../compatibles/compatible-style-value';
-    import CompatibleRuntimeEnvironment from '../../components/CompatibleRuntimeEnvironment.vue';
 
     // ++++++++++++++++++
     // + コンポーネント +
@@ -886,6 +885,12 @@ color = i % 2;
     import TileAnimation from '../../components/TileAnimation.vue';
     import TheFooter from './the-footer.vue';
     import TheHeader from './the-header.vue';
+
+    // ++++++++++++++++++++++++++++++++++
+    // + コンポーネント　＞　互換性対応 +
+    // ++++++++++++++++++++++++++++++++++
+
+    import CompatibleRuntimeEnvironment from '../../components/CompatibleRuntimeEnvironment.vue';
 
     // ++++++++++++++++++
     // + コンポーザブル +
@@ -1570,38 +1575,38 @@ color = i % 2;
         z-index: 20;
     }
 
-/* スマホ向けスタイル (画面幅が768px以下) */
-@media screen and (max-width: 768px) {
-    div.talk-name { /* 名前 */
-        padding-left: 0;
-        padding-right: 0;
-        text-align: right;
-        max-width: 96px;
+    /* スマホ向けスタイル (画面幅が768px以下) */
+    @media screen and (max-width: 768px) {
+        div.talk-name { /* 名前 */
+            padding-left: 0;
+            padding-right: 0;
+            text-align: right;
+            max-width: 96px;
+        }
+        div.talk-name-small { /* 名前 */
+            padding-left: 0;
+            padding-right: 0;
+            text-align: right;
+            font-size: small;
+            max-width: 96px;
+        }
     }
-    div.talk-name-small { /* 名前 */
-        padding-left: 0;
-        padding-right: 0;
-        text-align: right;
-        font-size: small;
-        max-width: 96px;
+    /* パソコン向けスタイル (画面幅が769px以上) */
+    @media screen and (min-width: 769px) {
+        div.talk-name { /* 名前 */
+            padding-left: 0;
+            padding-right: 0;
+            text-align: right;
+            max-width: 128px;
+        }
+        div.talk-name-small { /* 名前 */
+            padding-left: 0;
+            padding-right: 0;
+            text-align: right;
+            font-size: small;
+            max-width: 128px;
+        }
     }
-}
-/* パソコン向けスタイル (画面幅が769px以上) */
-@media screen and (min-width: 769px) {
-    div.talk-name { /* 名前 */
-        padding-left: 0;
-        padding-right: 0;
-        text-align: right;
-        max-width: 128px;
-    }
-    div.talk-name-small { /* 名前 */
-        padding-left: 0;
-        padding-right: 0;
-        text-align: right;
-        font-size: small;
-        max-width: 128px;
-    }
-}
 
     div.talk-quot { /* 鍵かっこ */
         max-width: 16px;
