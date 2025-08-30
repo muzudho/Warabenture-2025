@@ -11,7 +11,7 @@
     // # インポート #
     // ##############
 
-    import { ref } from 'vue';
+    import { onMounted, ref } from 'vue';
 
 
     // ################
@@ -27,13 +27,19 @@
 
     // イベントハンドラーの定義
     function onWindowResized(): void {
+        // window オブジェクトはクライアントサイドでしか使えないことに注意。
         isMobileMaybe.value = window.innerWidth <= 768;   // ウィンドウの横幅が 768px以下ならスマホとみなします。
-        console.log(`onWindowResized: window.innerWidth=${window.innerWidth} isMobileMaybe.value=${isMobileMaybe.value}`);
     }
 
 
-    // イベントハンドラーを追加
-    window.addEventListener('resize', onWindowResized);
+    // ############################
+    // # クライアントサイド開始時 #
+    // ############################
+
+    onMounted(()=>{
+        // イベントハンドラーを追加
+        window.addEventListener('resize', onWindowResized);
+    });
 
 
     // ################
