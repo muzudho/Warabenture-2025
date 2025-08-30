@@ -51,5 +51,5 @@
 </script>
 
 <style lang="css" scoped>
-    /* @import '@/assets/styles.css'; */
+    @import './talk-scene.css';
 </style>

@@ -91,6 +91,10 @@
                 床のことじゃ」<br/>
             </v-col>
         </v-row>
+        <talker-kifuwaranyan>
+            床」<br/>
+        </talker-kifuwaranyan>
+        <!--
         <v-row>
             <v-col cols="2" class="talk-name-small">
                 <img
@@ -105,6 +109,7 @@
                 床」<br/>
             </v-col>
         </v-row>
+        -->
         <v-row>
             <v-col cols="2" class="talk-name-small">
                 <img
@@ -893,6 +898,12 @@ color = i % 2;
     import CompatibleRuntimeEnvironment from '../../components/CompatibleRuntimeEnvironment.vue';
 
     // ++++++++++++++++++
+    // + コンポーネント +
+    // ++++++++++++++++++
+
+    import TalkerKifuwaranyan from './TalkerKifuwaranyan.vue';
+
+    // ++++++++++++++++++
     // + コンポーザブル +
     // ++++++++++++++++++
 
@@ -1271,6 +1282,12 @@ color = i % 2;
 
     const answer1IsShowing = ref<boolean>(false);
 
+    // ++++++++++++++++++++++++++++++++++++++++
+    // + オブジェクト　＞　勇者キフワラニャン +
+    // ++++++++++++++++++++++++++++++++++++++++
+
+    //const kifuwaranyan1Ref = ref<InstanceType<typeof Kifuwaranyan> | null>(null);
+
 
     // ##########
     // # 開始時 #
@@ -1516,6 +1533,9 @@ color = i % 2;
 </script>
 
 <style scoped>
+
+    @import './talk-scene.css';
+
     /* 
      * マスクの暗さを濃くします。
      * NOTE: セレクターは、ブラウザーの開発者モードでコピーして持ってくるのが確実。
@@ -1573,46 +1593,6 @@ color = i % 2;
         position: absolute;
         image-rendering: pixelated;
         z-index: 20;
-    }
-
-    /* スマホ向けスタイル (画面幅が768px以下) */
-    @media screen and (max-width: 768px) {
-        div.talk-name { /* 名前 */
-            padding-left: 0;
-            padding-right: 0;
-            text-align: right;
-            max-width: 96px;
-        }
-        div.talk-name-small { /* 名前 */
-            padding-left: 0;
-            padding-right: 0;
-            text-align: right;
-            font-size: small;
-            max-width: 96px;
-        }
-    }
-    /* パソコン向けスタイル (画面幅が769px以上) */
-    @media screen and (min-width: 769px) {
-        div.talk-name { /* 名前 */
-            padding-left: 0;
-            padding-right: 0;
-            text-align: right;
-            max-width: 128px;
-        }
-        div.talk-name-small { /* 名前 */
-            padding-left: 0;
-            padding-right: 0;
-            text-align: right;
-            font-size: small;
-            max-width: 128px;
-        }
-    }
-
-    div.talk-quot { /* 鍵かっこ */
-        max-width: 16px;
-        padding-left: 0;
-        padding-right: 0;
-        text-align: right;
     }
     pre.coding-example {    /* ソースコード例 */
         display: inline-block;
