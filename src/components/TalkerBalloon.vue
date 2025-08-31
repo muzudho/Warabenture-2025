@@ -21,6 +21,7 @@
     interface Props {
         src: string,
         alt: string,
+        name: string,
     }
     const props = defineProps<Props>();
 
