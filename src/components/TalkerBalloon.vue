@@ -1,10 +1,11 @@
 <template>
     <div class="talk">
-        <div class="face-container">
+        <div class="talk-face-container-2">
             <img
                 :src="props.src"
                 :alt="props.alt"
                 :style="illustration1FaceStyle2(deviceExact)" />
+            <div class="talk-name-2">{{ props.name }}</div>
         </div>
         <div class="baloon-tail"></div>
         <div class="baloon">
@@ -60,4 +61,5 @@
 </script>
 
 <style lang="css" scoped>
+    @import '../styles/talk-scene.css';
 </style>
