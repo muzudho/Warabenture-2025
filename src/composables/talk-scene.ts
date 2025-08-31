@@ -18,7 +18,7 @@ import type { CompatibleStyleValue }  from '../compatibles/compatible-style-valu
 /**
  * 画像の下に付けるキャプションのスタイル
  */
-export const illustration1FaceStyle = computed<
+export const illustration1FaceStyle1 = computed<
     (isMobileMaybeOption: boolean | null) => CompatibleStyleValue
 >(()=>{
     return (isMobileMaybeOption: boolean | null) => {

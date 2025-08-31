@@ -10,7 +10,7 @@
             <img
                 :src="props.src"
                 :alt="props.alt"
-                :style="illustration1FaceStyle(isMobileMaybeOption)">
+                :style="illustration1FaceStyle1(isMobileMaybeOption)">
             </img><br/>
             {{ props.name }}
         </v-col>
@@ -31,7 +31,7 @@
     // + コンポーザブル +
     // ++++++++++++++++++
 
-    import { illustration1FaceStyle } from "../composables/talk-scene";
+    import { illustration1FaceStyle1 } from "../composables/talk-scene";
 
 
     // ####################################

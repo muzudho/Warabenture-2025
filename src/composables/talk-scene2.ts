@@ -24,7 +24,7 @@ import type { Device } from './compatible-device';
 /**
  * 画像の下に付けるキャプションのスタイル
  */
-export const illustration1FaceStyle = computed<
+export const illustration1FaceStyle2 = computed<
     (device: Device) => CompatibleStyleValue
 >(()=>{
     return (device: Device) => {

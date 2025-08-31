@@ -1156,17 +1156,17 @@ color = i % 2;
             width: `384px`,
         };
     });
-    const illustration1FaceStyle = computed<CompatibleStyleValue>(()=>{  /* 画像の下に付けるキャプション用 */
-        if (compatibleRuntimeEnvironment1Ref?.value?.isMobileMaybe) {
-            return {
-                width: `80px`,
-            };
-        }
+    // const illustration1FaceStyle = computed<CompatibleStyleValue>(()=>{  /* 画像の下に付けるキャプション用 */
+    //     if (compatibleRuntimeEnvironment1Ref?.value?.isMobileMaybe) {
+    //         return {
+    //             width: `80px`,
+    //         };
+    //     }
 
-        return {
-            width: `96px`,
-        };
-    });
+    //     return {
+    //         width: `96px`,
+    //     };
+    // });
 
     // ++++++++++++++++++++++++++++++
     // + オブジェクト　＞　選択肢１ +
