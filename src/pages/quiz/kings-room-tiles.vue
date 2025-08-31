@@ -80,13 +80,6 @@
             </v-col>
         </v-row>
 
-        <talker-text
-            :src="commonKifuwaranyanSrc"
-            :alt="commonKifuwaranyanAlt"
-            :name="commonKifuwaranyanName"
-            :isMobileMaybeOption="isMobileMaybeOption">
-            床」<br/>
-        </talker-text>
         <talker-balloon
             :src="commonKifuwaranyanSrc"
             :alt="commonKifuwaranyanAlt"
@@ -95,14 +88,14 @@
             床。<br/>
         </talker-balloon>
 
-        <talker-text
+        <talker-balloon
             :src="commonPapepoKingSrc"
             :alt="commonPapepoKingAlt"
             :name="commonPapepoKingName"
-            :isMobileMaybeOption="isMobileMaybeOption">
+            :device="compatibleDevice1Ref?.device">
             我が城の床タイルを市松模様にしろと<br/>
-            リフォーム会社に命じたのだが……」<br/>
-        </talker-text>
+            リフォーム会社に命じたのだが……<br/>
+        </talker-balloon>
         <br/>
 
         <!-- 印字１　＞　機能 -->
@@ -333,40 +326,51 @@
         </ul>
         <br/>
 
-        <talker-text
+        <talker-balloon
             :src="commonPapepoKingSrc"
             :alt="commonPapepoKingAlt"
             :name="commonPapepoKingName"
-            :isMobileMaybeOption="isMobileMaybeOption">
+            :device="compatibleDevice1Ref?.device">
             ＰＣであればキーボード入力を、<br/>
             スマホであれば👆上のボタンをタップすることで、<br/>
             自機を歩かせることができるんじゃ。<br/>
-            <br/>
-            盤がでかすぎるときは［お好み設定を表示］ボタンをクリックして
-            出てくる［ズーム］スライダーボックスを左右に動かして盤の大きさを調整してほしい。<br/>
-            <br/>
-            もしＰＣ版で例えばスライダーバーにフォーカスが残ってしまい、
-            左右キーを入力したら自機ではなくスライダーバーが動いてしまい腹が立ったときは
-            ［何もしないボタン］を押せ」<br/>
-        </talker-text>
-        <talker-text
-            :src="commonKifuwaranyanSrc"
-            :alt="commonKifuwaranyanAlt"
-            :name="commonKifuwaranyanName"
-            :isMobileMaybeOption="isMobileMaybeOption">
-            おおー、説明的なセリフありがとうございますだぜ。<br/>
-            <br/>
-            なってるなってる、王よ、床、市松模様になってる」<br/>
-        </talker-text>
-        <talker-text
+        </talker-balloon>
+        <talker-balloon
             :src="commonPapepoKingSrc"
             :alt="commonPapepoKingAlt"
             :name="commonPapepoKingName"
-            :isMobileMaybeOption="isMobileMaybeOption">
+            :device="compatibleDevice1Ref?.device">
+            盤がでかすぎるときは［お好み設定を表示］ボタンをクリックして<br/>
+            出てくる［ズーム］スライダーボックスを左右に動かして<br/>
+            盤の大きさを調整してほしい。<br/>
+        </talker-balloon>
+        <talker-balloon
+            :src="commonPapepoKingSrc"
+            :alt="commonPapepoKingAlt"
+            :name="commonPapepoKingName"
+            :device="compatibleDevice1Ref?.device">
+            もしＰＣ版で例えばスライダーバーにフォーカスが残ってしまい、<br/>
+            左右キーを入力したら自機ではなくスライダーバーが動いてしまい腹が立ったときは<br/>
+            ［何もしないボタン］を押せ。<br/>
+        </talker-balloon>
+        <talker-balloon
+            :src="commonKifuwaranyanSrc"
+            :alt="commonKifuwaranyanAlt"
+            :name="commonKifuwaranyanName"
+            :device="compatibleDevice1Ref?.device">
+            おおー、説明的なセリフありがとうございますだぜ。<br/>
+            <br/>
+            なってるなってる、王よ、床、市松模様になってる。<br/>
+        </talker-balloon>
+        <talker-balloon
+            :src="commonPapepoKingSrc"
+            :alt="commonPapepoKingAlt"
+            :name="commonPapepoKingName"
+            :device="compatibleDevice1Ref?.device">
             では、👇下の［⚙問題設定を表示］ボタンをクリックして、<br/>
             出てくる［盤の筋の全数］スライダーバーを横に１つ動かして例えば１０にし、<br/>
-            もう１回［⚙問題設定を終わる］に名前の変わっているボタンを押して設定を閉じ……」<br/>
-        </talker-text>
+            もう１回［⚙問題設定を終わる］に名前の変わっているボタンを押して設定を閉じ……<br/>
+        </talker-balloon>
         <br/>
         <br/>
 
@@ -493,23 +497,23 @@
         <br/>
         <br/>
 
-        <talker-text
+        <talker-balloon
             :src="commonPapepoKingSrc"
             :alt="commonPapepoKingAlt"
             :name="commonPapepoKingName"
-            :isMobileMaybeOption="isMobileMaybeOption">
+            :device="compatibleDevice1Ref?.device">
             そして一度画面を👆上にスクロールし、先ほどの床を見てから<br/>
-            ここに戻ってきてほしい」<br/>
-        </talker-text>
-        <talker-text
+            ここに戻ってきてほしい。<br/>
+        </talker-balloon>
+        <talker-balloon
             :src="commonKifuwaranyanSrc"
             :alt="commonKifuwaranyanAlt"
             :name="commonKifuwaranyanName"
-            :isMobileMaybeOption="isMobileMaybeOption">
+            :device="compatibleDevice1Ref?.device">
             フーム……、床がストライプになっている……<br/>
             <br/>
-            これはバグだぜ！」<br/>
-        </talker-text>
+            これはバグだぜ！<br/>
+        </talker-balloon>
         <!--
             <p>
                 <section v-if="choices1Num==0 || choices1Num==3 || choices1Num==4">
@@ -525,14 +529,14 @@
             alt="床のタイルの色を決める呪文"
             :style="illustration1Style">
         </img>
-        <talker-text
+        <talker-balloon
             :src="commonPapepoKingSrc"
             :alt="commonPapepoKingAlt"
             :name="commonPapepoKingName"
-            :isMobileMaybeOption="isMobileMaybeOption">
+            :device="compatibleDevice1Ref?.device">
             リフォーム会社が残した、床のタイルの色を決める魔法の呪文は<br/>
             👇これじゃ」<br/>
-        </talker-text>
+        </talker-balloon>
         <br/>
 
         <pre
@@ -555,22 +559,22 @@ color = i % 2;
         <br/>
         <br/>
 
-        <talker-text
+        <talker-balloon
             :src="commonPapepoKingSrc"
             :alt="commonPapepoKingAlt"
             :name="commonPapepoKingName"
-            :isMobileMaybeOption="isMobileMaybeOption">
+            :device="compatibleDevice1Ref?.device">
             この呪文を、チョチョイと直してほしい！」<br/>
-        </talker-text>
-        <talker-text
+        </talker-balloon>
+        <talker-balloon
             :src="commonKifuwaranyanSrc"
             :alt="commonKifuwaranyanAlt"
             :name="commonKifuwaranyanName"
-            :isMobileMaybeOption="isMobileMaybeOption">
+            :device="compatibleDevice1Ref?.device">
             おー、お安い御用だぜ。<br/>
             <br/>
             どう直したらいいか、👇下の選択肢から選んでくれだぜ！」<br/>
-        </talker-text>
+        </talker-balloon>
         <br/>
 
         <p>
@@ -658,15 +662,15 @@ color = i % 2;
         <br/>
         <br/>
 
-        <talker-text
+        <talker-balloon
             :src="commonKifuwaranyanSrc"
             :alt="commonKifuwaranyanAlt"
             :name="commonKifuwaranyanName"
-            :isMobileMaybeOption="isMobileMaybeOption">
+            :device="compatibleDevice1Ref?.device">
             上の選択肢を選んだら、<br/>
             画面を👆上にスクロールしてさっきの床を確認して、これで合ってると思ったら、<br/>
             👇下の［この答えで確定する］ボタンを押してくれだぜ！」<br/>
-        </talker-text>
+        </talker-balloon>
         <br/>
 
         <v-btn
