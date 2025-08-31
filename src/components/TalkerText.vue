@@ -40,7 +40,7 @@
     // + コンポーザブル +
     // ++++++++++++++++++
 
-    import { illustration1FaceStyle } from "../../composables/talk-scene";
+    import { illustration1FaceStyle } from "../composables/talk-scene";
 
 
     // ####################################

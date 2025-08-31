@@ -779,7 +779,7 @@ color = i % 2;
     // + コンポーネント +
     // ++++++++++++++++++
 
-    import Talker from './Talker.vue';
+    import Talker from '../../components/TalkerText.vue';
 
     // ++++++++++++++++++
     // + コンポーザブル +
