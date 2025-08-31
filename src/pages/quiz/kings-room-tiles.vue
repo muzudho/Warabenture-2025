@@ -79,21 +79,30 @@
                 床のことじゃ」<br/>
             </v-col>
         </v-row>
-        <talker
+
+        <talker-text
             :src="commonKifuwaranyanSrc"
             :alt="commonKifuwaranyanAlt"
             :name="commonKifuwaranyanName"
             :isMobileMaybeOption="isMobileMaybeOption">
             床」<br/>
-        </talker>
-        <talker
+        </talker-text>
+        <talker-balloon
+            :src="commonKifuwaranyanSrc"
+            :alt="commonKifuwaranyanAlt"
+            :name="commonKifuwaranyanName"
+            :device="compatibleDevice1Ref?.device">
+            床。<br/>
+        </talker-balloon>
+
+        <talker-text
             :src="commonPapepoKingSrc"
             :alt="commonPapepoKingAlt"
             :name="commonPapepoKingName"
             :isMobileMaybeOption="isMobileMaybeOption">
             我が城の床タイルを市松模様にしろと<br/>
             リフォーム会社に命じたのだが……」<br/>
-        </talker>
+        </talker-text>
         <br/>
 
         <!-- 印字１　＞　機能 -->
@@ -324,7 +333,7 @@
         </ul>
         <br/>
 
-        <talker
+        <talker-text
             :src="commonPapepoKingSrc"
             :alt="commonPapepoKingAlt"
             :name="commonPapepoKingName"
@@ -339,8 +348,8 @@
             もしＰＣ版で例えばスライダーバーにフォーカスが残ってしまい、
             左右キーを入力したら自機ではなくスライダーバーが動いてしまい腹が立ったときは
             ［何もしないボタン］を押せ」<br/>
-        </talker>
-        <talker
+        </talker-text>
+        <talker-text
             :src="commonKifuwaranyanSrc"
             :alt="commonKifuwaranyanAlt"
             :name="commonKifuwaranyanName"
@@ -348,8 +357,8 @@
             おおー、説明的なセリフありがとうございますだぜ。<br/>
             <br/>
             なってるなってる、王よ、床、市松模様になってる」<br/>
-        </talker>
-        <talker
+        </talker-text>
+        <talker-text
             :src="commonPapepoKingSrc"
             :alt="commonPapepoKingAlt"
             :name="commonPapepoKingName"
@@ -357,7 +366,7 @@
             では、👇下の［⚙問題設定を表示］ボタンをクリックして、<br/>
             出てくる［盤の筋の全数］スライダーバーを横に１つ動かして例えば１０にし、<br/>
             もう１回［⚙問題設定を終わる］に名前の変わっているボタンを押して設定を閉じ……」<br/>
-        </talker>
+        </talker-text>
         <br/>
         <br/>
 
@@ -484,15 +493,15 @@
         <br/>
         <br/>
 
-        <talker
+        <talker-text
             :src="commonPapepoKingSrc"
             :alt="commonPapepoKingAlt"
             :name="commonPapepoKingName"
             :isMobileMaybeOption="isMobileMaybeOption">
             そして一度画面を👆上にスクロールし、先ほどの床を見てから<br/>
             ここに戻ってきてほしい」<br/>
-        </talker>
-        <talker
+        </talker-text>
+        <talker-text
             :src="commonKifuwaranyanSrc"
             :alt="commonKifuwaranyanAlt"
             :name="commonKifuwaranyanName"
@@ -500,7 +509,7 @@
             フーム……、床がストライプになっている……<br/>
             <br/>
             これはバグだぜ！」<br/>
-        </talker>
+        </talker-text>
         <!--
             <p>
                 <section v-if="choices1Num==0 || choices1Num==3 || choices1Num==4">
@@ -516,14 +525,14 @@
             alt="床のタイルの色を決める呪文"
             :style="illustration1Style">
         </img>
-        <talker
+        <talker-text
             :src="commonPapepoKingSrc"
             :alt="commonPapepoKingAlt"
             :name="commonPapepoKingName"
             :isMobileMaybeOption="isMobileMaybeOption">
             リフォーム会社が残した、床のタイルの色を決める魔法の呪文は<br/>
             👇これじゃ」<br/>
-        </talker>
+        </talker-text>
         <br/>
 
         <pre
@@ -546,14 +555,14 @@ color = i % 2;
         <br/>
         <br/>
 
-        <talker
+        <talker-text
             :src="commonPapepoKingSrc"
             :alt="commonPapepoKingAlt"
             :name="commonPapepoKingName"
             :isMobileMaybeOption="isMobileMaybeOption">
             この呪文を、チョチョイと直してほしい！」<br/>
-        </talker>
-        <talker
+        </talker-text>
+        <talker-text
             :src="commonKifuwaranyanSrc"
             :alt="commonKifuwaranyanAlt"
             :name="commonKifuwaranyanName"
@@ -561,7 +570,7 @@ color = i % 2;
             おー、お安い御用だぜ。<br/>
             <br/>
             どう直したらいいか、👇下の選択肢から選んでくれだぜ！」<br/>
-        </talker>
+        </talker-text>
         <br/>
 
         <p>
@@ -649,7 +658,7 @@ color = i % 2;
         <br/>
         <br/>
 
-        <talker
+        <talker-text
             :src="commonKifuwaranyanSrc"
             :alt="commonKifuwaranyanAlt"
             :name="commonKifuwaranyanName"
@@ -657,7 +666,7 @@ color = i % 2;
             上の選択肢を選んだら、<br/>
             画面を👆上にスクロールしてさっきの床を確認して、これで合ってると思ったら、<br/>
             👇下の［この答えで確定する］ボタンを押してくれだぜ！」<br/>
-        </talker>
+        </talker-text>
         <br/>
 
         <v-btn
@@ -681,20 +690,20 @@ color = i % 2;
                 <span class="font-x2">😄</span>正解<br/>
                 <br/>
 
-                <talker
+                <talker-text
                     :src="commonPapepoKingSrc"
                     :alt="commonPapepoKingAlt"
                     :name="commonPapepoKingName"
                     :isMobileMaybeOption="isMobileMaybeOption">
                     おお、さすがキフワラニャン　床が市松模様になったわい」<br/>
-                </talker>
-                <talker
+                </talker-text>
+                <talker-text
                     :src="commonKifuwaranyanSrc"
                     :alt="commonKifuwaranyanAlt"
                     :name="commonKifuwaranyanName"
                     :isMobileMaybeOption="isMobileMaybeOption">
                     やったぜ！」<br/>
-                </talker>
+                </talker-text>
                 <br/>
             </section>
             <section v-if="choices1Num==3 || choices1Num==4">
@@ -702,20 +711,20 @@ color = i % 2;
                 <span class="font-x2">😭</span>間違い<br/>
                 <br/>
 
-                <talker
+                <talker-text
                     :src="commonPapepoKingSrc"
                     :alt="commonPapepoKingAlt"
                     :name="commonPapepoKingName"
                     :isMobileMaybeOption="isMobileMaybeOption">
                     全ての部屋の床がストライプになってしまったのう」<br/>
-                </talker>
-                <talker
+                </talker-text>
+                <talker-text
                     :src="commonKifuwaranyanSrc"
                     :alt="commonKifuwaranyanAlt"
                     :name="commonKifuwaranyanName"
                     :isMobileMaybeOption="isMobileMaybeOption">
                     なんということだぜ……」<br/>
-                </talker>
+                </talker-text>
                 <br/>
             </section>
         </section>
@@ -774,12 +783,13 @@ color = i % 2;
     // ++++++++++++++++++++++++++++++++++
 
     import CompatibleRuntimeEnvironment from '../../components/CompatibleRuntimeEnvironment.vue';
+    import CompatibleDevice from '../../components/CompatibleDevice.vue'
 
-    // ++++++++++++++++++
-    // + コンポーネント +
-    // ++++++++++++++++++
+    // ++++++++++++++++++++++++++++
+    // + コンポーネント　＞　会話 +
+    // ++++++++++++++++++++++++++++
 
-    import Talker from '../../components/TalkerText.vue';
+    import TalkerText from '../../components/TalkerText.vue';
 
     // ++++++++++++++++++
     // + コンポーザブル +
@@ -832,6 +842,12 @@ color = i % 2;
     // ################
     // # オブジェクト #
     // ################
+
+    // ++++++++++++++++++++++++++++++++++
+    // + オブジェクト　＞　装置の互換性 +
+    // ++++++++++++++++++++++++++++++++++
+
+    const compatibleDevice1Ref = ref<InstanceType<typeof CompatibleDevice> | null>(null);
 
     // ++++++++++++++++++++++++++++++
     // + オブジェクト　＞　実行環境 +
@@ -1156,17 +1172,6 @@ color = i % 2;
             width: `384px`,
         };
     });
-    // const illustration1FaceStyle = computed<CompatibleStyleValue>(()=>{  /* 画像の下に付けるキャプション用 */
-    //     if (compatibleRuntimeEnvironment1Ref?.value?.isMobileMaybe) {
-    //         return {
-    //             width: `80px`,
-    //         };
-    //     }
-
-    //     return {
-    //         width: `96px`,
-    //     };
-    // });
 
     // ++++++++++++++++++++++++++++++
     // + オブジェクト　＞　選択肢１ +
