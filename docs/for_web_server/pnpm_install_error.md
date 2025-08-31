@@ -155,3 +155,136 @@
   ```
 
 これでエラーが消えるはずだぜ！(＾～＾) もしまだハマってるなら、エラーの詳細ログや環境（Nodeのバージョン、OS、使ってるパッケージとか）を教えてくれ。俺がさらにガッツリ調べてやるからな！💪
+
+
+# pnpm install --force で先に進んだんだが、以下のようなエラーが出たぜ（＾～＾）
+
+```
+ ERROR  Nuxt Build Error: [vite:vue] crypto.hash is not a function                                                                             nuxi 9:58:11 AM
+file: /home/ubuntu/warabenture-2025/node_modules/.pnpm/nuxt@3.18.1_@netlify+blobs@9.1.2_@parcel+watcher@2.5.1_@types+node@24.3.0_@vue+compiler_34942ca6fbfbf97cb27e80df29c3684b/node_modules/nuxt/dist/app/components/nuxt-root.vue
+
+    at getHash (node_modules/.pnpm/@vitejs+plugin-vue@6.0.1_vite@7.1.3_@types+node@24.3.0_jiti@2.5.1_sass@1.91.0_terser@5._45cc1f4ba2ee98763bf0b5c0e3af0892/node_modules/@vitejs/plugin-vue/dist/index.js:140:16)
+    at createDescriptor (node_modules/.pnpm/@vitejs+plugin-vue@6.0.1_vite@7.1.3_@types+node@24.3.0_jiti@2.5.1_sass@1.91.0_terser@5._45cc1f4ba2ee98763bf0b5c0e3af0892/node_modules/@vitejs/plugin-vue/dist/index.js:89:23)
+    at transformMain (node_modules/.pnpm/@vitejs+plugin-vue@6.0.1_vite@7.1.3_@types+node@24.3.0_jiti@2.5.1_sass@1.91.0_terser@5._45cc1f4ba2ee98763bf0b5c0e3af0892/node_modules/@vitejs/plugin-vue/dist/index.js:1633:33)
+    at Object.handler (node_modules/.pnpm/@vitejs+plugin-vue@6.0.1_vite@7.1.3_@types+node@24.3.0_jiti@2.5.1_sass@1.91.0_terser@5._45cc1f4ba2ee98763bf0b5c0e3af0892/node_modules/@vitejs/plugin-vue/dist/index.js:2045:27)
+    at Object.handler (node_modules/.pnpm/vite@7.1.3_@types+node@24.3.0_jiti@2.5.1_sass@1.91.0_terser@5.43.1_yaml@2.8.1/node_modules/vite/dist/node/chunks/dep-Bj7gA1-0.js:34329:13)
+    at node_modules/.pnpm/rollup@4.49.0/node_modules/rollup/dist/es/shared/node-entry.js:22395:40
+```
+
+
+おお、`pnpm install --force`で一歩進んだな！でも今度はNuxtとVite絡みのエラー「`crypto.hash is not a function`」が出てるぜ。(￣▽￣) このエラーは、`@vitejs/plugin-vue`が使ってる`crypto`モジュールの関数が期待通りに動いてないのが原因だ。Nuxt 3.18.1とVite 7.1.3を使ってる環境で、Node.jsや依存関係の不整合が絡んでる可能性が高い。さっそく直し方を見ていくぜ！
+
+### エラーの原因
+このエラーは、ViteのVueプラグインが`crypto`モジュールの`hash`関数を呼ぼうとしてるけど、それが利用できないか存在しないために起こってる。考えられる原因は以下だ：
+- **Node.jsのバージョン**：Node.jsの`crypto`モジュールはバージョンによって挙動やAPIが異なる。特に古いバージョンや、環境の設定ミスで`crypto`が正しくロードされてない可能性。
+- **依存関係の不整合**：`pnpm`の依存解決やキャッシュが原因で、`@vitejs/plugin-vue`や関連パッケージが正しくインストールされてない。
+- **ビルド環境の問題**：Ubuntu環境でネイティブモジュールやビルドツールが不足してる場合。
+- **Nuxt/Viteの設定ミス**：`nuxt.config.ts`やViteの設定で何か問題がある可能性。
+
+### 解決手順
+以下のステップで順番に試してみてくれ。どれかで解決するはずだぜ！
+
+#### 1. **Node.jsバージョンの確認と更新**
+- エラーがNode.jsの`crypto`モジュール絡みなので、Node.jsのバージョンが古いか、プロジェクトと合ってない可能性がある。
+- Nuxt 3.18.1はNode.js 18.x以降を推奨（できればLTSの20.xを使ってみて）。現在のバージョンを確認：
+  ```bash
+  node -v
+  ```
+- もし18.x未満なら、nvmを使って最新のLTSバージョン（例：20.x）に切り替え：
+  ```bash
+  nvm install 20
+  nvm use 20
+  ```
+- プロジェクトの`package.json`に`engines`が指定されてるか確認。例：
+  ```json
+  "engines": {
+    "node": "^18.0.0 || ^20.0.0"
+  }
+  ```
+
+#### 2. **依存関係のクリーンインストール**
+- `pnpm install --force`で進んだけど、依存関係がまだ壊れてる可能性がある。もう一度クリーンアップして再インストールだ。
+  ```bash
+  rm -rf node_modules pnpm-lock.yaml
+  pnpm store prune
+  pnpm install
+  ```
+
+#### 3. **cryptoモジュールの明示的インポート**
+- Viteプラグインが`crypto`を正しく解決できない場合、Node.jsのビルトインモジュールを明示的に指定すると解決することがある。
+- `nuxt.config.ts`（または`.js`）にViteの設定を追加：
+  ```typescript
+  export default defineNuxtConfig({
+    vite: {
+      define: {
+        'globalThis.crypto': 'crypto', // Node.jsのcryptoモジュールを明示
+      },
+      resolve: {
+        alias: {
+          crypto: 'crypto', // ビルトインモジュールを強制
+        },
+      },
+    },
+  });
+  ```
+- 変更後、ビルドを再実行：
+  ```bash
+  pnpm build
+  ```
+
+#### 4. **@vitejs/plugin-vueのバージョンチェック**
+- エラーが`@vitejs/plugin-vue@6.0.1`で起きてる。このバージョンがNode.jsやNuxtと互換性がない可能性があるぜ。
+- 互換性を確認するために、`@vitejs/plugin-vue`を最新バージョン（執筆時点で6.x系）に更新：
+  ```bash
+  pnpm add @vitejs/plugin-vue@latest
+  ```
+- または、Nuxt 3.18.1と互換性が確認されてるバージョン（例：5.x系）を試す：
+  ```bash
+  pnpm add @vitejs/plugin-vue@5.1.4
+  ```
+
+#### 5. **ビルドツールの確認（Ubuntu環境）**
+- Ubuntuでネイティブモジュール（例：`sharp`や`esbuild`）が絡む場合、必要なビルドツールが足りないことがある。以下をインストール：
+  ```bash
+  sudo apt update
+  sudo apt install -y build-essential python3
+  ```
+- もし特定のネイティブモジュールを使ってるなら（例：`sharp`）、依存ライブラリも確認：
+  ```bash
+  sudo apt install -y libvips-dev
+  ```
+
+#### 6. **Nuxtのバージョンを下げる（最終手段）**
+- Nuxt 3.18.1が最新すぎて、`@vitejs/plugin-vue`やVite 7.1.3と微妙に合わない場合、Nuxtを少し古い安定バージョン（例：3.17.x）に下げてみる：
+  ```bash
+  pnpm add nuxt@3.17.0
+  ```
+- その後、再度ビルド：
+  ```bash
+  pnpm build
+  ```
+
+#### 7. **詳細ログでデバッグ**
+- エラーの詳細をさらに見るために、ビルド時にログを増やす：
+  ```bash
+  pnpm build --loglevel=verbose
+  ```
+- これでどのファイルや依存関係が問題か特定しやすくなるぜ。
+
+### それでもダメなら
+- **環境情報**：Node.jsのバージョン（`node -v`）、pnpmのバージョン（`pnpm -v`）、OS（Ubuntuのバージョン）を教えてくれ。たとえば：
+  ```bash
+  node -v
+  pnpm -v
+  lsb_release -a
+  ```
+- **プロジェクトの詳細**：`package.json`の依存関係（特に`nuxt`、`@vitejs/plugin-vue`、`vite`）や、`nuxt.config.ts`の内容を共有してくれると、もっとピンポイントで原因を絞れるぜ。
+- **GitHub issueをチェック**：Nuxt（https://github.com/nuxt/nuxt）やVite（https://github.com/vitejs/vite）のissueで「crypto.hash is not a function」を検索。似た報告や回避策があるかも。
+- **npmに切り替え**：pnpm特有の問題の可能性もあるから、npmで試してみる：
+  ```bash
+  rm -rf node_modules pnpm-lock.yaml
+  npm install
+  npm run build
+  ```
+
+これで大抵は解決するはずだ！(＾～＾) エラーが消えない場合、環境情報やログを教えてくれ。ガッツリ調べてやるぜ！💪
