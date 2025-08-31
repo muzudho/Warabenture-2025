@@ -1,6 +1,12 @@
 <template>
     <h3>[2025-06-01_Sun]</h3>
     <section class="sec-3">
+        <talker-fukidashi
+            :src="kifuwarabeNoOton1Src"
+            :alt="kifuwarabeNoOton1Alt">
+            文字は出せるかだぜ？
+        </talker-fukidashi>
+        <!--
         <div class="talk">
             <div class="face-container">
                 <img src="@/assets/img/202101__character__24-o2o2o3o0.png" />
@@ -10,6 +16,7 @@
                 文字は出せるかだぜ？
             </div>
         </div>
+        -->
         <div class="talk">
             <div class="face-container">
                 <img src="@/assets/img/202101__character__28-kifuwarabe-futsu-o2o0.png" />
@@ -70,3 +77,28 @@
         </div>
     </section>
 </template>
+
+<script setup lang="ts">
+
+    // ##############
+    // # インポート #
+    // ##############
+
+    // ++++++++++++++++++
+    // + コンポーネント +
+    // ++++++++++++++++++
+
+    import TalkerFukidashi from '../TalkerFukidashi.vue';
+
+
+    // ##########
+    // # コモン #
+    // ##########
+    //
+    // よく使う設定をまとめたもの。特に不変のもの。
+    //
+
+    import kifuwarabeNoOton1Src from "@/assets/img/202101__character__24-o2o2o3o0.png";
+    const kifuwarabeNoOton1Alt = "きふわらべのお父ん";
+
+</script>
