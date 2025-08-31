@@ -1,7 +1,4 @@
 <template>
-    <!-- 実行環境互換 -->
-    <compatible-runtime-environment ref="compatibleRuntimeEnvironment1Ref"/>
-
     <v-row>
         <v-col cols="2" class="talk-name-small">
             <!--
@@ -30,12 +27,6 @@
     // # インポート #
     // ##############
 
-    // ++++++++++++++++++++++++++++++++++
-    // + コンポーネント　＞　互換性対応 +
-    // ++++++++++++++++++++++++++++++++++
-
-    import CompatibleRuntimeEnvironment from '../../components/CompatibleRuntimeEnvironment.vue';
-
     // ++++++++++++++++++
     // + コンポーザブル +
     // ++++++++++++++++++
@@ -58,5 +49,5 @@
 </script>
 
 <style lang="css" scoped>
-    @import './talk-scene.css';
+    @import '../styles/talk-scene.css';
 </style>
