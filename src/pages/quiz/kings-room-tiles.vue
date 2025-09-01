@@ -5,9 +5,6 @@
 <template>
     <the-header/>
 
-    <!-- 実行環境互換 -->
-    <compatible-runtime-environment ref="compatibleRuntimeEnvironment1Ref"/>
-
     <!-- ボタン機能拡張 -->
     <button-20250822 ref="button1Ref"/>
 
@@ -694,20 +691,20 @@ color = i % 2;
                 <span class="font-x2">😄</span>正解<br/>
                 <br/>
 
-                <talker-text
+                <talker-balloon
                     :src="commonPapepoKingSrc"
                     :alt="commonPapepoKingAlt"
                     :name="commonPapepoKingName"
-                    :isMobileMaybeOption="isMobileMaybeOption">
-                    おお、さすがキフワラニャン　床が市松模様になったわい」<br/>
-                </talker-text>
-                <talker-text
+                    :device="compatibleDevice1Ref?.device">
+                    おお、さすがキフワラニャン　床が市松模様になったわい。<br/>
+                </talker-balloon>
+                <talker-balloon
                     :src="commonKifuwaranyanSrc"
                     :alt="commonKifuwaranyanAlt"
                     :name="commonKifuwaranyanName"
-                    :isMobileMaybeOption="isMobileMaybeOption">
-                    やったぜ！」<br/>
-                </talker-text>
+                    :device="compatibleDevice1Ref?.device">
+                    やったぜ！<br/>
+                </talker-balloon>
                 <br/>
             </section>
             <section v-if="choices1Num==3 || choices1Num==4">
@@ -715,20 +712,20 @@ color = i % 2;
                 <span class="font-x2">😭</span>間違い<br/>
                 <br/>
 
-                <talker-text
+                <talker-balloon
                     :src="commonPapepoKingSrc"
                     :alt="commonPapepoKingAlt"
                     :name="commonPapepoKingName"
-                    :isMobileMaybeOption="isMobileMaybeOption">
-                    全ての部屋の床がストライプになってしまったのう」<br/>
-                </talker-text>
-                <talker-text
+                    :device="compatibleDevice1Ref?.device">
+                    全ての部屋の床がストライプになってしまったのう。<br/>
+                </talker-balloon>
+                <talker-balloon
                     :src="commonKifuwaranyanSrc"
                     :alt="commonKifuwaranyanAlt"
                     :name="commonKifuwaranyanName"
-                    :isMobileMaybeOption="isMobileMaybeOption">
-                    なんということだぜ……」<br/>
-                </talker-text>
+                    :device="compatibleDevice1Ref?.device">
+                    なんということだぜ……。<br/>
+                </talker-balloon>
                 <br/>
             </section>
         </section>
@@ -852,17 +849,6 @@ color = i % 2;
     // ++++++++++++++++++++++++++++++++++
 
     const compatibleDevice1Ref = ref<InstanceType<typeof CompatibleDevice> | null>(null);
-
-    // ++++++++++++++++++++++++++++++
-    // + オブジェクト　＞　実行環境 +
-    // ++++++++++++++++++++++++++++++
-
-    const compatibleRuntimeEnvironment1Ref = ref<InstanceType<typeof CompatibleRuntimeEnvironment> | null>(null);
-    const isMobileMaybeOption = computed<
-        boolean | null
-    >(()=>{
-        return compatibleRuntimeEnvironment1Ref.value?.isMobileMaybe ?? null;
-    });
 
     // ++++++++++++++++++++++++++++++++++++
     // + オブジェクト　＞　ボタン機能拡張 +
@@ -1155,7 +1141,7 @@ color = i % 2;
     // ++++++++++++++++++++++++++++++
 
     const illustration1Style = computed<CompatibleStyleValue>(()=>{ /* 挿絵 */
-        if (compatibleRuntimeEnvironment1Ref?.value?.isMobileMaybe) {
+        if (compatibleDevice1Ref.value?.device == 'Mobile') {
             return {
                 width: `256px`,
             };
@@ -1166,7 +1152,7 @@ color = i % 2;
         };
     });
     const illustration1CaptionStyle = computed<CompatibleStyleValue>(()=>{  /* 画像の下に付けるキャプション用 */
-        if (compatibleRuntimeEnvironment1Ref?.value?.isMobileMaybe) {
+        if (compatibleDevice1Ref.value?.device == 'Mobile') {
             return {
                 width: `256px`,
             };
