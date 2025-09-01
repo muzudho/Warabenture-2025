@@ -1,4 +1,8 @@
 <template>
+
+    <!-- デバイス互換機能 -->
+    <compatible-device ref="compatibleDevice1Ref"/>
+
     <the-header/>
 
     <h3>ヒートマップ</h3>
@@ -191,16 +195,18 @@
                 ここまでシンプルにすると、ボードゲームみたいになる。
             </div>
         </div>
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-2013-kifuwarabe-o1o1o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+
+
+        <talker-balloon
+            :src="kifuwarabe2Src"
+            :alt="kifuwarabe2Alt"
+            :name="kifuwarabe2Name"
+            :device="compatibleDevice1Ref?.device">
                 神エクセルは作ってはいかんのに……。<br>
                 エクセルは表計算ソフトなのに……。
-            </div>
-        </div>
+        </talker-balloon>
+
+
         <div class="talk">
             <div class="face-container">
                 <img src="@/assets/img/202506__character__01-2025-hiyoko-o1o1o0.png" />
@@ -220,16 +226,18 @@
                 <span class="font-x2">神エクセルで何でもできるんだ！</span>という人を補助するツールにしていくぜ。
             </div>
         </div>
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-2013-kifuwarabe-o1o1o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+
+
+        <talker-balloon
+            :src="kifuwarabe2Src"
+            :alt="kifuwarabe2Alt"
+            :name="kifuwarabe2Name"
+            :device="compatibleDevice1Ref?.device">
                 だからそんなやつ、<br>
                 お父んしかいないのに……。
-            </div>
-        </div>
+        </talker-balloon>
+
+
         <div class="talk">
             <div class="face-container">
                 <img src="@/assets/img/202506__character__01-2025-hiyoko-o1o1o0.png" />
@@ -241,15 +249,17 @@
                 もう、神エクセルにハマった人は、他の環境が進化しててでも神エクセルをやるのよ。<br>
             </div>
         </div>
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-2013-kifuwarabe-o1o1o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+
+
+        <talker-balloon
+            :src="kifuwarabe2Src"
+            :alt="kifuwarabe2Alt"
+            :name="kifuwarabe2Name"
+            :device="compatibleDevice1Ref?.device">
                 死んだ巻貝の殻に入るヤドカリみたいだな。
-            </div>
-        </div>
+        </talker-balloon>
+
+
         <div class="talk">
             <div class="face-container">
                 <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
@@ -259,15 +269,17 @@
                 <span class="font-x2">巻貝が良いんだ！</span>スマホにはついていけないんだ！
             </div>
         </div>
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-2013-kifuwarabe-o1o1o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+
+
+        <talker-balloon
+            :src="kifuwarabe2Src"
+            :alt="kifuwarabe2Alt"
+            :name="kifuwarabe2Name"
+            :device="compatibleDevice1Ref?.device">
                 分かった分かった。
-            </div>
-        </div>
+        </talker-balloon>
+
+
         <div class="talk">
             <div class="face-container">
                 <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
@@ -278,16 +290,18 @@
                 わたしの熟練した神エクセルでバトルな。
             </div>
         </div>
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-2013-kifuwarabe-o1o1o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+
+
+        <talker-balloon
+            :src="kifuwarabe2Src"
+            :alt="kifuwarabe2Alt"
+            :name="kifuwarabe2Name"
+            :device="compatibleDevice1Ref?.device">
                 しかしこんなツール、要らんのでは？<br>
                 お父んだけ使っていればいいのでは？
-            </div>
-        </div>
+        </talker-balloon>
+
+
         <div class="talk">
             <div class="face-container">
                 <img src="@/assets/img/202506__character__01-2025-hiyoko-o1o1o0.png" />
@@ -298,15 +312,16 @@
                 集まってくるかも知れないわよ？
             </div>
         </div>
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-2013-kifuwarabe-o1o1o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+
+
+        <talker-balloon
+            :src="kifuwarabe2Src"
+            :alt="kifuwarabe2Alt"
+            :name="kifuwarabe2Name"
+            :device="compatibleDevice1Ref?.device">
                 うわあ
-            </div>
-        </div>
+        </talker-balloon>
+
     </section>
 
     <the-footer/>
@@ -322,8 +337,53 @@
     // + コンポーネント +
     // ++++++++++++++++++
 
+    import TalkerBalloon from '../../components/TalkerBalloon.vue';
     import TheFooter from './the-footer.vue';
     import TheHeader from './the-header.vue';
+
+    // ++++++++++++++++++++++++++++++++++
+    // + コンポーネント　＞　互換性対応 +
+    // ++++++++++++++++++++++++++++++++++
+
+    import CompatibleDevice from '../../components/CompatibleDevice.vue'
+
+
+    // ##########
+    // # コモン #
+    // ##########
+    //
+    // よく使う設定をまとめたもの。特に不変のもの。
+    //
+
+    import oton1Src from "@/assets/img/202101__character__24-o2o2o3o0.png";
+    const oton1Alt = "きふわらべのお父ん１";
+    const oton1Name = "きふわらべのお父ん";
+    import oton2Src from "@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png";
+    const oton2Alt = "きふわらべのお父ん２";
+    const oton2Name = "きふわらべのお父ん";
+    import kifuwarabe1Src from "@/assets/img/202101__character__28-kifuwarabe-futsu-o2o0.png";
+    const kifuwarabe1Alt = "きふわらべ１";
+    const kifuwarabe1Name = "きふわらべ";
+    import kifuwarabe2Src from "@/assets/img/202506__character__01-2013-kifuwarabe-o1o1o0.png";
+    const kifuwarabe2Alt = "きふわらべ２";
+    const kifuwarabe2Name = "きふわらべ";
+    import hiyoko1Src from "@/assets/img/202108__character__12-ohkina-hiyoko-futsu2-o2o0.png";
+    const hiyoko1Alt = "ひよこ１";
+    const hiyoko1Name = "ひよこ";
+    import hiyoko2Src from "@/assets/img/202506__character__01-2025-hiyoko-o1o1o0.png";
+    const hiyoko2Alt = "ひよこ２";
+    const hiyoko2Name = "ひよこ";
+
+
+    // ################
+    // # オブジェクト #
+    // ################
+
+    // ++++++++++++++++++++++++++++++++++
+    // + オブジェクト　＞　装置の互換性 +
+    // ++++++++++++++++++++++++++++++++++
+
+    const compatibleDevice1Ref = ref<InstanceType<typeof CompatibleDevice> | null>(null);
 
 </script>
 

@@ -1,6 +1,12 @@
 <template>
+
+    <!-- デバイス互換機能 -->
+    <compatible-device ref="compatibleDevice1Ref"/>
+
     <h3>[2025-07-12_Sat]</h3>
     <section class="sec-3">
+
+
         <div class="talk">
             <div class="face-container">
                 <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
@@ -11,6 +17,8 @@
                 📄<span class="code-w">cargo.toml</span>ファイルから、<span class="code-w">api-all</span>フィーチャーを除去。
             </div>
         </div>
+
+
         <div class="talk">
             <div class="face-container">
                 <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
@@ -20,6 +28,8 @@
                 👇 次に、<span class="code-w">cargo</span>を更新。
             </div>
         </div>
+
+
         <pre class="code-b">
 cd src-tauri
 cargo update
@@ -31,6 +41,8 @@ cd ..
 pnpm add @tauri-apps/cli@latest @tauri-apps/api@latest
 
 pnpm tauri info</pre><br/>
+
+
         <pre class="code-b">
 &gt; notepad-on-tauri@0.1.0 tauri C:\Users\muzud\OneDrive\ドキュメント\GitHub\csv-cleaning-2-on-tauri
 &gt; tauri "info"
@@ -82,6 +94,8 @@ pnpm add @tauri-apps/plugin-fs
 
 cd ..
 pnpm dev</pre><br/>
+
+
         <div class="talk">
             <div class="face-container">
                 <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
@@ -92,9 +106,13 @@ pnpm dev</pre><br/>
                 コンパイル・エラーの数はだいぶ減った。
             </div>
         </div>
+
+
         <pre class="code-b">
 pnpm install
 pnpm tauri dev</pre>
+
+
         <div class="talk">
             <div class="face-container">
                 <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
@@ -104,12 +122,16 @@ pnpm tauri dev</pre>
                 コンパイル・エラーの数はさらに減った。
             </div>
         </div>
+
+
         <pre class="code-b">
 cd src-tauri
 cargo add csv
 
 cd ..
 pnpm tauri dev</pre>
+
+
         <div class="talk">
             <div class="face-container">
                 <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
@@ -119,9 +141,13 @@ pnpm tauri dev</pre>
                 コンパイル・エラーは取れて、ウィンドウも表示されたけど、ウィンドウの内側は真っ白だ……。
             </div>
         </div>
+
+
         <a target="_blank" href="/img/journal/2025-07/202507__warabenture__12-1713-csvCleaningOnTauri-o1o0.png">
             <img class="scr-shot" src="/img/journal/2025-07/202507__warabenture__12-1713-csvCleaningOnTauri-o1o0.png">
         </a><br/>
+
+
         <div class="talk">
             <div class="face-container">
                 <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
@@ -131,16 +157,18 @@ pnpm tauri dev</pre>
                 👆 シュリンクして、テキストだけ表示できるように直した。
             </div>
         </div>
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-2013-kifuwarabe-o1o1o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+
+
+        <talker-balloon
+            :src="kifuwarabe2Src"
+            :alt="kifuwarabe2Alt"
+            :name="kifuwarabe2Name"
+            :device="compatibleDevice1Ref?.device">
                 逐次的に<span class="code-w">&lt;main class="container"&gt;</span>なんてコツコツ書かずに、<br/>
                 構造的に<span class="code-w">&lt;v-app&gt;&lt;v-main&gt;</span>を使うみたいだぜ？
-            </div>
-        </div>
+        </talker-balloon>
+
+
         <div class="talk">
             <div class="face-container">
                 <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
@@ -150,5 +178,65 @@ pnpm tauri dev</pre>
                 そうか、自動的にレスポンシブ・デザインに対応してもらうには、Ｗｅｂサイトに特化したフレームワークに丸投げした方がいいのか……。
             </div>
         </div>
+
+
     </section>
 </template>
+
+<script setup lang="ts">
+
+    // ##############
+    // # インポート #
+    // ##############
+
+    // ++++++++++++++++++
+    // + コンポーネント +
+    // ++++++++++++++++++
+
+    import TalkerBalloon from '../../../components/TalkerBalloon.vue';
+
+    // ++++++++++++++++++++++++++++++++++
+    // + コンポーネント　＞　互換性対応 +
+    // ++++++++++++++++++++++++++++++++++
+
+    import CompatibleDevice from '../../../components/CompatibleDevice.vue'
+
+
+    // ##########
+    // # コモン #
+    // ##########
+    //
+    // よく使う設定をまとめたもの。特に不変のもの。
+    //
+
+    import oton1Src from "@/assets/img/202101__character__24-o2o2o3o0.png";
+    const oton1Alt = "きふわらべのお父ん１";
+    const oton1Name = "きふわらべのお父ん";
+    import oton2Src from "@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png";
+    const oton2Alt = "きふわらべのお父ん２";
+    const oton2Name = "きふわらべのお父ん";
+    import kifuwarabe1Src from "@/assets/img/202101__character__28-kifuwarabe-futsu-o2o0.png";
+    const kifuwarabe1Alt = "きふわらべ１";
+    const kifuwarabe1Name = "きふわらべ";
+    import kifuwarabe2Src from "@/assets/img/202506__character__01-2013-kifuwarabe-o1o1o0.png";
+    const kifuwarabe2Alt = "きふわらべ２";
+    const kifuwarabe2Name = "きふわらべ";
+    import hiyoko1Src from "@/assets/img/202108__character__12-ohkina-hiyoko-futsu2-o2o0.png";
+    const hiyoko1Alt = "ひよこ１";
+    const hiyoko1Name = "ひよこ";
+    import hiyoko2Src from "@/assets/img/202506__character__01-2025-hiyoko-o1o1o0.png";
+    const hiyoko2Alt = "ひよこ２";
+    const hiyoko2Name = "ひよこ";
+
+
+    // ################
+    // # オブジェクト #
+    // ################
+
+    // ++++++++++++++++++++++++++++++++++
+    // + オブジェクト　＞　装置の互換性 +
+    // ++++++++++++++++++++++++++++++++++
+
+    const compatibleDevice1Ref = ref<InstanceType<typeof CompatibleDevice> | null>(null);
+
+</script>

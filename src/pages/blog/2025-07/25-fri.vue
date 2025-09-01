@@ -1,9 +1,17 @@
 <template>
+
+    <!-- デバイス互換機能 -->
+    <compatible-device ref="compatibleDevice1Ref"/>
+
     <h3>[2025-07-25_Fri]</h3>
     <section class="sec-3">
+
+
         <a target="_blank" href="/img/journal/2025-07/202507__warabenture__25-1412-csvCleaning2OnTauri-o1o0.png">
             <img class="scr-shot" src="/img/journal/2025-07/202507__warabenture__25-1412-csvCleaning2OnTauri-o1o0.png">
         </a><br/>
+
+
         <div class="talk">
             <div class="face-container">
                 <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
@@ -13,18 +21,22 @@
                 <span class="font-x2">👆</span>Vuetify3 に置き換え中なんだが、レイアウトがスカスカになってしまう……
             </div>
         </div>
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-2013-kifuwarabe-o1o1o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+
+
+        <talker-balloon
+            :src="kifuwarabe2Src"
+            :alt="kifuwarabe2Alt"
+            :name="kifuwarabe2Name"
+            :device="compatibleDevice1Ref?.device">
                 じゃあ、画面に合わせてきっちり詰めるのは、できないんだろ。
-            </div>
-        </div>
+        </talker-balloon>
+
+
         <a target="_blank" href="/img/journal/2025-07/202507__warabenture__25-1437-csvCleaning2OnTauri-o1o0.png">
             <img class="scr-shot" src="/img/journal/2025-07/202507__warabenture__25-1437-csvCleaning2OnTauri-o1o0.png">
         </a><br/>
+
+
         <div class="talk">
             <div class="face-container">
                 <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
@@ -34,6 +46,8 @@
                 <span class="font-x2">👆</span>がんばって隙間を詰めてもこれぐらい。
             </div>
         </div>
+
+
         <div class="talk">
             <div class="face-container">
                 <img src="@/assets/img/202506__character__01-2025-hiyoko-o1o1o0.png" />
@@ -43,6 +57,8 @@
                 勝手にスマホにも対応しようとされるから、デスクトップ画面にピッタリ調整しようとすることはできないんじゃないの？
             </div>
         </div>
+
+
         <div class="talk">
             <div class="face-container">
                 <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
@@ -52,18 +68,22 @@
                 次は、さっきのアプリをコピーして、わらシティを作ろう。
             </div>
         </div>
+
+
         <a target="_blank" href="/img/journal/2025-07/202507__warabenture__25-1749-waraCity-o1o0.png">
             <img class="scr-shot" src="/img/journal/2025-07/202507__warabenture__25-1749-waraCity-o1o0.png">
         </a><br/>
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-2013-kifuwarabe-o1o1o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+
+
+        <talker-balloon
+            :src="kifuwarabe2Src"
+            :alt="kifuwarabe2Alt"
+            :name="kifuwarabe2Name"
+            :device="compatibleDevice1Ref?.device">
                 何だぜ、これ？
-            </div>
-        </div>
+        </talker-balloon>
+
+
         <div class="talk">
             <div class="face-container">
                 <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
@@ -73,6 +93,8 @@
                 スーパー・ファミコン版のシム・シティのパクリを作るんだぜ。
             </div>
         </div>
+
+
         <div class="talk">
             <div class="face-container">
                 <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
@@ -82,6 +104,8 @@
                 さっそくこれを、ワラベンチャーのホームページ、つまりここにも移植しよう。
             </div>
         </div>
+
+
         <div class="talk">
             <div class="face-container">
                 <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
@@ -91,6 +115,8 @@
                 あれっ？　画像が表示されない？
             </div>
         </div>
+
+
         <div class="talk">
             <div class="face-container">
                 <img src="@/assets/img/202506__character__01-2025-hiyoko-o1o1o0.png" />
@@ -100,6 +126,8 @@
                 なんで同じ Vue 3 なのに、そのまんま移植できないの？
             </div>
         </div>
+
+
         <div class="talk">
             <div class="face-container">
                 <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
@@ -110,15 +138,17 @@
                 Nuxt に Vuetify3 が連携されていないんだ。
             </div>
         </div>
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-2013-kifuwarabe-o1o1o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+
+
+        <talker-balloon
+            :src="kifuwarabe2Src"
+            :alt="kifuwarabe2Alt"
+            :name="kifuwarabe2Name"
+            :device="compatibleDevice1Ref?.device">
                 じゃあ、連携しろだぜ。
-            </div>
-        </div>
+        </talker-balloon>
+
+
         <div class="talk">
             <div class="face-container">
                 <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
@@ -130,10 +160,14 @@
                 <span class="font-x2">📖</span><a target="_blank" href="https://note.com/doui_lab/n/n37a67a01981a">Vue3 + Nuxt3 + Vuetify3 のクイックスタート</a>
             </div>
         </div>
+
+
         <pre class="code-b">
 pnpm remove vuetify
 pnpm add vuetify@next sass @mdi/font
 pnpm add -D vite-plugin-vuetify</pre>
+
+
         <div class="talk">
             <div class="face-container">
                 <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
@@ -144,6 +178,8 @@ pnpm add -D vite-plugin-vuetify</pre>
                 以下は追加部分。
             </div>
         </div>
+
+
         <pre class="code-b">
 export default defineNuxtConfig({
     css: ["vuetify/styles", "@mdi/font/css/materialdesignicons.css"],
@@ -151,6 +187,8 @@ export default defineNuxtConfig({
         transpile: ["vuetify"],
     },
 })</pre>
+
+
         <div class="talk">
             <div class="face-container">
                 <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
@@ -161,6 +199,8 @@ export default defineNuxtConfig({
                 📄 <span class="code-w">vuetify.ts</span> ファイルを作成。<br/>
             </div>
         </div>
+
+
         <pre class="code-b">
 import { createVuetify } from "vuetify";
 import * as components from "vuetify/components";
@@ -174,6 +214,8 @@ export default defineNuxtPlugin((nuxtApp) => {
 
   nuxtApp.vueApp.use(vuetify);
 });</pre>
+
+
         <div class="talk">
             <div class="face-container">
                 <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
@@ -183,8 +225,12 @@ export default defineNuxtPlugin((nuxtApp) => {
                 以下のコマンドを打鍵。
             </div>
         </div>
+
+
         <pre class="code-b">
 pnpm install</pre>
+
+
         <div class="talk">
             <div class="face-container">
                 <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
@@ -196,15 +242,17 @@ pnpm install</pre>
                 <span class="font-x2">📖</span><a target="_blank" href="https://warabenture.com/wara-city/map">わらシティ</a>
             </div>
         </div>
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-2013-kifuwarabe-o1o1o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+
+
+        <talker-balloon
+            :src="kifuwarabe2Src"
+            :alt="kifuwarabe2Alt"
+            :name="kifuwarabe2Name"
+            :device="compatibleDevice1Ref?.device">
                 サイトが落ちてるぜ。
-            </div>
-        </div>
+        </talker-balloon>
+
+
         <div class="talk">
             <div class="face-container">
                 <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
@@ -215,6 +263,8 @@ pnpm install</pre>
                 📄 <span class="code-w">package.json</span> ファイルの中のバージョン指定を修正するぜ。
             </div>
         </div>
+
+
         <div class="talk">
             <div class="face-container">
                 <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
@@ -226,6 +276,8 @@ pnpm install</pre>
                 ディレクトリーのパーミッションを<span class="code-w">ubuntu</span>に直すぜ。
             </div>
         </div>
+
+
         <div class="talk">
             <div class="face-container">
                 <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
@@ -237,6 +289,8 @@ pnpm install</pre>
                 Nuxt はなんかルーティングに流儀があんのかな？
             </div>
         </div>
+
+
         <div class="talk">
             <div class="face-container">
                 <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
@@ -247,6 +301,8 @@ pnpm install</pre>
                 <span class="code-w">http://warabenture.com/wara-city/map/</span>なら表示された……。
             </div>
         </div>
+
+
         <div class="talk">
             <div class="face-container">
                 <img src="@/assets/img/202506__character__01-2025-hiyoko-o1o1o0.png" />
@@ -256,6 +312,8 @@ pnpm install</pre>
                 なんでリンクをクリックしたら、<span class="code-w">http</span>を勝手に<span class="code-w">https</span>に変えられてしまうの？
             </div>
         </div>
+
+
         <div class="talk">
             <div class="face-container">
                 <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
@@ -265,17 +323,19 @@ pnpm install</pre>
                 さくらインターネットで簡単に https に対応してくれるサービスとかないかなあ……。
             </div>
         </div>
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-2013-kifuwarabe-o1o1o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+
+
+        <talker-balloon
+            :src="kifuwarabe2Src"
+            :alt="kifuwarabe2Alt"
+            :name="kifuwarabe2Name"
+            :device="compatibleDevice1Ref?.device">
                 <span class="font-x2">👇</span>これを読めだぜ。<br/>
                 <br/>
                 <span class="font-x2">📖</span><a target="_blank" href="https://manual.sakura.ad.jp/vps/startupscript/letsencrypt.html">Let's Encrypt</a>
-            </div>
-        </div>
+        </talker-balloon>
+
+
         <div class="talk">
             <div class="face-container">
                 <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
@@ -286,6 +346,8 @@ pnpm install</pre>
                 したくないぜ。
             </div>
         </div>
+
+
         <div class="talk">
             <div class="face-container">
                 <img src="@/assets/img/202506__character__01-2025-hiyoko-o1o1o0.png" />
@@ -295,15 +357,17 @@ pnpm install</pre>
                 スタートアップ時でなくても、今スクリプトを実行することはできないの？
             </div>
         </div>
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-2013-kifuwarabe-o1o1o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+
+
+        <talker-balloon
+            :src="kifuwarabe2Src"
+            :alt="kifuwarabe2Alt"
+            :name="kifuwarabe2Name"
+            :device="compatibleDevice1Ref?.device">
                 無い。OSの再インストールは必須。
-            </div>
-        </div>
+        </talker-balloon>
+
+
         <div class="talk">
             <div class="face-container">
                 <img src="@/assets/img/202506__character__01-2025-hiyoko-o1o1o0.png" />
@@ -313,6 +377,8 @@ pnpm install</pre>
                 Web サーバーを再構築するための手順みたいなものはまとめてないの？
             </div>
         </div>
+
+
         <div class="talk">
             <div class="face-container">
                 <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
@@ -322,17 +388,19 @@ pnpm install</pre>
                 記憶の中にしかない……。
             </div>
         </div>
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-2013-kifuwarabe-o1o1o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+
+
+        <talker-balloon
+            :src="kifuwarabe2Src"
+            :alt="kifuwarabe2Alt"
+            :name="kifuwarabe2Name"
+            :device="compatibleDevice1Ref?.device">
                 ufw によるポートの開放、<br/>
                 nginx の設定ファイル、<br/>
                 他、何がある？
-            </div>
-        </div>
+        </talker-balloon>
+
+
         <div class="talk">
             <div class="face-container">
                 <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
@@ -345,6 +413,8 @@ pnpm install</pre>
                 ディレクトリーのパーミッション設定。
             </div>
         </div>
+
+
         <div class="talk">
             <div class="face-container">
                 <img src="@/assets/img/202506__character__01-2025-hiyoko-o1o1o0.png" />
@@ -354,6 +424,8 @@ pnpm install</pre>
                 git のインストールもあるのかしら？
             </div>
         </div>
+
+
         <div class="talk">
             <div class="face-container">
                 <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
@@ -364,6 +436,8 @@ pnpm install</pre>
                 unlink したというメモ書きは残っている。
             </div>
         </div>
+
+
         <div class="talk">
             <div class="face-container">
                 <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
@@ -373,6 +447,8 @@ pnpm install</pre>
                 しゃあない、やるしかない、OS の再インストールを始めるぜ。
             </div>
         </div>
+
+
         <div class="talk">
             <div class="face-container">
                 <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
@@ -382,15 +458,17 @@ pnpm install</pre>
                 あっ！　さくらのVPSは、Ubuntu 用の Let's Encrypt のスタートアップスクリプトが無いぜ！
             </div>
         </div>
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-2013-kifuwarabe-o1o1o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+
+
+        <talker-balloon
+            :src="kifuwarabe2Src"
+            :alt="kifuwarabe2Alt"
+            :name="kifuwarabe2Name"
+            :device="compatibleDevice1Ref?.device">
                 意味無
-            </div>
-        </div>
+        </talker-balloon>
+
+
         <div class="talk">
             <div class="face-container">
                 <img src="@/assets/img/202506__character__01-2025-hiyoko-o1o1o0.png" />
@@ -400,6 +478,8 @@ pnpm install</pre>
                 自力で Let's Encrypt の設定をするにしても、自動更新のスクリプトも書かないといけなくなるのかしら？
             </div>
         </div>
+
+
         <div class="talk">
             <div class="face-container">
                 <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
@@ -409,6 +489,8 @@ pnpm install</pre>
                 cron を使えってことだろ。
             </div>
         </div>
+
+
         <div class="talk">
             <div class="face-container">
                 <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
@@ -418,15 +500,17 @@ pnpm install</pre>
                 めんどくさ、 Nuxt の方で https に飛ばないようにする方法はないのかだぜ？
             </div>
         </div>
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-2013-kifuwarabe-o1o1o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+
+
+        <talker-balloon
+            :src="kifuwarabe2Src"
+            :alt="kifuwarabe2Alt"
+            :name="kifuwarabe2Name"
+            :device="compatibleDevice1Ref?.device">
                 その設定はもっとめんどくさい。
-            </div>
-        </div>
+        </talker-balloon>
+
+
         <div class="talk">
             <div class="face-container">
                 <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
@@ -436,6 +520,8 @@ pnpm install</pre>
                 くそっ。
             </div>
         </div>
+
+
         <div class="talk">
             <div class="face-container">
                 <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
@@ -445,17 +531,19 @@ pnpm install</pre>
                 じゃあ、SSL証明書、自力で取る。
             </div>
         </div>
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-2013-kifuwarabe-o1o1o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+
+
+        <talker-balloon
+            :src="kifuwarabe2Src"
+            :alt="kifuwarabe2Alt"
+            :name="kifuwarabe2Name"
+            :device="compatibleDevice1Ref?.device">
                 <span class="font-x2">👇</span>これを読めだぜ。<br/>
                 <br/>
                 <span class="font-x2">📖</span><a target="_blank" href="https://savacan.space-i.com/lets-encrypt%E3%81%A7%E7%84%A1%E6%96%99ssl%E8%A8%BC%E6%98%8E%E6%9B%B8%E3%82%92%E5%8F%96%E5%BE%97%E3%81%99%E3%82%8B/">Let’s Encryptで無料SSL証明書を取得する</a>
-            </div>
-        </div>
+        </talker-balloon>
+
+
         <div class="talk">
             <div class="face-container">
                 <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
@@ -468,6 +556,8 @@ pnpm install</pre>
                 <span class="font-x2">📖</span><a target="_blank" href="https://www.ssdnodes.com/blog/install-lets-encrypt-on-ubuntu-certbot-apache-and-nginx/">How To Install Certbot on Ubuntu 24.04: Set Up Let’s Encrypt for Apache and Nginx</a>
             </div>
         </div>
+
+
         <pre class="code-b">
 # Ubuntu 24.04
 # Update packages and install Certbot
@@ -485,6 +575,8 @@ sudo certbot --nginx -d example.com     🌟example.com のところには、SSL
 # Step 3: Configuring Nginx with Let's Encrypt Certificates
 sudo nano /etc/nginx/sites-enabled/default
 </pre>
+
+
         <div class="talk">
             <div class="face-container">
                 <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
@@ -496,6 +588,8 @@ sudo nano /etc/nginx/sites-enabled/default
                 <span class="font-x2">📄</span><span class="code-w">/etc/nginx/sites-enabled/warabenture-2025</span>
             </div>
         </div>
+
+
         <pre class="code-b">
 server {
     listen 80;
@@ -506,6 +600,8 @@ server {
         try_files $uri $uri/ /index.html;
     }
 }</pre>
+
+
         <div class="talk">
             <div class="face-container">
                 <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
@@ -515,6 +611,8 @@ server {
                 <span class="font-x2">👇</span>記事のサンプルは以下の通りだが、既存の設定もあるし……。
             </div>
         </div>
+
+
         <pre class="code-b">
 server {
     listen 80;
@@ -545,6 +643,8 @@ server {
         include fastcgi_params;
     }
 }</pre>
+
+
         <div class="talk">
             <div class="face-container">
                 <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
@@ -556,6 +656,8 @@ server {
                 <span class="font-x2">📄</span><span class="code-w">/etc/nginx/sites-enabled/warabenture-2025</span>
             </div>
         </div>
+
+
         <pre class="code-b">
 server {
     listen 80;
@@ -569,6 +671,8 @@ server {
         try_files $uri $uri/ /index.html;
     }
 }</pre>
+
+
         <div class="talk">
             <div class="face-container">
                 <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
@@ -579,11 +683,15 @@ server {
                 もう作られてるのか？ 次へ。
             </div>
         </div>
+
+
         <pre class="code-b">
 sudo nginx -t
 sudo systemctl restart nginx
 
 Step 4: Verifying Your Let's Encrypt Certificate Information</pre>
+
+
         <div class="talk">
             <div class="face-container">
                 <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
@@ -594,6 +702,8 @@ Step 4: Verifying Your Let's Encrypt Certificate Information</pre>
                 別に何も変わってるようには見えないな……。
             </div>
         </div>
+
+
         <div class="talk">
             <div class="face-container">
                 <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
@@ -606,6 +716,8 @@ Step 4: Verifying Your Let's Encrypt Certificate Information</pre>
                 <span class="code-b">ufw</span> コマンドを使って開けてみるか？
             </div>
         </div>
+
+
         <pre class="code-b">
 sudo ufw status
     Status: inactive
@@ -629,6 +741,8 @@ To                         Action      From
 80 (v6)                    ALLOW       Anywhere (v6)             
 443/tcp (v6)               ALLOW       Anywhere (v6)             
 22 (v6)                    ALLOW       Anywhere (v6)</pre>
+
+
         <div class="talk">
             <div class="face-container">
                 <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
@@ -638,6 +752,8 @@ To                         Action      From
                 これでポートは開いてると思うが、まだダメか。
             </div>
         </div>
+
+
         <pre class="code-b">
 sudo certbot certonly --webroot --webroot-path /var/www/html -m ＜🌟メールアドレス＞ -d warabenture.com --agree-tos -n
     Saving debug log to /var/log/letsencrypt/letsencrypt.log
@@ -646,6 +762,8 @@ sudo certbot certonly --webroot --webroot-path /var/www/html -m ＜🌟メール
     - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     Certificate not yet due for renewal; no action taken.
     - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</pre>
+
+
         <div class="talk">
             <div class="face-container">
                 <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
@@ -656,8 +774,12 @@ sudo certbot certonly --webroot --webroot-path /var/www/html -m ＜🌟メール
                 📄<span class="code-w">privkey.pem</span>や 📄<span class="code-w">fullchain.pem</span> が作られるらしい。
             </div>
         </div>
+
+
         <pre class="code-b">
 sudo systemctl restart nginx</pre>
+
+
         <div class="talk">
             <div class="face-container">
                 <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
@@ -667,6 +789,8 @@ sudo systemctl restart nginx</pre>
                 変わらん。次は Grok に聞いてみるか……。
             </div>
         </div>
+
+
         <pre class="code-b">
 sudo apt update && sudo apt upgrade -y
 sudo apt install certbot python3-certbot-nginx -y
@@ -678,6 +802,8 @@ sudo systemctl status certbot.timer
 sudo certbot renew --dry-run
 sudo ufw status
     🌟 80 と 443 が開いていることを確認する</pre>
+
+
         <div class="talk">
             <div class="face-container">
                 <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
@@ -692,6 +818,8 @@ sudo ufw status
                 設定できてないな。
             </div>
         </div>
+
+
         <div class="talk">
             <div class="face-container">
                 <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
@@ -701,6 +829,8 @@ sudo ufw status
                 Grok に聞いてみるか。
             </div>
         </div>
+
+
         <pre class="code-b">
 🌟80の分から、SSLの記述を削除。
 server {
@@ -727,6 +857,8 @@ server {
         try_files $uri $uri/ /index.html;
     }
 }</pre><br/>
+
+
         <pre class="code-b">
 sudo nginx -t
 sudo systemctl reload nginx
@@ -742,5 +874,65 @@ sudo certbot --nginx -d warabenture.com -d www.warabenture.com
                 通った。nginxの設定は、80 と 443 の２つ書く必要があったのか。
             </div>
         </div>
+
+
     </section>
 </template>
+
+<script setup lang="ts">
+
+    // ##############
+    // # インポート #
+    // ##############
+
+    // ++++++++++++++++++
+    // + コンポーネント +
+    // ++++++++++++++++++
+
+    import TalkerBalloon from '../../../components/TalkerBalloon.vue';
+
+    // ++++++++++++++++++++++++++++++++++
+    // + コンポーネント　＞　互換性対応 +
+    // ++++++++++++++++++++++++++++++++++
+
+    import CompatibleDevice from '../../../components/CompatibleDevice.vue'
+
+
+    // ##########
+    // # コモン #
+    // ##########
+    //
+    // よく使う設定をまとめたもの。特に不変のもの。
+    //
+
+    import oton1Src from "@/assets/img/202101__character__24-o2o2o3o0.png";
+    const oton1Alt = "きふわらべのお父ん１";
+    const oton1Name = "きふわらべのお父ん";
+    import oton2Src from "@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png";
+    const oton2Alt = "きふわらべのお父ん２";
+    const oton2Name = "きふわらべのお父ん";
+    import kifuwarabe1Src from "@/assets/img/202101__character__28-kifuwarabe-futsu-o2o0.png";
+    const kifuwarabe1Alt = "きふわらべ１";
+    const kifuwarabe1Name = "きふわらべ";
+    import kifuwarabe2Src from "@/assets/img/202506__character__01-2013-kifuwarabe-o1o1o0.png";
+    const kifuwarabe2Alt = "きふわらべ２";
+    const kifuwarabe2Name = "きふわらべ";
+    import hiyoko1Src from "@/assets/img/202108__character__12-ohkina-hiyoko-futsu2-o2o0.png";
+    const hiyoko1Alt = "ひよこ１";
+    const hiyoko1Name = "ひよこ";
+    import hiyoko2Src from "@/assets/img/202506__character__01-2025-hiyoko-o1o1o0.png";
+    const hiyoko2Alt = "ひよこ２";
+    const hiyoko2Name = "ひよこ";
+
+
+    // ################
+    // # オブジェクト #
+    // ################
+
+    // ++++++++++++++++++++++++++++++++++
+    // + オブジェクト　＞　装置の互換性 +
+    // ++++++++++++++++++++++++++++++++++
+
+    const compatibleDevice1Ref = ref<InstanceType<typeof CompatibleDevice> | null>(null);
+
+</script>

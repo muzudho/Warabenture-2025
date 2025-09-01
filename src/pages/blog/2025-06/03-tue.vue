@@ -1,16 +1,22 @@
 <template>
+
+    <!-- デバイス互換機能 -->
+    <compatible-device ref="compatibleDevice1Ref"/>
+
     <h3>[2025-06-03_Tue]</h3>
     <section class="sec-3">
-        <div class="talk">
-        <div class="face-container">
-            <img src="@/assets/img/202506__character__01-2013-kifuwarabe-o1o1o0.png" />
-        </div>
-        <div class="baloon-tail"></div>
-        <div class="baloon">
+
+
+        <talker-balloon
+            :src="kifuwarabe1Src"
+            :alt="kifuwarabe1Alt"
+            :name="kifuwarabe1Name"
+            :device="compatibleDevice1Ref?.device">
             昨日と話しは変わって、課題No.2だぜ。<br>
             ディレクトリーを指定したら、その直下のファイル名を一覧してくれるアプリを作ってくれだぜ。
-        </div>
-        </div>
+        </talker-balloon>
+
+
         <div class="talk">
         <div class="face-container">
             <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
@@ -21,6 +27,8 @@
             ［ファイルの一覧］と、その表示を更新する［表示］ボタンがあればいいかだぜ。
         </div>
         </div>
+
+
         <div class="talk">
         <div class="face-container">
             <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
@@ -30,6 +38,8 @@
             今日のキャパシティ（作業に使える時間）は 6 とするぜ。
         </div>
         </div>
+
+
         <div class="talk">
         <div class="face-container">
             <img src="@/assets/img/202506__character__01-2025-hiyoko-o1o1o0.png" />
@@ -41,9 +51,13 @@
             調査を重めに見て、エフォート（作業にかかる時間見積）は 2 ってところねえ。
         </div>
         </div>
+
+
         <a target="_blank" href="/img/journal/2025-06//202506__program__03-1049-tauri-o2o1o0.png">
         <img class="scr-shot" src="/img/journal/2025-06/202506__program__03-1049-tauri-o2o1o0.png">
         </a><br/>
+
+
         <div class="talk">
         <div class="face-container">
             <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
@@ -53,9 +67,13 @@
             👆 昨日作ったプログラムから、<span class="code-b">.git</span>と<span class="code-b">node_modules</span>以外のフォルダーとファイルをコピーするぜ。
         </div>
         </div>
+
+
         <a target="_blank" href="/img/journal/2025-06/202506__program__03-1056-tauri-o2o2o0-mark.png">
         <img class="scr-shot" src="/img/journal/2025-06/202506__program__03-1056-tauri-o2o2o0-mark.png">
         </a><br/>
+
+
         <div class="talk">
         <div class="face-container">
             <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
@@ -65,9 +83,13 @@
             👆 📁<span class="code-b">file-list-on-tauri</span>を作って、中身を貼り付け。
         </div>
         </div>
+
+
         <a target="_blank" href="/img/journal/2025-06/202506__program__03-1109-tauri-o2o3o0-mark.png">
         <img class="scr-shot" src="/img/journal/2025-06/202506__program__03-1109-tauri-o2o3o0-mark.png">
         </a><br/>
+
+
         <div class="talk">
         <div class="face-container">
             <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
@@ -77,10 +99,16 @@
             👆 そのフォルダーを VSCode で開くぜ。
         </div>
         </div>
+
+
         <a target="_blank" href="/img/journal/2025-06/202506__program__03-1127-tauri-o2o4o0-mark.png">
         <img class="scr-shot" src="/img/journal/2025-06/202506__program__03-1127-tauri-o2o4o0-mark.png">
         </a><br/>
+
+
         <div class="code-b">git init</div><br>
+
+
         <div class="talk">
         <div class="face-container">
             <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
@@ -92,7 +120,11 @@
             これでローカルＰＣに［ローカル・リポジトリー］を作った。
         </div>
         </div>
+
+
         <div class="code-b">git add .</div><br>
+
+
         <div class="talk">
         <div class="face-container">
             <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
@@ -104,7 +136,11 @@
             これで、全てのファイルを［ステージ］に上げた。
         </div>
         </div>
+
+
         <div class="code-b">git commit -m "Initial commit"</div><br>
+
+
         <div class="talk">
         <div class="face-container">
             <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
@@ -116,9 +152,13 @@
             コミットってのはファイルを置いたぐらいの感覚を持っていればいい。
         </div>
         </div>
+
+
         <a target="_blank" href="/img/journal/2025-06/202506__program__03-1140-tauri-o2o5o0-mark.png">
         <img class="scr-shot" src="/img/journal/2025-06/202506__program__03-1140-tauri-o2o5o0-mark.png">
         </a><br/>
+
+
         <div class="talk">
         <div class="face-container">
             <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
@@ -129,14 +169,20 @@
             ［ローカル・リポジトリー］との紐付け方法の説明が書いてあるぜ。
         </div>
         </div>
+
+
         <a target="_blank" href="/img/journal/2025-06/202506__program__03-1146-tauri-o2o6o0-mark.png">
             <img class="scr-shot" src="/img/journal/2025-06/202506__program__03-1146-tauri-o2o6o0-mark.png">
         </a><br/>
+
+
         <div class="code-b">
             git remote add origin https://github.com/muzudho/file-list-on-tauri.git<br>
             git branch -M main<br>
             git push -u origin main<br>
         </div><br>
+
+
         <div class="talk">
             <div class="face-container">
                 <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
@@ -147,9 +193,13 @@
                 ［ブランチ］を選び、そこへ［ローカル・リポジトリー］のファイルをプッシュしたぜ。
             </div>
         </div>
+
+
         <a target="_blank" href="/img/journal/2025-06/202506__program__03-1150-tauri-o2o7o0.png">
         <img class="scr-shot" src="/img/journal/2025-06/202506__program__03-1150-tauri-o2o7o0.png">
         </a><br/>
+
+
         <div class="talk">
         <div class="face-container">
             <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
@@ -159,9 +209,13 @@
             👆 これで、［リモート・リポジトリー］にソースコードを置けたぜ。
         </div>
         </div>
+
+
         <div class="code-b">
         pnpm install
         </div><br>
+
+
         <div class="talk">
         <div class="face-container">
             <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
@@ -172,9 +226,13 @@
             📁<span class="code-b">node_modules</span> が自動生成されるぜ。
         </div>
         </div>
+
+
         <a target="_blank" href="/img/journal/2025-06/202506__program__03-1215-tauri-o2o8o0-mark.png">
         <img class="scr-shot" src="/img/journal/2025-06/202506__program__03-1215-tauri-o2o8o0-mark.png">
         </a><br/>
+
+
         <div class="talk">
         <div class="face-container">
             <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
@@ -184,6 +242,8 @@
             👆 続いて、📄<span class="code-w">src-tauri/tauri.conf.json</span>ファイルの内容を編集するぜ。
         </div>
         </div>
+
+
         <div class="talk">
         <div class="face-container">
             <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
@@ -194,9 +254,13 @@
             ［Load］ボタンは［Refresh］とラベルを変えておくぜ。
         </div>
         </div>
+
+
         <div class="code-b">
         pnpm tauri dev
         </div><br>
+
+
         <div class="talk">
         <div class="face-container">
             <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
@@ -208,9 +272,13 @@
             開発モードでデスクトップアプリが起動するぜ。
         </div>
         </div>
+
+
         <a target="_blank" href="/img/journal/2025-06/202506__program__03-1221-tauri-o2o9o0.png">
         <img class="scr-shot" src="/img/journal/2025-06/202506__program__03-1221-tauri-o2o9o0.png">
         </a><br/>
+
+
         <div class="talk">
         <div class="face-container">
             <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
@@ -220,16 +288,18 @@
             👆 こんな感じで、デスクトップアプリのベースをコピーする方法は確立できたな。
         </div>
         </div>
-        <div class="talk">
-        <div class="face-container">
-            <img src="@/assets/img/202506__character__01-2013-kifuwarabe-o1o1o0.png" />
-        </div>
-        <div class="baloon-tail"></div>
-        <div class="baloon">
+
+
+        <talker-balloon
+            :src="kifuwarabe1Src"
+            :alt="kifuwarabe1Alt"
+            :name="kifuwarabe1Name"
+            :device="compatibleDevice1Ref?.device">
             じゃあ、とりあえず、そのテキストボックスに<br>
             指定のディレクトリーの直下にあるファイル名を一覧してくれだぜ。
-        </div>
-        </div>
+        </talker-balloon>
+
+
         <div class="talk">
         <div class="face-container">
             <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
@@ -240,9 +310,13 @@
             バックエンドの Tauri フレームワークを使うんだろな、なら言語は Rust か？
         </div>
         </div>
+
+
         <a target="_blank" href="/img/journal/2025-06/202506__program__03-1922-tauri-o2oA10o0.png">
         <img class="scr-shot" src="/img/journal/2025-06/202506__program__03-1922-tauri-o2oA10o0.png">
         </a><br/>
+
+
         <div class="talk">
         <div class="face-container">
             <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
@@ -253,9 +327,13 @@
             Rust で定義している、ファイル一覧を読取る<span class="code-b">get_file_names</span>関数を TpyeScript 側から呼び出しているぜ。
         </div>
         </div>
+
+
         <a target="_blank" href="/img/journal/2025-06/202506__program__03-1928-tauri-o2oA11o0.png">
         <img class="scr-shot" src="/img/journal/2025-06/202506__program__03-1928-tauri-o2oA11o0.png">
         </a><br/>
+
+
         <div class="talk">
         <div class="face-container">
             <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
@@ -266,9 +344,13 @@
             <span class="code-b">invoke_handler</span>ってあたりに関数の名前を追加するのを忘れてはいけないぜ。
         </div>
         </div>
+
+
         <a target="_blank" href="/img/journal/2025-06/202506__program__03-1937-tauri-o2oA12o0.png">
         <img class="scr-shot" src="/img/journal/2025-06/202506__program__03-1937-tauri-o2oA12o0.png">
         </a><br/>
+
+
         <div class="talk">
         <div class="face-container">
             <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
@@ -278,15 +360,17 @@
             👆 ファイル名の一覧をカンマ区切りで取れたぜ。
         </div>
         </div>
-        <div class="talk">
-        <div class="face-container">
-            <img src="@/assets/img/202506__character__01-2013-kifuwarabe-o1o1o0.png" />
-        </div>
-        <div class="baloon-tail"></div>
-        <div class="baloon">
+
+
+        <talker-balloon
+            :src="kifuwarabe1Src"
+            :alt="kifuwarabe1Alt"
+            :name="kifuwarabe1Name"
+            :device="compatibleDevice1Ref?.device">
             リストボックスに入れてくれだぜ。
-        </div>
-        </div>
+        </talker-balloon>
+
+
         <div class="talk">
         <div class="face-container">
             <img src="@/assets/img/202506__character__01-2025-hiyoko-o1o1o0.png" />
@@ -297,15 +381,17 @@
             残りは 2 よ。
         </div>
         </div>
-        <div class="talk">
-        <div class="face-container">
-            <img src="@/assets/img/202506__character__01-2013-kifuwarabe-o1o1o0.png" />
-        </div>
-        <div class="baloon-tail"></div>
-        <div class="baloon">
+
+
+        <talker-balloon
+            :src="kifuwarabe1Src"
+            :alt="kifuwarabe1Alt"
+            :name="kifuwarabe1Name"
+            :device="compatibleDevice1Ref?.device">
             なんでそんなに速く消費してしまったんだぜ？
-        </div>
-        </div>
+        </talker-balloon>
+
+
         <div class="talk">
         <div class="face-container">
             <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
@@ -315,6 +401,8 @@
             まあ、コード書いたが動かないとか、動かない理由の調査とか、思ったよりしてるしな。
         </div>
         </div>
+
+
         <div class="code-b">
         &lt;script setup lang="ts"&gt;<br>
         &nbsp;&nbsp;&nbsp;&nbsp;const itemsVM = ref(["apple", "banana", "cherry"]);<br>
@@ -326,6 +414,8 @@
         &nbsp;&nbsp;&nbsp;&nbsp;&lt;/select&gt;<br>
         &lt;/template&gt;<br>
         </div><br>
+
+
         <div class="talk">
         <div class="face-container">
             <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
@@ -335,9 +425,13 @@
             👆 リストボックスに項目を並べる考え方は、上記のコードで示したぜ。
         </div>
         </div>
+
+
         <a target="_blank" href="/img/journal/2025-06/202506__program__03-2035-tauri-o2oA13o0.png">
         <img class="scr-shot" src="/img/journal/2025-06/202506__program__03-2035-tauri-o2oA13o0.png">
         </a><br/>
+
+
         <div class="talk">
         <div class="face-container">
             <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
@@ -347,9 +441,13 @@
             👆 じゃあ、ソースコードは上記な感じで更新。
         </div>
         </div>
+
+
         <a target="_blank" href="/img/journal/2025-06/202506__program__03-2049-tauri-o2oA14o0.png">
         <img class="scr-shot" src="/img/journal/2025-06/202506__program__03-2049-tauri-o2oA14o0.png">
         </a><br/>
+
+
         <div class="talk">
         <div class="face-container">
             <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
@@ -359,15 +457,17 @@
             👆 よし、リストボックスにファイル名が入ったぜ。
         </div>
         </div>
-        <div class="talk">
-        <div class="face-container">
-            <img src="@/assets/img/202506__character__01-2013-kifuwarabe-o1o1o0.png" />
-        </div>
-        <div class="baloon-tail"></div>
-        <div class="baloon">
+
+
+        <talker-balloon
+            :src="kifuwarabe1Src"
+            :alt="kifuwarabe1Alt"
+            :name="kifuwarabe1Name"
+            :device="compatibleDevice1Ref?.device">
             やったな！　これで課題No.2 もクリアーだぜ！
-        </div>
-        </div>
+        </talker-balloon>
+
+
         <div class="talk">
         <div class="face-container">
             <img src="@/assets/img/202506__character__01-2025-hiyoko-o1o1o0.png" />
@@ -378,5 +478,65 @@
             見積りでは 2 ぐらいだったから、調査に 1.5 倍は取られるってとこねえ。
         </div>
         </div>
-    </section>
+
+
+</section>
 </template>
+
+<script setup lang="ts">
+
+    // ##############
+    // # インポート #
+    // ##############
+
+    // ++++++++++++++++++
+    // + コンポーネント +
+    // ++++++++++++++++++
+
+    import TalkerBalloon from '../../../components/TalkerBalloon.vue';
+
+    // ++++++++++++++++++++++++++++++++++
+    // + コンポーネント　＞　互換性対応 +
+    // ++++++++++++++++++++++++++++++++++
+
+    import CompatibleDevice from '../../../components/CompatibleDevice.vue'
+
+
+    // ##########
+    // # コモン #
+    // ##########
+    //
+    // よく使う設定をまとめたもの。特に不変のもの。
+    //
+
+    import oton1Src from "@/assets/img/202101__character__24-o2o2o3o0.png";
+    const oton1Alt = "きふわらべのお父ん１";
+    const oton1Name = "きふわらべのお父ん";
+    import oton2Src from "@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png";
+    const oton2Alt = "きふわらべのお父ん２";
+    const oton2Name = "きふわらべのお父ん";
+    import kifuwarabe1Src from "@/assets/img/202101__character__28-kifuwarabe-futsu-o2o0.png";
+    const kifuwarabe1Alt = "きふわらべ１";
+    const kifuwarabe1Name = "きふわらべ";
+    import kifuwarabe2Src from "@/assets/img/202506__character__01-2013-kifuwarabe-o1o1o0.png";
+    const kifuwarabe2Alt = "きふわらべ２";
+    const kifuwarabe2Name = "きふわらべ";
+    import hiyoko1Src from "@/assets/img/202108__character__12-ohkina-hiyoko-futsu2-o2o0.png";
+    const hiyoko1Alt = "ひよこ１";
+    const hiyoko1Name = "ひよこ";
+    import hiyoko2Src from "@/assets/img/202506__character__01-2025-hiyoko-o1o1o0.png";
+    const hiyoko2Alt = "ひよこ２";
+    const hiyoko2Name = "ひよこ";
+
+
+    // ################
+    // # オブジェクト #
+    // ################
+
+    // ++++++++++++++++++++++++++++++++++
+    // + オブジェクト　＞　装置の互換性 +
+    // ++++++++++++++++++++++++++++++++++
+
+    const compatibleDevice1Ref = ref<InstanceType<typeof CompatibleDevice> | null>(null);
+
+</script>
