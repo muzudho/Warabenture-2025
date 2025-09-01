@@ -425,36 +425,3 @@ span.parent-header-lights-out {
 .hidden {
   visibility: hidden;
 }
-
-/* スマホ向けスタイル (画面幅が768px以下) */
-@media screen and (max-width: 768px) {
-    div.talk-face-container-2{
-        width: 96px;
-        height: 128px;
-        margin-right: 8px;
-    }
-    div.talk-name-2 { /* 名前 */
-        padding-left: 0;
-        padding-right: 0;
-        text-align: right;
-        max-width: 96px;
-        font-size: small;
-        color: rgb(var(--v-theme-surface-light));
-    }
-}
-/* パソコン向けスタイル (画面幅が769px以上) */
-@media screen and (min-width: 769px) {
-    div.talk-face-container-2{
-        width: 96px;
-        height: 128px;
-        margin-right: 16px;
-    }
-    div.talk-name-2 { /* 名前 */
-        padding-left: 0;
-        padding-right: 0;
-        text-align: right;
-        max-width: 96px;
-        font-size: small;
-        color: rgb(var(--v-theme-surface-light));
-    }
-}

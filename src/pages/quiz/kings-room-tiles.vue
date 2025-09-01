@@ -45,7 +45,7 @@
             :style="illustration1Style">
         </img>
         <v-row>
-            <v-col cols="2" class="talk-name">勇者キフワラニャン</v-col>
+            <v-col cols="2" class="talk-name-novel">勇者キフワラニャン</v-col>
             <v-col cols="1" class="talk-quot">「</v-col>
             <v-col>
                 わたしは勇者キフワラニャン、<br/>
@@ -67,7 +67,7 @@
         <br/>
 
         <v-row>
-            <v-col cols="2" class="talk-name">パペポ一世</v-col>
+            <v-col cols="2" class="talk-name-novel">パペポ一世</v-col>
             <v-col cols="1" class="talk-quot">「</v-col>
             <v-col>
                 おお、よく来た勇者キフワラニャン！<br/>

@@ -5,7 +5,7 @@
                 :src="props.src"
                 :alt="props.alt"
                 :style="illustration1FaceStyle2(deviceExact)" />
-            <div class="talk-name-2">{{ props.name }}</div>
+            <div class="talk-name-balloon">{{ props.name }}</div>
         </div>
         <div class="baloon-tail"></div>
         <div class="baloon">
