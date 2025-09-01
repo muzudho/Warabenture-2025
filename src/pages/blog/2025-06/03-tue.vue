@@ -17,27 +17,23 @@
         </talker-balloon>
 
 
-        <div class="talk">
-        <div class="face-container">
-            <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-        </div>
-        <div class="baloon-tail"></div>
-        <div class="baloon">
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
             じゃあ、ファイルパスを入れるテキストボックスと、ファイル選択ダイアログボックスを開くボタン、<br>
             ［ファイルの一覧］と、その表示を更新する［表示］ボタンがあればいいかだぜ。
-        </div>
-        </div>
+        </talker-balloon>
 
 
-        <div class="talk">
-        <div class="face-container">
-            <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-        </div>
-        <div class="baloon-tail"></div>
-        <div class="baloon">
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
             今日のキャパシティ（作業に使える時間）は 6 とするぜ。
-        </div>
-        </div>
+        </talker-balloon>
 
 
         <talker-balloon
@@ -56,15 +52,13 @@
         </a><br/>
 
 
-        <div class="talk">
-        <div class="face-container">
-            <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-        </div>
-        <div class="baloon-tail"></div>
-        <div class="baloon">
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
             👆 昨日作ったプログラムから、<span class="code-b">.git</span>と<span class="code-b">node_modules</span>以外のフォルダーとファイルをコピーするぜ。
-        </div>
-        </div>
+        </talker-balloon>
 
 
         <a target="_blank" href="/img/journal/2025-06/202506__program__03-1056-tauri-o2o2o0-mark.png">
@@ -72,15 +66,13 @@
         </a><br/>
 
 
-        <div class="talk">
-        <div class="face-container">
-            <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-        </div>
-        <div class="baloon-tail"></div>
-        <div class="baloon">
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
             👆 📁<span class="code-b">file-list-on-tauri</span>を作って、中身を貼り付け。
-        </div>
-        </div>
+        </talker-balloon>
 
 
         <a target="_blank" href="/img/journal/2025-06/202506__program__03-1109-tauri-o2o3o0-mark.png">
@@ -88,15 +80,13 @@
         </a><br/>
 
 
-        <div class="talk">
-        <div class="face-container">
-            <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-        </div>
-        <div class="baloon-tail"></div>
-        <div class="baloon">
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
             👆 そのフォルダーを VSCode で開くぜ。
-        </div>
-        </div>
+        </talker-balloon>
 
 
         <a target="_blank" href="/img/journal/2025-06/202506__program__03-1127-tauri-o2o4o0-mark.png">
@@ -107,49 +97,43 @@
         <div class="code-b">git init</div><br>
 
 
-        <div class="talk">
-        <div class="face-container">
-            <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-        </div>
-        <div class="baloon-tail"></div>
-        <div class="baloon">
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
             👆 （パワーシェルではなくて）コマンドプロンプトを開いて、上記のコマンドを打鍵するぜ。<br>
             これにより、カレントディレクトリーに 📁<span class="code-b">.git</span>っていう隠しフォルダーが作成されるぜ。<br>
             これでローカルＰＣに［ローカル・リポジトリー］を作った。
-        </div>
-        </div>
+        </talker-balloon>
 
 
         <div class="code-b">git add .</div><br>
 
 
-        <div class="talk">
-        <div class="face-container">
-            <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-        </div>
-        <div class="baloon-tail"></div>
-        <div class="baloon">
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
             👆 続いて、上記のコマンドを打鍵するぜ。<br>
             LF を CRLF に変更するぞ、とか改行の変更の警告も出ているがまあいいだろう。<br>
             これで、全てのファイルを［ステージ］に上げた。
-        </div>
-        </div>
+        </talker-balloon>
 
 
         <div class="code-b">git commit -m "Initial commit"</div><br>
 
 
-        <div class="talk">
-        <div class="face-container">
-            <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-        </div>
-        <div class="baloon-tail"></div>
-        <div class="baloon">
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
             👆 続いて、上記のコマンドを打鍵するぜ。<br>
             ［ステージ］にあったファイルを［ローカル・リポジトリー］へコミットした。<br>
             コミットってのはファイルを置いたぐらいの感覚を持っていればいい。
-        </div>
-        </div>
+        </talker-balloon>
 
 
         <a target="_blank" href="/img/journal/2025-06/202506__program__03-1140-tauri-o2o5o0-mark.png">
@@ -157,16 +141,14 @@
         </a><br/>
 
 
-        <div class="talk">
-        <div class="face-container">
-            <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-        </div>
-        <div class="baloon-tail"></div>
-        <div class="baloon">
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
             👆 続いて、Git Hub で、初期ファイルは何もなしで<span class="code-w">file-list-on-tauri</span>リモート・リポジトリーを新規作成、<br>
             ［ローカル・リポジトリー］との紐付け方法の説明が書いてあるぜ。
-        </div>
-        </div>
+        </talker-balloon>
 
 
         <a target="_blank" href="/img/journal/2025-06/202506__program__03-1146-tauri-o2o6o0-mark.png">
@@ -181,16 +163,14 @@
         </div><br>
 
 
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
                 👆 上記のコマンドを打鍵するぜ。［ローカル・リポジトリー］に［リモート・リポジトリー］の場所を教えて、<br>
                 ［ブランチ］を選び、そこへ［ローカル・リポジトリー］のファイルをプッシュしたぜ。
-            </div>
-        </div>
+        </talker-balloon>
 
 
         <a target="_blank" href="/img/journal/2025-06/202506__program__03-1150-tauri-o2o7o0.png">
@@ -198,15 +178,13 @@
         </a><br/>
 
 
-        <div class="talk">
-        <div class="face-container">
-            <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-        </div>
-        <div class="baloon-tail"></div>
-        <div class="baloon">
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
             👆 これで、［リモート・リポジトリー］にソースコードを置けたぜ。
-        </div>
-        </div>
+        </talker-balloon>
 
 
         <div class="code-b">
@@ -214,16 +192,14 @@
         </div><br>
 
 
-        <div class="talk">
-        <div class="face-container">
-            <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-        </div>
-        <div class="baloon-tail"></div>
-        <div class="baloon">
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
             👆 続いて、上記のコマンドを打鍵。<br>
             📁<span class="code-b">node_modules</span> が自動生成されるぜ。
-        </div>
-        </div>
+        </talker-balloon>
 
 
         <a target="_blank" href="/img/journal/2025-06/202506__program__03-1215-tauri-o2o8o0-mark.png">
@@ -231,27 +207,22 @@
         </a><br/>
 
 
-        <div class="talk">
-        <div class="face-container">
-            <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-        </div>
-        <div class="baloon-tail"></div>
-        <div class="baloon">
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
             👆 続いて、📄<span class="code-w">src-tauri/tauri.conf.json</span>ファイルの内容を編集するぜ。
-        </div>
-        </div>
+        </talker-balloon>
 
-
-        <div class="talk">
-        <div class="face-container">
-            <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-        </div>
-        <div class="baloon-tail"></div>
-        <div class="baloon">
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
             また、 📄<span class="code-w">src/App.vue</span>ファイルから［Save］機能を削除し、<br>
             ［Load］ボタンは［Refresh］とラベルを変えておくぜ。
-        </div>
-        </div>
+        </talker-balloon>
 
 
         <div class="code-b">
@@ -259,17 +230,15 @@
         </div><br>
 
 
-        <div class="talk">
-        <div class="face-container">
-            <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-        </div>
-        <div class="baloon-tail"></div>
-        <div class="baloon">
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
             👆 続いて、上記のコマンドを打鍵。<br>
             数分待てだぜ。<br>
             開発モードでデスクトップアプリが起動するぜ。
-        </div>
-        </div>
+        </talker-balloon>
 
 
         <a target="_blank" href="/img/journal/2025-06/202506__program__03-1221-tauri-o2o9o0.png">
@@ -277,15 +246,13 @@
         </a><br/>
 
 
-        <div class="talk">
-        <div class="face-container">
-            <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-        </div>
-        <div class="baloon-tail"></div>
-        <div class="baloon">
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
             👆 こんな感じで、デスクトップアプリのベースをコピーする方法は確立できたな。
-        </div>
-        </div>
+        </talker-balloon>
 
 
         <talker-balloon
@@ -298,16 +265,14 @@
         </talker-balloon>
 
 
-        <div class="talk">
-        <div class="face-container">
-            <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-        </div>
-        <div class="baloon-tail"></div>
-        <div class="baloon">
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
             ファイル名を調べるのとか、フロントの機能じゃないだろうから、<br>
             バックエンドの Tauri フレームワークを使うんだろな、なら言語は Rust か？
-        </div>
-        </div>
+        </talker-balloon>
 
 
         <a target="_blank" href="/img/journal/2025-06/202506__program__03-1922-tauri-o2oA10o0.png">
@@ -315,16 +280,14 @@
         </a><br/>
 
 
-        <div class="talk">
-        <div class="face-container">
-            <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-        </div>
-        <div class="baloon-tail"></div>
-        <div class="baloon">
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
             👆 とりあえず、テンプレートを上記のように変更。<br>
             Rust で定義している、ファイル一覧を読取る<span class="code-b">get_file_names</span>関数を TpyeScript 側から呼び出しているぜ。
-        </div>
-        </div>
+        </talker-balloon>
 
 
         <a target="_blank" href="/img/journal/2025-06/202506__program__03-1928-tauri-o2oA11o0.png">
@@ -332,16 +295,14 @@
         </a><br/>
 
 
-        <div class="talk">
-        <div class="face-container">
-            <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-        </div>
-        <div class="baloon-tail"></div>
-        <div class="baloon">
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
             👆 Rust 言語の方に、ファイル名一覧を読取る関数を追加。<br>
             <span class="code-b">invoke_handler</span>ってあたりに関数の名前を追加するのを忘れてはいけないぜ。
-        </div>
-        </div>
+        </talker-balloon>
 
 
         <a target="_blank" href="/img/journal/2025-06/202506__program__03-1937-tauri-o2oA12o0.png">
@@ -349,15 +310,13 @@
         </a><br/>
 
 
-        <div class="talk">
-        <div class="face-container">
-            <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-        </div>
-        <div class="baloon-tail"></div>
-        <div class="baloon">
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
             👆 ファイル名の一覧をカンマ区切りで取れたぜ。
-        </div>
-        </div>
+        </talker-balloon>
 
 
         <talker-balloon
@@ -388,15 +347,13 @@
         </talker-balloon>
 
 
-        <div class="talk">
-        <div class="face-container">
-            <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-        </div>
-        <div class="baloon-tail"></div>
-        <div class="baloon">
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
             まあ、コード書いたが動かないとか、動かない理由の調査とか、思ったよりしてるしな。
-        </div>
-        </div>
+        </talker-balloon>
 
 
         <div class="code-b">
@@ -412,15 +369,13 @@
         </div><br>
 
 
-        <div class="talk">
-        <div class="face-container">
-            <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-        </div>
-        <div class="baloon-tail"></div>
-        <div class="baloon">
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
             👆 リストボックスに項目を並べる考え方は、上記のコードで示したぜ。
-        </div>
-        </div>
+        </talker-balloon>
 
 
         <a target="_blank" href="/img/journal/2025-06/202506__program__03-2035-tauri-o2oA13o0.png">
@@ -428,15 +383,13 @@
         </a><br/>
 
 
-        <div class="talk">
-        <div class="face-container">
-            <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-        </div>
-        <div class="baloon-tail"></div>
-        <div class="baloon">
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
             👆 じゃあ、ソースコードは上記な感じで更新。
-        </div>
-        </div>
+        </talker-balloon>
 
 
         <a target="_blank" href="/img/journal/2025-06/202506__program__03-2049-tauri-o2oA14o0.png">
@@ -444,15 +397,13 @@
         </a><br/>
 
 
-        <div class="talk">
-        <div class="face-container">
-            <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-        </div>
-        <div class="baloon-tail"></div>
-        <div class="baloon">
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
             👆 よし、リストボックスにファイル名が入ったぜ。
-        </div>
-        </div>
+        </talker-balloon>
 
 
         <talker-balloon

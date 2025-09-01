@@ -16,15 +16,13 @@
         </talker-balloon>
 
 
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
                 全くだぜ。
-            </div>
-        </div>
+        </talker-balloon>
 
 
         <talker-balloon
@@ -42,38 +40,32 @@
         </a><br/>
 
 
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
                 <span class="font-x2">👆</span> じゃあ 📄<span class="code-w">file-list-on-tauri</span>リポジトリーから自動生成ファイルを削除して、それ以外をコピーした、<br>
                 📄<span class="code-w">csv-cleaning-on-tauri</span>リポジトリーを作るぜ。
-            </div>
-        </div>
+        </talker-balloon>
 
 
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
                 <span class="code-b">git init</span>コマンドを使った操作は、[2025-06-03_Tue] の日記を読んでくれだぜ。
-            </div>
-        </div>
+        </talker-balloon>
 
 
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
                 今日は途中で終了。
-            </div>
-        </div>
+        </talker-balloon>
 
         
     </section>

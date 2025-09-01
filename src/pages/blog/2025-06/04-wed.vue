@@ -7,15 +7,13 @@
     <section class="sec-3">
 
 
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
                 👇 今日は Grok に聞いて、コードのワーニングを掃除しただけだぜ。
-            </div>
-        </div>
+        </talker-balloon>
 
 
         <a target="_blank" href="/img/journal/2025-06/202506__program__04-2248-tauri-o2oA15o0.png">
@@ -28,26 +26,22 @@
         </a><br/>
 
 
-        <div class="talk">
-        <div class="face-container">
-            <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-        </div>
-        <div class="baloon-tail"></div>
-        <div class="baloon">
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
             👆 変数名、関数名を<span class="code-b">snake_case</span>から<span class="code-b">camelCase</span>に変えたぜ。
-        </div>
-        </div>
+        </talker-balloon>
 
 
-        <div class="talk">
-        <div class="face-container">
-            <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-        </div>
-        <div class="baloon-tail"></div>
-        <div class="baloon">
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
             👆 Rust で作った関数の戻り値を、TypeScript 側できっちり受け取れるように修正したぜ。
-        </div>
-        </div>
+        </talker-balloon>
 
     </section>
 </template>

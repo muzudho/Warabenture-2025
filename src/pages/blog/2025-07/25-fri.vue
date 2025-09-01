@@ -12,15 +12,13 @@
         </a><br/>
 
 
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
                 <span class="font-x2">👆</span>Vuetify3 に置き換え中なんだが、レイアウトがスカスカになってしまう……
-            </div>
-        </div>
+        </talker-balloon>
 
 
         <talker-balloon
@@ -37,15 +35,13 @@
         </a><br/>
 
 
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
                 <span class="font-x2">👆</span>がんばって隙間を詰めてもこれぐらい。
-            </div>
-        </div>
+        </talker-balloon>
 
 
         <talker-balloon
@@ -57,15 +53,13 @@
         </talker-balloon>
 
 
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
                 次は、さっきのアプリをコピーして、わらシティを作ろう。
-            </div>
-        </div>
+        </talker-balloon>
 
 
         <a target="_blank" href="/img/journal/2025-07/202507__warabenture__25-1749-waraCity-o1o0.png">
@@ -82,37 +76,31 @@
         </talker-balloon>
 
 
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
                 スーパー・ファミコン版のシム・シティのパクリを作るんだぜ。
-            </div>
-        </div>
+        </talker-balloon>
 
 
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
                 さっそくこれを、ワラベンチャーのホームページ、つまりここにも移植しよう。
-            </div>
-        </div>
+        </talker-balloon>
 
 
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
                 あれっ？　画像が表示されない？
-            </div>
-        </div>
+        </talker-balloon>
 
 
         <talker-balloon
@@ -124,16 +112,14 @@
         </talker-balloon>
 
 
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
                 HTML のソースに &ltv-img&gt タグがそのまんま出力されてる……、<br/>
                 Nuxt に Vuetify3 が連携されていないんだ。
-            </div>
-        </div>
+        </talker-balloon>
 
 
         <talker-balloon
@@ -145,17 +131,15 @@
         </talker-balloon>
 
 
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
                 <span class="font-x2">👇</span>以下の記事を頼りに Nuxt と Vuetify3 を連携する。<br/>
                 <br/>
                 <span class="font-x2">📖</span><a target="_blank" href="https://note.com/doui_lab/n/n37a67a01981a">Vue3 + Nuxt3 + Vuetify3 のクイックスタート</a>
-            </div>
-        </div>
+        </talker-balloon>
 
 
         <pre class="code-b">
@@ -164,16 +148,14 @@ pnpm add vuetify@next sass @mdi/font
 pnpm add -D vite-plugin-vuetify</pre>
 
 
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
                 📄 <span class="code-w">nuxt.config.ts</span> を編集。<br/>
                 以下は追加部分。
-            </div>
-        </div>
+        </talker-balloon>
 
 
         <pre class="code-b">
@@ -185,16 +167,14 @@ export default defineNuxtConfig({
 })</pre>
 
 
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
                 📁 <span class="code-w">plugins</span> フォルダーを作成。<br/>
                 📄 <span class="code-w">vuetify.ts</span> ファイルを作成。<br/>
-            </div>
-        </div>
+        </talker-balloon>
 
 
         <pre class="code-b">
@@ -212,32 +192,28 @@ export default defineNuxtPlugin((nuxtApp) => {
 });</pre>
 
 
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
                 以下のコマンドを打鍵。
-            </div>
-        </div>
+        </talker-balloon>
 
 
         <pre class="code-b">
 pnpm install</pre>
 
 
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
                 <span class="font-x2">👇</span>連携できてるかな？<br/>
                 <br/>
                 <span class="font-x2">📖</span><a target="_blank" href="https://warabenture.com/wara-city/map">わらシティ</a>
-            </div>
-        </div>
+        </talker-balloon>
 
 
         <talker-balloon
@@ -249,54 +225,46 @@ pnpm install</pre>
         </talker-balloon>
 
 
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
                 モジュールのバージョンが合ってないと Nuxt は容赦なく落とすらしい。<br/>
                 📄 <span class="code-w">package.json</span> ファイルの中のバージョン指定を修正するぜ。
-            </div>
-        </div>
+        </talker-balloon>
 
 
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
                 なんか sudo で build コマンドを叩いてしまったからか、ディレクトリーのパーミッションが<span class="code-w">root</span>になってて、<br/>
                 アクセス権限がないとかいうエラーが出てた。<br/>
                 ディレクトリーのパーミッションを<span class="code-w">ubuntu</span>に直すぜ。
-            </div>
-        </div>
+        </talker-balloon>
 
 
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
                 <span class="code-w">http://localhost:3000/wara-city/map</span>というパスでは表示されて、<br/>
                 <span class="code-w">https://warabenture.com/wara-city/map</span>というパスでは表示されない、<br/>
                 Nuxt はなんかルーティングに流儀があんのかな？
-            </div>
-        </div>
+        </talker-balloon>
 
 
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
                 <span class="code-w">https://warabenture.com/wara-city/map</span>では表示されないが、<br/>
                 <span class="code-w">http://warabenture.com/wara-city/map/</span>なら表示された……。
-            </div>
-        </div>
+        </talker-balloon>
 
 
         <talker-balloon
@@ -308,15 +276,13 @@ pnpm install</pre>
         </talker-balloon>
 
 
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
                 さくらインターネットで簡単に https に対応してくれるサービスとかないかなあ……。
-            </div>
-        </div>
+        </talker-balloon>
 
 
         <talker-balloon
@@ -330,16 +296,14 @@ pnpm install</pre>
         </talker-balloon>
 
 
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
                 スタートアップ・スクリプトを実行するために、OSの再インストールをしなければならないみたいだぜ、<br/>
                 したくないぜ。
-            </div>
-        </div>
+        </talker-balloon>
 
 
         <talker-balloon
@@ -369,15 +333,13 @@ pnpm install</pre>
         </talker-balloon>
 
 
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
                 記憶の中にしかない……。
-            </div>
-        </div>
+        </talker-balloon>
 
 
         <talker-balloon
@@ -391,18 +353,16 @@ pnpm install</pre>
         </talker-balloon>
 
 
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
                 SSH 接続のための cert 認証ファイル、<br/>
                 ストレージのスケールアップに 5000円ぐらい出した気がするな、そしてそれの設定。<br/>
                 nginx の設定。<br/>
                 ディレクトリーのパーミッション設定。
-            </div>
-        </div>
+        </talker-balloon>
 
 
         <talker-balloon
@@ -414,38 +374,32 @@ pnpm install</pre>
         </talker-balloon>
 
 
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
                 <span class="code-w">/etc/nginx/sites-enabled/default</span> が有効になってるのは問題があったので、<br/>
                 unlink したというメモ書きは残っている。
-            </div>
-        </div>
+        </talker-balloon>
 
 
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
                 しゃあない、やるしかない、OS の再インストールを始めるぜ。
-            </div>
-        </div>
+        </talker-balloon>
 
 
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
                 あっ！　さくらのVPSは、Ubuntu 用の Let's Encrypt のスタートアップスクリプトが無いぜ！
-            </div>
-        </div>
+        </talker-balloon>
 
 
         <talker-balloon
@@ -466,26 +420,22 @@ pnpm install</pre>
         </talker-balloon>
 
 
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
                 cron を使えってことだろ。
-            </div>
-        </div>
+        </talker-balloon>
 
 
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
                 めんどくさ、 Nuxt の方で https に飛ばないようにする方法はないのかだぜ？
-            </div>
-        </div>
+        </talker-balloon>
 
 
         <talker-balloon
@@ -497,26 +447,22 @@ pnpm install</pre>
         </talker-balloon>
 
 
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
                 くそっ。
-            </div>
-        </div>
+        </talker-balloon>
 
 
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
                 じゃあ、SSL証明書、自力で取る。
-            </div>
-        </div>
+        </talker-balloon>
 
 
         <talker-balloon
@@ -530,18 +476,16 @@ pnpm install</pre>
         </talker-balloon>
 
 
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
                 Let's encript を入れるには、<span class="code-w">Certbot</span> というツールをインストールしたらいいらしい。<br/>
                 <span class="font-x2">👇</span>Certbot のインストール方法。<br/>
                 <br/>
                 <span class="font-x2">📖</span><a target="_blank" href="https://www.ssdnodes.com/blog/install-lets-encrypt-on-ubuntu-certbot-apache-and-nginx/">How To Install Certbot on Ubuntu 24.04: Set Up Let’s Encrypt for Apache and Nginx</a>
-            </div>
-        </div>
+        </talker-balloon>
 
 
         <pre class="code-b">
@@ -563,17 +507,15 @@ sudo nano /etc/nginx/sites-enabled/default
 </pre>
 
 
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
                 <span class="font-x2">👇</span>ここで nginx の設定ファイルを書くところだが、既存の設定ファイルは以下の通り。
                 <br/>
                 <span class="font-x2">📄</span><span class="code-w">/etc/nginx/sites-enabled/warabenture-2025</span>
-            </div>
-        </div>
+        </talker-balloon>
 
 
         <pre class="code-b">
@@ -588,15 +530,13 @@ server {
 }</pre>
 
 
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
                 <span class="font-x2">👇</span>記事のサンプルは以下の通りだが、既存の設定もあるし……。
-            </div>
-        </div>
+        </talker-balloon>
 
 
         <pre class="code-b">
@@ -631,17 +571,15 @@ server {
 }</pre>
 
 
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
                 <span class="font-x2">👇</span>こうすればいいのか？<br/>
                 <br/>
                 <span class="font-x2">📄</span><span class="code-w">/etc/nginx/sites-enabled/warabenture-2025</span>
-            </div>
-        </div>
+        </talker-balloon>
 
 
         <pre class="code-b">
@@ -659,16 +597,14 @@ server {
 }</pre>
 
 
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
                 📄 <span class="code-w">fullchain.pem</span> ファイルとか置いてないけど……、<br/>
                 もう作られてるのか？ 次へ。
-            </div>
-        </div>
+        </talker-balloon>
 
 
         <pre class="code-b">
@@ -678,30 +614,26 @@ sudo systemctl restart nginx
 Step 4: Verifying Your Let's Encrypt Certificate Information</pre>
 
 
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
                 これで Let's encrypt の設定が終わってるはずだが、<br/>
                 別に何も変わってるようには見えないな……。
-            </div>
-        </div>
+        </talker-balloon>
 
 
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
                 TCPポート80（HTTP）と、443（HTTPS）を開けておく必要があるようだが、<br/>
                 さくらのVPSのコントロールパネルのパケットフィルターを見ると、どちらも全て許可している。<br/>
                 じゃあ、開いてないのは Ubuntu の方か？<br/>
                 <span class="code-b">ufw</span> コマンドを使って開けてみるか？
-            </div>
-        </div>
+        </talker-balloon>
 
 
         <pre class="code-b">
@@ -729,15 +661,13 @@ To                         Action      From
 22 (v6)                    ALLOW       Anywhere (v6)</pre>
 
 
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
                 これでポートは開いてると思うが、まだダメか。
-            </div>
-        </div>
+        </talker-balloon>
 
 
         <pre class="code-b">
@@ -750,31 +680,27 @@ sudo certbot certonly --webroot --webroot-path /var/www/html -m ＜🌟メール
     - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</pre>
 
 
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
                 <span class="font-x2">👆</span>上のコマンドを入力すると、<br/>
                 📄<span class="code-w">privkey.pem</span>や 📄<span class="code-w">fullchain.pem</span> が作られるらしい。
-            </div>
-        </div>
+        </talker-balloon>
 
 
         <pre class="code-b">
 sudo systemctl restart nginx</pre>
 
 
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
                 変わらん。次は Grok に聞いてみるか……。
-            </div>
-        </div>
+        </talker-balloon>
 
 
         <pre class="code-b">
@@ -790,31 +716,27 @@ sudo ufw status
     🌟 80 と 443 が開いていることを確認する</pre>
 
 
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
                 <span class="font-x2">👇</span>設定は以上なので、設定できているか確認する。<br/>
                 <br/>
                 <span class="font-x2">📖</span><a target="_blank" href="https://www.whynopadlock.com/">https://www.whynopadlock.com/</a><br/>
                 <span class="font-x2">📖</span><a target="_blank" href="https://www.ssllabs.com/ssltest/">https://www.ssllabs.com/ssltest/</a><br/>
                 <br/>
                 設定できてないな。
-            </div>
-        </div>
+        </talker-balloon>
 
 
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
                 Grok に聞いてみるか。
-            </div>
-        </div>
+        </talker-balloon>
 
 
         <pre class="code-b">
@@ -851,16 +773,15 @@ sudo systemctl reload nginx
 sudo certbot install --cert-name warabenture.com --nginx
 sudo certbot --nginx -d warabenture.com -d www.warabenture.com
     🌟 質問されるのでとりあえず 1 を選ぶ</pre>
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
-                通った。nginxの設定は、80 と 443 の２つ書く必要があったのか。
-            </div>
-        </div>
 
+
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
+                通った。nginxの設定は、80 と 443 の２つ書く必要があったのか。
+        </talker-balloon>
 
     </section>
 </template>

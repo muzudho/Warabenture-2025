@@ -7,15 +7,13 @@
     <section class="sec-3">
 
 
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
                 今日は、家の掃除をしたいぜ。
-            </div>
-        </div>
+        </talker-balloon>
 
 
         <talker-balloon
@@ -27,15 +25,13 @@
         </talker-balloon>
 
 
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
                 <span class="font-x2">✅</span> 風呂と洗面所、便器を拭き掃除したぜ。
-            </div>
-        </div>
+        </talker-balloon>
 
 
         <talker-balloon
@@ -47,16 +43,14 @@
         </talker-balloon>
 
 
-        <div class="talk">
-        <div class="face-container">
-            <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-        </div>
-        <div class="baloon-tail"></div>
-        <div class="baloon">
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
             <span class="font-x2">✅</span>風呂に入ってサッパリしたぜ。<br>
             <span class="font-x2">❌</span>お湯を入れていたはずなのに、ぬるま湯になっていたが……
-        </div>
-        </div>
+        </talker-balloon>
 
 
         <talker-balloon
@@ -77,16 +71,14 @@
         </talker-balloon>
 
 
-        <div class="talk">
-        <div class="face-container">
-            <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-        </div>
-        <div class="baloon-tail"></div>
-        <div class="baloon">
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
             <span class="font-x2">✅</span> 昼飯を食べたぜ。<br>
             １時間ぐらいかかった。わりと時間かかるな。
-        </div>
-        </div>
+        </talker-balloon>
 
 
         <talker-balloon
@@ -107,15 +99,13 @@
         </talker-balloon>
 
 
-        <div class="talk">
-        <div class="face-container">
-            <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-        </div>
-        <div class="baloon-tail"></div>
-        <div class="baloon">
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
             <span class="font-x2">✅</span> コーヒーを飲んで歯を磨いたぜ。歯間ブラシも使った。
-        </div>
-        </div>
+        </talker-balloon>
 
 
         <talker-balloon
@@ -129,15 +119,13 @@
         </talker-balloon>
 
 
-        <div class="talk">
-        <div class="face-container">
-            <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-        </div>
-        <div class="baloon-tail"></div>
-        <div class="baloon">
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
             ズボンの裾上げのための裁縫セットってどこに売ってんの？
-        </div>
-        </div>
+        </talker-balloon>
 
 
         <talker-balloon
@@ -149,41 +137,35 @@
         </talker-balloon>
 
 
-        <div class="talk">
-        <div class="face-container">
-            <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-        </div>
-        <div class="baloon-tail"></div>
-        <div class="baloon">
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
             分かったぜ。行ってくるぜ。
-        </div>
-        </div>
+        </talker-balloon>
 
 
-        <div class="talk">
-        <div class="face-container">
-            <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-        </div>
-        <div class="baloon-tail"></div>
-        <div class="baloon">
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
             帰宅なう。<br>
             <span class="font-x2">✅</span>フィットネスジムに行ってきたぜ。<br>
             <span class="font-x2">✅</span>行きしなに漫画本を売ってきたぜ。３０冊ぐらいで 2000 円ぐらいになったぜ。<br>
             <span class="font-x2">🤔</span>しかし、何巻まで買ったかのメモ書きをどこに保管しておくかが問題だぜ。
-        </div>
-        </div>
+        </talker-balloon>
 
 
-        <div class="talk">
-        <div class="face-container">
-            <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-        </div>
-        <div class="baloon-tail"></div>
-        <div class="baloon">
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
             <span class="font-x2">✅</span>帰り際にはソーイングセットを買ってきたぜ。<br>
             ユザワヤでスヌーピーの絵柄が入ったやつだぜ、６，０００円。
-        </div>
-        </div>
+        </talker-balloon>
 
 
         <talker-balloon
@@ -195,15 +177,13 @@
         </talker-balloon>
 
 
-        <div class="talk">
-        <div class="face-container">
-            <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-        </div>
-        <div class="baloon-tail"></div>
-        <div class="baloon">
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
             ３本ぐらい……。
-        </div>
-        </div>
+        </talker-balloon>
 
 
         <talker-balloon

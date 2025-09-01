@@ -12,15 +12,13 @@
         </a><br/>
 
 
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
                 <span class="font-x2">👆</span>前（2025-06-12_Thu）言ってたツールを作ったぜ。
-            </div>
-        </div>
+        </talker-balloon>
 
 
         <talker-balloon
@@ -42,52 +40,46 @@
         </talker-balloon>
 
 
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
                 Grok に尋ねてみると、日本の地図データを無料公開しているのは以下の２つで、<br>
                 <ul>
                     <li><a target="_blank" href="https://www.geospatial.jp/">G空間情報センター</a></li>
                     <li><a target="_blank" href="https://www.gsi.go.jp/">国土地理院の電子国土基本図</a></li>
                 </ul>
-            </div>
-        </div>
-
-
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
-                ［国土地理院］の方は丁目の精度までだから、残るのは［G空間情報センター］の一択だぜ。<br>
-                ［G空間情報センター］の地図データは、精度や形式が揃ったものではなく、バラバラだそうだぜ。
-            </div>
-        </div>
+        </talker-balloon>
 
 
         <talker-balloon
-            :src="hiyoko2Src"
-            :alt="hiyoko2Alt"
-            :name="hiyoko2Name"
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
+                ［国土地理院］の方は丁目の精度までだから、残るのは［G空間情報センター］の一択だぜ。<br>
+                ［G空間情報センター］の地図データは、精度や形式が揃ったものではなく、バラバラだそうだぜ。
+        </talker-balloon>
+
+
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
             :device="compatibleDevice1Ref?.device">
                 この <span class="code-w">.geojson</span> ってファイルは、どんなアプリで開けるの？<br>
                 <a target="_blank" href="https://www.geospatial.jp/ckan/dataset/aigid-moj-11230/resource/00e54419-fb2a-4ea1-aac1-00c8675d9787">11230_新座市_公共座標9系_筆R_2022.geojson</a>
         </talker-balloon>
 
 
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
                 Grok がいくつか知ってたが、とりあえず <a target="_blank" href="https://qgis.org/">QGIS</a> を使ってみるかだぜ。
-            </div>
-        </div>
+        </talker-balloon>
 
 
         <a target="_blank" href="/img/journal/2025-06/202506__screenshot__15-1901-QGIS-o1o0.png">
@@ -95,15 +87,13 @@
         </a><br/>
 
 
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
                 <span class="font-x2">👆</span>あれっ、思ったような地図と違う……。
-            </div>
-        </div>
+        </talker-balloon>
 
 
         <talker-balloon
@@ -115,15 +105,13 @@
         </talker-balloon>
 
 
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
                 使えねー。じゃあ［国土地理院］の方を見てみるか……。
-            </div>
-        </div>
+        </talker-balloon>
 
 
         <a target="_blank" href="/img/journal/2025-06/202506__screenshot__15-1928-国土地理院-o1o0.png">
@@ -131,15 +119,13 @@
         </a><br/>
 
 
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
                 <span class="font-x2">👆</span>この地図をどうやって <span class="code-w">.geojson</span> 形式に変換するんだぜ？
-            </div>
-        </div>
+        </talker-balloon>
 
 
         <talker-balloon
@@ -151,15 +137,13 @@
         </talker-balloon>
 
 
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
                 <span class="code-w">.json</span> 形式では保存できるが、<span class="code-w">.geojson</span> 形式ではなかったぜ。
-            </div>
-        </div>
+        </talker-balloon>
 
 
         <talker-balloon
@@ -194,20 +178,18 @@
         </a><br/>
 
 
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
                 <span class="font-x2">👆</span>じゃあとりあえず、左表から１列取って［名前2］、右表から１列取って［名前1］として、市区町村名を以下の３つのグループに分けるかだぜ。<br>
                 <ul>
                     <li>両表に含まれる市区町村名</li>
                     <li>左表にだけ含まれる市区町村名</li>
                     <li>右表にだけ含まれる市区町村名</li>
                 </ul>
-            </div>
-        </div>
+        </talker-balloon>
 
 
         <a target="_blank" href="/img/journal/2025-06/202506__screenshot__15-2113-２表のJoin2-o1o0.png">
@@ -215,16 +197,14 @@
         </a><br/>
 
 
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
                 <span class="font-x2">👆</span>２列を独立して昇順ソートするかだぜ。<br>
                 浦和の浦がひらがなより文字コードが小さいのが意味わからんが……。
-            </div>
-        </div>
+        </talker-balloon>
 
 
         <a target="_blank" href="/img/journal/2025-06/202506__screenshot__15-2121-２表のJoin3-o1o0.png">
@@ -232,15 +212,13 @@
         </a><br/>
 
 
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
                 <span class="font-x2">👆</span>手で振り分けたぜ。
-            </div>
-        </div>
+        </talker-balloon>
 
 
         <a target="_blank" href="/img/journal/2025-06/202506__screenshot__15-2128-２表のJoin4-o1o0.png">
@@ -248,16 +226,14 @@
         </a><br/>
 
 
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
                 <span class="font-x2">👆</span>手で名前の表記揺れを修正して２行を１行にまとめたりして、<br>
                 そして、［二表仮番］という名前で列を作って、連番を振るぜ。
-            </div>
-        </div>
+        </talker-balloon>
 
 
         <talker-balloon
@@ -269,15 +245,13 @@
         </talker-balloon>
 
 
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
                 そうか、古い列名は残しておいてくれだぜ。
-            </div>
-        </div>
+        </talker-balloon>
 
 
         <talker-balloon
@@ -289,26 +263,22 @@
         </talker-balloon>
 
 
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
                 アプリケーションの名前は <span class="code-w">column-names-sync-on-tauri</span> とかでいいかな。
-            </div>
-        </div>
+        </talker-balloon>
 
 
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
                 あれっ？ Cドライブの残り容量が 5 GB しかない！？
-            </div>
-        </div>
+        </talker-balloon>
 
 
         <talker-balloon
@@ -320,16 +290,14 @@
         </talker-balloon>
 
 
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
                 Grok に対策を聞いてみるか。<br>
                 以下のコードをさくっと実行。
-            </div>
-        </div>
+        </talker-balloon>
 
 
         <div class="code-b">
@@ -340,15 +308,13 @@ cargo clean
         </div>
 
 
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
                 リリースもデバッグもどちらも含めて 14.3 GiB もファイルが消えた……。
-            </div>
-        </div>
+        </talker-balloon>
 
 
         <talker-balloon

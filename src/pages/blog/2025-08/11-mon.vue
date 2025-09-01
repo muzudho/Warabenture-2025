@@ -10,15 +10,13 @@
             <img class="scr-shot" src="/img/journal/2025-08/202508__warabenture__11-2209-pieChart-o1o0.png">
         </a><br/>
 
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
                 <span class="font-x2">👆</span>グロックにコードの書き方を教えてもらって、このウェブサイトのホームページ（起点となるページ）に円グラフを置いてみたぜ。
-            </div>
-        </div>
+        </talker-balloon>
 
         <talker-balloon
             :src="kifuwarabe2Src"
@@ -46,16 +44,14 @@
                 このデザインはグロックではなくて、お父んがやったんだな。
         </talker-balloon>
 
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
                 人間の感性か、あるいは日本人の感性か、こういうネストした見出しに表されるような現在位置情報って、<br/>
                 頭の片隅に追いやって見ないようにした方が美しいと感じるのかもしれないな。
-            </div>
-        </div>
+        </talker-balloon>
 
     </section>
 </template>

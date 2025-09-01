@@ -20,61 +20,61 @@
         <a target="_blank" href="/img/journal/2025-06/202506__teamMirai__09-1610-heatMap16-o1o0.png">
             <img class="scr-shot" src="/img/journal/2025-06/202506__teamMirai__09-1610-heatMap16-o1o0.png">
         </a><br/>
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
                 👆 ヒートマップを作れる。<br>
                 右上の凡例にあるように［以上］での比較だけ利用可能。
-            </div>
-        </div>
+        </talker-balloon>
+
         <a target="_blank" href="/img/journal/2025-06/202506__teamMirai__09-1730-heatMap23-o1o0.png">
             <img class="scr-shot" src="/img/journal/2025-06/202506__teamMirai__09-1730-heatMap23-o1o0.png">
         </a><br/>
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
                 👆 もちろん、表示内容を替えれる。
-            </div>
-        </div>
+        </talker-balloon>
+
         <a target="_blank" href="/img/journal/2025-06/202506__teamMirai__10-0814-heatMap28-o2o0.png">
             <img class="scr-shot" src="/img/journal/2025-06/202506__teamMirai__10-0814-heatMap28-o2o0.png">
         </a><br/>
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
                 👆 もちろん、ワークブックを新しく作って一から編集すれば、別の地図でヒートマップを表示することも可能。
-            </div>
-        </div>
+        </talker-balloon>
+
         <a target="_blank" href="/img/journal/2025-06/202506__teamMirai__09-1729-heatMap22-o1o0.png">
             <img class="scr-shot" src="/img/journal/2025-06/202506__teamMirai__09-1729-heatMap22-o1o0.png">
         </a><br/>
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
                 👆 ごく短い文字数のメモにも使える。
-            </div>
-        </div>
+        </talker-balloon>
+
         <a target="_blank" href="/img/journal/2025-06/202506__teamMirai__09-1750-heatMap25-o1o0.png">
             <img class="scr-shot" src="/img/journal/2025-06/202506__teamMirai__09-1750-heatMap25-o1o0.png">
         </a><br/>
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
                 👆 仕込みとして、<br>
                 この<span class="font-x2">地図</span>を描くとこは、罫線とセル結合を駆使して神エクセル、頑張ってくれだぜ。<br>
                 本来、この市区町村は東西南北に隣り合わせではないんだとか、<br>
@@ -82,46 +82,46 @@
                 <br/>
                 正確さが損なわれる代わりに、それによって、地形の取扱いがシンプルになって、その後の作業の簡便性向上が得られる。<br>
                 トレードオフだぜ。
-            </div>
-        </div>
+        </talker-balloon>
+
         <a target="_blank" href="/img/journal/2025-06/202506__teamMirai__09-1619-heatMap16-o3o0.png">
             <img class="scr-shot" src="/img/journal/2025-06/202506__teamMirai__09-1619-heatMap16-o3o0.png">
         </a><br/>
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
                 👆 地図と<span class="font-x2">データ</span>はワークシートを分けている。<br>
                 データは［e-Stat］の［国勢調査］とかから持ってきてくれだぜ。<br>
                 <a target="_blank" href="https://www.e-stat.go.jp/">https://www.e-stat.go.jp/</a>
-            </div>
-        </div>
+        </talker-balloon>
+
         <a target="_blank" href="/img/journal/2025-06/202506__teamMirai__09-1740-heatMap24-o1o0.png">
             <img class="scr-shot" src="/img/journal/2025-06/202506__teamMirai__09-1740-heatMap24-o1o0.png">
         </a><br/>
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
                 👆 地図とデータを紐づける、いわゆる<span class="font-x2">制御</span>もワークシートが分かれているから、<br>
                 コピペで横展開しやすいように作ってある。<br>
                 使い方はワークブックの中に［手順書_XXXX］ワークシートを入れてあるから、それを読んでくれだぜ。
-            </div>
-        </div>
+        </talker-balloon>
+
     </section>
 
     <h3 id="download">ダウンロードはこちらから</h3>
     <section class="sec-3">
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
                 ［ヒートマップ］神エクセルのダウンロードはこちらから。<br>
                 <br>
                 ↑ New:<br>
@@ -138,53 +138,52 @@
                 <br>
                 （Ver 2.0.0）埼玉：<a href="/products/2025-06/Heat Map 2_0_0 - Saitama[20250609-1638].xlsm"><span class="font-x2">⏬</span>Heat Map 2_0_0 - Saitama[20250609-1638].xlsm</a><br>
                 ↓ Old
-            </div>
-        </div>
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+        </talker-balloon>
+
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
                 オープンソースだぜ。本文書いてないが MIT ライセンスとでもしておいてくれだぜ。<br>
                 ［国勢調査］のデータを含んでるが、あれのライセンスは何なんだろな？
-            </div>
-        </div>
+        </talker-balloon>
+
         <a target="_blank" href="/img/journal/2025-06/202506__teamMirai__09-1657-heatMap20-o1o0-mark.png">
             <img class="scr-shot" src="/img/journal/2025-06/202506__teamMirai__09-1657-heatMap20-o1o0-mark.png">
         </a><br/>
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
                 👆 マクロの入っているエクセル（上図）は、<br>
                 インターネットからダウンロードするとブロックされてるから……。
-            </div>
-        </div>
+        </talker-balloon>
+
         <a target="_blank" href="/img/journal/2025-06/202506__teamMirai__09-1700-heatMap21-o1o0-mark.png">
             <img class="scr-shot" src="/img/journal/2025-06/202506__teamMirai__09-1700-heatMap21-o1o0-mark.png">
         </a><br/>
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
                 👆 ✅チェックしてブロックを外してくれだぜ。
-            </div>
-        </div>
+        </talker-balloon>
+
     </section>
 
     <h3 id="chatting">雑談</h3>
     <section class="sec-3">
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
                 神エクセルだぜ。<br>
                 <br>
                 ヒートマップって何で作るかというと、計画段階でも、末端の現場でも、どちらでも、そこでの判断を助けるためだぜ。<br>
@@ -193,9 +192,7 @@
                 正確さを損ねてでもやる大幅なシンプル化は、時間が有限の中で何かを決断しなければいけない瞬間に<br>
                 結局やることになる。<br>
                 ここまでシンプルにすると、ボードゲームみたいになる。
-            </div>
-        </div>
-
+        </talker-balloon>
 
         <talker-balloon
             :src="kifuwarabe2Src"
@@ -216,16 +213,14 @@
         </talker-balloon>
 
 
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
                 作業効率化や、コミュニケーションのためのスマホを使ったナウいツールは公式の人が用意してくれるだろうから、<br>
                 <span class="font-x2">神エクセルで何でもできるんだ！</span>という人を補助するツールにしていくぜ。
-            </div>
-        </div>
+        </talker-balloon>
 
 
         <talker-balloon
@@ -258,15 +253,13 @@
         </talker-balloon>
 
 
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
                 <span class="font-x2">巻貝が良いんだ！</span>スマホにはついていけないんだ！
-            </div>
-        </div>
+        </talker-balloon>
 
 
         <talker-balloon
@@ -278,16 +271,14 @@
         </talker-balloon>
 
 
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+        <talker-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
                 最新の AI を提供する公式スタッフと、<br>
                 わたしの熟練した神エクセルでバトルな。
-            </div>
-        </div>
+        </talker-balloon>
 
 
         <talker-balloon
