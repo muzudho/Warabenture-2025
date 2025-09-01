@@ -774,6 +774,7 @@ color = i % 2;
     import PrintingMaking from '../../components/PrintingMaking.vue';
     import SourceLink from '../../components/SourceLink.vue';
     import Stopwatch from '../../components/Stopwatch.vue';
+    import TalkerBalloon from '../../components/TalkerBalloon.vue';
     import Tile from '../../components/Tile.vue';
     import TileAnimation from '../../components/TileAnimation.vue';
     import TheFooter from './the-footer.vue';
@@ -783,14 +784,7 @@ color = i % 2;
     // + コンポーネント　＞　互換性対応 +
     // ++++++++++++++++++++++++++++++++++
 
-    import CompatibleRuntimeEnvironment from '../../components/CompatibleRuntimeEnvironment.vue';
     import CompatibleDevice from '../../components/CompatibleDevice.vue'
-
-    // ++++++++++++++++++++++++++++
-    // + コンポーネント　＞　会話 +
-    // ++++++++++++++++++++++++++++
-
-    import TalkerText from '../../components/TalkerText.vue';
 
     // ++++++++++++++++++
     // + コンポーザブル +
@@ -1174,12 +1168,6 @@ color = i % 2;
     // ++++++++++++++++++++++++++++++++++++++++++++++
 
     const answer1IsShowing = ref<boolean>(false);
-
-    // ++++++++++++++++++++++++++++++++++++++++
-    // + オブジェクト　＞　勇者キフワラニャン +
-    // ++++++++++++++++++++++++++++++++++++++++
-
-    //const kifuwaranyan1Ref = ref<InstanceType<typeof Kifuwaranyan> | null>(null);
 
 
     // ##########

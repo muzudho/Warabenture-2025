@@ -35,6 +35,7 @@
 </template>
 
 <style>
+    @import '@/styles/talk-scene.css';
     @import '@/styles/warabenture.css';
 
     /**
@@ -66,41 +67,6 @@
     img.scr-shot {
         margin-top: 8px;
         margin-bottom: 8px;
-    }
-
-    div.talk{
-        display: flex;
-        align-items: center;
-        margin-top: 1px;
-        margin-bottom: 1px;
-        color: #101010;
-    }
-
-    div.face-container{
-        width:100px;
-    }
-
-    div.baloon{
-        padding-left:16px;
-        padding-top: 12px;
-        padding-bottom:16px;
-        padding-right:16px;
-        background-color: #F8F8F8;
-        border-radius: 16px;
-    }
-
-    /**
-    *       | 0%   100%
-    *   ----+----------
-    *     0%|         2
-    *    50%|  1
-    *   100%|         3
-    */
-    div.baloon-tail {
-        width: 20px;
-        height: 15px;
-        background-color: #F8F8F8; /* 白い背景 */
-        clip-path: polygon(0% 50%, 100% 0%, 100% 100%); /* 上頂点、下底の三角形 */
     }
 
 </style>
