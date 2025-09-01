@@ -1,6 +1,6 @@
 <template>
 
-    <!-- 実行環境互換 -->
+    <!-- デバイス互換機能 -->
     <compatible-device ref="compatibleDevice1Ref"/>
 
     <h3>[2025-06-01_Sun]</h3>
