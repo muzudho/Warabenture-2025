@@ -40,17 +40,15 @@
         </div>
 
 
-        <div class="talk">
-        <div class="face-container">
-            <img src="@/assets/img/202506__character__01-2025-hiyoko-o1o1o0.png" />
-        </div>
-        <div class="baloon-tail"></div>
-        <div class="baloon">
+        <talker-balloon
+            :src="hiyoko2Src"
+            :alt="hiyoko2Alt"
+            :name="hiyoko2Name"
+            :device="compatibleDevice1Ref?.device">
             昨日作ったアプリから［Save］機能を削除して、テキストボックスをリストボックスへ付け替え、<br>
             あとは、ファイル名を一覧する機能が作れるかどうかの調査と実装だから、<br>
             調査を重めに見て、エフォート（作業にかかる時間見積）は 2 ってところねえ。
-        </div>
-        </div>
+        </talker-balloon>
 
 
         <a target="_blank" href="/img/journal/2025-06//202506__program__03-1049-tauri-o2o1o0.png">
@@ -371,16 +369,14 @@
         </talker-balloon>
 
 
-        <div class="talk">
-        <div class="face-container">
-            <img src="@/assets/img/202506__character__01-2025-hiyoko-o1o1o0.png" />
-        </div>
-        <div class="baloon-tail"></div>
-        <div class="baloon">
+        <talker-balloon
+            :src="hiyoko2Src"
+            :alt="hiyoko2Alt"
+            :name="hiyoko2Name"
+            :device="compatibleDevice1Ref?.device">
             キャパシティ（作業に使える時間）をもう 4 は消費してるわよ。<br>
             残りは 2 よ。
-        </div>
-        </div>
+        </talker-balloon>
 
 
         <talker-balloon
@@ -468,16 +464,14 @@
         </talker-balloon>
 
 
-        <div class="talk">
-        <div class="face-container">
-            <img src="@/assets/img/202506__character__01-2025-hiyoko-o1o1o0.png" />
-        </div>
-        <div class="baloon-tail"></div>
-        <div class="baloon">
+        <talker-balloon
+            :src="hiyoko2Src"
+            :alt="hiyoko2Alt"
+            :name="hiyoko2Name"
+            :device="compatibleDevice1Ref?.device">
             かかった時間は 5 ってところねえ。<br>
             見積りでは 2 ぐらいだったから、調査に 1.5 倍は取られるってとこねえ。
-        </div>
-        </div>
+        </talker-balloon>
 
 
 </section>

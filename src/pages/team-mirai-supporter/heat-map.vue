@@ -207,15 +207,15 @@
         </talker-balloon>
 
 
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-2025-hiyoko-o1o1o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+        <talker-balloon
+            :src="hiyoko2Src"
+            :alt="hiyoko2Alt"
+            :name="hiyoko2Name"
+            :device="compatibleDevice1Ref?.device">
                 エクセルを GUI と割り切っている人もいるのよ。
-            </div>
-        </div>
+        </talker-balloon>
+
+
         <div class="talk">
             <div class="face-container">
                 <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
@@ -238,17 +238,15 @@
         </talker-balloon>
 
 
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-2025-hiyoko-o1o1o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+        <talker-balloon
+            :src="hiyoko2Src"
+            :alt="hiyoko2Alt"
+            :name="hiyoko2Name"
+            :device="compatibleDevice1Ref?.device">
                 デスクトップ版のエクセル、現代的に言うと Office 360 を購入してしまえば、<br>
                 あとは VBA だけで完結するから、<br>
                 もう、神エクセルにハマった人は、他の環境が進化しててでも神エクセルをやるのよ。<br>
-            </div>
-        </div>
+        </talker-balloon>
 
 
         <talker-balloon
@@ -302,16 +300,14 @@
         </talker-balloon>
 
 
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-2025-hiyoko-o1o1o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+        <talker-balloon
+            :src="hiyoko2Src"
+            :alt="hiyoko2Alt"
+            :name="hiyoko2Name"
+            :device="compatibleDevice1Ref?.device">
                 案外、そんじょそこらに熟練度の上限に達してしまったヤドカリがいっぱいいて<br>
                 集まってくるかも知れないわよ？
-            </div>
-        </div>
+        </talker-balloon>
 
 
         <talker-balloon

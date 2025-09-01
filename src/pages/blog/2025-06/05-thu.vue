@@ -59,15 +59,13 @@
         </div>
 
 
-        <div class="talk">
-        <div class="face-container">
-            <img src="@/assets/img/202506__character__01-2025-hiyoko-o1o1o0.png" />
-        </div>
-        <div class="baloon-tail"></div>
-        <div class="baloon">
+        <talker-balloon
+            :src="hiyoko2Src"
+            :alt="hiyoko2Alt"
+            :name="hiyoko2Name"
+            :device="compatibleDevice1Ref?.device">
             ガス代の支払いが滞っているのかしらねえ？
-        </div>
-        </div>
+        </talker-balloon>
 
 
         <talker-balloon
@@ -91,15 +89,13 @@
         </div>
 
 
-        <div class="talk">
-        <div class="face-container">
-            <img src="@/assets/img/202506__character__01-2025-hiyoko-o1o1o0.png" />
-        </div>
-        <div class="baloon-tail"></div>
-        <div class="baloon">
+        <talker-balloon
+            :src="hiyoko2Src"
+            :alt="hiyoko2Alt"
+            :name="hiyoko2Name"
+            :device="compatibleDevice1Ref?.device">
             生命の維持に必要な活動ですからね。
-        </div>
-        </div>
+        </talker-balloon>
 
 
         <talker-balloon
@@ -210,15 +206,13 @@
         </div>
 
 
-        <div class="talk">
-        <div class="face-container">
-            <img src="@/assets/img/202506__character__01-2025-hiyoko-o1o1o0.png" />
-        </div>
-        <div class="baloon-tail"></div>
-        <div class="baloon">
+        <talker-balloon
+            :src="hiyoko2Src"
+            :alt="hiyoko2Alt"
+            :name="hiyoko2Name"
+            :device="compatibleDevice1Ref?.device">
             １本２，０００円の裾上げねえ。
-        </div>
-        </div>
+        </talker-balloon>
 
 
         <talker-balloon

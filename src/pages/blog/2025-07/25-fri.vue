@@ -48,15 +48,13 @@
         </div>
 
 
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-2025-hiyoko-o1o1o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+        <talker-balloon
+            :src="hiyoko2Src"
+            :alt="hiyoko2Alt"
+            :name="hiyoko2Name"
+            :device="compatibleDevice1Ref?.device">
                 勝手にスマホにも対応しようとされるから、デスクトップ画面にピッタリ調整しようとすることはできないんじゃないの？
-            </div>
-        </div>
+        </talker-balloon>
 
 
         <div class="talk">
@@ -117,15 +115,13 @@
         </div>
 
 
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-2025-hiyoko-o1o1o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+        <talker-balloon
+            :src="hiyoko2Src"
+            :alt="hiyoko2Alt"
+            :name="hiyoko2Name"
+            :device="compatibleDevice1Ref?.device">
                 なんで同じ Vue 3 なのに、そのまんま移植できないの？
-            </div>
-        </div>
+        </talker-balloon>
 
 
         <div class="talk">
@@ -303,15 +299,13 @@ pnpm install</pre>
         </div>
 
 
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-2025-hiyoko-o1o1o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+        <talker-balloon
+            :src="hiyoko2Src"
+            :alt="hiyoko2Alt"
+            :name="hiyoko2Name"
+            :device="compatibleDevice1Ref?.device">
                 なんでリンクをクリックしたら、<span class="code-w">http</span>を勝手に<span class="code-w">https</span>に変えられてしまうの？
-            </div>
-        </div>
+        </talker-balloon>
 
 
         <div class="talk">
@@ -348,15 +342,13 @@ pnpm install</pre>
         </div>
 
 
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-2025-hiyoko-o1o1o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+        <talker-balloon
+            :src="hiyoko2Src"
+            :alt="hiyoko2Alt"
+            :name="hiyoko2Name"
+            :device="compatibleDevice1Ref?.device">
                 スタートアップ時でなくても、今スクリプトを実行することはできないの？
-            </div>
-        </div>
+        </talker-balloon>
 
 
         <talker-balloon
@@ -368,15 +360,13 @@ pnpm install</pre>
         </talker-balloon>
 
 
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-2025-hiyoko-o1o1o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+        <talker-balloon
+            :src="hiyoko2Src"
+            :alt="hiyoko2Alt"
+            :name="hiyoko2Name"
+            :device="compatibleDevice1Ref?.device">
                 Web サーバーを再構築するための手順みたいなものはまとめてないの？
-            </div>
-        </div>
+        </talker-balloon>
 
 
         <div class="talk">
@@ -415,15 +405,13 @@ pnpm install</pre>
         </div>
 
 
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-2025-hiyoko-o1o1o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+        <talker-balloon
+            :src="hiyoko2Src"
+            :alt="hiyoko2Alt"
+            :name="hiyoko2Name"
+            :device="compatibleDevice1Ref?.device">
                 git のインストールもあるのかしら？
-            </div>
-        </div>
+        </talker-balloon>
 
 
         <div class="talk">
@@ -469,15 +457,13 @@ pnpm install</pre>
         </talker-balloon>
 
 
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-2025-hiyoko-o1o1o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+        <talker-balloon
+            :src="hiyoko2Src"
+            :alt="hiyoko2Alt"
+            :name="hiyoko2Name"
+            :device="compatibleDevice1Ref?.device">
                 自力で Let's Encrypt の設定をするにしても、自動更新のスクリプトも書かないといけなくなるのかしら？
-            </div>
-        </div>
+        </talker-balloon>
 
 
         <div class="talk">

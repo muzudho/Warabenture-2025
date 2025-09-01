@@ -30,15 +30,13 @@
                 あと、うざいぐらいヘッダーのインデントがネストしてるな。
         </talker-balloon>
 
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-2025-hiyoko-o1o1o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+        <talker-balloon
+            :src="hiyoko2Src"
+            :alt="hiyoko2Alt"
+            :name="hiyoko2Name"
+            :device="compatibleDevice1Ref?.device">
                 美的センスが狂うわね。
-            </div>
-        </div>
+        </talker-balloon>
 
         <talker-balloon
             :src="kifuwarabe2Src"

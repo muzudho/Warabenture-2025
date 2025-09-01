@@ -69,16 +69,14 @@
         </div>
 
 
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-2025-hiyoko-o1o1o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+        <talker-balloon
+            :src="hiyoko2Src"
+            :alt="hiyoko2Alt"
+            :name="hiyoko2Name"
+            :device="compatibleDevice1Ref?.device">
                 この <span class="code-w">.geojson</span> ってファイルは、どんなアプリで開けるの？<br>
                 <a target="_blank" href="https://www.geospatial.jp/ckan/dataset/aigid-moj-11230/resource/00e54419-fb2a-4ea1-aac1-00c8675d9787">11230_新座市_公共座標9系_筆R_2022.geojson</a>
-            </div>
-        </div>
+        </talker-balloon>
 
 
         <div class="talk">
@@ -108,15 +106,13 @@
         </div>
 
 
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-2025-hiyoko-o1o1o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+        <talker-balloon
+            :src="hiyoko2Src"
+            :alt="hiyoko2Alt"
+            :name="hiyoko2Name"
+            :device="compatibleDevice1Ref?.device">
                 不動産屋が登記した土地しか入ってないんじゃないの？
-            </div>
-        </div>
+        </talker-balloon>
 
 
         <div class="talk">
@@ -264,15 +260,13 @@
         </div>
 
 
-        <div class="talk">
-            <div class="face-container">
-                <img src="@/assets/img/202506__character__01-2025-hiyoko-o1o1o0.png" />
-            </div>
-            <div class="baloon-tail"></div>
-            <div class="baloon">
+        <talker-balloon
+            :src="hiyoko2Src"
+            :alt="hiyoko2Alt"
+            :name="hiyoko2Name"
+            :device="compatibleDevice1Ref?.device">
                 変更前の列名は残しておかないと、あとでどの行だったのかわからなくなるんじゃないの？
-            </div>
-        </div>
+        </talker-balloon>
 
 
         <div class="talk">
