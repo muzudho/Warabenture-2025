@@ -22,15 +22,11 @@
             v-on:countUp="(countNum) => { stopwatch1Count = countNum; }"
             style="display: none;" />
 
-        <img
+        <!-- 挿絵 -->
+        <talker-illustration
             src="/img/quiz/by-grok/202508__grok__30-1751-papepoKingdom-o2o0.png"
             alt="パペポ王国"
-            :style="illustration1Style">
-        </img>
-        <p
-            :style="illustration1CaptionStyle"
-            style="font-size: small; color: gray; text-align: right;">グラフィッカー：　Grok</p>
-        <br/>
+            caption="グラフィッカー：　Grok" />
 
         <p>
             ここはパペポ王国。<br/>
@@ -42,8 +38,7 @@
         <img
             src="/img/quiz/by-grok/202508__grok__30-1229-kifuwaranyan-o2o0.png"
             alt="勇者キフワラニャン"
-            :style="illustration1Style">
-        </img>
+            :style="illustration1Style" />
         <talker-novel
             name="キフワラニャン"
             :device="compatibleDevice1Ref?.device">
@@ -769,6 +764,7 @@ color = i % 2;
     import SourceLink from '../../components/SourceLink.vue';
     import Stopwatch from '../../components/Stopwatch.vue';
     import TalkerBalloon from '../../components/TalkerBalloon.vue';
+    import TalkerIllustration from '../../components/TalkerIllustration.vue';
     import TalkerNovel from '../../components/TalkerNovel.vue';
     import Tile from '../../components/Tile.vue';
     import TileAnimation from '../../components/TileAnimation.vue';
