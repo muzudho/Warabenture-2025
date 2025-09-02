@@ -44,7 +44,9 @@
             alt="勇者キフワラニャン"
             :style="illustration1Style">
         </img>
-        <talker-novel>
+        <talker-novel
+            name="キフワラニャン"
+            :device="compatibleDevice1Ref?.device">
             わたしは勇者キフワラニャン、<br/>
             この世界の神がブラウザーで動くフリーゲームを<br/>
             作ろうとしていると聞いて馳せ参じたぜ。<br/>
@@ -60,18 +62,14 @@
             alt="パペポ王"
             :style="illustration1Style">
         </img>
-        <br/>
-
-        <v-row>
-            <v-col cols="2" class="talk-name-novel">パペポ一世</v-col>
-            <v-col cols="1" class="talk-quot-open-novel">「</v-col>
-            <v-col>
+        <talker-novel
+            name="パペポ一世"
+            :device="compatibleDevice1Ref?.device">
                 おお、よく来た勇者キフワラニャン！<br/>
                 <br/>
                 悩みというのは他の何物でもない、<br/>
-                床のことじゃ」<br/>
-            </v-col>
-        </v-row>
+                床のことじゃ
+        </talker-novel>
 
         <talker-balloon
             :src="commonKifuwaranyanSrc"

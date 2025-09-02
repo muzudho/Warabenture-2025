@@ -49,7 +49,8 @@ div.talk-quot-open-novel { /* 鍵かっこ開く */
     padding-right: 0;
     max-width: 8px;
 }
-div.talk-quot-close-novel { /* 鍵かっこ閉じる */
+/* 鍵かっこ閉じる
+div.talk-quot-close-novel {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -58,6 +59,7 @@ div.talk-quot-close-novel { /* 鍵かっこ閉じる */
     max-width: 32px;
     max-height: 100%;
 }
+*/
 /* 本文
 div.talk-body-novel {
     display: flex;
