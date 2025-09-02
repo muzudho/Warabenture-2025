@@ -8,7 +8,7 @@
             <div class="talk-name-balloon">{{ props.name }}</div>
         </div>
         <div class="baloon-tail"></div>
-        <div class="baloon">
+        <div class="baloon-body">
             <slot></slot>
         </div>
     </div>

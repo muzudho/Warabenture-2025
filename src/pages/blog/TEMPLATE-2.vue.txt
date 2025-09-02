@@ -13,7 +13,7 @@
                 <img src="@/assets/img/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png" />
             </div>
             <div class="baloon-tail"></div>
-            <div class="baloon">
+            <div class="baloon-body">
                 <span class="font-x2">👆</span>お父んトーク
             </div>
         </div>
