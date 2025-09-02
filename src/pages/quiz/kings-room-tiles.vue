@@ -87,8 +87,7 @@
         <printing-making
             ref="printing1Ref"
             :printing1SourceTilemapCoordination="printing1SourceTilemapCoordination"
-            :printing1SourceTileIndexesBoard="printing1SourceTileIndexesBoard">
-        </printing-making>
+            :printing1SourceTileIndexesBoard="printing1SourceTileIndexesBoard" />
 
         <!-- 盤領域 -->
         <div
@@ -193,9 +192,6 @@
                 class="player"
                 :style="player1Style" />
 
-            <!-- スタイルシートのテスト -->
-            <div class="test-1" ></div>
-
             <!-- 視界の外１ -->
             <out-of-sight
                 ref="outOfSight1Ref"
@@ -203,8 +199,7 @@
                 :board1SquareHeight="board1SquareHeight"
                 :board1FileNum="board1FileNum"
                 :board1RankNum="board1RankNum"
-                class="parent-mask">
-            </out-of-sight>
+                class="parent-mask" />
         </div>
         <br/>
 
