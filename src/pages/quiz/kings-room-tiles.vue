@@ -35,10 +35,10 @@
         </p>
         <br/>
 
-        <img
+        <talker-illustration
             src="/img/quiz/by-grok/202508__grok__30-1229-kifuwaranyan-o2o0.png"
-            alt="勇者キフワラニャン"
-            :style="illustration1Style" />
+            alt="勇者キフワラニャン" />
+        
         <talker-novel
             name="キフワラニャン"
             :device="compatibleDevice1Ref?.device">
@@ -52,11 +52,10 @@
         <br/>
 
         <!-- パペポ王１ -->
-        <img
+        <talker-illustration
             src="/img/quiz/by-grok/202508__grok__30-0826-king-o2o1o0.png"
-            alt="パペポ王"
-            :style="illustration1Style">
-        </img>
+            alt="パペポ王" />
+
         <talker-novel
             name="パペポ一世"
             :device="compatibleDevice1Ref?.device">
@@ -510,11 +509,11 @@
             </p>
             <br/>
         -->
-        <img
+
+        <talker-illustration
             src="/img/quiz/by-grok/202508__grok__30-2023-spellScroll-o1o0.png"
-            alt="床のタイルの色を決める呪文"
-            :style="illustration1Style">
-        </img>
+            alt="床のタイルの色を決める呪文" />
+
         <talker-balloon
             :src="commonPapepoKingSrc"
             :alt="commonPapepoKingAlt"
