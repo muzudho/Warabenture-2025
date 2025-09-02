@@ -44,18 +44,14 @@
             alt="勇者キフワラニャン"
             :style="illustration1Style">
         </img>
-        <v-row>
-            <v-col cols="2" class="talk-name-novel">勇者キフワラニャン</v-col>
-            <v-col cols="1" class="talk-quot">「</v-col>
-            <v-col>
-                わたしは勇者キフワラニャン、<br/>
-                この世界の神がブラウザーで動くフリーゲームを<br/>
-                作ろうとしていると聞いて馳せ参じたぜ。<br/>
-                <br/>
-                顔や背景がコロコロ変わるかもしれないが、<br/>
-                気にしないでくれだぜ」<br/>
-            </v-col>
-        </v-row>
+        <talker-novel>
+            わたしは勇者キフワラニャン、<br/>
+            この世界の神がブラウザーで動くフリーゲームを<br/>
+            作ろうとしていると聞いて馳せ参じたぜ。<br/>
+            <br/>
+            顔や背景がコロコロ変わるかもしれないが、<br/>
+            気にしないでくれだぜ
+        </talker-novel>
         <br/>
 
         <!-- パペポ王１ -->
@@ -68,7 +64,7 @@
 
         <v-row>
             <v-col cols="2" class="talk-name-novel">パペポ一世</v-col>
-            <v-col cols="1" class="talk-quot">「</v-col>
+            <v-col cols="1" class="talk-quot-open-novel">「</v-col>
             <v-col>
                 おお、よく来た勇者キフワラニャン！<br/>
                 <br/>
@@ -775,6 +771,7 @@ color = i % 2;
     import SourceLink from '../../components/SourceLink.vue';
     import Stopwatch from '../../components/Stopwatch.vue';
     import TalkerBalloon from '../../components/TalkerBalloon.vue';
+    import TalkerNovel from '../../components/TalkerNovel.vue';
     import Tile from '../../components/Tile.vue';
     import TileAnimation from '../../components/TileAnimation.vue';
     import TheFooter from './the-footer.vue';

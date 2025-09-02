@@ -43,12 +43,29 @@
     }
 }
 
-div.talk-quot { /* 鍵かっこ */
-    max-width: 16px;
+div.talk-quot-open-novel { /* 鍵かっこ開く */
+    margin-left: 8px;
     padding-left: 0;
     padding-right: 0;
-    text-align: right;
+    max-width: 8px;
 }
+div.talk-quot-close-novel { /* 鍵かっこ閉じる */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding-left: 0;
+    padding-right: 0;
+    max-width: 32px;
+    max-height: 100%;
+}
+/* 本文
+div.talk-body-novel {
+    display: flex;
+    padding-left: 0;
+    padding-right: 0;
+    max-width:fit-content;
+}
+*/
 
 div.talk{
     display: flex;
@@ -84,4 +101,3 @@ div.baloon-tail {
     background-color: #F8F8F8; /* 白い背景 */
     clip-path: polygon(0% 50%, 100% 0%, 100% 100%); /* 上頂点、下底の三角形 */
 }
-
