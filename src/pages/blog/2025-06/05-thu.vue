@@ -7,108 +7,108 @@
     <section class="sec-3">
 
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device">
                 今日は、家の掃除をしたいぜ。
-        </talker-balloon>
+        </talk-balloon>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="kifuwarabe1Src"
             :alt="kifuwarabe1Alt"
             :name="kifuwarabe1Name"
             :device="compatibleDevice1Ref?.device">
                 じゃあ、風呂桶を掃除してくれだぜ。
-        </talker-balloon>
+        </talk-balloon>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device">
                 <span class="font-x2">✅</span> 風呂と洗面所、便器を拭き掃除したぜ。
-        </talker-balloon>
+        </talk-balloon>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="kifuwarabe1Src"
             :alt="kifuwarabe1Alt"
             :name="kifuwarabe1Name"
             :device="compatibleDevice1Ref?.device">
             じゃあ、お父んはその風呂に入れだぜ。
-        </talker-balloon>
+        </talk-balloon>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device">
             <span class="font-x2">✅</span>風呂に入ってサッパリしたぜ。<br>
             <span class="font-x2">❌</span>お湯を入れていたはずなのに、ぬるま湯になっていたが……
-        </talker-balloon>
+        </talk-balloon>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="hiyoko2Src"
             :alt="hiyoko2Alt"
             :name="hiyoko2Name"
             :device="compatibleDevice1Ref?.device">
             ガス代の支払いが滞っているのかしらねえ？
-        </talker-balloon>
+        </talk-balloon>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="kifuwarabe1Src"
             :alt="kifuwarabe1Alt"
             :name="kifuwarabe1Name"
             :device="compatibleDevice1Ref?.device">
             じゃあ次は、お父んは昼飯を食べろだぜ。
-        </talker-balloon>
+        </talk-balloon>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device">
             <span class="font-x2">✅</span> 昼飯を食べたぜ。<br>
             １時間ぐらいかかった。わりと時間かかるな。
-        </talker-balloon>
+        </talk-balloon>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="hiyoko2Src"
             :alt="hiyoko2Alt"
             :name="hiyoko2Name"
             :device="compatibleDevice1Ref?.device">
             生命の維持に必要な活動ですからね。
-        </talker-balloon>
+        </talk-balloon>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="kifuwarabe1Src"
             :alt="kifuwarabe1Alt"
             :name="kifuwarabe1Name"
             :device="compatibleDevice1Ref?.device">
             じゃあ次は、コーヒーを飲んで、歯を磨けだぜ。歯間ブラシも使えよ。
-        </talker-balloon>
+        </talk-balloon>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device">
             <span class="font-x2">✅</span> コーヒーを飲んで歯を磨いたぜ。歯間ブラシも使った。
-        </talker-balloon>
+        </talk-balloon>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="kifuwarabe1Src"
             :alt="kifuwarabe1Alt"
             :name="kifuwarabe1Name"
@@ -116,37 +116,37 @@
             じゃあ次は、フィットネスジムに行けだぜ。行きしなには漫画本をBook-Offに売ってきてくれだぜ。<br>
             帰りには明日の飯２食分を買ってこいだぜ。<br>
             余裕があればズボンの裾上げのための裁縫セットを買ってこいだぜ。
-        </talker-balloon>
+        </talk-balloon>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device">
             ズボンの裾上げのための裁縫セットってどこに売ってんの？
-        </talker-balloon>
+        </talk-balloon>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="kifuwarabe1Src"
             :alt="kifuwarabe1Alt"
             :name="kifuwarabe1Name"
             :device="compatibleDevice1Ref?.device">
             セブンイレブンや、ダイソーなどに売ってるだろ。
-        </talker-balloon>
+        </talk-balloon>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device">
             分かったぜ。行ってくるぜ。
-        </talker-balloon>
+        </talk-balloon>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
@@ -155,54 +155,54 @@
             <span class="font-x2">✅</span>フィットネスジムに行ってきたぜ。<br>
             <span class="font-x2">✅</span>行きしなに漫画本を売ってきたぜ。３０冊ぐらいで 2000 円ぐらいになったぜ。<br>
             <span class="font-x2">🤔</span>しかし、何巻まで買ったかのメモ書きをどこに保管しておくかが問題だぜ。
-        </talker-balloon>
+        </talk-balloon>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device">
             <span class="font-x2">✅</span>帰り際にはソーイングセットを買ってきたぜ。<br>
             ユザワヤでスヌーピーの絵柄が入ったやつだぜ、６，０００円。
-        </talker-balloon>
+        </talk-balloon>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="kifuwarabe1Src"
             :alt="kifuwarabe1Alt"
             :name="kifuwarabe1Name"
             :device="compatibleDevice1Ref?.device">
             ６，０００円は高いなあ。元を取るために何本のズボンの裾を上げるつもりだぜ？
-        </talker-balloon>
+        </talk-balloon>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device">
             ３本ぐらい……。
-        </talker-balloon>
+        </talk-balloon>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="hiyoko2Src"
             :alt="hiyoko2Alt"
             :name="hiyoko2Name"
             :device="compatibleDevice1Ref?.device">
             １本２，０００円の裾上げねえ。
-        </talker-balloon>
+        </talk-balloon>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="kifuwarabe1Src"
             :alt="kifuwarabe1Alt"
             :name="kifuwarabe1Name"
             :device="compatibleDevice1Ref?.device">
             夜は集中力が落ちているんで、ズボンの裾上げは明日の朝にしろだぜ。<br>
             ひとまず、カフェインレス・ブラックコーヒーでも飲んで休めだぜ。
-        </talker-balloon>
+        </talk-balloon>
 
     </section>
 </template>
@@ -217,7 +217,7 @@
     // + コンポーネント +
     // ++++++++++++++++++
 
-    import TalkerBalloon from '../../../components/TalkerBalloon.vue';
+    import TalkBalloon from '../../../components/TalkBalloon.vue';
 
     // ++++++++++++++++++++++++++++++++++
     // + コンポーネント　＞　互換性対応 +

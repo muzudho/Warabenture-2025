@@ -7,59 +7,59 @@
     <section class="sec-3">
 
 
-        <talker-balloon
+        <talk-balloon
             :src="kifuwarabe2Src"
             :alt="kifuwarabe2Alt"
             :name="kifuwarabe2Name"
             :device="compatibleDevice1Ref?.device">
                 CSV ファイルを読み込んだら、表形式のコントロールで表示してくれだぜ。
-        </talker-balloon>
+        </talk-balloon>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device">
                 データテーブルは HTML にないので、<br>
                 データテーブルのある<span class="code-w">Vuetify 3</span>をフロントエンドに使ってみるかな。
-        </talker-balloon>
+        </talk-balloon>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device">
                 <span class="code-w">csv-cleaning-on-tauri</span>リポジトリーから、自動生成したフォルダーを除いた部分をコピーして、<br>
                 <span class="code-w">csv-cleaning-2-on-tauri</span>リポジトリーを作成するぜ。
-        </talker-balloon>
+        </talk-balloon>
 
 
         <pre class="code-b">
 pnpm install</pre>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device">
                 <span class="font-x2">👆</span>いつも通りのコマンド。
-        </talker-balloon>
+        </talk-balloon>
 
 
         <pre class="code-b">
 pnpm add vuetify</pre>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device">
                 <span class="font-x2">👆</span>Grok に聞いた、Vuetify 3 をインストールするコマンドを打鍵。
-        </talker-balloon>
+        </talk-balloon>
 
 
         <pre class="code-b">
@@ -81,26 +81,26 @@ const vuetify = createVuetify({
 createApp(App).use(vuetify).mount('#app');</pre>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device">
                 これも<span class="font-x2">👆</span>Grok に聞いたやつで、📄<span class="code-w">src/main.ts</span>を上記のように編集すればいいらしい。
-        </talker-balloon>
+        </talk-balloon>
 
 
         <pre class="code-b">
 pnpm add @tauri-apps/api</pre>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device">
                 <span class="font-x2">👆</span>さらにコマンド打鍵。
-        </talker-balloon>
+        </talk-balloon>
 
 
         <pre class="code-b">
@@ -111,14 +111,14 @@ pnpm install
 pnpm tauri dev</pre>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device">
                 <span class="font-x2">👆</span>リポジトリーをコピーしたからか、わけわからんエラーが出たので、<br>
                 キャッシュをクリアーしてやり直し。
-        </talker-balloon>
+        </talk-balloon>
 
 
     </section>
@@ -134,7 +134,7 @@ pnpm tauri dev</pre>
     // + コンポーネント +
     // ++++++++++++++++++
 
-    import TalkerBalloon from '../../../components/TalkerBalloon.vue';
+    import TalkBalloon from '../../../components/TalkBalloon.vue';
 
     // ++++++++++++++++++++++++++++++++++
     // + コンポーネント　＞　互換性対応 +

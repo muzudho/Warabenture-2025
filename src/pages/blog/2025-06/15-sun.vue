@@ -12,35 +12,35 @@
         </a><br/>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device">
                 <span class="font-x2">👆</span>前（2025-06-12_Thu）言ってたツールを作ったぜ。
-        </talker-balloon>
+        </talk-balloon>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="kifuwarabe2Src"
             :alt="kifuwarabe2Alt"
             :name="kifuwarabe2Name"
             :device="compatibleDevice1Ref?.device">
                 おつ。
-        </talker-balloon>
+        </talk-balloon>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="kifuwarabe2Src"
             :alt="kifuwarabe2Alt"
             :name="kifuwarabe2Name"
             :device="compatibleDevice1Ref?.device">
                 じゃあ次の課題だぜ。<br>
                 埼玉県新座市内の丁目、番地の形を図形として切り出して表示するソフトを作ってくれだぜ。
-        </talker-balloon>
+        </talk-balloon>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
@@ -50,36 +50,36 @@
                     <li><a target="_blank" href="https://www.geospatial.jp/">G空間情報センター</a></li>
                     <li><a target="_blank" href="https://www.gsi.go.jp/">国土地理院の電子国土基本図</a></li>
                 </ul>
-        </talker-balloon>
+        </talk-balloon>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device">
                 ［国土地理院］の方は丁目の精度までだから、残るのは［G空間情報センター］の一択だぜ。<br>
                 ［G空間情報センター］の地図データは、精度や形式が揃ったものではなく、バラバラだそうだぜ。
-        </talker-balloon>
+        </talk-balloon>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device">
                 この <span class="code-w">.geojson</span> ってファイルは、どんなアプリで開けるの？<br>
                 <a target="_blank" href="https://www.geospatial.jp/ckan/dataset/aigid-moj-11230/resource/00e54419-fb2a-4ea1-aac1-00c8675d9787">11230_新座市_公共座標9系_筆R_2022.geojson</a>
-        </talker-balloon>
+        </talk-balloon>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device">
                 Grok がいくつか知ってたが、とりあえず <a target="_blank" href="https://qgis.org/">QGIS</a> を使ってみるかだぜ。
-        </talker-balloon>
+        </talk-balloon>
 
 
         <a target="_blank" href="/img/journal/2025-06/202506__screenshot__15-1901-QGIS-o1o0.png">
@@ -87,31 +87,31 @@
         </a><br/>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device">
                 <span class="font-x2">👆</span>あれっ、思ったような地図と違う……。
-        </talker-balloon>
+        </talk-balloon>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="hiyoko2Src"
             :alt="hiyoko2Alt"
             :name="hiyoko2Name"
             :device="compatibleDevice1Ref?.device">
                 不動産屋が登記した土地しか入ってないんじゃないの？
-        </talker-balloon>
+        </talk-balloon>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device">
                 使えねー。じゃあ［国土地理院］の方を見てみるか……。
-        </talker-balloon>
+        </talk-balloon>
 
 
         <a target="_blank" href="/img/journal/2025-06/202506__screenshot__15-1928-国土地理院-o1o0.png">
@@ -119,40 +119,40 @@
         </a><br/>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device">
                 <span class="font-x2">👆</span>この地図をどうやって <span class="code-w">.geojson</span> 形式に変換するんだぜ？
-        </talker-balloon>
+        </talk-balloon>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="kifuwarabe2Src"
             :alt="kifuwarabe2Alt"
             :name="kifuwarabe2Name"
             :device="compatibleDevice1Ref?.device">
                 とりあえず左のサイドメニューの保存ボタンを押してみろだぜ。
-        </talker-balloon>
+        </talk-balloon>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device">
                 <span class="code-w">.json</span> 形式では保存できるが、<span class="code-w">.geojson</span> 形式ではなかったぜ。
-        </talker-balloon>
+        </talk-balloon>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="kifuwarabe2Src"
             :alt="kifuwarabe2Alt"
             :name="kifuwarabe2Name"
             :device="compatibleDevice1Ref?.device">
                 じゃあ地図表示は諦めて、データ・クリーニングの方に重点的に取り掛かるかだぜ。
-        </talker-balloon>
+        </talk-balloon>
 
 
         <a target="_blank" href="/img/journal/2025-06/202506__screenshot__15-2046-埼玉県_市区町村別_世帯数-o1o0.png">
@@ -160,7 +160,7 @@
         </a><br/>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="kifuwarabe2Src"
             :alt="kifuwarabe2Alt"
             :name="kifuwarabe2Name"
@@ -170,7 +170,7 @@
                 <br>
                 このように、カテゴリー分けや、個々の項目名が揃っていないが、同じものを表しているはずの２つの表を、<br>
                 行を揃えてデータを見せてくれるツールを作ってくれだぜ。
-        </talker-balloon>
+        </talk-balloon>
 
 
         <a target="_blank" href="/img/journal/2025-06/202506__screenshot__15-2109-２表のJoin-o1o0.png">
@@ -178,7 +178,7 @@
         </a><br/>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
@@ -189,7 +189,7 @@
                     <li>左表にだけ含まれる市区町村名</li>
                     <li>右表にだけ含まれる市区町村名</li>
                 </ul>
-        </talker-balloon>
+        </talk-balloon>
 
 
         <a target="_blank" href="/img/journal/2025-06/202506__screenshot__15-2113-２表のJoin2-o1o0.png">
@@ -197,14 +197,14 @@
         </a><br/>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device">
                 <span class="font-x2">👆</span>２列を独立して昇順ソートするかだぜ。<br>
                 浦和の浦がひらがなより文字コードが小さいのが意味わからんが……。
-        </talker-balloon>
+        </talk-balloon>
 
 
         <a target="_blank" href="/img/journal/2025-06/202506__screenshot__15-2121-２表のJoin3-o1o0.png">
@@ -212,13 +212,13 @@
         </a><br/>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device">
                 <span class="font-x2">👆</span>手で振り分けたぜ。
-        </talker-balloon>
+        </talk-balloon>
 
 
         <a target="_blank" href="/img/journal/2025-06/202506__screenshot__15-2128-２表のJoin4-o1o0.png">
@@ -226,78 +226,78 @@
         </a><br/>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device">
                 <span class="font-x2">👆</span>手で名前の表記揺れを修正して２行を１行にまとめたりして、<br>
                 そして、［二表仮番］という名前で列を作って、連番を振るぜ。
-        </talker-balloon>
+        </talk-balloon>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="hiyoko2Src"
             :alt="hiyoko2Alt"
             :name="hiyoko2Name"
             :device="compatibleDevice1Ref?.device">
                 変更前の列名は残しておかないと、あとでどの行だったのかわからなくなるんじゃないの？
-        </talker-balloon>
+        </talk-balloon>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device">
                 そうか、古い列名は残しておいてくれだぜ。
-        </talker-balloon>
+        </talk-balloon>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="kifuwarabe2Src"
             :alt="kifuwarabe2Alt"
             :name="kifuwarabe2Name"
             :device="compatibleDevice1Ref?.device">
                 じゃあ、今回手で行った操作を自動化するアプリを作ってくれだぜ。
-        </talker-balloon>
+        </talk-balloon>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device">
                 アプリケーションの名前は <span class="code-w">column-names-sync-on-tauri</span> とかでいいかな。
-        </talker-balloon>
+        </talk-balloon>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device">
                 あれっ？ Cドライブの残り容量が 5 GB しかない！？
-        </talker-balloon>
+        </talk-balloon>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="kifuwarabe2Src"
             :alt="kifuwarabe2Alt"
             :name="kifuwarabe2Name"
             :device="compatibleDevice1Ref?.device">
                 Tauri は debug フォルダーがバカでかいそうだぜ。
-        </talker-balloon>
+        </talk-balloon>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device">
                 Grok に対策を聞いてみるか。<br>
                 以下のコードをさくっと実行。
-        </talker-balloon>
+        </talk-balloon>
 
 
         <div class="code-b">
@@ -308,22 +308,22 @@ cargo clean
         </div>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device">
                 リリースもデバッグもどちらも含めて 14.3 GiB もファイルが消えた……。
-        </talker-balloon>
+        </talk-balloon>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="kifuwarabe2Src"
             :alt="kifuwarabe2Alt"
             :name="kifuwarabe2Name"
             :device="compatibleDevice1Ref?.device">
                 Tauri 恐ろしいな……。
-        </talker-balloon>
+        </talk-balloon>
 
 
     </section>
@@ -339,7 +339,7 @@ cargo clean
     // + コンポーネント +
     // ++++++++++++++++++
 
-    import TalkerBalloon from '../../../components/TalkerBalloon.vue';
+    import TalkBalloon from '../../../components/TalkBalloon.vue';
 
     // ++++++++++++++++++++++++++++++++++
     // + コンポーネント　＞　互換性対応 +

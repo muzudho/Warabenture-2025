@@ -7,13 +7,13 @@
     <section class="sec-3">
 
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device">
                 👇 今日は Grok に聞いて、コードのワーニングを掃除しただけだぜ。
-        </talker-balloon>
+        </talk-balloon>
 
 
         <a target="_blank" href="/img/journal/2025-06/202506__program__04-2248-tauri-o2oA15o0.png">
@@ -26,22 +26,22 @@
         </a><br/>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device">
             👆 変数名、関数名を<span class="code-b">snake_case</span>から<span class="code-b">camelCase</span>に変えたぜ。
-        </talker-balloon>
+        </talk-balloon>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device">
             👆 Rust で作った関数の戻り値を、TypeScript 側できっちり受け取れるように修正したぜ。
-        </talker-balloon>
+        </talk-balloon>
 
     </section>
 </template>
@@ -56,7 +56,7 @@
     // + コンポーネント +
     // ++++++++++++++++++
 
-    import TalkerBalloon from '../../../components/TalkerBalloon.vue';
+    import TalkBalloon from '../../../components/TalkBalloon.vue';
 
     // ++++++++++++++++++++++++++++++++++
     // + コンポーネント　＞　互換性対応 +

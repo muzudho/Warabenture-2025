@@ -7,32 +7,32 @@
     <section class="sec-3">
 
 
-        <talker-balloon
+        <talk-balloon
             :src="kifuwarabe2Src"
             :alt="kifuwarabe2Alt"
             :name="kifuwarabe2Name"
             :device="compatibleDevice1Ref?.device">
                 データをクリーニングするツールが欲しいぜ。
-        </talker-balloon>
+        </talk-balloon>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device">
                 全くだぜ。
-        </talker-balloon>
+        </talk-balloon>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="kifuwarabe2Src"
             :alt="kifuwarabe2Alt"
             :name="kifuwarabe2Name"
             :device="compatibleDevice1Ref?.device">
                 文字列を入力し、［埼玉県新座市］という文字列があれば［埼玉県,新座市］と分割するような、<br>
                 ４７都道府県に対応した変換アプリを作ってくれだぜ。
-        </talker-balloon>
+        </talk-balloon>
 
 
         <a target="_blank" href="/img/journal/2025-06/202506__tauri__12-2156-csvCleaning-o1o0.png">
@@ -40,32 +40,32 @@
         </a><br/>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device">
                 <span class="font-x2">👆</span> じゃあ 📄<span class="code-w">file-list-on-tauri</span>リポジトリーから自動生成ファイルを削除して、それ以外をコピーした、<br>
                 📄<span class="code-w">csv-cleaning-on-tauri</span>リポジトリーを作るぜ。
-        </talker-balloon>
+        </talk-balloon>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device">
                 <span class="code-b">git init</span>コマンドを使った操作は、[2025-06-03_Tue] の日記を読んでくれだぜ。
-        </talker-balloon>
+        </talk-balloon>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device">
                 今日は途中で終了。
-        </talker-balloon>
+        </talk-balloon>
 
         
     </section>
@@ -81,7 +81,7 @@
     // + コンポーネント +
     // ++++++++++++++++++
 
-    import TalkerBalloon from '../../../components/TalkerBalloon.vue';
+    import TalkBalloon from '../../../components/TalkBalloon.vue';
 
     // ++++++++++++++++++++++++++++++++++
     // + コンポーネント　＞　互換性対応 +

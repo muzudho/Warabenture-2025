@@ -10,15 +10,15 @@
             <img class="scr-shot" src="/img/journal/2025-08/202508__warabenture__11-2209-pieChart-o1o0.png">
         </a><br/>
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device">
                 <span class="font-x2">👆</span>グロックにコードの書き方を教えてもらって、このウェブサイトのホームページ（起点となるページ）に円グラフを置いてみたぜ。
-        </talker-balloon>
+        </talk-balloon>
 
-        <talker-balloon
+        <talk-balloon
             :src="kifuwarabe2Src"
             :alt="kifuwarabe2Alt"
             :name="kifuwarabe2Name"
@@ -26,32 +26,32 @@
                 第１レベルの見出しの色を変えたんだな。<br/>
                 見出しの頭の # も、文字から画像に変更したんだな。<br/>
                 あと、うざいぐらいヘッダーのインデントがネストしてるな。
-        </talker-balloon>
+        </talk-balloon>
 
-        <talker-balloon
+        <talk-balloon
             :src="hiyoko2Src"
             :alt="hiyoko2Alt"
             :name="hiyoko2Name"
             :device="compatibleDevice1Ref?.device">
                 美的センスが狂うわね。
-        </talker-balloon>
+        </talk-balloon>
 
-        <talker-balloon
+        <talk-balloon
             :src="kifuwarabe2Src"
             :alt="kifuwarabe2Alt"
             :name="kifuwarabe2Name"
             :device="compatibleDevice1Ref?.device">
                 このデザインはグロックではなくて、お父んがやったんだな。
-        </talker-balloon>
+        </talk-balloon>
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device">
                 人間の感性か、あるいは日本人の感性か、こういうネストした見出しに表されるような現在位置情報って、<br/>
                 頭の片隅に追いやって見ないようにした方が美しいと感じるのかもしれないな。
-        </talker-balloon>
+        </talk-balloon>
 
     </section>
 </template>
@@ -66,7 +66,7 @@
     // + コンポーネント +
     // ++++++++++++++++++
 
-    import TalkerBalloon from '../../../components/TalkerBalloon.vue';
+    import TalkBalloon from '../../../components/TalkBalloon.vue';
 
     // ++++++++++++++++++++++++++++++++++
     // + コンポーネント　＞　互換性対応 +

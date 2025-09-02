@@ -21,56 +21,56 @@
             <img class="scr-shot" src="/img/journal/2025-06/202506__teamMirai__09-1610-heatMap16-o1o0.png">
         </a><br/>
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device">
                 👆 ヒートマップを作れる。<br>
                 右上の凡例にあるように［以上］での比較だけ利用可能。
-        </talker-balloon>
+        </talk-balloon>
 
         <a target="_blank" href="/img/journal/2025-06/202506__teamMirai__09-1730-heatMap23-o1o0.png">
             <img class="scr-shot" src="/img/journal/2025-06/202506__teamMirai__09-1730-heatMap23-o1o0.png">
         </a><br/>
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device">
                 👆 もちろん、表示内容を替えれる。
-        </talker-balloon>
+        </talk-balloon>
 
         <a target="_blank" href="/img/journal/2025-06/202506__teamMirai__10-0814-heatMap28-o2o0.png">
             <img class="scr-shot" src="/img/journal/2025-06/202506__teamMirai__10-0814-heatMap28-o2o0.png">
         </a><br/>
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device">
                 👆 もちろん、ワークブックを新しく作って一から編集すれば、別の地図でヒートマップを表示することも可能。
-        </talker-balloon>
+        </talk-balloon>
 
         <a target="_blank" href="/img/journal/2025-06/202506__teamMirai__09-1729-heatMap22-o1o0.png">
             <img class="scr-shot" src="/img/journal/2025-06/202506__teamMirai__09-1729-heatMap22-o1o0.png">
         </a><br/>
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device">
                 👆 ごく短い文字数のメモにも使える。
-        </talker-balloon>
+        </talk-balloon>
 
         <a target="_blank" href="/img/journal/2025-06/202506__teamMirai__09-1750-heatMap25-o1o0.png">
             <img class="scr-shot" src="/img/journal/2025-06/202506__teamMirai__09-1750-heatMap25-o1o0.png">
         </a><br/>
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
@@ -82,13 +82,13 @@
                 <br/>
                 正確さが損なわれる代わりに、それによって、地形の取扱いがシンプルになって、その後の作業の簡便性向上が得られる。<br>
                 トレードオフだぜ。
-        </talker-balloon>
+        </talk-balloon>
 
         <a target="_blank" href="/img/journal/2025-06/202506__teamMirai__09-1619-heatMap16-o3o0.png">
             <img class="scr-shot" src="/img/journal/2025-06/202506__teamMirai__09-1619-heatMap16-o3o0.png">
         </a><br/>
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
@@ -96,13 +96,13 @@
                 👆 地図と<span class="font-x2">データ</span>はワークシートを分けている。<br>
                 データは［e-Stat］の［国勢調査］とかから持ってきてくれだぜ。<br>
                 <a target="_blank" href="https://www.e-stat.go.jp/">https://www.e-stat.go.jp/</a>
-        </talker-balloon>
+        </talk-balloon>
 
         <a target="_blank" href="/img/journal/2025-06/202506__teamMirai__09-1740-heatMap24-o1o0.png">
             <img class="scr-shot" src="/img/journal/2025-06/202506__teamMirai__09-1740-heatMap24-o1o0.png">
         </a><br/>
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
@@ -110,14 +110,14 @@
                 👆 地図とデータを紐づける、いわゆる<span class="font-x2">制御</span>もワークシートが分かれているから、<br>
                 コピペで横展開しやすいように作ってある。<br>
                 使い方はワークブックの中に［手順書_XXXX］ワークシートを入れてあるから、それを読んでくれだぜ。
-        </talker-balloon>
+        </talk-balloon>
 
     </section>
 
     <h3 id="download">ダウンロードはこちらから</h3>
     <section class="sec-3">
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
@@ -138,48 +138,48 @@
                 <br>
                 （Ver 2.0.0）埼玉：<a href="/products/2025-06/Heat Map 2_0_0 - Saitama[20250609-1638].xlsm"><span class="font-x2">⏬</span>Heat Map 2_0_0 - Saitama[20250609-1638].xlsm</a><br>
                 ↓ Old
-        </talker-balloon>
+        </talk-balloon>
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device">
                 オープンソースだぜ。本文書いてないが MIT ライセンスとでもしておいてくれだぜ。<br>
                 ［国勢調査］のデータを含んでるが、あれのライセンスは何なんだろな？
-        </talker-balloon>
+        </talk-balloon>
 
         <a target="_blank" href="/img/journal/2025-06/202506__teamMirai__09-1657-heatMap20-o1o0-mark.png">
             <img class="scr-shot" src="/img/journal/2025-06/202506__teamMirai__09-1657-heatMap20-o1o0-mark.png">
         </a><br/>
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device">
                 👆 マクロの入っているエクセル（上図）は、<br>
                 インターネットからダウンロードするとブロックされてるから……。
-        </talker-balloon>
+        </talk-balloon>
 
         <a target="_blank" href="/img/journal/2025-06/202506__teamMirai__09-1700-heatMap21-o1o0-mark.png">
             <img class="scr-shot" src="/img/journal/2025-06/202506__teamMirai__09-1700-heatMap21-o1o0-mark.png">
         </a><br/>
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device">
                 👆 ✅チェックしてブロックを外してくれだぜ。
-        </talker-balloon>
+        </talk-balloon>
 
     </section>
 
     <h3 id="chatting">雑談</h3>
     <section class="sec-3">
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
@@ -192,48 +192,48 @@
                 正確さを損ねてでもやる大幅なシンプル化は、時間が有限の中で何かを決断しなければいけない瞬間に<br>
                 結局やることになる。<br>
                 ここまでシンプルにすると、ボードゲームみたいになる。
-        </talker-balloon>
+        </talk-balloon>
 
-        <talker-balloon
+        <talk-balloon
             :src="kifuwarabe2Src"
             :alt="kifuwarabe2Alt"
             :name="kifuwarabe2Name"
             :device="compatibleDevice1Ref?.device">
                 神エクセルは作ってはいかんのに……。<br>
                 エクセルは表計算ソフトなのに……。
-        </talker-balloon>
+        </talk-balloon>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="hiyoko2Src"
             :alt="hiyoko2Alt"
             :name="hiyoko2Name"
             :device="compatibleDevice1Ref?.device">
                 エクセルを GUI と割り切っている人もいるのよ。
-        </talker-balloon>
+        </talk-balloon>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device">
                 作業効率化や、コミュニケーションのためのスマホを使ったナウいツールは公式の人が用意してくれるだろうから、<br>
                 <span class="font-x2">神エクセルで何でもできるんだ！</span>という人を補助するツールにしていくぜ。
-        </talker-balloon>
+        </talk-balloon>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="kifuwarabe2Src"
             :alt="kifuwarabe2Alt"
             :name="kifuwarabe2Name"
             :device="compatibleDevice1Ref?.device">
                 だからそんなやつ、<br>
                 お父んしかいないのに……。
-        </talker-balloon>
+        </talk-balloon>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="hiyoko2Src"
             :alt="hiyoko2Alt"
             :name="hiyoko2Name"
@@ -241,73 +241,73 @@
                 デスクトップ版のエクセル、現代的に言うと Office 360 を購入してしまえば、<br>
                 あとは VBA だけで完結するから、<br>
                 もう、神エクセルにハマった人は、他の環境が進化しててでも神エクセルをやるのよ。<br>
-        </talker-balloon>
+        </talk-balloon>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="kifuwarabe2Src"
             :alt="kifuwarabe2Alt"
             :name="kifuwarabe2Name"
             :device="compatibleDevice1Ref?.device">
                 死んだ巻貝の殻に入るヤドカリみたいだな。
-        </talker-balloon>
+        </talk-balloon>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device">
                 <span class="font-x2">巻貝が良いんだ！</span>スマホにはついていけないんだ！
-        </talker-balloon>
+        </talk-balloon>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="kifuwarabe2Src"
             :alt="kifuwarabe2Alt"
             :name="kifuwarabe2Name"
             :device="compatibleDevice1Ref?.device">
                 分かった分かった。
-        </talker-balloon>
+        </talk-balloon>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device">
                 最新の AI を提供する公式スタッフと、<br>
                 わたしの熟練した神エクセルでバトルな。
-        </talker-balloon>
+        </talk-balloon>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="kifuwarabe2Src"
             :alt="kifuwarabe2Alt"
             :name="kifuwarabe2Name"
             :device="compatibleDevice1Ref?.device">
                 しかしこんなツール、要らんのでは？<br>
                 お父んだけ使っていればいいのでは？
-        </talker-balloon>
+        </talk-balloon>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="hiyoko2Src"
             :alt="hiyoko2Alt"
             :name="hiyoko2Name"
             :device="compatibleDevice1Ref?.device">
                 案外、そんじょそこらに熟練度の上限に達してしまったヤドカリがいっぱいいて<br>
                 集まってくるかも知れないわよ？
-        </talker-balloon>
+        </talk-balloon>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="kifuwarabe2Src"
             :alt="kifuwarabe2Alt"
             :name="kifuwarabe2Name"
             :device="compatibleDevice1Ref?.device">
                 うわあ
-        </talker-balloon>
+        </talk-balloon>
 
     </section>
 
@@ -324,7 +324,7 @@
     // + コンポーネント +
     // ++++++++++++++++++
 
-    import TalkerBalloon from '../../components/TalkerBalloon.vue';
+    import TalkBalloon from '../../components/TalkBalloon.vue';
     import TheFooter from './the-footer.vue';
     import TheHeader from './the-header.vue';
 

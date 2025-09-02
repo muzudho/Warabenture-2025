@@ -12,22 +12,22 @@
         </a><br/>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device">
                 <span class="font-x2">👆</span>Vuetify3 に置き換え中なんだが、レイアウトがスカスカになってしまう……
-        </talker-balloon>
+        </talk-balloon>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="kifuwarabe2Src"
             :alt="kifuwarabe2Alt"
             :name="kifuwarabe2Name"
             :device="compatibleDevice1Ref?.device">
                 じゃあ、画面に合わせてきっちり詰めるのは、できないんだろ。
-        </talker-balloon>
+        </talk-balloon>
 
 
         <a target="_blank" href="/img/journal/2025-07/202507__warabenture__25-1437-csvCleaning2OnTauri-o1o0.png">
@@ -35,31 +35,31 @@
         </a><br/>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device">
                 <span class="font-x2">👆</span>がんばって隙間を詰めてもこれぐらい。
-        </talker-balloon>
+        </talk-balloon>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="hiyoko2Src"
             :alt="hiyoko2Alt"
             :name="hiyoko2Name"
             :device="compatibleDevice1Ref?.device">
                 勝手にスマホにも対応しようとされるから、デスクトップ画面にピッタリ調整しようとすることはできないんじゃないの？
-        </talker-balloon>
+        </talk-balloon>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device">
                 次は、さっきのアプリをコピーして、わらシティを作ろう。
-        </talker-balloon>
+        </talk-balloon>
 
 
         <a target="_blank" href="/img/journal/2025-07/202507__warabenture__25-1749-waraCity-o1o0.png">
@@ -67,71 +67,71 @@
         </a><br/>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="kifuwarabe2Src"
             :alt="kifuwarabe2Alt"
             :name="kifuwarabe2Name"
             :device="compatibleDevice1Ref?.device">
                 何だぜ、これ？
-        </talker-balloon>
+        </talk-balloon>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device">
                 スーパー・ファミコン版のシム・シティのパクリを作るんだぜ。
-        </talker-balloon>
+        </talk-balloon>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device">
                 さっそくこれを、ワラベンチャーのホームページ、つまりここにも移植しよう。
-        </talker-balloon>
+        </talk-balloon>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device">
                 あれっ？　画像が表示されない？
-        </talker-balloon>
+        </talk-balloon>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="hiyoko2Src"
             :alt="hiyoko2Alt"
             :name="hiyoko2Name"
             :device="compatibleDevice1Ref?.device">
                 なんで同じ Vue 3 なのに、そのまんま移植できないの？
-        </talker-balloon>
+        </talk-balloon>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device">
                 HTML のソースに &ltv-img&gt タグがそのまんま出力されてる……、<br/>
                 Nuxt に Vuetify3 が連携されていないんだ。
-        </talker-balloon>
+        </talk-balloon>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="kifuwarabe2Src"
             :alt="kifuwarabe2Alt"
             :name="kifuwarabe2Name"
             :device="compatibleDevice1Ref?.device">
                 じゃあ、連携しろだぜ。
-        </talker-balloon>
+        </talk-balloon>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
@@ -139,7 +139,7 @@
                 <span class="font-x2">👇</span>以下の記事を頼りに Nuxt と Vuetify3 を連携する。<br/>
                 <br/>
                 <span class="font-x2">📖</span><a target="_blank" href="https://note.com/doui_lab/n/n37a67a01981a">Vue3 + Nuxt3 + Vuetify3 のクイックスタート</a>
-        </talker-balloon>
+        </talk-balloon>
 
 
         <pre class="code-b">
@@ -148,14 +148,14 @@ pnpm add vuetify@next sass @mdi/font
 pnpm add -D vite-plugin-vuetify</pre>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device">
                 📄 <span class="code-w">nuxt.config.ts</span> を編集。<br/>
                 以下は追加部分。
-        </talker-balloon>
+        </talk-balloon>
 
 
         <pre class="code-b">
@@ -167,14 +167,14 @@ export default defineNuxtConfig({
 })</pre>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device">
                 📁 <span class="code-w">plugins</span> フォルダーを作成。<br/>
                 📄 <span class="code-w">vuetify.ts</span> ファイルを作成。<br/>
-        </talker-balloon>
+        </talk-balloon>
 
 
         <pre class="code-b">
@@ -192,20 +192,20 @@ export default defineNuxtPlugin((nuxtApp) => {
 });</pre>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device">
                 以下のコマンドを打鍵。
-        </talker-balloon>
+        </talk-balloon>
 
 
         <pre class="code-b">
 pnpm install</pre>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
@@ -213,29 +213,29 @@ pnpm install</pre>
                 <span class="font-x2">👇</span>連携できてるかな？<br/>
                 <br/>
                 <span class="font-x2">📖</span><a target="_blank" href="https://warabenture.com/wara-city/map">わらシティ</a>
-        </talker-balloon>
+        </talk-balloon>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="kifuwarabe2Src"
             :alt="kifuwarabe2Alt"
             :name="kifuwarabe2Name"
             :device="compatibleDevice1Ref?.device">
                 サイトが落ちてるぜ。
-        </talker-balloon>
+        </talk-balloon>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device">
                 モジュールのバージョンが合ってないと Nuxt は容赦なく落とすらしい。<br/>
                 📄 <span class="code-w">package.json</span> ファイルの中のバージョン指定を修正するぜ。
-        </talker-balloon>
+        </talk-balloon>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
@@ -243,10 +243,10 @@ pnpm install</pre>
                 なんか sudo で build コマンドを叩いてしまったからか、ディレクトリーのパーミッションが<span class="code-w">root</span>になってて、<br/>
                 アクセス権限がないとかいうエラーが出てた。<br/>
                 ディレクトリーのパーミッションを<span class="code-w">ubuntu</span>に直すぜ。
-        </talker-balloon>
+        </talk-balloon>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
@@ -254,38 +254,38 @@ pnpm install</pre>
                 <span class="code-w">http://localhost:3000/wara-city/map</span>というパスでは表示されて、<br/>
                 <span class="code-w">https://warabenture.com/wara-city/map</span>というパスでは表示されない、<br/>
                 Nuxt はなんかルーティングに流儀があんのかな？
-        </talker-balloon>
+        </talk-balloon>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device">
                 <span class="code-w">https://warabenture.com/wara-city/map</span>では表示されないが、<br/>
                 <span class="code-w">http://warabenture.com/wara-city/map/</span>なら表示された……。
-        </talker-balloon>
+        </talk-balloon>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="hiyoko2Src"
             :alt="hiyoko2Alt"
             :name="hiyoko2Name"
             :device="compatibleDevice1Ref?.device">
                 なんでリンクをクリックしたら、<span class="code-w">http</span>を勝手に<span class="code-w">https</span>に変えられてしまうの？
-        </talker-balloon>
+        </talk-balloon>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device">
                 さくらインターネットで簡単に https に対応してくれるサービスとかないかなあ……。
-        </talker-balloon>
+        </talk-balloon>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="kifuwarabe2Src"
             :alt="kifuwarabe2Alt"
             :name="kifuwarabe2Name"
@@ -293,56 +293,56 @@ pnpm install</pre>
                 <span class="font-x2">👇</span>これを読めだぜ。<br/>
                 <br/>
                 <span class="font-x2">📖</span><a target="_blank" href="https://manual.sakura.ad.jp/vps/startupscript/letsencrypt.html">Let's Encrypt</a>
-        </talker-balloon>
+        </talk-balloon>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device">
                 スタートアップ・スクリプトを実行するために、OSの再インストールをしなければならないみたいだぜ、<br/>
                 したくないぜ。
-        </talker-balloon>
+        </talk-balloon>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="hiyoko2Src"
             :alt="hiyoko2Alt"
             :name="hiyoko2Name"
             :device="compatibleDevice1Ref?.device">
                 スタートアップ時でなくても、今スクリプトを実行することはできないの？
-        </talker-balloon>
+        </talk-balloon>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="kifuwarabe2Src"
             :alt="kifuwarabe2Alt"
             :name="kifuwarabe2Name"
             :device="compatibleDevice1Ref?.device">
                 無い。OSの再インストールは必須。
-        </talker-balloon>
+        </talk-balloon>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="hiyoko2Src"
             :alt="hiyoko2Alt"
             :name="hiyoko2Name"
             :device="compatibleDevice1Ref?.device">
                 Web サーバーを再構築するための手順みたいなものはまとめてないの？
-        </talker-balloon>
+        </talk-balloon>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device">
                 記憶の中にしかない……。
-        </talker-balloon>
+        </talk-balloon>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="kifuwarabe2Src"
             :alt="kifuwarabe2Alt"
             :name="kifuwarabe2Name"
@@ -350,10 +350,10 @@ pnpm install</pre>
                 ufw によるポートの開放、<br/>
                 nginx の設定ファイル、<br/>
                 他、何がある？
-        </talker-balloon>
+        </talk-balloon>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
@@ -362,110 +362,110 @@ pnpm install</pre>
                 ストレージのスケールアップに 5000円ぐらい出した気がするな、そしてそれの設定。<br/>
                 nginx の設定。<br/>
                 ディレクトリーのパーミッション設定。
-        </talker-balloon>
+        </talk-balloon>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="hiyoko2Src"
             :alt="hiyoko2Alt"
             :name="hiyoko2Name"
             :device="compatibleDevice1Ref?.device">
                 git のインストールもあるのかしら？
-        </talker-balloon>
+        </talk-balloon>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device">
                 <span class="code-w">/etc/nginx/sites-enabled/default</span> が有効になってるのは問題があったので、<br/>
                 unlink したというメモ書きは残っている。
-        </talker-balloon>
+        </talk-balloon>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device">
                 しゃあない、やるしかない、OS の再インストールを始めるぜ。
-        </talker-balloon>
+        </talk-balloon>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device">
                 あっ！　さくらのVPSは、Ubuntu 用の Let's Encrypt のスタートアップスクリプトが無いぜ！
-        </talker-balloon>
+        </talk-balloon>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="kifuwarabe2Src"
             :alt="kifuwarabe2Alt"
             :name="kifuwarabe2Name"
             :device="compatibleDevice1Ref?.device">
                 意味無
-        </talker-balloon>
+        </talk-balloon>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="hiyoko2Src"
             :alt="hiyoko2Alt"
             :name="hiyoko2Name"
             :device="compatibleDevice1Ref?.device">
                 自力で Let's Encrypt の設定をするにしても、自動更新のスクリプトも書かないといけなくなるのかしら？
-        </talker-balloon>
+        </talk-balloon>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device">
                 cron を使えってことだろ。
-        </talker-balloon>
+        </talk-balloon>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device">
                 めんどくさ、 Nuxt の方で https に飛ばないようにする方法はないのかだぜ？
-        </talker-balloon>
+        </talk-balloon>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="kifuwarabe2Src"
             :alt="kifuwarabe2Alt"
             :name="kifuwarabe2Name"
             :device="compatibleDevice1Ref?.device">
                 その設定はもっとめんどくさい。
-        </talker-balloon>
+        </talk-balloon>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device">
                 くそっ。
-        </talker-balloon>
+        </talk-balloon>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device">
                 じゃあ、SSL証明書、自力で取る。
-        </talker-balloon>
+        </talk-balloon>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="kifuwarabe2Src"
             :alt="kifuwarabe2Alt"
             :name="kifuwarabe2Name"
@@ -473,10 +473,10 @@ pnpm install</pre>
                 <span class="font-x2">👇</span>これを読めだぜ。<br/>
                 <br/>
                 <span class="font-x2">📖</span><a target="_blank" href="https://savacan.space-i.com/lets-encrypt%E3%81%A7%E7%84%A1%E6%96%99ssl%E8%A8%BC%E6%98%8E%E6%9B%B8%E3%82%92%E5%8F%96%E5%BE%97%E3%81%99%E3%82%8B/">Let’s Encryptで無料SSL証明書を取得する</a>
-        </talker-balloon>
+        </talk-balloon>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
@@ -485,7 +485,7 @@ pnpm install</pre>
                 <span class="font-x2">👇</span>Certbot のインストール方法。<br/>
                 <br/>
                 <span class="font-x2">📖</span><a target="_blank" href="https://www.ssdnodes.com/blog/install-lets-encrypt-on-ubuntu-certbot-apache-and-nginx/">How To Install Certbot on Ubuntu 24.04: Set Up Let’s Encrypt for Apache and Nginx</a>
-        </talker-balloon>
+        </talk-balloon>
 
 
         <pre class="code-b">
@@ -507,7 +507,7 @@ sudo nano /etc/nginx/sites-enabled/default
 </pre>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
@@ -515,7 +515,7 @@ sudo nano /etc/nginx/sites-enabled/default
                 <span class="font-x2">👇</span>ここで nginx の設定ファイルを書くところだが、既存の設定ファイルは以下の通り。
                 <br/>
                 <span class="font-x2">📄</span><span class="code-w">/etc/nginx/sites-enabled/warabenture-2025</span>
-        </talker-balloon>
+        </talk-balloon>
 
 
         <pre class="code-b">
@@ -530,13 +530,13 @@ server {
 }</pre>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device">
                 <span class="font-x2">👇</span>記事のサンプルは以下の通りだが、既存の設定もあるし……。
-        </talker-balloon>
+        </talk-balloon>
 
 
         <pre class="code-b">
@@ -571,7 +571,7 @@ server {
 }</pre>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
@@ -579,7 +579,7 @@ server {
                 <span class="font-x2">👇</span>こうすればいいのか？<br/>
                 <br/>
                 <span class="font-x2">📄</span><span class="code-w">/etc/nginx/sites-enabled/warabenture-2025</span>
-        </talker-balloon>
+        </talk-balloon>
 
 
         <pre class="code-b">
@@ -597,14 +597,14 @@ server {
 }</pre>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device">
                 📄 <span class="code-w">fullchain.pem</span> ファイルとか置いてないけど……、<br/>
                 もう作られてるのか？ 次へ。
-        </talker-balloon>
+        </talk-balloon>
 
 
         <pre class="code-b">
@@ -614,17 +614,17 @@ sudo systemctl restart nginx
 Step 4: Verifying Your Let's Encrypt Certificate Information</pre>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device">
                 これで Let's encrypt の設定が終わってるはずだが、<br/>
                 別に何も変わってるようには見えないな……。
-        </talker-balloon>
+        </talk-balloon>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
@@ -633,7 +633,7 @@ Step 4: Verifying Your Let's Encrypt Certificate Information</pre>
                 さくらのVPSのコントロールパネルのパケットフィルターを見ると、どちらも全て許可している。<br/>
                 じゃあ、開いてないのは Ubuntu の方か？<br/>
                 <span class="code-b">ufw</span> コマンドを使って開けてみるか？
-        </talker-balloon>
+        </talk-balloon>
 
 
         <pre class="code-b">
@@ -661,13 +661,13 @@ To                         Action      From
 22 (v6)                    ALLOW       Anywhere (v6)</pre>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device">
                 これでポートは開いてると思うが、まだダメか。
-        </talker-balloon>
+        </talk-balloon>
 
 
         <pre class="code-b">
@@ -680,27 +680,27 @@ sudo certbot certonly --webroot --webroot-path /var/www/html -m ＜🌟メール
     - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</pre>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device">
                 <span class="font-x2">👆</span>上のコマンドを入力すると、<br/>
                 📄<span class="code-w">privkey.pem</span>や 📄<span class="code-w">fullchain.pem</span> が作られるらしい。
-        </talker-balloon>
+        </talk-balloon>
 
 
         <pre class="code-b">
 sudo systemctl restart nginx</pre>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device">
                 変わらん。次は Grok に聞いてみるか……。
-        </talker-balloon>
+        </talk-balloon>
 
 
         <pre class="code-b">
@@ -716,7 +716,7 @@ sudo ufw status
     🌟 80 と 443 が開いていることを確認する</pre>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
@@ -727,16 +727,16 @@ sudo ufw status
                 <span class="font-x2">📖</span><a target="_blank" href="https://www.ssllabs.com/ssltest/">https://www.ssllabs.com/ssltest/</a><br/>
                 <br/>
                 設定できてないな。
-        </talker-balloon>
+        </talk-balloon>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device">
                 Grok に聞いてみるか。
-        </talker-balloon>
+        </talk-balloon>
 
 
         <pre class="code-b">
@@ -775,13 +775,13 @@ sudo certbot --nginx -d warabenture.com -d www.warabenture.com
     🌟 質問されるのでとりあえず 1 を選ぶ</pre>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device">
                 通った。nginxの設定は、80 と 443 の２つ書く必要があったのか。
-        </talker-balloon>
+        </talk-balloon>
 
     </section>
 </template>
@@ -796,7 +796,7 @@ sudo certbot --nginx -d warabenture.com -d www.warabenture.com
     // + コンポーネント +
     // ++++++++++++++++++
 
-    import TalkerBalloon from '../../../components/TalkerBalloon.vue';
+    import TalkBalloon from '../../../components/TalkBalloon.vue';
 
     // ++++++++++++++++++++++++++++++++++
     // + コンポーネント　＞　互換性対応 +

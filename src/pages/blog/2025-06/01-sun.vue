@@ -5,43 +5,43 @@
 
     <h3>[2025-06-01_Sun]</h3>
     <section class="sec-3">
-        <talker-balloon
+        <talk-balloon
             :src="oton1Src"
             :alt="oton1Alt"
             :name="oton1Name"
             :device="compatibleDevice1Ref?.device">
             文字は出せるかだぜ？
-        </talker-balloon>
-        <talker-balloon
+        </talk-balloon>
+        <talk-balloon
             :src="kifuwarabe1Src"
             :alt="kifuwarabe1Alt"
             :name="kifuwarabe1Name"
             :device="compatibleDevice1Ref?.device">
             出せてるぜ。
-        </talker-balloon>
-        <talker-balloon
+        </talk-balloon>
+        <talk-balloon
             :src="hiyoko1Src"
             :alt="hiyoko1Alt"
             :name="hiyoko1Name"
             :device="compatibleDevice1Ref?.device">
             なんか画像がボヤけてない？<br/>サイズもマチマチだし。<br/>グレードダウンしてない？
-        </talker-balloon>
-        <talker-balloon
+        </talk-balloon>
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device">
             まあ、そこはゆくゆくは修正だな。
-        </talker-balloon>
-        <talker-balloon
+        </talk-balloon>
+        <talk-balloon
             :src="kifuwarabe2Src"
             :alt="kifuwarabe2Alt"
             :name="kifuwarabe2Name"
             :device="compatibleDevice1Ref?.device">
             さっそくイラストを新調したか、<br/>
             グレードダウンしてないかだぜ？
-        </talker-balloon>
-        <talker-balloon
+        </talk-balloon>
+        <talk-balloon
             :src="hiyoko2Src"
             :alt="hiyoko2Alt"
             :name="hiyoko2Name"
@@ -49,15 +49,15 @@
             Grok に描かせようと、Super Grok にプラン変更しようとしたら、<br/>
             クレジットカードを拒否されたので、あんたのお父んの手描きになったのよ。<br/>
             何でクレジットカードが拒否されたのか知らんけど。
-        </talker-balloon>
-        <talker-balloon
+        </talk-balloon>
+        <talk-balloon
             :src="kifuwarabe2Src"
             :alt="kifuwarabe2Alt"
             :name="kifuwarabe2Name"
             :device="compatibleDevice1Ref?.device">
             このトップページは近況を書く日記かだぜ？<br/>
             メインのコンテンツは何かないのかだぜ？
-        </talker-balloon>
+        </talk-balloon>
     </section>
 </template>
 
@@ -71,7 +71,7 @@
     // + コンポーネント +
     // ++++++++++++++++++
 
-    import TalkerBalloon from '../../../components/TalkerBalloon.vue';
+    import TalkBalloon from '../../../components/TalkBalloon.vue';
 
     // ++++++++++++++++++++++++++++++++++
     // + コンポーネント　＞　互換性対応 +

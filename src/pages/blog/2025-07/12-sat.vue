@@ -7,23 +7,23 @@
     <section class="sec-3">
 
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device">
                 <span class="code-w">csv-cleaning-2-on-tauri</span>リポジトリーのパッケージ依存関係がおかしいらしい。<br/>
                 📄<span class="code-w">cargo.toml</span>ファイルから、<span class="code-w">api-all</span>フィーチャーを除去。
-        </talker-balloon>
+        </talk-balloon>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device">
                 👇 次に、<span class="code-w">cargo</span>を更新。
-        </talker-balloon>
+        </talk-balloon>
 
 
         <pre class="code-b">
@@ -92,14 +92,14 @@ cd ..
 pnpm dev</pre><br/>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device">
                 直らん。 📁<span class="code-w">node_modules</span> フォルダーを削除して、<span class="code-w">pnpm tauri dev</span>を打鍵。<br/>
                 コンパイル・エラーの数はだいぶ減った。
-        </talker-balloon>
+        </talk-balloon>
 
 
         <pre class="code-b">
@@ -107,13 +107,13 @@ pnpm install
 pnpm tauri dev</pre>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device">
                 コンパイル・エラーの数はさらに減った。
-        </talker-balloon>
+        </talk-balloon>
 
 
         <pre class="code-b">
@@ -124,13 +124,13 @@ cd ..
 pnpm tauri dev</pre>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device">
                 コンパイル・エラーは取れて、ウィンドウも表示されたけど、ウィンドウの内側は真っ白だ……。
-        </talker-balloon>
+        </talk-balloon>
 
 
         <a target="_blank" href="/img/journal/2025-07/202507__warabenture__12-1713-csvCleaningOnTauri-o1o0.png">
@@ -138,32 +138,32 @@ pnpm tauri dev</pre>
         </a><br/>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device">
                 👆 シュリンクして、テキストだけ表示できるように直した。
-        </talker-balloon>
+        </talk-balloon>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="kifuwarabe2Src"
             :alt="kifuwarabe2Alt"
             :name="kifuwarabe2Name"
             :device="compatibleDevice1Ref?.device">
                 逐次的に<span class="code-w">&lt;main class="container"&gt;</span>なんてコツコツ書かずに、<br/>
                 構造的に<span class="code-w">&lt;v-app&gt;&lt;v-main&gt;</span>を使うみたいだぜ？
-        </talker-balloon>
+        </talk-balloon>
 
 
-        <talker-balloon
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device">
                 そうか、自動的にレスポンシブ・デザインに対応してもらうには、Ｗｅｂサイトに特化したフレームワークに丸投げした方がいいのか……。
-        </talker-balloon>
+        </talk-balloon>
 
     </section>
 </template>
@@ -178,7 +178,7 @@ pnpm tauri dev</pre>
     // + コンポーネント +
     // ++++++++++++++++++
 
-    import TalkerBalloon from '../../../components/TalkerBalloon.vue';
+    import TalkBalloon from '../../../components/TalkBalloon.vue';
 
     // ++++++++++++++++++++++++++++++++++
     // + コンポーネント　＞　互換性対応 +
