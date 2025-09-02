@@ -26,6 +26,7 @@
     // + コンポーザブル +
     // ++++++++++++++++++
 
+    import type { Device } from '../composables/compatible-device';
     import { illustration1FaceStyle2 } from "../composables/talk-scene2";
 
 
