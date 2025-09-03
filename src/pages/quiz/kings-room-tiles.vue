@@ -769,7 +769,7 @@ color = i % 2;
     // + コンポーネント　＞　互換性対応 +
     // ++++++++++++++++++++++++++++++++++
 
-    import CompatibleDevice from '../../components/CompatibleDevice.vue'
+    import CompatibleDevice from '@/components/CompatibleDevice.vue'
 
     // ++++++++++++++++++
     // + コンポーザブル +
@@ -1114,33 +1114,6 @@ color = i % 2;
     const player1MotionWalkingFrames: number = 16;  // 歩行フレーム数
     const player1CanBoardEdgeWalking = ref<boolean>(true); // ［盤の端の歩行］可能状態を管理（true: 可能にする, false: 可能にしない）
     const player1CanBoardEdgeWalkingIsEnabled = ref<boolean>(false);    // ［盤の端の歩行］可能状態の活性性を管理（true: 不活性にする, false: 活性にする）
-
-    // ++++++++++++++++++++++++++++++
-    // + オブジェクト　＞　挿絵全般 +
-    // ++++++++++++++++++++++++++++++
-
-    const illustration1Style = computed<CompatibleStyleValue>(()=>{ /* 挿絵 */
-        if (compatibleDevice1Ref.value?.device == 'Mobile') {
-            return {
-                width: `256px`,
-            };
-        }
-
-        return {
-            width: `384px`,
-        };
-    });
-    const illustration1CaptionStyle = computed<CompatibleStyleValue>(()=>{  /* 画像の下に付けるキャプション用 */
-        if (compatibleDevice1Ref.value?.device == 'Mobile') {
-            return {
-                width: `256px`,
-            };
-        }
-
-        return {
-            width: `384px`,
-        };
-    });
 
     // ++++++++++++++++++++++++++++++
     // + オブジェクト　＞　選択肢１ +

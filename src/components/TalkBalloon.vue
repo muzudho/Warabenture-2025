@@ -1,5 +1,5 @@
 <template>
-    <div class="talk">
+    <div class="talk-container">
         <div class="talk-face-container-2">
             <img
                 :src="props.src"

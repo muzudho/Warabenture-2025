@@ -20,6 +20,7 @@ const myCustomLightTheme = {
         'surface-bright': '#FFFFFF',
         'surface-light': '#EEEEEE',
         'surface-variant': '#424242',
+        'text-dark': '#F0F0F0',
         'on-surface-variant': '#EEEEEE',
         primary: '#1867C0',
         'primary-darken-1': '#1F5592',

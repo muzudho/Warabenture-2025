@@ -11,7 +11,7 @@
         text-align: right;
         max-width: 96px;
         font-size: small;
-        color: rgb(var(--v-theme-surface-light));
+        color: rgb(var(--v-theme-text-dark));   /* ワラベンチャー用 */
     }
     div.talk-name-novel { /* 名前 */
         padding-left: 0;
@@ -33,7 +33,7 @@
         text-align: right;
         max-width: 96px;
         font-size: small;
-        color: rgb(var(--v-theme-surface-light));
+        color: rgb(var(--v-theme-text-dark));   /* ワラベンチャー用 */
     }
     div.talk-name-novel { /* 名前 */
         padding-left: 0;
@@ -69,11 +69,11 @@ div.talk-body-novel {
 }
 */
 
-div.talk{
+div.talk-container {
     display: flex;
     align-items: center;
     margin-top: 1px;
-    margin-bottom: 1px;
+    margin-bottom: 16px;
     color: #101010;
 }
 
@@ -88,7 +88,7 @@ div.baloon-body{
     padding-top: 12px;
     padding-bottom:16px;
     padding-right:16px;
-    background-color: #F8F8F8;
+    background-color: #F0F0F0;  /* ワラベンチャー用 */
     border-radius: 16px;
 }
 
@@ -103,6 +103,6 @@ div.baloon-body{
 div.baloon-tail {
     width: 21px;    /* 右端の 1px は欠けることがあるから、 1px 長めに指定 */
     height: 15px;
-    background-color: #F8F8F8; /* 白い背景 */
+    background-color: #F0F0F0;  /* ワラベンチャー用 */
     clip-path: polygon(0% 50%, 100% 0%, 100% 100%); /* 上頂点、下底の三角形 */
 }

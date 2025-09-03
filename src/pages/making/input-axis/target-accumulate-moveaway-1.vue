@@ -3,7 +3,7 @@
     <!-- ボタン機能拡張 -->
     <button-20250822 ref="button1Ref"/>
 
-    <h4>標的</h4>
+    <h4>標的・遠ざかる累積</h4>
     <section class="sec-4">
         <br/>
 
@@ -130,8 +130,8 @@
     </section>
 
     <br/>
-    <h4><span class="parent-header-lights-out">標的　＞　</span>ソースコード</h4>
-    <section class="sec-4">
+    <h5><span class="parent-header-lights-out">標的・遠ざかる累積　＞　</span>ソースコード</h5>
+    <section class="sec-5">
         <source-link
             pagePath="/making/input-axis-target-1"/>
     </section>
@@ -153,7 +153,9 @@
     // + 互換性対応 +
     // ++++++++++++++
 
-    import type { CompatibleStyleValue }  from '../../compatibles/compatible-style-value';
+    import type { CompatibleStyleValue }  from '../../../compatibles/compatible-style-value';
+    // Tauri ではこう書けなかった：
+    //import type { CompatibleStyleValue }  from '@/compatibles/compatible-style-value.ts';
 
     // ++++++++++++++++++
     // + コンポーネント +
@@ -164,8 +166,8 @@
 
 
     // from の階層が上の順、アルファベット順
-    import Button20250822 from '../../components/Button20250822.vue';
-    import SourceLink from '../../components/SourceLink.vue';
+    import Button20250822 from '@/components/Button20250822.vue';
+    import SourceLink from '@/components/SourceLink.vue';
 
 
     // ############################
