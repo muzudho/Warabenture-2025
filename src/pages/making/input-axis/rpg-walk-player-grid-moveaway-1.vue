@@ -190,7 +190,7 @@
     <h5><span class="parent-header-lights-out">ＲＰＧの歩行グラフィック　＞　</span><span class="parent-header">自機ウォーキング・遠ざかるグリッド吸着　＞　</span>ソースコード</h5>
     <section class="sec-5">
         <source-link
-            pagePath="/making/input-axis-rpg-walk-player-primordial-grid-1"/>
+            pagePath="/making/input-axis/rpg-walk-player-grid-moveaway-1"/>
     </section>
 </template>
 

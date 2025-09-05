@@ -3,14 +3,14 @@
     <!-- ボタン機能拡張 -->
     <button-20250822 ref="button1Ref"/>
 
-    <h4><span class="parent-header">ＲＰＧの歩行グラフィック　＞　</span>数字柄の原始的シフト</h4>
+    <h4><span class="parent-header">ＲＰＧの歩行グラフィック　＞　</span>不動タイルへ投影・遠ざかる像</h4>
     <section class="sec-4">
         <br/>
 
         <!-- ストップウォッチ。デバッグに使いたいときは、 display: none; を消してください。 -->
         <stopwatch
             ref="stopwatch1Ref"
-            v-on:countUp="(countNum) => { stopwatch1Count = countNum; }"
+            v-on:countUp="(countNum: number) => { stopwatch1Count = countNum; }"
             style="display: none;" />
 
         <!-- 盤領域 -->
@@ -179,10 +179,10 @@
     </section>
 
     <br/>
-    <h4><span class="parent-header-lights-out">ＲＰＧの歩行グラフィック　＞　</span><span class="parent-header">数字柄の原始的シフト　＞　</span>ソースコード</h4>
-    <section class="sec-4">
+    <h5><span class="parent-header-lights-out">ＲＰＧの歩行グラフィック　＞　</span><span class="parent-header">不動タイルへ投影・遠ざかる像　＞　</span>ソースコード</h5>
+    <section class="sec-5">
         <source-link
-            pagePath="/making/input-axis-rpg-walk-printing-shift-primordial-1"/>
+            pagePath="/making/input-axis/rpg-walk-tiles-immovable-projection-moveaway-1"/>
     </section>
 </template>
 
@@ -200,7 +200,7 @@
     // + 互換性対応 +
     // ++++++++++++++
 
-    import type { CompatibleStyleValue }  from '../../compatibles/compatible-style-value';
+    import type { CompatibleStyleValue }  from '../../../compatibles/compatible-style-value';
 
     // ++++++++++++++++++
     // + コンポーネント +
@@ -210,16 +210,16 @@
     //
 
     // from の階層が上の順、アルファベット順
-    import Button20250822 from '../../components/Button20250822.vue';
-    import SourceLink from '../../components/SourceLink.vue';
-    import Stopwatch from '../../components/Stopwatch.vue';
-    import TileAnimation from '../../components/TileAnimation.vue';
+    import Button20250822 from '@/components/Button20250822.vue';
+    import SourceLink from '@/components/SourceLink.vue';
+    import Stopwatch from '@/components/Stopwatch.vue';
+    import TileAnimation from '@/components/TileAnimation.vue';
 
     // ********************
     // * インターフェース *
     // ********************
 
-    import type Rectangle from '../../interfaces/Rectangle';
+    import type Rectangle from '../../../interfaces/Rectangle';
 
 
     // ##########

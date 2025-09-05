@@ -113,14 +113,127 @@
         </talk-balloon>
     </section>
 
-    <input-axis-rpg-walk-printing-shift-primordial-1/><br/>
-    <input-axis-rpg-walk-printing-shift-boundary-1/><br/>
-    <input-axis-rpg-walk-printing-shift-loop-1/><br/>
-    <input-axis-rpg-walk-printing-shift-contents-size-variable-1/><br/>
-    <input-axis-rpg-walk-board-wraparound-scroll-loop-1/><br/>
-    <input-axis-rpg-walk-board-wraparound-scroll-and-printing-loop-1/><br/>
-    <input-axis-rpg-walk-board-wraparound-scroll-and-printing-primordial-and-player-boundary-1/><br/>
-    <input-axis-rpg-walk-using-background-image-1/><br/>
+    <input-axis-rpg-walk-tiles-immovable-projection-moveaway-1/><br/>
+
+    <section class="sec-3">
+        <br/>
+        
+        <talk-balloon
+            :src="commonKifuwarabe2Src"
+            :alt="commonKifuwarabe2Alt"
+            :name="commonKifuwarabe2Name"
+            :device="compatibleDevice1Ref?.device">
+            👆　上記は、何にも動いてないぜ。<br/>
+            <br/>
+            タイルが並べてあって、そのタイルに何か表示されてるだけだぜ。<br/>
+        </talk-balloon>
+        <talk-balloon
+            :src="commonHiyoko2Src"
+            :alt="commonHiyoko2Alt"
+            :name="commonHiyoko2Name"
+            :device="compatibleDevice1Ref?.device">
+            それでも盤上を動いてるように見えるわよね。<br/>
+        </talk-balloon>
+        <talk-balloon
+            :src="commonKifuwarabe2Src"
+            :alt="commonKifuwarabe2Alt"
+            :name="commonKifuwarabe2Name"
+            :device="compatibleDevice1Ref?.device">
+            タイルは動いてないから［不動タイル］、<br/>
+            どこに保存されてるのか、数字の並びが、まるで本当に有るみたいにタイルに映ってるの、［像］だぜ。<br/>
+            ［像］はどっかに本体のデータが保存されてるのな、その本体のデータは［実物］。<br/>
+            実物をタイルに［投影］して、［像］を見てるわけだぜ。<br/>
+        </talk-balloon>
+        <talk-balloon
+            :src="commonOton2Src"
+            :alt="commonOton2Alt"
+            :name="commonOton2Name"
+            :device="compatibleDevice1Ref?.device">
+            何言ってるか分かんないよな。
+        </talk-balloon>
+    </section>
+
+    <input-axis-rpg-walk-tiles-immovable-projection-boundary-1/><br/>
+
+    <section class="sec-3">
+        <br/>
+        
+        <talk-balloon
+            :src="commonKifuwarabe2Src"
+            :alt="commonKifuwarabe2Alt"
+            :name="commonKifuwarabe2Name"
+            :device="compatibleDevice1Ref?.device">
+            👆　上記は、盤の端まで行くと、自機がホームポジションを離れて、盤上を移動するぜ。<br/>
+        </talk-balloon>
+    </section>
+
+    <input-axis-rpg-walk-tiles-immovable-projection-loop-1/><br/>
+
+    <section class="sec-3">
+        <br/>
+        
+        <talk-balloon
+            :src="commonKifuwarabe2Src"
+            :alt="commonKifuwarabe2Alt"
+            :name="commonKifuwarabe2Name"
+            :device="compatibleDevice1Ref?.device">
+            👆　上記は、像の右端と左端、上端と下端がくっついているから、<br/>
+            いつまでもぐるぐると回れるぜ。<br/>
+        </talk-balloon>
+    </section>
+
+    <input-axis-rpg-walk-tiles-immovable-projection-moveaway-size-variable-1/><br/>
+
+    <section class="sec-3">
+        <br/>
+        
+        <talk-balloon
+            :src="commonKifuwarabe2Src"
+            :alt="commonKifuwarabe2Alt"
+            :name="commonKifuwarabe2Name"
+            :device="compatibleDevice1Ref?.device">
+            👆　上記は、盤より狭い像、広い像を扱えるという例だぜ。<br/>
+        </talk-balloon>
+    </section>
+
+    <input-axis-rpg-walk-tiles-wraparound-projection-loop-outofsight-1/><br/>
+
+    <section class="sec-3">
+        <br/>
+        
+        <talk-balloon
+            :src="commonKifuwarabe2Src"
+            :alt="commonKifuwarabe2Alt"
+            :name="commonKifuwarabe2Name"
+            :device="compatibleDevice1Ref?.device">
+            👆　今度のタイルはスライドするぜ。<br/>
+            溢れ出たタイルは反対側へ回り込み（ラップアラウンド）をするぜ。<br/>
+        </talk-balloon>
+        <talk-balloon
+            :src="commonHiyoko2Src"
+            :alt="commonHiyoko2Alt"
+            :name="commonHiyoko2Name"
+            :device="compatibleDevice1Ref?.device">
+            回り込んでいるところを隠せば、無限にタイルがスライドしているように見えるわねぇ。<br/>
+        </talk-balloon>
+        <talk-balloon
+            :src="commonOton2Src"
+            :alt="commonOton2Alt"
+            :name="commonOton2Name"
+            :device="compatibleDevice1Ref?.device">
+            裏画面でこっそり描いてるというやつだな。
+        </talk-balloon>
+        <talk-balloon
+            :src="commonKifuwarabe2Src"
+            :alt="commonKifuwarabe2Alt"
+            :name="commonKifuwarabe2Name"
+            :device="compatibleDevice1Ref?.device">
+            ［設定を表示］ボタンから、スライダーバーを動かして、像を広げたり狭めたり、いろいろ試してみてくれだぜ。<br/>
+            ループのチェックを外して、盤の端を歩いてみるのもいいな。<br/>
+        </talk-balloon>
+    </section>
+
+    <input-axis-rpg-walk-tiles-wraparound-projection-loop-outofsight-maptileimage-1/><br/>
 
     <br/>
     <h3><span class="parent-header">上下左右に移動しようぜ！　＞　</span>ソースコード</h3>
@@ -147,18 +260,16 @@
     //
 
     import SourceLink from '../../components/SourceLink.vue';
-    import InputAxisRpgWalkUsingBackgroundImage1 from './input-axis-rpg-walk-using-background-image-1.vue';
+    import InputAxisRpgWalkTilesWraparoundProjectionLoopOutofsightMaptileimage1 from './input-axis/rpg-walk-tiles-wraparound-projection-loop-outofsight-maptileimage-1.vue';
     import InputAxisRpgWalkBoardGridMoveaway1 from './input-axis/rpg-walk-board-grid-moveaway-1.vue';
-    import InputAxisRpgWalkBoardWraparoundScrollAndPrintingPrimordialAndPlayerBoundary1 from './input-axis-rpg-walk-board-wraparound-scroll-and-printing-primordial-and-player-boundary-1.vue';
-    import InputAxisRpgWalkBoardWraparoundScrollLoop1 from './input-axis-rpg-walk-board-wraparound-scroll-loop-1.vue';
-    import InputAxisRpgWalkBoardWraparoundScrollAndPrintingLoop1 from './input-axis-rpg-walk-board-wraparound-scroll-and-printing-loop-1.vue';
+    import InputAxisRpgWalkTilesWraparoundProjectionLoopOutofsight1 from './input-axis/rpg-walk-tiles-wraparound-projection-loop-outofsight-1.vue';
     import InputAxisRpgWalkPlayerAccumulateMoveaway1 from './input-axis/rpg-walk-player-accumulate-moveaway-1.vue';
     import InputAxisRpgWalkPlayerGridBounded1 from './input-axis/rpg-walk-player-grid-bounded-1.vue';
     import InputAxisRpgWalkPlayerGridMoveaway1 from './input-axis/rpg-walk-player-grid-moveaway-1.vue';
-    import InputAxisRpgWalkPrintingShiftPrimordial1 from './input-axis-rpg-walk-printing-shift-primordial-1.vue';
-    import InputAxisRpgWalkPrintingShiftBoundary1 from './input-axis-rpg-walk-printing-shift-boundary-1.vue';
-    import InputAxisRpgWalkPrintingShiftContentsSizeVariable1 from './input-axis-rpg-walk-printing-shift-contents-size-variable-1.vue';
-    import InputAxisRpgWalkPrintingShiftLoop1 from './input-axis-rpg-walk-printing-shift-loop-1.vue';
+    import InputAxisRpgWalkTilesImmovableProjectionBoundary1 from './input-axis/rpg-walk-tiles-immovable-projection-boundary-1.vue';
+    import InputAxisRpgWalkTilesImmovableProjectionLoop1 from './input-axis/rpg-walk-tiles-immovable-projection-loop-1.vue';
+    import InputAxisRpgWalkTilesImmovableProjectionMoveaway1 from './input-axis/rpg-walk-tiles-immovable-projection-moveaway-1.vue';
+    import InputAxisRpgWalkTilesImmovableProjectionMoveawaySizeVariable1 from './input-axis/rpg-walk-tiles-immovable-projection-moveaway-size-variable-1.vue';
     import InputAxisTargetAccumulateMoveaway1 from './input-axis/target-accumulate-moveaway-1.vue';
     import TalkBalloon from '../../components/TalkBalloon.vue';
     import TheFooter from './the-footer.vue';

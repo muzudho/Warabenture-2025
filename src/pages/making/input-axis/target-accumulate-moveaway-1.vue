@@ -133,7 +133,7 @@
     <h5><span class="parent-header-lights-out">標的・遠ざかる累積　＞　</span>ソースコード</h5>
     <section class="sec-5">
         <source-link
-            pagePath="/making/input-axis-target-1"/>
+            pagePath="/making/input-axis/target-accumulate-moveaway-1"/>
     </section>
 
 </template>

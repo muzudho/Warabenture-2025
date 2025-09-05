@@ -3,14 +3,14 @@
     <!-- ボタン機能拡張 -->
     <button-20250822 ref="button1Ref"/>
 
-    <h4><span class="parent-header">ＲＰＧの歩行グラフィック　＞　</span>盤の回り込みスクロール、印字の両端つながり</h4>
+    <h4><span class="parent-header">ＲＰＧの歩行グラフィック　＞　</span>不動タイルへ投影・遠ざかる像・像サイズ可変</h4>
     <section class="sec-4">
         <br/>
 
         <!-- ストップウォッチ。デバッグに使いたいときは、 display: none; を消してください。 -->
         <stopwatch
             ref="stopwatch1Ref"
-            v-on:countUp="(countNum) => { stopwatch1Count = countNum; }"
+            v-on:countUp="(countNum: number) => { stopwatch1Count = countNum; }"
             style="display: none;" />
 
         <!-- 盤領域 -->
@@ -28,60 +28,8 @@
             <div
                 v-for="i in board1Area"
                 :key="i"
-                class="square"
-                :style="getSquareStyle(i - 1)">
-                <span class="board-slidable-tile-index">tile[{{ (i - 1) }}]</span>
-                <span class="board-fixed-square-index">fix[{{
-                    getFixedSquareIndexFromTileIndex(
-                        i - 1,
-                        board1SquareWidth,
-                        board1SquareHeight,
-                        board1FileNum,
-                        board1RankNum,
-                        printing1Left,
-                        printing1Top,
-                    )
-                }}]</span>
-                <span class="board-printing-index">print[{{
-                    getPrintingIndexFromFixedSquareIndex(
-                        getFixedSquareIndexFromTileIndex(
-                            i - 1,
-                            board1SquareWidth,
-                            board1SquareHeight,
-                            board1FileNum,
-                            board1RankNum,
-                            printing1Left,
-                            printing1Top,
-                        ),
-                        -Math.floor(printing1Left / board1SquareWidth),
-                        -Math.floor(printing1Top / board1SquareHeight),
-                        board1FileNum,
-                        printing1FileNum,
-                        printing1RankNum,
-                        printing1IsLooping,
-                    )
-                }}]</span>
-                <span class="board-square-printing-string">{{
-                    getPrintingStringFromPrintingIndex(
-                        getPrintingIndexFromFixedSquareIndex(
-                            getFixedSquareIndexFromTileIndex(
-                                i - 1,
-                                board1SquareWidth,
-                                board1SquareHeight,
-                                board1FileNum,
-                                board1RankNum,
-                                printing1Left,
-                                printing1Top,
-                            ),
-                            -Math.floor(printing1Left / board1SquareWidth),
-                            -Math.floor(printing1Top / board1SquareHeight),
-                            board1FileNum,
-                            printing1FileNum,
-                            printing1RankNum,
-                            printing1IsLooping,
-                        )
-                    )
-                }}</span>
+                :style="getSquareStyle(i - 1)"
+            >{{ getPrintingStringBySquare(i - 1) }}
             </div>
 
             <!-- 自機１ -->
@@ -91,30 +39,10 @@
                 :slow="player1AnimationSlow"
                 :time="stopwatch1Count"
                 class="player"
-                :style="player1Style"/>
-            
-            <!-- 視界の外１ -->
-            <div
-                class="out-of-sight"
-                :style="outOfSight1Style">
-            </div>
+                :style="player1Style" />
         </div>
-
-        <div>
-            印字x={{ printing1Left }}　｜　人x={{ playerHome1Rank * board1SquareHeight }}<br/>
-            印字y={{ printing1Top  }}　｜　人y={{ playerHome1Rank * board1SquareHeight  }}<br/>
-        </div>
-        <br/>
-
         <p>
-            👆　自機が動く代わりに、盤の方がスクロールして、そして画面外に出た端のタイルが、反対側の端に回り込み（ラップアラウンド）しているぜ（＾▽＾）<br/>
-            端はちらつくから、ゲームで使うときは、半透明の黒いマスクが掛かっているところは画面に映らないようにしてくれだぜ（＾～＾）！<br/>
-            <br/>
-            マスの中の１段目の数字は、タイルに付いている番号だぜ（＾▽＾）！<br/>
-            ２段目の数字は、スタビライザーだぜ、つまり、見た目上、左上から 0, 1, 2 ... となるように画面に固定（Fix）した番号だぜ（＾▽＾）！<br/>
-            ３段目の大きな数字は、印字だぜ（＾▽＾）！<br/>
-            <br/>
-            タイルはスワップ（塗り替え）ではなく、スクロールしているぜ。スクロールってのは、数ドットずつ流れるように動いていくことだぜ（＾～＾）<br/>
+            👆 設定にあるスライダーバーを動かして、タイルに表示される数字を広げたり縮めたりしてみようぜ（＾▽＾）！<br/>
         </p>
         <br/>
 
@@ -167,7 +95,7 @@
                     @mouseup="button1Ref?.release(onDownButtonReleased);"
                     @mouseleave="button1Ref?.release(onDownButtonReleased);"
                 >↓</v-btn>
-                　…　タイルを、上下左右キーの入力とは逆方向に動かすぜ！
+                　…　印字を上下左右に動かすぜ！
                 <br/>
             </li>
             <li>
@@ -181,15 +109,14 @@
                     @mouseup="button1Ref?.release(onSpaceButtonReleased);"
                     @mouseleave="button1Ref?.release(onSpaceButtonReleased);"
                 >（スペース）</v-btn>
-                　…　タイルの位置をホームに戻すぜ。
+                　…　印字をホームに戻すぜ。
             </li>
             <li>
                 <!-- フォーカスを外すためのダミー・ボタンです -->
                 <v-btn
                     class="noop-key"
-                    ref="noopButton"
                     v-tooltip="'PCでのマウス操作で、フォーカスがコントロールに残って邪魔になるときは、このボタンを押してくれだぜ'"
-                >何もしないボタン</v-btn><br/>
+                >何もしないボタン</v-btn>
             </li>
         </ul>
         <br/>
@@ -227,7 +154,7 @@
                 label="自機のホーム　＞　筋"
                 v-model="playerHome1File"
                 :min="0"
-                :max="2"
+                :max="board1FileMax - 1"
                 step="1"
                 showTicks="always"
                 thumbLabel="always" />
@@ -235,7 +162,7 @@
                 label="自機のホーム　＞　段"
                 v-model="playerHome1Rank"
                 :min="0"
-                :max="2"
+                :max="board1RankMax - 1"
                 step="1"
                 showTicks="always"
                 thumbLabel="always" />
@@ -275,25 +202,16 @@
                 v-model="printing1IsLooping"
                 :label="printing1IsLooping ? '［印字の端と端がつながって（ループして）］います' : '［印字の端と端がつながって（ループして）］いません'"
                 color="green"
-                :hideDetails="true"
                 inset />
-            <v-slider
-                label="マスクの枠の幅"
-                v-model="board1WithMaskSizeSquare"
-                :min="0"
-                :max="2"
-                step="1"
-                showTicks="always"
-                thumbLabel="always" />
             <br/>
         </section>
     </section>
 
     <br/>
-    <h4><span class="parent-header-lights-out">ＲＰＧの歩行グラフィック　＞　</span><span class="parent-header">盤の回り込みスクロール、印字の両端つながり　＞　</span>ソースコード</h4>
+    <h4><span class="parent-header-lights-out">ＲＰＧの歩行グラフィック　＞　</span><span class="parent-header">不動タイルへ投影・遠ざかる像・像サイズ可変　＞　</span>ソースコード</h4>
     <section class="sec-4">
         <source-link
-            pagePath="/making/input-axis-rpg-walk-board-wraparound-scroll-loop-1"/>
+            pagePath="/making/input-axis/rpg-walk-tiles-immovable-projection-moveaway-size-variable-1"/>
     </section>
 </template>
 
@@ -303,7 +221,7 @@
     // # インポート #
     // ##############
 
-    import { computed, onMounted, ref, watch } from 'vue';
+    import { computed, onMounted, ref } from 'vue';
     // 👆 ［初級者向けのソースコード］では、 reactive は使いません。
     import type { Ref } from 'vue';
 
@@ -313,7 +231,7 @@
     // + 互換性対応 +
     // ++++++++++++++
 
-    import type { CompatibleStyleValue }  from '../../compatibles/compatible-style-value';
+    import type { CompatibleStyleValue }  from '../../../compatibles/compatible-style-value';
 
     // ++++++++++++++++++
     // + コンポーネント +
@@ -323,32 +241,35 @@
     //
 
     // from の階層が上の順、アルファベット順
-    import Button20250822 from '../../components/Button20250822.vue';
-    import SourceLink from '../../components/SourceLink.vue';
-    import Stopwatch from '../../components/Stopwatch.vue';
-    import TileAnimation from '../../components/TileAnimation.vue';
+    import Button20250822 from '@/components/Button20250822.vue';
+    import SourceLink from '@/components/SourceLink.vue';
+    import Stopwatch from '@/components/Stopwatch.vue';
+    import TileAnimation from '@/components/TileAnimation.vue';
 
     // ++++++++++++++++++
     // + コンポーザブル +
     // ++++++++++++++++++
 
-    import { getFixedSquareIndexFromTileIndex, getPrintingIndexFromFixedSquareIndex, wrapAround } from '../../composables/board-operation';
-    import {
-        getPlayer1File, getPlayer1Rank,
-        isPlayerInputKey,
-        playerMotionClearIfCountZero, playerImageAndPositionAndWaitUpdate, playerMotionCountDown, playerMotionUpdateByInputWithWrapAround,
-    } from '../../composables/player-controller';
-    import {
-        checkOutOfSightBottomIsLook, checkOutOfSightLeftIsLook, checkOutOfSightRightIsLook, checkOutOfSightTopIsLook, printingImageAndPositionAndWaitUpdate, printingMotionClearIfCountZero, printingMotionCountDown, printingMotionUpdateByInputWithWrapAround,
-    } from '../../composables/printing-controller'
-    import type { PlayerInput, PlayerMotion } from '../../composables/player-controller';
-    import type { PrintingInput, PrintingMotion } from '../../composables/printing-controller';
+    import { euclideanMod } from '../../../composables/periodic-table-operation';
 
     // ********************
     // * インターフェース *
     // ********************
 
-    import type Rectangle from '../../interfaces/Rectangle';
+    import type Rectangle from '../../../interfaces/Rectangle';
+
+
+    // ##########
+    // # コモン #
+    // ##########
+    //
+    // よく使う設定をまとめたもの。特に不変のもの。
+    //
+
+    const commonSpriteMotionLeft = -1;  // モーション（motion）定数。左。
+    const commonSpriteMotionUp = -1;
+    const commonSpriteMotionRight = 1;
+    const commonSpriteMotionDown = 1;
 
 
     // ############################
@@ -369,7 +290,7 @@
     // + オブジェクト　＞　何もしないボタン +
     // ++++++++++++++++++++++++++++++++++++++
 
-    const noopButton = ref<InstanceType<typeof VBtn> | null>(null);
+    //const noopButton = ref<InstanceType<typeof VBtn> | null>(null);
 
     // ++++++++++++++++++++++++++++++++++++
     // + オブジェクト　＞　ボタン機能拡張 +
@@ -403,15 +324,10 @@
     const board1Area = computed(()=> {  // 盤のマス数
         return board1FileNum.value * board1RankNum.value;
     });
-    // ※　盤およびその各タイルは、決まりきった位置でラップアラウンドを繰り返すだけです。座標が移動することはありません。
-    const board1WithMaskSizeSquare = ref<number>(1);    // マスクの幅（単位：マス）
-    const board1WithMaskBottomRightMargin: number = 1;  // マスクは右下に１マス分多く作ります。
-    const board1WithMaskFileNum = board1FileNum.value + board1WithMaskBottomRightMargin   // マスク付きの場合の列数。右側の多めの１マスを含む。
-    const board1WithMaskRankNum = board1RankNum.value + board1WithMaskBottomRightMargin
     const board1Style = computed<CompatibleStyleValue>(()=>{ // ボードとマスクを含んでいる領域のスタイル
         return {
-            width: `${board1WithMaskFileNum * board1SquareWidth}px`,
-            height: `${board1WithMaskRankNum * board1SquareHeight}px`,
+            width: `${board1FileNum.value * board1SquareWidth}px`,
+            height: `${board1RankNum.value * board1SquareHeight}px`,
             zoom: appZoom.value,
         };
     });
@@ -423,21 +339,14 @@
             const homeLeft = (i % board1FileNum.value) * board1SquareWidth;
             const homeTop = Math.floor(i / board1FileNum.value) * board1SquareHeight;
 
-            const [offsetLeftLoop, offsetTopLoop] = wrapAround(
-                homeLeft,
-                homeTop,
-                printing1Left.value,
-                printing1Top.value,
-                board1FileNum.value * board1SquareWidth,
-                board1RankNum.value * board1SquareHeight,
-            );
-
             return {
-                left: `${homeLeft + offsetLeftLoop}px`,
-                top: `${homeTop + offsetTopLoop}px`,
+                position: 'absolute',
+                left: `${homeLeft}px`,
+                top: `${homeTop}px`,
                 width: `${board1SquareWidth}px`,
                 height: `${board1SquareHeight}px`,
                 border: `solid 1px ${i % 2 == 0 ? 'darkgray' : 'lightgray'}`,
+                textAlign: "center",
             };
         };
     });
@@ -449,49 +358,73 @@
     // 盤上に表示される数字柄、絵柄など。
     //
 
-    const printing1OutOfSightIsLock = ref<boolean>(false);   // ［画面外隠し］を管理（true: ロックする, false: ロックしない）
-    watch(printing1OutOfSightIsLock, (newValue: boolean)=>{
-        player1CanBoardEdgeWalkingIsEnabled.value = newValue;
-    });
-    const printing1IsLooping = ref<boolean>(true);    // ループ状態を管理（true: ループする, false: ループしない）
+    const printing1IsLooping = ref<boolean>(false);    // ループ状態を管理（true: ループする, false: ループしない）
     const printing1FileMin = 0;
     const printing1RankMin = 0;
     const printing1FileMax = 10;    // 印字の最大サイズは、盤のサイズより大きいです。
     const printing1RankMax = 10;
     const printing1FileNum = ref<number>(board1FileNum.value);  // 列数
     const printing1RankNum = ref<number>(board1RankNum.value);  // 行数
-    // のちのち自機を１ドットずつ動かすことを考えると、 File, Rank ではデジタルになってしまうので、 Left, Top で指定したい。
-    const printing1Left = ref<number>(0);
-    const printing1Top = ref<number>(0);
-    const printing1StringData = ref<string[]>([]);
+    const printing1File = ref<number>(0);   // 印字の左上隅のタイルは、盤タイルの左から何番目か。
+    const printing1Rank = ref<number>(0);
+    const printing1Data = ref<string[]>([]);
     for (let i=0; i<printing1FileMax * printing1RankMax; i++) { // 印字データは最初から最大サイズで用意しておく
-        printing1StringData.value.push(i.toString().padStart(2, "0"));
+        printing1Data.value.push(i.toString().padStart(2, "0"));
     }
-    const printing1Input = {  // 入力
-        " ": false,
-    } as PrintingInput;
-    const printing1Motion = ref<PrintingMotion>({  // 印字への入力
-        goToHome: false,    // ホームに戻る
-        wrapAroundRight: 0, // 負なら左、正なら右
-        wrapAroundBottom: 0,    // 負なら上、正なら下
-    });
-    const printing1MotionSpeed = ref<number>(2);     // 移動速度（単位：ピクセル）
-    const printing1MotionWait = ref<number>(0);   // 排他的モーション時間。
-    const printing1MotionWalkingFrames = 16;    // 歩行フレーム数
 
-    const getPrintingStringFromPrintingIndex = computed<
-        (printingIndex: number) => string
+
+    /**
+     * 変換
+     * @param index マス番号
+     * @returns [筋番号, 段番号]
+     */
+    function tileIndexToTileFileRank(index: number) : number[] {
+        // プレイヤーが右へ１マス移動したら、印字は全行が左へ１つ移動する。
+        const file = index % board1FileNum.value;
+        const rank = Math.floor(index / board1FileNum.value);
+
+        return [file, rank];
+    }
+
+
+    function printingFileRankToPrintingIndex(file: number, rank: number) : number {
+        return rank * printing1FileNum.value + file;
+    }
+
+
+    const getPrintingStringBySquare = computed<
+        (tileIndex: number) => string
     >(() => {
-        return (printingIndex: number) => {
-            return  printing1StringData.value[printingIndex];
+        // 引数に渡されるのは、［盤のタイル番号］
+        return (tileIndex: number)=>{
+            let [tileFile, tileRank] = tileIndexToTileFileRank(tileIndex);
+
+            // タイル上のインデックスを、印字上のインデックスへ変換：
+            let printingFile = tileFile - printing1File.value;
+            let printingRank = tileRank - printing1Rank.value;
+
+            if (printing1IsLooping.value) {
+                printingFile = euclideanMod(printingFile, printing1FileNum.value); // プレイヤーが右へ１マス移動したら、印字は全行が左へ１つ移動する。
+                printingRank = euclideanMod(printingRank, printing1RankNum.value); // プレイヤーが下へ１マス移動したら、印字は全行が上へ１つ移動する。
+            } else {
+                // 印字のサイズの範囲外になるところには、"-" でも表示しておく
+                if (printingFile < 0 || printing1FileNum.value <= printingFile || printingRank < 0 || printing1RankNum.value <= printingRank) {
+                    return "-";
+                }
+            }
+
+            // 印字上の位置が示すデータを返す
+            const printingIndex = printingFileRankToPrintingIndex(printingFile, printingRank);
+            return  printing1Data.value[printingIndex];
         };
     });    
 
     // ++++++++++++++++++++++++++++++++++++
-    // + オブジェクト　＞　自機１のホーム +
+    // + オブジェクト　＞　自機のホーム１ +
     // ++++++++++++++++++++++++++++++++++++
     //
     // このサンプルでは、ピンク色に着色しているマスです。
+    // ［自機１］に紐づくホームというわけではなく、［自機のホーム］の１つです。
     //
 
     const playerHome1File = ref<number>(2);    // ホーム
@@ -502,7 +435,7 @@
     const playerHome1Top = computed(()=>{
         return playerHome1Rank.value * board1SquareHeight;
     });
-    const playerHome1Style = computed<CompatibleStyleValue>(()=>{ // ボードとマスクを含んでいる領域のスタイル
+    const playerHome1Style = computed<CompatibleStyleValue>(()=>{
         return {
             left: `${playerHome1Left.value}px`,
             top: `${playerHome1Top.value}px`,
@@ -517,17 +450,19 @@
 
     const player1Width = board1SquareWidth;
     const player1Height = board1SquareHeight;
-    const player1Left = ref<number>(playerHome1Left.value);    // スプライトの位置
+    const player1Left = ref<number>(playerHome1Left.value); // スプライトの位置
     const player1Top = ref<number>(playerHome1Top.value);
-    const player1Input = {  // 入力
+    const player1Input = <Record<string, boolean>>{ // 入力
         " ": false, ArrowUp: false, ArrowRight: false, ArrowDown: false, ArrowLeft: false
-    } as PlayerInput;
+    };
     const player1AnimationSlow = ref<number>(8);    // アニメーションを何倍遅くするか
+    const player1AnimationWalkingFrames = 16;   // 歩行フレーム数
     const player1Style = computed<CompatibleStyleValue>(() => ({
         left: `${player1Left.value}px`,
         top: `${player1Top.value}px`,
         width: `${player1Width}px`,
         height: `${player1Height}px`,
+        //zoom: appZoom.value,
     }));
     const player1SourceFrames = {   // キャラクターの向きと、歩行タイルの指定
         left:[  // 左向き
@@ -556,33 +491,10 @@
         ],
     };
     const player1Frames : Ref<Rectangle[]> = ref(player1SourceFrames["down"]);
-    const player1MotionSpeed = ref<number>(2);  // 移動速度（単位：ピクセル）
     const player1MotionWait = ref<number>(0);   // 排他的モーション時間。
-    const player1Motion = ref<PlayerMotion>({   // モーションへの入力
-        lookRight: 0,     // 向きを変える
-        lookBottom: 0,
-        goToHome: false,    // ホームに戻る
-        goToRight: 0,   // 負なら左、正なら右へ移動する
-        goToBottom: 0,  // 負なら上、正なら下へ移動する
-    });
-    const player1MotionFacingFrames = 1;         // 振り向きフレーム数
-    const player1MotionWalkingFrames = 16;       // 歩行フレーム数
-    const player1CanBoardEdgeWalking = ref<boolean>(false); // ［盤の端の歩行］可能状態を管理（true: 可能にする, false: 可能にしない）
-    const player1CanBoardEdgeWalkingIsEnabled = ref<boolean>(false);    // ［盤の端の歩行］可能状態の活性性を管理（true: 不活性にする, false: 活性にする）
-
-    // ++++++++++++++++++++++++++++++++
-    // + オブジェクト　＞　視界の外１ +
-    // ++++++++++++++++++++++++++++++++
-
-    const outOfSight1Style = computed<CompatibleStyleValue>(()=>{
-        return {
-            width: `${board1WithMaskFileNum * board1SquareWidth}px`,
-            height: `${board1WithMaskRankNum * board1SquareHeight}px`,
-            borderTop: `solid ${board1WithMaskSizeSquare.value * board1SquareHeight}px rgba(0,0,0,0.5)`,
-            borderRight: `solid ${(board1WithMaskSizeSquare.value + board1WithMaskBottomRightMargin) * board1SquareWidth}px rgba(0,0,0,0.5)`,
-            borderBottom: `solid ${(board1WithMaskSizeSquare.value + board1WithMaskBottomRightMargin) * board1SquareHeight}px rgba(0,0,0,0.5)`,
-            borderLeft: `solid ${board1WithMaskSizeSquare.value * board1SquareWidth}px rgba(0,0,0,0.5)`,
-        };
+    const player1Motion = ref<Record<string, number>>({  // モーションへの入力
+        goToRight: 0,   // 負なら左、正なら右
+        goToBottom: 0,   // 負なら上、正なら下
     });
 
 
@@ -599,15 +511,13 @@
                 e.preventDefault();
             }
 
-            if (isPlayerInputKey(e.key)) {  // 型ガード
-                player1Input[e.key] = true; // 型チェック済み（文字列→キー名）
-                printing1Input[e.key] = true;
+            if (player1Input.hasOwnProperty(e.key)) {
+                player1Input[e.key] = true;
             }
         });
         window.addEventListener('keyup', (e: KeyboardEvent) => {
-            if (isPlayerInputKey(e.key)) {  // 型ガード
-                player1Input[e.key] = false;    // 型チェック済み（文字列→キー名）
-                printing1Input[e.key] = false;
+            if (player1Input.hasOwnProperty(e.key)) {
+                player1Input[e.key] = false;
             }
         });
 
@@ -625,100 +535,69 @@
      */
     function gameLoopStart() : void {
         const update = () => {
+            player1MotionWait.value -= 1;   // モーション・タイマー
 
-            // ++++++++++++++++++++++++
-            // + モーション・タイマー +
-            // ++++++++++++++++++++++++
-
-            printingMotionCountDown(
-                printing1MotionWait,
-            );
-            playerMotionCountDown(
-                player1MotionWait,
-            );
-
-            // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-            // + モーション・ウェイトが０のとき、モーションのクリアー +
-            // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-            printingMotionClearIfCountZero(
-                printing1Motion,
-                printing1MotionWait.value,
-            );
-            playerMotionClearIfCountZero(
-                player1Motion,
-                player1MotionWait.value,
-            );
+            if (player1MotionWait.value==0) {
+                // モーションのクリアー
+                player1Motion.value["goToRight"] = 0;    // クリアー
+                player1Motion.value["goToBottom"] = 0;
+            }
             
             // ++++++++++++++++++++++++++++++
             // + キー入力をモーションに変換 +
             // ++++++++++++++++++++++++++++++
+            if (player1MotionWait.value<=0) {   // ウェイトが無ければ、入力を受け付ける。
 
-            printingMotionUpdateByInputWithWrapAround(
-                printing1OutOfSightIsLock.value,
-                board1SquareWidth,
-                board1SquareHeight,
-                board1FileNum.value,
-                board1RankNum.value,
-                board1WithMaskSizeSquare.value,
-                printing1FileNum.value,
-                printing1RankNum.value,
-                printing1Left.value,
-                printing1Top.value,
-                printing1Input,
-                printing1Motion,
-                printing1MotionWait.value,
-                ()=>{ return getPlayer1File(player1Left.value, board1SquareWidth) > playerHome1File.value; },   // 自機がホーム・ポジションより右に居る
-                ()=>{ return getPlayer1File(player1Left.value, board1SquareWidth) < playerHome1File.value; },   // 自機がホーム・ポジションより左に居る
-                ()=>{ return getPlayer1Rank(player1Top.value, board1SquareHeight) > playerHome1Rank.value; },   // 自機がホーム・ポジションより下に居る
-                ()=>{ return getPlayer1Rank(player1Top.value, board1SquareHeight) < playerHome1Rank.value; },   // 自機がホーム・ポジションより上に居る
-            );
-            playerMotionUpdateByInputWithWrapAround(
-                printing1OutOfSightIsLock.value,
-                board1SquareWidth,
-                board1SquareHeight,
-                board1FileNum.value,
-                board1RankNum.value,
-                board1WithMaskSizeSquare.value,
-                playerHome1File.value,
-                playerHome1Rank.value,
-                player1Left.value,
-                player1Top.value,
-                player1Input,
-                player1Motion,
-                player1MotionWait.value,
-                player1CanBoardEdgeWalking.value,
-                ()=>{ return checkOutOfSightLeftIsLook(board1SquareWidth, board1WithMaskSizeSquare.value, printing1Left.value); },  // ここで進むと、左側に外側が見えるなら。
-                ()=>{ return checkOutOfSightRightIsLook(board1SquareWidth, board1WithMaskSizeSquare.value, board1FileNum.value, printing1FileNum.value, printing1Left.value); },    // ここで進むと、右側に外側が見えるなら。
-                ()=>{ return checkOutOfSightTopIsLook(board1SquareHeight, board1WithMaskSizeSquare.value, printing1Top.value); },    // ここで進むと、上側に外側が見えるなら。
-                ()=>{ return checkOutOfSightBottomIsLook(board1SquareHeight, board1WithMaskSizeSquare.value, board1RankNum.value, printing1RankNum.value, printing1Top.value); },   // ここで進むと、下側に外側が見えるなら。
-            );
+                // 位置のリセット
+                if (player1Input[" "]) {
+                    printing1File.value = 0;    // 印字
+                    printing1Rank.value = 0;
+                    player1Left.value = playerHome1Left.value;  // 自機
+                    player1Top.value = playerHome1Top.value;
+                }
 
-            // ++++++++++++++++++++++++++++++
-            // + 向き・移動・ウェイトを処理 +
-            // ++++++++++++++++++++++++++++++
+                // 移動
+                if (player1Input.ArrowLeft) {
+                    player1Motion.value["goToRight"] = commonSpriteMotionLeft; // 左
+                }
 
-            printingImageAndPositionAndWaitUpdate(
-                printing1Left,
-                printing1Top,
-                printing1Motion.value,
-                printing1MotionSpeed.value,
-                printing1MotionWait,
-                printing1MotionWalkingFrames,
-            );
-            playerImageAndPositionAndWaitUpdate(
-                playerHome1Left.value,
-                playerHome1Top.value,
-                player1Left,
-                player1Top,
-                player1Motion.value,
-                player1MotionSpeed.value,
-                player1MotionWait,
-                player1SourceFrames,
-                player1Frames,
-                player1MotionFacingFrames,
-                player1MotionWalkingFrames,
-            );
+                if (player1Input.ArrowRight) {
+                    player1Motion.value["goToRight"] = commonSpriteMotionRight;  // 右
+                }
+
+                if (player1Input.ArrowUp) {
+                    player1Motion.value["goToBottom"] = commonSpriteMotionUp;   // 上
+                }
+
+                if (player1Input.ArrowDown) {
+                    player1Motion.value["goToBottom"] = commonSpriteMotionDown;   // 下
+                }
+
+                if (player1Motion.value["goToRight"]!=0 || player1Motion.value["goToBottom"]!=0) {
+                    player1MotionWait.value = player1AnimationWalkingFrames;
+                }
+
+                // ++++++++++++++
+                // + 移動を処理 +
+                // ++++++++++++++
+
+                // 斜め方向の場合、上下を優先する。
+                if (player1Motion.value["goToRight"]==1) {   // 右
+                    player1Frames.value = player1SourceFrames["right"]
+                    printing1File.value -= 1;   // 印字の方をスクロールさせる
+                } else if (player1Motion.value["goToRight"]==-1) {  // 左
+                    player1Frames.value = player1SourceFrames["left"]
+                    printing1File.value += 1;
+                }
+
+                if (player1Motion.value["goToBottom"]==-1) {  // 上
+                    player1Frames.value = player1SourceFrames["up"]
+                    printing1Rank.value += 1;
+                } else if (player1Motion.value["goToBottom"]==1) {   // 下
+                    player1Frames.value = player1SourceFrames["down"]
+                    printing1Rank.value -= 1;
+                }
+            }
 
             // 次のフレーム
             requestAnimationFrame(update);
@@ -807,46 +686,12 @@
     div.board { /* 盤１ */
         position: relative;
     }
-    div.square {    /* マス */
-        position: absolute;
-    }
-    span.board-slidable-tile-index {  /* マスの物自体に付いている番号。その場所は、ラップアラウンドしてすり替わることがある。 */
-        position: absolute;
-        width: 100%;
-        text-align: center;
-        font-size: 6px;
-    }
-    span.board-fixed-square-index { /* マスの画面上の見た目の位置に付いている番号 */
-        position: absolute;
-        top: 6px;
-        width: 100%;
-        text-align: center;
-        font-size: 6px;
-    }
-    span.board-printing-index {
-        position: absolute;
-        top: 12px;
-        width: 100%;
-        text-align: center;
-        font-size: 6px;
-    }
-    span.board-square-printing-string {   /* マスの印字 */
-        position: absolute;
-        top: 16px;
-        width: 100%;
-        text-align: center;
-        font-size: 12px;
-    }
     div.playerHome {    /* 自機のホーム１ */
         position: absolute;
         background-color: lightpink;
     }
     div.player {    /* 自機１ */
-        position: absolute;
-        image-rendering: pixelated;
-    }
-    div.out-of-sight {  /* 視界の外 */
-        position: absolute;
+        position: relative;
         image-rendering: pixelated;
     }
 </style>

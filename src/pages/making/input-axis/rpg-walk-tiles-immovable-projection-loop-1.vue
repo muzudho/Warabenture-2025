@@ -3,7 +3,7 @@
     <!-- ボタン機能拡張 -->
     <button-20250822 ref="button1Ref"/>
 
-    <h4><span class="parent-header">ＲＰＧの歩行グラフィック　＞　</span>数字柄のシフト、数字柄のサイズ可変</h4>
+    <h4><span class="parent-header">ＲＰＧの歩行グラフィック　＞　</span>不動タイルへ投影・両端つながりの像</h4>
     <section class="sec-4">
         <br/>
 
@@ -29,7 +29,7 @@
                 v-for="i in board1Area"
                 :key="i"
                 :style="getSquareStyle(i - 1)"
-            >{{ getPrintingStringBySquare(i - 1) }}
+            >{{ getPrintingNumber(i - 1) }}
             </div>
 
             <!-- 自機１ -->
@@ -42,7 +42,8 @@
                 :style="player1Style" />
         </div>
         <p>
-            👆 上にあるスライダーバーを動かして、タイルに表示される数字を広げたり縮めたりしてみようぜ（＾▽＾）！<br/>
+            👆 タイルは動いていないぜ（＾▽＾）！<br/>
+            だから、数字がタイルの上を入れ替わっている（＝シフトしている）ぜ（＾▽＾）！<br/>
         </p>
         <br/>
 
@@ -95,7 +96,7 @@
                     @mouseup="button1Ref?.release(onDownButtonReleased);"
                     @mouseleave="button1Ref?.release(onDownButtonReleased);"
                 >↓</v-btn>
-                　…　印字を上下左右に動かすぜ！
+                　…　上下左右に動かすぜ！
                 <br/>
             </li>
             <li>
@@ -110,13 +111,6 @@
                     @mouseleave="button1Ref?.release(onSpaceButtonReleased);"
                 >（スペース）</v-btn>
                 　…　印字をホームに戻すぜ。
-            </li>
-            <li>
-                <!-- フォーカスを外すためのダミー・ボタンです -->
-                <v-btn
-                    class="noop-key"
-                    v-tooltip="'PCでのマウス操作で、フォーカスがコントロールに残って邪魔になるときは、このボタンを押してくれだぜ'"
-                >何もしないボタン</v-btn>
             </li>
         </ul>
         <br/>
@@ -154,7 +148,7 @@
                 label="自機のホーム　＞　筋"
                 v-model="playerHome1File"
                 :min="0"
-                :max="board1FileMax - 1"
+                :max="4"
                 step="1"
                 showTicks="always"
                 thumbLabel="always" />
@@ -162,7 +156,7 @@
                 label="自機のホーム　＞　段"
                 v-model="playerHome1Rank"
                 :min="0"
-                :max="board1RankMax - 1"
+                :max="4"
                 step="1"
                 showTicks="always"
                 thumbLabel="always" />
@@ -182,36 +176,21 @@
                 step="1"
                 showTicks="always"
                 thumbLabel="always" />
-            <v-slider
-                label="印字　＞　筋の数"
-                v-model="printing1FileNum"
-                :min="printing1FileMin"
-                :max="printing1FileMax"
-                step="1"
-                showTicks="always"
-                thumbLabel="always" />
-            <v-slider
-                label="印字　＞　段の数"
-                v-model="printing1RankNum"
-                :min="printing1RankMin"
-                :max="printing1RankMax"
-                step="1"
-                showTicks="always"
-                thumbLabel="always" />
             <v-switch
                 v-model="printing1IsLooping"
                 :label="printing1IsLooping ? '［印字の端と端がつながって（ループして）］います' : '［印字の端と端がつながって（ループして）］いません'"
                 color="green"
+                :hideDetails="true"
                 inset />
             <br/>
         </section>
     </section>
 
     <br/>
-    <h4><span class="parent-header-lights-out">ＲＰＧの歩行グラフィック　＞　</span><span class="parent-header">数字柄のシフト、数字柄のサイズ可変　＞　</span>ソースコード</h4>
-    <section class="sec-4">
+    <h5><span class="parent-header-lights-out">ＲＰＧの歩行グラフィック　＞　</span><span class="parent-header">不動タイルへ投影・両端つながりの像　＞　</span>ソースコード</h5>
+    <section class="sec-5">
         <source-link
-            pagePath="/making/input-axis-rpg-walk-printing-shift-contents-size-variable-1"/>
+            pagePath="/making/input-axis/rpg-walk-tiles-immovable-projection-loop-1"/>
     </section>
 </template>
 
@@ -225,13 +204,11 @@
     // 👆 ［初級者向けのソースコード］では、 reactive は使いません。
     import type { Ref } from 'vue';
 
-    import { VBtn } from 'vuetify/components';
-
     // ++++++++++++++
     // + 互換性対応 +
     // ++++++++++++++
 
-    import type { CompatibleStyleValue }  from '../../compatibles/compatible-style-value';
+    import type { CompatibleStyleValue }  from '../../../compatibles/compatible-style-value';
 
     // ++++++++++++++++++
     // + コンポーネント +
@@ -241,24 +218,24 @@
     //
 
     // from の階層が上の順、アルファベット順
-    import Button20250822 from '../../components/Button20250822.vue';
-    import SourceLink from '../../components/SourceLink.vue';
-    import Stopwatch from '../../components/Stopwatch.vue';
-    import TileAnimation from '../../components/TileAnimation.vue';
+    import Button20250822 from '@/components/Button20250822.vue';
+    import SourceLink from '@/components/SourceLink.vue';
+    import Stopwatch from '@/components/Stopwatch.vue';
+    import TileAnimation from '@/components/TileAnimation.vue';
 
     // ++++++++++++++++++
     // + コンポーザブル +
     // ++++++++++++++++++
 
-    import { euclideanMod } from '../../composables/periodic-table-operation';
+    import { euclideanMod } from '../../../composables/periodic-table-operation';
 
     // ********************
     // * インターフェース *
     // ********************
 
-    import type Rectangle from '../../interfaces/Rectangle';
+    import type Rectangle from '../../../interfaces/Rectangle';
 
-
+    
     // ##########
     // # コモン #
     // ##########
@@ -285,12 +262,6 @@
     // ################
     // # オブジェクト #
     // ################
-
-    // ++++++++++++++++++++++++++++++++++++++
-    // + オブジェクト　＞　何もしないボタン +
-    // ++++++++++++++++++++++++++++++++++++++
-
-    //const noopButton = ref<InstanceType<typeof VBtn> | null>(null);
 
     // ++++++++++++++++++++++++++++++++++++
     // + オブジェクト　＞　ボタン機能拡張 +
@@ -341,8 +312,8 @@
 
             return {
                 position: 'absolute',
-                left: `${homeLeft}px`,
                 top: `${homeTop}px`,
+                left: `${homeLeft}px`,
                 width: `${board1SquareWidth}px`,
                 height: `${board1SquareHeight}px`,
                 border: `solid 1px ${i % 2 == 0 ? 'darkgray' : 'lightgray'}`,
@@ -358,54 +329,48 @@
     // 盤上に表示される数字柄、絵柄など。
     //
 
-    const printing1IsLooping = ref<boolean>(false);    // ループ状態を管理（true: ループする, false: ループしない）
-    const printing1FileMin = 0;
-    const printing1RankMin = 0;
-    const printing1FileMax = 10;    // 印字の最大サイズは、盤のサイズより大きいです。
-    const printing1RankMax = 10;
-    const printing1FileNum = ref<number>(board1FileNum.value);  // 列数
-    const printing1RankNum = ref<number>(board1RankNum.value);  // 行数
+    const printing1IsLooping = ref<boolean>(true); // 印字がループする
+    const printing1FileMax = board1FileMax; // 印字の最大サイズは、盤の最大サイズと同じものとする。
+    const printing1RankMax = board1RankMax;
+    const printing1FileNum = board1FileNum; // 列数
+    const printing1RankNum = board1RankNum; // 行数
     const printing1File = ref<number>(0);   // 印字の左上隅のタイルは、盤タイルの左から何番目か。
-    const printing1Rank = ref<number>(0);
+    const printing1Rank = ref<number>(0);   // 印字の左上隅のタイルは、盤タイルの上から何番目か。
     const printing1Data = ref<string[]>([]);
     for (let i=0; i<printing1FileMax * printing1RankMax; i++) { // 印字データは最初から最大サイズで用意しておく
         printing1Data.value.push(i.toString().padStart(2, "0"));
     }
 
-
     /**
      * 変換
-     * @param index マス番号
+     * @param tileIndex マス番号
      * @returns [筋番号, 段番号]
      */
-    function tileIndexToTileFileRank(index: number) : number[] {
+    function tileIndexToTileFileRank(tileIndex: number) : number[] {
         // プレイヤーが右へ１マス移動したら、印字は全行が左へ１つ移動する。
-        const file = index % board1FileNum.value;
-        const rank = Math.floor(index / board1FileNum.value);
+        const file = tileIndex % board1FileNum.value;
+        const rank = Math.floor(tileIndex / board1FileNum.value);
 
         return [file, rank];
     }
-
 
     function printingFileRankToPrintingIndex(file: number, rank: number) : number {
         return rank * printing1FileNum.value + file;
     }
 
-
-    const getPrintingStringBySquare = computed<
-        (tileIndex: number) => string
-    >(() => {
+    const getPrintingNumber = computed(() => {
         // 引数に渡されるのは、［盤のタイル番号］
         return (tileIndex: number)=>{
             let [tileFile, tileRank] = tileIndexToTileFileRank(tileIndex);
 
             // タイル上のインデックスを、印字上のインデックスへ変換：
-            let printingFile = tileFile - printing1File.value;
-            let printingRank = tileRank - printing1Rank.value;
-
+            let printingFile = tileFile - printing1File.value; // プレイヤーが右へ１マス移動したら、印字は全行が左へ１つ移動する。
+            let printingRank = tileRank - printing1Rank.value; // プレイヤーが下へ１マス移動したら、印字は全行が上へ１つ移動する。
+            
             if (printing1IsLooping.value) {
-                printingFile = euclideanMod(printingFile, printing1FileNum.value); // プレイヤーが右へ１マス移動したら、印字は全行が左へ１つ移動する。
-                printingRank = euclideanMod(printingRank, printing1RankNum.value); // プレイヤーが下へ１マス移動したら、印字は全行が上へ１つ移動する。
+                // 端でループする
+                printingFile = euclideanMod(printingFile, printing1FileNum.value);
+                printingRank = euclideanMod(printingRank, printing1RankNum.value);
             } else {
                 // 印字のサイズの範囲外になるところには、"-" でも表示しておく
                 if (printingFile < 0 || printing1FileNum.value <= printingFile || printingRank < 0 || printing1RankNum.value <= printingRank) {
@@ -458,11 +423,10 @@
     const player1AnimationSlow = ref<number>(8);    // アニメーションを何倍遅くするか
     const player1AnimationWalkingFrames = 16;   // 歩行フレーム数
     const player1Style = computed<CompatibleStyleValue>(() => ({
-        left: `${player1Left.value}px`,
         top: `${player1Top.value}px`,
+        left: `${player1Left.value}px`,
         width: `${player1Width}px`,
         height: `${player1Height}px`,
-        //zoom: appZoom.value,
     }));
     const player1SourceFrames = {   // キャラクターの向きと、歩行タイルの指定
         left:[  // 左向き
@@ -539,7 +503,7 @@
 
             if (player1MotionWait.value==0) {
                 // モーションのクリアー
-                player1Motion.value["goToRight"] = 0;    // クリアー
+                player1Motion.value["goToRight"] = 0;   // 自機
                 player1Motion.value["goToBottom"] = 0;
             }
             
