@@ -4,25 +4,145 @@
     <!-- ホームに閉じるボタンはありません。 -->
 
     <section class="sec-1">
-        自分のヘタクソさと向き合うのは楽しい。今さら、手作りのホームページ（＾▽＾）！（Created by むずでょ）<v-btn style="visibility: hidden;"></v-btn><br/>
-        <!-- 他のページと縦幅を揃えるために、何の働きもしない空ボタンを置いています。 -->
+        <br/>
+
+        <talk-balloon
+            :src="commonOton2Src"
+            :alt="commonOton2Alt"
+            :name="commonOton2Name"
+            :device="compatibleDevice1Ref?.device">
+            マイ・ホームページを作ってみようぜ？
+        </talk-balloon>
+
+        <talk-balloon
+            :src="commonKifuwarabe2Src"
+            :alt="commonKifuwarabe2Alt"
+            :name="commonKifuwarabe2Name"
+            :device="compatibleDevice1Ref?.device">
+            えっ、今さらホームページ！？
+        </talk-balloon>
+
+        <talk-balloon
+            :src="commonHiyoko2Src"
+            :alt="commonHiyoko2Alt"
+            :name="commonHiyoko2Name"
+            :device="compatibleDevice1Ref?.device">
+            あんたのお父んは２００２年ぐらいで脳が止まってるのよ。<br/>
+        </talk-balloon>
+
+        <talk-balloon
+            :src="commonKifuwarabe2Src"
+            :alt="commonKifuwarabe2Alt"
+            :name="commonKifuwarabe2Name"
+            :device="compatibleDevice1Ref?.device">
+            Ｏｈ．．．！　ユー　ゴッタ　メール……。<br/>
+            <br/>
+            ちょっと待ってくれだぜ。<br/>
+            今、このホームページを作っているのは西暦何年だぜ？
+        </talk-balloon>
+
+        <talk-balloon
+            :src="commonOton2Src"
+            :alt="commonOton2Alt"
+            :name="commonOton2Name"
+            :device="compatibleDevice1Ref?.device">
+            ２０２５年だけど……？
+        </talk-balloon>
+
+        <talk-balloon
+            :src="commonKifuwarabe2Src"
+            :alt="commonKifuwarabe2Alt"
+            :name="commonKifuwarabe2Name"
+            :device="compatibleDevice1Ref?.device">
+            ぜったい２００６年のブログブームから更新が止まって放置されてると思われてるぜ……。<br/>
+            <br/>
+            このホームページ、どこでホストされてんだぜ？　自宅サーバー？
+        </talk-balloon>
+
+        <talk-balloon
+            :src="commonOton2Src"
+            :alt="commonOton2Alt"
+            :name="commonOton2Name"
+            :device="compatibleDevice1Ref?.device">
+            いや、さくらのＶＰＳだぜ。
+        </talk-balloon>
+
+        <talk-balloon
+            :src="commonKifuwarabe2Src"
+            :alt="commonKifuwarabe2Alt"
+            :name="commonKifuwarabe2Name"
+            :device="compatibleDevice1Ref?.device">
+            そこは新しいんだ……
+        </talk-balloon>
+
+        <talk-balloon
+            :src="commonHiyoko2Src"
+            :alt="commonHiyoko2Alt"
+            :name="commonHiyoko2Name"
+            :device="compatibleDevice1Ref?.device">
+            あんたのお父んは技術は更新するけど、脳は２００２年ぐらいで止まってるのよ。<br/>
+        </talk-balloon>
+
+        <talk-balloon
+            :src="commonOton2Src"
+            :alt="commonOton2Alt"
+            :name="commonOton2Name"
+            :device="compatibleDevice1Ref?.device">
+            わたしの脳、止まってるんだ……。
+        </talk-balloon>
+
+        <talk-balloon
+            :src="commonKifuwarabe2Src"
+            :alt="commonKifuwarabe2Alt"
+            :name="commonKifuwarabe2Name"
+            :device="compatibleDevice1Ref?.device">
+            しかし、懐古ホームページなんか作っても、なんも技術のアピールにもならないのでは……？
+        </talk-balloon>
+
+        <talk-balloon
+            :src="commonHiyoko2Src"
+            :alt="commonHiyoko2Alt"
+            :name="commonHiyoko2Name"
+            :device="compatibleDevice1Ref?.device">
+            技術なんかアピールしなくていいのよ、技術はＡＩがやるのだから人類は雑用をしていればいいのよ。<br/>
+        </talk-balloon>
+
+        <talk-balloon
+            :src="commonKifuwarabe2Src"
+            :alt="commonKifuwarabe2Alt"
+            :name="commonKifuwarabe2Name"
+            :device="compatibleDevice1Ref?.device">
+            そこは未来を先取りしてんだ……
+        </talk-balloon>
+
     </section>
 
     <h2>ホームだぜ！　の部　インデックス</h2>
     <section class="sec-2">
-        ウェブ・アプリケーションのホームだぜ（＾▽＾）！<br/>
-    </section>
+        <br/>
 
-    <h3>ホームページ制作者のわたしが選ぶこのホームページで力を入れてる割合</h3>
-    <section class="sec-3">
-        以下の円グラフをクリックするとそのページへ飛べるぜ（＾▽＾）！<br/>
+        <talk-balloon
+            :src="commonKifuwarabe2Src"
+            :alt="commonKifuwarabe2Alt"
+            :name="commonKifuwarabe2Name"
+            :device="compatibleDevice1Ref?.device">
+            なんか知らんけど、お父んがセッセと作っているこのサイトの内容を円グラフにまとめておいたぜ。<br/>
+            <br/>
+            以下の円グラフをクリックするとそのページへ飛べるぜ
+        </talk-balloon>
+
 	    <canvas id="pieChart" class="pieChartStyle" style="border:dashed 4px gray; background-color: white;"></canvas>
     </section>
 
     <br/>
     <section class="sec-1">
-        またのお越しをお待ちしておりますだぜ（＾▽＾）！<v-btn style="visibility: hidden;"></v-btn><br/>
-        <!-- 他のページと縦幅を揃えるために、何の働きもしない空ボタンを置いています。 -->
+        <talk-balloon
+            :src="commonKifuwarabe2Src"
+            :alt="commonKifuwarabe2Alt"
+            :name="commonKifuwarabe2Name"
+            :device="compatibleDevice1Ref?.device">
+            またのお越しをお待ちしているぜ！
+        </talk-balloon>
     </section>
 
     <!-- ホームに閉じるボタンはありません。 -->
@@ -45,11 +165,22 @@
     import TheGrandParentHeader from '../../the-header.vue';
 
 
-    // ##############
-    // # 共有データ #
-    // ##############
+    // ##########
+    // # コモン #
+    // ##########
+    //
+    // よく使う設定をまとめたもの。特に不変のもの。
+    //    
 
-    const router = useRouter();
+    import commonOton2Src from "@/assets/img/talk/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png";
+    const commonOton2Alt = "お父ん";
+    const commonOton2Name = "お父ん";
+    import commonKifuwarabe2Src from "@/assets/img/talk/202506__character__01-2013-kifuwarabe-o1o1o0.png";
+    const commonKifuwarabe2Alt = "きふわらべ";
+    const commonKifuwarabe2Name = "きふわらべ";
+    import commonHiyoko2Src from "@/assets/img/talk/202506__character__01-2025-hiyoko-o1o1o0.png";
+    const commonHiyoko2Alt = "ひよこ";
+    const commonHiyoko2Name = "ひよこ";
 
     // 円グラフのための、SPA用のルートパス
     const routes = [
@@ -61,20 +192,28 @@
         //"/wara-city/map",               // わらシティのURL
     ];
 
+
+    // ################
+    // # オブジェクト #
+    // ################
+
+    // ++++++++++++++++++++++++++++++++++
+    // + オブジェクト　＞　装置の互換性 +
+    // ++++++++++++++++++++++++++++++++++
+
+    const compatibleDevice1Ref = ref<InstanceType<typeof CompatibleDevice> | null>(null);
+
+    // ++++++++++++++++++++++++++++++
+    // + オブジェクト　＞　画面遷移 +
+    // ++++++++++++++++++++++++++++++
+
+    const router = useRouter();
+
+    // ++++++++++++++++++++++++++++++
+    // + オブジェクト　＞　円グラフ +
+    // ++++++++++++++++++++++++++++++
+
     let chart: Chart | null = null;
-
-
-    // ############
-    // # 開始処理 #
-    // ############
-
-    onMounted(() => {
-        initChart();
-    });
-
-    onUnmounted(() => {
-        destroyChart(); // チャートの破棄処理
-    });
 
     function initChart() {
         //const baseUrl = window.location.origin;
@@ -137,6 +276,19 @@
             chart.destroy();
         }
     }
+
+
+    // ##############
+    // # 開始・終了 #
+    // ##############
+
+    onMounted(() => {
+        initChart();
+    });
+
+    onUnmounted(() => {
+        destroyChart(); // チャートの破棄処理
+    });
 
 </script>
 
