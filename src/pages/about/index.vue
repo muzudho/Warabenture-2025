@@ -1,99 +1,235 @@
 <template>
+    <the-grand-parent-header/>
     <the-parent-header/>
 
     <h2>このサイトについての部だぜ！</h2>
     <section class="sec-2">
-        <p>こんなとこ読まんでも……（＾～＾）</p>
         <br/>
-        <!--
-        <p>ワラベンチャーでは、Ｗｅｂとデスクトップで両用できるアプリケーションを開発していっているぜ（＾▽＾）！</p>
-        <p>開発のメインとして使っているのは Vue 3 と、 Vuetify 3 だぜ（＾▽＾）</p>
-        <p>なるべく Tauri 3 と Nuxt 3 の機能は、必要になるまで使わないようにしているぜ（＾～＾）</p>
-        -->
-    </section>
 
-    <h3>制作者</h3>
-    <section class="sec-3">
-        <p>ハンドルネーム：　むずでょ</p>
-        <p>同人サークル：　ぐれーすけーる（２０１３年～）</p>
-        <p>スキル：　２０００年の００年代は、ひとより多少ＰＣを使えてプログラミングができる、というだけで職業に就けてた人。２０年代はもう希少性なし、おわった。Grok も私よりコーディング上手いし。</p>
-        <br/>
-    </section>
+        <talk-balloon
+            :src="commonOton2Src"
+            :alt="commonOton2Alt"
+            :name="commonOton2Name"
+            :device="compatibleDevice1Ref?.device">
+            このホームページの制作者はわたしだぜ。
+        </talk-balloon>
 
-    <h3>どういうホームページにしていきたいか？</h3>
-    <section class="sec-3">
-        <p>メインで使っていた使いやすいブログサイトがサ終したなんてこともあって、２０２５年から、以前から持っていたこのホームページをふらっと気分だけで全面改装、ここで　<span style="background-color: lightgray;">　<a href="/blog">ブログ</a>　</span>　を自力で書いていくことにした（＾～＾）</p>
-        <br/>
-        <p>まあ、ついでだが最近（２０２５年）、ブログやホームページの制作で使われるＨＴＭＬ……（厳密にはもっと細かく色々あるがここではＨＴＭＬとでも言っておくが、そのＨＴＭＬで……）ミニゲーム動かせるの知ったしな、フロントエンドの勉強ちょっとやりこんでみるか（＾～＾）</p>
-        <p>だから、今ご覧のこのホームページに、（勉強しながらの）　<span style="background-color: lightgray;">　<a href="/minigames">ミニゲーム</a>　</span>　を置き始めると思うぜ（＾～＾）</p>
-        <p>その勉強途中のものを　<span style="background-color: lightgray;">　<a href="/making">メイキング</a>　</span>　とかいうページに置いていくぜ、メイキングという英単語で合ってるのか知らないが……（＾～＾）</p>
-        <br/>
-        <p>Grok とか、GitHub Copilot みたいなコードを提案してくれる生成ＡＩも出てきたしな（＾～＾）</p>
-        <p>そのうちわたしがＡＩにコーディングを教えてもらいながらミニゲーム作らんでも、ＡＩたちに「ミニゲーム作って」って言えば、わたし抜きで直接面白いミニゲーム作って出力してくれると思う（＾～＾）</p>
-        <p>むしろわたしが手や口を挟まない方が面白いゲーム作ってくれるんだろな、なんかやることなくなるよな、わたしは何もしなくていいんじゃないか（＾～＾）？</p>
-        <br/>
-        <p>ただ「最近、こんなことやってる、趣味で……」という感じになっていくんだろな（＾～＾）</p>
-        <p>いくら生成ＡＩが、「野球観戦は得意です」なんていっても人間の野球観戦は減らないだろうしな（＾～＾）</p>
-        <br/>
-    </section>
+        <talk-balloon
+            :src="commonKifuwarabe2Src"
+            :alt="commonKifuwarabe2Alt"
+            :name="commonKifuwarabe2Name"
+            :device="compatibleDevice1Ref?.device">
+            わたしじゃ分からん
+        </talk-balloon>
 
-    <!--
-    誰も読まんようなことは削除（＾▽＾）
-    
-    <h3>開発ツール</h3>
+        <talk-balloon
+            :src="commonOton2Src"
+            :alt="commonOton2Alt"
+            :name="commonOton2Name"
+            :device="compatibleDevice1Ref?.device">
+            ハンドルネームは　むずでょ　だぜ。<br/>
+            ２０１３年から自主制作同人ソフトサークルぐれーすけーるを１２年ぐらいやってるぜ。
+        </talk-balloon>
 
-    <h4>ＡＩ</h4>
-    <section class="sec-4">
-        <p>Grok 3 ... 年間１万数千円払ってるかな。</p>
-    </section>
+        <talk-balloon
+            :src="commonHiyoko2Src"
+            :alt="commonHiyoko2Alt"
+            :name="commonHiyoko2Name"
+            :device="compatibleDevice1Ref?.device">
+            ここを見てる人には、自主制作同人ソフトサークルが何なのか分かんないんじゃないの？
+        </talk-balloon>
 
-    <h4>お絵描きソフト</h4>
-    <section class="sec-4">
-        <p>Windows Paint ... Windows 11 に付いてくる。</p>
-        <p>GIMP 3 ... 無料。</p>
-        <p>Aseprite ... Version 1.3.14.4。 $19.99 USD。日本円で 2950円ぐらいした。なぜか今どき買い切り。</p>
-    </section>
+        <talk-balloon
+            :src="commonOton2Src"
+            :alt="commonOton2Alt"
+            :name="commonOton2Name"
+            :device="compatibleDevice1Ref?.device">
+            同ソの人全員に共通するような点は無いぜ。
+        </talk-balloon>
 
-    <h3>開発環境の構成</h3>
-    <section class="sec-3">
-        ３つの環境を用意しているぜ（＾▽＾）！
-    </section>
+        <talk-balloon
+            :src="commonKifuwarabe2Src"
+            :alt="commonKifuwarabe2Alt"
+            :name="commonKifuwarabe2Name"
+            :device="compatibleDevice1Ref?.device">
+            そんな概念で自己紹介をするな！
+        </talk-balloon>
 
-    <h4>環境１：　デスクトップアプリの練習</h4>
-    <section class="sec-4">
-        <p>フロントエンド： Vue 3, Vuetify 3</p>
-        <p>バックエンド： Tauri 2</p>
-        <p>ホスト： Takahashi-PC（ローカルＰＣ）</p>
-        <p>ＯＳ： Windows 11</p>
-        <p>ソース： <a target="_blank" href="https://github.com/muzudho/vue-tauri-desktopapp-sample">muzudho / vue-tauri-desktopapp-sample</a></p>
-    </section>
+        <talk-balloon
+            :src="commonOton2Src"
+            :alt="commonOton2Alt"
+            :name="commonOton2Name"
+            :device="compatibleDevice1Ref?.device">
+            同ソは 1995年以前からあったらしいがわたしが知らんので、2010年代以降に限れば、<br/>
+            しいて言うなら、ビデオゲーム専用機で動くようなゲームソフトの開発機材は個人では高くて手が出ないんで、<br/>
+            ビデオゲーム専用機ではなく、企業に比べればお安い個人エディションの Windows PC などを使うなどの手段で<br/>
+            ビデオゲームを作って、他人にやらせてる人たちだぜ。
+        </talk-balloon>
 
-    <h4>環境２：　ウェブアプリの練習</h4>
-    <section class="sec-4">
-        <p>フロントエンド： Vue3, Vuetify3</p>
-        <p>バックエンド： Nuxt 2</p>
-        <p>ホスト： Takahashi-PC（ローカルＰＣ）</p>
-        <p>ＯＳ： Windows 11</p>
-        <p>ソース： <a target="_blank" href="https://github.com/muzudho/vue-nuxt-webapp-sample">muzudho / vue-nuxt-webapp-sample</a></p>
-    </section>
+        <talk-balloon
+            :src="commonHiyoko2Src"
+            :alt="commonHiyoko2Alt"
+            :name="commonHiyoko2Name"
+            :device="compatibleDevice1Ref?.device">
+            よし、説明できた！
+        </talk-balloon>
 
-    <h4>環境３：　ワラベンチャー・ホームページ</h4>
-    <section class="sec-4">
-        <p>フロントエンド： Vue3, Vuetify3</p>
-        <p>バックエンド： Nuxt 2</p>
-        <p>ホスト： ****（さくらのVPS）</p>
-        <p>ＯＳ： Ubuntu</p>
-        <p>ソース： <a target="_blank" href="https://github.com/muzudho/Warabenture-2025">muzudho / Warabenture-2025</a></p>
-    </section>
+        <talk-balloon
+            :src="commonKifuwarabe2Src"
+            :alt="commonKifuwarabe2Alt"
+            :name="commonKifuwarabe2Name"
+            :device="compatibleDevice1Ref?.device">
+            じゃあ、自分でビデオゲーム作って他人にやらせてるアマチュアの人だ。
+        </talk-balloon>
 
-    <h4>説明</h4>
-    <section class="sec-4">
-        <p>まず環境１でデスクトップアプリを作り、次に環境２のＷｅｂアプリへ移植し、最終的に環境３のサーバーにデプロイするんだぜ（＾▽＾）！</p>
-        <p>このとき、環境１と環境２の間、環境２と環境３の間では、単純なコピー貼り付けとはいかないので、なるべく３者の違いを小さくするべく３者の間を取ったような協した仕様にし、手で１つ１つ移植するぜ（＾～＾）</p>
-        <p>このとき、Nuxt 2 はべつに Tauri 専用ではないし、Tauri はべつに Nuxt 2 専用ではないから、どちらかが折れてシステム全体を効率的に１つに統合させる、といったことはできないぜ。必ず文化の違いが衝突する。</p>
-        <p>そのときの妥協点が、工夫だな（＾～＾）</p>
+        <talk-balloon
+            :src="commonOton2Src"
+            :alt="commonOton2Alt"
+            :name="commonOton2Name"
+            :device="compatibleDevice1Ref?.device">
+            いや、アマチュアとは限らない。
+        </talk-balloon>
+
+        <talk-balloon
+            :src="commonKifuwarabe2Src"
+            :alt="commonKifuwarabe2Alt"
+            :name="commonKifuwarabe2Name"
+            :device="compatibleDevice1Ref?.device">
+            定義の細かな違いにピリピリするの、わらうｗｗｗｗｗ
+        </talk-balloon>
+
+        <talk-balloon
+            :src="commonHiyoko2Src"
+            :alt="commonHiyoko2Alt"
+            :name="commonHiyoko2Name"
+            :device="compatibleDevice1Ref?.device">
+            制作者の紹介ではなく、このサイトの説明をしなさい！
+        </talk-balloon>
+
+        <talk-balloon
+            :src="commonOton2Src"
+            :alt="commonOton2Alt"
+            :name="commonOton2Name"
+            :device="compatibleDevice1Ref?.device">
+            ワラベンチャーの説明かー。<br/>
+            順を追っていくか。<br/>
+            <br/>
+            まず、旧・ワラベンチャー　と　現・ワラベンチャー　があって、<br/>
+            旧はもう無いから、現在のワラベンチャーの説明だけするぜ。<br/>
+        </talk-balloon>
+
+        <talk-balloon
+            :src="commonKifuwarabe2Src"
+            :alt="commonKifuwarabe2Alt"
+            :name="commonKifuwarabe2Name"
+            :device="compatibleDevice1Ref?.device">
+            定義はどうでもいいんだぜ、このサイトの紹介をしろだぜ。
+        </talk-balloon>
+
+        <talk-balloon
+            :src="commonOton2Src"
+            :alt="commonOton2Alt"
+            :name="commonOton2Name"
+            :device="compatibleDevice1Ref?.device">
+            『きふわらべのブログ』というのを、ダラが運営する『Crieit』というブログサイトで書いていたが、<br/>
+            有望銘柄の紹介記事を毎日機械的な文章で自動投稿する人など、いろいろな人々にサービスが荒らされてサ終したんで、<br/>
+            ブログの引っ越し先を探していたんだが、どうもこれといって無かったんで、<br/>
+            <br/>
+            さくらのＶＰＳを使って置いていた旧・ワラベンチャー　を全削除して、<br/>
+            自分専用のブログサイトとして　現・ワラベンチャー　として再開したんだぜ。
+        </talk-balloon>
+
+        <talk-balloon
+            :src="commonKifuwarabe2Src"
+            :alt="commonKifuwarabe2Alt"
+            :name="commonKifuwarabe2Name"
+            :device="compatibleDevice1Ref?.device">
+            よし説明できた！
+        </talk-balloon>
+
+        <talk-balloon
+            :src="commonHiyoko2Src"
+            :alt="commonHiyoko2Alt"
+            :name="commonHiyoko2Name"
+            :device="compatibleDevice1Ref?.device">
+            来歴は説明したけど、このサイトの説明はしてないわよね。
+        </talk-balloon>
+
+        <talk-balloon
+            :src="commonOton2Src"
+            :alt="commonOton2Alt"
+            :name="commonOton2Name"
+            :device="compatibleDevice1Ref?.device">
+            まあ、まずは <span style="background-color: lightgray;">　<a href="/blog">ブログ</a>　</span>だな。<br/>
+            誰にも読まれていないので、そんなに熱心には書いていないぜ。
+        </talk-balloon>
+
+        <talk-balloon
+            :src="commonKifuwarabe2Src"
+            :alt="commonKifuwarabe2Alt"
+            :name="commonKifuwarabe2Name"
+            :device="compatibleDevice1Ref?.device">
+            意味ない、わらうｗｗｗ
+        </talk-balloon>
+
+        <talk-balloon
+            :src="commonOton2Src"
+            :alt="commonOton2Alt"
+            :name="commonOton2Name"
+            :device="compatibleDevice1Ref?.device">
+            で、つい最近（２０２５年）になって、ウェブサイトを作るのにつかうＨＴＭＬ（厳密にはＨＴＭＬだけではないが……）とＴｙｐｅ　Ｓｃｒｉｐｔでビデオゲーム作れるんじゃないの？　と気づいたので、
+            今ご覧のこのホームページに、（勉強しながら）　<span style="background-color: lightgray;">　<a href="/minigames">ミニゲーム</a>　</span>　を置き始めると思うぜ。
+        </talk-balloon>
+
+        <talk-balloon
+            :src="commonHiyoko2Src"
+            :alt="commonHiyoko2Alt"
+            :name="commonHiyoko2Name"
+            :device="compatibleDevice1Ref?.device">
+            リンクをクリックして飛んできたらすぐビデオゲームが動く、ってんなら手っ取り早いわねぇ。
+        </talk-balloon>
+
+        <talk-balloon
+            :src="commonKifuwarabe2Src"
+            :alt="commonKifuwarabe2Alt"
+            :name="commonKifuwarabe2Name"
+            :device="compatibleDevice1Ref?.device">
+            ＨＴＭＬでビデオゲーム作るの、めっちゃ面倒臭そう。
+        </talk-balloon>
+
+        <talk-balloon
+            :src="commonOton2Src"
+            :alt="commonOton2Alt"
+            :name="commonOton2Name"
+            :device="compatibleDevice1Ref?.device">
+            そうそう、めんどくさいんで、その作り方の勉強途中のものを　<span style="background-color: lightgray;">　<a href="/making">メイキング</a>　</span>　というページに置いていくぜ、メイキングという英単語で合ってるのか知らないが……。
+        </talk-balloon>
+
+        <talk-balloon
+            :src="commonKifuwarabe2Src"
+            :alt="commonKifuwarabe2Alt"
+            :name="commonKifuwarabe2Name"
+            :device="compatibleDevice1Ref?.device">
+            じゃあ、ざっくり言って、ブラウザーで動くビデオゲームを作ろうとしている人のブログだ。
+        </talk-balloon>
+
+        <talk-balloon
+            :src="commonOton2Src"
+            :alt="commonOton2Alt"
+            :name="commonOton2Name"
+            :device="compatibleDevice1Ref?.device">
+            いや、ウェブ・アセンブリは使っていない、主にＨＴＭＬとＴｙｐｅ　Ｓｃｒｉｐｔを使う。
+        </talk-balloon>
+
+        <talk-balloon
+            :src="commonKifuwarabe2Src"
+            :alt="commonKifuwarabe2Alt"
+            :name="commonKifuwarabe2Name"
+            :device="compatibleDevice1Ref?.device">
+            細かな定義でピリピリするのわらうｗｗｗｗｗ
+        </talk-balloon>
+
     </section>
-    -->
 
     <the-parent-footer/>
 </template>
@@ -108,7 +244,43 @@
     // + コンポーネント +
     // ++++++++++++++++++
 
-    import TheParentHeader from '../../the-header.vue';
-    import TheParentFooter from '../../the-footer.vue';
+    import TheGrandParentHeader from '../../the-header.vue';
+    import TheParentHeader from '../the-header.vue';
+    import TheParentFooter from '../the-footer.vue';
+
+    // ++++++++++++++++++++++++++++++++++
+    // + コンポーネント　＞　互換性対応 +
+    // ++++++++++++++++++++++++++++++++++
+
+    import CompatibleDevice from '@/components/CompatibleDevice.vue'
+
+
+    // ##########
+    // # コモン #
+    // ##########
+    //
+    // よく使う設定をまとめたもの。特に不変のもの。
+    //    
+
+    import commonOton2Src from "@/assets/img/talk/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png";
+    const commonOton2Alt = "お父ん";
+    const commonOton2Name = "お父ん";
+    import commonKifuwarabe2Src from "@/assets/img/talk/202506__character__01-2013-kifuwarabe-o1o1o0.png";
+    const commonKifuwarabe2Alt = "きふわらべ";
+    const commonKifuwarabe2Name = "きふわらべ";
+    import commonHiyoko2Src from "@/assets/img/talk/202506__character__01-2025-hiyoko-o1o1o0.png";
+    const commonHiyoko2Alt = "ひよこ";
+    const commonHiyoko2Name = "ひよこ";
+
+
+    // ################
+    // # オブジェクト #
+    // ################
+
+    // ++++++++++++++++++++++++++++++++
+    // + オブジェクト　＞　互換性対応 +
+    // ++++++++++++++++++++++++++++++++
+
+    const compatibleDevice1Ref = ref<InstanceType<typeof CompatibleDevice> | null>(null);
 
 </script>

@@ -162,7 +162,14 @@
     // + コンポーネント +
     // ++++++++++++++++++
 
+    import TalkBalloon from '@/components/TalkBalloon.vue';
     import TheGrandParentHeader from '../../the-header.vue';
+
+    // ++++++++++++++++++++++++++++++++++
+    // + コンポーネント　＞　互換性対応 +
+    // ++++++++++++++++++++++++++++++++++
+
+    import CompatibleDevice from '@/components/CompatibleDevice.vue'
 
 
     // ##########
@@ -197,9 +204,9 @@
     // # オブジェクト #
     // ################
 
-    // ++++++++++++++++++++++++++++++++++
-    // + オブジェクト　＞　装置の互換性 +
-    // ++++++++++++++++++++++++++++++++++
+    // ++++++++++++++++++++++++++++++++
+    // + オブジェクト　＞　互換性対応 +
+    // ++++++++++++++++++++++++++++++++
 
     const compatibleDevice1Ref = ref<InstanceType<typeof CompatibleDevice> | null>(null);
 
