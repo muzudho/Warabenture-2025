@@ -1,7 +1,7 @@
 <template>
     <the-header/>
 
-    <h3>説明を始める前に、説明ページのレイアウトを決めておこうぜ！</h3>
+    <h3>説明を始める前に、説明ページのレイアウトを決めておこうぜ！　の章</h3>
     <section class="sec-3">
         <p>凡例だぜ（＾▽＾）！</p>
         <v-container style="border:dashed 4px gray;">

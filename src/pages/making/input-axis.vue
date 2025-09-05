@@ -1,7 +1,7 @@
 <template>
     <the-header/>
 
-    <h3>上下左右に移動しようぜ！</h3>
+    <h3>上下左右に移動しようぜ！　の章</h3>
     <section class="sec-3">
         <br/>
 

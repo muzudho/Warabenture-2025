@@ -38,6 +38,8 @@
     </section>
 
     <!--
+    誰も読まんようなことは削除（＾▽＾）
+    
     <h3>開発ツール</h3>
 
     <h4>ＡＩ</h4>
@@ -106,7 +108,7 @@
     // + コンポーネント +
     // ++++++++++++++++++
 
-    import TheParentHeader from '../the-header.vue';
-    import TheParentFooter from '../the-footer.vue';
+    import TheParentHeader from '../../the-header.vue';
+    import TheParentFooter from '../../the-footer.vue';
 
 </script>

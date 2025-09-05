@@ -1,29 +1,24 @@
 <template>
-    <section class="sec-1">
-        <v-btn @click="goToHome" v-tooltip="'下の部を閉じる'">❌</v-btn>
+    <!-- ナビゲーション -->
+    <nav>
         <!--
-            <router-link to="/">このサイトのホームへ戻る</router-link>
+            pages/ フォルダー下のページのファイル名は、
+            Nuxt 公式では kebab-case、
+                📖 https://nuxt.com/docs/3.x/guide/directory-structure/pages
+            Tauri では PascalCase が習慣的に使われています。異なるので注意。
         -->
-    </section>
+        <router-link to="/">ホーム</router-link> |
+        <router-link to="/about">このサイトについて</router-link> |
+        <router-link to="/quiz">クイズ</router-link> |
+        <router-link to="/blog">ブログ</router-link> |
+        <router-link to="/minigames">ミニゲーム</router-link> |
+        <router-link to="/making">メイキング</router-link> |
+        <router-link to="/coding-styles">コーディング・スタイル</router-link> |
+        <router-link to="/team-mirai-supporter">チームみらいサポーター活動</router-link>
+        <!--
+        <router-link to="/wara-city/map">わらシティ</router-link>
+        -->
+    </nav>
+
+    <h1>ワラベンチャー</h1>
 </template>
-
-<script setup lang="ts">
-
-    // ##############
-    // # インポート #
-    // ##############
-
-    import { useRouter } from 'vue-router';
-
-    
-    // ############
-    // # ルーチン #
-    // ############
-
-    const router = useRouter();
-
-    function goToHome() : void {
-        router.push('/');
-    }
-
-</script>

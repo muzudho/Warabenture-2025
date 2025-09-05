@@ -1,7 +1,7 @@
 <template>
     <the-header/>
 
-    <h3>スプライト　＞　ルーチン</h3>
+    <h3>スプライト　＞　ルーチン　の章</h3>
     <section class="sec-3">
         <p>スプライトに一定の動きをさせるぜ（＾▽＾）</p>
         <br/>

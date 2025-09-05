@@ -1,7 +1,7 @@
 <template>
     <the-header/>
 
-    <h3>JSONファイルの読込だぜ！</h3>
+    <h3>JSONファイルの読込だぜ！　の章</h3>
     <section class="sec-3">
         <p>ここに読み込んだJSONデータを表示：</p>
         <pre>{{ jsonStr }}</pre>

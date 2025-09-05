@@ -1,7 +1,7 @@
 <template>
     <the-header/>
 
-    <h3>ページを開いたとき、閉じたときに処理するぜ！</h3>
+    <h3>ページを開いたとき、閉じたときに処理するぜ！　の章</h3>
     <section class="sec-3">
         <p>{{ textVM }}</p>
     </section>

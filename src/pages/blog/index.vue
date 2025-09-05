@@ -1,7 +1,8 @@
 <template>
     <the-grand-parent-header/>
+    <the-parent-header/>
 
-    <h2>ブログの部だぜ！</h2>
+    <h2>ブログだぜ！　の部　インデックス</h2>
     <section class="sec-2">
         上の方の記事が新しいぜ（＾▽＾）！<br/>
     </section>
@@ -30,7 +31,7 @@
 
     <Blog20250524Sat />
 
-    <the-grand-parent-footer/>
+    <the-parent-footer/>
 </template>
 
 <script setup lang="ts">
@@ -57,5 +58,7 @@
     import Blog20250811Mon from './2025-08/11-mon.vue';
     import TheGrandParentFooter from '../../the-footer.vue';
     import TheGrandParentHeader from '../../the-header.vue';
+    import TheParentFooter from '../the-footer.vue';
+    import TheParentHeader from '../the-header.vue';
 
 </script>
