@@ -2,7 +2,7 @@
     <the-grand-parent-header/>
     <the-parent-header/>
 
-    <h2>チームみらいサポーター活動の章だぜ！　の部</h2>
+    <h2>チームみらいサポーター活動の章だぜ！　の部　インデックス</h2>
     <section class="sec-2">
         <ul>
             <li>📖 <NuxtLink to="/team-mirai-supporter/heat-map" :style="getPreviousLinkHighlight('/team-mirai-supporter/heat-map')">Heat Map</NuxtLink></li>
