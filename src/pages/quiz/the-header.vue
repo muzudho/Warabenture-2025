@@ -5,7 +5,7 @@
         <v-btn @click="goBackToTopOf1" v-tooltip="'下の部を閉じる'">❌</v-btn>
     </section>
 
-    <h2>クイズだぜ！　の部　インデックス</h2>
+    <h2>クイズだぜ！　の部</h2>
     <section class="sec-2">
         <v-btn @click="goBackToTopOf2" v-tooltip="'下の節を閉じる'">❌</v-btn>
     </section>
