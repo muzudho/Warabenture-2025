@@ -44,7 +44,7 @@
             :alt="commonOton2Alt"
             :name="commonOton2Name"
             :device="compatibleDevice1Ref?.device">
-            同ソの人全員に共通するような点は無いぜ。
+            同ソの人全員に共通するような特徴は無いぜ。
         </talk-balloon>
 
         <talk-balloon
@@ -61,7 +61,8 @@
             :name="commonOton2Name"
             :device="compatibleDevice1Ref?.device">
             同ソは 1995年以前からあったらしいがわたしが知らんので、2010年代以降に限れば、<br/>
-            しいて言うなら、ビデオゲーム専用機で動くようなゲームソフトの開発機材は個人では高くて手が出ないんで、<br/>
+            しいて言うなら、<br/>
+            ビデオゲーム専用機で動くようなゲームソフトの開発機材は個人では高くて手が出ないんで、<br/>
             ビデオゲーム専用機ではなく、企業に比べればお安い個人エディションの Windows PC などを使うなどの手段で<br/>
             ビデオゲームを作って、他人にやらせてる人たちだぜ。
         </talk-balloon>
@@ -131,11 +132,11 @@
             :alt="commonOton2Alt"
             :name="commonOton2Name"
             :device="compatibleDevice1Ref?.device">
-            『きふわらべのブログ』というのを、ダラが運営する『Crieit』というブログサイトで書いていたが、<br/>
+            『きふわらべのブログ』というのを、ダラが運営する『Crieit』という意欲的なブログサイトで書いていたが、<br/>
             有望銘柄の紹介記事を毎日機械的な文章で自動投稿する人など、いろいろな人々にサービスが荒らされてサ終したんで、<br/>
             ブログの引っ越し先を探していたんだが、どうもこれといって無かったんで、<br/>
             <br/>
-            さくらのＶＰＳを使って置いていた旧・ワラベンチャー　を全削除して、<br/>
+            さくらのＶＰＳを使って、プログラムの練習をしていた旧・ワラベンチャー　を全削除して、<br/>
             自分専用のブログサイトとして　現・ワラベンチャー　として再開したんだぜ。
         </talk-balloon>
 
@@ -169,7 +170,7 @@
             :alt="commonKifuwarabe2Alt"
             :name="commonKifuwarabe2Name"
             :device="compatibleDevice1Ref?.device">
-            意味ない、わらうｗｗｗ
+            本来の目的が既に失われているの、わらうｗｗｗ
         </talk-balloon>
 
         <talk-balloon
@@ -178,7 +179,7 @@
             :name="commonOton2Name"
             :device="compatibleDevice1Ref?.device">
             で、つい最近（２０２５年）になって、ウェブサイトを作るのにつかうＨＴＭＬ（厳密にはＨＴＭＬだけではないが……）とＴｙｐｅ　Ｓｃｒｉｐｔでビデオゲーム作れるんじゃないの？　と気づいたので、
-            今ご覧のこのホームページに、（勉強しながら）　<span style="background-color: lightgray;">　<a href="/minigames">ミニゲーム</a>　</span>　を置き始めると思うぜ。
+            今ご覧のこのホームページに以後、（勉強しながら）　<span style="background-color: lightgray;">　<a href="/minigames">ミニゲーム</a>　</span>　を置き始めると思うぜ。
         </talk-balloon>
 
         <talk-balloon

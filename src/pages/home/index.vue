@@ -1,9 +1,13 @@
 <template>
     <the-grand-parent-header/>
 
-    <!-- ホームに閉じるボタンはありません。 -->
+    <!-- ホームには［下の部を閉じる］ボタンはありません。 -->
 
-    <section class="sec-1">
+    <!-- 他のページと縦幅を揃えるために、何の働きもしない空ボタンを置いています。 -->
+    <v-btn style="visibility: hidden;"></v-btn><br/>
+
+    <h2>ホームだぜ！　の部　インデックス</h2>
+    <section class="sec-2">
         <br/>
 
         <talk-balloon
@@ -112,27 +116,23 @@
             :alt="commonKifuwarabe2Alt"
             :name="commonKifuwarabe2Name"
             :device="compatibleDevice1Ref?.device">
-            そこは未来を先取りしてんだ……
+            そこは未来を先取りしてんだ……。
         </talk-balloon>
-
-    </section>
-
-    <h2>ホームだぜ！　の部　インデックス</h2>
-    <section class="sec-2">
-        <br/>
 
         <talk-balloon
             :src="commonKifuwarabe2Src"
             :alt="commonKifuwarabe2Alt"
             :name="commonKifuwarabe2Name"
             :device="compatibleDevice1Ref?.device">
-            なんか知らんけど、お父んがセッセと作っているこのサイトの内容を円グラフにまとめておいたぜ。<br/>
+            じゃあ、なんか知らんけど、お父んがセッセと作っているこのサイトの内容を円グラフにまとめておいたぜ。<br/>
             <br/>
             以下の円グラフをクリックするとそのページへ飛べるぜ
         </talk-balloon>
 
 	    <canvas id="pieChart" class="pieChartStyle" style="border:dashed 4px gray; background-color: white;"></canvas>
     </section>
+
+    <!-- ホームには［上の部を閉じる］ボタンはありません。 -->
 
     <br/>
     <section class="sec-1">
@@ -144,8 +144,6 @@
             またのお越しをお待ちしているぜ！
         </talk-balloon>
     </section>
-
-    <!-- ホームに閉じるボタンはありません。 -->
 </template>
 
 <script setup lang="ts">
