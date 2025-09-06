@@ -10,7 +10,7 @@
         <!-- ストップウォッチ。デバッグに使いたいときは、 display: none; を消してください。 -->
         <stopwatch
             ref="stopwatch1Ref"
-            v-on:countUp="(countNum) => { stopwatch1Count = countNum; }"
+            v-on:countUp="(countNum: number) => { stopwatch1Count = countNum; }"
             style="display: none;" />
 
         <!-- 盤領域 -->
@@ -236,9 +236,9 @@
     import Stopwatch from '@/components/Stopwatch.vue';
     import TileAnimation from '@/components/TileAnimation.vue';
 
-    // ********************
-    // * インターフェース *
-    // ********************
+    // ++++++++++++++++++++++++++++++++++++
+    // + インポート　＞　インターフェース +
+    // ++++++++++++++++++++++++++++++++++++
 
     import type Rectangle from '../../../interfaces/Rectangle';
 
@@ -295,12 +295,12 @@
 
     const config1IsShowing = ref<boolean>(false);    // 設定を表示中
 
-    // ++++++++++++++++++++++++
-    // + オブジェクト　＞　盤 +
-    // ++++++++++++++++++++++++
+    // ++++++++++++++++++++++++++++++++
+    // + オブジェクト　＞　タイル盤１ +
+    // ++++++++++++++++++++++++++++++++
 
-    const board1SquareWidth = 32;
-    const board1SquareHeight = 32;
+    const tileBoard1TileWidth = 32;
+    const tileBoard1TileHeight = 32;
     const board1FileMax = 6;
     const board1RankMax = 6;
     const board1FileNum = ref<number>(5);    // 筋の数
@@ -310,8 +310,8 @@
     });
     const board1Style = computed<CompatibleStyleValue>(()=>{ // ボードとマスクを含んでいる領域のスタイル
         return {
-            width: `${board1FileNum.value * board1SquareWidth}px`,
-            height: `${board1RankNum.value * board1SquareHeight}px`,
+            width: `${board1FileNum.value * tileBoard1TileWidth}px`,
+            height: `${board1RankNum.value * tileBoard1TileHeight}px`,
             zoom: appZoom.value,
         };
     });
@@ -320,24 +320,24 @@
     >(() => {
         return (i:number)=>{
             // プレイヤーが初期位置にいる場合の、マスの位置。
-            const homeLeft = (i % board1FileNum.value) * board1SquareWidth;
-            const homeTop = Math.floor(i / board1FileNum.value) * board1SquareHeight;
+            const homeLeft = (i % board1FileNum.value) * tileBoard1TileWidth;
+            const homeTop = Math.floor(i / board1FileNum.value) * tileBoard1TileHeight;
 
             return {
                 position: 'absolute',
                 top: `${homeTop}px`,
                 left: `${homeLeft}px`,
-                width: `${board1SquareWidth}px`,
-                height: `${board1SquareHeight}px`,
+                width: `${tileBoard1TileWidth}px`,
+                height: `${tileBoard1TileHeight}px`,
                 border: `solid 1px ${i % 2 == 0 ? 'darkgray' : 'lightgray'}`,
                 textAlign: "center",
             };
         };
     });
 
-    // ++++++++++++++++++++++++++
-    // + オブジェクト　＞　印字 +
-    // ++++++++++++++++++++++++++
+    // ++++++++++++++++++++++++++++
+    // + オブジェクト　＞　像盤１ +
+    // ++++++++++++++++++++++++**++
     //
     // 盤上に表示される数字柄、絵柄など。
     //
@@ -408,17 +408,17 @@
     const playerHome1File = ref<number>(2);    // ホーム
     const playerHome1Rank = ref<number>(2);
     const playerHome1Left = computed(()=>{
-        return playerHome1File.value * board1SquareWidth;
+        return playerHome1File.value * tileBoard1TileWidth;
     });
     const playerHome1Top = computed(()=>{
-        return playerHome1Rank.value * board1SquareHeight;
+        return playerHome1Rank.value * tileBoard1TileHeight;
     });
     const playerHome1Style = computed<CompatibleStyleValue>(()=>{
         return {
             left: `${playerHome1Left.value}px`,
             top: `${playerHome1Top.value}px`,
-            width: `${board1SquareWidth}px`,
-            height: `${board1SquareHeight}px`,
+            width: `${tileBoard1TileWidth}px`,
+            height: `${tileBoard1TileHeight}px`,
         };
     });
 
@@ -426,17 +426,17 @@
     // + オブジェクト　＞　自機１ +
     // ++++++++++++++++++++++++++++
 
-    const player1Width = board1SquareWidth;
-    const player1Height = board1SquareHeight;
+    const player1Width = tileBoard1TileWidth;
+    const player1Height = tileBoard1TileHeight;
     // アニメーションのことを考えると、 File, Rank ではデジタルになってしまうので、 Left, Top で指定したい。
     const player1Left = ref<number>(playerHome1Left.value);    // スプライトの位置
     const player1Top = ref<number>(playerHome1Top.value);
     const player1Speed = ref<number>(2);    // 移動速度
     const player1File = computed<number>(()=>{
-        return Math.round(player1Left.value / board1SquareWidth);
+        return Math.round(player1Left.value / tileBoard1TileWidth);
     });
     const player1Rank = computed<number>(()=>{
-        return Math.round(player1Top.value / board1SquareHeight);
+        return Math.round(player1Top.value / tileBoard1TileHeight);
     });
     
     const player1Input = <Record<string, boolean>>{         // 入力
@@ -452,28 +452,28 @@
     }));
     const player1SourceFrames = {   // キャラクターの向きと、歩行タイルの指定
         left:[  // 左向き
-            {top:  3 * board1SquareHeight, left: 0 * board1SquareWidth, width: board1SquareWidth, height: board1SquareHeight },
-            {top:  3 * board1SquareHeight, left: 1 * board1SquareWidth, width: board1SquareWidth, height: board1SquareHeight },
-            {top:  3 * board1SquareHeight, left: 0 * board1SquareWidth, width: board1SquareWidth, height: board1SquareHeight },
-            {top:  3 * board1SquareHeight, left: 1 * board1SquareWidth, width: board1SquareWidth, height: board1SquareHeight },
+            {top:  3 * tileBoard1TileHeight, left: 0 * tileBoard1TileWidth, width: tileBoard1TileWidth, height: tileBoard1TileHeight },
+            {top:  3 * tileBoard1TileHeight, left: 1 * tileBoard1TileWidth, width: tileBoard1TileWidth, height: tileBoard1TileHeight },
+            {top:  3 * tileBoard1TileHeight, left: 0 * tileBoard1TileWidth, width: tileBoard1TileWidth, height: tileBoard1TileHeight },
+            {top:  3 * tileBoard1TileHeight, left: 1 * tileBoard1TileWidth, width: tileBoard1TileWidth, height: tileBoard1TileHeight },
         ],
         up:[    // 上向き
-            {top:  0 * board1SquareHeight, left: 0 * board1SquareWidth, width: board1SquareWidth, height: board1SquareHeight },
-            {top:  0 * board1SquareHeight, left: 1 * board1SquareWidth, width: board1SquareWidth, height: board1SquareHeight },
-            {top:  0 * board1SquareHeight, left: 0 * board1SquareWidth, width: board1SquareWidth, height: board1SquareHeight },
-            {top:  0 * board1SquareHeight, left: 1 * board1SquareWidth, width: board1SquareWidth, height: board1SquareHeight },
+            {top:  0 * tileBoard1TileHeight, left: 0 * tileBoard1TileWidth, width: tileBoard1TileWidth, height: tileBoard1TileHeight },
+            {top:  0 * tileBoard1TileHeight, left: 1 * tileBoard1TileWidth, width: tileBoard1TileWidth, height: tileBoard1TileHeight },
+            {top:  0 * tileBoard1TileHeight, left: 0 * tileBoard1TileWidth, width: tileBoard1TileWidth, height: tileBoard1TileHeight },
+            {top:  0 * tileBoard1TileHeight, left: 1 * tileBoard1TileWidth, width: tileBoard1TileWidth, height: tileBoard1TileHeight },
         ],
         right:[ // 右向き
-            {top:  1 * board1SquareHeight, left: 0 * board1SquareWidth, width: board1SquareWidth, height: board1SquareHeight },
-            {top:  1 * board1SquareHeight, left: 1 * board1SquareWidth, width: board1SquareWidth, height: board1SquareHeight },
-            {top:  1 * board1SquareHeight, left: 0 * board1SquareWidth, width: board1SquareWidth, height: board1SquareHeight },
-            {top:  1 * board1SquareHeight, left: 1 * board1SquareWidth, width: board1SquareWidth, height: board1SquareHeight },
+            {top:  1 * tileBoard1TileHeight, left: 0 * tileBoard1TileWidth, width: tileBoard1TileWidth, height: tileBoard1TileHeight },
+            {top:  1 * tileBoard1TileHeight, left: 1 * tileBoard1TileWidth, width: tileBoard1TileWidth, height: tileBoard1TileHeight },
+            {top:  1 * tileBoard1TileHeight, left: 0 * tileBoard1TileWidth, width: tileBoard1TileWidth, height: tileBoard1TileHeight },
+            {top:  1 * tileBoard1TileHeight, left: 1 * tileBoard1TileWidth, width: tileBoard1TileWidth, height: tileBoard1TileHeight },
         ],
         down:[  // 下向き
-            {top:  2 * board1SquareHeight, left: 0 * board1SquareWidth, width: board1SquareWidth, height: board1SquareHeight },
-            {top:  2 * board1SquareHeight, left: 1 * board1SquareWidth, width: board1SquareWidth, height: board1SquareHeight },
-            {top:  2 * board1SquareHeight, left: 0 * board1SquareWidth, width: board1SquareWidth, height: board1SquareHeight },
-            {top:  2 * board1SquareHeight, left: 1 * board1SquareWidth, width: board1SquareWidth, height: board1SquareHeight },
+            {top:  2 * tileBoard1TileHeight, left: 0 * tileBoard1TileWidth, width: tileBoard1TileWidth, height: tileBoard1TileHeight },
+            {top:  2 * tileBoard1TileHeight, left: 1 * tileBoard1TileWidth, width: tileBoard1TileWidth, height: tileBoard1TileHeight },
+            {top:  2 * tileBoard1TileHeight, left: 0 * tileBoard1TileWidth, width: tileBoard1TileWidth, height: tileBoard1TileHeight },
+            {top:  2 * tileBoard1TileHeight, left: 1 * tileBoard1TileWidth, width: tileBoard1TileWidth, height: tileBoard1TileHeight },
         ],
     };
     const player1Frames : Ref<Rectangle[]> = ref(player1SourceFrames["down"]);

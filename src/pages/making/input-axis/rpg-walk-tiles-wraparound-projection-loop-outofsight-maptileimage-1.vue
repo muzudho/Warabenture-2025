@@ -21,13 +21,6 @@
         <v-alert type="warning" title="免責！" text="処理堕ちしていたら、［設定を表示］ボタンから盤のサイズを小さくしてください。" closable />
         <br/>
 
-        <!-- 印字１　＞　機能 -->
-        <printing-making
-            ref="printing1Ref"
-            :printing1SourceTilemapCoordination="printing1SourceTilemapCoordination"
-            :printing1SourceTileIndexesBoard="printing1SourceTileIndexesBoard">
-        </printing-making>
-
         <!-- 盤領域 -->
         <div
             class="board"
@@ -44,20 +37,20 @@
                 v-for="i in board1Area"
                 :key="i"
                 class="square"
-                :style="getSquareStyleFromTileIndex(i - 1)"
-                :srcLeft="printing1Ref?.getSourceTileLeftFromPrintingIndex(
-                    getPrintingIndexFromFixedSquareIndex(
-                        getFixedSquareIndexFromTileIndex(
+                :style="imageBoard1GetTileStyleByTileSq(i - 1)"
+                :srcLeft="imageBoard1GetResourceTileLeftByImageSq(
+                    getImageSqByFixedTileSq(
+                        getFixedTileSqFromTileSq(
                             i - 1,
-                            board1SquareWidth,
-                            board1SquareHeight,
+                            tileBoard1TileWidth,
+                            tileBoard1TileHeight,
                             board1FileNum,
                             board1RankNum,
                             printing1Left,
                             printing1Top,
                         ),
-                        -Math.floor(printing1Left / board1SquareWidth),
-                        -Math.floor(printing1Top / board1SquareHeight),
+                        -Math.floor(printing1Left / tileBoard1TileWidth),
+                        -Math.floor(printing1Top / tileBoard1TileHeight),
                         board1FileNum,
                         printing1FileNum,
                         printing1RankNum,
@@ -65,16 +58,47 @@
                     )
                 ) ?? 0"
                 :srcTop="0"
-                :srcWidth="board1SquareWidth"
-                :srcHeight="board1SquareHeight"
+                :srcWidth="tileBoard1TileWidth"
+                :srcHeight="tileBoard1TileHeight"
                 tilemapUrl="/img/making/tilemap-floor-20250826.png">
+
+                <!--
+            <tile
+                v-for="i in board1Area"
+                :key="i"
+                class="square"
+                //:style="getSquareStyleFromTileSq(i - 1)"
+                :srcLeft="printing1Ref?.getSourceTileLeftByImageSq(
+                    getImageSqByFixedTileSq(
+                        getFixedTileSqFromTileSq(
+                            i - 1,
+                            tileBoard1TileWidth,
+                            tileBoard1TileHeight,
+                            board1FileNum,
+                            board1RankNum,
+                            printing1Left,
+                            printing1Top,
+                        ),
+                        -Math.floor(printing1Left / tileBoard1TileWidth),
+                        -Math.floor(printing1Top / tileBoard1TileHeight),
+                        board1FileNum,
+                        printing1FileNum,
+                        printing1RankNum,
+                        printing1IsLooping,
+                    )
+                ) ?? 0"
+                :srcTop="0"
+                :srcWidth="tileBoard1TileWidth"
+                :srcHeight="tileBoard1TileHeight"
+                tilemapUrl="/img/making/tilemap-floor-20250826.png">
+                -->
 
                 <span class="board-slidable-tile-index">tile[{{ (i - 1) }}]</span>
                 <span class="board-fixed-square-index">fix[{{
-                    getFixedSquareIndexFromTileIndex(
+                    getFixedTileSqFromTileSq(
                         i - 1,
-                        board1SquareWidth,
-                        board1SquareHeight,
+                        tileBoard1TileWidth,
+                        tileBoard1TileHeight,
                         board1FileNum,
                         board1RankNum,
                         printing1Left,
@@ -82,18 +106,18 @@
                     )
                 }}]</span>
                 <span class="board-printing-index">print[{{
-                    getPrintingIndexFromFixedSquareIndex(
-                        getFixedSquareIndexFromTileIndex(
+                    getImageSqByFixedTileSq(
+                        getFixedTileSqFromTileSq(
                             i - 1,
-                            board1SquareWidth,
-                            board1SquareHeight,
+                            tileBoard1TileWidth,
+                            tileBoard1TileHeight,
                             board1FileNum,
                             board1RankNum,
                             printing1Left,
                             printing1Top,
                         ),
-                        -Math.floor(printing1Left / board1SquareWidth),
-                        -Math.floor(printing1Top / board1SquareHeight),
+                        -Math.floor(printing1Left / tileBoard1TileWidth),
+                        -Math.floor(printing1Top / tileBoard1TileHeight),
                         board1FileNum,
                         printing1FileNum,
                         printing1RankNum,
@@ -101,19 +125,19 @@
                     )
                 }}]</span>
                 <span class="board-square-printing-string">{{
-                    printing1Ref?.getPrintingStringFromPrintingIndex(
-                        getPrintingIndexFromFixedSquareIndex(
-                            getFixedSquareIndexFromTileIndex(
+                    printing1GetSourceTileSqStringByImageBoardSq(
+                        getImageSqByFixedTileSq(
+                            getFixedTileSqFromTileSq(
                                 i - 1,
-                                board1SquareWidth,
-                                board1SquareHeight,
+                                tileBoard1TileWidth,
+                                tileBoard1TileHeight,
                                 board1FileNum,
                                 board1RankNum,
                                 printing1Left,
                                 printing1Top,
                             ),
-                            -Math.floor(printing1Left / board1SquareWidth),
-                            -Math.floor(printing1Top / board1SquareHeight),
+                            -Math.floor(printing1Left / tileBoard1TileWidth),
+                            -Math.floor(printing1Top / tileBoard1TileHeight),
                             board1FileNum,
                             printing1FileNum,
                             printing1RankNum,
@@ -121,6 +145,31 @@
                         )
                     ) ?? 0
                 }}</span>
+                <!--
+                    printing1GetSourceTileSqStringByImageBoardSq
+
+                <span class="board-square-printing-string">{{
+                    //printing1Ref?.getSourceTileSqStringByImageBoardSq(
+                        getImageSqByFixedTileSq(
+                            getFixedTileSqFromTileSq(
+                                i - 1,
+                                tileBoard1TileWidth,
+                                tileBoard1TileHeight,
+                                board1FileNum,
+                                board1RankNum,
+                                printing1Left,
+                                printing1Top,
+                            ),
+                            -Math.floor(printing1Left / tileBoard1TileWidth),
+                            -Math.floor(printing1Top / tileBoard1TileHeight),
+                            board1FileNum,
+                            printing1FileNum,
+                            printing1RankNum,
+                            printing1IsLooping,
+                        )
+                    ) ?? 0
+                }}</span>
+                -->
 
             </tile>
 
@@ -136,8 +185,8 @@
             <!-- 視界の外１ -->
             <out-of-sight-making
                 ref="outOfSight1Ref"
-                :board1SquareWidth="board1SquareWidth"
-                :board1SquareHeight="board1SquareHeight"
+                :tileBoard1TileWidth="tileBoard1TileWidth"
+                :tileBoard1TileHeight="tileBoard1TileHeight"
                 :board1FileNum="board1FileNum"
                 :board1RankNum="board1RankNum">
             </out-of-sight-making>
@@ -339,10 +388,10 @@
                 :key="i">
                 tile-index: {{ i - 1 }} | 
                 fix-index: {{
-                    getFixedSquareIndexFromTileIndex(
+                    getFixedTileSqFromTileSq(
                         i - 1,
-                        board1SquareWidth,
-                        board1SquareHeight,
+                        tileBoard1TileWidth,
+                        tileBoard1TileHeight,
                         board1FileNum,
                         board1RankNum,
                         printing1Left,
@@ -350,18 +399,18 @@
                     )
                 }} | 
                 printing: {{
-                    getPrintingIndexFromFixedSquareIndex(
-                        getFixedSquareIndexFromTileIndex(
+                    getImageSqByFixedTileSq(
+                        getFixedTileSqFromTileSq(
                             i - 1,
-                            board1SquareWidth,
-                            board1SquareHeight,
+                            tileBoard1TileWidth,
+                            tileBoard1TileHeight,
                             board1FileNum,
                             board1RankNum,
                             printing1Left,
                             printing1Top,
                         ),
-                        -Math.floor(printing1Left / board1SquareWidth),
-                        -Math.floor(printing1Top / board1SquareHeight),
+                        -Math.floor(printing1Left / tileBoard1TileWidth),
+                        -Math.floor(printing1Top / tileBoard1TileHeight),
                         board1FileNum,
                         printing1FileNum,
                         printing1RankNum,
@@ -375,7 +424,7 @@
                 v-for="j in printing1AreaMax"
                 :key="j">
                 printing-index: {{ j - 1 }} | 
-                source-tile-index: {{ printing1SourceTileIndexesBoard[j - 1] }}<br/>
+                source-tile-index: {{ imageBoard1Data[j - 1] }}<br/>
             </div>
             <br/>
         </section>
@@ -385,7 +434,7 @@
         <p>元画像のタイルマップを表示：</p>
         <v-img
             src="/img/making/tilemap-floor-20250826.png"
-            :style="`width: ${8 * board1SquareWidth}px; height:${4 * board1SquareHeight}px;`"
+            :style="`width: ${8 * tileBoard1TileWidth}px; height:${4 * tileBoard1TileHeight}px;`"
             style="image-rendering: pixelated; margin:0; padding:0; border:dashed 4px gray;"/>
         <p>：ここまで。</p>
         <br/>
@@ -436,7 +485,6 @@
     // from の階層が上の順、アルファベット順
     import Button20250822 from '@/components/Button20250822.vue';
     import OutOfSightMaking from '@/components/OutOfSightMaking.vue';
-    import PrintingMaking from '@/components/PrintingMaking.vue';
     import SourceLink from '@/components/SourceLink.vue';
     import Stopwatch from '@/components/Stopwatch.vue';
     import Tile from '@/components/Tile.vue';
@@ -446,7 +494,7 @@
     // + コンポーザブル +
     // ++++++++++++++++++
 
-    import { getFileAndRankFromIndex, getFixedSquareIndexFromTileIndex, getPrintingIndexFromFixedSquareIndex, wrapAround } from '../../../composables/board-operation';
+    import { createGetTileStyleByTileSq, getFixedTileSqFromTileSq, getImageSqByFixedTileSq } from '../../../composables/board-operation';
     import {
         getPlayer1File, getPlayer1Rank,
         isPlayerInputKey,
@@ -457,10 +505,11 @@
     } from '../../../composables/printing-controller'
     import type { PlayerInput, PlayerMotion } from '../../../composables/player-controller';
     import type { PrintingInput, PrintingMotion } from '../../../composables/printing-controller';
+    import { createGetResourceTileLeftByImageSq, createGetSourceTileSqStringByImageBoardSq } from '../../../composables/image-board';
 
-    // ********************
-    // * インターフェース *
-    // ********************
+    // ++++++++++++++++++++++++++++++++++++
+    // + インポート　＞　インターフェース +
+    // ++++++++++++++++++++++++++++++++++++
 
     import type Rectangle from '../../../interfaces/Rectangle';
 
@@ -524,12 +573,12 @@
         }
     });
 
-    // ++++++++++++++++++++++++
-    // + オブジェクト　＞　盤 +
-    // ++++++++++++++++++++++++
+    // ++++++++++++++++++++++++++++++++
+    // + オブジェクト　＞　タイル盤１ +
+    // ++++++++++++++++++++++++++++++++
 
-    const board1SquareWidth = 32;
-    const board1SquareHeight = 32;
+    const tileBoard1TileWidth = 32;
+    const tileBoard1TileHeight = 32;
     const board1FileMax = 6;
     const board1RankMax = 6;
     const board1FileNum = ref<number>(5);   // 筋の数。ただし、右側と下側に１マス余分に付いているマスクは含まない。
@@ -541,55 +590,20 @@
     const board1WithMaskSizeSquare = ref<number>(1);    // マスクの幅（単位：マス）
     const board1Style = computed<CompatibleStyleValue>(()=>{    // ボードとマスクを含んでいる領域のスタイル
         return {
-            width: `${(board1FileNum.value + outOfSight1WithMaskSquareCount.value) * board1SquareWidth}px`,
-            height: `${(board1RankNum.value + outOfSight1WithMaskSquareCount.value) * board1SquareHeight}px`,
+            width: `${(board1FileNum.value + outOfSight1WithMaskSquareCount.value) * tileBoard1TileWidth}px`,
+            height: `${(board1RankNum.value + outOfSight1WithMaskSquareCount.value) * tileBoard1TileHeight}px`,
             zoom: appZoom.value,
         };
     });
-    const getSquareStyleFromTileIndex = computed<
-        (tileIndex:number)=>CompatibleStyleValue
-    >(() => {
-        return (tileIndex:number)=>{
-            // if (!Number.isInteger(tileIndex)) { throw new Error(`Assertion failed: "tileIndex" must be an integer, got ${tileIndex}`); }
-
-            // プレイヤーが初期位置にいる場合の、マスの位置。
-            const [tileFile, tileRank] = getFileAndRankFromIndex(tileIndex, board1FileNum.value);
-            const homeLeft = tileFile * board1SquareWidth;
-            const homeTop = tileRank * board1SquareHeight;
-
-            const [offsetLeftLoop, offsetTopLoop] = wrapAround(
-                homeLeft,
-                homeTop,
-                printing1Left.value,
-                printing1Top.value,
-                board1FileNum.value * board1SquareWidth,
-                board1RankNum.value * board1SquareHeight,
-            );
-
-            return {
-                left: `${homeLeft + offsetLeftLoop}px`,
-                top: `${homeTop + offsetTopLoop}px`,
-                width: `${board1SquareWidth}px`,
-                height: `${board1SquareHeight}px`,
-            };
-        };
-    });
     const board1FloorTilemapTileNum = 5;  // 床のタイルマップの、左上隅から数えたタイル数
-    interface SourceTile {
-        left: number,
-        top: number,
-        width: number,
-        height: number,
-    }
 
-    // ++++++++++++++++++++++++++
-    // + オブジェクト　＞　印字 +
-    // ++++++++++++++++++++++++++
+    // ++++++++++++++++++++++++++++
+    // + オブジェクト　＞　像盤１ +
+    // ++++++++++++++++++++++++**++
     //
     // 盤上に表示される数字柄、絵柄など。
     //
 
-    const printing1Ref = ref<InstanceType<typeof PrintingMaking> | null>(null);
     const printing1OutOfSightIsLock = ref<boolean>(false);   // ［画面外隠し］を管理（true: ロックする, false: ロックしない）
     watch(printing1OutOfSightIsLock, (newValue: boolean)=>{
         player1CanBoardEdgeWalkingIsEnabled.value = newValue;
@@ -603,25 +617,40 @@
     // のちのち自機を１ドットずつ動かすことを考えると、 File, Rank ではデジタルになってしまうので、 Left, Top で指定したい。
     const printing1Left = ref<number>(0);
     const printing1Top = ref<number>(0);
-    const printing1SourceTileIndexesBoard = ref<number[]>([]);   // ソース・タイルのインデックスが入っている盤
+    const imageBoard1Data = ref<number[]>([]);   // ソース・タイルのインデックスが入っている盤
     // ランダムなマップデータを生成
     for (let i=0; i<printing1AreaMax; i++) {    // 最初から最大サイズで用意します。
         // 左上のタイルは画面外の黒なので、それを避けて設定。
         const sourceTileIndex = Math.floor(Math.random() * (board1FloorTilemapTileNum - 1)) + 1;
-        printing1SourceTileIndexesBoard.value.push(sourceTileIndex);
+        imageBoard1Data.value.push(sourceTileIndex);
     }
+    const computedImageBoard1Data = computed<number[]>(()=>imageBoard1Data.value);
     const printing1Input : PrintingInput = printingInputCreate();
     const printing1Motion = ref<PrintingMotion>(printingMotionCreate());
     const printing1MotionSpeed = ref<number>(2);  // 移動速度（単位：ピクセル）
     const printing1MotionWait = ref<number>(0);   // 排他的モーション時間。
     const printing1MotionWalkingFrames = 16;       // 歩行フレーム数
-    const printing1SourceTilemapCoordination : SourceTile[] = [];
+    const sourceTilemapRectangles : Rectangle[] = [];
     for (let i = 0; i < printing1AreaMax; i++) {   // 最大サイズで作っておく。
         const files = i % board1FileNum.value;
         const ranks = Math.floor(i / board1FileNum.value);
-        printing1SourceTilemapCoordination.push({ top: ranks * board1SquareHeight, left: files * board1SquareWidth, width: board1SquareWidth, height: board1SquareHeight });
-    }
-
+        sourceTilemapRectangles.push({ top: ranks * tileBoard1TileHeight, left: files * tileBoard1TileWidth, width: tileBoard1TileWidth, height: tileBoard1TileHeight });
+    }    
+    const printing1GetSourceTileSqStringByImageBoardSq: (imageBoardSq: number) => string = createGetSourceTileSqStringByImageBoardSq(
+        computedImageBoard1Data,
+    );
+    const imageBoard1GetResourceTileLeftByImageSq: (sq: number) => number = createGetResourceTileLeftByImageSq(
+        computedImageBoard1Data,
+        sourceTilemapRectangles,
+    );
+    const imageBoard1GetTileStyleByTileSq = createGetTileStyleByTileSq(
+        tileBoard1TileWidth,
+        tileBoard1TileHeight,
+        board1FileNum,
+        board1RankNum,
+        printing1Left,
+        printing1Top,
+    );
 
     // ++++++++++++++++++++++++++++++++++++
     // + オブジェクト　＞　自機のホーム１ +
@@ -634,17 +663,17 @@
     const playerHome1File = ref<number>(2);    // ホーム
     const playerHome1Rank = ref<number>(2);
     const playerHome1Left = computed(()=>{
-        return playerHome1File.value * board1SquareWidth;
+        return playerHome1File.value * tileBoard1TileWidth;
     });
     const playerHome1Top = computed(()=>{
-        return playerHome1Rank.value * board1SquareHeight;
+        return playerHome1Rank.value * tileBoard1TileHeight;
     });
     const playerHome1Style = computed<CompatibleStyleValue>(()=>{
         return {
             left: `${playerHome1Left.value}px`,
             top: `${playerHome1Top.value}px`,
-            width: `${board1SquareWidth}px`,
-            height: `${board1SquareHeight}px`,
+            width: `${tileBoard1TileWidth}px`,
+            height: `${tileBoard1TileHeight}px`,
         };
     });
 
@@ -652,8 +681,8 @@
     // + オブジェクト　＞　自機１ +
     // ++++++++++++++++++++++++++++
 
-    const player1Width = board1SquareWidth;
-    const player1Height = board1SquareHeight;
+    const player1Width = tileBoard1TileWidth;
+    const player1Height = tileBoard1TileHeight;
     // アニメーションのことを考えると、 File, Rank ではデジタルになってしまうので、 Left, Top で指定したい。
     const player1Left = ref<number>(playerHome1Left.value);    // スプライトの位置
     const player1Top = ref<number>(playerHome1Top.value);
@@ -669,28 +698,28 @@
     }));
     const player1SourceFrames = {   // キャラクターの向きと、歩行タイルの指定
         left:[  // 左向き
-            {top:  3 * board1SquareHeight, left: 0 * board1SquareWidth, width: board1SquareWidth, height: board1SquareHeight },
-            {top:  3 * board1SquareHeight, left: 1 * board1SquareWidth, width: board1SquareWidth, height: board1SquareHeight },
-            {top:  3 * board1SquareHeight, left: 0 * board1SquareWidth, width: board1SquareWidth, height: board1SquareHeight },
-            {top:  3 * board1SquareHeight, left: 1 * board1SquareWidth, width: board1SquareWidth, height: board1SquareHeight },
+            {top:  3 * tileBoard1TileHeight, left: 0 * tileBoard1TileWidth, width: tileBoard1TileWidth, height: tileBoard1TileHeight },
+            {top:  3 * tileBoard1TileHeight, left: 1 * tileBoard1TileWidth, width: tileBoard1TileWidth, height: tileBoard1TileHeight },
+            {top:  3 * tileBoard1TileHeight, left: 0 * tileBoard1TileWidth, width: tileBoard1TileWidth, height: tileBoard1TileHeight },
+            {top:  3 * tileBoard1TileHeight, left: 1 * tileBoard1TileWidth, width: tileBoard1TileWidth, height: tileBoard1TileHeight },
         ],
         up:[    // 上向き
-            {top:  0 * board1SquareHeight, left: 0 * board1SquareWidth, width: board1SquareWidth, height: board1SquareHeight },
-            {top:  0 * board1SquareHeight, left: 1 * board1SquareWidth, width: board1SquareWidth, height: board1SquareHeight },
-            {top:  0 * board1SquareHeight, left: 0 * board1SquareWidth, width: board1SquareWidth, height: board1SquareHeight },
-            {top:  0 * board1SquareHeight, left: 1 * board1SquareWidth, width: board1SquareWidth, height: board1SquareHeight },
+            {top:  0 * tileBoard1TileHeight, left: 0 * tileBoard1TileWidth, width: tileBoard1TileWidth, height: tileBoard1TileHeight },
+            {top:  0 * tileBoard1TileHeight, left: 1 * tileBoard1TileWidth, width: tileBoard1TileWidth, height: tileBoard1TileHeight },
+            {top:  0 * tileBoard1TileHeight, left: 0 * tileBoard1TileWidth, width: tileBoard1TileWidth, height: tileBoard1TileHeight },
+            {top:  0 * tileBoard1TileHeight, left: 1 * tileBoard1TileWidth, width: tileBoard1TileWidth, height: tileBoard1TileHeight },
         ],
         right:[ // 右向き
-            {top:  1 * board1SquareHeight, left: 0 * board1SquareWidth, width: board1SquareWidth, height: board1SquareHeight },
-            {top:  1 * board1SquareHeight, left: 1 * board1SquareWidth, width: board1SquareWidth, height: board1SquareHeight },
-            {top:  1 * board1SquareHeight, left: 0 * board1SquareWidth, width: board1SquareWidth, height: board1SquareHeight },
-            {top:  1 * board1SquareHeight, left: 1 * board1SquareWidth, width: board1SquareWidth, height: board1SquareHeight },
+            {top:  1 * tileBoard1TileHeight, left: 0 * tileBoard1TileWidth, width: tileBoard1TileWidth, height: tileBoard1TileHeight },
+            {top:  1 * tileBoard1TileHeight, left: 1 * tileBoard1TileWidth, width: tileBoard1TileWidth, height: tileBoard1TileHeight },
+            {top:  1 * tileBoard1TileHeight, left: 0 * tileBoard1TileWidth, width: tileBoard1TileWidth, height: tileBoard1TileHeight },
+            {top:  1 * tileBoard1TileHeight, left: 1 * tileBoard1TileWidth, width: tileBoard1TileWidth, height: tileBoard1TileHeight },
         ],
         down:[  // 下向き
-            {top:  2 * board1SquareHeight, left: 0 * board1SquareWidth, width: board1SquareWidth, height: board1SquareHeight },
-            {top:  2 * board1SquareHeight, left: 1 * board1SquareWidth, width: board1SquareWidth, height: board1SquareHeight },
-            {top:  2 * board1SquareHeight, left: 0 * board1SquareWidth, width: board1SquareWidth, height: board1SquareHeight },
-            {top:  2 * board1SquareHeight, left: 1 * board1SquareWidth, width: board1SquareWidth, height: board1SquareHeight },
+            {top:  2 * tileBoard1TileHeight, left: 0 * tileBoard1TileWidth, width: tileBoard1TileWidth, height: tileBoard1TileHeight },
+            {top:  2 * tileBoard1TileHeight, left: 1 * tileBoard1TileWidth, width: tileBoard1TileWidth, height: tileBoard1TileHeight },
+            {top:  2 * tileBoard1TileHeight, left: 0 * tileBoard1TileWidth, width: tileBoard1TileWidth, height: tileBoard1TileHeight },
+            {top:  2 * tileBoard1TileHeight, left: 1 * tileBoard1TileWidth, width: tileBoard1TileWidth, height: tileBoard1TileHeight },
         ],
     };
     const player1Frames : Ref<Rectangle[]> = ref(player1SourceFrames["down"]);
@@ -782,8 +811,8 @@
 
             printingMotionUpdateByInputWithWrapAround(
                 printing1OutOfSightIsLock.value,
-                board1SquareWidth,
-                board1SquareHeight,
+                tileBoard1TileWidth,
+                tileBoard1TileHeight,
                 board1FileNum.value,
                 board1RankNum.value,
                 outOfSight1WithMaskSquareCount.value,
@@ -794,15 +823,15 @@
                 printing1Input,
                 printing1Motion,
                 printing1MotionWait.value,
-                ()=>{ return getPlayer1File(player1Left.value, board1SquareWidth) > playerHome1File.value; },   // 自機がホーム・ポジションより右に居る
-                ()=>{ return getPlayer1File(player1Left.value, board1SquareWidth) < playerHome1File.value; },   // 自機がホーム・ポジションより左に居る
-                ()=>{ return getPlayer1Rank(player1Top.value, board1SquareHeight) > playerHome1Rank.value; },   // 自機がホーム・ポジションより下に居る
-                ()=>{ return getPlayer1Rank(player1Top.value, board1SquareHeight) < playerHome1Rank.value; },   // 自機がホーム・ポジションより上に居る
+                ()=>{ return getPlayer1File(player1Left.value, tileBoard1TileWidth) > playerHome1File.value; },   // 自機がホーム・ポジションより右に居る
+                ()=>{ return getPlayer1File(player1Left.value, tileBoard1TileWidth) < playerHome1File.value; },   // 自機がホーム・ポジションより左に居る
+                ()=>{ return getPlayer1Rank(player1Top.value, tileBoard1TileHeight) > playerHome1Rank.value; },   // 自機がホーム・ポジションより下に居る
+                ()=>{ return getPlayer1Rank(player1Top.value, tileBoard1TileHeight) < playerHome1Rank.value; },   // 自機がホーム・ポジションより上に居る
             );
             playerMotionUpdateByInputWithWrapAround(
                 printing1OutOfSightIsLock.value,
-                board1SquareWidth,
-                board1SquareHeight,
+                tileBoard1TileWidth,
+                tileBoard1TileHeight,
                 board1FileNum.value,
                 board1RankNum.value,
                 outOfSight1Ref.value?.outOfSight1WithMaskSquareCount ?? 1,
@@ -814,10 +843,10 @@
                 player1Motion,
                 player1MotionWait.value,
                 player1CanBoardEdgeWalking.value,
-                ()=>{ return checkOutOfSightLeftIsLook(board1SquareWidth, board1WithMaskSizeSquare.value, printing1Left.value); },  // ここで進むと、左側に外側が見えるなら。
-                ()=>{ return checkOutOfSightRightIsLook(board1SquareWidth, board1WithMaskSizeSquare.value, board1FileNum.value, printing1FileNum.value, printing1Left.value); },    // ここで進むと、右側に外側が見えるなら。
-                ()=>{ return checkOutOfSightTopIsLook(board1SquareHeight, board1WithMaskSizeSquare.value, printing1Top.value); },    // ここで進むと、上側に外側が見えるなら。
-                ()=>{ return checkOutOfSightBottomIsLook(board1SquareHeight, board1WithMaskSizeSquare.value, board1RankNum.value, printing1RankNum.value, printing1Top.value); },   // ここで進むと、下側に外側が見えるなら。
+                ()=>{ return checkOutOfSightLeftIsLook(tileBoard1TileWidth, board1WithMaskSizeSquare.value, printing1Left.value); },  // ここで進むと、左側に外側が見えるなら。
+                ()=>{ return checkOutOfSightRightIsLook(tileBoard1TileWidth, board1WithMaskSizeSquare.value, board1FileNum.value, printing1FileNum.value, printing1Left.value); },    // ここで進むと、右側に外側が見えるなら。
+                ()=>{ return checkOutOfSightTopIsLook(tileBoard1TileHeight, board1WithMaskSizeSquare.value, printing1Top.value); },    // ここで進むと、上側に外側が見えるなら。
+                ()=>{ return checkOutOfSightBottomIsLook(tileBoard1TileHeight, board1WithMaskSizeSquare.value, board1RankNum.value, printing1RankNum.value, printing1Top.value); },   // ここで進むと、下側に外側が見えるなら。
             );
 
             // ++++++++++++++++++++++++++++++

@@ -30,12 +30,12 @@
     // ####################################
     
     interface Props {
-        // ++++++++++++++++++++++++
-        // + オブジェクト　＞　盤 +
-        // ++++++++++++++++++++++++
+        // ++++++++++++++++++++++++++++++++
+        // + オブジェクト　＞　タイル盤１ +
+        // ++++++++++++++++++++++++++++++++
 
-        board1SquareWidth: number,
-        board1SquareHeight: number,
+        tileBoard1TileWidth: number,
+        tileBoard1TileHeight: number,
         board1FileNum: number,  // 筋の数。ただし、右側と下側に１マス余分に付いているマスクは含まない。
         board1RankNum: number,  // 段の数
     }
@@ -62,12 +62,12 @@
     const outOfSight1Style = computed<CompatibleStyleValue>(()=>{
         // ボーダーを使って色を塗っています。
         return {
-            width: `${outOfSight1WithMaskFileNum.value * props.board1SquareWidth}px`,
-            height: `${outOfSight1WithMaskRankNum.value * props.board1SquareHeight}px`,
-            borderTop: `solid ${outOfSight1WithMaskSquareCount.value * props.board1SquareHeight}px rgba(0,0,0,0.5)`,
-            borderRight: `solid ${(outOfSight1WithMaskSquareCount.value + outOfSight1WithMaskBottomRightMargin) * props.board1SquareWidth}px rgba(0,0,0,0.5)`,
-            borderBottom: `solid ${(outOfSight1WithMaskSquareCount.value + outOfSight1WithMaskBottomRightMargin) * props.board1SquareHeight}px rgba(0,0,0,0.5)`,
-            borderLeft: `solid ${outOfSight1WithMaskSquareCount.value * props.board1SquareWidth}px rgba(0,0,0,0.5)`,
+            width: `${outOfSight1WithMaskFileNum.value * props.tileBoard1TileWidth}px`,
+            height: `${outOfSight1WithMaskRankNum.value * props.tileBoard1TileHeight}px`,
+            borderTop: `solid ${outOfSight1WithMaskSquareCount.value * props.tileBoard1TileHeight}px rgba(0,0,0,0.5)`,
+            borderRight: `solid ${(outOfSight1WithMaskSquareCount.value + outOfSight1WithMaskBottomRightMargin) * props.tileBoard1TileWidth}px rgba(0,0,0,0.5)`,
+            borderBottom: `solid ${(outOfSight1WithMaskSquareCount.value + outOfSight1WithMaskBottomRightMargin) * props.tileBoard1TileHeight}px rgba(0,0,0,0.5)`,
+            borderLeft: `solid ${outOfSight1WithMaskSquareCount.value * props.tileBoard1TileWidth}px rgba(0,0,0,0.5)`,
         };
     });
 

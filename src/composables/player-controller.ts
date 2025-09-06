@@ -10,9 +10,9 @@ import type { Ref } from 'vue';
 
 import { commonSpriteMotionDown, commonSpriteMotionLeft, commonSpriteMotionRight, commonSpriteMotionUp } from './common';
 
-// ********************
-// * インターフェース *
-// ********************
+// ++++++++++++++++++++++++++++++++++++
+// + インポート　＞　インターフェース +
+// ++++++++++++++++++++++++++++++++++++
 
 import type Rectangle from '../interfaces/Rectangle';
 
@@ -78,15 +78,15 @@ export interface PlayerMotion {
 
 export function getPlayer1File(
     player1Left: number,
-    board1SquareWidth: number,
+    tileBoard1TileWidth: number,
 ) : number {
-    return Math.round(player1Left / board1SquareWidth);
+    return Math.round(player1Left / tileBoard1TileWidth);
 }
 export function getPlayer1Rank(
     player1Top: number,
-    board1SquareHeight: number,
+    tileBoard1TileHeight: number,
 ) : number {
-    return Math.round(player1Top / board1SquareHeight);
+    return Math.round(player1Top / tileBoard1TileHeight);
 }
 
 
@@ -131,8 +131,8 @@ export function playerMotionClearIfCountZero(
  */
 export function playerMotionUpdateByInputWithWrapAround(
     printingOutOfSightIsLock: boolean,
-    board1SquareWidth: number,
-    board1SquareHeight: number,
+    tileBoard1TileWidth: number,
+    tileBoard1TileHeight: number,
     board1FileNum: number,
     board1RankNum: number,
     board1WithMaskSizeSquare: number,
@@ -171,7 +171,7 @@ export function playerMotionUpdateByInputWithWrapAround(
             player1Motion.value.lookRight = commonSpriteMotionLeft;
 
             // 自機がホーム・ポジションより右に居れば、自機を左に寄せる。
-            if (getPlayer1File(player1Left, board1SquareWidth) > playerHome1File) {
+            if (getPlayer1File(player1Left, tileBoard1TileWidth) > playerHome1File) {
                 player1Motion.value.goToRight = commonSpriteMotionLeft;
             } else {
                 let willShift: boolean = true;
@@ -186,7 +186,7 @@ export function playerMotionUpdateByInputWithWrapAround(
                     // pass
                 } else if (player1CanBoardEdgeWalking) {
                     // ［盤の端まで歩ける］
-                    if (getPlayer1File(player1Left, board1SquareWidth) > 0 + board1WithMaskSizeSquare) {
+                    if (getPlayer1File(player1Left, tileBoard1TileWidth) > 0 + board1WithMaskSizeSquare) {
                         player1Motion.value.goToRight = commonSpriteMotionLeft;
                     }
                 }
@@ -197,7 +197,7 @@ export function playerMotionUpdateByInputWithWrapAround(
             player1Motion.value.lookRight = commonSpriteMotionRight;
 
             // 自機がホーム・ポジションより左に居れば、自機を右に寄せる。
-            if (getPlayer1File(player1Left, board1SquareWidth) < playerHome1File) {
+            if (getPlayer1File(player1Left, tileBoard1TileWidth) < playerHome1File) {
                 player1Motion.value.goToRight = commonSpriteMotionRight;
             } else {
                 let willShift: boolean = true;
@@ -212,7 +212,7 @@ export function playerMotionUpdateByInputWithWrapAround(
                     // pass
                 } else if (player1CanBoardEdgeWalking) {
                     // ［盤の端まで歩ける］
-                    if (getPlayer1File(player1Left, board1SquareWidth) < board1FileNum - board1WithMaskSizeSquare - 1) {
+                    if (getPlayer1File(player1Left, tileBoard1TileWidth) < board1FileNum - board1WithMaskSizeSquare - 1) {
                         player1Motion.value.goToRight = commonSpriteMotionRight;
                     }
                 }
@@ -223,7 +223,7 @@ export function playerMotionUpdateByInputWithWrapAround(
             player1Motion.value.lookBottom = commonSpriteMotionUp;
 
             // 自機がホーム・ポジションより下に居れば、自機を上に寄せる。
-            if (getPlayer1Rank(player1Top, board1SquareHeight) > playerHome1Rank) {
+            if (getPlayer1Rank(player1Top, tileBoard1TileHeight) > playerHome1Rank) {
                 player1Motion.value.goToBottom = commonSpriteMotionUp;
             } else {
                 let willShift: boolean = true;
@@ -238,7 +238,7 @@ export function playerMotionUpdateByInputWithWrapAround(
                     // pass
                 } else if (player1CanBoardEdgeWalking) {
                     // ［盤の端まで歩ける］
-                    if (getPlayer1Rank(player1Top, board1SquareHeight) > 0 + board1WithMaskSizeSquare) {
+                    if (getPlayer1Rank(player1Top, tileBoard1TileHeight) > 0 + board1WithMaskSizeSquare) {
                         player1Motion.value.goToBottom = commonSpriteMotionUp;
                     }
                 }
@@ -249,7 +249,7 @@ export function playerMotionUpdateByInputWithWrapAround(
             player1Motion.value.lookBottom = commonSpriteMotionDown;
 
             // 自機がホーム・ポジションより上に居れば、自機を下に寄せる。
-            if (getPlayer1Rank(player1Top, board1SquareHeight) < playerHome1Rank) {
+            if (getPlayer1Rank(player1Top, tileBoard1TileHeight) < playerHome1Rank) {
                 player1Motion.value.goToBottom = commonSpriteMotionDown;
             } else {
                 let willShift: boolean = true;
@@ -264,7 +264,7 @@ export function playerMotionUpdateByInputWithWrapAround(
                     // pass
                 } else if (player1CanBoardEdgeWalking) {
                     // ［盤の端まで歩ける］
-                    if (getPlayer1Rank(player1Top, board1SquareHeight) < board1RankNum - board1WithMaskSizeSquare - 1) {
+                    if (getPlayer1Rank(player1Top, tileBoard1TileHeight) < board1RankNum - board1WithMaskSizeSquare - 1) {
                         player1Motion.value.goToBottom = commonSpriteMotionDown;
                     }
                 }

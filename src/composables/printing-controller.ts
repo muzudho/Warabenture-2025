@@ -15,9 +15,9 @@ import { commonSpriteMotionDown, commonSpriteMotionLeft, commonSpriteMotionRight
 // # オブジェクト #
 // ################
 
-// ++++++++++++++++++++++++++
-// + オブジェクト　＞　印字 +
-// ++++++++++++++++++++++++++
+// ++++++++++++++++++++++++++++
+// + オブジェクト　＞　像盤１ +
+// ++++++++++++++++++++++++**++
 //
 // 盤上に表示される数字柄、絵柄など。
 //
@@ -77,15 +77,15 @@ export function printingMotionCreate() : PrintingMotion {
  */
 export function getPrinting1FileDelta(
     printing1Left: number,
-    board1SquareWidth: number,
+    tileBoard1TileWidth: number,
 ) : number {
-    return Math.round(-printing1Left / board1SquareWidth);    // 印字盤が左に行くほど、盤上のキャラクターが右に動いたように見える。
+    return Math.round(-printing1Left / tileBoard1TileWidth);    // 印字盤が左に行くほど、盤上のキャラクターが右に動いたように見える。
 }
 export function getPrinting1RankDelta(
     printing1Top: number,
-    board1SquareHeight: number,
+    tileBoard1TileHeight: number,
 ) : number {
-    return Math.round(-printing1Top / board1SquareHeight);
+    return Math.round(-printing1Top / tileBoard1TileHeight);
 }
 
 
@@ -110,7 +110,7 @@ export function printingMotionClearIfCountZero(
  * 画面端が見えるような動きかをチェックします。
  */
 export function checkOutOfSightLeftIsLook(
-    board1SquareWidth: number,
+    tileBoard1TileWidth: number,
     board1WithMaskSizeSquare: number,
     printing1Left: number,
 ) : boolean {
@@ -142,7 +142,7 @@ export function checkOutOfSightLeftIsLook(
     // m = c
     //
 
-    const pd = getPrinting1FileDelta(printing1Left, board1SquareWidth) - 1;  // まだ -1 （左へ移動）されていないので、-1 しておく。
+    const pd = getPrinting1FileDelta(printing1Left, tileBoard1TileWidth) - 1;  // まだ -1 （左へ移動）されていないので、-1 しておく。
     const m = - pd;
 
     return board1WithMaskSizeSquare < m;
@@ -153,7 +153,7 @@ export function checkOutOfSightLeftIsLook(
  * 画面端が見えるような動きかをチェックします。
  */
 export function checkOutOfSightTopIsLook(
-    board1SquareHeight: number,
+    tileBoard1TileHeight: number,
     board1WithMaskSizeSquare: number,
     printing1Top: number,
 ) : boolean {
@@ -188,7 +188,7 @@ export function checkOutOfSightTopIsLook(
     // m = c
     //
 
-    const pd = getPrinting1RankDelta(printing1Top, board1SquareHeight) - 1;  // まだ -1 （上へ移動）されていないので、-1 しておく。
+    const pd = getPrinting1RankDelta(printing1Top, tileBoard1TileHeight) - 1;  // まだ -1 （上へ移動）されていないので、-1 しておく。
     const m = - pd;
     return board1WithMaskSizeSquare < m;
 }
@@ -198,7 +198,7 @@ export function checkOutOfSightTopIsLook(
  * 画面端が見えるような動きかをチェックします。
  */
 export function checkOutOfSightRightIsLook(
-    board1SquareWidth: number,
+    tileBoard1TileWidth: number,
     board1WithMaskSizeSquare: number,
     board1FileNum: number,
     printing1FileNum: number,
@@ -238,7 +238,7 @@ export function checkOutOfSightRightIsLook(
     // m = cw + c - bw
     //
 
-    const pd = -(getPrinting1FileDelta(printing1Left, board1SquareWidth) + 1);  // まだ 1 （右へ移動）されていないので、1 しておく。
+    const pd = -(getPrinting1FileDelta(printing1Left, tileBoard1TileWidth) + 1);  // まだ 1 （右へ移動）されていないので、1 しておく。
     const cw = printing1FileNum; // 例えば 10
     const bw = board1FileNum;
     const m = cw + pd - bw;
@@ -250,7 +250,7 @@ export function checkOutOfSightRightIsLook(
  * 画面端が見えるような動きかをチェックします。
  */
 export function checkOutOfSightBottomIsLook(
-    board1SquareHeight: number,
+    tileBoard1TileHeight: number,
     board1WithMaskSizeSquare: number,
     board1RankNum: number,
     printing1RankNum: number,
@@ -293,7 +293,7 @@ export function checkOutOfSightBottomIsLook(
     // m = ch + c - bh
     //
 
-    const pd = -(getPrinting1RankDelta(printing1Top, board1SquareHeight) + 1);  // まだ +1 （下へ移動）されていないので、+1 しておく。
+    const pd = -(getPrinting1RankDelta(printing1Top, tileBoard1TileHeight) + 1);  // まだ +1 （下へ移動）されていないので、+1 しておく。
     const ch = printing1RankNum; // 例えば 10
     const bh = board1RankNum;
     const m = ch + pd - bh;
@@ -314,8 +314,8 @@ export function checkOutOfSightBottomIsLook(
  */
 export function printingMotionUpdateByInputWithWrapAround(
     printingOutOfSightIsLock: boolean,
-    board1SquareWidth: number,
-    board1SquareHeight: number,
+    tileBoard1TileWidth: number,
+    tileBoard1TileHeight: number,
     board1FileNum: number,
     board1RankNum: number,
     board1WithMaskSizeSquare: number,
@@ -357,7 +357,7 @@ export function printingMotionUpdateByInputWithWrapAround(
                 let willShift: boolean = true;
                 if (printingOutOfSightIsLock) {
                     if (checkOutOfSightLeftIsLook(
-                        board1SquareWidth,
+                        tileBoard1TileWidth,
                         board1WithMaskSizeSquare,
                         printing1Left
                     )) {
@@ -379,7 +379,7 @@ export function printingMotionUpdateByInputWithWrapAround(
                 let willShift: boolean = true;
                 if (printingOutOfSightIsLock) {
                     if (checkOutOfSightRightIsLook(
-                        board1SquareWidth,
+                        tileBoard1TileWidth,
                         board1WithMaskSizeSquare,
                         board1FileNum,
                         printing1FileNum,
@@ -403,7 +403,7 @@ export function printingMotionUpdateByInputWithWrapAround(
                 let willShift: boolean = true;
                 if (printingOutOfSightIsLock) {
                     if (checkOutOfSightTopIsLook(
-                        board1SquareHeight,
+                        tileBoard1TileHeight,
                         board1WithMaskSizeSquare,
                         printing1Top
                     )) {
@@ -425,7 +425,7 @@ export function printingMotionUpdateByInputWithWrapAround(
                 let willShift: boolean = true;
                 if (printingOutOfSightIsLock) {
                     if (checkOutOfSightBottomIsLook(
-                        board1SquareHeight,
+                        tileBoard1TileHeight,
                         board1WithMaskSizeSquare,
                         board1RankNum,
                         printing1RankNum,

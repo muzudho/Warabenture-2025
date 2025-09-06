@@ -144,14 +144,14 @@
                 NOTE: ループカウンターは 1 から始まるので、1～9の9個のセルを作成。
             -->
             <div v-for="i in board1Area" :key="i"
-                :style="`position:absolute; top: ${Math.floor((i - 1) / board1Files) * board1SquareHeight}px; left: ${((i - 1) % board1Files) * board1SquareWidth}px; width:${board1SquareWidth}px; height:${board1SquareHeight}px; border: solid 1px gray;`"></div>
+                :style="`position:absolute; top: ${Math.floor((i - 1) / board1Files) * tileBoard1TileHeight}px; left: ${((i - 1) % board1Files) * tileBoard1TileWidth}px; width:${tileBoard1TileWidth}px; height:${tileBoard1TileHeight}px; border: solid 1px gray;`"></div>
 
             <!-- 星 -->
             <Tile
                 :srcLeft="0"
                 :srcTop="0"
-                :srcWidth="board1SquareWidth"
-                :srcHeight="board1SquareHeight"
+                :srcWidth="tileBoard1TileWidth"
+                :srcHeight="tileBoard1TileHeight"
                 tilemapUrl="/img/making/sprite-objects-001.png"
                 :style="starStyle"
                 style="position:absolute;" /><br/>
@@ -166,8 +166,8 @@
             <Tile
                 :srcLeft="reloadPie1TileLeft"
                 :srcTop="reloadPie1TileTop"
-                :srcWidth="board1SquareWidth"
-                :srcHeight="board1SquareHeight"
+                :srcWidth="tileBoard1TileWidth"
+                :srcHeight="tileBoard1TileHeight"
                 tilemapUrl="/img/making/202508__warabenture__16-2357-8counts-red.png"
                 :style="reloadPieStyle"
                 style="position:absolute;" /><br/>
@@ -518,12 +518,12 @@
         }
     });
 
-    // ++++++++++++++++++++++++
-    // + オブジェクト　＞　盤 +
-    // ++++++++++++++++++++++++
+    // ++++++++++++++++++++++++++++++++
+    // + オブジェクト　＞　タイル盤１ +
+    // ++++++++++++++++++++++++++++++++
 
-    const board1SquareWidth = ref<number>(32);  // マスの横幅（ピクセル）
-    const board1SquareHeight = ref<number>(32); // マスの縦幅（ピクセル）
+    const tileBoard1TileWidth = ref<number>(32);  // マスの横幅（ピクセル）
+    const tileBoard1TileHeight = ref<number>(32); // マスの縦幅（ピクセル）
     const board1Files = ref<number>(16);        // 盤が横に何マスか
     const board1Ranks = ref<number>(12);        // 盤が縦に何マスか
     const board1Area = computed(()=>{           // 盤のマス数
@@ -548,10 +548,10 @@
     const starStyle = computed(() => {
         return {
             visibility: star1Visibility.value,
-            top: `${star1Ranks.value * board1SquareHeight.value}px`,
-            left: `${star1Files.value * board1SquareWidth.value}px`,
-            width: `${board1SquareWidth.value}px`,
-            height: `${board1SquareHeight.value}px`,
+            top: `${star1Ranks.value * tileBoard1TileHeight.value}px`,
+            left: `${star1Files.value * tileBoard1TileWidth.value}px`,
+            width: `${tileBoard1TileWidth.value}px`,
+            height: `${tileBoard1TileHeight.value}px`,
         };
     });
 
@@ -562,8 +562,8 @@
     // カメラのファインダー。点線の枠。
     //
 
-    const player1Left = ref<number>(6 * board1SquareWidth.value);     // スプライトのX座標
-    const player1Top = ref<number>(4 * board1SquareHeight.value);     // スプライトのY座標
+    const player1Left = ref<number>(6 * tileBoard1TileWidth.value);     // スプライトのX座標
+    const player1Top = ref<number>(4 * tileBoard1TileHeight.value);     // スプライトのY座標
     const player1FileNum = ref<number>(4);                            // スプライトの列数
     const player1RankNum = ref<number>(3);                            // スプライトの行数
     const player1Speed = ref<number>(4);                              // 移動速度
@@ -582,8 +582,8 @@
         return {
             top: `${player1Top.value}px`,
             left: `${player1Left.value}px`,
-            width: `${player1FileNum.value * board1SquareWidth.value}px`,
-            height: `${player1RankNum.value * board1SquareHeight.value}px`,
+            width: `${player1FileNum.value * tileBoard1TileWidth.value}px`,
+            height: `${player1RankNum.value * tileBoard1TileHeight.value}px`,
             border: `dashed 4px ${player1ReloadTime.value > 0 ? '#d85050' : '#f0f0f0'}`, // リロード中は赤い枠
         };
     });
@@ -598,14 +598,14 @@
     const reloadPie1Frames = <
         Record<number, {top: number, left: number}>
     >{
-        0: {top: 0 * board1SquareHeight.value, left: 0 * board1SquareWidth.value},
-        1: {top: 0 * board1SquareHeight.value, left: 1 * board1SquareWidth.value},
-        2: {top: 0 * board1SquareHeight.value, left: 2 * board1SquareWidth.value},
-        3: {top: 0 * board1SquareHeight.value, left: 3 * board1SquareWidth.value},
-        4: {top: 1 * board1SquareHeight.value, left: 0 * board1SquareWidth.value},
-        5: {top: 1 * board1SquareHeight.value, left: 1 * board1SquareWidth.value},
-        6: {top: 1 * board1SquareHeight.value, left: 2 * board1SquareWidth.value},
-        7: {top: 1 * board1SquareHeight.value, left: 3 * board1SquareWidth.value},
+        0: {top: 0 * tileBoard1TileHeight.value, left: 0 * tileBoard1TileWidth.value},
+        1: {top: 0 * tileBoard1TileHeight.value, left: 1 * tileBoard1TileWidth.value},
+        2: {top: 0 * tileBoard1TileHeight.value, left: 2 * tileBoard1TileWidth.value},
+        3: {top: 0 * tileBoard1TileHeight.value, left: 3 * tileBoard1TileWidth.value},
+        4: {top: 1 * tileBoard1TileHeight.value, left: 0 * tileBoard1TileWidth.value},
+        5: {top: 1 * tileBoard1TileHeight.value, left: 1 * tileBoard1TileWidth.value},
+        6: {top: 1 * tileBoard1TileHeight.value, left: 2 * tileBoard1TileWidth.value},
+        7: {top: 1 * tileBoard1TileHeight.value, left: 3 * tileBoard1TileWidth.value},
     };
     const reloadPie1Weight = 3 * commonSeconds;
     const reloadPie1Index = computed<number>(()=>{
@@ -627,8 +627,8 @@
     const reloadPieStyle = computed(() => {
         return {
             visibility: player1ReloadTime.value > 0 ? 'visible' : 'hidden',
-            top: `${player1Top.value + player1RankNum.value * board1SquareHeight.value / 2 - board1SquareHeight.value / 2}px`,
-            left: `${player1Left.value + player1FileNum.value * board1SquareWidth.value / 2 - board1SquareWidth.value / 2}px`,
+            top: `${player1Top.value + player1RankNum.value * tileBoard1TileHeight.value / 2 - tileBoard1TileHeight.value / 2}px`,
+            left: `${player1Left.value + player1FileNum.value * tileBoard1TileWidth.value / 2 - tileBoard1TileWidth.value / 2}px`,
         };
     });
 
@@ -793,7 +793,7 @@
             // 移動処理
             // 斜め方向の場合、上下を優先する。
             if (player1Motion.value["xAxis"]==1) {   // 右
-                if (player1Left.value < (board1Files.value - player1FileNum.value) * board1SquareWidth.value) {    // 境界チェック
+                if (player1Left.value < (board1Files.value - player1FileNum.value) * tileBoard1TileWidth.value) {    // 境界チェック
                     player1Left.value += player1Speed.value;
                 }
             } else if (player1Motion.value["xAxis"]==-1) {  // 左
@@ -807,7 +807,7 @@
                     player1Top.value -= player1Speed.value;
                 }
             } else if (player1Motion.value["yAxis"]==1) {   // 下
-                if (player1Top.value < (board1Ranks.value - player1RankNum.value) * board1SquareHeight.value) {    // 境界チェック
+                if (player1Top.value < (board1Ranks.value - player1RankNum.value) * tileBoard1TileHeight.value) {    // 境界チェック
                     player1Top.value += player1Speed.value;
                 }
             }
@@ -838,8 +838,8 @@
         }
 
         // ファインダーの位置とサイズ
-        const playerLeftFiles = player1Left.value / board1SquareWidth.value;
-        const playerTopRanks = player1Top.value / board1SquareHeight.value;
+        const playerLeftFiles = player1Left.value / tileBoard1TileWidth.value;
+        const playerTopRanks = player1Top.value / tileBoard1TileHeight.value;
         const playerRightEndFiles = playerLeftFiles + player1FileNum.value;
         const playerBottomEndRanks = playerTopRanks + player1RankNum.value;
 

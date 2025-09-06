@@ -29,7 +29,7 @@
             <li>ＲＰＧの歩行グラフィック：
                 <ul>
                     <li>📖 <router-link to="/making/input-axis" :style="getPreviousLinkHighlight('/making/input-axis')">ＲＰＧの歩行グラフィックを表示して、上下左右に移動しようぜ！　の章</router-link></li>
-                    <li>📖 <router-link to="/making/input-axis/perspective-rpg-walk-tiles-wraparound-projection-loop-outofsight-maptileimage-1" :style="getPreviousLinkHighlight('/making/input-axis/perspective-rpg-walk-tiles-wraparound-projection-loop-outofsight-maptileimage-1')">🌟画面３分割テスト：　盤の回り込みスクロール、数字柄の原始的シフト、自機の端歩き</router-link></li>
+                    <li>📖 <router-link to="/making/input-axis/perspective-rpg-walk-tiles-wraparound-projection-loop-outofsight-maptileimage-1" :style="getPreviousLinkHighlight('/making/input-axis/perspective-rpg-walk-tiles-wraparound-projection-loop-outofsight-maptileimage-1')">🌟画面３分割テスト：　回り込むタイルへ投影・両端つながりの像・視野外マスク例示・マップタイル画像付き</router-link></li>
                 </ul>
             </li>
 

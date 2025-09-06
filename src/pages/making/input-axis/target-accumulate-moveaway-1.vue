@@ -202,16 +202,16 @@
 
     const config1IsShowing = ref<boolean>(false);     // 設定を表示中
 
-    // ++++++++++++++++++++++++
-    // + オブジェクト　＞　盤 +
-    // ++++++++++++++++++++++++
+    // ++++++++++++++++++++++++++++++++
+    // + オブジェクト　＞　タイル盤１ +
+    // ++++++++++++++++++++++++++++++++
 
-    const board1SquareWidth = 32;
-    const board1SquareHeight = 32;
+    const tileBoard1TileWidth = 32;
+    const tileBoard1TileHeight = 32;
     const board1Style = computed<CompatibleStyleValue>(()=>{  // ボードとマスクを含んでいる領域のスタイル
         return {
-            width: `${board1SquareWidth}px`,
-            height: `${board1SquareHeight}px`,
+            width: `${tileBoard1TileWidth}px`,
+            height: `${tileBoard1TileHeight}px`,
             zoom: appZoom.value,
         };
     });
@@ -226,8 +226,8 @@
 
     const playerHome1Style = computed<CompatibleStyleValue>(()=>{
         return {
-            width: `${board1SquareWidth}px`,
-            height: `${board1SquareHeight}px`,
+            width: `${tileBoard1TileWidth}px`,
+            height: `${tileBoard1TileHeight}px`,
         };
     });
 
@@ -238,8 +238,8 @@
     // 点線の枠。
     //
 
-    const player1Width = board1SquareWidth;
-    const player1Height = board1SquareHeight;
+    const player1Width = tileBoard1TileWidth;
+    const player1Height = tileBoard1TileHeight;
     const player1Left = ref<number>(0);      // スプライトのX座標
     const player1Top = ref<number>(0);       // スプライトのY座標
     const player1Speed = ref<number>(2);     // 移動速度
