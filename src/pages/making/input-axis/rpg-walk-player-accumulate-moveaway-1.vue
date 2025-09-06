@@ -135,7 +135,7 @@
                 showTicks="always"
                 thumbLabel="always" />
             <v-slider
-                label="アニメーションの遅さ"
+                label="スローモーション"
                 v-model="player1AnimationSlow"
                 :min="1"
                 :max="16"
@@ -332,7 +332,10 @@
     // ##########
 
     onMounted(() => {
-        // キーボードイベント
+        // キーボード操作の設定
+        //
+        //      window はブラウザーのオブジェクトなので、（サーバー側ではプリレンダリングできないので）マウント後にアクセスします。
+        //
         window.addEventListener('keydown', (e: KeyboardEvent) => {
             // ［スペース］［↑］［↓］キーの場合
             if (e.key === ' ' || e.key === 'ArrowUp' || e.key === 'ArrowDown') {

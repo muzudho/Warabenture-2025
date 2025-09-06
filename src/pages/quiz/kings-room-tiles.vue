@@ -8,6 +8,8 @@
     <!-- ボタン機能拡張 -->
     <button-20250822 ref="button1Ref"/>
 
+    <compatible-device ref="compatibleDevice1Ref"/>
+
     <h3>王の間のタイルを市松模様にしようぜ！</h3>
     <section class="sec-3">
         <br/>
@@ -348,7 +350,7 @@
             :name="commonPapepoKingName"
             :device="compatibleDevice1Ref?.device">
             では、👇下の［⚙問題設定を表示］ボタンをクリックして、<br/>
-            出てくる［盤の筋の全数］スライダーバーを横に１つ動かして例えば１０にし、<br/>
+            出てくる［水平方向のタイル数］スライダーバーを横に１つ動かして例えば１０にし、<br/>
             もう１回［⚙問題設定を終わる］に名前の変わっているボタンを押して設定を閉じ……<br/>
         </talk-balloon>
         <br/>
@@ -367,9 +369,9 @@
         >{{ problem1IsShowing ? '⚙️問題設定を終わる' : '⚙️問題設定を表示' }}</v-btn>
         <section v-if="problem1IsShowing" class="sec-1">
             <br/>
-            <!-- 盤はマスクを含む。ただし右側と下側に余分に１マス付いたマスクは含まない： -->
+            <!-- マスクが被っているところも含めた盤のサイズ： -->
             <v-slider
-                label="盤の筋の全数"
+                label="水平方向のタイル数"
                 v-model="board1FileNum"
                 :min="board1FileMin"
                 :max="board1FileMax"
@@ -377,7 +379,7 @@
                 showTicks="always"
                 thumbLabel="always" />
             <v-slider
-                label="盤の段の全数"
+                label="垂直方向のタイル数"
                 v-model="board1RankNum"
                 :min="board1RankMin"
                 :max="board1RankMax"
@@ -562,25 +564,25 @@ color = i % 2;
             <v-checkbox
                 :hideDetails="true">
                 <template v-slot:label>
-                    <span style="margin-right: 16px;">（１）</span>盤の筋の全数が偶数のとき、偶数段は color の 0, 1 を反転するようにすればよい。
+                    <span style="margin-right: 16px;">（１）</span>水平方向のタイル数が偶数のとき、偶数段は color の 0, 1 を反転するようにすればよい。
                 </template>
             </v-checkbox>
             <v-checkbox
                 :hideDetails="true">
                 <template v-slot:label>
-                    <span style="margin-right: 16px;">（２）</span>盤の筋の全数が偶数のとき、奇数段は color の 0, 1 を反転するようにすればよい。
+                    <span style="margin-right: 16px;">（２）</span>水平方向のタイル数が偶数のとき、奇数段は color の 0, 1 を反転するようにすればよい。
                 </template>
             </v-checkbox>
             <v-checkbox
                 :hideDetails="true">
                 <template v-slot:label>
-                    <span style="margin-right: 16px;">（３）</span>盤の筋の全数が奇数のとき、偶数段は color の 0, 1 を反転するようにすればよい。
+                    <span style="margin-right: 16px;">（３）</span>水平方向のタイル数が奇数のとき、偶数段は color の 0, 1 を反転するようにすればよい。
                 </template>
             </v-checkbox>
             <v-checkbox
                 :hideDetails="true">
                 <template v-slot:label>
-                    <span style="margin-right: 16px;">（４）</span>盤の筋の全数が奇数のとき、奇数段は color の 0, 1 を反転するようにすればよい。
+                    <span style="margin-right: 16px;">（４）</span>水平方向のタイル数が奇数のとき、奇数段は color の 0, 1 を反転するようにすればよい。
                 </template>
             </v-checkbox>
             -->
@@ -600,25 +602,25 @@ color = i % 2;
                 <v-radio
                     :value="1">
                     <template v-slot:label>
-                        <span style="margin-right: 16px;">（１）</span>盤の筋の全数が偶数のとき、偶数段は color の 0, 1 を反転するようにすればよい。
+                        <span style="margin-right: 16px;">（１）</span>水平方向のタイル数が偶数のとき、偶数段は color の 0, 1 を反転するようにすればよい。
                     </template>
                 </v-radio>
                 <v-radio
                     :value="2">
                     <template v-slot:label>
-                        <span style="margin-right: 16px;">（２）</span>盤の筋の全数が偶数のとき、奇数段は color の 0, 1 を反転するようにすればよい。
+                        <span style="margin-right: 16px;">（２）</span>水平方向のタイル数が偶数のとき、奇数段は color の 0, 1 を反転するようにすればよい。
                     </template>
                 </v-radio>
                 <v-radio
                     :value="3">
                     <template v-slot:label>
-                        <span style="margin-right: 16px;">（３）</span>盤の筋の全数が奇数のとき、偶数段は color の 0, 1 を反転するようにすればよい。
+                        <span style="margin-right: 16px;">（３）</span>水平方向のタイル数が奇数のとき、偶数段は color の 0, 1 を反転するようにすればよい。
                     </template>
                 </v-radio>
                 <v-radio
                     :value="4">
                     <template v-slot:label>
-                        <span style="margin-right: 16px;">（４）</span>盤の筋の全数が奇数のとき、奇数段は color の 0, 1 を反転するようにすればよい。
+                        <span style="margin-right: 16px;">（４）</span>水平方向のタイル数が奇数のとき、奇数段は color の 0, 1 を反転するようにすればよい。
                     </template>
                 </v-radio>
             </v-radio-group>
@@ -865,11 +867,11 @@ color = i % 2;
     // ++++++++++++++++++++++++++++++++
 
     const outOfSight1Ref = ref<InstanceType<typeof OutOfSight> | null>(null);
-    const outOfSight1WithMaskSizeSquare = computed({
-        get: () => outOfSight1Ref.value?.outOfSight1WithMaskSizeSquare ?? 0, // nullの場合はデフォルト値（例: 0）
+    const outOfSight1WithMaskSquareCount = computed({
+        get: () => outOfSight1Ref.value?.outOfSight1WithMaskSquareCount ?? 0, // nullの場合はデフォルト値（例: 0）
         set: (value) => {
             if (outOfSight1Ref.value) {
-                outOfSight1Ref.value.outOfSight1WithMaskSizeSquare = value; // appleを更新
+                outOfSight1Ref.value.outOfSight1WithMaskSquareCount = value; // appleを更新
             }
         }
     });
@@ -893,8 +895,8 @@ color = i % 2;
     const board1WithMaskSizeSquare: number = 1; // マスクの幅（単位：マス）
     const board1Style = computed<CompatibleStyleValue>(()=>{    // ボードとマスクを含んでいる領域のスタイル
         return {
-            width: `${(board1FileNum.value + outOfSight1WithMaskSizeSquare.value) * board1SquareWidth}px`,
-            height: `${(board1RankNum.value + outOfSight1WithMaskSizeSquare.value) * board1SquareHeight}px`,
+            width: `${(board1FileNum.value + outOfSight1WithMaskSquareCount.value) * board1SquareWidth}px`,
+            height: `${(board1RankNum.value + outOfSight1WithMaskSquareCount.value) * board1SquareHeight}px`,
             zoom: appZoom.value,
         };
     });
@@ -980,28 +982,28 @@ color = i % 2;
             // ここから　クイズの答え：
             if (choices1Num.value == 1) {
                 // これは正解。
-                // 盤の筋の全数が偶数のとき、偶数段は color の 0, 1 を反転するようにすればよい。
+                // 水平方向のタイル数が偶数のとき、偶数段は color の 0, 1 を反転するようにすればよい。
                 const rank = Math.floor(i / width); // タイル番号を分解して rank を抽出
                 if (width % 2 == 0) {
                     color = (color + 1 * ((rank) % 2)) % 2;
                 }
             } else if (choices1Num.value == 2) {
                 // これも正解。
-                // 盤の筋の全数が偶数のとき、奇数段は color の 0, 1 を反転するようにすればよい。
+                // 水平方向のタイル数が偶数のとき、奇数段は color の 0, 1 を反転するようにすればよい。
                 const rank = Math.floor(i / width);
                 if (width % 2 == 0) {
                     color = (color + 1 * ((rank + 1) % 2)) % 2;
                 }
             } else if (choices1Num.value == 3) {
                 // 間違い。常にストライプになる。
-                // 盤の筋の全数が奇数のとき、偶数段は color の 0, 1 を反転するようにすればよい。
+                // 水平方向のタイル数が奇数のとき、偶数段は color の 0, 1 を反転するようにすればよい。
                 const rank = Math.floor(i / width); // タイル番号を分解して rank を抽出
                 if (width % 2 == 1) {
                     color = (color + 1 * ((rank) % 2)) % 2;
                 }
             } else if (choices1Num.value == 4) {
                 // 間違い。常にストライプになる。
-                // 盤の筋の全数が奇数のとき、奇数段は color の 0, 1 を反転するようにすればよい。
+                // 水平方向のタイル数が奇数のとき、奇数段は color の 0, 1 を反転するようにすればよい。
                 const rank = Math.floor(i / width); // タイル番号を分解して rank を抽出
                 if (width % 2 == 1) {
                     color = (color + 1 * ((rank + 1) % 2)) % 2;
@@ -1133,7 +1135,10 @@ color = i % 2;
     // ##########
 
     onMounted(() => {
-        // キーボードイベント
+        // キーボード操作の設定
+        //
+        //      window はブラウザーのオブジェクトなので、（サーバー側ではプリレンダリングできないので）マウント後にアクセスします。
+        //
         window.addEventListener('keydown', (e: KeyboardEvent) => {
             // ［↑］［↓］キーの場合
             if (e.key === 'ArrowUp' || e.key === 'ArrowDown') {
@@ -1201,7 +1206,7 @@ color = i % 2;
                 board1SquareHeight,
                 board1FileNum.value,
                 board1RankNum.value,
-                outOfSight1WithMaskSizeSquare.value,
+                outOfSight1WithMaskSquareCount.value,
                 printing1FileNum.value,
                 printing1RankNum.value,
                 printing1Left.value,
@@ -1220,7 +1225,7 @@ color = i % 2;
                 board1SquareHeight,
                 board1FileNum.value,
                 board1RankNum.value,
-                outOfSight1Ref.value?.outOfSight1WithMaskSizeSquare ?? 1,
+                outOfSight1Ref.value?.outOfSight1WithMaskSquareCount ?? 1,
                 playerHome1File.value,
                 playerHome1Rank.value,
                 player1Left.value,

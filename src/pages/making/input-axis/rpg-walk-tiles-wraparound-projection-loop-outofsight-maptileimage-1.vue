@@ -247,7 +247,7 @@
                 showTicks="always"
                 thumbLabel="always" />
             <v-slider
-                label="アニメーションの遅さ"
+                label="スローモーション"
                 v-model="player1AnimationSlow"
                 :min="1"
                 :max="16"
@@ -270,9 +270,9 @@
                 step="1"
                 showTicks="always"
                 thumbLabel="always" />
-            <p>盤はマスクを含む。ただし右側と下側に余分に１マス付いたマスクは含まない：</p>
+            <p>マスクが被っているところも含めた盤のサイズ：</p>
             <v-slider
-                label="盤の筋の全数"
+                label="水平方向のタイル数"
                 v-model="board1FileNum"
                 :min="0"
                 :max="board1FileMax"
@@ -280,7 +280,7 @@
                 showTicks="always"
                 thumbLabel="always" />
             <v-slider
-                label="盤の段の全数"
+                label="垂直方向のタイル数"
                 v-model="board1RankNum"
                 :min="0"
                 :max="board1RankMax"
@@ -289,14 +289,14 @@
                 thumbLabel="always" />
             <v-switch
                 v-model="printing1IsLooping"
-                :label="printing1IsLooping ? '［印字の端と端がつながって（ループして）］います' : '［印字の端と端がつながって（ループして）］いません'"
+                :label="printing1IsLooping ? '［像の端と端がつながって（ループして）］います' : '［像の端と端がつながって（ループして）］いません'"
                 color="green"
                 :hideDetails="true"
                 inset />
             <p>マスクの枠の幅。右側と下側は、１マス多めに付きます：</p>
             <v-slider
                 label="マスクの枠の幅"
-                v-model="outOfSight1WithMaskSizeSquare"
+                v-model="outOfSight1WithMaskSquareCount"
                 :min="0"
                 :max="2"
                 step="1"
@@ -395,7 +395,7 @@
             印字y={{ printing1Top  }}　｜　人y={{ player1Top  }}<br/>
             人 スペース={{ player1Input[" "] }}　｜　↑={{ player1Input.ArrowLeft }}　｜　↑={{ player1Input.ArrowUp }}　｜　→={{ player1Input.ArrowRight }}　｜　↓={{ player1Input.ArrowDown }}<br/>
             印字 右へ回り込み={{ printing1Motion.wrapAroundRight }}　｜　下へ回り込み={{ printing1Motion.wrapAroundBottom }}<br/>
-            outOfSight1WithMaskSizeSquare={{ outOfSight1WithMaskSizeSquare }}<br/>
+            outOfSight1WithMaskSquareCount={{ outOfSight1WithMaskSquareCount }}<br/>
         </div>
         <br/>
     </section>
@@ -515,11 +515,11 @@
     // ++++++++++++++++++++++++++++++++
 
     const outOfSight1Ref = ref<InstanceType<typeof OutOfSightMaking> | null>(null);
-    const outOfSight1WithMaskSizeSquare = computed({
-        get: () => outOfSight1Ref.value?.outOfSight1WithMaskSizeSquare ?? 0, // nullの場合はデフォルト値（例: 0）
+    const outOfSight1WithMaskSquareCount = computed({
+        get: () => outOfSight1Ref.value?.outOfSight1WithMaskSquareCount ?? 0, // nullの場合はデフォルト値（例: 0）
         set: (value) => {
             if (outOfSight1Ref.value) {
-                outOfSight1Ref.value.outOfSight1WithMaskSizeSquare = value; // appleを更新
+                outOfSight1Ref.value.outOfSight1WithMaskSquareCount = value; // appleを更新
             }
         }
     });
@@ -541,8 +541,8 @@
     const board1WithMaskSizeSquare = ref<number>(1);    // マスクの幅（単位：マス）
     const board1Style = computed<CompatibleStyleValue>(()=>{    // ボードとマスクを含んでいる領域のスタイル
         return {
-            width: `${(board1FileNum.value + outOfSight1WithMaskSizeSquare.value) * board1SquareWidth}px`,
-            height: `${(board1RankNum.value + outOfSight1WithMaskSizeSquare.value) * board1SquareHeight}px`,
+            width: `${(board1FileNum.value + outOfSight1WithMaskSquareCount.value) * board1SquareWidth}px`,
+            height: `${(board1RankNum.value + outOfSight1WithMaskSquareCount.value) * board1SquareHeight}px`,
             zoom: appZoom.value,
         };
     });
@@ -590,14 +590,6 @@
     //
 
     const printing1Ref = ref<InstanceType<typeof PrintingMaking> | null>(null);
-    // const outOfSight1WithMaskSizeSquare = computed({
-    //     get: () => outOfSight1Ref.value?.outOfSight1WithMaskSizeSquare ?? 0, // nullの場合はデフォルト値（例: 0）
-    //     set: (value) => {
-    //         if (outOfSight1Ref.value) {
-    //             outOfSight1Ref.value.outOfSight1WithMaskSizeSquare = value; // appleを更新
-    //         }
-    //     }
-    // });
     const printing1OutOfSightIsLock = ref<boolean>(false);   // ［画面外隠し］を管理（true: ロックする, false: ロックしない）
     watch(printing1OutOfSightIsLock, (newValue: boolean)=>{
         player1CanBoardEdgeWalkingIsEnabled.value = newValue;
@@ -722,7 +714,10 @@
     // ##########
 
     onMounted(() => {
-        // キーボードイベント
+        // キーボード操作の設定
+        //
+        //      window はブラウザーのオブジェクトなので、（サーバー側ではプリレンダリングできないので）マウント後にアクセスします。
+        //
         window.addEventListener('keydown', (e: KeyboardEvent) => {
             // ［↑］［↓］キーの場合
             if (e.key === 'ArrowUp' || e.key === 'ArrowDown') {
@@ -791,7 +786,7 @@
                 board1SquareHeight,
                 board1FileNum.value,
                 board1RankNum.value,
-                outOfSight1WithMaskSizeSquare.value,
+                outOfSight1WithMaskSquareCount.value,
                 printing1FileNum.value,
                 printing1RankNum.value,
                 printing1Left.value,
@@ -810,7 +805,7 @@
                 board1SquareHeight,
                 board1FileNum.value,
                 board1RankNum.value,
-                outOfSight1Ref.value?.outOfSight1WithMaskSizeSquare ?? 1,
+                outOfSight1Ref.value?.outOfSight1WithMaskSquareCount ?? 1,
                 playerHome1File.value,
                 playerHome1Rank.value,
                 player1Left.value,
@@ -865,11 +860,13 @@
      */
     function onLeftButtonPressed() : void {
         player1Input.ArrowLeft = true;
+        printing1Input.ArrowLeft = true;
     }
 
 
     function onLeftButtonReleased() : void {
         player1Input.ArrowLeft = false;
+        printing1Input.ArrowLeft = false;
     }
 
 
@@ -878,11 +875,13 @@
      */
     function onUpButtonPressed() : void {
         player1Input.ArrowUp = true;
+        printing1Input.ArrowUp = true;
     }
 
 
     function onUpButtonReleased() : void {
         player1Input.ArrowUp = false;
+        printing1Input.ArrowUp = false;
     }
 
 
@@ -891,11 +890,13 @@
      */
     function onRightButtonPressed() : void {
         player1Input.ArrowRight = true;
+        printing1Input.ArrowRight = true;
     }
 
 
     function onRightButtonReleased() : void {
         player1Input.ArrowRight = false;
+        printing1Input.ArrowRight = false;
     }
 
 
@@ -904,11 +905,13 @@
      */
     function onDownButtonPressed() : void {
         player1Input.ArrowDown = true;
+        printing1Input.ArrowDown = true;
     }
 
 
     function onDownButtonReleased() : void {
         player1Input.ArrowDown = false;
+        printing1Input.ArrowDown = false;
     }
 
 
@@ -917,11 +920,13 @@
      */
     function onSpaceButtonPressed() : void {
         player1Input[" "] = true;
+        printing1Input[" "] = true;
     }
 
 
     function onSpaceButtonReleased() : void {
         player1Input[" "] = false;
+        printing1Input[" "] = false;
     }
 
 

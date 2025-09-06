@@ -3,6 +3,9 @@
 -->
 
 <template>
+
+    <compatible-device ref="compatibleDevice1Ref"/>
+
     <img
         :src="props.src"
         :alt="props.alt"

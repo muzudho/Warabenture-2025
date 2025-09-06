@@ -44,7 +44,8 @@
             :alt="commonOton2Alt"
             :name="commonOton2Name"
             :device="compatibleDevice1Ref?.device">
-            同ソの人全員に共通するような特徴は無いぜ。
+            同ソをやってるからといって、その人たちをひとくくりに説明できるような、何らかの共通点は無いぜ。<br/>
+            同ソをやってたら、同ソだぜ。
         </talk-balloon>
 
         <talk-balloon

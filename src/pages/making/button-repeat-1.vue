@@ -109,7 +109,10 @@
     // ##########
 
     onMounted(() => {
-        // キーボードイベント
+        // キーボード操作の設定
+        //
+        //      window はブラウザーのオブジェクトなので、（サーバー側ではプリレンダリングできないので）マウント後にアクセスします。
+        //
         window.addEventListener('keydown', (e: KeyboardEvent) => {
             // ［↑］［↓］キーの場合
             if (e.key === 'ArrowUp' || e.key === 'ArrowDown') {

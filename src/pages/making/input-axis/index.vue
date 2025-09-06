@@ -1,5 +1,7 @@
 <template>
-    <the-header/>
+    <the-parent-header/>
+
+    <compatible-device ref="compatibleDevice1Ref"/>
 
     <h3>上下左右に移動しようぜ！　の章</h3>
     <section class="sec-3">
@@ -241,7 +243,7 @@
         <source-link/>
     </section>
 
-    <the-footer/>
+    <the-parent-footer/>
 </template>
 
 <script setup lang="ts">
@@ -259,27 +261,22 @@
     // Tauri なら明示的にインポートを指定する必要がある。 Nuxt なら自動でインポートしてくれる場合がある。
     //
 
-    import SourceLink from '../../components/SourceLink.vue';
-    import InputAxisRpgWalkTilesWraparoundProjectionLoopOutofsightMaptileimage1 from './input-axis/rpg-walk-tiles-wraparound-projection-loop-outofsight-maptileimage-1.vue';
-    import InputAxisRpgWalkBoardGridMoveaway1 from './input-axis/rpg-walk-board-grid-moveaway-1.vue';
-    import InputAxisRpgWalkTilesWraparoundProjectionLoopOutofsight1 from './input-axis/rpg-walk-tiles-wraparound-projection-loop-outofsight-1.vue';
-    import InputAxisRpgWalkPlayerAccumulateMoveaway1 from './input-axis/rpg-walk-player-accumulate-moveaway-1.vue';
-    import InputAxisRpgWalkPlayerGridBounded1 from './input-axis/rpg-walk-player-grid-bounded-1.vue';
-    import InputAxisRpgWalkPlayerGridMoveaway1 from './input-axis/rpg-walk-player-grid-moveaway-1.vue';
-    import InputAxisRpgWalkTilesImmovableProjectionBoundary1 from './input-axis/rpg-walk-tiles-immovable-projection-boundary-1.vue';
-    import InputAxisRpgWalkTilesImmovableProjectionLoop1 from './input-axis/rpg-walk-tiles-immovable-projection-loop-1.vue';
-    import InputAxisRpgWalkTilesImmovableProjectionMoveaway1 from './input-axis/rpg-walk-tiles-immovable-projection-moveaway-1.vue';
-    import InputAxisRpgWalkTilesImmovableProjectionMoveawaySizeVariable1 from './input-axis/rpg-walk-tiles-immovable-projection-moveaway-size-variable-1.vue';
-    import InputAxisTargetAccumulateMoveaway1 from './input-axis/target-accumulate-moveaway-1.vue';
-    import TalkBalloon from '../../components/TalkBalloon.vue';
-    import TheFooter from './the-footer.vue';
-    import TheHeader from './the-header.vue';
-
-    // ++++++++++++++++++++++++++++++++++
-    // + コンポーネント　＞　互換性対応 +
-    // ++++++++++++++++++++++++++++++++++
-
     import CompatibleDevice from '@/components/CompatibleDevice.vue'
+    import InputAxisRpgWalkTilesWraparoundProjectionLoopOutofsightMaptileimage1 from './rpg-walk-tiles-wraparound-projection-loop-outofsight-maptileimage-1.vue';
+    import InputAxisRpgWalkBoardGridMoveaway1 from './rpg-walk-board-grid-moveaway-1.vue';
+    import InputAxisRpgWalkTilesWraparoundProjectionLoopOutofsight1 from './rpg-walk-tiles-wraparound-projection-loop-outofsight-1.vue';
+    import InputAxisRpgWalkPlayerAccumulateMoveaway1 from './rpg-walk-player-accumulate-moveaway-1.vue';
+    import InputAxisRpgWalkPlayerGridBounded1 from './rpg-walk-player-grid-bounded-1.vue';
+    import InputAxisRpgWalkPlayerGridMoveaway1 from './rpg-walk-player-grid-moveaway-1.vue';
+    import InputAxisRpgWalkTilesImmovableProjectionBoundary1 from './rpg-walk-tiles-immovable-projection-boundary-1.vue';
+    import InputAxisRpgWalkTilesImmovableProjectionLoop1 from './rpg-walk-tiles-immovable-projection-loop-1.vue';
+    import InputAxisRpgWalkTilesImmovableProjectionMoveaway1 from './rpg-walk-tiles-immovable-projection-moveaway-1.vue';
+    import InputAxisRpgWalkTilesImmovableProjectionMoveawaySizeVariable1 from './rpg-walk-tiles-immovable-projection-moveaway-size-variable-1.vue';
+    import InputAxisTargetAccumulateMoveaway1 from './target-accumulate-moveaway-1.vue';
+    import SourceLink from '@/components/SourceLink.vue';
+    import TalkBalloon from '@/components/TalkBalloon.vue';
+    import TheParentFooter from '../the-footer.vue';
+    import TheParentHeader from '../the-header.vue';
 
 
     // ##########
@@ -314,6 +311,6 @@
 
 <style scoped>
 
-    @import '../../styles/talk-scene.css';
+    @import '@/styles/talk-scene.css';
 
 </style>

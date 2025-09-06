@@ -137,7 +137,7 @@
                 showTicks="always"
                 thumbLabel="always" />
             <v-slider
-                label="アニメーションの遅さ"
+                label="スローモーション"
                 v-model="player1AnimationSlow"
                 :min="1"
                 :max="16"
@@ -161,7 +161,7 @@
                 showTicks="always"
                 thumbLabel="always" />
             <v-slider
-                label="盤の筋の全数"
+                label="水平方向のタイル数"
                 v-model="board1FileNum"
                 :min="0"
                 :max="board1FileMax"
@@ -169,7 +169,7 @@
                 showTicks="always"
                 thumbLabel="always" />
             <v-slider
-                label="盤の段の全数"
+                label="垂直方向のタイル数"
                 v-model="board1RankNum"
                 :min="0"
                 :max="board1RankMax"
@@ -178,7 +178,7 @@
                 thumbLabel="always" />
             <v-switch
                 v-model="printing1IsLooping"
-                :label="printing1IsLooping ? '［印字の端と端がつながって（ループして）］います' : '［印字の端と端がつながって（ループして）］いません'"
+                :label="printing1IsLooping ? '［像の端と端がつながって（ループして）］います' : '［像の端と端がつながって（ループして）］いません'"
                 color="green"
                 :hideDetails="true"
                 inset />
@@ -467,7 +467,10 @@
     // ##########
 
     onMounted(() => {
-        // キーボードイベント
+        // キーボード操作の設定
+        //
+        //      window はブラウザーのオブジェクトなので、（サーバー側ではプリレンダリングできないので）マウント後にアクセスします。
+        //
         window.addEventListener('keydown', (e: KeyboardEvent) => {
             // ［↑］［↓］キーの場合
             if (e.key === 'ArrowUp' || e.key === 'ArrowDown') {

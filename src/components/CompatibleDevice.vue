@@ -36,7 +36,7 @@
 
 
     // イベントハンドラーの定義
-    function onWindowResized(): void {
+    function onClientsideWindowResized(): void {
         // window オブジェクトはクライアントサイドでしか使えないことに注意。
         if (window.innerWidth <= 768) {
             device.value = 'Mobile';   // ウィンドウの横幅が 768px以下ならスマホとみなします。
@@ -53,7 +53,7 @@
 
     onMounted(()=>{
         // イベントハンドラーを追加
-        window.addEventListener('resize', onWindowResized);
+        window.addEventListener('resize', onClientsideWindowResized);
     });
 
 
