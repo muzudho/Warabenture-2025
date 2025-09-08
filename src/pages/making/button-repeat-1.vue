@@ -81,7 +81,8 @@
     // 今動いているアプリケーションの状態を記録しているデータ。特に可変のもの。
     //
 
-    const appManualKeyRepeatTimerId = ref<number | null>(null);   // ［キーボード操作説明］のボタンのキー・リピート用
+    // `vite build` コマンド打鍵時、 setInterval(...) 関数が number 型ではなく NodeJS.Timeout 型を返すので、どちらも許容できるようにする。
+    const appManualKeyRepeatTimerId = ref<number | NodeJS.Timeout | null>(null);   // ［キーボード操作説明］のボタンのキー・リピート用
 
 
     // ################

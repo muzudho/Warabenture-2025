@@ -39,7 +39,7 @@
 
 
     function goBackToTopOf2() : void {
-        router.push('/coding-styles');
+        router.push('/coding-style');
     }
 
 </script>
