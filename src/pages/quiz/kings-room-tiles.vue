@@ -1383,7 +1383,7 @@ color = i % 2;
 
 <style scoped>
 
-    @import '../../styles/talk-scene.css';
+    @import '@/styles/talk-scene.css';
 
     /* 
      * マスクの暗さを濃くします。

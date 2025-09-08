@@ -1,0 +1,91 @@
+pre.coding-example {    /* ソースコード例 */
+    display: inline-block;
+    border: dashed 4px gray;
+    color: #303030;
+    background-color: #f0f0f0;
+    padding-left: 24px;
+    padding-top: 16px;
+    padding-right: 24px;
+}
+
+pre.coding-example-bad {    /* 悪いソースコード例 */
+    display: inline-block;
+    border: dashed 4px gray;
+    color: #303030;
+    background-color: #f8c0c0;
+    padding-left: 24px;
+    padding-top: 16px;
+    padding-right: 24px;
+}
+
+pre.coding-example-good {    /* 良いソースコード例 */
+    display: inline-block;
+    border: dashed 4px gray;
+    color: #303030;
+    background-color: #c0f8c0;
+    padding-left: 24px;
+    padding-top: 16px;
+    padding-right: 24px;
+}
+
+pre.terminal-example {    /* ターミナル例 */
+    display: inline-block;
+    border: dashed 4px #909090;
+    color: #f0f0f0;
+    background-color: #303030;
+    padding-left: 24px;
+    padding-top: 16px;
+    padding-right: 24px;
+}
+
+div.markup-example {    /* マークアップされたテキスト例 */
+    display: inline-block;
+    border: dashed 4px gray;
+    color: #303030;
+    background-color: #f0f0f0;
+    padding-left: 24px;
+    padding-top: 16px;
+    padding-right: 24px;
+    padding-bottom: 16px;
+}
+
+span.red-marker {   /* 強調 */
+    background-color: hotpink;
+    color: brown;
+    font-weight: bolder;
+}
+
+span.green-marker {   /* 強調 */
+    background-color: yellowgreen;
+    color: darkgreen;
+    font-weight: bolder;
+}
+
+span.blue-marker {   /* 強調 */
+    background-color: lightblue;
+    color: darkblue;
+    font-weight: bolder;
+}
+
+span.yellow-marker {   /* 強調 */
+    background-color: yellow;
+    color: darkgoldenrod;
+    font-weight: bolder;
+}
+
+span.brown-pen {   /* 強調 */
+    color: brown;
+    font-weight: bolder;
+}
+
+span.good {   /* 良い強調 */
+    color: #303030;
+    background-color: #c0f8c0;
+    font-weight: bolder;
+}
+
+span.bad {   /* 悪い強調 */
+    color: #303030;
+    background-color: #f8c0c0;
+    font-weight: bolder;
+}

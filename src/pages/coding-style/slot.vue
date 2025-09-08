@@ -37,6 +37,7 @@
         </talk-balloon>
         <br/>
 
+        expected:<br/>
         <div class="markup-example">
             <div style="background-color: skyblue;">
                 名前：　すっぽん<br/>
@@ -234,15 +235,16 @@
                 👆 No1Child は、タグ名にするとき kebab-case にできるのよね。"&lt;No1Child&gt;" とも書けるし、 "&lt;no-1-child&gt;" とも書ける。
         </talk-balloon>
 
+        actual:<br/>
         <div class="markup-example">
-            <no-1-child>
+            <no-1o0-child>
                 わたしはオークです。よろしくねえ。
                 <v-img
                     src="https://picsum.photos/64/64"
                     alt="なんか画像"
                     style="width: 64px; height: 64px;"
                 />
-            </no-1-child>
+            </no-1o0-child>
         </div>
         <br/>
         <br/>
@@ -255,6 +257,7 @@
                 以下のように、スロットを２か所作りたいときはどうするんだぜ？
         </talk-balloon>
 
+        expected:<br/>
         <div class="markup-example">
             <div style="background-color: skyblue;">
                 名前：　すっぽん<br/>
@@ -338,8 +341,9 @@
         </talk-balloon>
         <br/>
 
+        actual:<br/>
         <div class="markup-example">
-            <no-2-child>
+            <no-1o2o0-child>
                 わたしはオークです。よろしくねえ。
                 <v-img
                     src="https://picsum.photos/64/64"
@@ -357,7 +361,7 @@
                         style="width: 64px; height: 64px;"
                     />
                 </template>
-            </no-2-child>
+            </no-1o2o0-child>
         </div>
         <br/>
         <br/>
@@ -466,6 +470,122 @@ pnpm add -D @tauri-apps/cli@latest
 
     </section>
 
+    <h4>スロット・プロパティ</h4>
+    <section class="sec-4">
+        <br/>
+
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
+                次は話が変わって、子コンポーネントから親コンポーネントへ、逆向きに値を渡す方法を説明するぜ。
+        </talk-balloon>
+
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
+                👇 こういうデータが載ってる本を作りたいとするだろ。
+        </talk-balloon>
+        <br/>
+
+        expected:<br/>
+        <div class="markup-example">
+            <div style="background-color: skyblue;">
+                名前：　すっぽん<br/>
+                ヒットポイント：　100<br/>
+                マジックパワー：　50<br/>
+            </div>
+        </div>
+        <br/>
+        <br/>
+
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
+                👇 で、子コンポーネントの方には、ヒットポイントとか、マジックパワーといった見出しは持っていないものとするぜ。
+        </talk-balloon>
+        <br/>
+
+        📄 no-1-3-child.vue:<br/>
+        <pre class="coding-example">
+&lt;template&gt;
+    &lt;div style="background-color: skyblue;"&gt;
+        名前：　すっぽん&lt;br/&gt;
+        <span style="background-color: yellowgreen;">&lt;slot name="hp" :hit-point="100"&gt;&lt;/slot&gt;</span>&lt;br/&gt;
+        <span style="background-color: lightpink;">&lt;slot name="mp" :magic-power="50"&gt;&lt;/slot&gt;</span>&lt;br/&gt;
+    &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script setup lang="ts"&gt;
+    <span class="blue-marker">const slots = defineSlots<{
+        default(): any;
+        hp(props: { hitPoint: number }): any;
+        mp(props: { magicPower: number }): any;
+    }>();</span>
+&lt;/script&gt;
+        </pre>
+        <br/>
+        <br/>
+
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
+                👇 そこで、親コンポーネントの方で見出しを用意して、子コンポーネントから値を受け取るように書くぜ。
+        </talk-balloon>
+        <br/>
+
+        📄 a parent .vue file:<br/>
+        <pre class="coding-example">
+&lt;template&gt;
+    &lt;no-1o3o0-child&gt;
+        &lt;v-slot <span class="red-marker">#hp="slotProps"</span>&gt;
+            ヒットポイント：　<span class="red-marker">&#123;&#123; slotProps.hitPoint &#125;&#125;</span>
+        &lt;/v-slot&gt;
+        &lt;v-slot <span class="green-marker">#mp="slotProps"</span>&gt;
+            マジックパワー：　<span class="green-marker">&#123;&#123; slotProps.magicPower &#125;&#125;</span>
+        &lt;/v-slot&gt;
+    &lt;/no-1o3o0-child&gt;
+&lt;/template&gt;
+
+&lt;script setup lang="ts"&gt;
+    import No1Child from '@/components/no-1-child.vue';
+&lt;/script&gt;
+        </pre>
+        <br/>
+        <br/>
+
+        actual:<br/>
+        <div class="markup-example">
+            <no-1o3o0-child>
+                <template #hp="slotProps">
+                    ヒットポイント：　{{ slotProps.hitPoint }}
+                </template>
+                <template #mp="slotProps">
+                    マジックパワー：　{{ slotProps.magicPower }}
+                </template>
+            </no-1o3o0-child>
+        </div>
+        <br/>
+        <br/>
+
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
+                👆　できてるだろ。
+        </talk-balloon>
+        <br/>
+
+    </section>
+
     <br/>
     <h3>ソースコード</h3>
     <section class="sec-3">
@@ -491,8 +611,9 @@ pnpm add -D @tauri-apps/cli@latest
     //
 
     import CompatibleDevice from '@/components/CompatibleDevice.vue'
-    import No1Child from '@/components/coding-style/no-1-child.vue';
-    import No2Child from '@/components/coding-style/no-2-child.vue';
+    import No1o0Child from '@/components/coding-style/no-1-0-child.vue';
+    import No1o2o0Child from '@/components/coding-style/no-1-2-0-child.vue';
+    import No1o3o0Child from '@/components/coding-style/no-1-3-0-child.vue';
     import SourceLink from '@/components/SourceLink.vue';
     import TalkBalloon from '@/components/TalkBalloon.vue';
     import TheFooter from './the-footer.vue';
@@ -531,72 +652,7 @@ pnpm add -D @tauri-apps/cli@latest
 </script>
 
 <style scoped>
-    pre.coding-example {    /* ソースコード例 */
-        display: inline-block;
-        border: dashed 4px gray;
-        color: #303030;
-        background-color: #f0f0f0;
-        padding-left: 24px;
-        padding-top: 16px;
-        padding-right: 24px;
-    }
 
-    pre.coding-example-bad {    /* 悪いソースコード例 */
-        display: inline-block;
-        border: dashed 4px gray;
-        color: #303030;
-        background-color: #f8c0c0;
-        padding-left: 24px;
-        padding-top: 16px;
-        padding-right: 24px;
-    }
-
-    pre.coding-example-good {    /* 良いソースコード例 */
-        display: inline-block;
-        border: dashed 4px gray;
-        color: #303030;
-        background-color: #c0f8c0;
-        padding-left: 24px;
-        padding-top: 16px;
-        padding-right: 24px;
-    }
-
-    pre.terminal-example {    /* ターミナル例 */
-        display: inline-block;
-        border: dashed 4px #909090;
-        color: #f0f0f0;
-        background-color: #303030;
-        padding-left: 24px;
-        padding-top: 16px;
-        padding-right: 24px;
-    }
-
-    div.markup-example {    /* マークアップされたテキスト例 */
-        display: inline-block;
-        border: dashed 4px gray;
-        color: #303030;
-        background-color: #f0f0f0;
-        padding-left: 24px;
-        padding-top: 16px;
-        padding-right: 24px;
-        padding-bottom: 16px;
-    }
-
-    span.em {   /* 強調 */
-        color: brown;
-        font-weight: bolder;
-    }
-
-    span.good {   /* 良い強調 */
-        color: #303030;
-        background-color: #c0f8c0;
-        font-weight: bolder;
-    }
-
-    span.bad {   /* 悪い強調 */
-        color: #303030;
-        background-color: #f8c0c0;
-        font-weight: bolder;
-    }
+    @import '@/styles/notebook.css';
 
 </style>
