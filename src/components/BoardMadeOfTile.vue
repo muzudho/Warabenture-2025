@@ -1,9 +1,9 @@
 <template>
     <tile
-        v-for="tileSqPlus1 in props.tileBoardArea"
+        v-for="tileSqPlus1 in props.boardArea"
         :key="tileSqPlus1"
         class="square"
-        :style="getSquareStyleFromTileSq(tileSqPlus1 - 1)"
+        :style="getTileStyleByTileSq(tileSqPlus1 - 1)"
         :srcLeft="getSourceTileLeftByImageSq(
             getImageSqByFixedTileSq(
                 getFixedTileSqFromTileSq(tileSqPlus1 - 1)
@@ -14,17 +14,8 @@
         :srcHeight="props.tileHeight"
         :tilemapUrl="props.tilemapUrl"
     >
-        <!--
-        <slot>
-            <span style="font-size:8px;">砂</span>
+        <slot :tile-sq="tileSqPlus1 - 1">
         </slot>
-        <slot name="apple">
-            <span style="font-size:8px;">風</span>
-        </slot>
-        <slot name="banana">
-            <span style="font-size:8px;">ほ</span>
-        </slot>
-        -->
     </tile>
 </template>
 
@@ -53,16 +44,25 @@
     // ####################################
     
     interface Props {
-        tileBoardArea: number; // 盤のマス数
+        boardArea: number; // 盤のマス数
         tileWidth: number;
         tileHeight: number;
         tilemapUrl: string;
         getFixedTileSqFromTileSq: (tileSq: number) => number;
         getImageSqByFixedTileSq: (fixedTileSq: number) => number;
-        getSquareStyleFromTileSq: (tileIndex: number) => CompatibleStyleValue;
+        getTileStyleByTileSq: (tileIndex: number) => CompatibleStyleValue;
         getSourceTileLeftByImageSq: (imageSq: number) => number;
     }
     const props = defineProps<Props>();
+
+
+    // ############
+    // # スロット #
+    // ############
+
+    const slots = defineSlots<{
+        default(props: { tileSq: number }): any;
+    }>();
 
 </script>
 

@@ -16,3 +16,12 @@
  */
 //export type CompatibleStyleValue = StyleValue;  // Tauri2 用
 export type CompatibleStyleValue = Record<string, string | number>;     // Nuxt3 用
+
+
+export function mergeCompatibleStyleValues(
+    style1: CompatibleStyleValue,
+    style2: CompatibleStyleValue,
+): CompatibleStyleValue {
+    //return {...style1 as Record<string, string>, ...style2 as Record<string, string>};  // Tauri2 用
+    return {...style1, ...style2};    // Nuxt3 用
+}

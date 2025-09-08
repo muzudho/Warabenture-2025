@@ -21,7 +21,7 @@
         <!-- ストップウォッチ。デバッグに使いたいときは、 display: none; を消してください。 -->
         <stopwatch
             ref="stopwatch1Ref"
-            v-on:countUp="(countNum) => { stopwatch1Count = countNum; }"
+            v-on:countUp="(countNum: number) => { stopwatch1Count = countNum; }"
             style="display: none;" />
 
         <!-- 挿絵 -->
@@ -91,106 +91,17 @@
             :style="board1Style">
 
             <!-- 新・タイル盤１ -->
-            <tile-board
-                :tileBoardArea="board1Area"
+            <board-made-of-tile
+                :boardArea="board1Area"
                 :tileWidth="tileBoard1TileWidth"
                 :tileHeight="tileBoard1TileHeight"
                 :tilemapUrl="'/img/quiz/kings-room-tiles.png'"
-                :getFixedTileSqFromTileSq="getFixedTileSqFromTileSq"
-                :getImageSqByFixedTileSq="getImageSqByFixedTileSq"
-                :getSquareStyleFromTileSq="imageBoard1GetTileStyleByTileSq"
+                :getFixedTileSqFromTileSq="imageBoard1GetFixedTileSqFromTileSq"
+                :getImageSqByFixedTileSq="imageBoard1GetImageSqByFixedTileSq"
+                :getTileStyleByTileSq="imageBoard1GetTileStyleByTileSq"
                 :getSourceTileLeftByImageSq="imageBoard1GetResourceTileLeftByImageSq"
             >
-                <!--
-                <template v-slot:default>
-                    <span style="font-size:8px;">ち</span>
-                </template>
-                <template v-slot:apple>
-                    <span style="font-size:8px;">よ</span>
-                </template>
-                <template v-slot:banana>
-                </template>
-                -->
-                <!--
-                <span class="board-slidable-tile-index-large">{{ (i - 1) }}</span>
-                -->
-
-                <!--
-                <span class="board-slidable-tile-index">tile[{{ (i - 1) }}]</span>
-                <span class="board-fixed-square-index">fix[{{
-                    getFixedTileSqFromTileSq(
-                        i - 1,
-                        tileBoard1TileWidth,
-                        tileBoard1TileHeight,
-                        board1FileNum,
-                        board1RankNum,
-                        printing1Left,
-                        printing1Top,
-                    )
-                }}]</span>
-                <span class="board-printing-index">print[{{
-                    getImageSqByFixedTileSq(
-                        getFixedTileSqFromTileSq(
-                            i - 1,
-                            tileBoard1TileWidth,
-                            tileBoard1TileHeight,
-                            board1FileNum,
-                            board1RankNum,
-                            printing1Left,
-                            printing1Top,
-                        ),
-                        -Math.floor(printing1Left / tileBoard1TileWidth),
-                        -Math.floor(printing1Top / tileBoard1TileHeight),
-                        board1FileNum,
-                        printing1FileNum,
-                        printing1RankNum,
-                        printing1IsLooping,
-                    )
-                }}]</span>
-                <span class="board-square-printing-string">{{
-                    //printing1Ref?.getSourceTileSqStringByImageBoardSq(
-                        getImageSqByFixedTileSq(
-                            getFixedTileSqFromTileSq(
-                                i - 1,
-                                tileBoard1TileWidth,
-                                tileBoard1TileHeight,
-                                board1FileNum,
-                                board1RankNum,
-                                printing1Left,
-                                printing1Top,
-                            ),
-                            -Math.floor(printing1Left / tileBoard1TileWidth),
-                            -Math.floor(printing1Top / tileBoard1TileHeight),
-                            board1FileNum,
-                            printing1FileNum,
-                            printing1RankNum,
-                            printing1IsLooping,
-                        )
-                    )
-                }}</span>
-                -->
-
-            </tile-board>
-
-            <!-- 旧・タイル盤１ -->
-            <!--
-            <tile
-                v-for="i in board1Area"
-                :key="i"
-                class="square"
-                :style="imageBoard1GetTileStyleByTileSq(i - 1)"
-                :srcLeft="imageBoard1GetResourceTileLeftByImageSq(
-                    getImageSqByFixedTileSq(
-                        getFixedTileSqFromTileSq(i - 1)
-                    )
-                ) ?? 0"
-                :srcTop="0"
-                :srcWidth="tileBoard1TileWidth"
-                :srcHeight="tileBoard1TileHeight"
-                tilemapUrl="/img/quiz/kings-room-tiles.png">
-
-            </tile>
-            -->
+            </board-made-of-tile
 
             <!-- 自機１ -->
             <tile-animation
@@ -435,43 +346,6 @@
             </p>
             <br/>
 
-            <p>👇 盤の各マス</p>
-            <div
-                v-for="i in board1Area"
-                :key="i">
-                tile-index: {{ i - 1 }} | 
-                fix-index: {{
-                    getFixedTileSqFromTileSq(
-                        i - 1,
-                        tileBoard1TileWidth,
-                        tileBoard1TileHeight,
-                        board1FileNum,
-                        board1RankNum,
-                        printing1Left,
-                        printing1Top,
-                    )
-                }} | 
-                printing: {{
-                    getImageSqByFixedTileSq(
-                        getFixedTileSqFromTileSq(
-                            i - 1,
-                            tileBoard1TileWidth,
-                            tileBoard1TileHeight,
-                            board1FileNum,
-                            board1RankNum,
-                            printing1Left,
-                            printing1Top,
-                        ),
-                        -Math.floor(printing1Left / tileBoard1TileWidth),
-                        -Math.floor(printing1Top / tileBoard1TileHeight),
-                        board1FileNum,
-                        printing1FileNum,
-                        printing1RankNum,
-                        printing1IsLooping,
-                    )
-                }}<br/>
-            </div>
-            <br/>
             <p>👇 印字表の各マス</p>
             <div
                 v-for="j in printing1AreaMax"
@@ -761,15 +635,15 @@ color = i % 2;
     //
 
     // from の階層が上の順、アルファベット順
-    import Button20250822 from '../../components/Button20250822.vue';
-    import OutOfSight from '../../components/OutOfSightMaking.vue';
-    import SourceLink from '../../components/SourceLink.vue';
-    import Stopwatch from '../../components/Stopwatch.vue';
-    import TalkBalloon from '../../components/TalkBalloon.vue';
-    import TalkIllustration from '../../components/TalkIllustration.vue';
-    import TalkNovel from '../../components/TalkNovel.vue';
-    import TileAnimation from '../../components/TileAnimation.vue';
-    import TileBoard from '@/components/TileBoard.vue';
+    import BoardMadeOfTile from '@/components/BoardMadeOfTile.vue';
+    import Button20250822 from '@/components/Button20250822.vue';
+    import OutOfSight from '@/components/OutOfSightMaking.vue';
+    import SourceLink from '@/components/SourceLink.vue';
+    import Stopwatch from '@/components/Stopwatch.vue';
+    import TalkBalloon from '@/components/TalkBalloon.vue';
+    import TalkIllustration from '@/components/TalkIllustration.vue';
+    import TalkNovel from '@/components/TalkNovel.vue';
+    import TileAnimation from '@/components/TileAnimation.vue';
     import TheFooter from './the-footer.vue';
     import TheHeader from './the-header.vue';
 
@@ -1026,7 +900,7 @@ color = i % 2;
         computedImageBoard1Data,
         sourceTilemapRectangles,
     );
-    const getFixedTileSqFromTileSq: (tileSq: number) => number = createGetFixedTileSqFromTileSq(
+    const imageBoard1GetFixedTileSqFromTileSq: (tileSq: number) => number = createGetFixedTileSqFromTileSq(
         tileBoard1TileWidth,
         tileBoard1TileHeight,
         board1FileNum,
@@ -1034,7 +908,7 @@ color = i % 2;
         printing1Left,
         printing1Top,
     );
-    const getImageSqByFixedTileSq: (fixedTileSq: number) => number = createGetImageSqByFixedTileSq(
+    const imageBoard1GetImageSqByFixedTileSq: (fixedTileSq: number) => number = createGetImageSqByFixedTileSq(
         tileBoard1TileWidth,
         tileBoard1TileHeight,
         board1FileNum,

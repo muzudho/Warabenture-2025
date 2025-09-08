@@ -468,6 +468,30 @@ pnpm add -D @tauri-apps/cli@latest
                 利用人口が増えたら誰かが不具合を直してくれるだろ……
         </talk-balloon>
 
+        <talk-balloon
+            :src="kifuwarabe2Src"
+            :alt="kifuwarabe2Alt"
+            :name="kifuwarabe2Name"
+            :device="compatibleDevice1Ref?.device">
+                VSCode の PROBLEMS にメッセージが多くてうざいというだけなら、<br/>
+                ターミナルのフィルター欄に以下のようにかけば、該当するメッセージを非表示にできるぜ。
+        </talk-balloon>
+
+        <pre class="terminal-example">
+!Property '*' does not exist on type '{}'.
+        </pre>
+        <br/>
+        <br/>
+
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
+                あっ、こんなんできるんだ、じゃあ、これでしのごう。<br/>
+                保存はできないのか。毎回入れるか……めんどくさ。
+        </talk-balloon>
+
     </section>
 
     <h4>スロット・プロパティ</h4>

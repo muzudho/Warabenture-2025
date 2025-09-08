@@ -24,69 +24,30 @@
                 :style="playerHome1Style">
             </div>
 
-            <!-- スクウェアのグリッド -->
-            <div
-                v-for="i in board1Area"
-                :key="i"
-                class="square"
-                :style="[
-                    imageBoard1GetTileStyleByTileSq(i - 1),
-                    getSquareBorderStyleFromTileIndex(i - 1),
-                ]">
-
-                <span class="board-slidable-tile-index">tile[{{ (i - 1) }}]</span>
-                <span class="board-fixed-square-index">fix[{{
-                    getFixedTileSqFromTileSq(
-                        i - 1,
-                        tileBoard1TileWidth,
-                        tileBoard1TileHeight,
-                        board1FileNum,
-                        board1RankNum,
-                        printing1Left,
-                        printing1Top,
-                    )
-                }}]</span>
-                <span class="board-printing-index">print[{{
-                    getImageSqByFixedTileSq(
-                        getFixedTileSqFromTileSq(
-                            i - 1,
-                            tileBoard1TileWidth,
-                            tileBoard1TileHeight,
-                            board1FileNum,
-                            board1RankNum,
-                            printing1Left,
-                            printing1Top,
-                        ),
-                        -Math.floor(printing1Left / tileBoard1TileWidth),
-                        -Math.floor(printing1Top / tileBoard1TileHeight),
-                        board1FileNum,
-                        printing1FileNum,
-                        printing1RankNum,
-                        printing1IsLooping,
-                    )
-                }}]</span>
-                <span class="board-square-printing-string">{{
-                    getSourceTileStringByImageBoardSq(
-                        getImageSqByFixedTileSq(
-                            getFixedTileSqFromTileSq(
-                                i - 1,
-                                tileBoard1TileWidth,
-                                tileBoard1TileHeight,
-                                board1FileNum,
-                                board1RankNum,
-                                printing1Left,
-                                printing1Top,
-                            ),
-                            -Math.floor(printing1Left / tileBoard1TileWidth),
-                            -Math.floor(printing1Top / tileBoard1TileHeight),
-                            board1FileNum,
-                            printing1FileNum,
-                            printing1RankNum,
-                            printing1IsLooping,
+            <!-- div のグリッド -->
+            <board-made-of-div
+                :boardArea="board1Area"
+                :getTileStyleByTileSq="imageBoard1GetTileStyleByTileSq"
+            >
+                <template #default="{ tileSq }">
+                    <span class="board-slidable-tile-index">tile[{{ (tileSq) }}]</span>
+                    <span class="board-fixed-square-index">fix[{{
+                        imageBoard1GetFixedTileSqFromTileSq(tileSq)
+                    }}]</span>
+                    <span class="board-printing-index">print[{{
+                        imageBoard1GetImageSqByFixedTileSq(
+                            imageBoard1GetFixedTileSqFromTileSq(tileSq)
                         )
-                    )
-                }}</span>
-            </div>
+                    }}]</span>
+                    <span class="board-square-printing-string">{{
+                        getSourceTileStringByImageBoardSq(
+                            imageBoard1GetImageSqByFixedTileSq(
+                                imageBoard1GetFixedTileSqFromTileSq(tileSq)
+                            )
+                        )
+                    }}</span>
+                </template>
+            </board-made-of-div>
 
             <!-- 自機１ -->
             <tile-animation
@@ -339,30 +300,32 @@
 
     import { VBtn } from 'vuetify/components';
 
-    // ++++++++++++++
-    // + 互換性対応 +
-    // ++++++++++++++
+    // ++++++++++++++++++++++++++++++
+    // + インポート　＞　互換性対応 +
+    // ++++++++++++++++++++++++++++++
 
+    import { mergeCompatibleStyleValues } from '../../../compatibles/compatible-style-value';
     import type { CompatibleStyleValue }  from '../../../compatibles/compatible-style-value';
 
-    // ++++++++++++++++++
-    // + コンポーネント +
-    // ++++++++++++++++++
+    // ++++++++++++++++++++++++++++++++++
+    // + インポート　＞　コンポーネント +
+    // ++++++++++++++++++++++++++++++++++
     //
     // Tauri なら明示的にインポートを指定する必要がある。 Nuxt なら自動でインポートしてくれる場合がある。
     //
 
-    // from の階層が上の順、アルファベット順
+    // アルファベット順
+    import BoardMadeOfDiv from '@/components/BoardMadeOfDiv.vue';
     import Button20250822 from '@/components/Button20250822.vue';
     import SourceLink from '@/components/SourceLink.vue';
     import Stopwatch from '@/components/Stopwatch.vue';
     import TileAnimation from '@/components/TileAnimation.vue';
 
-    // ++++++++++++++++++
-    // + コンポーザブル +
-    // ++++++++++++++++++
+    // ++++++++++++++++++++++++++++++++++
+    // + インポート　＞　コンポーザブル +
+    // ++++++++++++++++++++++++++++++++++
 
-    import { createGetTileStyleByTileSq, getFixedTileSqFromTileSq, getImageSqByFixedTileSq } from '../../../composables/board-operation';
+    import { createGetFixedTileSqFromTileSq, createGetImageSqByFixedTileSq, createGetTileStyleByTileSq } from '../../../composables/board-operation';
     import {
         getPlayer1File, getPlayer1Rank,
         isPlayerInputKey,
@@ -505,7 +468,30 @@
     // const printing1GetSourceTileSqStringByImageBoardSq: (imageBoardSq: number) => string = createGetSourceTileSqStringByImageBoardSq(
     //     computedImageBoard1Data,
     // );
-    const imageBoard1GetTileStyleByTileSq = createGetTileStyleByTileSq(
+    const imageBoard1GetTileStyleByTileSq = computed<
+        (tileSq: number) => CompatibleStyleValue
+    >(() => {
+        return (tileSq: number)=>{
+            const getTileStyleByTileSq = createGetTileStyleByTileSq(
+                tileBoard1TileWidth,
+                tileBoard1TileHeight,
+                board1FileNum,
+                board1RankNum,
+                printing1Left,
+                printing1Top,
+            );
+            const style2: CompatibleStyleValue = {
+                border: `solid 1px ${tileSq % 2 == 0 ? 'darkgray' : 'lightgray'}`,
+            };
+
+            // 2つのスタイルをマージして返す
+            return mergeCompatibleStyleValues(
+                getTileStyleByTileSq(tileSq),
+                style2
+            );
+        };
+    });
+    const imageBoard1GetFixedTileSqFromTileSq: (tileSq: number) => number = createGetFixedTileSqFromTileSq(
         tileBoard1TileWidth,
         tileBoard1TileHeight,
         board1FileNum,
@@ -513,15 +499,16 @@
         printing1Left,
         printing1Top,
     );
-    const getSquareBorderStyleFromTileIndex = computed<
-        (tileIndex: number)=>CompatibleStyleValue
-    >(() => {
-        return (tileIndex: number)=>{
-            return {
-                border: `solid 1px ${tileIndex % 2 == 0 ? 'darkgray' : 'lightgray'}`,
-            };
-        };
-    });
+    const imageBoard1GetImageSqByFixedTileSq: (fixedTileSq: number) => number = createGetImageSqByFixedTileSq(
+        tileBoard1TileWidth,
+        tileBoard1TileHeight,
+        board1FileNum,
+        printing1Left,
+        printing1Top,
+        printing1FileNum,
+        printing1RankNum,
+        printing1IsLooping,
+    );
 
 
     /**

@@ -18,35 +18,4 @@
         mp(props: { magicPower: number }): any;
     }>();
 
-
-    /*
-    const slots = defineSlots<{
-        default: (props: {}) => any,
-        author: (props: { phone: string }) => any; // authorスロットのpropsにphoneプロパティを定義
-    }>();
-    */
-
-    /*
-    // @ts-ignore
-    const slots = defineSlots(); // 型定義をスキップ
-    */
-    /*
-    const slots = defineSlots<{
-        default: () => any,
-        author: (props: { author: string }) => any; // authorスロットのpropsにauthorプロパティを定義
-    }>();
-    */
-
-    /*
-    const slots = defineSlots<{
-        default: () => any,
-        author?: () => any
-    }>();
-    */
-    /*
-const slots = defineSlots<{
-  default: (props: { msg: string }) => any;  // デフォルトスロットのpropsを型定義
-  header?: (props: { title: string }) => any;  // オプショナルな名前付きスロット
-}>()
-    */
 </script>
