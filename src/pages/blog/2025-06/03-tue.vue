@@ -3,7 +3,7 @@
     <!-- デバイス互換機能 -->
     <compatible-device ref="compatibleDevice1Ref"/>
 
-    <h3>[2025-06-03_Tue]</h3>
+    <h3><router-link to="/blog/2025-06/03-tue">[2025-06-03_Tue]</router-link></h3>
     <section class="sec-3">
 
 

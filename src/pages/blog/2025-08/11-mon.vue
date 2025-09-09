@@ -3,7 +3,7 @@
     <!-- デバイス互換機能 -->
     <compatible-device ref="compatibleDevice1Ref"/>
 
-    <h3>[2025-08-11_Mon]</h3>
+    <h3><router-link to="/blog/2025-08/11-mon">[2025-08-11_Mon]</router-link></h3>
     <section class="sec-3">
 
         <a target="_blank" href="/img/journal/2025-08/202508__warabenture__11-2209-pieChart-o1o0.png">

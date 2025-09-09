@@ -3,7 +3,7 @@
     <!-- デバイス互換機能 -->
     <compatible-device ref="compatibleDevice1Ref"/>
 
-    <h3>[2025-06-01_Sun]</h3>
+    <h3><router-link to="/blog/2025-06/01-sun">[2025-06-01_Sun]</router-link></h3>
     <section class="sec-3">
         <talk-balloon
             :src="oton1Src"

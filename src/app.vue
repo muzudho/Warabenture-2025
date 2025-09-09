@@ -1,3 +1,13 @@
+<!--
+    Nuxt ウェブ・アプリケーションでは：
+        src/app.vue がルートコンポーネントです。
+        ここで、アプリ全体のレイアウトを定義します。
+        例えば、ヘッダーやフッター、サイドバーなど、全ページに共通する部分を配置します。
+
+    Tauri デスクトップ・アプリケーションでは：
+        src/router/index.ts で src/app.vue をルートコンポーネントとして指定しています。
+-->
+
 <template>
     <v-app>
         <v-main>
@@ -31,7 +41,9 @@
     @import '@/styles/talk-scene.css';
 
     /**
-     * NOTE: Vuetify がテーマの機能を持っているので、 plugins/vuetify.ts でもスタイルを設定すること。
+     * ワラベンチャー用の設定：
+     *
+     *      NOTE: Vuetify がテーマの機能を持っているので、 plugins/vuetify.ts でもスタイルを設定すること。
      */
     :root {
         /** ハイフン２つで始まる名前は、スタイルシートに渡す引数名 */
