@@ -78,7 +78,7 @@ h6::before {
     display: inline-block;
     width: 224px;
     height: 48px;
-    zoom: 0.25;  /* なんか拡大されてるので、目視確認で合わせる。 font-size: medium; だから？ */
+    zoom: 0.25; /* なんか拡大されてるので、目視確認で合わせる。 font-size: medium; だから？ */
     background-image: var(--myapplication-img-six-sharps, url('/img/application/six-sharps-light-white.png'));
     background-position: 0px 0;
 }
