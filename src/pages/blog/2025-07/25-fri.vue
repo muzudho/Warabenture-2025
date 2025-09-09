@@ -7,9 +7,10 @@
     <section class="sec-3">
 
 
-        <a target="_blank" href="/img/journal/2025-07/202507__warabenture__25-1412-csvCleaning2OnTauri-o1o0.png">
-            <img class="scr-shot" src="/img/journal/2025-07/202507__warabenture__25-1412-csvCleaning2OnTauri-o1o0.png">
-        </a><br/>
+        <TalkScreenShot
+            :href="journal1Png"
+            alt="レイアウトがスカスカなデスクトップ・アプリの画面"
+        />
 
 
         <talk-balloon
@@ -30,9 +31,10 @@
         </talk-balloon>
 
 
-        <a target="_blank" href="/img/journal/2025-07/202507__warabenture__25-1437-csvCleaning2OnTauri-o1o0.png">
-            <img class="scr-shot" src="/img/journal/2025-07/202507__warabenture__25-1437-csvCleaning2OnTauri-o1o0.png">
-        </a><br/>
+        <TalkScreenShot
+            :href="journal2Png"
+            alt="頑張って隙間を詰めたデスクトップ・アプリの画面"
+        />
 
 
         <talk-balloon
@@ -62,9 +64,10 @@
         </talk-balloon>
 
 
-        <a target="_blank" href="/img/journal/2025-07/202507__warabenture__25-1749-waraCity-o1o0.png">
-            <img class="scr-shot" src="/img/journal/2025-07/202507__warabenture__25-1749-waraCity-o1o0.png">
-        </a><br/>
+        <TalkScreenShot
+            :href="journal3Png"
+            alt="わらシティの画面"
+        />
 
 
         <talk-balloon
@@ -792,12 +795,21 @@ sudo certbot --nginx -d warabenture.com -d www.warabenture.com
     // # インポート #
     // ##############
 
+    // ++++++++++++++++++++++++++++
+    // + インポート　＞　公開画像 +
+    // ++++++++++++++++++++++++++++
+
+    import journal1Png from "/img/journal/2025-07/202507__warabenture__25-1412-csvCleaning2OnTauri-o1o0.png";
+    import journal2Png from "/img/journal/2025-07/202507__warabenture__25-1437-csvCleaning2OnTauri-o1o0.png";
+    import journal3Png from "/img/journal/2025-07/202507__warabenture__25-1749-waraCity-o1o0.png";
+
     // ++++++++++++++++++++++++++++++++++
     // + インポート　＞　コンポーネント +
     // ++++++++++++++++++++++++++++++++++
 
     import CompatibleDevice from '@/components/CompatibleDevice.vue'
     import TalkBalloon from '@/components/TalkBalloon.vue';
+    import TalkScreenShot from '@/components/TalkScreenShot.vue';
 
 
     // ##########
