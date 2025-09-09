@@ -59,6 +59,55 @@
                 👆　なんかこんな感じで、静的にはタグ打ちできるんだが、このタグを動的に変更できないかな？
         </talk-balloon>
 
+        <talk-balloon
+            :src="hiyoko2Src"
+            :alt="hiyoko2Alt"
+            :name="hiyoko2Name"
+            :device="compatibleDevice1Ref?.device">
+                インジェクションし放題でセキュリティ・リスクが出るんじゃないの？
+        </talk-balloon>
+
+        <talk-balloon
+            :src="kifuwarabe2Src"
+            :alt="kifuwarabe2Alt"
+            :name="kifuwarabe2Name"
+            :device="compatibleDevice1Ref?.device">
+                👇 Grok が defineAsyncComponent を使ったコードを示してくれてるぜ。
+        </talk-balloon>
+
+        <pre class="coding-example mb-6">
+// 動的にコンポーネントを選択
+const selectedComponent = computed(() =&gt; {
+  if (page === '101') return defineAsyncComponent(() => import('~/components/Child101.vue'));
+  if (page === '102') return defineAsyncComponent(() => import('~/components/Child102.vue'));
+  return null;
+});
+        </pre>
+
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
+                記事が１００件なら、if分も１００行書けばいいって考えか。
+        </talk-balloon>
+
+        <talk-balloon
+            :src="hiyoko2Src"
+            :alt="hiyoko2Alt"
+            :name="hiyoko2Name"
+            :device="compatibleDevice1Ref?.device">
+                プログラム言語によっては、 import に書くパスは動的生成できないものもあるわよね。
+        </talk-balloon>
+
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
+                しばらくいじって覚えないと分からないな。
+        </talk-balloon>
+
     </section>
 
 </template>
