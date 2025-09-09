@@ -6,7 +6,7 @@ h1 {
     position: relative;
     left: 32px;
     right: 0;
-    height: 50px;
+    min-height: 50px;
     margin-top: 16px;
     margin-bottom: 8px;
     padding-left: 20px;
@@ -15,6 +15,7 @@ h1 {
     border-top-left-radius: 25px;
     border-bottom-left-radius: 25px;
     font-size: xx-large;
+    overflow: visible;
     line-height: 40px;  /* 目視確認で日本語のベースラインの位置調整 */
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
     color: var(--warabenture-sec-1-header-fgcolor, #F0F0F0);
@@ -90,7 +91,7 @@ h6::before {
         position: relative;
         left: 32px;
         right: 0;
-        height: 40px;
+        min-height: 40px;
         margin-left: 20px;
         margin-top: 16px;
         margin-bottom: 8px;
@@ -100,6 +101,7 @@ h6::before {
         border-top-left-radius: 20px;
         border-bottom-left-radius: 20px;
         font-size: x-large;
+        overflow-wrap: break-word;
         line-height: 32px;  /* 目視確認で日本語のベースラインの位置調整 */
         box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
         color: var(--warabenture-sec-2-header-fgcolor, #F0F0F0);
@@ -110,7 +112,7 @@ h6::before {
         position: relative;
         left: 32px;
         right: 0;
-        height: 40px;
+        min-height: 40px;
         margin-left: 40px;
         margin-top: 16px;
         margin-bottom: 8px;
@@ -120,6 +122,7 @@ h6::before {
         border-top-left-radius: 20px;
         border-bottom-left-radius: 20px;
         font-size: x-large;
+        overflow-wrap: break-word;
         line-height: 32px;  /* 目視確認で日本語のベースラインの位置調整 */
         box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
         color: var(--warabenture-sec-3-header-fgcolor, #F0F0F0);
@@ -130,7 +133,7 @@ h6::before {
         position: relative;
         left: 32px;
         right: 0;
-        height: 40px;
+        min-height: 40px;
         margin-left: 60px;
         margin-top: 16px;
         margin-bottom: 8px;
@@ -140,6 +143,7 @@ h6::before {
         border-top-left-radius: 20px;
         border-bottom-left-radius: 20px;
         font-size: large;
+        overflow-wrap: break-word;
         line-height: 32px;  /* 目視確認で日本語のベースラインの位置調整 */
         box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
         color: var(--warabenture-sec-4-header-fgcolor, #F0F0F0);
@@ -150,7 +154,7 @@ h6::before {
         position: relative;
         left: 32px;
         right: 0;
-        height: 40px;
+        min-height: 40px;
         margin-left: 80px;
         margin-top: 16px;
         margin-bottom: 8px;
@@ -160,6 +164,7 @@ h6::before {
         border-top-left-radius: 20px;
         border-bottom-left-radius: 20px;
         font-size: large;
+        overflow-wrap: break-word;
         line-height: 32px;  /* 目視確認で日本語のベースラインの位置調整 */
         box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
         color: var(--warabenture-sec-5-header-fgcolor, #F0F0F0);
@@ -170,7 +175,7 @@ h6::before {
         position: relative;
         left: 32px;
         right: 0;
-        height: 30px;
+        min-height: 30px;
         margin-left: 100px;
         margin-top: 16px;
         margin-bottom: 8px;
@@ -180,6 +185,7 @@ h6::before {
         border-top-left-radius: 15px;
         border-bottom-left-radius: 15px;
         font-size: medium;
+        overflow-wrap: break-word;
         line-height: 20px;  /* 目視確認で日本語のベースラインの位置調整 */
         box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
         color: var(--warabenture-sec-6-header-fgcolor, #F0F0F0);
@@ -268,7 +274,7 @@ h6::before {
         position: relative;
         left: 32px;
         right: 0;
-        height: 40px;
+        min-height: 40px;
         margin-left: 60px;
         margin-top: 16px;
         margin-bottom: 8px;
@@ -278,6 +284,7 @@ h6::before {
         border-top-left-radius: 20px;
         border-bottom-left-radius: 20px;
         font-size: x-large;
+        overflow-wrap: break-word;
         line-height: 32px;  /* 目視確認で日本語のベースラインの位置調整 */
         box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
         color: var(--warabenture-sec-2-header-fgcolor, #F0F0F0);
@@ -288,7 +295,7 @@ h6::before {
         position: relative;
         left: 32px;
         right: 0;
-        height: 40px;
+        min-height: 40px;
         margin-left: 120px;
         margin-top: 16px;
         margin-bottom: 8px;
@@ -298,6 +305,7 @@ h6::before {
         border-top-left-radius: 20px;
         border-bottom-left-radius: 20px;
         font-size: x-large;
+        overflow-wrap: break-word;
         line-height: 32px;  /* 目視確認で日本語のベースラインの位置調整 */
         box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
         color: var(--warabenture-sec-3-header-fgcolor, #F0F0F0);
@@ -308,7 +316,7 @@ h6::before {
         position: relative;
         left: 32px;
         right: 0;
-        height: 40px;
+        min-height: 40px;
         margin-left: 180px;
         margin-top: 16px;
         margin-bottom: 8px;
@@ -318,6 +326,7 @@ h6::before {
         border-top-left-radius: 20px;
         border-bottom-left-radius: 20px;
         font-size: large;
+        overflow-wrap: break-word;
         line-height: 32px;  /* 目視確認で日本語のベースラインの位置調整 */
         box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
         color: var(--warabenture-sec-4-header-fgcolor, #F0F0F0);
@@ -328,7 +337,7 @@ h6::before {
         position: relative;
         left: 32px;
         right: 0;
-        height: 40px;
+        min-height: 40px;
         margin-left: 240px;
         margin-top: 16px;
         margin-bottom: 8px;
@@ -338,6 +347,7 @@ h6::before {
         border-top-left-radius: 20px;
         border-bottom-left-radius: 20px;
         font-size: large;
+        overflow-wrap: break-word;
         line-height: 32px;  /* 目視確認で日本語のベースラインの位置調整 */
         box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
         color: var(--warabenture-sec-5-header-fgcolor, #F0F0F0);
@@ -348,7 +358,7 @@ h6::before {
         position: relative;
         left: 32px;
         right: 0;
-        height: 30px;
+        min-height: 30px;
         margin-left: 300px;
         margin-top: 16px;
         margin-bottom: 8px;
@@ -358,6 +368,7 @@ h6::before {
         border-top-left-radius: 15px;
         border-bottom-left-radius: 15px;
         font-size: medium;
+        overflow-wrap: break-word;
         line-height: 20px;  /* 目視確認で日本語のベースラインの位置調整 */
         box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
         color: var(--warabenture-sec-6-header-fgcolor, #F0F0F0);
