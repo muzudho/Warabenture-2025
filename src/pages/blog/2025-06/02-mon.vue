@@ -60,7 +60,7 @@
 
         <TalkScreenShot
             :href="journal1Png"
-            alt="ワラベンチャーのトップページに置いた円グラフ"
+            alt="pnpm create tauri-app"
         />
 
         <div class="code-b">pnpm create tauri-app</div>
@@ -89,9 +89,10 @@
             👆 Git Hub と連携しておいた。フォルダーの中身はこうなった。
         </talk-balloon>
 
-        <a target="_blank" href="/img/journal/2025-06/202506__program__02-1212-tauri-o1o3o0.png">
-        <img class="scr-shot" src="/img/journal/2025-06/202506__program__02-1212-tauri-o1o3o0.png">
-        </a><br/>
+        <TalkScreenShot
+            :href="journal2Png"
+            alt="cargo checks"
+        />
 
         <talk-balloon
             :src="oton2Src"
@@ -102,9 +103,10 @@
             わたしの PC はCPU処理がビジーだとフリーズすることがあるので、終わるまで待って……。<br>
         </talk-balloon>
 
-        <a target="_blank" href="/img/journal/2025-06/202506__program__02-1216-tauri-o1o4o0.png">
-        <img class="scr-shot" src="/img/journal/2025-06/202506__program__02-1216-tauri-o1o4o0.png">
-        </a><br/>
+        <TalkScreenShot
+            :href="journal3Png"
+            alt="pnpm install"
+        />
 
         <div class="code-b">pnpm install</div>
 
@@ -117,9 +119,10 @@
             上記のコマンドを打鍵。
         </talk-balloon>
 
-        <a target="_blank" href="/img/journal/2025-06/202506__program__02-1220-tauri-o1o5o0.png">
-        <img class="scr-shot" src="/img/journal/2025-06/202506__program__02-1220-tauri-o1o5o0.png">
-        </a><br/>
+        <TalkScreenShot
+            :href="journal4Png"
+            alt="pnpm tauri dev"
+        />
 
         <talk-balloon
             :src="oton2Src"
@@ -140,9 +143,10 @@
             わたしのケースでは、 379 個の大量のプログラムのコンパイルが走るので数分かかる。
         </talk-balloon>
 
-        <a target="_blank" href="/img/journal/2025-06/202506__program__02-1225-tauri-o1o6o0.png">
-        <img class="scr-shot" src="/img/journal/2025-06/202506__program__02-1225-tauri-o1o6o0.png">
-        </a><br/>
+        <TalkScreenShot
+            :href="journal5Png"
+            alt="http://localhost:1420/"
+        />
 
         <talk-balloon
             :src="oton2Src"
@@ -154,9 +158,10 @@
             動作確認に使うには不完全。
         </talk-balloon>
 
-        <a target="_blank" href="/img/journal/2025-06/202506__program__02-1229-tauri-o1o7o0.png">
-        <img class="scr-shot" src="/img/journal/2025-06/202506__program__02-1229-tauri-o1o7o0.png">
-        </a><br/>
+        <TalkScreenShot
+            :href="journal6Png"
+            alt="Welcome to Tauri + Vue"
+        />
 
         <talk-balloon
             :src="oton2Src"
@@ -175,9 +180,10 @@
             じゃあ、テキストボックスと、［保存］ボタン、［開く］ボタンを置いてくれだぜ。
         </talk-balloon>
 
-        <a target="_blank" href="/img/journal/2025-06/202506__program__02-1847-tauri-o1o8o0-mark.png">
-        <img class="scr-shot" src="/img/journal/2025-06/202506__program__02-1847-tauri-o1o8o0-mark.png">
-        </a><br/>
+        <TalkScreenShot
+            :href="journal7Png"
+            alt="<template> tag in src/App.vue"
+        />
 
         <talk-balloon
             :src="oton2Src"
@@ -187,9 +193,10 @@
             👆 📄 <span class="code-w">src/App.vue</span>ファイルの <span class="code-b">&lt;template&gt;</span>タグの中に、いわゆる HTMLタグを打ち込んでいけばいいはずだぜ。
         </talk-balloon>
 
-        <a target="_blank" href="/img/journal/2025-06/202506__program__02-2004-tauri-o1o9o0-mark.png">
-        <img class="scr-shot" src="/img/journal/2025-06/202506__program__02-2004-tauri-o1o9o0-mark.png">
-        </a><br/>
+        <TalkScreenShot
+            :href="journal8Png"
+            alt="Save and Load buttons"
+        />
 
         <talk-balloon
             :src="oton2Src"
@@ -199,9 +206,10 @@
             👆 ひとまず、こんな感じか。
         </talk-balloon>
 
-        <a target="_blank" href="/img/journal/2025-06/202506__program__02-2010-tauri-o1oA10o0.png">
-        <img class="scr-shot" src="/img/journal/2025-06/202506__program__02-2010-tauri-o1oA10o0.png">
-        </a><br/>      
+        <TalkScreenShot
+            :href="journal9Png"
+            alt="24 lines of source code"
+        />
 
         <talk-balloon
             :src="oton2Src"
@@ -219,9 +227,10 @@
             ファイルパスを入れるテキストボックスと、ファイルを選択するダイアログボックスが出てくるボタンが欲しいぜ。
         </talk-balloon>
 
-        <a target="_blank" href="/img/journal/2025-06/202506__program__02-2024-tauri-o1oA11o0.png">
-        <img class="scr-shot" src="/img/journal/2025-06/202506__program__02-2024-tauri-o1oA11o0.png">
-        </a><br/>
+        <TalkScreenShot
+            :href="journal10Png"
+            alt="Text box and buttons for file path"
+        />
 
         <talk-balloon
             :src="oton2Src"
@@ -243,9 +252,11 @@
         </talk-balloon>
 
         <div class="code-b">pnpm tauri add dialog</div>
-        <a target="_blank" href="/img/journal/2025-06/202506__program__02-2116-tauri-o1oA12o0.png">
-        <img class="scr-shot" src="/img/journal/2025-06/202506__program__02-2116-tauri-o1oA12o0.png">
-        </a><br/>
+
+        <TalkScreenShot
+            :href="journal11Png"
+            alt="pnpm tauri add dialog"
+        />
 
         <talk-balloon
             :src="oton2Src"
@@ -255,9 +266,10 @@
             👆 なんか知らんけどエラー出た。
         </talk-balloon>
 
-        <a target="_blank" href="/img/journal/2025-06/202506__program__02-2119-tauri-o1oA13o0-mark.png">
-        <img class="scr-shot" src="/img/journal/2025-06/202506__program__02-2119-tauri-o1oA13o0-mark.png">
-        </a><br/>
+        <TalkScreenShot
+            :href="journal12Png"
+            alt="dialog:default"
+        />
 
         <talk-balloon
             :src="oton2Src"
@@ -269,9 +281,10 @@
             じゃあ<span class="code-b">"dialog:default"</span>を消しといたれ。
         </talk-balloon>
 
-        <a target="_blank" href="/img/journal/2025-06/202506__program__02-2124-tauri-o1oA14o0.png">
-        <img class="scr-shot" src="/img/journal/2025-06/202506__program__02-2124-tauri-o1oA14o0.png">
-        </a><br/>
+        <TalkScreenShot
+            :href="journal13Png"
+            alt="pass command"
+        />
 
         <talk-balloon
             :src="oton2Src"
@@ -281,9 +294,10 @@
             👆 多分、通ったか？
         </talk-balloon>
 
-        <a target="_blank" href="/img/journal/2025-06/202506__program__02-2135-tauri-o1oA15o0.png">
-        <img class="scr-shot" src="/img/journal/2025-06/202506__program__02-2135-tauri-o1oA15o0.png">
-        </a><br/>
+        <TalkScreenShot
+            :href="journal14Png"
+            alt="edit source code"
+        />
 
         <talk-balloon
             :src="oton2Src"
@@ -293,9 +307,10 @@
             👆 こんな感じで改造して……。
         </talk-balloon>
 
-        <a target="_blank" href="/img/journal/2025-06/202506__program__02-2142-tauri-o1oA16o0.png">
-        <img class="scr-shot" src="/img/journal/2025-06/202506__program__02-2142-tauri-o1oA16o0.png">
-        </a><br/>
+        <TalkScreenShot
+            :href="journal15Png"
+            alt="file chooser dialog box"
+        />
 
         <talk-balloon
             :src="oton2Src"
@@ -325,9 +340,10 @@
             これ読んで直しておくかだぜ。
         </talk-balloon>
 
-        <a target="_blank" href="/img/journal/2025-06/202506__program__02-2148-tauri-o1oA17o0-mark.png">
-        <img class="scr-shot" src="/img/journal/2025-06/202506__program__02-2148-tauri-o1oA17o0-mark.png">
-        </a><br/>
+        <TalkScreenShot
+            :href="journal16Png"
+            alt="append 1 line"
+        />
 
         <talk-balloon
             :src="oton2Src"
@@ -356,9 +372,11 @@
         </talk-balloon>
 
         <div class="code-b">pnpm tauri add fs</div><br>
-        <a target="_blank" href="/img/journal/2025-06/202506__program__02-2212-tauri-o1oA18o0.png">
-        <img class="scr-shot" src="/img/journal/2025-06/202506__program__02-2212-tauri-o1oA18o0.png">
-        </a><br/>
+
+        <TalkScreenShot
+            :href="journal17Png"
+            alt="edit source code"
+        />
 
         <talk-balloon
             :src="oton2Src"
@@ -368,9 +386,10 @@
             👆 テキストを読み込む方は上記の通りでいけた。
         </talk-balloon>
 
-        <a target="_blank" href="/img/journal/2025-06/202506__program__02-2309-tauri-o1oA19o0.png">
-        <img class="scr-shot" src="/img/journal/2025-06/202506__program__02-2309-tauri-o1oA19o0.png">
-        </a><br/>
+        <TalkScreenShot
+            :href="journal18Png"
+            alt="write text file"
+        />
 
         <talk-balloon
             :src="oton2Src"
@@ -389,9 +408,10 @@
             📖 <a target="_blank" href="https://tauri.app/plugin/file-system/#examples">Examples</a>
         </talk-balloon>
 
-        <a target="_blank" href="/img/journal/2025-06/202506__program__02-2342-tauri-o1oA20o0.png">
-        <img class="scr-shot" src="/img/journal/2025-06/202506__program__02-2342-tauri-o1oA20o0.png">
-        </a><br/>
+        <TalkScreenShot
+            :href="journal19Png"
+            alt="permissions"
+        />
 
         <talk-balloon
             :src="oton2Src"
@@ -432,6 +452,24 @@
     // ++++++++++++++++++++++++++++
 
     import journal1Png from "/img/journal/2025-06/202506__program__02-1159-tauri-o1o0.png";
+    import journal2Png from "/img/journal/2025-06/202506__program__02-1212-tauri-o1o3o0.png";
+    import journal3Png from "/img/journal/2025-06/202506__program__02-1216-tauri-o1o4o0.png";
+    import journal4Png from "/img/journal/2025-06/202506__program__02-1220-tauri-o1o5o0.png";
+    import journal5Png from "/img/journal/2025-06/202506__program__02-1225-tauri-o1o6o0.png";
+    import journal6Png from "/img/journal/2025-06/202506__program__02-1229-tauri-o1o7o0.png";
+    import journal7Png from "/img/journal/2025-06/202506__program__02-1847-tauri-o1o8o0-mark.png";
+    import journal8Png from "/img/journal/2025-06/202506__program__02-2004-tauri-o1o9o0-mark.png";
+    import journal9Png from "/img/journal/2025-06/202506__program__02-2010-tauri-o1oA10o0.png";
+    import journal10Png from "/img/journal/2025-06/202506__program__02-2024-tauri-o1oA11o0.png";
+    import journal11Png from "/img/journal/2025-06/202506__program__02-2116-tauri-o1oA12o0.png";
+    import journal12Png from "/img/journal/2025-06/202506__program__02-2119-tauri-o1oA13o0-mark.png";
+    import journal13Png from "/img/journal/2025-06/202506__program__02-2124-tauri-o1oA14o0.png";
+    import journal14Png from "/img/journal/2025-06/202506__program__02-2135-tauri-o1oA15o0.png";
+    import journal15Png from "/img/journal/2025-06/202506__program__02-2142-tauri-o1oA16o0.png";
+    import journal16Png from "/img/journal/2025-06/202506__program__02-2148-tauri-o1oA17o0-mark.png";
+    import journal17Png from "/img/journal/2025-06/202506__program__02-2212-tauri-o1oA18o0.png";
+    import journal18Png from "/img/journal/2025-06/202506__program__02-2309-tauri-o1oA19o0.png";
+    import journal19Png from "/img/journal/2025-06/202506__program__02-2342-tauri-o1oA20o0.png";
 
     // ++++++++++++++++++++++++++++++++++
     // + インポート　＞　コンポーネント +
