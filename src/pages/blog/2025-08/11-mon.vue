@@ -6,9 +6,10 @@
     <h3><router-link to="/blog/2025-08/11-mon">[2025-08-11_Mon]</router-link></h3>
     <section class="sec-3">
 
-        <a target="_blank" href="/img/journal/2025-08/202508__warabenture__11-2209-pieChart-o1o0.png">
-            <img class="scr-shot" src="/img/journal/2025-08/202508__warabenture__11-2209-pieChart-o1o0.png">
-        </a><br/>
+        <TalkScreenShot
+            :href="screenShot1Png"
+            alt="ワラベンチャーのトップページに置いた円グラフ"
+        />
 
         <talk-balloon
             :src="oton2Src"
@@ -62,12 +63,15 @@
     // # インポート #
     // ##############
 
+    import screenShot1Png from "/img/journal/2025-08/202508__warabenture__11-2209-pieChart-o1o0.png";
+
     // ++++++++++++++++++++++++++++++++++
     // + インポート　＞　コンポーネント +
     // ++++++++++++++++++++++++++++++++++
 
     import CompatibleDevice from '@/components/CompatibleDevice.vue'
     import TalkBalloon from '@/components/TalkBalloon.vue';
+    import TalkScreenShot from '@/components/TalkScreenShot.vue';
 
 
     // ##########
