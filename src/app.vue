@@ -36,38 +36,38 @@
     :root {
         /** ハイフン２つで始まる名前は、スタイルシートに渡す引数名 */
         /*
-        --warabenture-sec-1-header-bgcolor: darkmagenta;
-        --warabenture-sec-1-header-fgcolor: khaki;
+        --myapplication-sec-1-header-bgcolor: darkmagenta;
+        --myapplication-sec-1-header-fgcolor: khaki;
         */
-        --warabenture-sec-1-header-bgcolor: skyblue;
-        --warabenture-sec-1-header-fgcolor: darkorchid;
-        --warabenture-sec-2-header-bgcolor: skyblue;
-        --warabenture-sec-2-header-fgcolor: darkorchid;
-        --warabenture-sec-3-header-bgcolor: skyblue;
-        --warabenture-sec-3-header-fgcolor: darkorchid;
-        --warabenture-sec-4-header-bgcolor: skyblue;
-        --warabenture-sec-4-header-fgcolor: darkorchid;
-        --warabenture-sec-5-header-bgcolor: skyblue;
-        --warabenture-sec-5-header-fgcolor: darkorchid;
-        --warabenture-sec-6-header-bgcolor: skyblue;
-        --warabenture-sec-6-header-fgcolor: darkorchid;
+        --myapplication-sec-1-header-bgcolor: skyblue;
+        --myapplication-sec-1-header-fgcolor: darkorchid;
+        --myapplication-sec-2-header-bgcolor: skyblue;
+        --myapplication-sec-2-header-fgcolor: darkorchid;
+        --myapplication-sec-3-header-bgcolor: skyblue;
+        --myapplication-sec-3-header-fgcolor: darkorchid;
+        --myapplication-sec-4-header-bgcolor: skyblue;
+        --myapplication-sec-4-header-fgcolor: darkorchid;
+        --myapplication-sec-5-header-bgcolor: skyblue;
+        --myapplication-sec-5-header-fgcolor: darkorchid;
+        --myapplication-sec-6-header-bgcolor: skyblue;
+        --myapplication-sec-6-header-fgcolor: darkorchid;
 
         /* until:2025-09-09
-        --warabenture-sec-1-header-bgcolor: darkorchid;
-        --warabenture-sec-1-header-fgcolor: skyblue;
-        --warabenture-sec-2-header-bgcolor: darkorchid;
-        --warabenture-sec-2-header-fgcolor: skyblue;
-        --warabenture-sec-3-header-bgcolor: darkorchid;
-        --warabenture-sec-3-header-fgcolor: skyblue;
-        --warabenture-sec-4-header-bgcolor: darkorchid;
-        --warabenture-sec-4-header-fgcolor: skyblue;
-        --warabenture-sec-5-header-bgcolor: darkorchid;
-        --warabenture-sec-5-header-fgcolor: skyblue;
-        --warabenture-sec-6-header-bgcolor: darkorchid;
-        --warabenture-sec-6-header-fgcolor: skyblue;
+        --myapplication-sec-1-header-bgcolor: darkorchid;
+        --myapplication-sec-1-header-fgcolor: skyblue;
+        --myapplication-sec-2-header-bgcolor: darkorchid;
+        --myapplication-sec-2-header-fgcolor: skyblue;
+        --myapplication-sec-3-header-bgcolor: darkorchid;
+        --myapplication-sec-3-header-fgcolor: skyblue;
+        --myapplication-sec-4-header-bgcolor: darkorchid;
+        --myapplication-sec-4-header-fgcolor: skyblue;
+        --myapplication-sec-5-header-bgcolor: darkorchid;
+        --myapplication-sec-5-header-fgcolor: skyblue;
+        --myapplication-sec-6-header-bgcolor: darkorchid;
+        --myapplication-sec-6-header-fgcolor: skyblue;
          */
 
-        --warabenture-img-six-sharps: url('/img/warabenture/six-sharps-light-white.png');
+        --myapplication-img-six-sharps: url('/img/application/six-sharps-light-white.png');
     }
 
 </style>
