@@ -13,9 +13,9 @@
         <router-link to="/blog">ブログ</router-link> |
         <router-link to="/minigames">ミニゲーム</router-link> |
         <router-link to="/making">メイキング</router-link> |
-        <router-link to="/coding-style">コーディング・スタイル</router-link> |
-        <router-link to="/team-mirai-supporter">チームみらいサポーター活動</router-link>
+        <router-link to="/coding-style">コーディング・スタイル</router-link>
         <!--
+        <router-link to="/team-mirai-supporter">チームみらいサポーター活動</router-link>
         <router-link to="/wara-city/map">わらシティ</router-link>
         -->
     </nav>
