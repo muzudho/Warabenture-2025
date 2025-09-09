@@ -133,9 +133,10 @@ pnpm tauri dev</pre>
         </talk-balloon>
 
 
-        <a target="_blank" href="/img/journal/2025-07/202507__warabenture__12-1713-csvCleaningOnTauri-o1o0.png">
-            <img class="scr-shot" src="/img/journal/2025-07/202507__warabenture__12-1713-csvCleaningOnTauri-o1o0.png">
-        </a><br/>
+        <TalkScreenShot
+            :href="journal1Png"
+            alt="デスクトップ・アプリケーションの画面"
+        />
 
 
         <talk-balloon
@@ -174,12 +175,19 @@ pnpm tauri dev</pre>
     // # インポート #
     // ##############
 
+    // ++++++++++++++++++++++++++++
+    // + インポート　＞　公開画像 +
+    // ++++++++++++++++++++++++++++
+
+    import journal1Png from "/img/journal/2025-07/202507__warabenture__12-1713-csvCleaningOnTauri-o1o0.png";
+
     // ++++++++++++++++++++++++++++++++++
     // + インポート　＞　コンポーネント +
     // ++++++++++++++++++++++++++++++++++
 
     import CompatibleDevice from '@/components/CompatibleDevice.vue'
     import TalkBalloon from '@/components/TalkBalloon.vue';
+    import TalkScreenShot from '@/components/TalkScreenShot.vue';
 
 
     // ##########
@@ -189,24 +197,12 @@ pnpm tauri dev</pre>
     // よく使う設定をまとめたもの。特に不変のもの。
     //
 
-    import oton1Src from "@/assets/img/202101__character__24-o2o2o3o0.png";
-    const oton1Alt = "きふわらべのお父ん１";
-    const oton1Name = "きふわらべのお父ん";
     import oton2Src from "@/assets/img/talk/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png";
     const oton2Alt = "きふわらべのお父ん２";
     const oton2Name = "きふわらべのお父ん";
-    import kifuwarabe1Src from "@/assets/img/202101__character__28-kifuwarabe-futsu-o2o0.png";
-    const kifuwarabe1Alt = "きふわらべ１";
-    const kifuwarabe1Name = "きふわらべ";
     import kifuwarabe2Src from "@/assets/img/talk/202506__character__01-2013-kifuwarabe-o1o1o0.png";
     const kifuwarabe2Alt = "きふわらべ２";
     const kifuwarabe2Name = "きふわらべ";
-    import hiyoko1Src from "@/assets/img/202108__character__12-ohkina-hiyoko-futsu2-o2o0.png";
-    const hiyoko1Alt = "ひよこ１";
-    const hiyoko1Name = "ひよこ";
-    import hiyoko2Src from "@/assets/img/talk/202506__character__01-2025-hiyoko-o1o1o0.png";
-    const hiyoko2Alt = "ひよこ２";
-    const hiyoko2Name = "ひよこ";
 
 
     // ################
