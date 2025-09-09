@@ -27,8 +27,8 @@
 </template>
 
 <style>
+    @import '@/styles/application.css';
     @import '@/styles/talk-scene.css';
-    @import '@/styles/warabenture.css';
 
     /**
      * NOTE: Vuetify がテーマの機能を持っているので、 plugins/vuetify.ts でもスタイルを設定すること。
