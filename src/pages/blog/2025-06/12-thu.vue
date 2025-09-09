@@ -31,10 +31,12 @@
                 ４７都道府県に対応した変換アプリを作ってくれだぜ。
         </talk-balloon>
 
-        <TalkScreenShot
-            :href="journal1Png"
+
+        <talk-image
+            href="/img/journal/2025-06/202506__tauri__12-2156-csvCleaning-o1o0.png"
             alt="file-list-on-tauri リポジトリーから自動生成ファイルを削除して、それ以外をコピーした csv-cleaning-on-tauri リポジトリー"
         />
+
 
         <talk-balloon
             :src="oton2Src"
@@ -73,19 +75,13 @@
     // # インポート #
     // ##############
 
-    // ++++++++++++++++++++++++++++
-    // + インポート　＞　公開画像 +
-    // ++++++++++++++++++++++++++++
-
-    import journal1Png from "/img/journal/2025-06/202506__tauri__12-2156-csvCleaning-o1o0.png";
-
     // ++++++++++++++++++++++++++++++++++
     // + インポート　＞　コンポーネント +
     // ++++++++++++++++++++++++++++++++++
 
     import CompatibleDevice from '@/components/CompatibleDevice.vue'
     import TalkBalloon from '@/components/TalkBalloon.vue';
-    import TalkScreenShot from '@/components/TalkScreenShot.vue';
+    import TalkImage from '@/components/TalkImage.vue';
 
 
     // ##########
