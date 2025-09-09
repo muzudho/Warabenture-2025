@@ -7,8 +7,8 @@
     <section class="sec-3">
 
 
-        <TalkScreenShot
-            :href="journal1Png"
+        <talk-image
+            href="/img/journal/2025-07/202507__warabenture__25-1412-csvCleaning2OnTauri-o1o0.png"
             alt="レイアウトがスカスカなデスクトップ・アプリの画面"
         />
 
@@ -31,8 +31,8 @@
         </talk-balloon>
 
 
-        <TalkScreenShot
-            :href="journal2Png"
+        <talk-image
+            href="/img/journal/2025-07/202507__warabenture__25-1437-csvCleaning2OnTauri-o1o0.png"
             alt="頑張って隙間を詰めたデスクトップ・アプリの画面"
         />
 
@@ -64,8 +64,8 @@
         </talk-balloon>
 
 
-        <TalkScreenShot
-            :href="journal3Png"
+        <talk-image
+            href="/img/journal/2025-07/202507__warabenture__25-1749-waraCity-o1o0.png"
             alt="わらシティの画面"
         />
 
@@ -795,21 +795,13 @@ sudo certbot --nginx -d warabenture.com -d www.warabenture.com
     // # インポート #
     // ##############
 
-    // ++++++++++++++++++++++++++++
-    // + インポート　＞　公開画像 +
-    // ++++++++++++++++++++++++++++
-
-    import journal1Png from "/img/journal/2025-07/202507__warabenture__25-1412-csvCleaning2OnTauri-o1o0.png";
-    import journal2Png from "/img/journal/2025-07/202507__warabenture__25-1437-csvCleaning2OnTauri-o1o0.png";
-    import journal3Png from "/img/journal/2025-07/202507__warabenture__25-1749-waraCity-o1o0.png";
-
     // ++++++++++++++++++++++++++++++++++
     // + インポート　＞　コンポーネント +
     // ++++++++++++++++++++++++++++++++++
 
     import CompatibleDevice from '@/components/CompatibleDevice.vue'
     import TalkBalloon from '@/components/TalkBalloon.vue';
-    import TalkScreenShot from '@/components/TalkScreenShot.vue';
+    import TalkImage from '@/components/TalkImage.vue';
 
 
     // ##########
@@ -819,21 +811,12 @@ sudo certbot --nginx -d warabenture.com -d www.warabenture.com
     // よく使う設定をまとめたもの。特に不変のもの。
     //
 
-    import oton1Src from "@/assets/img/202101__character__24-o2o2o3o0.png";
-    const oton1Alt = "きふわらべのお父ん１";
-    const oton1Name = "きふわらべのお父ん";
     import oton2Src from "@/assets/img/talk/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png";
     const oton2Alt = "きふわらべのお父ん２";
     const oton2Name = "きふわらべのお父ん";
-    import kifuwarabe1Src from "@/assets/img/202101__character__28-kifuwarabe-futsu-o2o0.png";
-    const kifuwarabe1Alt = "きふわらべ１";
-    const kifuwarabe1Name = "きふわらべ";
     import kifuwarabe2Src from "@/assets/img/talk/202506__character__01-2013-kifuwarabe-o1o1o0.png";
     const kifuwarabe2Alt = "きふわらべ２";
     const kifuwarabe2Name = "きふわらべ";
-    import hiyoko1Src from "@/assets/img/202108__character__12-ohkina-hiyoko-futsu2-o2o0.png";
-    const hiyoko1Alt = "ひよこ１";
-    const hiyoko1Name = "ひよこ";
     import hiyoko2Src from "@/assets/img/talk/202506__character__01-2025-hiyoko-o1o1o0.png";
     const hiyoko2Alt = "ひよこ２";
     const hiyoko2Name = "ひよこ";
