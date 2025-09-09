@@ -6,10 +6,12 @@
     <h3><router-link to="/blog/2025-08/11-mon">[2025-08-11_Mon]</router-link></h3>
     <section class="sec-3">
 
-        <TalkScreenShot
-            :href="journal1Png"
+
+        <talk-image
+            href="/img/journal/2025-08/202508__warabenture__11-2209-pieChart-o1o0.png"
             alt="ワラベンチャーのトップページに置いた円グラフ"
         />
+
 
         <talk-balloon
             :src="oton2Src"
@@ -63,19 +65,13 @@
     // # インポート #
     // ##############
 
-    // ++++++++++++++++++++++++++++
-    // + インポート　＞　公開画像 +
-    // ++++++++++++++++++++++++++++
-
-    import journal1Png from "/img/journal/2025-08/202508__warabenture__11-2209-pieChart-o1o0.png";
-
     // ++++++++++++++++++++++++++++++++++
     // + インポート　＞　コンポーネント +
     // ++++++++++++++++++++++++++++++++++
 
     import CompatibleDevice from '@/components/CompatibleDevice.vue'
     import TalkBalloon from '@/components/TalkBalloon.vue';
-    import TalkScreenShot from '@/components/TalkScreenShot.vue';
+    import TalkImage from '@/components/TalkImage.vue';
 
 
     // ##########
