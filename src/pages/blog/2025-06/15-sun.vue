@@ -6,10 +6,12 @@
     <h3><router-link to="/blog/2025-06/15-sun">[2025-06-15_Sun]</router-link></h3>
     <section class="sec-3">
 
-        <TalkScreenShot
-            :href="journal1Png"
+
+        <talk-image
+            href="/img/journal/2025-06/202506__tauri__15-0059-CsvCleaningOnTauri-o1o0.png"
             alt="前（2025-06-12_Thu）言ってた都道府県をカンマで区切るツールの画面"
         />
+
 
         <talk-balloon
             :src="oton2Src"
@@ -74,10 +76,12 @@
                 Grok がいくつか知ってたが、とりあえず <a target="_blank" href="https://qgis.org/">QGIS</a> を使ってみるかだぜ。
         </talk-balloon>
 
-        <TalkScreenShot
-            :href="journal2Png"
+
+        <talk-image
+            href="/img/journal/2025-06/202506__screenshot__15-1901-QGIS-o1o0.png"
             alt="QGISの画面"
         />
+
 
         <talk-balloon
             :src="oton2Src"
@@ -103,10 +107,12 @@
                 使えねー。じゃあ［国土地理院］の方を見てみるか……。
         </talk-balloon>
 
-        <TalkScreenShot
-            :href="journal3Png"
+
+        <talk-image
+            href="/img/journal/2025-06/202506__screenshot__15-1928-国土地理院-o1o0.png"
             alt="国土地理院のウェブサイトの地図の画面"
         />
+
 
         <talk-balloon
             :src="oton2Src"
@@ -140,10 +146,12 @@
                 じゃあ地図表示は諦めて、データ・クリーニングの方に重点的に取り掛かるかだぜ。
         </talk-balloon>
 
-        <TalkScreenShot
-            :href="journal4Png"
+
+        <talk-image
+            href="/img/journal/2025-06/202506__screenshot__15-2046-埼玉県_市区町村別_世帯数-o1o0.png"
             alt="令和7年5月1日現在の［埼玉県］の市区町村別世帯数・人口の表"
         />
+
 
         <talk-balloon
             :src="kifuwarabe2Src"
@@ -157,10 +165,12 @@
                 行を揃えてデータを見せてくれるツールを作ってくれだぜ。
         </talk-balloon>
 
-        <TalkScreenShot
-            :href="journal5Png"
+
+        <talk-image
+            href="/img/journal/2025-06/202506__screenshot__15-2109-２表のJoin-o1o0.png"
             alt="Excel のシート"
         />
+
 
         <talk-balloon
             :src="oton2Src"
@@ -175,10 +185,12 @@
                 </ul>
         </talk-balloon>
 
-        <TalkScreenShot
-            :href="journal6Png"
+
+        <talk-image
+            href="/img/journal/2025-06/202506__screenshot__15-2113-２表のJoin2-o1o0.png"
             alt="Excel のシート"
         />
+
 
         <talk-balloon
             :src="oton2Src"
@@ -189,10 +201,12 @@
                 浦和の浦がひらがなより文字コードが小さいのが意味わからんが……。
         </talk-balloon>
 
-        <TalkScreenShot
-            :href="journal7Png"
+
+        <talk-image
+            href="/img/journal/2025-06/202506__screenshot__15-2121-２表のJoin3-o1o0.png"
             alt="Excel のシート"
         />
+
 
         <talk-balloon
             :src="oton2Src"
@@ -202,10 +216,12 @@
                 <span class="font-x2">👆</span>手で振り分けたぜ。
         </talk-balloon>
 
-        <TalkScreenShot
-            :href="journal8Png"
+
+        <talk-image
+            href="/img/journal/2025-06/202506__screenshot__15-2128-２表のJoin4-o1o0.png"
             alt="Excel のシート"
         />
+
 
         <talk-balloon
             :src="oton2Src"
@@ -305,26 +321,13 @@ cargo clean
     // # インポート #
     // ##############
 
-    // ++++++++++++++++++++++++++++
-    // + インポート　＞　公開画像 +
-    // ++++++++++++++++++++++++++++
-
-    import journal1Png from "/img/journal/2025-06/202506__tauri__15-0059-CsvCleaningOnTauri-o1o0.png";
-    import journal2Png from "/img/journal/2025-06/202506__screenshot__15-1901-QGIS-o1o0.png";
-    import journal3Png from "/img/journal/2025-06/202506__screenshot__15-1928-国土地理院-o1o0.png";
-    import journal4Png from "/img/journal/2025-06/202506__screenshot__15-2046-埼玉県_市区町村別_世帯数-o1o0.png";
-    import journal5Png from "/img/journal/2025-06/202506__screenshot__15-2109-２表のJoin-o1o0.png";
-    import journal6Png from "/img/journal/2025-06/202506__screenshot__15-2113-２表のJoin2-o1o0.png";
-    import journal7Png from "/img/journal/2025-06/202506__screenshot__15-2121-２表のJoin3-o1o0.png";
-    import journal8Png from "/img/journal/2025-06/202506__screenshot__15-2128-２表のJoin4-o1o0.png";
-
     // ++++++++++++++++++++++++++++++++++
     // + インポート　＞　コンポーネント +
     // ++++++++++++++++++++++++++++++++++
 
     import CompatibleDevice from '@/components/CompatibleDevice.vue'
     import TalkBalloon from '@/components/TalkBalloon.vue';
-    import TalkScreenShot from '@/components/TalkScreenShot.vue';
+    import TalkImage from '@/components/TalkImage.vue';
 
 
     // ##########
