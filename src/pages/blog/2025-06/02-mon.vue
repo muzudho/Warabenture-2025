@@ -58,9 +58,10 @@
             インストールの説明は省くからな。
         </talk-balloon>
 
-        <a target="_blank" href="/img/journal/2025-06/202506__program__02-1159-tauri-o1o0.png">
-        <img class="scr-shot" src="/img/journal/2025-06/202506__program__02-1159-tauri-o1o0.png">
-        </a><br/>
+        <TalkScreenShot
+            :href="journal1Png"
+            alt="ワラベンチャーのトップページに置いた円グラフ"
+        />
 
         <div class="code-b">pnpm create tauri-app</div>
 
@@ -426,12 +427,19 @@
     // # インポート #
     // ##############
 
+    // ++++++++++++++++++++++++++++
+    // + インポート　＞　公開画像 +
+    // ++++++++++++++++++++++++++++
+
+    import journal1Png from "/img/journal/2025-06/202506__program__02-1159-tauri-o1o0.png";
+
     // ++++++++++++++++++++++++++++++++++
     // + インポート　＞　コンポーネント +
     // ++++++++++++++++++++++++++++++++++
 
     import CompatibleDevice from '@/components/CompatibleDevice.vue'
     import TalkBalloon from '@/components/TalkBalloon.vue';
+    import TalkScreenShot from '@/components/TalkScreenShot.vue';
 
 
     // ##########

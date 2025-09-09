@@ -7,7 +7,7 @@
     <section class="sec-3">
 
         <TalkScreenShot
-            :href="screenShot1Png"
+            :href="journal1Png"
             alt="ワラベンチャーのトップページに置いた円グラフ"
         />
 
@@ -63,7 +63,11 @@
     // # インポート #
     // ##############
 
-    import screenShot1Png from "/img/journal/2025-08/202508__warabenture__11-2209-pieChart-o1o0.png";
+    // ++++++++++++++++++++++++++++
+    // + インポート　＞　公開画像 +
+    // ++++++++++++++++++++++++++++
+
+    import journal1Png from "/img/journal/2025-08/202508__warabenture__11-2209-pieChart-o1o0.png";
 
     // ++++++++++++++++++++++++++++++++++
     // + インポート　＞　コンポーネント +
