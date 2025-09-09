@@ -6,7 +6,6 @@
     <h3><router-link to="/blog/2025-06/04-wed">[2025-06-04_Wed]</router-link></h3>
     <section class="sec-3">
 
-
         <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
@@ -15,16 +14,15 @@
                 👇 今日は Grok に聞いて、コードのワーニングを掃除しただけだぜ。
         </talk-balloon>
 
+        <TalkScreenShot
+            :href="journal1Png"
+            alt="snake_case を camelCase に変換"
+        />
 
-        <a target="_blank" href="/img/journal/2025-06/202506__program__04-2248-tauri-o2oA15o0.png">
-            <img class="scr-shot" src="/img/journal/2025-06/202506__program__04-2248-tauri-o2oA15o0.png">
-        </a><br/>
-
-
-        <a target="_blank" href="/img/journal/2025-06/202506__program__04-2249-tauri-o2oA16o0.png">
-        <img class="scr-shot" src="/img/journal/2025-06/202506__program__04-2249-tauri-o2oA16o0.png">
-        </a><br/>
-
+        <TalkScreenShot
+            :href="journal2Png"
+            alt="snake_case を camelCase に変換"
+        />
 
         <talk-balloon
             :src="oton2Src"
@@ -52,12 +50,20 @@
     // # インポート #
     // ##############
 
+    // ++++++++++++++++++++++++++++
+    // + インポート　＞　公開画像 +
+    // ++++++++++++++++++++++++++++
+
+    import journal1Png from "/img/journal/2025-06/202506__program__04-2248-tauri-o2oA15o0.png";
+    import journal2Png from "/img/journal/2025-06/202506__program__04-2249-tauri-o2oA16o0.png";
+
     // ++++++++++++++++++++++++++++++++++
     // + インポート　＞　コンポーネント +
     // ++++++++++++++++++++++++++++++++++
 
     import CompatibleDevice from '@/components/CompatibleDevice.vue'
     import TalkBalloon from '@/components/TalkBalloon.vue';
+    import TalkScreenShot from '@/components/TalkScreenShot.vue';
 
 
     // ##########
