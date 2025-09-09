@@ -6,11 +6,10 @@
     <h3><router-link to="/blog/2025-06/15-sun">[2025-06-15_Sun]</router-link></h3>
     <section class="sec-3">
 
-
-        <a target="_blank" href="/img/journal/2025-06/202506__tauri__15-0059-CsvCleaningOnTauri-o1o0.png">
-            <img class="scr-shot" src="/img/journal/2025-06/202506__tauri__15-0059-CsvCleaningOnTauri-o1o0.png">
-        </a><br/>
-
+        <TalkScreenShot
+            :href="journal1Png"
+            alt="前（2025-06-12_Thu）言ってた都道府県をカンマで区切るツールの画面"
+        />
 
         <talk-balloon
             :src="oton2Src"
@@ -20,7 +19,6 @@
                 <span class="font-x2">👆</span>前（2025-06-12_Thu）言ってたツールを作ったぜ。
         </talk-balloon>
 
-
         <talk-balloon
             :src="kifuwarabe2Src"
             :alt="kifuwarabe2Alt"
@@ -28,7 +26,6 @@
             :device="compatibleDevice1Ref?.device">
                 おつ。
         </talk-balloon>
-
 
         <talk-balloon
             :src="kifuwarabe2Src"
@@ -38,7 +35,6 @@
                 じゃあ次の課題だぜ。<br>
                 埼玉県新座市内の丁目、番地の形を図形として切り出して表示するソフトを作ってくれだぜ。
         </talk-balloon>
-
 
         <talk-balloon
             :src="oton2Src"
@@ -52,7 +48,6 @@
                 </ul>
         </talk-balloon>
 
-
         <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
@@ -61,7 +56,6 @@
                 ［国土地理院］の方は丁目の精度までだから、残るのは［G空間情報センター］の一択だぜ。<br>
                 ［G空間情報センター］の地図データは、精度や形式が揃ったものではなく、バラバラだそうだぜ。
         </talk-balloon>
-
 
         <talk-balloon
             :src="oton2Src"
@@ -72,7 +66,6 @@
                 <a target="_blank" href="https://www.geospatial.jp/ckan/dataset/aigid-moj-11230/resource/00e54419-fb2a-4ea1-aac1-00c8675d9787">11230_新座市_公共座標9系_筆R_2022.geojson</a>
         </talk-balloon>
 
-
         <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
@@ -81,11 +74,10 @@
                 Grok がいくつか知ってたが、とりあえず <a target="_blank" href="https://qgis.org/">QGIS</a> を使ってみるかだぜ。
         </talk-balloon>
 
-
-        <a target="_blank" href="/img/journal/2025-06/202506__screenshot__15-1901-QGIS-o1o0.png">
-            <img class="scr-shot" src="/img/journal/2025-06/202506__screenshot__15-1901-QGIS-o1o0.png">
-        </a><br/>
-
+        <TalkScreenShot
+            :href="journal2Png"
+            alt="QGISの画面"
+        />
 
         <talk-balloon
             :src="oton2Src"
@@ -95,7 +87,6 @@
                 <span class="font-x2">👆</span>あれっ、思ったような地図と違う……。
         </talk-balloon>
 
-
         <talk-balloon
             :src="hiyoko2Src"
             :alt="hiyoko2Alt"
@@ -103,7 +94,6 @@
             :device="compatibleDevice1Ref?.device">
                 不動産屋が登記した土地しか入ってないんじゃないの？
         </talk-balloon>
-
 
         <talk-balloon
             :src="oton2Src"
@@ -113,11 +103,10 @@
                 使えねー。じゃあ［国土地理院］の方を見てみるか……。
         </talk-balloon>
 
-
-        <a target="_blank" href="/img/journal/2025-06/202506__screenshot__15-1928-国土地理院-o1o0.png">
-            <img class="scr-shot" src="/img/journal/2025-06/202506__screenshot__15-1928-国土地理院-o1o0.png">
-        </a><br/>
-
+        <TalkScreenShot
+            :href="journal3Png"
+            alt="国土地理院のウェブサイトの地図の画面"
+        />
 
         <talk-balloon
             :src="oton2Src"
@@ -127,7 +116,6 @@
                 <span class="font-x2">👆</span>この地図をどうやって <span class="code-w">.geojson</span> 形式に変換するんだぜ？
         </talk-balloon>
 
-
         <talk-balloon
             :src="kifuwarabe2Src"
             :alt="kifuwarabe2Alt"
@@ -135,7 +123,6 @@
             :device="compatibleDevice1Ref?.device">
                 とりあえず左のサイドメニューの保存ボタンを押してみろだぜ。
         </talk-balloon>
-
 
         <talk-balloon
             :src="oton2Src"
@@ -145,7 +132,6 @@
                 <span class="code-w">.json</span> 形式では保存できるが、<span class="code-w">.geojson</span> 形式ではなかったぜ。
         </talk-balloon>
 
-
         <talk-balloon
             :src="kifuwarabe2Src"
             :alt="kifuwarabe2Alt"
@@ -154,11 +140,10 @@
                 じゃあ地図表示は諦めて、データ・クリーニングの方に重点的に取り掛かるかだぜ。
         </talk-balloon>
 
-
-        <a target="_blank" href="/img/journal/2025-06/202506__screenshot__15-2046-埼玉県_市区町村別_世帯数-o1o0.png">
-            <img class="scr-shot" src="/img/journal/2025-06/202506__screenshot__15-2046-埼玉県_市区町村別_世帯数-o1o0.png">
-        </a><br/>
-
+        <TalkScreenShot
+            :href="journal4Png"
+            alt="令和7年5月1日現在の［埼玉県］の市区町村別世帯数・人口の表"
+        />
 
         <talk-balloon
             :src="kifuwarabe2Src"
@@ -172,11 +157,10 @@
                 行を揃えてデータを見せてくれるツールを作ってくれだぜ。
         </talk-balloon>
 
-
-        <a target="_blank" href="/img/journal/2025-06/202506__screenshot__15-2109-２表のJoin-o1o0.png">
-            <img class="scr-shot" src="/img/journal/2025-06/202506__screenshot__15-2109-２表のJoin-o1o0.png">
-        </a><br/>
-
+        <TalkScreenShot
+            :href="journal5Png"
+            alt="Excel のシート"
+        />
 
         <talk-balloon
             :src="oton2Src"
@@ -191,11 +175,10 @@
                 </ul>
         </talk-balloon>
 
-
-        <a target="_blank" href="/img/journal/2025-06/202506__screenshot__15-2113-２表のJoin2-o1o0.png">
-            <img class="scr-shot" src="/img/journal/2025-06/202506__screenshot__15-2113-２表のJoin2-o1o0.png">
-        </a><br/>
-
+        <TalkScreenShot
+            :href="journal6Png"
+            alt="Excel のシート"
+        />
 
         <talk-balloon
             :src="oton2Src"
@@ -206,11 +189,10 @@
                 浦和の浦がひらがなより文字コードが小さいのが意味わからんが……。
         </talk-balloon>
 
-
-        <a target="_blank" href="/img/journal/2025-06/202506__screenshot__15-2121-２表のJoin3-o1o0.png">
-            <img class="scr-shot" src="/img/journal/2025-06/202506__screenshot__15-2121-２表のJoin3-o1o0.png">
-        </a><br/>
-
+        <TalkScreenShot
+            :href="journal7Png"
+            alt="Excel のシート"
+        />
 
         <talk-balloon
             :src="oton2Src"
@@ -220,11 +202,10 @@
                 <span class="font-x2">👆</span>手で振り分けたぜ。
         </talk-balloon>
 
-
-        <a target="_blank" href="/img/journal/2025-06/202506__screenshot__15-2128-２表のJoin4-o1o0.png">
-            <img class="scr-shot" src="/img/journal/2025-06/202506__screenshot__15-2128-２表のJoin4-o1o0.png">
-        </a><br/>
-
+        <TalkScreenShot
+            :href="journal8Png"
+            alt="Excel のシート"
+        />
 
         <talk-balloon
             :src="oton2Src"
@@ -235,7 +216,6 @@
                 そして、［二表仮番］という名前で列を作って、連番を振るぜ。
         </talk-balloon>
 
-
         <talk-balloon
             :src="hiyoko2Src"
             :alt="hiyoko2Alt"
@@ -243,7 +223,6 @@
             :device="compatibleDevice1Ref?.device">
                 変更前の列名は残しておかないと、あとでどの行だったのかわからなくなるんじゃないの？
         </talk-balloon>
-
 
         <talk-balloon
             :src="oton2Src"
@@ -253,7 +232,6 @@
                 そうか、古い列名は残しておいてくれだぜ。
         </talk-balloon>
 
-
         <talk-balloon
             :src="kifuwarabe2Src"
             :alt="kifuwarabe2Alt"
@@ -261,7 +239,6 @@
             :device="compatibleDevice1Ref?.device">
                 じゃあ、今回手で行った操作を自動化するアプリを作ってくれだぜ。
         </talk-balloon>
-
 
         <talk-balloon
             :src="oton2Src"
@@ -271,7 +248,6 @@
                 アプリケーションの名前は <span class="code-w">column-names-sync-on-tauri</span> とかでいいかな。
         </talk-balloon>
 
-
         <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
@@ -280,7 +256,6 @@
                 あれっ？ Cドライブの残り容量が 5 GB しかない！？
         </talk-balloon>
 
-
         <talk-balloon
             :src="kifuwarabe2Src"
             :alt="kifuwarabe2Alt"
@@ -288,7 +263,6 @@
             :device="compatibleDevice1Ref?.device">
                 Tauri は debug フォルダーがバカでかいそうだぜ。
         </talk-balloon>
-
 
         <talk-balloon
             :src="oton2Src"
@@ -299,14 +273,12 @@
                 以下のコードをさくっと実行。
         </talk-balloon>
 
-
         <div class="code-b">
 <pre>
 cd src-tauri
 cargo clean
 </pre>
         </div>
-
 
         <talk-balloon
             :src="oton2Src"
@@ -316,7 +288,6 @@ cargo clean
                 リリースもデバッグもどちらも含めて 14.3 GiB もファイルが消えた……。
         </talk-balloon>
 
-
         <talk-balloon
             :src="kifuwarabe2Src"
             :alt="kifuwarabe2Alt"
@@ -324,7 +295,6 @@ cargo clean
             :device="compatibleDevice1Ref?.device">
                 Tauri 恐ろしいな……。
         </talk-balloon>
-
 
     </section>
 </template>
@@ -335,12 +305,26 @@ cargo clean
     // # インポート #
     // ##############
 
+    // ++++++++++++++++++++++++++++
+    // + インポート　＞　公開画像 +
+    // ++++++++++++++++++++++++++++
+
+    import journal1Png from "/img/journal/2025-06/202506__tauri__15-0059-CsvCleaningOnTauri-o1o0.png";
+    import journal2Png from "/img/journal/2025-06/202506__screenshot__15-1901-QGIS-o1o0.png";
+    import journal3Png from "/img/journal/2025-06/202506__screenshot__15-1928-国土地理院-o1o0.png";
+    import journal4Png from "/img/journal/2025-06/202506__screenshot__15-2046-埼玉県_市区町村別_世帯数-o1o0.png";
+    import journal5Png from "/img/journal/2025-06/202506__screenshot__15-2109-２表のJoin-o1o0.png";
+    import journal6Png from "/img/journal/2025-06/202506__screenshot__15-2113-２表のJoin2-o1o0.png";
+    import journal7Png from "/img/journal/2025-06/202506__screenshot__15-2121-２表のJoin3-o1o0.png";
+    import journal8Png from "/img/journal/2025-06/202506__screenshot__15-2128-２表のJoin4-o1o0.png";
+
     // ++++++++++++++++++++++++++++++++++
     // + インポート　＞　コンポーネント +
     // ++++++++++++++++++++++++++++++++++
 
     import CompatibleDevice from '@/components/CompatibleDevice.vue'
     import TalkBalloon from '@/components/TalkBalloon.vue';
+    import TalkScreenShot from '@/components/TalkScreenShot.vue';
 
 
     // ##########
@@ -350,21 +334,12 @@ cargo clean
     // よく使う設定をまとめたもの。特に不変のもの。
     //
 
-    import oton1Src from "@/assets/img/202101__character__24-o2o2o3o0.png";
-    const oton1Alt = "きふわらべのお父ん１";
-    const oton1Name = "きふわらべのお父ん";
     import oton2Src from "@/assets/img/talk/202506__character__01-1951-kifuwarabeNoOton-o1o2o0.png";
     const oton2Alt = "きふわらべのお父ん２";
     const oton2Name = "きふわらべのお父ん";
-    import kifuwarabe1Src from "@/assets/img/202101__character__28-kifuwarabe-futsu-o2o0.png";
-    const kifuwarabe1Alt = "きふわらべ１";
-    const kifuwarabe1Name = "きふわらべ";
     import kifuwarabe2Src from "@/assets/img/talk/202506__character__01-2013-kifuwarabe-o1o1o0.png";
     const kifuwarabe2Alt = "きふわらべ２";
     const kifuwarabe2Name = "きふわらべ";
-    import hiyoko1Src from "@/assets/img/202108__character__12-ohkina-hiyoko-futsu2-o2o0.png";
-    const hiyoko1Alt = "ひよこ１";
-    const hiyoko1Name = "ひよこ";
     import hiyoko2Src from "@/assets/img/talk/202506__character__01-2025-hiyoko-o1o1o0.png";
     const hiyoko2Alt = "ひよこ２";
     const hiyoko2Name = "ひよこ";
