@@ -46,10 +46,12 @@
             調査を重めに見て、エフォート（作業にかかる時間見積）は 2 ってところねえ。
         </talk-balloon>
 
-        <TalkScreenShot
-            :href="journal1Png"
+
+        <talk-image
+            href="/img/journal/2025-06/202506__program__03-1049-tauri-o2o1o0.png"
             alt="ファイルをコピーした"
         />
+
 
         <talk-balloon
             :src="oton2Src"
@@ -59,10 +61,12 @@
             👆 昨日作ったプログラムから、<span class="code-b">.git</span>と<span class="code-b">node_modules</span>以外のフォルダーとファイルをコピーするぜ。
         </talk-balloon>
 
-        <TalkScreenShot
-            :href="journal2Png"
+
+        <talk-image
+            href="/img/journal/2025-06/202506__program__03-1056-tauri-o2o2o0-mark.png"
             alt="file-list-on-tauri フォルダー作成"
         />
+
 
         <talk-balloon
             :src="oton2Src"
@@ -72,10 +76,12 @@
             👆 📁<span class="code-b">file-list-on-tauri</span>を作って、中身を貼り付け。
         </talk-balloon>
 
-        <TalkScreenShot
-            :href="journal3Png"
+        
+        <talk-image
+            href="/img/journal/2025-06/202506__program__03-1109-tauri-o2o3o0-mark.png"
             alt="file-list-on-tauri フォルダーをVSCodeで開く"
         />
+
 
         <talk-balloon
             :src="oton2Src"
@@ -85,10 +91,12 @@
             👆 そのフォルダーを VSCode で開くぜ。
         </talk-balloon>
 
-        <TalkScreenShot
-            :href="journal4Png"
+
+        <talk-image
+            href="/img/journal/2025-06/202506__program__03-1127-tauri-o2o4o0-mark.png"
             alt="git init"
         />
+
 
         <div class="code-b">git init</div><br>
 
@@ -126,10 +134,12 @@
             コミットってのはファイルを置いたぐらいの感覚を持っていればいい。
         </talk-balloon>
 
-        <TalkScreenShot
-            :href="journal5Png"
+
+        <talk-image
+            href="/img/journal/2025-06/202506__program__03-1140-tauri-o2o5o0-mark.png"
             alt="Git Hub リモート・リポジトリー"
         />
+
 
         <talk-balloon
             :src="oton2Src"
@@ -140,10 +150,12 @@
             ［ローカル・リポジトリー］との紐付け方法の説明が書いてあるぜ。
         </talk-balloon>
 
-        <TalkScreenShot
-            :href="journal6Png"
+
+        <talk-image
+            href="/img/journal/2025-06/202506__program__03-1146-tauri-o2o6o0-mark.png"
             alt="Git Hub リモート・リポジトリーに書いてあるコマンドを打鍵"
         />
+
 
         <div class="code-b">
             git remote add origin https://github.com/muzudho/file-list-on-tauri.git<br>
@@ -161,10 +173,12 @@
                 ［ブランチ］を選び、そこへ［ローカル・リポジトリー］のファイルをプッシュしたぜ。
         </talk-balloon>
 
-        <TalkScreenShot
-            :href="journal7Png"
+
+       <talk-image
+            href="/img/journal/2025-06/202506__program__03-1150-tauri-o2o7o0.png"
             alt="Git Hub リモート・リポジトリーにソースコードを置いた"
         />
+
 
         <talk-balloon
             :src="oton2Src"
@@ -187,10 +201,12 @@
             📁<span class="code-b">node_modules</span> が自動生成されるぜ。
         </talk-balloon>
 
-        <TalkScreenShot
-            :href="journal8Png"
+
+       <talk-image
+            href="/img/journal/2025-06/202506__program__03-1215-tauri-o2o8o0-mark.png"
             alt="src-tauri/tauri.conf.jsonファイルの内容を編集"
         />
+
 
         <talk-balloon
             :src="oton2Src"
@@ -223,10 +239,12 @@
             開発モードでデスクトップアプリが起動するぜ。
         </talk-balloon>
 
-        <TalkScreenShot
-            :href="journal9Png"
+
+       <talk-image
+            href="/img/journal/2025-06/202506__program__03-1221-tauri-o2o9o0.png"
             alt="デスクトップ・アプリの画面"
         />
+
 
         <talk-balloon
             :src="oton2Src"
@@ -254,10 +272,12 @@
             バックエンドの Tauri フレームワークを使うんだろな、なら言語は Rust か？
         </talk-balloon>
 
-        <TalkScreenShot
-            :href="journal10Png"
+
+       <talk-image
+            href="/img/journal/2025-06/202506__program__03-1922-tauri-o2oA10o0.png"
             alt="Rustの関数をTypeScriptから呼び出す"
         />
+
 
         <talk-balloon
             :src="oton2Src"
@@ -268,10 +288,12 @@
             Rust で定義している、ファイル一覧を読取る<span class="code-b">get_file_names</span>関数を TpyeScript 側から呼び出しているぜ。
         </talk-balloon>
 
-        <TalkScreenShot
-            :href="journal11Png"
+
+       <talk-image
+            href="/img/journal/2025-06/202506__program__03-1928-tauri-o2oA11o0.png"
             alt="invoke_handler関数"
         />
+
 
         <talk-balloon
             :src="oton2Src"
@@ -282,10 +304,12 @@
             <span class="code-b">invoke_handler</span>ってあたりに関数の名前を追加するのを忘れてはいけないぜ。
         </talk-balloon>
 
-        <TalkScreenShot
-            :href="journal12Png"
+
+       <talk-image
+            href="/img/journal/2025-06/202506__program__03-1937-tauri-o2oA12o0.png"
             alt="ファイル名一覧のカンマ区切り"
         />
+
 
         <talk-balloon
             :src="oton2Src"
@@ -348,10 +372,12 @@
             👆 リストボックスに項目を並べる考え方は、上記のコードで示したぜ。
         </talk-balloon>
 
-        <TalkScreenShot
-            :href="journal13Png"
+
+       <talk-image
+            href="/img/journal/2025-06/202506__program__03-2035-tauri-o2oA13o0.png"
             alt="更新したソースコード"
         />
+
 
         <talk-balloon
             :src="oton2Src"
@@ -361,10 +387,12 @@
             👆 じゃあ、ソースコードは上記な感じで更新。
         </talk-balloon>
 
-        <TalkScreenShot
-            :href="journal14Png"
+
+       <talk-image
+            href="/img/journal/2025-06/202506__program__03-2049-tauri-o2oA14o0.png"
             alt="リストボックスにファイル名が入った"
         />
+
 
         <talk-balloon
             :src="oton2Src"
@@ -403,31 +431,13 @@
     // # インポート #
     // ##############
 
-    // ++++++++++++++++++++++++++++
-    // + インポート　＞　公開画像 +
-    // ++++++++++++++++++++++++++++
-
-    import journal1Png from "/img/journal/2025-06/202506__program__03-1049-tauri-o2o1o0.png";
-    import journal2Png from "/img/journal/2025-06/202506__program__03-1056-tauri-o2o2o0-mark.png";
-    import journal3Png from "/img/journal/2025-06/202506__program__03-1109-tauri-o2o3o0-mark.png";
-    import journal4Png from "/img/journal/2025-06/202506__program__03-1127-tauri-o2o4o0-mark.png";
-    import journal5Png from "/img/journal/2025-06/202506__program__03-1140-tauri-o2o5o0-mark.png";
-    import journal6Png from "/img/journal/2025-06/202506__program__03-1146-tauri-o2o6o0-mark.png";
-    import journal7Png from "/img/journal/2025-06/202506__program__03-1150-tauri-o2o7o0.png";
-    import journal8Png from "/img/journal/2025-06/202506__program__03-1215-tauri-o2o8o0-mark.png";
-    import journal9Png from "/img/journal/2025-06/202506__program__03-1221-tauri-o2o9o0.png";
-    import journal10Png from "/img/journal/2025-06/202506__program__03-1922-tauri-o2oA10o0.png";
-    import journal11Png from "/img/journal/2025-06/202506__program__03-1928-tauri-o2oA11o0.png";
-    import journal12Png from "/img/journal/2025-06/202506__program__03-1937-tauri-o2oA12o0.png";
-    import journal13Png from "/img/journal/2025-06/202506__program__03-2035-tauri-o2oA13o0.png";
-    import journal14Png from "/img/journal/2025-06/202506__program__03-2049-tauri-o2oA14o0.png";
-
     // ++++++++++++++++++++++++++++++++++
     // + インポート　＞　コンポーネント +
     // ++++++++++++++++++++++++++++++++++
 
     import CompatibleDevice from '@/components/CompatibleDevice.vue'
     import TalkBalloon from '@/components/TalkBalloon.vue';
+    import TalkImage from '@/components/TalkImage.vue';
     import TalkScreenShot from '@/components/TalkScreenShot.vue';
 
 
