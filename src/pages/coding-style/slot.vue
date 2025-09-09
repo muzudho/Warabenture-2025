@@ -374,8 +374,9 @@
                 👆 Visual Studio Code （略称：VSCode）を使ってると、以下のようなエラーメッセージが出るんだけど？<br/>
         </talk-balloon>
 
-        <TalkScreenShot
-            :href="journal1Png"
+
+        <talk-image
+            href="/img/coding-style/202509__warabenture__08-2136-slotError-o1o0.jpg"
             alt="Property 'author' does not exist on type '{}'. ts-plugin(2339) [Ln 349, Col 28]"
         />
 
@@ -628,12 +629,6 @@ pnpm add -D @tauri-apps/cli@latest
 
     import { ref } from "vue";
 
-    // ++++++++++++++++++++++++++++
-    // + インポート　＞　公開画像 +
-    // ++++++++++++++++++++++++++++
-
-    import journal1Png from "/img/coding-style/202509__warabenture__08-2136-slotError-o1o0.jpg";
-
     // ++++++++++++++++++++++++++++++++++
     // + インポート　＞　コンポーネント +
     // ++++++++++++++++++++++++++++++++++
@@ -647,7 +642,7 @@ pnpm add -D @tauri-apps/cli@latest
     import No1o3o0Child from '@/components/coding-style/no-1-3-0-child.vue';
     import SourceLink from '@/components/SourceLink.vue';
     import TalkBalloon from '@/components/TalkBalloon.vue';
-    import TalkScreenShot from '@/components/TalkScreenShot.vue';
+    import TalkImage from '@/components/TalkImage.vue';
     import TheFooter from './the-footer.vue';
     import TheHeader from './the-header.vue';
 
