@@ -438,7 +438,6 @@
     import CompatibleDevice from '@/components/CompatibleDevice.vue'
     import TalkBalloon from '@/components/TalkBalloon.vue';
     import TalkImage from '@/components/TalkImage.vue';
-    import TalkScreenShot from '@/components/TalkScreenShot.vue';
 
 
     // ##########
