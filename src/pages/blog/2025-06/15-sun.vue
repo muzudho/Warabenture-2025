@@ -335,17 +335,12 @@ cargo clean
     // # インポート #
     // ##############
 
-    // ++++++++++++++++++
-    // + コンポーネント +
-    // ++++++++++++++++++
-
-    import TalkBalloon from '../../../components/TalkBalloon.vue';
-
     // ++++++++++++++++++++++++++++++++++
-    // + コンポーネント　＞　互換性対応 +
+    // + インポート　＞　コンポーネント +
     // ++++++++++++++++++++++++++++++++++
 
-    import CompatibleDevice from '../../../components/CompatibleDevice.vue'
+    import CompatibleDevice from '@/components/CompatibleDevice.vue'
+    import TalkBalloon from '@/components/TalkBalloon.vue';
 
 
     // ##########

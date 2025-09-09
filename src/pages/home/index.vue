@@ -160,14 +160,9 @@
     // + コンポーネント +
     // ++++++++++++++++++
 
+    import CompatibleDevice from '@/components/CompatibleDevice.vue'
     import TalkBalloon from '@/components/TalkBalloon.vue';
     import TheGrandParentHeader from '../../the-header.vue';
-
-    // ++++++++++++++++++++++++++++++++++
-    // + コンポーネント　＞　互換性対応 +
-    // ++++++++++++++++++++++++++++++++++
-
-    import CompatibleDevice from '@/components/CompatibleDevice.vue'
 
 
     // ##########

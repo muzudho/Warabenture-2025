@@ -324,15 +324,10 @@
     // + コンポーネント +
     // ++++++++++++++++++
 
+    import CompatibleDevice from '../../components/CompatibleDevice.vue'
     import TalkBalloon from '../../components/TalkBalloon.vue';
     import TheFooter from './the-footer.vue';
     import TheHeader from './the-header.vue';
-
-    // ++++++++++++++++++++++++++++++++++
-    // + コンポーネント　＞　互換性対応 +
-    // ++++++++++++++++++++++++++++++++++
-
-    import CompatibleDevice from '../../components/CompatibleDevice.vue'
 
 
     // ##########

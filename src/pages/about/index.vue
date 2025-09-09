@@ -246,15 +246,10 @@
     // + コンポーネント +
     // ++++++++++++++++++
 
+    import CompatibleDevice from '@/components/CompatibleDevice.vue'
     import TheGrandParentHeader from '../../the-header.vue';
     import TheParentHeader from '../the-header.vue';
     import TheParentFooter from '../the-footer.vue';
-
-    // ++++++++++++++++++++++++++++++++++
-    // + コンポーネント　＞　互換性対応 +
-    // ++++++++++++++++++++++++++++++++++
-
-    import CompatibleDevice from '@/components/CompatibleDevice.vue'
 
 
     // ##########

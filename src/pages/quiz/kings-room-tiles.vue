@@ -637,6 +637,7 @@ color = i % 2;
     // from の階層が上の順、アルファベット順
     import BoardMadeOfTile from '@/components/BoardMadeOfTile.vue';
     import Button20250822 from '@/components/Button20250822.vue';
+    import CompatibleDevice from '@/components/CompatibleDevice.vue'
     import OutOfSight from '@/components/OutOfSightMaking.vue';
     import SourceLink from '@/components/SourceLink.vue';
     import Stopwatch from '@/components/Stopwatch.vue';
@@ -646,12 +647,6 @@ color = i % 2;
     import TileAnimation from '@/components/TileAnimation.vue';
     import TheFooter from './the-footer.vue';
     import TheHeader from './the-header.vue';
-
-    // ++++++++++++++++++++++++++++++++++
-    // + コンポーネント　＞　互換性対応 +
-    // ++++++++++++++++++++++++++++++++++
-
-    import CompatibleDevice from '@/components/CompatibleDevice.vue'
 
     // ++++++++++++++++++
     // + コンポーザブル +
