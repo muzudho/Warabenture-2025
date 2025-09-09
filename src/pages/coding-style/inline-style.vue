@@ -56,15 +56,13 @@
         </talk-balloon>
 
         📄 a .vue file:<br/>
-        <pre class="coding-example">
+        <pre class="coding-example mb-6">
 &lt;template&gt;
     &lt;div
         style=<span class="green-marker">"width: 100px; height: 200px; background-color: skyblue; border: solid 4px blue;"</span>&gt;
     &lt;/div&gt;
 &lt;/template&gt;
         </pre>
-        <br/>
-        <br/>
 
         <talk-balloon
             :src="oton2Src"
@@ -83,7 +81,7 @@
         </talk-balloon>
         <br/>
 
-        <pre class="coding-example">
+        <pre class="coding-example mb-6">
 &lt;template&gt;
     &lt;div
         style=<span class="green-marker">"
@@ -95,8 +93,6 @@
     &lt;/div&gt;
 &lt;/template&gt;
         </pre>
-        <br/>
-        <br/>
 
         <talk-balloon
             :src="hiyoko2Src"
@@ -117,9 +113,8 @@
         </div>
         <div class="blue-rectangle-1">
         </div>
-        <div class="blue-rectangle-1">
+        <div class="blue-rectangle-1 mb-6">
         </div>
-        <br/>
 
         📄 example.vue ：<br/>
         <pre class="coding-example-good">
@@ -144,23 +139,21 @@
     }</span>
 &lt;/style&gt;
         </pre>
-        <p>
+        <p class="mb-6">
             👆　<span class="good">グッド</span>。これはスタイルシートを使った書き方。<br/>
         </p>
-        <br/>
 
         <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
-            :device="compatibleDevice1Ref?.device">
+            :device="compatibleDevice1Ref?.device"
+            class="mb-6">
                 👇 また、 Vue では、スタイルシートの中で TypeScript の変数を使うこともできる。しかし……、
         </talk-balloon>
-        <br/>
 
-        <div class="blue-rectangle-2">
+        <div class="blue-rectangle-2 mb-6">
         </div>
-        <br/>
 
         📄 example.vue ：<br/>
         <pre class="coding-example-bad">
@@ -181,10 +174,9 @@
     }
 &lt;/style&gt;
         </pre>
-        <p>
+        <p class="mb-6">
             👆　今は<span class="bad">バッド</span>。その設定が無視されることがある。手元の環境で動作が確実になるまで、使わない方針。<br/>
         </p>
-        <br/>
 
         <talk-balloon
             :src="oton2Src"
@@ -206,10 +198,11 @@
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
-            :device="compatibleDevice1Ref?.device">
+            :device="compatibleDevice1Ref?.device"
+            class="mb-6"
+        >
                 👇 こう書く。
         </talk-balloon>
-        <br/>
 
         <div
             :style="`
@@ -217,12 +210,12 @@
                 height: 100px;
                 background-color: skyblue;
                 border: solid 4px blue;
-            `">
+            `"
+            class="mb-6">
         </div>
-        <br/>
 
         📄 example.vue ：<br/>
-        <pre class="coding-example">
+        <pre class="coding-example mb-6">
 &lt;template&gt;
     &lt;div
         <span class="green-marker">:style="`
@@ -234,8 +227,6 @@
     &lt;/div&gt;
 &lt;/template&gt;
         </pre>
-        <br/>
-        <br/>
 
         <talk-balloon
             :src="oton2Src"
@@ -257,15 +248,17 @@
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
-            :device="compatibleDevice1Ref?.device">
+            :device="compatibleDevice1Ref?.device"
+            class="mb-6"
+        >
                 👇 だったらこう書く。<br/>
         </talk-balloon>
-        <br/>
 
         <div
-            :style="getRectangle4()">
+            :style="getRectangle4()"
+            class="mb-6"
+        >
         </div>
-        <br/>
 
         📄 example.vue ：<br/>
         <pre class="coding-example">
@@ -286,10 +279,9 @@
     }</span>
 &lt;/script&gt;
         </pre>
-        <p>
+        <p class="mb-6">
             👆　インラインに関数を書くことができる。
         </p>
-        <br/>
 
         <talk-balloon
             :src="hiyoko2Src"
@@ -303,15 +295,17 @@
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
-            :device="compatibleDevice1Ref?.device">
+            :device="compatibleDevice1Ref?.device"
+            class="mb-6"
+        >
                 👇 リアクティブさせるには、こう書く。<br/>
         </talk-balloon>
-        <br/>
 
         <div
-            :style="getRectangle5">
+            :style="getRectangle5"
+            class="mb-6"
+        >
         </div>
-        <br/>
 
         📄 example.vue ：<br/>
         <pre class="coding-example-good">
@@ -336,7 +330,7 @@
     }</span>);</span>
 &lt;/script&gt;
         </pre>
-        <p>
+        <p class="mb-6">
             👆　<span class="good">グッド</span>。この書き方でリアクティブが利く。<br/>
             <span class="red-marker">スタイル</span>、これは <span class="red-marker">any</span>型だが、<br/>
             その any 型のスタイルを返すような<span class="green-marker">ラムダ式</span>を <span class="blue-marker">computed() 関数</span>に渡している。<br/>
@@ -370,9 +364,10 @@
         </talk-balloon>
 
         <div
-            :style="getRectangle6(100)">
+            :style="getRectangle6(100)"
+            class="mb-6"
+        >
         </div>
-        <br/>
 
         📄 example.vue ：<br/>
         <pre class="coding-example-good">
@@ -399,10 +394,9 @@
     }</span>);</span>
 &lt;/script&gt;
         </pre>
-        <p>
+        <p class="mb-6">
             👆　<span class="good">グッド</span>。<span class="yellow-marker">［<span class="blue-marker">［<span class="red-marker">［引数］</span>を受け取って<span class="green-marker">［スタイル］</span>を返すラムダ式］</span>を返すラムダ式］</span>を書いているので、複雑だが、この形をそっくり真似するだけでもいける。<br/>
         </p>
-        <br/>
 
         <talk-balloon
             :src="oton2Src"

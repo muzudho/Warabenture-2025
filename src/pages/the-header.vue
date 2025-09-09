@@ -1,6 +1,6 @@
 <template>
     <section class="sec-1">
-        <v-btn @click="goBack" v-tooltip="'下の部を閉じる'">❌</v-btn>
+        <v-btn @click="goBackToHome" v-tooltip="'下の部を閉じる'">❌</v-btn>
     </section>
 </template>
 
@@ -19,7 +19,7 @@
 
     const router = useRouter();
 
-    function goBack() : void {
+    function goBackToHome() : void {
         router.push('/');
     }
 

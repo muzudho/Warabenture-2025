@@ -1,11 +1,11 @@
 pre.coding-example {    /* ソースコード例 */
-    display: inline-block;
-    border: dashed 4px gray;
-    color: #303030;
-    background-color: #f0f0f0;
+    display: block;
     padding-left: 24px;
     padding-top: 16px;
     padding-right: 24px;
+    border: dashed 4px gray;
+    color: #303030;
+    background-color: #f0f0f0;
 }
 
 pre.coding-example-bad {    /* 悪いソースコード例 */

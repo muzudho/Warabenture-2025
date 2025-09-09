@@ -64,7 +64,7 @@
         <br/>
 
         📄 a child .vue file:<br/>
-        <pre class="coding-example">
+        <pre class="coding-example mb-6">
 &lt;template&gt;
     &lt;div style="background-color: skyblue;"&gt;
         名前：　すっぽん&lt;br/&gt;
@@ -79,8 +79,6 @@
     &lt;/div&gt;
 &lt;/template&gt;
         </pre>
-        <br/>
-        <br/>
 
         <talk-balloon
             :src="oton2Src"
@@ -117,7 +115,7 @@
         <br/>
 
         📄 a child .vue file:<br/>
-        <pre class="coding-example">
+        <pre class="coding-example mb-6">
 &lt;template&gt;
     &lt;div style="background-color: skyblue;"&gt;
         名前：　<span style="background-color: yellowgreen;">&#123;&#123; name &#125;&#125;</span>&lt;br/&gt;
@@ -132,8 +130,6 @@
     &lt;/div&gt;
 &lt;/template&gt;
         </pre>
-        <br/>
-        <br/>
 
         <talk-balloon
             :src="hiyoko2Src"
@@ -174,7 +170,7 @@
         <br/>
 
         📄 no-1-child.vue:<br/>
-        <pre class="coding-example">
+        <pre class="coding-example mb-6">
 &lt;template&gt;
     &lt;div style="background-color: skyblue;"&gt;
         名前：　すっぽん&lt;br/&gt;
@@ -184,8 +180,6 @@
     &lt;/div&gt;
 &lt;/template&gt;
         </pre>
-        <br/>
-        <br/>
         
         <talk-balloon
             :src="hiyoko2Src"
@@ -208,7 +202,7 @@
         <br/>
 
         📄 a parent .vue file:<br/>
-        <pre class="coding-example">
+        <pre class="coding-example mb-6">
 &lt;template&gt;
     &lt;no-1-child&gt;
         わたしはオークです。よろしくねえ。
@@ -224,8 +218,6 @@
     import No1Child from '@/components/no-1-child.vue';
 &lt;/script&gt;
         </pre>
-        <br/>
-        <br/>
 
         <talk-balloon
             :src="hiyoko2Src"
@@ -290,7 +282,7 @@
         <br/>
 
         📄 no-1-2-child.vue:<br/>
-        <pre class="coding-example">
+        <pre class="coding-example mb-6">
 &lt;template&gt;
     &lt;div style="background-color: skyblue;"&gt;
         名前：　すっぽん&lt;br/&gt;
@@ -301,11 +293,9 @@
     &lt;/div&gt;
 &lt;/template&gt;
         </pre>
-        <br/>
-        <br/>
 
         📄 a parent vue file:<br/>
-        <pre class="coding-example">
+        <pre class="coding-example mb-6">
 &lt;template&gt;
     &lt;no-2-child&gt;
         わたしはオークです。よろしくねえ。
@@ -329,8 +319,6 @@
     import No2Child from '@/components/no-2-child.vue';
 &lt;/script&gt;
         </pre>
-        <br/>
-        <br/>
 
         <talk-balloon
             :src="oton2Src"
@@ -538,7 +526,7 @@ pnpm add -D @tauri-apps/cli@latest
         <br/>
 
         📄 no-1-3-child.vue:<br/>
-        <pre class="coding-example">
+        <pre class="coding-example mb-6">
 &lt;template&gt;
     &lt;div style="background-color: skyblue;"&gt;
         名前：　すっぽん&lt;br/&gt;
@@ -555,8 +543,6 @@ pnpm add -D @tauri-apps/cli@latest
     }>();</span>
 &lt;/script&gt;
         </pre>
-        <br/>
-        <br/>
 
         <talk-balloon
             :src="oton2Src"
@@ -568,7 +554,7 @@ pnpm add -D @tauri-apps/cli@latest
         <br/>
 
         📄 a parent .vue file:<br/>
-        <pre class="coding-example">
+        <pre class="coding-example mb-6">
 &lt;template&gt;
     &lt;no-1o3o0-child&gt;
         &lt;v-slot <span class="red-marker">#hp="slotProps"</span>&gt;
@@ -584,8 +570,6 @@ pnpm add -D @tauri-apps/cli@latest
     import No1Child from '@/components/no-1-child.vue';
 &lt;/script&gt;
         </pre>
-        <br/>
-        <br/>
 
         actual:<br/>
         <div class="markup-example">

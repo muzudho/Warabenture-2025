@@ -400,10 +400,9 @@
             リフォーム会社が残した、床のタイルの色を決める魔法の呪文は<br/>
             👇これじゃ」<br/>
         </talk-balloon>
-        <br/>
 
         <pre
-            class="coding-example">
+            class="coding-example mb-6">
 // i はタイル番号。左上から右に向かって 0, 1, 2 ... 右端から１段下の左端に続く。
 //
 // そして、
@@ -419,8 +418,6 @@
 
 color = i % 2;
         </pre>
-        <br/>
-        <br/>
 
         <talk-balloon
             :src="commonPapepoKingSrc"
@@ -1252,6 +1249,7 @@ color = i % 2;
 
 <style scoped>
 
+    @import '@/styles/notebook.css';
     @import '@/styles/talk-scene.css';
 
     /* 
@@ -1311,14 +1309,5 @@ color = i % 2;
         position: absolute;
         image-rendering: pixelated;
         z-index: 20;
-    }
-    pre.coding-example {    /* ソースコード例 */
-        display: inline-block;
-        border: dashed 4px gray;
-        color: #303030;
-        background-color: #f0f0f0;
-        padding-left: 24px;
-        padding-top: 16px;
-        padding-right: 24px;
     }
 </style>

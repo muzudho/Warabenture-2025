@@ -7,6 +7,8 @@
         上の方の記事が新しいぜ（＾▽＾）！<br/>
     </section>
 
+    <Blog20250910Wed />
+
     <Blog20250811Mon />
 
     <Blog20250725Fri />
@@ -56,7 +58,7 @@
     import Blog20250712Sat from './2025-07/12-sat.vue';
     import Blog20250725Fri from './2025-07/25-fri.vue';
     import Blog20250811Mon from './2025-08/11-mon.vue';
-    import TheGrandParentFooter from '../../the-footer.vue';
+    import Blog20250910Wed from './2025-09/10-wed.vue';
     import TheGrandParentHeader from '../../the-header.vue';
     import TheParentFooter from '../the-footer.vue';
     import TheParentHeader from '../the-header.vue';
