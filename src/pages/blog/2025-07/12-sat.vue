@@ -133,8 +133,8 @@ pnpm tauri dev</pre>
         </talk-balloon>
 
 
-        <TalkScreenShot
-            :href="journal1Png"
+        <talk-image
+            href="/img/journal/2025-07/202507__warabenture__12-1713-csvCleaningOnTauri-o1o0.png"
             alt="デスクトップ・アプリケーションの画面"
         />
 
@@ -175,19 +175,13 @@ pnpm tauri dev</pre>
     // # インポート #
     // ##############
 
-    // ++++++++++++++++++++++++++++
-    // + インポート　＞　公開画像 +
-    // ++++++++++++++++++++++++++++
-
-    import journal1Png from "/img/journal/2025-07/202507__warabenture__12-1713-csvCleaningOnTauri-o1o0.png";
-
     // ++++++++++++++++++++++++++++++++++
     // + インポート　＞　コンポーネント +
     // ++++++++++++++++++++++++++++++++++
 
     import CompatibleDevice from '@/components/CompatibleDevice.vue'
     import TalkBalloon from '@/components/TalkBalloon.vue';
-    import TalkScreenShot from '@/components/TalkScreenShot.vue';
+    import TalkImage from '@/components/TalkImage.vue';
 
 
     // ##########
