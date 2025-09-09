@@ -24,6 +24,20 @@
         --warabenture-sec-1-header-bgcolor: darkmagenta;
         --warabenture-sec-1-header-fgcolor: khaki;
         */
+        --warabenture-sec-1-header-bgcolor: skyblue;
+        --warabenture-sec-1-header-fgcolor: darkorchid;
+        --warabenture-sec-2-header-bgcolor: skyblue;
+        --warabenture-sec-2-header-fgcolor: darkorchid;
+        --warabenture-sec-3-header-bgcolor: skyblue;
+        --warabenture-sec-3-header-fgcolor: darkorchid;
+        --warabenture-sec-4-header-bgcolor: skyblue;
+        --warabenture-sec-4-header-fgcolor: darkorchid;
+        --warabenture-sec-5-header-bgcolor: skyblue;
+        --warabenture-sec-5-header-fgcolor: darkorchid;
+        --warabenture-sec-6-header-bgcolor: skyblue;
+        --warabenture-sec-6-header-fgcolor: darkorchid;
+
+        /* until:2025-09-09
         --warabenture-sec-1-header-bgcolor: darkorchid;
         --warabenture-sec-1-header-fgcolor: skyblue;
         --warabenture-sec-2-header-bgcolor: darkorchid;
@@ -36,14 +50,9 @@
         --warabenture-sec-5-header-fgcolor: skyblue;
         --warabenture-sec-6-header-bgcolor: darkorchid;
         --warabenture-sec-6-header-fgcolor: skyblue;
+         */
 
-        --warabenture-img-six-sharps: url('/img/warabenture/six-sharps-light-skyblue.png');
-    }
-
-    /** スクリーンショットの引用 */
-    img.scr-shot {
-        margin-top: 8px;
-        margin-bottom: 8px;
+        --warabenture-img-six-sharps: url('/img/warabenture/six-sharps-light-white.png');
     }
 
 </style>

@@ -15,7 +15,7 @@ import * as directives from "vuetify/directives";
 const myCustomLightTheme = {
     dark: false,
     colors: {
-        background: '#FF66CC',              /* ワラベンチャーの背景色。 hotpink */
+        background: '#FF66CC',  /* ワラベンチャーの背景色。 hotpink */
         surface: '#FFFFFF',
         'surface-bright': '#FFFFFF',
         'surface-light': '#EEEEEE',
