@@ -17,9 +17,10 @@
     <h3 id="functions">機能紹介</h3>
     <section class="sec-3">
 
-        <a target="_blank" href="/img/journal/2025-06/202506__teamMirai__09-1610-heatMap16-o1o0.png">
-            <img class="scr-shot" src="/img/journal/2025-06/202506__teamMirai__09-1610-heatMap16-o1o0.png">
-        </a><br/>
+        <TalkScreenShot
+            :href="journal1Png"
+            alt="Excel で作ったヒートマップ"
+        />
 
         <talk-balloon
             :src="oton2Src"
@@ -30,9 +31,10 @@
                 右上の凡例にあるように［以上］での比較だけ利用可能。
         </talk-balloon>
 
-        <a target="_blank" href="/img/journal/2025-06/202506__teamMirai__09-1730-heatMap23-o1o0.png">
-            <img class="scr-shot" src="/img/journal/2025-06/202506__teamMirai__09-1730-heatMap23-o1o0.png">
-        </a><br/>
+        <TalkScreenShot
+            :href="journal2Png"
+            alt="Excel で作ったヒートマップ"
+        />
 
         <talk-balloon
             :src="oton2Src"
@@ -42,9 +44,10 @@
                 👆 もちろん、表示内容を替えれる。
         </talk-balloon>
 
-        <a target="_blank" href="/img/journal/2025-06/202506__teamMirai__10-0814-heatMap28-o2o0.png">
-            <img class="scr-shot" src="/img/journal/2025-06/202506__teamMirai__10-0814-heatMap28-o2o0.png">
-        </a><br/>
+        <TalkScreenShot
+            :href="journal3Png"
+            alt="Excel で作ったヒートマップ"
+        />
 
         <talk-balloon
             :src="oton2Src"
@@ -54,9 +57,12 @@
                 👆 もちろん、ワークブックを新しく作って一から編集すれば、別の地図でヒートマップを表示することも可能。
         </talk-balloon>
 
-        <a target="_blank" href="/img/journal/2025-06/202506__teamMirai__09-1729-heatMap22-o1o0.png">
-            <img class="scr-shot" src="/img/journal/2025-06/202506__teamMirai__09-1729-heatMap22-o1o0.png">
-        </a><br/>
+
+        <TalkScreenShot
+            :href="journal4Png"
+            alt="Excel で作った文字数の少ないメモ"
+        />
+
 
         <talk-balloon
             :src="oton2Src"
@@ -66,9 +72,12 @@
                 👆 ごく短い文字数のメモにも使える。
         </talk-balloon>
 
-        <a target="_blank" href="/img/journal/2025-06/202506__teamMirai__09-1750-heatMap25-o1o0.png">
-            <img class="scr-shot" src="/img/journal/2025-06/202506__teamMirai__09-1750-heatMap25-o1o0.png">
-        </a><br/>
+
+        <TalkScreenShot
+            :href="journal5Png"
+            alt="Excel の罫線で作った地図"
+        />
+
 
         <talk-balloon
             :src="oton2Src"
@@ -84,9 +93,12 @@
                 トレードオフだぜ。
         </talk-balloon>
 
-        <a target="_blank" href="/img/journal/2025-06/202506__teamMirai__09-1619-heatMap16-o3o0.png">
-            <img class="scr-shot" src="/img/journal/2025-06/202506__teamMirai__09-1619-heatMap16-o3o0.png">
-        </a><br/>
+
+        <TalkScreenShot
+            :href="journal6Png"
+            alt="Excel で開いた国勢調査のデータ"
+        />
+
 
         <talk-balloon
             :src="oton2Src"
@@ -98,9 +110,12 @@
                 <a target="_blank" href="https://www.e-stat.go.jp/">https://www.e-stat.go.jp/</a>
         </talk-balloon>
 
-        <a target="_blank" href="/img/journal/2025-06/202506__teamMirai__09-1740-heatMap24-o1o0.png">
-            <img class="scr-shot" src="/img/journal/2025-06/202506__teamMirai__09-1740-heatMap24-o1o0.png">
-        </a><br/>
+
+        <TalkScreenShot
+            :href="journal7Png"
+            alt="Excel で作った制御画面"
+        />
+
 
         <talk-balloon
             :src="oton2Src"
@@ -149,9 +164,12 @@
                 ［国勢調査］のデータを含んでるが、あれのライセンスは何なんだろな？
         </talk-balloon>
 
-        <a target="_blank" href="/img/journal/2025-06/202506__teamMirai__09-1657-heatMap20-o1o0-mark.png">
-            <img class="scr-shot" src="/img/journal/2025-06/202506__teamMirai__09-1657-heatMap20-o1o0-mark.png">
-        </a><br/>
+
+        <TalkScreenShot
+            :href="journal8Png"
+            alt="マクロの入ってる Excel ファイルのアイコン"
+        />
+
 
         <talk-balloon
             :src="oton2Src"
@@ -162,10 +180,13 @@
                 インターネットからダウンロードするとブロックされてるから……。
         </talk-balloon>
 
-        <a target="_blank" href="/img/journal/2025-06/202506__teamMirai__09-1700-heatMap21-o1o0-mark.png">
-            <img class="scr-shot" src="/img/journal/2025-06/202506__teamMirai__09-1700-heatMap21-o1o0-mark.png">
-        </a><br/>
 
+        <TalkScreenShot
+            :href="journal9Png"
+            alt="許可するチェックボックス"
+        />
+
+        
         <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
@@ -320,12 +341,27 @@
     // # インポート #
     // ##############
 
+    // ++++++++++++++++++++++++++++
+    // + インポート　＞　公開画像 +
+    // ++++++++++++++++++++++++++++
+
+    import journal1Png from "/img/journal/2025-06/202506__teamMirai__09-1610-heatMap16-o1o0.png";
+    import journal2Png from "/img/journal/2025-06/202506__teamMirai__09-1730-heatMap23-o1o0.png";
+    import journal3Png from "/img/journal/2025-06/202506__teamMirai__10-0814-heatMap28-o2o0.png";
+    import journal4Png from "/img/journal/2025-06/202506__teamMirai__09-1729-heatMap22-o1o0.png";
+    import journal5Png from "/img/journal/2025-06/202506__teamMirai__09-1750-heatMap25-o1o0.png";
+    import journal6Png from "/img/journal/2025-06/202506__teamMirai__09-1619-heatMap16-o3o0.png";
+    import journal7Png from "/img/journal/2025-06/202506__teamMirai__09-1740-heatMap24-o1o0.png";
+    import journal8Png from "/img/journal/2025-06/202506__teamMirai__09-1657-heatMap20-o1o0-mark.png";
+    import journal9Png from "/img/journal/2025-06/202506__teamMirai__09-1700-heatMap21-o1o0-mark.png";
+
     // ++++++++++++++++++
     // + コンポーネント +
     // ++++++++++++++++++
 
-    import CompatibleDevice from '../../components/CompatibleDevice.vue'
-    import TalkBalloon from '../../components/TalkBalloon.vue';
+    import CompatibleDevice from '@/components/CompatibleDevice.vue'
+    import TalkBalloon from '@/components/TalkBalloon.vue';
+    import TalkScreenShot from '@/components/TalkScreenShot.vue';
     import TheFooter from './the-footer.vue';
     import TheHeader from './the-header.vue';
 
