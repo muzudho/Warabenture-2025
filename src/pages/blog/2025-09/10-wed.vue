@@ -76,12 +76,29 @@
         </talk-balloon>
 
         <pre class="coding-example mb-6">
-// 動的にコンポーネントを選択
-const selectedComponent = computed(() =&gt; {
-  if (page === '101') return defineAsyncComponent(() => import('~/components/Child101.vue'));
-  if (page === '102') return defineAsyncComponent(() => import('~/components/Child102.vue'));
-  return null;
-});
+&lt;template&gt;
+    &lt;component
+        :is="selectedComponent"
+        :is-standalone="true"
+        :images="pngArray"
+        v-if="selectedComponent"
+    /&gt;
+&lt;/template&gt;
+
+&lt;script setup&gt;
+    import { computed, defineAsyncComponent } from 'vue';
+
+    // クエリパラメータからページ番号を取得。例： "https://www.example.com/?page=101"
+    const route = useRoute();
+    const page = route.query.page;
+
+    // 動的にコンポーネントを選択
+    const selectedComponent = computed(() =&gt; {
+        if (page === '101') return defineAsyncComponent(() =&gt; import('~/components/Child101.vue'));
+        if (page === '102') return defineAsyncComponent(() =&gt; import('~/components/Child102.vue'));
+        return null;
+    });
+&lt;/script&gt;
         </pre>
 
         <talk-balloon
@@ -106,6 +123,72 @@ const selectedComponent = computed(() =&gt; {
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device">
                 しばらくいじって覚えないと分からないな。
+        </talk-balloon>
+
+        <talk-balloon
+            :src="kifuwarabe2Src"
+            :alt="kifuwarabe2Alt"
+            :name="kifuwarabe2Name"
+            :device="compatibleDevice1Ref?.device">
+                👇 &lt;component&gt; タグの説明は下記にあるぜ。<br/>
+                📖 <a target="_blank" href="https://vuejs.org/api/built-in-special-elements">Built-in Special Elements</a><br>
+        </talk-balloon>
+
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
+                それ、やっぱ事前に import 文書いてないと使えなくないかだぜ？
+        </talk-balloon>
+
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
+                👇 これは働くけど……、
+        </talk-balloon>
+
+        <pre class="coding-example mb-6">
+if (page === '103') return defineAsyncComponent(() => import('@/pages/blog/2025-08/11-mon-sample.vue'));
+        </pre>
+
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
+                👇 これは働かないぜ。
+        </talk-balloon>
+
+        <pre class="coding-example mb-6">
+const path = "@/pages/blog/2025-08/11-mon-sample.vue";
+return defineAsyncComponent(() => import(path));
+        </pre>
+
+        <talk-balloon
+            :src="hiyoko2Src"
+            :alt="hiyoko2Alt"
+            :name="hiyoko2Name"
+            :device="compatibleDevice1Ref?.device">
+                import 文はプリプロセッシングされてんじゃないの？
+        </talk-balloon>
+
+        <talk-balloon
+            :src="kifuwarabe2Src"
+            :alt="kifuwarabe2Alt"
+            :name="kifuwarabe2Name"
+            :device="compatibleDevice1Ref?.device">
+                Vite はビルド時に静的に import 文のパスを解析しているそうだぜ。
+        </talk-balloon>
+
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
+                まあ、そうなんだろな。
         </talk-balloon>
 
     </section>
