@@ -1,10 +1,10 @@
 <template>
     <component
-        :is="getPageMap(props.page)"
-        v-if="getPageMap(props.page)"
+        :is="getPageMapAsync(props.page)"
+        v-if="getPageMapAsync(props.page)"
     />
     <div
-        v-if="!getPageMap(props.page)"
+        v-if="!getPageMapAsync(props.page)"
     >
         ページが見つかりません。
     </div>
@@ -20,7 +20,7 @@
     // + インポート　＞　その他 +
     // ++++++++++++++++++++++++++
 
-    import { getPageMap } from '@/pages/blog/page-map';
+    import { getPageMapAsync } from '@/pages/blog/page-map';
 
 
     // ####################################

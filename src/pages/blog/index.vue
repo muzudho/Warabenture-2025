@@ -43,6 +43,6 @@
     // + インポート　＞　その他 +
     // ++++++++++++++++++++++++++
 
-    import { getPageMap } from './page-map';
+    import { getPageMapAsync } from './page-map';
 
 </script>

@@ -15,15 +15,15 @@ import { defineAsyncComponent } from 'vue';
 //
 // import 文のパスは Vite が静的解析するので変数は使えない。そこでマップ形式で予め持っておく。
 //
-export function getPageMap(key: string) : Record<string, any> | null {
-    if (key in pageMap) {
-        return pageMap[key];
+export function getPageMapAsync(key: string) : Record<string, any> | null {
+    if (key in pageMapAsync) {
+        return pageMapAsync[key];
     }
 
     return null;
 }
 
-const pageMap : Record<string, any> = {
+const pageMapAsync : Record<string, any> = {
     '2025-05/24-sat': defineAsyncComponent(() => import('@/pages/blog/2025-05/24-sat.vue')),
     '2025-06/01-sun': defineAsyncComponent(() => import('@/pages/blog/2025-06/01-sun.vue')),
     '2025-06/02-mon': defineAsyncComponent(() => import('@/pages/blog/2025-06/02-mon.vue')),

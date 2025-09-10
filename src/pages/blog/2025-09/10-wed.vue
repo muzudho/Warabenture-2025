@@ -312,15 +312,15 @@ const selectedComponent = computed(() =&lt; {  // 動的にコンポーネント
         <pre class="coding-example mb-6">
 import { defineAsyncComponent } from 'vue';
 
-export function getPageMap(key: string) : Record&lt;string, any&gt; | null {
-    if (key in pageMap) {
-        return pageMap[key];
+export function getPageMapAsync(key: string) : Record&lt;string, any&gt; | null {
+    if (key in pageMapAsync) {
+        return pageMapAsync[key];
     }
 
     return null;
 }
 
-const pageMap : Record&lt;string, any&gt; = {
+const pageMapAsync : Record&lt;string, any&gt; = {
     '101': defineAsyncComponent(() =&gt; import('@/pages/blog/2025-08/09-sat-sample.vue')),
     '102': defineAsyncComponent(() =&gt; import('@/pages/blog/2025-08/10-sun-sample.vue')),
     '103': defineAsyncComponent(() =&gt; import('@/pages/blog/2025-08/11-mon-sample.vue'))
@@ -339,13 +339,13 @@ const pageMap : Record&lt;string, any&gt; = {
         <pre class="coding-example mb-6">
 &lt;template&gt;
     &lt;component
-        :is="getPageMap('2025-09/10-wed')"
-        v-if="getPageMap('2025-09/10-wed')"
+        :is="getPageMapAsync('2025-09/10-wed')"
+        v-if="getPageMapAsync('2025-09/10-wed')"
     /&gt;
 &lt;/template&gt;
 
 &lt;script setup lang="ts"&gt;
-    import { getPageMap } from './page-map';
+    import { getPageMapAsync } from './page-map';
 &lt;/script&gt;
         </pre>
 
@@ -355,6 +355,28 @@ const pageMap : Record&lt;string, any&gt; = {
             :name="kifuwarabe2Name"
             :device="compatibleDevice1Ref?.device">
                 じゃあ、いったんその方法でこのワラベンチャーを建て替えてくれだぜ。
+        </talk-balloon>
+
+        <talk-image
+            href="/img/journal/2025-09/202509__warabenture__10--1340-prerenderErrors-o1o0.png"
+            alt="プリレンダラー・エラー"
+        />
+
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device"
+            class="mb-6">
+                👆 プリレンダラー・エラーが出た。つまり今、ワラベンチャーは見えていないぜ。
+        </talk-balloon>
+
+        <talk-balloon
+            :src="kifuwarabe2Src"
+            :alt="kifuwarabe2Alt"
+            :name="kifuwarabe2Name"
+            :device="compatibleDevice1Ref?.device">
+                Oh, no...
         </talk-balloon>
 
     </section>
