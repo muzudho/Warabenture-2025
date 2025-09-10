@@ -462,6 +462,38 @@ const pageMapAsync : Record&lt;string, any&gt; = {
                 フィットネス・ジムにでも行ってこようかな。
         </talk-balloon>
 
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device"
+            class="mb-6">
+                ４時間も放置すれば、さくらのVPSへSSH接続できた。もっと短くてもいいかも。
+        </talk-balloon>
+
+        <talk-image
+            href="/img/journal/2025-09/202509__warabenture__10--2150-CtrlZOk-CtrlCFreese-o1o0.png"
+            alt="この画面で[Ctrl]+[Z]キー押すとターミナルに入力できるようになる。[Ctrl]+[C]キー押すとフリーズしたままで、さらにSSH接続が切断し、再接続もしばらくできなくなる"
+        />
+
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device"
+            class="mb-6">
+                👆 この画面でコマンド入力できなくなっているが、[Ctrl]+[Z]キーを押すとターミナルに入力できるようになる。<br/>
+                しかし、[Ctrl]+[C]キー押すとフリーズしたままで、さらにSSH接続が切断し、再接続もしばらくできなくなる。
+        </talk-balloon>
+
+        <talk-balloon
+            :src="kifuwarabe2Src"
+            :alt="kifuwarabe2Alt"
+            :name="kifuwarabe2Name"
+            :device="compatibleDevice1Ref?.device">
+                じゃあ、お父んが [Ctrl]+[C]キーを押して SSH接続を切っていたのでは？
+        </talk-balloon>
+
     </section>
 
 </template>
