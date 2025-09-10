@@ -493,6 +493,45 @@ const pageMapAsync : Record&lt;string, any&gt; = {
                 じゃあ、お父んが [Ctrl]+[C]キーを押して SSH接続を切っていたのでは？
         </talk-balloon>
 
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device"
+            class="mb-6">
+                👇 動的インポートは諦め、静的インポート・動的コンポーネントにするぜ。
+        </talk-balloon>
+
+        📄 router/page-map.ts<br/>
+        <pre class="coding-example mb-6">
+import Blog20250524Sat from '@/pages/blog/2025-05/24-sat.vue';
+import Blog20250601Sun from '@/pages/blog/2025-06/01-sun.vue';
+import Blog20250602Mon from '@/pages/blog/2025-06/02-mon.vue';    
+
+export const pageMap : Readonly&lt;Record&lt;string, any&gt;&gt; = {
+    '2025-05/24-sat': Blog20250524Sat,
+    '2025-06/01-sun': Blog20250601Sun,
+    '2025-06/02-mon': Blog20250602Mon,
+};
+        </pre>
+
+        <talk-balloon
+            :src="hiyoko2Src"
+            :alt="hiyoko2Alt"
+            :name="hiyoko2Name"
+            :device="compatibleDevice1Ref?.device">
+                辞書より、データ・テーブルが欲しいわよねえ。<br/>
+                日付順に新しい３０件を取得とかしたいものねえ。
+        </talk-balloon>
+
+        <talk-balloon
+            :src="kifuwarabe2Src"
+            :alt="kifuwarabe2Alt"
+            :name="kifuwarabe2Name"
+            :device="compatibleDevice1Ref?.device">
+                データを JSON で持って、ソートも、フィルタリングも、自力実装したらどうだぜ？
+        </talk-balloon>
+
     </section>
 
 </template>
