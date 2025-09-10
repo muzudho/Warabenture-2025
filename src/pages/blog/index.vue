@@ -73,7 +73,7 @@
     import Blog20250811Mon from './2025-08/11-mon.vue';
     import Blog20250910Wed from './2025-09/10-wed.vue';
 
-    import BlogArticle from '@/components/BlogArticle.vue';
+    //import BlogArticle from '@/components/BlogArticle.vue';
     import TheGrandParentHeader from '../../the-header.vue';
     import TheParentFooter from '../the-footer.vue';
     import TheParentHeader from '../the-header.vue';
@@ -82,6 +82,6 @@
     // + インポート　＞　その他 +
     // ++++++++++++++++++++++++++
 
-    import { getPageMapAsync } from './page-map';
+    //import { getPageMapAsync } from './page-map';
 
 </script>
