@@ -13,7 +13,7 @@
 //
 // import 文のパスは Vite が静的解析するので変数は使えない。そこでマップ形式で予め持っておく。
 //
-export function getPageMap(key: string) : Record<string, any> | null {
+export function getPageComponentByKey(key: string) : any | null {
     if (key in pageMap) {
         return pageMap[key];
     }

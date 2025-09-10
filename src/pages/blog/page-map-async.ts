@@ -1,5 +1,5 @@
 /**
- * FIXME: このファイルを置いているだけで、プリレンダリングでエラーになるようだ。プリレンダリング・エラー不具合調査中。
+ * FIXME: この .ts ファイルを置いているだけで、プリレンダリングでエラーになるようだ。プリレンダリング・エラー不具合調査中。
  */
 
 // ##############
@@ -19,7 +19,7 @@ import { defineAsyncComponent } from 'vue';
 //
 // import 文のパスは Vite が静的解析するので変数は使えない。そこでマップ形式で予め持っておく。
 //
-export function getPageMapAsync(key: string) : Record<string, any> | null {
+export function getPageComponentByKeyAsync(key: string) : any | null {
     if (key in pageMapAsync) {
         return pageMapAsync[key];
     }

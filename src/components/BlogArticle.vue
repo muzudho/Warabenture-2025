@@ -1,11 +1,11 @@
 <template>
     <!--
     <component
-        :is="getPageMapAsync(props.page)"
-        v-if="getPageMapAsync(props.page)"
+        :is="pageComponent"
+        v-if="pageComponent"
     />
     <div
-        v-if="!getPageMapAsync(props.page)"
+        v-if="!pageComponent"
     >
         ページが見つかりません。
     </div>
@@ -22,7 +22,7 @@
     // + インポート　＞　その他 +
     // ++++++++++++++++++++++++++
 
-    //import { getPageMapAsync } from '@/pages/blog/page-map';
+    //import { getPageComponentByKey } from '@/router/page-map';
 
 
     // ####################################
@@ -34,5 +34,12 @@
     }
     // デフォルト値を設定
     const props = defineProps<Props>();
+
+
+    // ################
+    // # オブジェクト #
+    // ################
+
+    //const pageComponent = getPageComponentByKey(props.page);
 
 </script>
