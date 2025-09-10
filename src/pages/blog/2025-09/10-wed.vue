@@ -441,6 +441,23 @@ const pageMapAsync : Record&lt;string, any&gt; = {
             :device="compatibleDevice1Ref?.device"
             class="mb-6">
                 pnpm generate ごときでそんな脆弱性があるか知らんが、とにかく何もできん。<br/>
+        </talk-balloon>
+
+        <talk-balloon
+            :src="kifuwarabe2Src"
+            :alt="kifuwarabe2Alt"
+            :name="kifuwarabe2Name"
+            :device="compatibleDevice1Ref?.device">
+                お父んは何してんだぜ、サーバーのエラーを直さないのか？
+        </talk-balloon>
+
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device"
+            class="mb-6">
+                何か悪い処理が走っていてロックがかかっているのなら、待ってればタイムアウトするだろ。<br/>
                 いつになったらタイムアウトするのかもわからん。<br/>
                 フィットネス・ジムにでも行ってこようかな。
         </talk-balloon>
