@@ -26,7 +26,8 @@
     <Blog20250601Sun />
     <Blog20250524Sat />
 
-    <!-- TODO: 以下、動的インポート -->
+    <!-- TODO: 以下、静的インポート・動的コンポーネント -->
+    <blog-article page="2025-09/10-wed"/>
     <!--
     <blog-article page="2025-09/10-wed"/>
     -->
@@ -73,7 +74,7 @@
     import Blog20250811Mon from './2025-08/11-mon.vue';
     import Blog20250910Wed from './2025-09/10-wed.vue';
 
-    //import BlogArticle from '@/components/BlogArticle.vue';
+    import BlogArticle from '@/components/BlogArticle.vue';
     import TheGrandParentHeader from '../../the-header.vue';
     import TheParentFooter from '../the-footer.vue';
     import TheParentHeader from '../the-header.vue';
@@ -82,6 +83,6 @@
     // + インポート　＞　その他 +
     // ++++++++++++++++++++++++++
 
-    //import { getPageMapAsync } from './page-map';
+    import { getPageMap } from '@/router/page-map';
 
 </script>

@@ -1,5 +1,7 @@
-/* FIXME: このファイルを置いているだけで、プリレンダリングでエラーになるようだ。
- * プリレンダリング・エラー不具合調査中
+/**
+ * FIXME: このファイルを置いているだけで、プリレンダリングでエラーになるようだ。プリレンダリング・エラー不具合調査中。
+ */
+
 // ##############
 // # インポート #
 // ##############
@@ -40,4 +42,3 @@ const pageMapAsync : Record<string, any> = {
     '2025-08/11-mon': defineAsyncComponent(() => import('@/pages/blog/2025-08/11-mon.vue')),
     '2025-09/10-wed': defineAsyncComponent(() => import('@/pages/blog/2025-09/10-wed.vue')),
 };
-*/
