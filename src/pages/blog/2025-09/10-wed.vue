@@ -404,6 +404,47 @@ const pageMapAsync : Record&lt;string, any&gt; = {
                 ブログサイトの記事１つにアクセスする人のために、すべての記事を予め読み込んでおくってことになるだろ、主記憶装置を食うだろう。
         </talk-balloon>
 
+        <talk-image
+            href="/img/journal/2025-09/202509__warabenture__10--1424-sshConnectionError-o1o0.png"
+            alt="SSH接続エラー"
+        />
+
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device"
+            class="mb-6">
+                👆 さくらのVPSにもSSH接続できなくなった。
+        </talk-balloon>
+
+        <talk-balloon
+            :src="kifuwarabe2Src"
+            :alt="kifuwarabe2Alt"
+            :name="kifuwarabe2Name"
+            :device="compatibleDevice1Ref?.device">
+                Oh, no...
+        </talk-balloon>
+
+        <talk-balloon
+            :src="hiyoko2Src"
+            :alt="hiyoko2Alt"
+            :name="hiyoko2Name"
+            :device="compatibleDevice1Ref?.device">
+                サーバーサイドで再帰処理が永遠に走ってメモリを食いつぶしていたりしないの？
+        </talk-balloon>
+
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device"
+            class="mb-6">
+                pnpm generate ごときでそんな脆弱性があるか知らんが、とにかく何もできん。<br/>
+                いつになったらタイムアウトするのかもわからん。<br/>
+                フィットネス・ジムにでも行ってこようかな。
+        </talk-balloon>
+
     </section>
 
 </template>
