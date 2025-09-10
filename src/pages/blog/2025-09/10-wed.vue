@@ -379,6 +379,31 @@ const pageMapAsync : Record&lt;string, any&gt; = {
                 Oh, no...
         </talk-balloon>
 
+        <talk-balloon
+            :src="hiyoko2Src"
+            :alt="hiyoko2Alt"
+            :name="hiyoko2Name"
+            :device="compatibleDevice1Ref?.device">
+                非同期処理が、サーバーサイドのプリレンダリングと嚙み合ってないんじゃないの？
+        </talk-balloon>
+
+        <talk-balloon
+            :src="kifuwarabe2Src"
+            :alt="kifuwarabe2Alt"
+            :name="kifuwarabe2Name"
+            :device="compatibleDevice1Ref?.device">
+                静的インポートにしたらどうだぜ？
+        </talk-balloon>
+
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device"
+            class="mb-6">
+                ブログサイトの記事１つにアクセスする人のために、すべての記事を予め読み込んでおくってことになるだろ、主記憶装置を食うだろう。
+        </talk-balloon>
+
     </section>
 
 </template>
