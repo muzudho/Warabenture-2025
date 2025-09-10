@@ -9,8 +9,8 @@
         -->
         <router-link to="/">ホーム</router-link> |
         <router-link to="/about">このサイトについて</router-link> |
-        <router-link to="/quiz">クイズ</router-link> |
         <router-link to="/blog">ブログ</router-link> |
+        <router-link to="/quiz">クイズ</router-link> |
         <router-link to="/minigames">ミニゲーム</router-link> |
         <router-link to="/making">メイキング</router-link> |
         <router-link to="/coding-style">コーディング・スタイル</router-link>
