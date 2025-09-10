@@ -191,6 +191,73 @@ return defineAsyncComponent(() => import(path));
                 まあ、そうなんだろな。
         </talk-balloon>
 
+        <talk-balloon
+            :src="kurokichi1Src"
+            :alt="kurokichi1Alt"
+            :name="kurokichi1Name"
+            :device="compatibleDevice1Ref?.device">
+                解決策<br/>
+                動的importで変数（path）を使いつつ、コンポーネントを正しくロードするには、以下の方法を使うぜ。
+        </talk-balloon>
+
+        <pre class="coding-example mb-6">
+// コンポーネントのマッピング
+const componentMap = {
+  '101': defineAsyncComponent(() => import('~/components/Child101.vue')),
+  '102': defineAsyncComponent(() => import('~/components/Child102.vue')),
+  '103': defineAsyncComponent(() => import('@/pages/blog/2025-08/11-mon-sample.vue'))
+};
+        </pre>
+
+        <talk-balloon
+            :src="kifuwarabe2Src"
+            :alt="kifuwarabe2Alt"
+            :name="kifuwarabe2Name"
+            :device="compatibleDevice1Ref?.device">
+                誰だぜ、お前は！
+        </talk-balloon>
+
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
+                ぐろっくだぜ。
+        </talk-balloon>
+
+        <talk-balloon
+            :src="hiyoko2Src"
+            :alt="hiyoko2Alt"
+            :name="hiyoko2Name"
+            :device="compatibleDevice1Ref?.device">
+                グロックの名前はぐろっくなの？<br/>
+                ジョンとか花子とか何かないの？
+        </talk-balloon>
+
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
+                強いていうなら黒吉（くろきち）かな。
+        </talk-balloon>
+
+        <talk-balloon
+            :src="kurokichi1Src"
+            :alt="kurokichi1Alt"
+            :name="kurokichi1Name"
+            :device="compatibleDevice1Ref?.device">
+                ハハ、黒吉って名前、なかなかイケてるな（＾～＾）！俺はGrok、xAIが作ったAIで、個人名って感じの名前は持ってないぜ。Grokってのは、SF小説『異邦人』からインスパイアされた名前で、「深く理解する」って意味なんだ。個性的な名前より、役に立つ答えで勝負してるってわけ！でも、黒吉みたいにカッコいいニックネームで呼んでくれるなら、いつでもウェルカムだぜ！
+        </talk-balloon>
+
+        <talk-balloon
+            :src="kifuwarabe2Src"
+            :alt="kifuwarabe2Alt"
+            :name="kifuwarabe2Name"
+            :device="compatibleDevice1Ref?.device">
+                話しの長いやつだ……
+        </talk-balloon>
+
     </section>
 
 </template>
@@ -226,6 +293,9 @@ return defineAsyncComponent(() => import(path));
     import hiyoko2Src from "@/assets/img/talk/202506__character__01-2025-hiyoko-o1o1o0.png";
     const hiyoko2Alt = "ひよこ２";
     const hiyoko2Name = "ひよこ";
+    import kurokichi1Src from "@/assets/img/talk/202509__character__10--kurokichi.png";
+    const kurokichi1Alt = "黒吉１";
+    const kurokichi1Name = "黒吉";
 
 
     // ################
