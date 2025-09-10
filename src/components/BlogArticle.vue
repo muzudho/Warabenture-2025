@@ -20,7 +20,7 @@
     // + インポート　＞　その他 +
     // ++++++++++++++++++++++++++
 
-    import { getPageComponentByKey } from '@/router/page-map';
+    import { pageMap } from '@/router/page-map';
 
 
     // ####################################
@@ -38,6 +38,19 @@
     // # オブジェクト #
     // ################
 
+    // ++++++++++++++++++++++++++++++++++++++++++++
+    // + オブジェクト　＞　ページ・コンポーネント +
+    // ++++++++++++++++++++++++++++++++++++++++++++
+
     const pageComponent = getPageComponentByKey(props.page);
+
+
+    export function getPageComponentByKey(key: string) : any | null {
+        if (key in pageMap) {
+            return pageMap[key];
+        }
+
+        return null;
+    }
 
 </script>

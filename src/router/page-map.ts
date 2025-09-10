@@ -1,11 +1,7 @@
 /**
- * 動的インポートを使ったら、サーバーサイドのプリレンダリングでエラーになるということがあった。
- * そこで、静的インポートを使うことにする。
+ * TODO: 手入力は大変なので、自動生成するデータ・ファイルにしたい。
+ * NOTE: 動的インポートを使ったら、サーバーサイドのプリレンダリングでエラーになるということがあった。そこで、静的インポートを使うことにする。
  */
-
-// ##############
-// # インポート #
-// ##############
 
 import Blog20250524Sat from '@/pages/blog/2025-05/24-sat.vue';
 import Blog20250601Sun from '@/pages/blog/2025-06/01-sun.vue';
@@ -21,27 +17,7 @@ import Blog20250725Fri from '@/pages/blog/2025-07/25-fri.vue';
 import Blog20250811Mon from '@/pages/blog/2025-08/11-mon.vue';
 import Blog20250910Wed from '@/pages/blog/2025-09/10-wed.vue';
 
-
-// ################
-// # オブジェクト #
-// ################
-
-// ++++++++++++++++++++++++++++++++++++++++++++
-// + オブジェクト　＞　ページ・コンポーネント +
-// ++++++++++++++++++++++++++++++++++++++++++++
-//
-// import 文のパスは Vite が静的解析するので変数は使えない。そこでマップ形式で予め持っておく。
-//
-export function getPageComponentByKey(key: string) : any | null {
-    if (key in pageMap) {
-        return pageMap[key];
-    }
-
-    return null;
-}
-
-
-const pageMap : Record<string, any> = {
+export const pageMap : Readonly<Record<string, any>> = {
     '2025-05/24-sat': Blog20250524Sat,
     '2025-06/01-sun': Blog20250601Sun,
     '2025-06/02-mon': Blog20250602Mon,
