@@ -107,7 +107,7 @@ div.baloon-tail {
     clip-path: polygon(0% 50%, 100% 0%, 100% 100%); /* 上頂点、下底の三角形 */
 }
 
-img.scr-shot {  /** スクリーンショットの引用 */
+img.talk-image {    /** 会話の途中で引用される画像 */
+    display: block;
     margin-top: 8px;
-    margin-bottom: 8px;
 }

@@ -1,5 +1,4 @@
 <template>
-    <!--
     <component
         :is="pageComponent"
         v-if="pageComponent"
@@ -7,9 +6,8 @@
     <div
         v-if="!pageComponent"
     >
-        ページが見つかりません。
+        "{{ props.page }}" ページが見つかりません。
     </div>
-    -->
 </template>
 
 <script setup lang="ts">
@@ -22,7 +20,7 @@
     // + インポート　＞　その他 +
     // ++++++++++++++++++++++++++
 
-    //import { getPageComponentByKey } from '@/router/page-map';
+    import { getPageComponentByKey } from '@/router/page-map';
 
 
     // ####################################
@@ -40,6 +38,6 @@
     // # オブジェクト #
     // ################
 
-    //const pageComponent = getPageComponentByKey(props.page);
+    const pageComponent = getPageComponentByKey(props.page);
 
 </script>

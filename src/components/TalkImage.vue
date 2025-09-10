@@ -9,11 +9,11 @@
             また、良くも悪くも、画面サイズに応じて、画像サイズが自動調整されます。
         -->
         <v-img
-            class="scr-shot"
+            class="talk-image mb-6"
             :src="props.href"
             :alt="props.alt"
         />
-    </a><br/>
+    </a>
 </template>
 
 <script setup lang="ts">

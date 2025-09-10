@@ -366,8 +366,7 @@ const pageMapAsync : Record&lt;string, any&gt; = {
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
-            :device="compatibleDevice1Ref?.device"
-            class="mb-6">
+            :device="compatibleDevice1Ref?.device">
                 👆 プリレンダラー・エラーが出た。つまり今、ワラベンチャーは見えていないぜ。
         </talk-balloon>
 

@@ -3,6 +3,25 @@
  * そこで、静的インポートを使うことにする。
  */
 
+// ##############
+// # インポート #
+// ##############
+
+import Blog20250524Sat from '@/pages/blog/2025-05/24-sat.vue';
+import Blog20250601Sun from '@/pages/blog/2025-06/01-sun.vue';
+import Blog20250602Mon from '@/pages/blog/2025-06/02-mon.vue';    
+import Blog20250603Tue from '@/pages/blog/2025-06/03-tue.vue';
+import Blog20250604Wed from '@/pages/blog/2025-06/04-wed.vue';
+import Blog20250605Thu from '@/pages/blog/2025-06/05-thu.vue';
+import Blog20250612Thu from '@/pages/blog/2025-06/12-thu.vue';
+import Blog20250615Sun from '@/pages/blog/2025-06/15-sun.vue';
+import Blog20250619Thu from '@/pages/blog/2025-06/19-thu.vue';
+import Blog20250712Sat from '@/pages/blog/2025-07/12-sat.vue';
+import Blog20250725Fri from '@/pages/blog/2025-07/25-fri.vue';
+import Blog20250811Mon from '@/pages/blog/2025-08/11-mon.vue';
+import Blog20250910Wed from '@/pages/blog/2025-09/10-wed.vue';
+
+
 // ################
 // # オブジェクト #
 // ################
@@ -21,18 +40,19 @@ export function getPageComponentByKey(key: string) : any | null {
     return null;
 }
 
+
 const pageMap : Record<string, any> = {
-    '2025-05/24-sat': import('@/pages/blog/2025-05/24-sat.vue'),
-    '2025-06/01-sun': import('@/pages/blog/2025-06/01-sun.vue'),
-    '2025-06/02-mon': import('@/pages/blog/2025-06/02-mon.vue'),
-    '2025-06/03-tue': import('@/pages/blog/2025-06/03-tue.vue'),
-    '2025-06/04-wed': import('@/pages/blog/2025-06/04-wed.vue'),
-    '2025-06/05-thu': import('@/pages/blog/2025-06/05-thu.vue'),
-    '2025-06/12-thu': import('@/pages/blog/2025-06/12-thu.vue'),
-    '2025-06/15-sun': import('@/pages/blog/2025-06/15-sun.vue'),
-    '2025-06/19-thu': import('@/pages/blog/2025-06/19-thu.vue'),
-    '2025-07/12-sat': import('@/pages/blog/2025-07/12-sat.vue'),
-    '2025-07/25-fri': import('@/pages/blog/2025-07/25-fri.vue'),
-    '2025-08/11-mon': import('@/pages/blog/2025-08/11-mon.vue'),
-    '2025-09/10-wed': import('@/pages/blog/2025-09/10-wed.vue'),
+    '2025-05/24-sat': Blog20250524Sat,
+    '2025-06/01-sun': Blog20250601Sun,
+    '2025-06/02-mon': Blog20250602Mon,
+    '2025-06/03-tue': Blog20250603Tue,
+    '2025-06/04-wed': Blog20250604Wed,
+    '2025-06/05-thu': Blog20250605Thu,
+    '2025-06/12-thu': Blog20250612Thu,
+    '2025-06/15-sun': Blog20250615Sun,
+    '2025-06/19-thu': Blog20250619Thu,
+    '2025-07/12-sat': Blog20250712Sat,
+    '2025-07/25-fri': Blog20250725Fri,
+    '2025-08/11-mon': Blog20250811Mon,
+    '2025-09/10-wed': Blog20250910Wed,
 };
