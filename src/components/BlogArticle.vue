@@ -45,7 +45,7 @@
     const pageComponent = getPageComponentByKey(props.page);
 
 
-    export function getPageComponentByKey(key: string) : any | null {
+    function getPageComponentByKey(key: string) : any | null {
         if (key in pageMap) {
             return pageMap[key];
         }
