@@ -532,6 +532,53 @@ export const pageMap : Readonly&lt;Record&lt;string, any&gt;&gt; = {
                 データを JSON で持って、ソートも、フィルタリングも、自力実装したらどうだぜ？
         </talk-balloon>
 
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device"
+            class="mb-6">
+                👇 黒吉と相談して、こんな感じのデータを考えてみたぜ。
+        </talk-balloon>
+
+        📄 router/articles.json<br/>
+        <pre class="coding-example mb-6">
+[
+    {
+        "id": "2025-05/24-sat",
+        "date": "2025-05-24",
+        "category": ["Planning"]
+    },
+    {
+        "id": "2025-06/01-sun",
+        "date": "2025-06-01",
+        "category": ["Planning"]
+    },
+    {
+        "id": "2025-06/02-mon",
+        "date": "2025-06-02",
+        "category": ["Tauri2", "Vue3"]
+    }
+]
+        </pre>
+
+        <talk-balloon
+            :src="hiyoko2Src"
+            :alt="hiyoko2Alt"
+            :name="hiyoko2Name"
+            :device="compatibleDevice1Ref?.device">
+                これを date の新しい順にソートして、各レコードの id を使って動的にコンポーネントを表示すればいいのよ。
+        </talk-balloon>
+
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device"
+            class="mb-6">
+                今日はもう遅いのでまた今度だな。
+        </talk-balloon>
+
     </section>
 
 </template>
