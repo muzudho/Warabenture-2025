@@ -312,7 +312,15 @@ const selectedComponent = computed(() =&lt; {  // 動的にコンポーネント
         <pre class="coding-example mb-6">
 import { defineAsyncComponent } from 'vue';
 
-export const pageMap : Record&lt;string, any&gt; = {
+export function getPageMap(key: string) : Record&lt;string, any&gt; | null {
+    if (key in pageMap) {
+        return pageMap[key];
+    }
+
+    return null;
+}
+
+const pageMap : Record&lt;string, any&gt; = {
     '101': defineAsyncComponent(() =&gt; import('@/pages/blog/2025-08/09-sat-sample.vue')),
     '102': defineAsyncComponent(() =&gt; import('@/pages/blog/2025-08/10-sun-sample.vue')),
     '103': defineAsyncComponent(() =&gt; import('@/pages/blog/2025-08/11-mon-sample.vue'))
@@ -329,7 +337,16 @@ export const pageMap : Record&lt;string, any&gt; = {
         </talk-balloon>
 
         <pre class="coding-example mb-6">
-import { pageMap } from './page-map';
+&lt;template&gt;
+    &lt;component
+        :is="getPageMap('2025-09/10-wed')"
+        v-if="getPageMap('2025-09/10-wed')"
+    /&gt;
+&lt;/template&gt;
+
+&lt;script setup lang="ts"&gt;
+    import { getPageMap } from './page-map';
+&lt;/script&gt;
         </pre>
 
         <talk-balloon
