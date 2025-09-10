@@ -258,6 +258,88 @@ const componentMap = {
                 話しの長いやつだ……
         </talk-balloon>
 
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
+                👇 さらに黒吉と相談して、コードの修正。
+        </talk-balloon>
+
+        <pre class="coding-example mb-6">
+const page = computed(()=&lt;{ // クエリー・パラメーター
+    // Nuxt 3（Vue Router）のuseRoute().queryは、クエリパラメータをRecord&gt;string, string | LocationQueryValue[]&lt;として返す。
+    const queryPage = route.query.page || '';
+
+    // 型ガードでstringに絞り込み
+    return typeof queryPage === 'string' ? queryPage : '';
+});
+
+const selectedComponent = computed(() =&lt; {  // 動的にコンポーネントを選択
+    if (page.value in componentMap) {
+        return componentMap[page.value];
+    }
+    return null;
+});
+        </pre>
+
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
+                これで動的インポートはでけたぜ。
+        </talk-balloon>
+
+        <talk-balloon
+            :src="hiyoko2Src"
+            :alt="hiyoko2Alt"
+            :name="hiyoko2Name"
+            :device="compatibleDevice1Ref?.device">
+                そのコンポーネントのマップ、データ・ファイルとして切り出しておきたいわねえ
+        </talk-balloon>
+
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device"
+            class="mb-6">
+                👇 こういうファイルを作って……。
+        </talk-balloon>
+
+        📄 page-map.ts<br/>
+        <pre class="coding-example mb-6">
+import { defineAsyncComponent } from 'vue';
+
+export const pageMap : Record&lt;string, any&gt; = {
+    '101': defineAsyncComponent(() =&gt; import('@/pages/blog/2025-08/09-sat-sample.vue')),
+    '102': defineAsyncComponent(() =&gt; import('@/pages/blog/2025-08/10-sun-sample.vue')),
+    '103': defineAsyncComponent(() =&gt; import('@/pages/blog/2025-08/11-mon-sample.vue'))
+};
+        </pre>
+
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device"
+            class="mb-6">
+                👇 こういう感じで呼び出せる。パターン入ったら簡単だ、早い。
+        </talk-balloon>
+
+        <pre class="coding-example mb-6">
+import { pageMap } from './page-map';
+        </pre>
+
+        <talk-balloon
+            :src="kifuwarabe2Src"
+            :alt="kifuwarabe2Alt"
+            :name="kifuwarabe2Name"
+            :device="compatibleDevice1Ref?.device">
+                じゃあ、いったんその方法でこのワラベンチャーを建て替えてくれだぜ。
+        </talk-balloon>
+
     </section>
 
 </template>
@@ -294,8 +376,8 @@ const componentMap = {
     const hiyoko2Alt = "ひよこ２";
     const hiyoko2Name = "ひよこ";
     import kurokichi1Src from "@/assets/img/talk/202509__character__10--kurokichi.png";
-    const kurokichi1Alt = "黒吉１";
-    const kurokichi1Name = "黒吉";
+    const kurokichi1Alt = "グロックの黒吉１";
+    const kurokichi1Name = "グロックの黒吉";
 
 
     // ################
