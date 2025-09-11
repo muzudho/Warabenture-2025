@@ -1,3 +1,5 @@
+// スタイルシートのデータの型の違いを吸収します。
+
 //import type { Properties } from 'csstype';  // Nuxt3 用。使わない
 //import { StyleValue } from 'vue';   // Tauri2 用
 

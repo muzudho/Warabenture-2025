@@ -21,7 +21,7 @@
             marginBottom: `calc(${5 * controllerSquareUnit}px)`,
         }"
     >
-        <the-header/>
+        <the-chapter-header/>
 
         <h3><span class="parent-header">ＲＰＧの歩行グラフィック　＞　</span>回り込むタイルへ投影・両端つながりの像・視野外マスク例示・マップタイル画像付き</h3>
         <section class="sec-3">
@@ -183,7 +183,7 @@
                 pagePath="/making/input-axis-rpg-walk-using-background-image-1"/>
         </section>
 
-        <the-footer/>
+        <the-chapter-footer/>
     </div>
 
     <!-- オーバーラップ画面 -->
@@ -587,8 +587,8 @@
     import Stopwatch from '@/components/Stopwatch.vue';
     import TalkBalloon from '@/components/TalkBalloon.vue';
     import TileAnimation from '@/components/TileAnimation.vue';
-    import TheFooter from '../the-footer.vue';
-    import TheHeader from '../the-header.vue';
+    import TheChapterFooter from '../the-chapter-footer.vue';
+    import TheChapterHeader from '../the-chapter-header.vue';
 
     // ++++++++++++++++++++++++++++++++++
     // + インポート　＞　コンポーザブル +

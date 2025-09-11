@@ -1,7 +1,6 @@
 <template>
-    <br/>
-    <section class="sec-2">
-        <v-btn @click="goBack" v-tooltip="'上の章を閉じる'">❌</v-btn>
+    <section class="sec-1 mt-6">
+        <v-btn @click="closePart" v-tooltip="'上の部を閉じる'">❌</v-btn>
     </section>
 </template>
 
@@ -17,9 +16,11 @@
     // ############
     // # ルーチン #
     // ############
+
     const router = useRouter();
 
-    function goBack() : void {
-        router.push('/coding-styles');
+    function closePart() : void {
+        router.push('/');
     }
+
 </script>

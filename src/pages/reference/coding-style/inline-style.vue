@@ -1,8 +1,8 @@
 <template>
-    <the-header/>
+    <the-section-header/>
 
-    <h3>インライン・スタイルの書き方を決めておこうぜの章だぜ！</h3>
-    <section class="sec-3">
+    <h4>インライン・スタイルの書き方を決めておくの節だぜ！</h4>
+    <section class="sec-4">
         <br/>
 
         <talk-balloon
@@ -436,13 +436,12 @@
 
     </section>
 
-    <br/>
-    <h3>ソースコード</h3>
-    <section class="sec-3">
+    <h5>ソースコード</h5>
+    <section class="sec-5">
         <source-link/>
     </section>
 
-    <the-footer/>
+    <the-section-footer/>
 </template>
 
 <script setup lang="ts">
@@ -463,8 +462,8 @@
     import CompatibleDevice from '@/components/CompatibleDevice.vue'
     import SourceLink from '@/components/SourceLink.vue';
     import TalkBalloon from '@/components/TalkBalloon.vue';
-    import TheFooter from './the-footer.vue';
-    import TheHeader from './the-header.vue';
+    import TheSectionFooter from './the-section-footer.vue';
+    import TheSectionHeader from './the-section-header.vue';
 
 
     // ##########

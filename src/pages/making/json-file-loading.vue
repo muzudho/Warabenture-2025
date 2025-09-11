@@ -1,5 +1,5 @@
 <template>
-    <the-header/>
+    <the-chapter-header/>
 
     <h3>JSONファイルの読込だぜ！　の章</h3>
     <section class="sec-3">
@@ -16,7 +16,7 @@
         <source-link/>
     </section>
 
-    <the-footer/>
+    <the-chapter-footer/>
 </template>
 
 <script setup lang="ts">
@@ -27,16 +27,21 @@
 
     import { onMounted, ref } from 'vue';
 
-    // ++++++++++++++++++
-    // + コンポーネント +
-    // ++++++++++++++++++
+    // ++++++++++++++++++++++++++++++++++
+    // + インポート　＞　コンポーネント +
+    // ++++++++++++++++++++++++++++++++++
     //
     // Tauri なら明示的にインポートを指定する必要がある。 Nuxt なら自動でインポートしてくれる場合がある。
     //
 
     import SourceLink from '../../components/SourceLink.vue';
-    import TheFooter from './the-footer.vue';
-    import TheHeader from './the-header.vue';
+
+    // ++++++++++++++++++++++++++
+    // + インポート　＞　ページ +
+    // ++++++++++++++++++++++++++
+
+    import TheChapterFooter from './the-chapter-footer.vue';
+    import TheChapterHeader from './the-chapter-header.vue';
 
 
     // ##############

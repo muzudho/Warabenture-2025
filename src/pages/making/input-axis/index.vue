@@ -1,5 +1,5 @@
 <template>
-    <the-parent-header/>
+    <the-chapter-header/>
 
     <compatible-device ref="compatibleDevice1Ref"/>
 
@@ -243,7 +243,7 @@
         <source-link/>
     </section>
 
-    <the-parent-footer/>
+    <the-chapter-footer/>
 </template>
 
 <script setup lang="ts">
@@ -275,8 +275,8 @@
     import InputAxisTargetAccumulateMoveaway1 from './target-accumulate-moveaway-1.vue';
     import SourceLink from '@/components/SourceLink.vue';
     import TalkBalloon from '@/components/TalkBalloon.vue';
-    import TheParentFooter from '../the-footer.vue';
-    import TheParentHeader from '../the-header.vue';
+    import TheChapterFooter from '../the-chapter-footer.vue';
+    import TheChapterHeader from '../the-chapter-header.vue';
 
 
     // ##########

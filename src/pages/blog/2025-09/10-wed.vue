@@ -589,6 +589,8 @@ export const pageMap : Readonly&lt;Record&lt;string, any&gt;&gt; = {
     // # インポート #
     // ##############
 
+    import { ref } from 'vue';
+
     // ++++++++++++++++++++++++++++++++++
     // + インポート　＞　コンポーネント +
     // ++++++++++++++++++++++++++++++++++

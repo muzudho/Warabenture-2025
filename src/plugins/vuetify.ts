@@ -56,17 +56,23 @@ const myCustomLightTheme = {
 // # エクスポート #
 // ################
 
-export default defineNuxtPlugin((nuxtApp) => {
-    const vuetify = createVuetify({
-        components,
-        directives,
-        theme: {
-            defaultTheme: 'myCustomLightTheme',
-            themes: {
-                myCustomLightTheme,
-            },
+// Tauri, Nuxt でほぼ共通部分：
+const vuetifyOptions = {
+    components,
+    directives,
+    theme: {
+        defaultTheme: 'myCustomLightTheme',
+        themes: {
+            myCustomLightTheme,
         },
-    });
+    },
+};
 
+// Tauri 用：
+//      省略
+
+// Nuxt 用：
+export default defineNuxtPlugin((nuxtApp) => {
+    const vuetify = createVuetify(vuetifyOptions);
     nuxtApp.vueApp.use(vuetify);
 });

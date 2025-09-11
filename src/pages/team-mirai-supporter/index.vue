@@ -22,7 +22,7 @@
     // + コンポーネント +
     // ++++++++++++++++++
 
-    import TheGrandParentHeader from '../../the-header.vue';
+    import TheGrandParentHeader from '../the-app-header.vue';
     import TheParentFooter from '../the-footer.vue';
     import TheParentHeader from '../the-header.vue';
 

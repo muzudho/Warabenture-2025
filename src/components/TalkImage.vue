@@ -9,6 +9,7 @@
             また、良くも悪くも、画面サイズに応じて、画像サイズが自動調整されます。
         -->
         <v-img
+            contain
             class="talk-image mb-6"
             :src="props.href"
             :alt="props.alt"

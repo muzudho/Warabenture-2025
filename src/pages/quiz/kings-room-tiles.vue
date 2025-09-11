@@ -3,7 +3,7 @@
 -->
 
 <template>
-    <the-header/>
+    <the-chapter-header/>
 
     <!-- ボタン機能拡張 -->
     <button-20250822 ref="button1Ref"/>
@@ -396,7 +396,9 @@
             :src="commonPapepoKingSrc"
             :alt="commonPapepoKingAlt"
             :name="commonPapepoKingName"
-            :device="compatibleDevice1Ref?.device">
+            :device="compatibleDevice1Ref?.device"
+            class="mb-6"
+        >
             リフォーム会社が残した、床のタイルの色を決める魔法の呪文は<br/>
             👇これじゃ」<br/>
         </talk-balloon>
@@ -592,7 +594,6 @@ color = i % 2;
                 <br/>
             </section>
         </section>
-        <br/>
 
     </section>
 
@@ -603,7 +604,7 @@ color = i % 2;
         <source-link/>
     </section>
 
-    <the-footer/>
+    <the-chapter-footer/>
 </template>
 
 <script setup lang="ts">
@@ -642,8 +643,8 @@ color = i % 2;
     import TalkIllustration from '@/components/TalkIllustration.vue';
     import TalkNovel from '@/components/TalkNovel.vue';
     import TileAnimation from '@/components/TileAnimation.vue';
-    import TheFooter from './the-footer.vue';
-    import TheHeader from './the-header.vue';
+    import TheChapterFooter from './the-chapter-footer.vue';
+    import TheChapterHeader from './the-chapter-header.vue';
 
     // ++++++++++++++++++
     // + コンポーザブル +

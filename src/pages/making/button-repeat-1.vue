@@ -4,7 +4,7 @@
 -->
 
 <template>
-    <the-header/>
+    <the-chapter-header/>
 
     <h4>ボタンの押しっぱなしが利くようにしようぜ？</h4>
     <section class="sec-4">
@@ -45,7 +45,7 @@
         <source-link/>
     </section>
 
-    <the-footer/>
+    <the-chapter-footer/>
 </template>
 
 <script setup lang="ts">
@@ -59,19 +59,22 @@
 
     import { VBtn } from 'vuetify/components';
 
-
-    // ++++++++++++++++++
-    // + コンポーネント +
-    // ++++++++++++++++++
+    // ++++++++++++++++++++++++++++++++++
+    // + インポート　＞　コンポーネント +
+    // ++++++++++++++++++++++++++++++++++
     //
     // Tauri なら明示的にインポートを指定する必要がある。 Nuxt なら自動でインポートしてくれる場合がある。
     //
 
-
     // from の階層が上の順、アルファベット順
     import SourceLink from '../../components/SourceLink.vue';
-    import TheFooter from './the-footer.vue';
-    import TheHeader from './the-header.vue';
+
+    // ++++++++++++++++++++++++++
+    // + インポート　＞　ページ +
+    // ++++++++++++++++++++++++++
+
+    import TheChapterFooter from './the-chapter-footer.vue';
+    import TheChapterHeader from './the-chapter-header.vue';
 
 
     // ############################

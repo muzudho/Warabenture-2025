@@ -1,18 +1,7 @@
 <template>
-    <the-grand-parent-header/>
-    <the-parent-header/>
-
-    <h2>クイズだぜ！　の部　インデックス</h2>
-    <section class="sec-2">
-        勇者キフワラニャンは王様に呼ばれた。<v-btn style="visibility: hidden;"></v-btn><br/>
-        <!-- 他のページと縦幅を揃えるために、何の働きもしない空ボタンを置いています。 -->
-
-        <ul>
-            <li>📖 <router-link to="/quiz/kings-room-tiles" :style="getPreviousLinkHighlight('/quiz/kings-room-tiles')">王の間のタイルを市松模様にしようぜ！</router-link></li>
-        </ul>
-    </section>
-
-    <the-parent-footer/>
+    <component :is="TheChaptersHeader"/>
+    <component :is="TheChaptersBody"/>
+    <component :is="TheChaptersFooter"/>
 </template>
 
 <script setup lang="ts">
@@ -21,19 +10,12 @@
     // # インポート #
     // ##############
 
-    // ++++++++++++++++++
-    // + コンポーネント +
-    // ++++++++++++++++++
+    // ++++++++++++++++++++++++++
+    // + インポート　＞　ページ +
+    // ++++++++++++++++++++++++++
 
-    import TheGrandParentHeader from '../../the-header.vue';
-    import TheParentFooter from '../the-footer.vue';
-    import TheParentHeader from '../the-header.vue';
-
-
-    // ++++++++++++++++++
-    // + コンポーザブル +
-    // ++++++++++++++++++
-
-    import { getPreviousLinkHighlight } from '../../composables/link-highlight';
+    import TheChaptersBody from '@/pages/quiz/the-part-body.vue';
+    import TheChaptersFooter from '@/pages/quiz/the-part-footer.vue';
+    import TheChaptersHeader from '@/pages/quiz/the-part-header.vue';
 
 </script>

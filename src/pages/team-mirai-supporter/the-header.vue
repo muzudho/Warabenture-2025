@@ -21,7 +21,7 @@
     // + コンポーネント +
     // ++++++++++++++++++
 
-    import TheGrandParentHeader from '../../the-header.vue';
+    import TheGrandParentHeader from '../the-app-header.vue';
 
 
     // ############
