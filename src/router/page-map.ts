@@ -16,6 +16,7 @@ import Blog20250712Sat from '@/pages/blog/2025-07/12-sat.vue';
 import Blog20250725Fri from '@/pages/blog/2025-07/25-fri.vue';
 import Blog20250811Mon from '@/pages/blog/2025-08/11-mon.vue';
 import Blog20250910Wed from '@/pages/blog/2025-09/10-wed.vue';
+import Blog20250911Thu from '@/pages/blog/2025-09/11-thu.vue';
 
 export const pageMap : Readonly<Record<string, any>> = {
     '2025-05/24-sat': Blog20250524Sat,
@@ -31,4 +32,5 @@ export const pageMap : Readonly<Record<string, any>> = {
     '2025-07/25-fri': Blog20250725Fri,
     '2025-08/11-mon': Blog20250811Mon,
     '2025-09/10-wed': Blog20250910Wed,
+    '2025-09/11-thu': Blog20250911Thu,
 };

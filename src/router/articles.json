@@ -2,66 +2,71 @@
     {
         "id": "2025-05/24-sat",
         "date": "2025-05-24",
-        "category": ["Planning"]
+        "category": ["Talking", "Planning"]
     },
     {
         "id": "2025-06/01-sun",
         "date": "2025-06-01",
-        "category": ["Planning"]
+        "category": ["Talking", "Planning"]
     },
     {
         "id": "2025-06/02-mon",
         "date": "2025-06-02",
-        "category": ["Tauri2", "Vue3"]
+        "category": ["Talking", "Tauri2", "Vue3"]
     },
     {
         "id": "2025-06/03-tue",
         "date": "2025-06-03",
-        "category": ["Tauri2", "Git", "Rust"]
+        "category": ["Talking", "Tauri2", "Git", "Rust"]
     },
     {
         "id": "2025-06/04-wed",
         "date": "2025-06-04",
-        "category": ["Vue3", "Rust"]
+        "category": ["Talking", "Vue3", "Rust"]
     },
     {
         "id": "2025-06/05-thu",
         "date": "2025-06-05",
-        "category": ["CleaningHouse"]
+        "category": ["Talking", "CleaningHouse"]
     },
     {
         "id": "2025-06/12-thu",
         "date": "2025-06-12",
-        "category": ["Planning"]
+        "category": ["Talking", "Planning"]
     },
     {
         "id": "2025-06/15-sun",
         "date": "2025-06-15",
-        "category": ["Tauri2"]
+        "category": ["Talking", "Tauri2"]
     },
     {
         "id": "2025-06/19-thu",
         "date": "2025-06-19",
-        "category": ["Vuetify3"]
+        "category": ["Talking", "Vuetify3"]
     },
     {
         "id": "2025-07/12-sat",
         "date": "2025-07-12",
-        "category": ["Tauri2"]
+        "category": ["Talking", "Tauri2"]
     },
     {
         "id": "2025-07/25-fri",
         "date": "2025-07-25",
-        "category": ["Tauri2", "Vuetify3", "SSL"]
+        "category": ["Talking", "Tauri2", "Vuetify3", "SSL"]
     },
     {
         "id": "2025-08/11-mon",
         "date": "2025-08-11",
-        "category": ["Vue3"]
+        "category": ["Talking", "Vue3"]
     },
     {
         "id": "2025-09/10-wed",
         "date": "2025-09-10",
-        "category": ["Vue3"]
+        "category": ["Talking", "Vue3"]
+    },
+    {
+        "id": "2025-09/11-thu",
+        "date": "2025-09-11",
+        "category": ["Talking", "Vue3"]
     }
 ]
