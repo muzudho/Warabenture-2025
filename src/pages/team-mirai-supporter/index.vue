@@ -1,15 +1,7 @@
 <template>
-    <the-grand-parent-header/>
-    <the-parent-header/>
-
-    <h2>チームみらいサポーター活動の章だぜ！　の部　インデックス</h2>
-    <section class="sec-2">
-        <ul>
-            <li>📖 <NuxtLink to="/team-mirai-supporter/heat-map" :style="getPreviousLinkHighlight('/team-mirai-supporter/heat-map')">Heat Map</NuxtLink></li>
-        </ul>
-    </section>
-
-    <the-parent-footer/>
+    <component :is="TheChaptersHeader"/>
+    <component :is="TheChaptersBody"/>
+    <component :is="TheChaptersFooter"/>
 </template>
 
 <script setup lang="ts">
@@ -18,19 +10,12 @@
     // # インポート #
     // ##############
 
-    // ++++++++++++++++++
-    // + コンポーネント +
-    // ++++++++++++++++++
+    // ++++++++++++++++++++++++++
+    // + インポート　＞　ページ +
+    // ++++++++++++++++++++++++++
 
-    import TheGrandParentHeader from '../the-app-header.vue';
-    import TheParentFooter from '../the-footer.vue';
-    import TheParentHeader from '../the-header.vue';
-
-
-    // ++++++++++++++++++
-    // + コンポーザブル +
-    // ++++++++++++++++++
-
-    import { getPreviousLinkHighlight } from '../../composables/link-highlight';
+    import TheChaptersBody from '@/pages/team-mirai-supporter/the-part-body.vue';
+    import TheChaptersFooter from '@/pages/team-mirai-supporter/the-part-footer.vue';
+    import TheChaptersHeader from '@/pages/team-mirai-supporter/the-part-header.vue';
 
 </script>
