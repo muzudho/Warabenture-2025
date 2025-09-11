@@ -21,7 +21,12 @@
         </talk-balloon>
     </section>
 
+    <component :is="TheCodingStyleHeader"/>
     <component :is="TheCodingStyleBody"/>
+    <br/>
+
+    <component :is="TheMakingHeader"/>
+    <component :is="TheMakingBody"/>
 </template>
 
 <script setup lang="ts">
@@ -44,7 +49,10 @@
     // + インポート　＞　ページ +
     // ++++++++++++++++++++++++++
 
-    import TheCodingStyleBody from '@/pages/reference/coding-style/index-body.vue';
+    import TheCodingStyleBody from '@/pages/reference/coding-style/the-chapter-body.vue';
+    import TheCodingStyleHeader from '@/pages/reference/coding-style/the-chapter-header.vue';
+    import TheMakingBody from '@/pages/reference/making/the-chapter-body.vue';
+    import TheMakingHeader from '@/pages/reference/making/the-chapter-header.vue';
 
 
     // ##########

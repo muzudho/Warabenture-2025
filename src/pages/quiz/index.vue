@@ -1,7 +1,7 @@
 <template>
-    <component :is="TheChaptersHeader"/>
-    <component :is="TheChaptersBody"/>
-    <component :is="TheChaptersFooter"/>
+    <component :is="ThePartHeader"/>
+    <component :is="ThePartBody"/>
+    <component :is="ThePartFooter"/>
 </template>
 
 <script setup lang="ts">
@@ -14,8 +14,8 @@
     // + インポート　＞　ページ +
     // ++++++++++++++++++++++++++
 
-    import TheChaptersBody from '@/pages/quiz/the-part-body.vue';
-    import TheChaptersFooter from '@/pages/quiz/the-part-footer.vue';
-    import TheChaptersHeader from '@/pages/quiz/the-part-header.vue';
+    import ThePartBody from '@/pages/quiz/the-part-body.vue';
+    import ThePartFooter from '@/pages/quiz/the-part-footer.vue';
+    import ThePartHeader from '@/pages/quiz/the-part-header.vue';
 
 </script>

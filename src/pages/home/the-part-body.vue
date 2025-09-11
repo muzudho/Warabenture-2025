@@ -179,7 +179,7 @@
     // 円グラフのための、SPA用のルートパス
     const routes = [
         "/blog",                        // ブログのURL
-        "/making",                      // メイキングのURL
+        "/reference/making",                      // メイキングのURL
         "/minigames",                   // ミニゲーム
         "/team-mirai-supporter",        // チームみらいサポーター活動のURL
         "/coding-style",                // コーディング・スタイル
@@ -208,6 +208,7 @@
     // ++++++++++++++++++++++++++++++
 
     let chart: Chart | null = null;
+
 
     function clientsideChartInit() {
         // window オブジェクトはブラウザー専用。サーバー側ではプリレンダリングできないので、マウント後に書く。

@@ -5,9 +5,10 @@
         <v-btn @click="openAllChapters" v-tooltip="'全章を開く'">🟩</v-btn>
     </section>
 
-    <component :is="TheChapterHeader" />
-    <component :is="TheChapterBody" />
-    <component :is="TheChapterFooter" />
+
+    <component :is="TheChapterHeader"/>
+    <component :is="TheChapterBody"/>
+    <component :is="TheChapterFooter"/>
 
     <component :is="ThePartFooter"/>
 </template>
@@ -24,9 +25,9 @@
     // + インポート　＞　ページ +
     // ++++++++++++++++++++++++++
 
-    import TheChapterBody from '@/pages/reference/coding-style/the-chapter-body.vue';
-    import TheChapterFooter from '@/pages/reference/coding-style/the-chapter-footer.vue';
-    import TheChapterHeader from '@/pages/reference/coding-style/the-chapter-header.vue';
+    import TheChapterBody from '@/pages/reference/making/the-chapter-body.vue';
+    import TheChapterFooter from '@/pages/reference/making/the-chapter-footer.vue';
+    import TheChapterHeader from '@/pages/reference/making/the-chapter-header.vue';
     import ThePartFooter from '@/pages/reference/the-part-footer.vue';
     import ThePartHeader from '@/pages/reference/the-part-header.vue';
 

@@ -12,7 +12,6 @@
         <router-link to="/blog">ブログ</router-link> |
         <router-link to="/quiz">クイズ</router-link> |
         <router-link to="/minigames">ミニゲーム</router-link> |
-        <router-link to="/making">メイキング</router-link> |
         <router-link to="/reference">リファレンス</router-link>
         <!--
         <router-link to="/team-mirai-supporter">チームみらいサポーター活動</router-link>

@@ -1,6 +1,6 @@
 <template>
-    <component :is="TheChaptersHeader"/>
-    <component :is="TheChaptersBody"/>
+    <component :is="ThePartHeader"/>
+    <component :is="ThePartBody"/>
     <!-- ホームにフッターの閉じるボタンはありません。 -->
 </template>
 
@@ -14,7 +14,7 @@
     // + インポート　＞　ページ +
     // ++++++++++++++++++++++++++
 
-    import TheChaptersBody from '@/pages/home/the-part-body.vue';
-    import TheChaptersHeader from '@/pages/home/the-part-header.vue';
+    import ThePartBody from '@/pages/home/the-part-body.vue';
+    import ThePartHeader from '@/pages/home/the-part-header.vue';
 
 </script>
