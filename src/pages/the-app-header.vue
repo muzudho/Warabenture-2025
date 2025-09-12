@@ -7,17 +7,32 @@
                 📖 https://nuxt.com/docs/3.x/guide/directory-structure/pages
             Tauri では PascalCase が習慣的に使われています。異なるので注意。
         -->
-        <router-link to="/">ホーム</router-link> |
-        <router-link to="/about">このサイトについて</router-link> |
-        <router-link to="/blog">ブログ</router-link> |
-        <router-link to="/quiz">クイズ</router-link> |
-        <router-link to="/minigames">ミニゲーム</router-link> |
-        <router-link to="/reference">リファレンス</router-link>
+        <router-link to="/" :style="getLinkHighlight('/')">ホーム</router-link> |
+        <router-link to="/about" :style="getLinkHighlight('/about')">このサイトについて</router-link> |
+
+        <router-link to="/blog" :style="getLinkHighlight('/blog')">ブログ</router-link> |
+        <router-link to="/quiz" :style="getLinkHighlight('/quiz')">クイズ</router-link> |
+        <router-link to="/minigames" :style="getLinkHighlight('/minigames')">ミニゲーム</router-link> |
+        <router-link to="/reference" :style="getLinkHighlight('/reference')">リファレンス</router-link>
+
         <!--
         <router-link to="/team-mirai-supporter">チームみらいサポーター活動</router-link>
         <router-link to="/wara-city/map">わらシティ</router-link>
         -->
     </nav>
-
-    <h1>ワラベンチャー</h1>
 </template>
+
+<script setup lang="ts">
+
+    // ##############
+    // # インポート #
+    // ##############
+
+    // ++++++++++++++++++++++++++++++++++
+    // + インポート　＞　コンポーザブル +
+    // ++++++++++++++++++++++++++++++++++
+
+    import { getLinkHighlight } from '../composables/link-highlight';
+
+</script>
+

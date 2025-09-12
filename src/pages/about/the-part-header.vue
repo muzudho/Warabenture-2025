@@ -1,7 +1,10 @@
 <template>
     <the-app-header/>
-    <button-to-close-below-part/>
-    <h2>このサイトについての部だぜ！</h2>
+    <button-to-close-pane
+        class="sec-0"
+        direction="down"
+        pagePath="/"
+    />
 </template>
 
 <script setup lang="ts">
@@ -14,7 +17,7 @@
     // + インポート　＞　コンポーネント +
     // ++++++++++++++++++++++++++++++++++
 
-    import ButtonToCloseBelowPart from '@/components/ButtonToCloseBelowPart.vue';
+    import ButtonToClosePane from '@/components/ButtonToClosePane.vue';
 
     // ++++++++++++++++++++++++++
     // + インポート　＞　ページ +

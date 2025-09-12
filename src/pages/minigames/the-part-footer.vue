@@ -1,5 +1,9 @@
 <template>
-    <button-to-close-above-part/>
+    <button-to-close-pane
+        class="sec-0"
+        direction="up"
+        pagePath="/"
+    />
 </template>
 
 <script setup lang="ts">
@@ -12,6 +16,6 @@
     // + インポート　＞　コンポーネント +
     // ++++++++++++++++++++++++++++++++++
 
-    import ButtonToCloseAbovePart from '@/components/ButtonToCloseAbovePart.vue';
+    import ButtonToClosePane from '@/components/ButtonToClosePane.vue';
 
 </script>

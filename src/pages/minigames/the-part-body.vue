@@ -1,5 +1,5 @@
 <template>
-    <section class="sec-2">
+    <section class="sec-0 sec-contents">
         ミニゲームだぜ（＾▽＾）！<v-btn style="visibility: hidden;"></v-btn><br/>
         <!-- 他のページと縦幅を揃えるために、何の働きもしない空ボタンを置いています。 -->
 

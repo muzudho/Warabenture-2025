@@ -1,7 +1,7 @@
 <template>
-    <component :is="ThePartHeader"/>
-    <component :is="ThePartBody"/>
-    <component :is="ThePartFooter"/>
+    <the-part-header/>
+    <the-part-body/>
+    <the-part-footer/>
 </template>
 
 <script setup lang="ts">

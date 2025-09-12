@@ -1,8 +1,13 @@
 <template>
-    <the-section-header/>
+    <the-app-header/>
+    <button-to-close-pane
+        class="sec-0"
+        direction="down"
+        pagePath="/reference"
+    />
 
-    <h4>効果音を鳴らす章だぜ！</h4>
-    <section class="sec-4">
+    <h1>効果音を鳴らす章だぜ！</h1>
+    <section class="sec-1">
         <v-btn @click="onSfx1Play()">効果音１</v-btn>
         <v-btn @click="onSfx2Play()">効果音２</v-btn>
         <v-btn @click="onSfx3Play()">効果音３</v-btn><br/>
@@ -10,12 +15,16 @@
     </section>
 
     <br/>
-    <h5>ソースコード</h5>
-    <section class="sec-5">
+    <h2>ソースコード</h2>
+    <section class="sec-2">
         <source-link/>
     </section>
 
-    <the-section-footer/>
+    <button-to-close-pane
+        class="sec-0"
+        direction="up"
+        pagePath="/reference"
+    />
 </template>
 
 <script setup lang="ts">
@@ -39,8 +48,8 @@
     // + インポート　＞　ページ +
     // ++++++++++++++++++++++++++
 
-    import TheSectionFooter from './the-section-footer.vue';
-    import TheSectionHeader from './the-section-header.vue';
+    import ButtonToClosePane from '@/components/ButtonToClosePane.vue';
+    import TheAppHeader from '../../the-app-header.vue';
 
 
     // ################

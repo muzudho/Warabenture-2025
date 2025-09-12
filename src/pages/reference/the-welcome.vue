@@ -3,8 +3,7 @@
     <!-- デバイス互換機能 -->
     <compatible-device ref="compatibleDevice1Ref"/>
 
-    <section class="sec-2">
-        <br/>
+    <section class="sec-1 pt-6">
 
         <talk-image
             :href="reference1Png"
@@ -16,17 +15,10 @@
             :alt="kifuwarabe2Alt"
             :name="kifuwarabe2Name"
             :device="compatibleDevice1Ref?.device">
-                ここは調べものの部屋だぜ。<br/>
+                ここは物置だぜ。<br/>
                 面白いものは何もないぜ。用が無いなら帰った帰った！
         </talk-balloon>
     </section>
-
-    <component :is="TheCodingStyleHeader"/>
-    <component :is="TheCodingStyleBody"/>
-    <br/>
-
-    <component :is="TheMakingHeader"/>
-    <component :is="TheMakingBody"/>
 </template>
 
 <script setup lang="ts">
@@ -44,15 +36,6 @@
     import CompatibleDevice from '@/components/CompatibleDevice.vue'
     import TalkBalloon from '@/components/TalkBalloon.vue';
     import TalkImage from '@/components/TalkImage.vue';
-
-    // ++++++++++++++++++++++++++
-    // + インポート　＞　ページ +
-    // ++++++++++++++++++++++++++
-
-    import TheCodingStyleBody from '@/pages/reference/coding-style/the-chapter-body.vue';
-    import TheCodingStyleHeader from '@/pages/reference/coding-style/the-chapter-header.vue';
-    import TheMakingBody from '@/pages/reference/making/the-chapter-body.vue';
-    import TheMakingHeader from '@/pages/reference/making/the-chapter-header.vue';
 
 
     // ##########

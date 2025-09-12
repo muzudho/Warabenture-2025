@@ -11,6 +11,7 @@
 <template>
     <v-app>
         <v-app-bar app density="compact">
+
             <img
                 src="@/assets/img/reference/application/202509__warabenture__12-1833-logo-since20220507.png"
                 class="ml-2"
@@ -19,6 +20,7 @@
                     height: 32px;
                 "
             />
+
             <v-toolbar-title style="display: inline;">ワラベンチャー</v-toolbar-title>
         </v-app-bar>
         <v-main>
@@ -62,6 +64,8 @@
         --myapplication-sec-1-header-bgcolor: darkmagenta;
         --myapplication-sec-1-header-fgcolor: khaki;
         */
+        --myapplication-sec-0-header-bgcolor: skyblue;
+        --myapplication-sec-0-header-fgcolor: darkorchid;
         --myapplication-sec-1-header-bgcolor: skyblue;
         --myapplication-sec-1-header-fgcolor: darkorchid;
         --myapplication-sec-2-header-bgcolor: skyblue;

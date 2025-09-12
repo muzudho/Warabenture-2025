@@ -5,9 +5,7 @@
         <v-btn style="visibility: hidden;"></v-btn>
     </section>
 
-    <!-- ホームに閉じるボタンはありません。 -->
-    <h2>ホームだぜ！　の部　インデックス</h2>
-    <!-- ホームに閉じるボタンはありません。 -->
+    <!-- ［ホーム］に閉じるボタンはありません。 -->
 </template>
 
 <script setup lang="ts">

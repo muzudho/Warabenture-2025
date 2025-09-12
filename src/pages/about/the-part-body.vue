@@ -1,6 +1,5 @@
 <template>
-    <section class="sec-2">
-        <br/>
+    <section class="sec-0 pt-6">
 
         <talk-balloon
             :src="commonOton2Src"

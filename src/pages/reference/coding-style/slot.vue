@@ -1,9 +1,13 @@
 <template>
-    <the-section-header/>
+    <the-app-header/>
+    <button-to-close-pane
+        class="sec-0"
+        direction="down"
+        pagePath="/reference"
+    />
 
-    <h4>スロットの書き方を決めておくの節だぜ！</h4>
-    <section class="sec-4">
-        <br/>
+    <h1>スロットの書き方を決めておくの節だぜ！</h1>
+    <section class="sec-1 pt-6">
 
         <talk-balloon
             :src="kifuwarabe2Src"
@@ -484,9 +488,8 @@ pnpm add -D @tauri-apps/cli@latest
 
     </section>
 
-    <h4>スロット・プロパティ</h4>
-    <section class="sec-4">
-        <br/>
+    <h2 class="mt-6">スロット・プロパティ</h2>
+    <section class="sec-2 pt-6">
 
         <talk-balloon
             :src="oton2Src"
@@ -596,12 +599,16 @@ pnpm add -D @tauri-apps/cli@latest
 
     </section>
 
-    <h5>ソースコード</h5>
-    <section class="sec-5">
+    <h2>ソースコード</h2>
+    <section class="sec-2 pt-6">
         <source-link/>
     </section>
 
-    <the-section-footer/>
+    <button-to-close-pane
+        class="sec-0"
+        direction="up"
+        pagePath="/reference"
+    />
 </template>
 
 <script setup lang="ts">
@@ -619,6 +626,7 @@ pnpm add -D @tauri-apps/cli@latest
     // Tauri なら明示的にインポートを指定する必要がある。 Nuxt なら自動でインポートしてくれる場合がある。
     //
 
+    import ButtonToClosePane from '@/components/ButtonToClosePane.vue';
     import CompatibleDevice from '@/components/CompatibleDevice.vue'
     import No1o0Child from '@/components/coding-style/no-1-0-child.vue';
     import No1o2o0Child from '@/components/coding-style/no-1-2-0-child.vue';
@@ -626,8 +634,7 @@ pnpm add -D @tauri-apps/cli@latest
     import SourceLink from '@/components/SourceLink.vue';
     import TalkBalloon from '@/components/TalkBalloon.vue';
     import TalkImage from '@/components/TalkImage.vue';
-    import TheSectionFooter from './the-section-footer.vue';
-    import TheSectionHeader from './the-section-header.vue';
+    import TheAppHeader from '../../the-app-header.vue';
 
 
     // ##########

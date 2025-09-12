@@ -1,9 +1,12 @@
 <template>
-    <the-section-header/>
-
-    <h4>インライン・スタイルの書き方を決めておくの節だぜ！</h4>
-    <section class="sec-4">
-        <br/>
+    <the-app-header/>
+    <button-to-close-pane
+        class="sec-0"
+        direction="down"
+        pagePath="/reference"
+    />
+    <h1>インライン・スタイルの書き方を決めておくの節だぜ！</h1>
+    <section class="sec-1 pt-6">
 
         <talk-balloon
             :src="kifuwarabe2Src"
@@ -436,12 +439,16 @@
 
     </section>
 
-    <h5>ソースコード</h5>
-    <section class="sec-5">
+    <h2>ソースコード</h2>
+    <section class="sec-2">
         <source-link/>
     </section>
 
-    <the-section-footer/>
+    <button-to-close-pane
+        class="sec-0"
+        direction="up"
+        pagePath="/reference"
+    />
 </template>
 
 <script setup lang="ts">
@@ -459,11 +466,11 @@
     // Tauri なら明示的にインポートを指定する必要がある。 Nuxt なら自動でインポートしてくれる場合がある。
     //
 
+    import ButtonToClosePane from '@/components/ButtonToClosePane.vue';
     import CompatibleDevice from '@/components/CompatibleDevice.vue'
     import SourceLink from '@/components/SourceLink.vue';
     import TalkBalloon from '@/components/TalkBalloon.vue';
-    import TheSectionFooter from './the-section-footer.vue';
-    import TheSectionHeader from './the-section-header.vue';
+    import TheAppHeader from '../../the-app-header.vue';
 
 
     // ##########

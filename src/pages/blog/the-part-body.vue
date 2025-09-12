@@ -1,8 +1,4 @@
 <template>
-    <section class="sec-2">
-        上の方の記事が新しいぜ（＾▽＾）！<br/>
-    </section>
-
     <!--
         静的インポート・動的コンポーネント
         router/page-map.ts, router/articles.json も編集してください（TODO: ここらへん自動生成化したい）

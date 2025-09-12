@@ -1,5 +1,7 @@
 <template>
-    <button-to-close-above-chapter
+    <button-to-close-pane
+        class="sec-0"
+        direction="up"
         pagePath="/quiz"
     />
 </template>
@@ -14,6 +16,6 @@
     // + インポート　＞　コンポーネント +
     // ++++++++++++++++++++++++++++++++++
 
-    import ButtonToCloseAboveChapter from '@/components/ButtonToCloseAboveChapter.vue';
+    import ButtonToClosePane from '@/components/ButtonToClosePane.vue';
 
 </script>

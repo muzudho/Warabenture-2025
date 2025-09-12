@@ -4,10 +4,15 @@
 -->
 
 <template>
-    <the-section-header/>
+    <the-app-header/>
+    <button-to-close-pane
+        class="sec-0"
+        direction="down"
+        pagePath="/reference"
+    />
 
-    <h4>ボタンの押しっぱなしが利くようにしようぜ？</h4>
-    <section class="sec-4">
+    <h1>ボタンの押しっぱなしが利くようにしようぜ？</h1>
+    <section class="sec-1">
         <!-- タッチパネルでも操作できるように、ボタンを置いておきます。キーボードの操作説明も兼ねます。 -->
         <p>キーボード操作方法</p>
         <ul>
@@ -40,12 +45,16 @@
     </section>
 
     <br/>
-    <h5>ソースコード</h5>
-    <section class="sec-5">
+    <h2>ソースコード</h2>
+    <section class="sec-2">
         <source-link/>
     </section>
 
-    <the-section-footer/>
+    <button-to-close-pane
+        class="sec-0"
+        direction="up"
+        pagePath="/reference"
+    />
 </template>
 
 <script setup lang="ts">
@@ -73,8 +82,8 @@
     // + インポート　＞　ページ +
     // ++++++++++++++++++++++++++
 
-    import TheSectionFooter from './the-section-footer.vue';
-    import TheSectionHeader from './the-section-header.vue';
+    import ButtonToClosePane from '@/components/ButtonToClosePane.vue';
+    import TheAppHeader from '../../the-app-header.vue';
 
 
     // ############################

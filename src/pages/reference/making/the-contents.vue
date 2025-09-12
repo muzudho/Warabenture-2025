@@ -1,9 +1,5 @@
 <template>
-    <section class="sec-3">
-        アプリケーション製作の練習だぜ（＾▽＾）！
-        <!-- 他のページと縦幅を揃えるために、何の働きもしない空ボタンを置いています。 -->
-        <v-btn style="visibility: hidden;"></v-btn><br/>
-
+    <section class="sec-1 sec-contents mt-6">
         <ul>
             <li>📖 <router-link to="/reference/making/page-layout" :style="getPreviousLinkHighlight('/reference/making/page-layout')">説明を始める前に、説明ページのレイアウトを決めておく章だぜ！</router-link></li>
             <li>📖 <router-link to="/reference/making/perspective-vertical-2-panes" :style="getPreviousLinkHighlight('/reference/making/perspective-vertical-2-panes')">画面を上下に分ける章だぜ！</router-link></li>

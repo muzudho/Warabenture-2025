@@ -4,12 +4,12 @@
     <!-- ボタン機能拡張 -->
     <button-20250822 ref="button1Ref"/>
 
-    <h3>シューティング・スター（初級者向けのソースコード）</h3>
-    <section class="sec-3">
+    <h1>シューティング・スター（初級者向けのソースコード）</h1>
+    <section class="sec-1">
 
         <!-- ゲームの操作方法 -->
         <v-btn @click="appManualIsShowing = !appManualIsShowing">{{ appManualIsShowing ? 'ゲームの遊び方閉じる' : 'ゲームの遊び方を表示' }}</v-btn>
-        <section class="sec-1" v-if="appManualIsShowing">
+        <section class="sec-0" v-if="appManualIsShowing">
             <br>
             <p>
                 このゲームは、星を撮影する、という状況を見立てたゲームだぜ。<br/>
@@ -189,8 +189,8 @@
     </section>
     
     <br/>
-    <h3>ソースコード</h3>
-    <section class="sec-3">
+    <h2>ソースコード</h2>
+    <section class="sec-2">
         <source-link/>
     </section>
 

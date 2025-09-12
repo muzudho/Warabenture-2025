@@ -3,8 +3,8 @@
     <!-- ボタン機能拡張 -->
     <button-20250822 ref="button1Ref"/>
 
-    <h5><span class="parent-header">ＲＰＧの歩行グラフィック　＞　</span>自機ウォーキング・遠ざかるグリッド吸着</h5>
-    <section class="sec-5">
+    <h2><span class="parent-header">ＲＰＧの歩行グラフィック　＞　</span>自機ウォーキング・遠ざかるグリッド吸着</h2>
+    <section class="sec-2">
         <br/>
 
         <!-- ストップウォッチ。デバッグに使いたいときは、 display: none; を消してください。 -->
@@ -187,8 +187,8 @@
     </section>
 
     <br/>
-    <h6><span class="parent-header-lights-out">ＲＰＧの歩行グラフィック　＞　</span><span class="parent-header">自機ウォーキング・遠ざかるグリッド吸着　＞　</span>ソースコード</h6>
-    <section class="sec-6">
+    <h3><span class="parent-header-lights-out">ＲＰＧの歩行グラフィック　＞　</span><span class="parent-header">自機ウォーキング・遠ざかるグリッド吸着　＞　</span>ソースコード</h3>
+    <section class="sec-3">
         <source-link
             pagePath="/reference/making/input-axis/rpg-walk-player-grid-moveaway-1"/>
     </section>

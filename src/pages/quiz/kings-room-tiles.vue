@@ -10,9 +10,8 @@
 
     <compatible-device ref="compatibleDevice1Ref"/>
 
-    <h3>王の間のタイルを市松模様にしようぜ！</h3>
-    <section class="sec-3">
-        <br/>
+    <h1>王の間のタイルを市松模様にしようぜ！</h1>
+    <section class="sec-1 pt-6">
         
         <!-- 免責 -->
         <v-alert type="warning" title="免責！" text="画面は開発中のものだぜ（＾▽＾）！" closable />
@@ -599,8 +598,8 @@ color = i % 2;
 
 
     <br/>
-    <h3>ソースコード</h3>
-    <section class="sec-3">
+    <h2>ソースコード</h2>
+    <section class="sec-2">
         <source-link/>
     </section>
 
