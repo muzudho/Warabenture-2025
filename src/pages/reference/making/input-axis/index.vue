@@ -1,10 +1,11 @@
 <template>
+    <the-part-header/>
     <the-chapter-header/>
 
     <compatible-device ref="compatibleDevice1Ref"/>
 
-    <h3>上下左右に移動する章だぜ！</h3>
-    <section class="sec-3">
+    <h4>上下左右に移動する節だぜ！</h4>
+    <section class="sec-4">
         <br/>
 
         <talk-balloon
@@ -29,7 +30,7 @@
 
     <input-axis-target-accumulate-moveaway-1/><br/>
 
-    <section class="sec-3">
+    <section class="sec-4">
         <talk-balloon
             :src="commonKifuwarabe2Src"
             :alt="commonKifuwarabe2Alt"
@@ -42,7 +43,7 @@
             ［累積］というのは、キーを押している間、数ドットずつ動くことだぜ。<br/>
         </talk-balloon>
     </section>
-    <section class="sec-3">
+    <section class="sec-4">
         <talk-balloon
             :src="commonHiyoko2Src"
             :alt="commonHiyoko2Alt"
@@ -54,7 +55,7 @@
 
     <input-axis-rpg-walk-player-accumulate-moveaway-1/><br/>
 
-    <section class="sec-3">
+    <section class="sec-4">
         <br/>
         
         <talk-balloon
@@ -69,7 +70,7 @@
 
     <input-axis-rpg-walk-player-grid-moveaway-1/><br/>
 
-    <section class="sec-3">
+    <section class="sec-4">
         <br/>
         
         <talk-balloon
@@ -85,7 +86,7 @@
 
     <input-axis-rpg-walk-player-grid-bounded-1/><br/>
 
-    <section class="sec-3">
+    <section class="sec-4">
         <br/>
         
         <talk-balloon
@@ -101,7 +102,7 @@
 
     <input-axis-rpg-walk-board-grid-moveaway-1/><br/>
 
-    <section class="sec-3">
+    <section class="sec-4">
         <br/>
         
         <talk-balloon
@@ -117,7 +118,7 @@
 
     <input-axis-rpg-walk-tiles-immovable-projection-moveaway-1/><br/>
 
-    <section class="sec-3">
+    <section class="sec-4">
         <br/>
         
         <talk-balloon
@@ -157,7 +158,7 @@
 
     <input-axis-rpg-walk-tiles-immovable-projection-boundary-1/><br/>
 
-    <section class="sec-3">
+    <section class="sec-4">
         <br/>
         
         <talk-balloon
@@ -171,7 +172,7 @@
 
     <input-axis-rpg-walk-tiles-immovable-projection-loop-1/><br/>
 
-    <section class="sec-3">
+    <section class="sec-4">
         <br/>
         
         <talk-balloon
@@ -186,7 +187,7 @@
 
     <input-axis-rpg-walk-tiles-immovable-projection-moveaway-size-variable-1/><br/>
 
-    <section class="sec-3">
+    <section class="sec-4">
         <br/>
         
         <talk-balloon
@@ -200,7 +201,7 @@
 
     <input-axis-rpg-walk-tiles-wraparound-projection-loop-outofsight-1/><br/>
 
-    <section class="sec-3">
+    <section class="sec-4">
         <br/>
         
         <talk-balloon
@@ -238,12 +239,13 @@
     <input-axis-rpg-walk-tiles-wraparound-projection-loop-outofsight-maptileimage-1/><br/>
 
     <br/>
-    <h3><span class="parent-header">上下左右に移動しようぜ！　＞　</span>ソースコード</h3>
-    <section class="sec-3">
+    <h5><span class="parent-header">上下左右に移動しようぜ！　＞　</span>ソースコード</h5>
+    <section class="sec-5">
         <source-link/>
     </section>
 
     <the-chapter-footer/>
+    <the-part-footer/>
 </template>
 
 <script setup lang="ts">
@@ -275,8 +277,10 @@
     import InputAxisTargetAccumulateMoveaway1 from './target-accumulate-moveaway-1.vue';
     import SourceLink from '@/components/SourceLink.vue';
     import TalkBalloon from '@/components/TalkBalloon.vue';
-    import TheChapterFooter from '../the-chapter-footer.vue';
-    import TheChapterHeader from '../the-chapter-header.vue';
+    import TheChapterFooter from '@/pages/reference/making/the-chapter-footer.vue';
+    import TheChapterHeader from '@/pages/reference/making/the-chapter-header.vue';
+    import ThePartFooter from '@/pages/reference/the-part-footer.vue';
+    import ThePartHeader from '@/pages/reference/the-part-header.vue';
 
 
     // ##########

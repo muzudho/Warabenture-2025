@@ -3,8 +3,8 @@
     <!-- ボタン機能拡張 -->
     <button-20250822 ref="button1Ref"/>
 
-    <h4><span class="parent-header">ＲＰＧの歩行グラフィック　＞　</span>不動タイルへ投影・遠ざかる像・像サイズ可変</h4>
-    <section class="sec-4">
+    <h5><span class="parent-header">ＲＰＧの歩行グラフィック　＞　</span>不動タイルへ投影・遠ざかる像・像サイズ可変</h5>
+    <section class="sec-5">
         <br/>
 
         <!-- ストップウォッチ。デバッグに使いたいときは、 display: none; を消してください。 -->
@@ -208,8 +208,8 @@
     </section>
 
     <br/>
-    <h4><span class="parent-header-lights-out">ＲＰＧの歩行グラフィック　＞　</span><span class="parent-header">不動タイルへ投影・遠ざかる像・像サイズ可変　＞　</span>ソースコード</h4>
-    <section class="sec-4">
+    <h6><span class="parent-header-lights-out">ＲＰＧの歩行グラフィック　＞　</span><span class="parent-header">不動タイルへ投影・遠ざかる像・像サイズ可変　＞　</span>ソースコード</h6>
+    <section class="sec-6">
         <source-link
             pagePath="/reference/making/input-axis/rpg-walk-tiles-immovable-projection-moveaway-size-variable-1"/>
     </section>

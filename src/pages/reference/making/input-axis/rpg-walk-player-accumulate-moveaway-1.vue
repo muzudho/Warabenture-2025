@@ -3,8 +3,8 @@
     <!-- ボタン機能拡張 -->
     <button-20250822 ref="button1Ref"/>
 
-    <h4>ＲＰＧの歩行グラフィック　＞　自機ウォーキング・遠ざかる累積</h4>
-    <section class="sec-4">
+    <h5>ＲＰＧの歩行グラフィック　＞　自機ウォーキング・遠ざかる累積</h5>
+    <section class="sec-5">
         <br/>
 
         <!-- ストップウォッチ。デバッグに使いたいときは、 display: none; を消してください。 -->
@@ -163,8 +163,8 @@
     </section>
 
     <br/>
-    <h5><span class="parent-header-lights-out">ＲＰＧの歩行グラフィック　＞　</span><span class="parent-header">自機ウォーキング・遠ざかる累積</span>　＞　ソースコード</h5>
-    <section class="sec-5">
+    <h6><span class="parent-header-lights-out">ＲＰＧの歩行グラフィック　＞　</span><span class="parent-header">自機ウォーキング・遠ざかる累積</span>　＞　ソースコード</h6>
+    <section class="sec-6">
         <source-link
             pagePath="/reference/making/input-axis/rpg-walk-player-accumulate-moveaway-1"/>
     </section>

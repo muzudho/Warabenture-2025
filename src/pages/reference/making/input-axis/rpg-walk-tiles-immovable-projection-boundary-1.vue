@@ -3,8 +3,8 @@
     <!-- ボタン機能拡張 -->
     <button-20250822 ref="button1Ref"/>
 
-    <h4><span class="parent-header">ＲＰＧの歩行グラフィック　＞　</span>不動タイルへ投影・境界のある像、盤の端歩き</h4>
-    <section class="sec-4">
+    <h5><span class="parent-header">ＲＰＧの歩行グラフィック　＞　</span>不動タイルへ投影・境界のある像、盤の端歩き</h5>
+    <section class="sec-5">
         <br/>
 
         <!-- ストップウォッチ。デバッグに使いたいときは、 display: none; を消してください。 -->
@@ -197,8 +197,8 @@
     </section>
 
     <br/>
-    <h5><span class="parent-header-lights-out">ＲＰＧの歩行グラフィック　＞　</span><span class="parent-header">不動タイルへ投影・境界のある像、盤の端歩き　＞　</span>ソースコード</h5>
-    <section class="sec-5">
+    <h6><span class="parent-header-lights-out">ＲＰＧの歩行グラフィック　＞　</span><span class="parent-header">不動タイルへ投影・境界のある像、盤の端歩き　＞　</span>ソースコード</h6>
+    <section class="sec-6">
         <source-link
             pagePath="/reference/making/rpg-walk-tiles-immovable-projection-boundary-1"/>
     </section>

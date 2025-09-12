@@ -1,16 +1,15 @@
 <template>
-    <component :is="ThePartHeader"/>
+    <the-part-header/>
 
     <section class="sec-2">
         <v-btn @click="openAllChapters" v-tooltip="'全章を開く'">🟩</v-btn>
     </section>
 
+    <the-chapter-header/>
+    <the-chapter-body/>
+    <the-chapter-footer/>
 
-    <component :is="TheChapterHeader"/>
-    <component :is="TheChapterBody"/>
-    <component :is="TheChapterFooter"/>
-
-    <component :is="ThePartFooter"/>
+    <the-part-footer/>
 </template>
 
 <script setup lang="ts">

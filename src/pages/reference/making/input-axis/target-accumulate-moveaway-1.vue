@@ -3,8 +3,8 @@
     <!-- ボタン機能拡張 -->
     <button-20250822 ref="button1Ref"/>
 
-    <h4>標的・遠ざかる累積</h4>
-    <section class="sec-4">
+    <h5>標的・遠ざかる累積</h5>
+    <section class="sec-5">
         <br/>
 
         <!-- 盤領域
@@ -130,8 +130,8 @@
     </section>
 
     <br/>
-    <h5><span class="parent-header-lights-out">標的・遠ざかる累積　＞　</span>ソースコード</h5>
-    <section class="sec-5">
+    <h6><span class="parent-header-lights-out">標的・遠ざかる累積　＞　</span>ソースコード</h6>
+    <section class="sec-6">
         <source-link
             pagePath="/reference/making/input-axis/target-accumulate-moveaway-1"/>
     </section>
