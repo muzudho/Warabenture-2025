@@ -1,7 +1,7 @@
 <template>
     <section class="sec-0 pt-6">
 
-        
+
         <talk-balloon
             :src="commonOton2Src"
             :alt="commonOton2Alt"
@@ -156,7 +156,6 @@
 
     import CompatibleDevice from '@/components/CompatibleDevice.vue'
     import TalkBalloon from '@/components/TalkBalloon.vue';
-    import TheGrandParentHeader from '../the-app-header.vue';
 
 
     // ##########
@@ -178,12 +177,12 @@
 
     // 円グラフのための、SPA用のルートパス
     const routes = [
-        "/blog",                        // ブログのURL
-        "/reference/making",                      // メイキングのURL
-        "/minigames",                   // ミニゲーム
-        "/team-mirai-supporter",        // チームみらいサポーター活動のURL
-        "/coding-style",                // コーディング・スタイル
-        //"/wara-city/map",               // わらシティのURL
+        "/blog",    // ブログのURL
+        "/reference/making",    // メイキングのURL
+        "/minigames",   // ミニゲーム
+        "/team-mirai-supporter",    // チームみらいサポーター活動のURL
+        "/reference/coding-style",  // コーディング・スタイル
+        //"/wara-city/map", // わらシティのURL
     ];
 
 

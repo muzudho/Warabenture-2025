@@ -16,7 +16,7 @@
         <router-link to="/reference" :style="getLinkHighlight('/reference')">リファレンス</router-link>
 
         <!--
-        <router-link to="/team-mirai-supporter">チームみらいサポーター活動</router-link>
+         | <router-link to="/team-mirai-supporter" :style="getLinkHighlight('/team-mirai-supporter')">チームみらいサポーター活動</router-link>
         <router-link to="/wara-city/map">わらシティ</router-link>
         -->
     </nav>

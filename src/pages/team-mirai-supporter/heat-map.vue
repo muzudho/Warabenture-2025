@@ -3,10 +3,15 @@
     <!-- デバイス互換機能 -->
     <compatible-device ref="compatibleDevice1Ref"/>
 
-    <the-chapter-header/>
+    <the-app-header/>
+    <button-to-close-pane
+        class="sec-0"
+        direction="down"
+        pagePath="/team-mirai-supporter"
+    />
 
-    <h3>ヒートマップ</h3>
-    <section class="sec-3">
+    <h1>ヒートマップ</h1>
+    <section class="sec-1">
         <ul>
             <li><NuxtLink to="#functions">機能紹介</NuxtLink></li>
             <li><NuxtLink to="#download">ダウンロードはこちらから</NuxtLink></li>
@@ -14,8 +19,8 @@
         </ul>
     </section>
 
-    <h3 id="functions">機能紹介</h3>
-    <section class="sec-3">
+    <h2 id="functions">機能紹介</h2>
+    <section class="sec-2">
 
 
         <talk-image
@@ -135,8 +140,8 @@
 
     </section>
 
-    <h3 id="download">ダウンロードはこちらから</h3>
-    <section class="sec-3">
+    <h2 id="download">ダウンロードはこちらから</h2>
+    <section class="sec-2">
 
         <talk-balloon
             :src="oton2Src"
@@ -203,8 +208,8 @@
 
     </section>
 
-    <h3 id="chatting">雑談</h3>
-    <section class="sec-3">
+    <h2 id="chatting">雑談</h2>
+    <section class="sec-2">
 
         <talk-balloon
             :src="oton2Src"
@@ -338,7 +343,11 @@
 
     </section>
 
-    <the-chapter-footer/>
+    <button-to-close-pane
+        class="sec-0"
+        direction="up"
+        pagePath="/team-mirai-supporter"
+    />
 </template>
 
 <script setup lang="ts">
@@ -351,11 +360,11 @@
     // + コンポーネント +
     // ++++++++++++++++++
 
+    import ButtonToClosePane from '@/components/ButtonToClosePane.vue';
     import CompatibleDevice from '@/components/CompatibleDevice.vue'
     import TalkBalloon from '@/components/TalkBalloon.vue';
     import TalkImage from '@/components/TalkImage.vue';
-    import TheChapterFooter from './the-chapter-footer.vue';
-    import TheChapterHeader from './the-chapter-header.vue';
+    import TheAppHeader from '../the-app-header.vue';
 
 
     // ##########

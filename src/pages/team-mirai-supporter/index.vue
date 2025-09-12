@@ -1,7 +1,17 @@
 <template>
-    <component :is="TheChaptersHeader"/>
-    <component :is="TheChaptersBody"/>
-    <component :is="TheChaptersFooter"/>
+    <the-app-header/>
+    <button-to-close-pane
+        class="sec-0"
+        direction="down"
+        pagePath="/"
+    />
+    <div class="contents-header-1">チームみらいサポーター活動</div>
+    <the-contents/>
+    <button-to-close-pane
+        class="sec-0"
+        direction="up"
+        pagePath="/"
+    />
 </template>
 
 <script setup lang="ts">
@@ -14,8 +24,8 @@
     // + インポート　＞　ページ +
     // ++++++++++++++++++++++++++
 
-    import TheChaptersBody from '@/pages/team-mirai-supporter/the-part-body.vue';
-    import TheChaptersFooter from '@/pages/team-mirai-supporter/the-part-footer.vue';
-    import TheChaptersHeader from '@/pages/team-mirai-supporter/the-part-header.vue';
+    import ButtonToClosePane from '@/components/ButtonToClosePane.vue';
+    import TheAppHeader from '../the-app-header.vue';
+    import TheContents from '@/pages/team-mirai-supporter/the-contents.vue';
 
 </script>
