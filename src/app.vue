@@ -10,6 +10,17 @@
 
 <template>
     <v-app>
+        <!--
+        <v-app-bar app density="compact" class="app-bar">
+            <v-toolbar-title>ワラベンチャー</v-toolbar-title>
+            <v-btn>メニュー1</v-btn>
+            <v-btn>メニュー2</v-btn>
+            <v-spacer></v-spacer>
+            メニューバー練習中
+            <v-btn>メニュー３</v-btn>
+            <v-btn>メニュー４</v-btn>
+        </v-app-bar>
+        -->
         <v-main>
 
             <!-- Nuxt + Vue ウェブアプリ用：

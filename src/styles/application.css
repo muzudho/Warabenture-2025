@@ -2,6 +2,11 @@
  * plugins/vuetify.ts の方にテーマが設定されているので、そちらも見てください。
  */
 
+div.v-toolbar__content {    /* アプリケーション・バー */
+    color: saddlebrown;
+    background-color: burlywood;
+}
+
 /* ヘッダーの先頭に # のアイコンを付ける */
 h1::before {
     content: "";    /* 指定しないと、画像も表示されない */

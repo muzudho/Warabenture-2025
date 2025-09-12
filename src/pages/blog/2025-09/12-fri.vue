@@ -39,6 +39,78 @@
                 もう寝た方がよくない？
         </talk-balloon>
 
+        <p class="mb-6">～時間経過～</p>
+
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
+                起きた……。<br/>
+                SSH接続できるようになっている、何もしていないのに直った、わらう。
+        </talk-balloon>
+
+        <talk-balloon
+            :src="kifuwarabe2Src"
+            :alt="kifuwarabe2Alt"
+            :name="kifuwarabe2Name"
+            :device="compatibleDevice1Ref?.device">
+                多分、ターミナルがタイムアウトしてんじゃないか？
+        </talk-balloon>
+
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
+                正常に動いていたときのサーバーログを残しておかないと、異常時のログだけ見ててもなんも分からんな……。
+        </talk-balloon>
+
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
+                ［リファレンス］カテゴリーを作って、その下に［コーディング・スタイル］と［メイキング］を押し込んだぜ。これでトップ・メニューはサイトの方向性がブログだということを少し強調でけた。
+        </talk-balloon>
+
+        <talk-image
+            :href="journal1png"
+            alt="プリレンダラー・エラー"
+        />
+
+        <talk-balloon
+            :src="hiyoko2Src"
+            :alt="hiyoko2Alt"
+            :name="hiyoko2Name"
+            :device="compatibleDevice1Ref?.device">
+                👆 階層が深くなるごとに、わたしたちは右の狭いところに追いやられるんだけど？
+        </talk-balloon>
+
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
+                良いデザインかと思ったが、何が良いのか分からんな。
+        </talk-balloon>
+
+        <talk-balloon
+            :src="kifuwarabe2Src"
+            :alt="kifuwarabe2Alt"
+            :name="kifuwarabe2Name"
+            :device="compatibleDevice1Ref?.device">
+                頭で思った感想と、やってみた結果のフィードバックを受けたときの感想が異なるの、わらう。
+        </talk-balloon>
+
+        <talk-balloon
+            :src="hiyoko2Src"
+            :alt="hiyoko2Alt"
+            :name="hiyoko2Name"
+            :device="compatibleDevice1Ref?.device">
+                ひとまず、画面はヘッダーとボディの２つに分かれているという視認性を与えて、階層構造を示すパンくずリストはヘッダーの方に小さく追いやったらいいんじゃない？
+        </talk-balloon>
+
     </section>
 
 </template>
@@ -79,6 +151,8 @@
     import kurokichi1Src from "@/assets/img/talk/202509__character__10--kurokichi.png";
     const kurokichi1Alt = "グロックの黒吉１";
     const kurokichi1Name = "グロックの黒吉";
+
+    import journal1png from '@/assets/img/journal/2025-09/202509__grok__12-1640-hierarchy-o1o0.png';
 
 
     // ################
