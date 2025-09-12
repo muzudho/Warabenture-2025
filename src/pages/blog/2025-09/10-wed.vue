@@ -3,8 +3,8 @@
     <!-- デバイス互換機能 -->
     <compatible-device ref="compatibleDevice1Ref"/>
 
-    <h3><router-link to="/blog/2025-09/10-wed">[2025-09-10_Wed]</router-link></h3>
-    <section class="sec-3">
+    <h1><router-link to="/blog/2025-09/10-wed">[2025-09-10_Wed]</router-link></h1>
+    <section class="sec-1">
         <br/>
 
         <talk-balloon

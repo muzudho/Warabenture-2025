@@ -3,9 +3,8 @@
     <!-- デバイス互換機能 -->
     <compatible-device ref="compatibleDevice1Ref"/>
 
-    <h3><router-link to="/blog/2025-07/12-sat">[2025-07-12_Sat]</router-link></h3>
-    <section class="sec-3">
-
+    <h1><router-link to="/blog/2025-07/12-sat">[2025-07-12_Sat]</router-link></h1>
+    <section class="sec-1 pt-6">
 
         <talk-balloon
             :src="oton2Src"
