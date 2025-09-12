@@ -10,17 +10,17 @@
 
 <template>
     <v-app>
-        <!--
-        <v-app-bar app density="compact" class="app-bar">
-            <v-toolbar-title>ワラベンチャー</v-toolbar-title>
-            <v-btn>メニュー1</v-btn>
-            <v-btn>メニュー2</v-btn>
-            <v-spacer></v-spacer>
-            メニューバー練習中
-            <v-btn>メニュー３</v-btn>
-            <v-btn>メニュー４</v-btn>
+        <v-app-bar app density="compact">
+            <img
+                src="@/assets/img/reference/application/202509__warabenture__12-1833-logo-since20220507.png"
+                class="ml-2"
+                style="
+                    width: 32px;
+                    height: 32px;
+                "
+            />
+            <v-toolbar-title style="display: inline;">ワラベンチャー</v-toolbar-title>
         </v-app-bar>
-        -->
         <v-main>
 
             <!-- Nuxt + Vue ウェブアプリ用：

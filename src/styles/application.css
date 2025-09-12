@@ -3,8 +3,8 @@
  */
 
 div.v-toolbar__content {    /* アプリケーション・バー */
-    color: saddlebrown;
-    background-color: burlywood;
+    color: darkorchid;    
+    background-color: white;
 }
 
 /* ヘッダーの先頭に # のアイコンを付ける */
