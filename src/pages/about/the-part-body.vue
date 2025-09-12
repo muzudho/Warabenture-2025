@@ -200,7 +200,7 @@
             :alt="commonOton2Alt"
             :name="commonOton2Name"
             :device="compatibleDevice1Ref?.device">
-            そうそう、めんどくさいんで、その作り方の勉強途中のものを　<span style="background-color: lightgray;">　<a href="/making">メイキング</a>　</span>　というページに置いていくぜ、メイキングという英単語で合ってるのか知らないが……。
+            そうそう、めんどくさいんで、その作り方の勉強途中のものを　<span style="background-color: lightgray;">　<a href="/reference/making">メイキング</a>　</span>　というページに置いていくぜ、メイキングという英単語で合ってるのか知らないが……。
         </talk-balloon>
 
         <talk-balloon
