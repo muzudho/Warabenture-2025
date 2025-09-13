@@ -1,8 +1,14 @@
 <template>
-    <the-chapter-header/>
-
-    <!-- ボタン機能拡張 -->
+    <!-- 機能 -->
     <button-20250822 ref="button1Ref"/>
+
+    <!-- 以降、ページ -->
+    <the-app-header/>
+
+    <button-to-back-to-contents
+        class="sec-0 mt-6"
+        pagePath="."
+    />
 
     <h1>シューティング・スター（初級者向けのソースコード）</h1>
     <section class="sec-1 mb-6">
@@ -216,12 +222,17 @@
 
     // アルファベット順
     import Button20250822 from '../../components/Button20250822.vue';
+    import ButtonToBackToContents from '@/components/ButtonToBackToContents.vue';
     import ButtonToGoToTop from '@/components/ButtonToGoToTop.vue';
     import SourceLink from '../../components/SourceLink.vue';
     import Stopwatch from '../../components/Stopwatch.vue';
     import Tile from '../../components/Tile.vue';
-    import TheChapterFooter from './the-chapter-footer.vue';
-    import TheChapterHeader from './the-chapter-header.vue';
+
+    // ++++++++++++++++++++++++++
+    // + インポート　＞　ページ +
+    // ++++++++++++++++++++++++++
+
+    import TheAppHeader from '../the-app-header.vue';
 
 
     // ##########

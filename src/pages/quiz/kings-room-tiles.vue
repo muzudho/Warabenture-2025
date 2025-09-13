@@ -12,6 +12,7 @@
 
     <button-to-back-to-contents
         class="sec-0 mt-6"
+        pagePath="."
     />
 
     <h1>王の間のタイルを市松模様にしようぜ！</h1>

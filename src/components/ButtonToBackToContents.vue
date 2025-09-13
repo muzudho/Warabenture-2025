@@ -2,7 +2,7 @@
     <section
         :class="props.class"
     >
-        <router-link to=".">&lt;&lt; 目次に戻る</router-link>
+        <router-link :to="props.pagePath">&lt;&lt; 目次に戻る</router-link>
     </section>
 </template>
 
@@ -14,6 +14,7 @@
     
     interface Props {
         class: string,
+        pagePath: string,
     }
     // デフォルト値を設定
     const props = defineProps<Props>();
