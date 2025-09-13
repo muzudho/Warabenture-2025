@@ -1170,6 +1170,7 @@
 </script>
 
 <style lang="css" scoped>
+    @import '@/styles/misc.css';
     @import '@/styles/talk-pen.css';
     @import '@/styles/talk-scene.css';
     @import '@/styles/perspective.css';

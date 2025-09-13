@@ -952,6 +952,7 @@
 </script>
 
 <style lang="css" scoped>
+    @import '@/styles/misc.css';
     @import '@/styles/talk-pen.css';
 
     /** カメラのファインダー */

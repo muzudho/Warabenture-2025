@@ -595,6 +595,7 @@
 </script>
 
 <style lang="css" scoped>
+    @import '@/styles/misc.css';
     @import '@/styles/talk-pen.css';
 
     div.board { /* 盤１ */

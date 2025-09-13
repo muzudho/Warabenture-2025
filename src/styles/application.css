@@ -75,6 +75,17 @@ section.sec-contents {  /* 目次 */
     background-color: antiquewhite;
 }
 
+/** ヘッダーの親テキスト */
+span.parent-header {
+    font-size: small;
+}
+
+/** ヘッダーの親テキスト（消灯） */
+span.parent-header-lights-out {
+    font-size: small;
+    color:slategray;
+}
+
 /* スマホ向けスタイル (画面幅が768px以下)
  * PC版に比べ、margin-left を 1/3。
  */
@@ -624,29 +635,4 @@ section.sec-contents {  /* 目次 */
         padding-left: calc(80px + 20px); /* さらにインデント */
         list-style-type: square;
     }
-}
-
-button.noop-key {
-    margin: 4px;
-    padding-right: 8px;
-    padding-left: 8px;
-    box-shadow: 1px 1px 4px rgba(51,51,51,1.0);
-    font-weight: 900;
-    font-size: smaller; /** ドロップシャドウを付けた見た目が大きくなるため、文字サイズを小さくしてバランスを取ります */
-}
-
-/** ヘッダーの親テキスト */
-span.parent-header {
-    font-size: small;
-}
-
-/** ヘッダーの親テキスト（消灯） */
-span.parent-header-lights-out {
-    font-size: small;
-    color:slategray;
-}
-
-/* 非表示 */
-.hidden {
-  visibility: hidden;
 }

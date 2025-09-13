@@ -1,0 +1,20 @@
+/**
+ * 細々したもの
+ * ============
+ */
+
+/* 非表示
+ * スペーサーとして見えないボタンを置くのに使用。廃止方針でいいのではないか？
+ */
+.hidden {
+  visibility: hidden;
+}
+
+button.noop-key {   /* 何もしないボタン */
+    margin: 4px;
+    padding-right: 8px;
+    padding-left: 8px;
+    box-shadow: 1px 1px 4px rgba(51,51,51,1.0);
+    font-weight: 900;
+    font-size: smaller; /** ドロップシャドウを付けた見た目が大きくなるため、文字サイズを小さくしてバランスを取ります */
+}
