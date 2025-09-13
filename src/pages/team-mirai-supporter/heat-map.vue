@@ -397,8 +397,10 @@
 
 </script>
 
-<style scoped>
-  h1 {
-    color: #86DFCB; /* 前の質問の色を入れてみたぜ！ */
-  }
+<style lang="css" scoped>
+    @import '@/styles/talk-pen.css';
+
+    h1 {
+        color: #86DFCB; /* 前の質問の色を入れてみたぜ！ */
+    }
 </style>

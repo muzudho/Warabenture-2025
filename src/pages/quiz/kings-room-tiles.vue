@@ -1250,6 +1250,7 @@ color = i % 2;
 <style scoped>
 
     @import '@/styles/notebook.css';
+    @import '@/styles/talk-pen.css';
     @import '@/styles/talk-scene.css';
 
     /* 

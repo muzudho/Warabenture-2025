@@ -1,3 +1,8 @@
+/**
+ * ノートブックのような演出
+ * ========================
+ */
+
 pre.coding-example {    /* ソースコード例 */
     display: block;
     padding-left: 24px;

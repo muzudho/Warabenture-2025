@@ -859,7 +859,9 @@
 
 </script>
 
-<style scoped>
+<style lang="css" scoped>
+    @import '@/styles/talk-pen.css';
+
     div.board { /* 盤１ */
         position: relative;
     }
@@ -905,5 +907,4 @@
         position: absolute;
         image-rendering: pixelated;
     }
-
 </style>

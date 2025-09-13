@@ -242,5 +242,6 @@
 
 </script>
 
-<style scoped>
+<style lang="css" scoped>
+    @import '@/styles/talk-pen.css';
 </style>

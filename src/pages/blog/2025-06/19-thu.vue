@@ -163,3 +163,7 @@ pnpm tauri dev</pre>
     const compatibleDevice1Ref = ref<InstanceType<typeof CompatibleDevice> | null>(null);
 
 </script>
+
+<style lang="css" scoped>
+    @import '@/styles/talk-pen.css';
+</style>

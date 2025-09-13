@@ -421,8 +421,7 @@
             見積りでは 2 ぐらいだったから、調査に 1.5 倍は取られるってとこねえ。
         </talk-balloon>
 
-
-</section>
+    </section>
 </template>
 
 <script setup lang="ts">
@@ -469,3 +468,7 @@
     const compatibleDevice1Ref = ref<InstanceType<typeof CompatibleDevice> | null>(null);
 
 </script>
+
+<style lang="css" scoped>
+    @import '@/styles/talk-pen.css';
+</style>

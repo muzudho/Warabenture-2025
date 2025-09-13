@@ -832,3 +832,7 @@ sudo certbot --nginx -d warabenture.com -d www.warabenture.com
     const compatibleDevice1Ref = ref<InstanceType<typeof CompatibleDevice> | null>(null);
 
 </script>
+
+<style lang="css" scoped>
+    @import '@/styles/talk-pen.css';
+</style>

@@ -1169,8 +1169,8 @@
 
 </script>
 
-<style scoped>
-
+<style lang="css" scoped>
+    @import '@/styles/talk-pen.css';
     @import '@/styles/talk-scene.css';
     @import '@/styles/perspective.css';
 

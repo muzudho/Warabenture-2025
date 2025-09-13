@@ -1018,7 +1018,9 @@
 
 </script>
 
-<style scoped>
+<style lang="css" scoped>
+    @import '@/styles/talk-pen.css';
+
     /** カメラのファインダー */
     div.player {
         position: relative; border:dashed 4px #f0f0f0;
