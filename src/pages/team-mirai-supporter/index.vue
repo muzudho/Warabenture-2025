@@ -1,17 +1,8 @@
 <template>
     <the-app-header/>
-    <button-to-close-pane
-        class="sec-0"
-        direction="down"
-        pagePath="/"
-    />
     <div class="contents-header-1">チームみらいサポーター活動</div>
     <the-contents/>
-    <button-to-close-pane
-        class="sec-0"
-        direction="up"
-        pagePath="/"
-    />
+    <button-to-go-to-top class="sec-0 pt-6"/>
 </template>
 
 <script setup lang="ts">
