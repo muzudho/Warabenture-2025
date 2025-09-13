@@ -42,6 +42,7 @@ export function getCurrentLinkHighlight(expected:string) : Record<string, number
             fontSize: 'x-large',
             color: 'white',
             backgroundColor: 'Royalblue',
+            textDecoration: 'none',
         };
     }
 
