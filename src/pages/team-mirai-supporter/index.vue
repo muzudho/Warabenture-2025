@@ -15,7 +15,6 @@
     // + インポート　＞　ページ +
     // ++++++++++++++++++++++++++
 
-    import ButtonToClosePane from '@/components/ButtonToClosePane.vue';
     import TheAppHeader from '../the-app-header.vue';
     import TheContents from '@/pages/team-mirai-supporter/the-contents.vue';
 
