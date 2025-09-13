@@ -463,7 +463,6 @@
     //
 
     import ButtonToBackToContents from '@/components/ButtonToBackToContents.vue';
-    import ButtonToClosePane from '@/components/ButtonToClosePane.vue';
     import ButtonToGoToTop from '@/components/ButtonToGoToTop.vue';
     import CompatibleDevice from '@/components/CompatibleDevice.vue'
     import SourceLink from '@/components/SourceLink.vue';
