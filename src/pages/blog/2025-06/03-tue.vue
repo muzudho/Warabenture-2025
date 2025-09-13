@@ -48,6 +48,7 @@
 
 
         <talk-image
+            expandable
             href="/img/journal/2025-06/202506__program__03-1049-tauri-o2o1o0.png"
             alt="ファイルをコピーした"
         />
@@ -63,6 +64,7 @@
 
 
         <talk-image
+            expandable
             href="/img/journal/2025-06/202506__program__03-1056-tauri-o2o2o0-mark.png"
             alt="file-list-on-tauri フォルダー作成"
         />
@@ -78,6 +80,7 @@
 
         
         <talk-image
+            expandable
             href="/img/journal/2025-06/202506__program__03-1109-tauri-o2o3o0-mark.png"
             alt="file-list-on-tauri フォルダーをVSCodeで開く"
         />
@@ -93,6 +96,7 @@
 
 
         <talk-image
+            expandable
             href="/img/journal/2025-06/202506__program__03-1127-tauri-o2o4o0-mark.png"
             alt="git init"
         />
@@ -136,6 +140,7 @@
 
 
         <talk-image
+            expandable
             href="/img/journal/2025-06/202506__program__03-1140-tauri-o2o5o0-mark.png"
             alt="Git Hub リモート・リポジトリー"
         />
@@ -152,6 +157,7 @@
 
 
         <talk-image
+            expandable
             href="/img/journal/2025-06/202506__program__03-1146-tauri-o2o6o0-mark.png"
             alt="Git Hub リモート・リポジトリーに書いてあるコマンドを打鍵"
         />
@@ -174,7 +180,8 @@
         </talk-balloon>
 
 
-       <talk-image
+        <talk-image
+            expandable
             href="/img/journal/2025-06/202506__program__03-1150-tauri-o2o7o0.png"
             alt="Git Hub リモート・リポジトリーにソースコードを置いた"
         />
@@ -202,7 +209,8 @@
         </talk-balloon>
 
 
-       <talk-image
+        <talk-image
+            expandable
             href="/img/journal/2025-06/202506__program__03-1215-tauri-o2o8o0-mark.png"
             alt="src-tauri/tauri.conf.jsonファイルの内容を編集"
         />
@@ -240,7 +248,8 @@
         </talk-balloon>
 
 
-       <talk-image
+        <talk-image
+            expandable
             href="/img/journal/2025-06/202506__program__03-1221-tauri-o2o9o0.png"
             alt="デスクトップ・アプリの画面"
         />
@@ -273,7 +282,8 @@
         </talk-balloon>
 
 
-       <talk-image
+        <talk-image
+            expandable
             href="/img/journal/2025-06/202506__program__03-1922-tauri-o2oA10o0.png"
             alt="Rustの関数をTypeScriptから呼び出す"
         />
@@ -289,7 +299,8 @@
         </talk-balloon>
 
 
-       <talk-image
+        <talk-image
+            expandable
             href="/img/journal/2025-06/202506__program__03-1928-tauri-o2oA11o0.png"
             alt="invoke_handler関数"
         />
@@ -305,7 +316,8 @@
         </talk-balloon>
 
 
-       <talk-image
+        <talk-image
+            expandable
             href="/img/journal/2025-06/202506__program__03-1937-tauri-o2oA12o0.png"
             alt="ファイル名一覧のカンマ区切り"
         />
@@ -373,7 +385,8 @@
         </talk-balloon>
 
 
-       <talk-image
+        <talk-image
+            expandable
             href="/img/journal/2025-06/202506__program__03-2035-tauri-o2oA13o0.png"
             alt="更新したソースコード"
         />
@@ -388,7 +401,8 @@
         </talk-balloon>
 
 
-       <talk-image
+        <talk-image
+            expandable
             href="/img/journal/2025-06/202506__program__03-2049-tauri-o2oA14o0.png"
             alt="リストボックスにファイル名が入った"
         />

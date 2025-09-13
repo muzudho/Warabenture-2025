@@ -15,6 +15,7 @@
         </talk-balloon>
 
         <talk-image
+            expandable
             :href="journal1png"
             alt="階層が深くなったWebサイトのレイアウト"
         />
@@ -28,6 +29,7 @@
         </talk-balloon>
 
         <talk-image
+            expandable
             :href="journal2png"
             alt="階層が深くなったWebサイトのレイアウト"
         />

@@ -7,6 +7,7 @@
     <section class="sec-1 pt-6">
 
         <talk-image
+            expandable
             href="/img/journal/2025-08/202508__warabenture__11-2209-pieChart-o1o0.png"
             alt="ワラベンチャーのトップページに置いた円グラフ"
         />

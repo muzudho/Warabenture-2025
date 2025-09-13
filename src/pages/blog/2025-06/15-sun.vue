@@ -7,6 +7,7 @@
     <section class="sec-1 pt-6">
 
         <talk-image
+            expandable
             href="/img/journal/2025-06/202506__tauri__15-0059-CsvCleaningOnTauri-o1o0.png"
             alt="前（2025-06-12_Thu）言ってた都道府県をカンマで区切るツールの画面"
         />
@@ -77,6 +78,7 @@
 
 
         <talk-image
+            expandable
             href="/img/journal/2025-06/202506__screenshot__15-1901-QGIS-o1o0.png"
             alt="QGISの画面"
         />
@@ -108,6 +110,7 @@
 
 
         <talk-image
+            expandable
             href="/img/journal/2025-06/202506__screenshot__15-1928-国土地理院-o1o0.png"
             alt="国土地理院のウェブサイトの地図の画面"
         />
@@ -147,6 +150,7 @@
 
 
         <talk-image
+            expandable
             href="/img/journal/2025-06/202506__screenshot__15-2046-埼玉県_市区町村別_世帯数-o1o0.png"
             alt="令和7年5月1日現在の［埼玉県］の市区町村別世帯数・人口の表"
         />
@@ -166,6 +170,7 @@
 
 
         <talk-image
+            expandable
             href="/img/journal/2025-06/202506__screenshot__15-2109-２表のJoin-o1o0.png"
             alt="Excel のシート"
         />
@@ -186,6 +191,7 @@
 
 
         <talk-image
+            expandable
             href="/img/journal/2025-06/202506__screenshot__15-2113-２表のJoin2-o1o0.png"
             alt="Excel のシート"
         />
@@ -202,6 +208,7 @@
 
 
         <talk-image
+            expandable
             href="/img/journal/2025-06/202506__screenshot__15-2121-２表のJoin3-o1o0.png"
             alt="Excel のシート"
         />
@@ -217,6 +224,7 @@
 
 
         <talk-image
+            expandable
             href="/img/journal/2025-06/202506__screenshot__15-2128-２表のJoin4-o1o0.png"
             alt="Excel のシート"
         />

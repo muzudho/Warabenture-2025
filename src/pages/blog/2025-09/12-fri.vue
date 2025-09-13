@@ -74,6 +74,7 @@
         </talk-balloon>
 
         <talk-image
+            expandable
             :href="journal1png"
             alt="階層が深くなったWebサイトのレイアウト"
         />

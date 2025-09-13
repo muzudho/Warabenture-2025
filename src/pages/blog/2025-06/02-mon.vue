@@ -62,6 +62,7 @@
 
 
         <talk-image
+            expandable
             href="/img/journal/2025-06/202506__program__02-1159-tauri-o1o0.png"
             alt="pnpm create tauri-app"
         />
@@ -94,6 +95,7 @@
         </talk-balloon>
 
         <talk-image
+            expandable
             href="/img/journal/2025-06/202506__program__02-1212-tauri-o1o3o0.png"
             alt="cargo checks"
         />
@@ -109,6 +111,7 @@
 
 
         <talk-image
+            expandable
             href="/img/journal/2025-06/202506__program__02-1216-tauri-o1o4o0.png"
             alt="pnpm install"
         />
@@ -127,6 +130,7 @@
 
 
         <talk-image
+            expandable
             href="/img/journal/2025-06/202506__program__02-1220-tauri-o1o5o0.png"
             alt="pnpm tauri dev"
         />
@@ -153,6 +157,7 @@
 
 
         <talk-image
+            expandable
             href="/img/journal/2025-06/202506__program__02-1225-tauri-o1o6o0.png"
             alt="http://localhost:1420/"
         />
@@ -170,6 +175,7 @@
 
 
         <talk-image
+            expandable
             href="/img/journal/2025-06/202506__program__02-1229-tauri-o1o7o0.png"
             alt="Welcome to Tauri + Vue"
         />
@@ -194,6 +200,7 @@
 
 
         <talk-image
+            expandable
             href="/img/journal/2025-06/202506__program__02-1847-tauri-o1o8o0-mark.png"
             alt="<template> tag in src/App.vue"
         />
@@ -209,6 +216,7 @@
 
 
         <talk-image
+            expandable
             href="/img/journal/2025-06/202506__program__02-2004-tauri-o1o9o0-mark.png"
             alt="Save and Load buttons"
         />
@@ -224,6 +232,7 @@
 
 
         <talk-image
+            expandable
             href="/img/journal/2025-06/202506__program__02-2010-tauri-o1oA10o0.png"
             alt="24 lines of source code"
         />
@@ -247,6 +256,7 @@
 
 
         <talk-image
+            expandable
             href="/img/journal/2025-06/202506__program__02-2024-tauri-o1oA11o0.png"
             alt="Text box and buttons for file path"
         />
@@ -275,6 +285,7 @@
 
 
         <talk-image
+            expandable
             href="/img/journal/2025-06/202506__program__02-2116-tauri-o1oA12o0.png"
             alt="pnpm tauri add dialog"
         />
@@ -290,6 +301,7 @@
 
 
         <talk-image
+            expandable
             href="/img/journal/2025-06/202506__program__02-2119-tauri-o1oA13o0-mark.png"
             alt="dialog:default"
         />
@@ -307,6 +319,7 @@
 
 
         <talk-image
+            expandable
             href="/img/journal/2025-06/202506__program__02-2124-tauri-o1oA14o0.png"
             alt="pass command"
         />
@@ -322,6 +335,7 @@
 
 
         <talk-image
+            expandable
             href="/img/journal/2025-06/202506__program__02-2135-tauri-o1oA15o0.png"
             alt="edit source code"
         />
@@ -337,6 +351,7 @@
 
 
         <talk-image
+            expandable
             href="/img/journal/2025-06/202506__program__02-2142-tauri-o1oA16o0.png"
             alt="file chooser dialog box"
         />
@@ -372,6 +387,7 @@
 
 
         <talk-image
+            expandable
             href="/img/journal/2025-06/202506__program__02-2148-tauri-o1oA17o0-mark.png"
             alt="append 1 line"
         />
@@ -407,6 +423,7 @@
 
 
         <talk-image
+            expandable
             href="/img/journal/2025-06/202506__program__02-2212-tauri-o1oA18o0.png"
             alt="edit source code"
         />
@@ -422,6 +439,7 @@
 
 
         <talk-image
+            expandable
             href="/img/journal/2025-06/202506__program__02-2309-tauri-o1oA19o0.png"
             alt="write text file"
         />
@@ -446,6 +464,7 @@
 
 
         <talk-image
+            expandable
             href="/img/journal/2025-06/202506__program__02-2342-tauri-o1oA20o0.png"
             alt="permissions"
         />
