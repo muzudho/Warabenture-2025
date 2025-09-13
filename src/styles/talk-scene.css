@@ -19,14 +19,6 @@ div.talk-image {    /** 会話の途中で引用される画像。スクリー�
  *  ++++++++++++++++++++
  */
 
-/**
-*   clip-path:
-*           | 0%   100%
-*       ----+----------
-*         0%|         2
-*        50%|  1
-*       100%|         3
-*/
 div.talk-balloon-container {
     display: flex;
     align-items: center;
@@ -34,12 +26,22 @@ div.talk-balloon-container {
     margin-bottom: 16px;
     color: #101010;
 }
+
+/*
+ *  clip-path:
+ *          | 0%   100%
+ *      ----+----------
+ *        0%|         2
+ *       50%|  1
+ *      100%|         3
+ */
 div.talk-baloon-tail {
     width: 21px;    /* 右端の 1px は欠けることがあるから、 1px 長めに指定 */
     height: 15px;
     background-color: #F0F0F0;  /* ワラベンチャー用 */
     clip-path: polygon(0% 50%, 100% 0%, 100% 100%); /* 上頂点、下底の三角形 */
 }
+
 div.talk-baloon-body {
     position: relative;
     left: -1px; /* 吹き出しの尻尾との隙間を 1px 詰めたい */
