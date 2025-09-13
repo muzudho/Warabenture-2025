@@ -1,5 +1,5 @@
 <template>
-    <section class="sec-0 pt-6">
+    <section class="sec-1 pt-6">
 
 
         <talk-balloon
