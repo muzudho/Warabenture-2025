@@ -22,6 +22,6 @@
     // ++++++++++++++++++++++++++
 
     import TheAppHeader from '../the-app-header.vue';
-    import TheMinigamesBody from '~/pages/minigames/the-body.vue';
+    import TheMinigamesBody from '@/pages/minigames/the-body.vue';
 
 </script>

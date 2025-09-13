@@ -5,7 +5,7 @@
 
         <ul>
 
-            <li>📖 <router-link to="/quiz/kings-room-tiles" :style="getPreviousLinkHighlight('/quiz/kings-room-tiles')">王の間のタイルを市松模様にしようぜ！</router-link></li>
+            <li>📖 <router-link to="/quiz/kings-room-tiles" :class="getLinkHighlight('/quiz/kings-room-tiles')">王の間のタイルを市松模様にしようぜ！</router-link></li>
         </ul>
     </section>
 </template>
@@ -20,6 +20,6 @@
     // + コンポーザブル +
     // ++++++++++++++++++
 
-    import { getPreviousLinkHighlight } from '../../composables/link-highlight';
+    import { getLinkHighlight } from '../../composables/link-highlight';
 
 </script>

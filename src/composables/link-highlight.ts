@@ -10,58 +10,21 @@ import { useRouter } from 'vue-router';
 // ################
 
 /**
- * 現在のリンクのハイライトスタイルを取得します。
+ * 現在のリンクのハイライトを表すCSSのスタイル名を取得します。
  * @param expected 
- * @returns スタイルを返します。
+ * @returns CSSのクラス名を返します。該当がなければ空文字列。
  */
-export function getLinkHighlight(expected:string) : Record<string, number | string> {
-
-    let style : Record<string, number | string> = getCurrentLinkHighlight(expected);
-    if (Object.keys(style).length !== 0) {
-        return style;
-    }
-
-    style = getPreviousLinkHighlight(expected);
-    if (Object.keys(style).length !== 0) {
-        return style;
-    }
-
-    return style;
-}
-
-/**
- * 現在のリンクのハイライトスタイルを取得します。
- * @param expected 
- * @returns スタイルを返します。
- */
-export function getCurrentLinkHighlight(expected:string) : Record<string, number | string> {
+export function getLinkHighlight(expected:string) : string {
     const router = useRouter();
+
+    // ［現在のページのリンクの強調］より、［前のページのリンクの強調］の方がよく使うと思われるので、先に判定する
+    if (expected === router.options.history.state.back) {   // 前のページのパスと比較
+        return 'link-highlight-previous';
+    }
 
     if (expected === router.options.history.state.current) {   // 現在のページのパスと比較
-        return {
-            fontSize: 'x-large',
-            color: 'white',
-            backgroundColor: 'Darkorchid',  /* ワラベンチャー用 */
-            textDecoration: 'none',
-        };
+        return 'link-highlight-current';
     }
 
-    return {};
-}
-
-/**
- * 前のリンクのハイライトスタイルを取得します。
- * @param expected 
- * @returns スタイルを返します。
- */
-export function getPreviousLinkHighlight(expected:string) : Record<string, number | string> {
-    const router = useRouter();
-
-    if (expected === router.options.history.state.back) {   // 前のページのパスと比較
-        return {
-            backgroundColor: 'lightgreen',
-        };
-    }
-
-    return {};
+    return '';
 }

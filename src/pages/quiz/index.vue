@@ -22,6 +22,6 @@
     // ++++++++++++++++++++++++++
 
     import TheAppHeader from '../the-app-header.vue';
-    import TheQuizBody from '~/pages/quiz/the-body.vue';
+    import TheQuizBody from '@/pages/quiz/the-body.vue';
 
 </script>
