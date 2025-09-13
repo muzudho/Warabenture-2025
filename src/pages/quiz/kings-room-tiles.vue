@@ -10,9 +10,9 @@
     <!-- 以降、ページ -->
     <the-app-header/>
 
-    <section class="sec-0 mt-6">
-        <router-link to=".">&lt;&lt; 目次に戻る</router-link>
-    </section>
+    <button-to-back-to-contents
+        class="sec-0 mt-6"
+    />
 
     <h1>王の間のタイルを市松模様にしようぜ！</h1>
     <section class="sec-1 pt-6 mb-6">
@@ -639,6 +639,7 @@ color = i % 2;
     import TheAppHeader from '../the-app-header.vue';
     import BoardMadeOfTile from '@/components/BoardMadeOfTile.vue';
     import Button20250822 from '@/components/Button20250822.vue';
+    import ButtonToBackToContents from '@/components/ButtonToBackToContents.vue';
     import ButtonToGoToTop from '@/components/ButtonToGoToTop.vue';
     import CompatibleDevice from '@/components/CompatibleDevice.vue'
     import OutOfSight from '@/components/OutOfSightMaking.vue';
