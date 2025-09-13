@@ -3,13 +3,16 @@
 -->
 
 <template>
-    <the-app-header/>
-    <the-chapter-header/>
-
-    <!-- ボタン機能拡張 -->
+    <!-- 機能 -->
     <button-20250822 ref="button1Ref"/>
-
     <compatible-device ref="compatibleDevice1Ref"/>
+
+    <!-- 以降、ページ -->
+    <the-app-header/>
+
+    <section class="sec-0 mt-6">
+        <router-link to=".">&lt;&lt; 目次に戻る</router-link>
+    </section>
 
     <h1>王の間のタイルを市松模様にしようぜ！</h1>
     <section class="sec-1 pt-6 mb-6">
@@ -645,7 +648,6 @@ color = i % 2;
     import TalkIllustration from '@/components/TalkIllustration.vue';
     import TalkNovel from '@/components/TalkNovel.vue';
     import TileAnimation from '@/components/TileAnimation.vue';
-    import TheChapterHeader from './the-chapter-header.vue';
 
     // ++++++++++++++++++++++++++++++++++
     // + インポート　＞　コンポーザブル +
