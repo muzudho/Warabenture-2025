@@ -1,7 +1,7 @@
 <template>
     <v-row>
-        <v-col cols="2" class="talk-name-novel">{{ props.name }}</v-col>
-        <v-col cols="1" class="talk-quot-open-novel">「</v-col>
+        <v-col cols="2" class="talk-novel-name">{{ props.name }}</v-col>
+        <v-col cols="1" class="talk-novel-quot-open">「</v-col>
         <v-col class="talk-body-novel">
             <slot></slot>」<br/>
         </v-col>

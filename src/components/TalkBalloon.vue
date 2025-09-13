@@ -1,14 +1,14 @@
 <template>
-    <div class="talk-container">
-        <div class="talk-face-container-2">
+    <div class="talk-balloon-container">
+        <div class="talk-balloon-face-container">
             <img
                 :src="props.src"
                 :alt="props.alt"
                 :style="illustration1FaceStyle2(deviceExact)" />
-            <div class="talk-name-balloon">{{ props.name }}</div>
+            <div class="talk-balloon-name">{{ props.name }}</div>
         </div>
-        <div class="baloon-tail"></div>
-        <div class="baloon-body">
+        <div class="talk-baloon-tail"></div>
+        <div class="talk-baloon-body">
             <slot></slot>
         </div>
     </div>
