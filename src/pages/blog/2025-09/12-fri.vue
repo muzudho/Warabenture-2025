@@ -75,7 +75,7 @@
 
         <talk-image
             :href="journal1png"
-            alt="プリレンダラー・エラー"
+            alt="階層が深くなったWebサイトのレイアウト"
         />
 
         <talk-balloon
@@ -151,7 +151,7 @@
     const kurokichi1Alt = "グロックの黒吉１";
     const kurokichi1Name = "グロックの黒吉";
 
-    import journal1png from '@/assets/img/journal/2025-09/202509__grok__12-1640-hierarchy-o1o0.png';
+    import journal1png from '@/assets/img/journal/2025-09/202509__warabenture__12-1640-hierarchy-o1o0.png';
 
 
     // ################

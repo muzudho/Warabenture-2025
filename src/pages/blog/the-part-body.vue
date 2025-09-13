@@ -3,6 +3,7 @@
         静的インポート・動的コンポーネント
         router/page-map.ts, router/articles.json も編集してください（TODO: ここらへん自動生成化したい）
     -->
+    <blog-article page="2025-09/13-sat"/>
     <blog-article page="2025-09/12-fri"/>
     <blog-article page="2025-09/11-thu"/>
     <blog-article page="2025-09/10-wed"/>
