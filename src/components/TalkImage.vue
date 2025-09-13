@@ -1,4 +1,5 @@
 <template>
+    <!-- 画像の元ファイルに飛ぶリンクを付けるケース -->
     <a
         v-if="expandable"
         target="_blank"
@@ -16,6 +17,7 @@
             :alt="props.alt"
         />
     </a>
+    <!-- 画像の元ファイルに飛ぶリンクを付けないケース -->
     <v-img
         v-else
         contain
