@@ -1,7 +1,7 @@
 <template>
     <the-app-header/>
 
-    <the-part-body class="mt-6 mb-6"/>
+    <the-minigames-body class="mt-6 mb-6"/>
     <button-to-go-to-top class="sec-0 pt-6"/>
 </template>
 
@@ -22,6 +22,6 @@
     // ++++++++++++++++++++++++++
 
     import TheAppHeader from '../the-app-header.vue';
-    import ThePartBody from '@/pages/minigames/the-part-body.vue';
+    import TheMinigamesBody from '~/pages/minigames/the-body.vue';
 
 </script>

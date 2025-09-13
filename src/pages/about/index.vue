@@ -1,7 +1,7 @@
 <template>
     <the-app-header/>
 
-    <the-part-body/>
+    <the-about-body/>
     <button-to-go-to-top class="sec-0 pt-6"/>
 </template>
 
@@ -21,7 +21,7 @@
     // + インポート　＞　ページ +
     // ++++++++++++++++++++++++++
 
+    import TheAboutBody from '~/pages/about/the-body.vue';
     import TheAppHeader from '../the-app-header.vue';
-    import ThePartBody from '@/pages/about/the-part-body.vue';
 
 </script>

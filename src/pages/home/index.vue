@@ -1,7 +1,7 @@
 <template>
     <the-app-header/>
 
-    <the-part-body/>
+    <the-home-body/>
     <button-to-go-to-top class="sec-1 pt-6"/>
 </template>
 
@@ -22,6 +22,6 @@
     // ++++++++++++++++++++++++++
 
     import TheAppHeader from '../the-app-header.vue';
-    import ThePartBody from '@/pages/home/the-part-body.vue';
+    import TheHomeBody from '~/pages/home/the-body.vue';
 
 </script>

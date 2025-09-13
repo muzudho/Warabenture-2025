@@ -1,7 +1,7 @@
 <template>
     <the-app-header/>
-    <the-part-header/>
-    <the-part-body/>
+    <the-blog-header/>
+    <the-blog-body/>
 </template>
 
 <script setup lang="ts">
@@ -15,7 +15,7 @@
     // ++++++++++++++++++++++++++
 
     import TheAppHeader from '../the-app-header.vue';
-    import ThePartBody from '@/pages/blog/the-part-body.vue';
-    import ThePartHeader from '@/pages/blog/the-part-header.vue';
+    import TheBlogBody from '~/pages/blog/the-body.vue';
+    import TheBlogHeader from '~/pages/blog/the-header.vue';
 
 </script>
