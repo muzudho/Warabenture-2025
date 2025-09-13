@@ -41,7 +41,7 @@ export function getCurrentLinkHighlight(expected:string) : Record<string, number
         return {
             fontSize: 'x-large',
             color: 'white',
-            backgroundColor: 'Royalblue',
+            backgroundColor: 'Darkorchid',
             textDecoration: 'none',
         };
     }
