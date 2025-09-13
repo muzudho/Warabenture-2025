@@ -69,8 +69,10 @@ h6::before {
 }
 
 section.sec-contents {  /* 目次 */
-    border: dashed 4px gray;
     padding: 20px;
+    border: dashed 4px #FF66CC;
+    color: var(--text-light, #282828);
+    background-color: antiquewhite;
 }
 
 /* スマホ向けスタイル (画面幅が768px以下)

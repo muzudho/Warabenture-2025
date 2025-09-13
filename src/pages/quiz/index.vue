@@ -1,6 +1,6 @@
 <template>
     <the-part-header/>
-    <the-part-body/>
+    <the-part-body class="mt-6 mb-6" />
     <the-part-footer/>
 </template>
 
