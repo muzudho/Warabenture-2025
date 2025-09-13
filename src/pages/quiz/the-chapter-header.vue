@@ -1,5 +1,4 @@
 <template>
-    <the-app-header/>
     <button-to-close-pane
         class="sec-0"
         direction="down"
@@ -18,6 +17,5 @@
     // ++++++++++++++++++++++++++++++++++
 
     import ButtonToClosePane from '@/components/ButtonToClosePane.vue';
-    import TheAppHeader from '../the-app-header.vue';
 
 </script>
