@@ -2,6 +2,10 @@
  * plugins/vuetify.ts の方にテーマが設定されているので、そちらも見てください。
  */
 
+html {
+  scroll-behavior: smooth;  /* <a href="#top"> アンカーで飛ぶときのスクロールをスムーズにする */
+}
+
 div.v-toolbar__content {    /* アプリケーション・バー */
     color: darkorchid;    
     background-color: white;

@@ -23,7 +23,11 @@
 
             <v-toolbar-title style="display: inline;">ワラベンチャー</v-toolbar-title>
         </v-app-bar>
-        <v-main>
+
+        <!--
+            `id="top"` - #top を使って画面上部に飛ぶリンクを作るのに使う。
+        -->
+        <v-main id="top">
 
             <!-- Nuxt + Vue ウェブアプリ用：
                 <v-container> は：
