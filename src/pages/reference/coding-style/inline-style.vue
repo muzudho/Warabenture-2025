@@ -1,10 +1,10 @@
 <template>
     <the-app-header/>
-    <button-to-close-pane
-        class="sec-0"
-        direction="down"
-        pagePath="/reference"
+    <button-to-back-to-contents
+        class="sec-0 mt-6"
+        pagePath="../"
     />
+
     <h1>インライン・スタイルの書き方を決めておくの節だぜ！</h1>
     <section class="sec-1 pt-6">
 
@@ -444,11 +444,7 @@
         <source-link/>
     </section>
 
-    <button-to-close-pane
-        class="sec-0"
-        direction="up"
-        pagePath="/reference"
-    />
+    <button-to-go-to-top class="sec-0 pt-6"/>
 </template>
 
 <script setup lang="ts">
@@ -466,7 +462,9 @@
     // Tauri なら明示的にインポートを指定する必要がある。 Nuxt なら自動でインポートしてくれる場合がある。
     //
 
+    import ButtonToBackToContents from '@/components/ButtonToBackToContents.vue';
     import ButtonToClosePane from '@/components/ButtonToClosePane.vue';
+    import ButtonToGoToTop from '@/components/ButtonToGoToTop.vue';
     import CompatibleDevice from '@/components/CompatibleDevice.vue'
     import SourceLink from '@/components/SourceLink.vue';
     import TalkBalloon from '@/components/TalkBalloon.vue';
