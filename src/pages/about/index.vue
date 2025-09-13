@@ -2,7 +2,7 @@
     <the-app-header/>
 
     <the-part-body/>
-    <button-to-go-to-top class="sec-1 pt-6"/>
+    <button-to-go-to-top class="sec-0 pt-6"/>
 </template>
 
 <script setup lang="ts">
