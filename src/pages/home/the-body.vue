@@ -136,8 +136,6 @@
             またのお越しをお待ちしているぜ！
         </talk-balloon>
     </section>
-
-    <!-- ホームに閉じるボタンはありません。 -->
 </template>
 
 <script setup lang="ts">
@@ -211,8 +209,6 @@
 
     function clientsideChartInit() {
         // window オブジェクトはブラウザー専用。サーバー側ではプリレンダリングできないので、マウント後に書く。
-        //const baseUrl = window.location.origin;
-        //alert(`baseUrl=${baseUrl}`);
         const ctx : HTMLCanvasElement = window.document.getElementById('pieChart') as HTMLCanvasElement;
 
         if (ctx == null){

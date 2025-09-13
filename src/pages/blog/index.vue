@@ -15,7 +15,7 @@
     // ++++++++++++++++++++++++++
 
     import TheAppHeader from '../the-app-header.vue';
-    import TheBlogBody from '~/pages/blog/the-body.vue';
-    import TheBlogHeader from '~/pages/blog/the-header.vue';
+    import TheBlogBody from '@/pages/blog/the-body.vue';
+    import TheBlogHeader from '@/pages/blog/the-header.vue';
 
 </script>

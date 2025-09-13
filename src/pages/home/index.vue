@@ -22,6 +22,6 @@
     // ++++++++++++++++++++++++++
 
     import TheAppHeader from '../the-app-header.vue';
-    import TheHomeBody from '~/pages/home/the-body.vue';
+    import TheHomeBody from '@/pages/home/the-body.vue';
 
 </script>

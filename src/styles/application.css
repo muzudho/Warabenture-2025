@@ -7,7 +7,7 @@ html {
 }
 
 div.v-toolbar__content {    /* アプリケーション・バー */
-    color: darkorchid;    
+    color: darkorchid;  /* ワラベンチャー用 */
     background-color: white;
 }
 

@@ -21,7 +21,7 @@
     // + インポート　＞　ページ +
     // ++++++++++++++++++++++++++
 
-    import TheAboutBody from '~/pages/about/the-body.vue';
+    import TheAboutBody from '@/pages/about/the-body.vue';
     import TheAppHeader from '../the-app-header.vue';
 
 </script>
