@@ -281,31 +281,31 @@ span.parent-header-lights-out {
     }
 
     section.sec-0 {
-        margin-left: calc(20px + 4px);
+        margin-left: calc(0 * 20px + 4px);
     }
 
     section.sec-1 {
-        margin-left: calc(40px + 4px);
+        margin-left: calc(1 * 20px + 4px);
     }
 
     section.sec-2 {
-        margin-left: calc(60px + 4px);
+        margin-left: calc(2 * 20px + 4px);
     }
 
     section.sec-3 {
-        margin-left: calc(80px + 4px);
+        margin-left: calc(3 * 20px + 4px);
     }
 
     section.sec-4 {
-        margin-left: calc(100px + 4px);
+        margin-left: calc(4 * 20px + 4px);
     }
 
     section.sec-5 {
-        margin-left: calc(120px + 4px);
+        margin-left: calc(5 * 20px + 4px);
     }
 
     section.sec-6 {
-        margin-left: calc(140px + 4px);
+        margin-left: calc(6 * 20px + 4px);
     }
 
     .sec-0 img {

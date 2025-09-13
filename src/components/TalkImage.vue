@@ -36,7 +36,7 @@
     interface Props {
         href: string;
         alt: string;
-        expandable: boolean;    /* 画像の元ファイルに飛ぶリンクを付けるかの有無。画像の拡大を意図 */
+        expandable?: boolean;    /* 画像の元ファイルに飛ぶリンクを付けるかの有無。画像の拡大を意図 */
     }
     // デフォルト値を設定
     const props = defineProps<Props>();
