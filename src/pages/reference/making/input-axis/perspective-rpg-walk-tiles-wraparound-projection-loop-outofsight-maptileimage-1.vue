@@ -27,8 +27,7 @@
         />
 
         <h1><span class="parent-header">ＲＰＧの歩行グラフィック　＞　</span>回り込むタイルへ投影・両端つながりの像・視野外マスク例示・マップタイル画像付き</h1>
-        <section class="sec-1">
-            <br/>
+        <section class="sec-1 pt-6">
 
             <!-- 免責 -->
             <!--
