@@ -5,7 +5,7 @@
     <button-20250822 ref="button1Ref"/>
 
     <h1>シューティング・スター（初級者向けのソースコード）</h1>
-    <section class="sec-1">
+    <section class="sec-1 mb-6">
 
         <!-- ゲームの操作方法 -->
         <v-btn @click="appManualIsShowing = !appManualIsShowing">{{ appManualIsShowing ? 'ゲームの遊び方閉じる' : 'ゲームの遊び方を表示' }}</v-btn>
@@ -188,13 +188,13 @@
         -->
     </section>
     
-    <br/>
+    <button-to-go-to-top class="sec-1 pt-6"/>
     <h2>ソースコード</h2>
     <section class="sec-2">
         <source-link/>
     </section>
 
-    <the-chapter-footer/>
+    <button-to-go-to-top class="sec-0 pt-6"/>
 </template>
 
 <script setup lang="ts">
@@ -214,8 +214,9 @@
     // + インポート　＞　コンポーネント +
     // ++++++++++++++++++++++++++++++++++
 
-    // from の階層が上の順、アルファベット順
+    // アルファベット順
     import Button20250822 from '../../components/Button20250822.vue';
+    import ButtonToGoToTop from '@/components/ButtonToGoToTop.vue';
     import SourceLink from '../../components/SourceLink.vue';
     import Stopwatch from '../../components/Stopwatch.vue';
     import Tile from '../../components/Tile.vue';
