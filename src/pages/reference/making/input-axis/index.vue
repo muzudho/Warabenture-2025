@@ -1,9 +1,8 @@
 <template>
     <the-app-header/>
-    <button-to-close-pane
-        class="sec-0"
-        direction="down"
-        pagePath="/reference"
+    <button-to-back-to-contents
+        class="sec-0 mt-6"
+        pagePath="../"
     />
 
     <compatible-device ref="compatibleDevice1Ref"/>
@@ -247,11 +246,7 @@
         <source-link/>
     </section>
 
-    <button-to-close-pane
-        class="sec-0"
-        direction="up"
-        pagePath="/reference"
-    />
+    <button-to-go-to-top class="sec-0 pt-6"/>
 </template>
 
 <script setup lang="ts">
@@ -269,7 +264,8 @@
     // Tauri なら明示的にインポートを指定する必要がある。 Nuxt なら自動でインポートしてくれる場合がある。
     //
 
-    import ButtonToClosePane from '@/components/ButtonToClosePane.vue';
+    import ButtonToBackToContents from '@/components/ButtonToBackToContents.vue';
+    import ButtonToGoToTop from '@/components/ButtonToGoToTop.vue';
     import CompatibleDevice from '@/components/CompatibleDevice.vue'
     import InputAxisRpgWalkTilesWraparoundProjectionLoopOutofsightMaptileimage1 from './rpg-walk-tiles-wraparound-projection-loop-outofsight-maptileimage-1.vue';
     import InputAxisRpgWalkBoardGridMoveaway1 from './rpg-walk-board-grid-moveaway-1.vue';

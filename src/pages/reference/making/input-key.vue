@@ -1,9 +1,8 @@
 <template>
     <the-app-header/>
-    <button-to-close-pane
-        class="sec-0"
-        direction="down"
-        pagePath="/reference"
+    <button-to-back-to-contents
+        class="sec-0 mt-6"
+        pagePath="../"
     />
 
     <h1>キーボードのキー入力を受け取る章だぜ！</h1>
@@ -19,11 +18,7 @@
         <source-link/>
     </section>
 
-    <button-to-close-pane
-        class="sec-0"
-        direction="up"
-        pagePath="/reference"
-    />
+    <button-to-go-to-top class="sec-0 pt-6"/>
 </template>
 
 <script setup lang="ts">
@@ -47,7 +42,8 @@
     // + インポート　＞　ページ +
     // ++++++++++++++++++++++++++
 
-    import ButtonToClosePane from '@/components/ButtonToClosePane.vue';
+    import ButtonToBackToContents from '@/components/ButtonToBackToContents.vue';
+    import ButtonToGoToTop from '@/components/ButtonToGoToTop.vue';
     import TheAppHeader from '../../the-app-header.vue';
 
 

@@ -4,9 +4,8 @@
 
 <template>
 
-    <!-- ボタン機能拡張 -->
+    <!-- 機能 -->
     <button-20250822 ref="button1Ref"/>
-
     <compatible-device ref="compatibleDevice1Ref"/>
 
     <!-- ストップウォッチ。デバッグに使いたいときは、 display: none; を消してください。 -->
@@ -15,17 +14,16 @@
         v-on:countUp="(countNum: number) => { stopwatch1Count = countNum; }"
         style="display: none;" />
 
-    <!-- ブログ領域 -->
+    <!-- 以降、ブログ領域 -->
     <div
         :style="{
             marginBottom: `calc(${5 * controllerSquareUnit}px)`,
         }"
     >
         <the-app-header/>
-        <button-to-close-pane
-            class="sec-0"
-            direction="down"
-            pagePath="/reference"
+        <button-to-back-to-contents
+            class="sec-0 mt-6"
+            pagePath="../../"
         />
 
         <h1><span class="parent-header">ＲＰＧの歩行グラフィック　＞　</span>回り込むタイルへ投影・両端つながりの像・視野外マスク例示・マップタイル画像付き</h1>
@@ -188,11 +186,7 @@
                 pagePath="/reference/making/input-axis-rpg-walk-using-background-image-1"/>
         </section>
 
-        <button-to-close-pane
-            class="sec-0"
-            direction="up"
-            pagePath="/reference"
-        />
+        <button-to-go-to-top class="sec-0 pt-6"/>
     </div>
 
     <!-- オーバーラップ画面 -->
@@ -589,7 +583,8 @@
     // アルファベット順
     import BoardMadeOfTile from '@/components/BoardMadeOfTile.vue';
     import Button20250822 from '@/components/Button20250822.vue';
-    import ButtonToClosePane from '@/components/ButtonToClosePane.vue';
+    import ButtonToBackToContents from '@/components/ButtonToBackToContents.vue';
+    import ButtonToGoToTop from '@/components/ButtonToGoToTop.vue';
     import CompatibleDevice from '@/components/CompatibleDevice.vue'
     import OutOfSightMaking from '@/components/OutOfSightMaking.vue';
     import PreferencesExplanation from '@/components/talk/PreferencesExplanation.vue'
