@@ -11,7 +11,10 @@
     />
 
     <h1>JSONファイルを読込もうぜ！</h1>
-    <section class="sec-1 pt-6">
+
+    <button-to-go-to-top class="sec-1 pt-6"/>
+    <h2>fetch() と useFetch()</h2>
+    <section class="sec-2 pt-6">
 
 
         <talk-balloon
@@ -67,7 +70,7 @@
 
     async function loadJson1() {
         try {
-            const response = await <span class="red-marker">fetch</span>("/data/making/sample.json");   // publicフォルダ下のパス
+            const response = <span class="red-marker">await fetch</span>("/data/making/sample.json");   // publicフォルダ下のパス
             if (!response.ok) throw new Error("Failed to fetch JSON");
             const data: any = await response.json();
 
@@ -122,7 +125,7 @@
 
     const {
         data
-    } = await <span class="red-marker">useFetch</span>&lt;any&gt;(
+    } = <span class="red-marker">await useFetch</span>&lt;any&gt;(
         jsonFilePath,   // public フォルダー下のファイルへのパス
         {
             baseURL: '/',   // ？
@@ -188,6 +191,111 @@
         >
             後者の useFetch() は、静的ページの初期値として使える。<br/>
             だから、サーバーサイドでプリレンダリングできる。
+        </talk-balloon>
+
+
+    </section>
+
+    <button-to-go-to-top class="sec-1 pt-6"/>
+    <h2>import()</h2>
+    <section class="sec-2 pt-6">
+
+
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            第３の方法を説明する。<br/>
+            まず、以下の設定をしておいてくれだぜ。<br/>
+            <br/>
+            プロジェクト・フォルダーの直下に public フォルダーと、 nuxt.config.ts ファイルがあるとするぜ。
+        </talk-balloon>
+
+
+        <p class="mt-6">📄 nuxt.config.ts（抜粋）:</p>
+        <pre class="coding-example mb-6">
+export default defineNuxtConfig({
+    alias: {
+        '#public': './public', // public/ フォルダをエイリアス
+    },
+})
+        </pre>
+
+
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            👇 んで、次のようなコードを書く。
+        </talk-balloon>
+
+
+        <pre class="coding-example mb-6">
+&lt;template&gt;
+    &lt;pre&gt;&#123;&#123; jsonStr &#125;&#125;&lt;/pre&gt;
+&lt;/template&gt;
+
+&lt;script setup lang="ts"&gt;
+    const jsonStr = ref("読み込み中...");
+
+    try {
+        // 動的インポート、ただし、ファイルパスは埋込み。
+        const jsonObj = <span class="red-marker">await import</span>('#public/data/making/sample.json').then(module => module.default);
+        json3Str.value = jsonObj;
+
+    } catch (err: unknown) {
+        const errorMessage = err instanceof Error ? err.message : String(err);
+        json3Str.value = `ERROR: ${errorMessage}`;
+    }
+&lt;/script&gt;
+        </pre>
+
+
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            👇 その結果は以下の通りだぜ。
+        </talk-balloon>
+
+
+        <pre class="coding-example mb-6">
+{{ json3Str }}
+        </pre>
+
+
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            👆 await import() は、サーバーサイドのプリレンダーでも、クライアントサイドでも使える。
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="hiyoko2Src"
+            :alt="hiyoko2Alt"
+            :name="hiyoko2Name"
+            :device="compatibleDevice1Ref?.device">
+            じゃあ全部 await import() でいいんじゃないかなあ？
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            自分のプロジェクト内で見えるファイルに限られるけどな。
         </talk-balloon>
 
 
@@ -314,6 +422,22 @@
         }
     );
     json2Str.value = data.value;
+
+    // ++++++++++++++++++++++++++++++++++++
+    // + オブジェクト　＞　JSONファイル３ +
+    // ++++++++++++++++++++++++++++++++++++
+
+    const json3Str = ref("読み込み中...");
+
+    try {
+        // 動的インポート、ただし、ファイルパスは埋込み。
+        const jsonObj = await import('#public/data/making/sample.json').then(module => module.default);
+
+        json3Str.value = jsonObj;
+    } catch (err: unknown) {
+        const errorMessage = err instanceof Error ? err.message : String(err);
+        json3Str.value = `ERROR: ${errorMessage}`;
+    }
 
 </script>
 
