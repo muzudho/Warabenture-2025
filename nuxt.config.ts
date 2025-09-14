@@ -15,6 +15,22 @@ export default defineNuxtConfig({
         plugins: 'plugins', // src/plugins
         public: '../public', // src から見て ../public
     },
+    nitro: {
+        prerender: {    // プリレンダーの設定。処理が重たいから、軽くするために。
+            crawlLinks: false, // クローラー無効化
+            routes: [   // 必要なルートだけ指定。重たいルートはコメントアウトしてください
+                '/',
+                '/about',
+                '/blog',
+                '/home',
+                '/minigames',
+                '/quiz',
+                '/reference',
+                '/reference_warabenture',
+            ],
+            failOnError: false, // エラーで止まらない
+        },
+    },
     runtimeConfig: {
         public: {
             apiBase: process.env.VITE_BASE_URL || 'http://localhost:3000/', // デフォルト値として開発環境のURLを設定
