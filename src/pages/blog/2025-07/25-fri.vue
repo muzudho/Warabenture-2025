@@ -217,7 +217,7 @@ pnpm install</pre>
             :device="compatibleDevice1Ref?.device">
                 <span class="font-x2">👇</span>連携できてるかな？<br/>
                 <br/>
-                <span class="font-x2">📖</span><a target="_blank" href="https://warabenture.com/wara-city/map">わらシティ</a>
+                <span class="font-x2">📖</span><a target="_blank" href="https://warabenture.com/reference-warabenture/wara-city/map">わらシティ</a>
         </talk-balloon>
 
 
@@ -256,8 +256,8 @@ pnpm install</pre>
             :alt="oton2Alt"
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device">
-                <span class="code-w">http://localhost:3000/wara-city/map</span>というパスでは表示されて、<br/>
-                <span class="code-w">https://warabenture.com/wara-city/map</span>というパスでは表示されない、<br/>
+                <span class="code-w">http://localhost:3000/reference-warabenture/wara-city/map</span>というパスでは表示されて、<br/>
+                <span class="code-w">https://warabenture.com/reference-warabenture/wara-city/map</span>というパスでは表示されない、<br/>
                 Nuxt はなんかルーティングに流儀があんのかな？
         </talk-balloon>
 
@@ -267,8 +267,8 @@ pnpm install</pre>
             :alt="oton2Alt"
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device">
-                <span class="code-w">https://warabenture.com/wara-city/map</span>では表示されないが、<br/>
-                <span class="code-w">http://warabenture.com/wara-city/map/</span>なら表示された……。
+                <span class="code-w">https://warabenture.com/reference-warabenture/wara-city/map</span>では表示されないが、<br/>
+                <span class="code-w">http://warabenture.com/reference-warabenture/wara-city/map/</span>なら表示された……。
         </talk-balloon>
 
 

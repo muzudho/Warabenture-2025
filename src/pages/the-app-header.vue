@@ -16,8 +16,8 @@
         <router-link to="/reference" :class="getLinkHighlight('/reference')">リファレンス</router-link>
 
         <!--
-         | <router-link to="/team-mirai-supporter" :style="getLinkHighlight('/team-mirai-supporter')">チームみらいサポーター活動</router-link>
-         | <router-link to="/wara-city/map" :style="getLinkHighlight('/wara-city/map')">わらシティ</router-link>
+         | <router-link to="/reference-warabenture/team-mirai-supporter" :style="getLinkHighlight('/reference-warabenture/team-mirai-supporter')">チームみらいサポーター活動</router-link>
+         | <router-link to="/reference-warabenture/wara-city/map" :style="getLinkHighlight('/reference-warabenture/wara-city/map')">わらシティ</router-link>
         -->
     </nav>
 </template>

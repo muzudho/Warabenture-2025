@@ -178,9 +178,9 @@
         "/blog",    // ブログのURL
         "/reference/making",    // メイキングのURL
         "/minigames",   // ミニゲーム
-        "/team-mirai-supporter",    // チームみらいサポーター活動のURL
+        "/reference-warabenture/team-mirai-supporter",  // チームみらいサポーター活動のURL
         "/reference/coding-style",  // コーディング・スタイル
-        //"/wara-city/map", // わらシティのURL
+        //"/reference-warabenture/wara-city/map", // わらシティのURL
     ];
 
 
