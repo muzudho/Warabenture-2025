@@ -52,9 +52,9 @@
     const pageList = ref<string[]>([]);
 
     if (process.server) {
-        console.log('サーバーサイドで実行されています');
+        console.log('DEBUG: サーバーサイドで実行されています');
     } else {
-        console.log('実行しているのはサーバーサイドではありません');
+        console.log('DEBUG: 実行しているのはサーバーサイドではありません');
     }
 
     try {
