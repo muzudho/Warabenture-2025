@@ -1,8 +1,9 @@
 <template>
 
-    <!-- デバイス互換機能 -->
+    <!-- 機能 -->
     <compatible-device ref="compatibleDevice1Ref"/>
 
+    <!-- 以降、ページ -->
     <h1><router-link to="/blog/2025-09/14-sun">[2025-09-14_Sun]</router-link></h1>
     <section class="sec-1 pt-6">
 

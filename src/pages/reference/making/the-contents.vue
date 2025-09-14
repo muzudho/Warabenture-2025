@@ -10,7 +10,7 @@
             <li>📖 <router-link to="/reference/making/mount-practice" :class="getLinkHighlight('/reference/making/mount-practice')">ページを開いたとき、閉じたときに処理する章だぜ！</router-link></li>
 
 
-            <li>📖 <router-link to="/reference/making/json-file-loading" :class="getLinkHighlight('/reference/making/json-file-loading')">JSONファイルを読込む章だぜ！</router-link></li>
+            <li>📖 <router-link to="/reference/making/json-file-loading" :class="getLinkHighlight('/reference/making/json-file-loading')">JSONファイルを読込もうぜ！</router-link></li>
             <li>📖 <router-link to="/reference/making/button-repeat-1" :class="getLinkHighlight('/reference/making/button-repeat-1')">ボタンの押しっぱなしが利くようにする章だぜ！</router-link></li>
             <li>📖 <router-link to="/reference/making/tile-crop" :class="getLinkHighlight('/reference/making/tile-crop')">タイル　＞　を画像から切り抜く章だぜ！</router-link></li>
             <li>📖 <router-link to="/reference/making/count-up" :class="getLinkHighlight('/reference/making/count-up')">カウントアップする章だぜ！</router-link></li>
