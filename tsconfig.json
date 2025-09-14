@@ -2,6 +2,8 @@
     // https://www.typescriptlang.org/tsconfig/#extends
     // https://nuxt.com/docs/guide/concepts/typescript
     "extends": "./.nuxt/tsconfig.json",
+    
+    // types フォルダーに型定義を入れるため：
     "compilerOptions": {
         "types": ["@types/node", "@nuxt/types"],
         "typeRoots": ["./types"]

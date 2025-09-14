@@ -19,28 +19,12 @@
     // # インポート #
     // ##############
 
-    // FIXME: ここでエラー： import { resolve } from 'path';
-
-    // ++++++++++++++++++++++++++++++
-    // + インポート　＞　パブリック +
-    // ++++++++++++++++++++++++++++++
-
-    //import jsonData from '../../../public/data/blog-articles.json';
-
     // ++++++++++++++++++++++++++++++++++
     // + インポート　＞　コンポーネント +
     // ++++++++++++++++++++++++++++++++++
 
     import BlogArticle from '@/components/BlogArticle.vue';
     import ButtonToGoToTop from '@/components/ButtonToGoToTop.vue';
-
-
-    // ################
-    // # 外部ファイル #
-    // ################
-
-    // FIXME: とりあえず静的に読み込んでみる。ブログを追加するたび、ウェブアプリケーションの再生成が必要か？
-    //const jsonFilePath = "/data/blog-articles.json";    // public/data/blog-articles.json
 
 
     // ################

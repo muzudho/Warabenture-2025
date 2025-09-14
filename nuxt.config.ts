@@ -17,7 +17,7 @@ export default defineNuxtConfig({
         plugins: 'plugins', // src/plugins
         public: '../public', // src から見て ../public
     },
-    nitro: {
+    nitro: { // ワラベンチャー用。
         prerender: {    // プリレンダーの設定。処理が重たいから、軽くするために。
             crawlLinks: false, // クローラー無効化
             routes: [   // ワラベンチャー用。必要なルートだけ指定。重たいルートはコメントアウトしてください
