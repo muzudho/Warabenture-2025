@@ -18,7 +18,7 @@ export default defineNuxtConfig({
     nitro: {
         prerender: {    // プリレンダーの設定。処理が重たいから、軽くするために。
             crawlLinks: false, // クローラー無効化
-            routes: [   // 必要なルートだけ指定。重たいルートはコメントアウトしてください
+            routes: [   // ワラベンチャー用。必要なルートだけ指定。重たいルートはコメントアウトしてください
                 '/',
                 '/about',
                 '/blog',
@@ -26,7 +26,9 @@ export default defineNuxtConfig({
                 '/minigames',
                 '/quiz',
                 '/reference',
-                '/reference_warabenture',
+                //'/reference_warabenture',   // index がない
+                '/reference_warabenture/team-mirai-supporter',
+                '/reference_warabenture/wara-city',
             ],
             failOnError: false, // エラーで止まらない
         },
