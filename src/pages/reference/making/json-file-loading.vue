@@ -13,21 +13,26 @@
     <h1>JSONファイルを読込もうぜ！</h1>
     <section class="sec-1 pt-6">
 
+
         <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
-            :device="compatibleDevice1Ref?.device">
-                JSONファイル１つ読み込むにもやり方がいくつかあるんで、その違いをメモしておこうぜ。
+            :device="compatibleDevice1Ref?.device"
+        >
+            JSONファイル１つ読み込むにもやり方がいくつかあるんで、その違いをメモしておこうぜ。
         </talk-balloon>
+
 
         <talk-balloon
             :src="kifuwarabe2Src"
             :alt="kifuwarabe2Alt"
             :name="kifuwarabe2Name"
-            :device="compatibleDevice1Ref?.device">
-                👇 じゃあ、以下の JSON ファイルを置いておくぜ。
+            :device="compatibleDevice1Ref?.device"
+        >
+            👇 じゃあ、以下の JSON ファイルを置いておくぜ。
         </talk-balloon>
+
 
         <p>📄 <a target="_blank" :href="jsonFilePath">public{{jsonFilePath}}</a>:</p>
         <pre class="coding-example mb-6">
@@ -36,26 +41,31 @@
 }
         </pre>
 
+
         <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
-            :device="compatibleDevice1Ref?.device">
-                👆 その JSON ファイルを読み込むコードの１つに、<br/>
-                👇 次のような書き方があるそうだぜ。
+            :device="compatibleDevice1Ref?.device"
+        >
+            👆 その JSON ファイルを読み込むコードの１つに、<br/>
+            👇 次のような書き方があるそうだぜ。
         </talk-balloon>
+
 
         <pre class="coding-example mb-6">
 &lt;template&gt;
+    &lt;v-btn @click="loadJson1" class="mt-6 mb-6"&gt;JSONファイル読込&lt;/v-btn&gt;
+
     &lt;pre&gt;&#123;&#123; jsonStr &#125;&#125;&lt;/pre&gt;
 &lt;/template&gt;
 
 &lt;script setup lang="ts"&gt;
-    import { onMounted, ref } from 'vue';
+    import { ref } from 'vue';
 
     const jsonStr = ref("読み込み中...");
 
-    onMounted(async () =&gt; {
+    async function loadJson1() {
         try {
             const response = await <span class="red-marker">fetch</span>("/data/making/sample.json");   // publicフォルダ下のパス
             if (!response.ok) throw new Error("Failed to fetch JSON");
@@ -66,22 +76,120 @@
         } catch (error) {
             alert(`ERROR: sample.jsonファイル読込時。 ${error}`);
         }
-    });
+    };
 &lt;/script&gt;
         </pre>
+
 
         <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
-            :device="compatibleDevice1Ref?.device">
-                👆 これを実行すると、<br/>
-                👇 以下の通り。
+            :device="compatibleDevice1Ref?.device"
+        >
+            👆 これを実行した結果を見るには、<br/>
+            👇 以下のボタンをクリックしてくれだぜ。
         </talk-balloon>
 
+
+        <v-btn @click="loadJson1" class="mt-6 mb-6">JSONファイル読込</v-btn>
+
+
         <pre class="coding-example mb-6">
-{{ jsonStr }}
+{{ json1Str }}
         </pre>
+
+
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            👇 他にも、Nuxt 3 から次のような書き方も増えたそうだぜ。
+        </talk-balloon>
+
+
+        <pre class="coding-example mb-6">
+&lt;template&gt;
+    &lt;pre&gt;&#123;&#123; jsonStr &#125;&#125;&lt;/pre&gt;
+&lt;/template&gt;
+
+&lt;script setup lang="ts"&gt;
+    import { ref } from 'vue';
+
+    const jsonStr = ref("読み込み中...");
+
+    const {
+        data
+    } = await <span class="red-marker">useFetch</span>&lt;any&gt;(
+        jsonFilePath,   // public フォルダー下のファイルへのパス
+        {
+            baseURL: '/',   // ？
+            transform: (jsonObj: unknown): any => {    // やりたければ、データの変換処理
+
+                // JSON がオブジェクト（辞書型）かどうかのチェック
+                if (jsonObj && typeof jsonObj === 'object') {
+                    return jsonObj;
+                }
+
+                // オブジェクト（辞書型）でなければ、空辞書を返す
+                return {};
+            },
+            default: () => [], // エラー時のデフォルト値
+        }
+    );
+    json2Str.value = data.value;
+&lt;/script&gt;
+        </pre>
+
+
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            👆 これを実行すると、<br/>
+            👇 以下の通り。
+        </talk-balloon>
+
+
+        <pre class="coding-example mb-6">
+{{ json2Str }}
+        </pre>
+
+
+        <talk-balloon
+            :src="hiyoko2Src"
+            :alt="hiyoko2Alt"
+            :name="hiyoko2Name"
+            :device="compatibleDevice1Ref?.device">
+            前者と後者では、何が違うの？
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            前者は、静的ページの初期値として使えない。<br/>
+            だから、ページの読込完了のタイミングや、ボタンを押したタイミングで使うことになるぜ。
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            後者は、静的ページの初期値として使える。<br/>
+            だから、サーバーサイドでプリレンダリングできる。
+        </talk-balloon>
+
 
     </section>
 
@@ -153,31 +261,59 @@
     // # オブジェクト #
     // ################
 
-    const jsonStr = ref("読み込み中...");
-
     // ++++++++++++++++++++++++++++++++++
     // + オブジェクト　＞　装置の互換性 +
     // ++++++++++++++++++++++++++++++++++
 
     const compatibleDevice1Ref = ref<InstanceType<typeof CompatibleDevice> | null>(null);
 
+    // ++++++++++++++++++++++++++++++++++++
+    // + オブジェクト　＞　JSONファイル２ +
+    // ++++++++++++++++++++++++++++++++++++
 
-    // ##############
-    // # 起動時処理 #
-    // ##############
+    const json1Str = ref("上のボタンを押してください...");
 
-    onMounted(async () => {
+    async function loadJson1() {
         try {
             const response = await fetch(jsonFilePath);   // publicフォルダに置いたファイルにアクセスできる。
             if (!response.ok) throw new Error("Failed to fetch JSON");
             const data: any = await response.json();
 
-            jsonStr.value = JSON.stringify(data, null, 4);
+            json1Str.value = JSON.stringify(data, null, 4);
 
         } catch (error) {
             alert(`ERROR: sample.jsonファイル読込時。 ${error}`);
         }
-    });
+    }
+
+    // ++++++++++++++++++++++++++++++++++++
+    // + オブジェクト　＞　JSONファイル２ +
+    // ++++++++++++++++++++++++++++++++++++
+
+    const json2Str = ref("読み込み中...");
+
+    // JSONファイルを読み込みたい。
+    // なんだかよくわからないが、 useFetch は、サーバーサイド・レンダリングのエラーになりにくいらしい。
+    const {
+        data
+    } = await useFetch<any>(
+        jsonFilePath,   // public フォルダー下のファイルへのパス
+        {
+            baseURL: '/',   // ？
+            transform: (jsonObj: unknown): any => {    // やりたければ、データの変換処理
+
+                // JSON がオブジェクト（辞書型）かどうかのチェック
+                if (jsonObj && typeof jsonObj === 'object') {
+                    return jsonObj;
+                }
+
+                // オブジェクト（辞書型）でなければ、空辞書を返す
+                return {};
+            },
+            default: () => [], // エラー時のデフォルト値
+        }
+    );
+    json2Str.value = data.value;
 
 </script>
 
