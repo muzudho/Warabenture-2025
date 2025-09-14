@@ -1,0 +1,2 @@
+# このエグザンプルのファイル名は .env に変えてください
+VITE_BASE_URL=http://localhost:3000/

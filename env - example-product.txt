@@ -1,0 +1,2 @@
+# このエグザンプルのファイル名は .env に変えてください
+VITE_BASE_URL=https://www.warabenture.com/
