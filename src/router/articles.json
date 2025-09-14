@@ -1,72 +1,12 @@
 [
     {
-        "id": "2025-05/24-sat",
-        "date": "2025-05-24",
-        "category": ["Talking", "Planning"]
-    },
-    {
-        "id": "2025-06/01-sun",
-        "date": "2025-06-01",
-        "category": ["Talking", "Planning"]
-    },
-    {
-        "id": "2025-06/02-mon",
-        "date": "2025-06-02",
-        "category": ["Talking", "Tauri2", "Vue3"]
-    },
-    {
-        "id": "2025-06/03-tue",
-        "date": "2025-06-03",
-        "category": ["Talking", "Tauri2", "Git", "Rust"]
-    },
-    {
-        "id": "2025-06/04-wed",
-        "date": "2025-06-04",
-        "category": ["Talking", "Vue3", "Rust"]
-    },
-    {
-        "id": "2025-06/05-thu",
-        "date": "2025-06-05",
-        "category": ["Talking", "CleaningHouse"]
-    },
-    {
-        "id": "2025-06/12-thu",
-        "date": "2025-06-12",
-        "category": ["Talking", "Planning"]
-    },
-    {
-        "id": "2025-06/15-sun",
-        "date": "2025-06-15",
-        "category": ["Talking", "Tauri2"]
-    },
-    {
-        "id": "2025-06/19-thu",
-        "date": "2025-06-19",
-        "category": ["Talking", "Vuetify3"]
-    },
-    {
-        "id": "2025-07/12-sat",
-        "date": "2025-07-12",
-        "category": ["Talking", "Tauri2"]
-    },
-    {
-        "id": "2025-07/25-fri",
-        "date": "2025-07-25",
-        "category": ["Talking", "Tauri2", "Vuetify3", "SSL"]
-    },
-    {
-        "id": "2025-08/11-mon",
-        "date": "2025-08-11",
+        "id": "2025-09/14-sun",
+        "date": "2025-09-14",
         "category": ["Talking", "Vue3"]
     },
     {
-        "id": "2025-09/10-wed",
-        "date": "2025-09-10",
-        "category": ["Talking", "Vue3"]
-    },
-    {
-        "id": "2025-09/11-thu",
-        "date": "2025-09-11",
+        "id": "2025-09/13-sat",
+        "date": "2025-09-13",
         "category": ["Talking", "Vue3"]
     },
     {
@@ -75,8 +15,73 @@
         "category": ["Talking", "Vue3"]
     },
     {
-        "id": "2025-09/13-sat",
-        "date": "2025-09-13",
+        "id": "2025-09/11-thu",
+        "date": "2025-09-11",
         "category": ["Talking", "Vue3"]
+    },
+    {
+        "id": "2025-09/10-wed",
+        "date": "2025-09-10",
+        "category": ["Talking", "Vue3"]
+    },
+    {
+        "id": "2025-08/11-mon",
+        "date": "2025-08-11",
+        "category": ["Talking", "Vue3"]
+    },
+    {
+        "id": "2025-07/25-fri",
+        "date": "2025-07-25",
+        "category": ["Talking", "Tauri2", "Vuetify3", "SSL"]
+    },
+    {
+        "id": "2025-07/12-sat",
+        "date": "2025-07-12",
+        "category": ["Talking", "Tauri2"]
+    },
+    {
+        "id": "2025-06/19-thu",
+        "date": "2025-06-19",
+        "category": ["Talking", "Vuetify3"]
+    },
+    {
+        "id": "2025-06/15-sun",
+        "date": "2025-06-15",
+        "category": ["Talking", "Tauri2"]
+    },
+    {
+        "id": "2025-06/12-thu",
+        "date": "2025-06-12",
+        "category": ["Talking", "Planning"]
+    },
+    {
+        "id": "2025-06/05-thu",
+        "date": "2025-06-05",
+        "category": ["Talking", "CleaningHouse"]
+    },
+    {
+        "id": "2025-06/04-wed",
+        "date": "2025-06-04",
+        "category": ["Talking", "Vue3", "Rust"]
+    },
+    {
+        "id": "2025-06/03-tue",
+        "date": "2025-06-03",
+        "category": ["Talking", "Tauri2", "Git", "Rust"]
+    },
+    {
+        "id": "2025-06/02-mon",
+        "date": "2025-06-02",
+        "category": ["Talking", "Tauri2", "Vue3"]
+    },
+    {
+        "id": "2025-06/01-sun",
+        "date": "2025-06-01",
+        "category": ["Talking", "Planning"]
+    },
+    {
+        "id": "2025-05/24-sat",
+        "date": "2025-05-24",
+        "category": ["Talking", "Planning"]
     }
 ]

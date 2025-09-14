@@ -3,7 +3,7 @@
     <!-- デバイス互換機能 -->
     <compatible-device ref="compatibleDevice1Ref"/>
 
-    <h1><router-link to="/blog/2025-09/13-sat">[2025-09-13_Sat]</router-link></h1>
+    <h1><router-link to="/blog/2025-09/14-sun">[2025-09-14_Sun]</router-link></h1>
     <section class="sec-1 pt-6">
 
         <talk-balloon
@@ -11,44 +11,41 @@
             :alt="oton2Alt"
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device">
-                👇 変更前のスタイルがこうで……、
+                Nuxt がサーバーサイドでプリレンダリングしてるんだが、サーバーサイドで生成したソースコードと、クライアントサイドで生成したコードが違うっていうエラーが出るんだが、何よこれ？
         </talk-balloon>
-
-        <talk-image
-            expandable
-            :href="journal1png"
-            alt="階層が深くなったWebサイトのレイアウト"
-        />
-
-        <talk-balloon
-            :src="oton2Src"
-            :alt="oton2Alt"
-            :name="oton2Name"
-            :device="compatibleDevice1Ref?.device">
-                👇 変更後のスタイルがこう。
-        </talk-balloon>
-
-        <talk-image
-            expandable
-            :href="journal2png"
-            alt="階層が深くなったWebサイトのレイアウト"
-        />
 
         <talk-balloon
             :src="kifuwarabe2Src"
             :alt="kifuwarabe2Alt"
             :name="kifuwarabe2Name"
             :device="compatibleDevice1Ref?.device">
-                すっきりしたな。
+                黒吉に聞けだぜ。
         </talk-balloon>
 
+        <talk-balloon
+            :src="kurokichi1Src"
+            :alt="kurokichi1Alt"
+            :name="kurokichi1Name"
+            :device="compatibleDevice1Ref?.device">
+                このエラーの主な原因は、v-for に :key が欠けていること、または v-if="pageComponent" の不明確な条件によるものです。修正コード例のように :key を追加し、v-if を適切に設定することで、問題が解決する可能性が高いです。もし動的データや非同期コンポーネントが関わっている場合、データの一貫性やロードタイミングも確認してください。
+        </talk-balloon>
+
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
+                分かったぜ、直すぜ。
+        </talk-balloon>
+
+        <!--
         <talk-balloon
             :src="hiyoko2Src"
             :alt="hiyoko2Alt"
             :name="hiyoko2Name"
             :device="compatibleDevice1Ref?.device">
-                ❌ ボタンも要らなくない？
         </talk-balloon>
+        -->
 
     </section>
 
