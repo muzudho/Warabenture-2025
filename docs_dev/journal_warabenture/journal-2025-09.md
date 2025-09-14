@@ -74,3 +74,51 @@ export default defineNuxtConfig({
   },
 });
 ```
+
+```
+権限/ファイルパス問題:
+
+VPS上でpublic/data/blog-articles.jsonの所有者/権限がwww-data（Webサーバーユーザー）じゃない。ls -la public/data/で確認。
+```
+
+```shell
+ubuntu@os3-288-33577:~/warabenture-2025$ ls -la public/data/
+total 16
+drwxrwxr-x 3 ubuntu ubuntu   4096 Sep 15 01:05 .
+drwxr-xr-x 6 ubuntu www-data 4096 Sep 15 01:05 ..
+-rw-rw-r-- 1 ubuntu ubuntu    399 Sep 15 01:05 blog-articles.json
+drwxrwxr-x 2 ubuntu ubuntu   4096 Sep 15 00:45 making
+```
+
+期待: rw-r--r--（644）で、所有者がwww-data:www-data（Nginxユーザー）。  
+
+```shell
+sudo chown www-data:www-data ~/warabenture-2025/public/data/blog-articles.json
+sudo chmod 644 ~/warabenture-2025/public/data/blog-articles.json
+sudo systemctl restart nginx
+```
+
+```
+(1) サーバー側のエラーログ確認（最優先）
+500の詳細がログに残ってるはず：
+```
+
+```shell
+# Nginxの場合（さくらのVPSデフォルト）
+sudo tail -f /var/log/nginx/error.log
+```
+
+```
+ubuntu@os3-288-33577:~/warabenture-2025$ sudo tail -f /var/log/nginx/error.log
+[sudo] password for ubuntu: 
+2025/09/15 03:29:57 [debug] 1930602#1930602: *80662 peer shutdown SSL cleanly
+2025/09/15 03:29:57 [info] 1930602#1930602: *80662 client 52.167.144.160 closed keepalive connection
+2025/09/15 03:29:57 [debug] 1930602#1930602: *80662 close http connection: 4
+2025/09/15 03:29:57 [debug] 1930602#1930602: *80662 SSL_shutdown: 1
+2025/09/15 03:29:57 [debug] 1930602#1930602: *80662 event timer del: 4: 9697868228
+2025/09/15 03:29:57 [debug] 1930602#1930602: *80662 reusable connection: 0
+2025/09/15 03:29:57 [debug] 1930602#1930602: *80662 free: 0000582CA4F5A3E0
+2025/09/15 03:29:57 [debug] 1930602#1930602: *80662 free: 0000000000000000
+2025/09/15 03:29:57 [debug] 1930602#1930602: *80662 free: 0000582CA4FA9F80, unused: 0
+2025/09/15 03:29:57 [debug] 1930602#1930602: *80662 free: 0000582CA501F5E0, unused: 400
+```

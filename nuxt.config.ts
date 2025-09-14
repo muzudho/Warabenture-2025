@@ -1,12 +1,11 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-    compatibilityDate: '2025-05-15',
-    devtools: { enabled: true },
-    css: ["vuetify/styles", "@mdi/font/css/materialdesignicons.css"],
     build: {
         transpile: ["vuetify"],
     },
-    srcDir: 'src/', // srcフォルダをルートに設定
+    compatibilityDate: '2025-05-15',
+    css: ["vuetify/styles", "@mdi/font/css/materialdesignicons.css"],
+    devtools: { enabled: true },
     dir: {  // マッピングか？
         assets: 'assets', // src/assets
         //components: 'components', // src/components
@@ -33,10 +32,14 @@ export default defineNuxtConfig({
             ],
             failOnError: false, // エラーで止まらない
         },
+        routeRules: {
+            '/data/**': { static: true },   // public/data ディレクトリー下を、静的配信強制
+        },
     },
     runtimeConfig: {
         public: {
             apiBase: process.env.VITE_BASE_URL || 'http://localhost:3000/', // デフォルト値として開発環境のURLを設定
         },
     },
+    srcDir: 'src/', // srcフォルダをルートに設定
 })
