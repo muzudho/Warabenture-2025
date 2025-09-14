@@ -28,7 +28,7 @@ export default defineNuxtConfig({
                 '/reference',
                 //'/reference_warabenture',   // index.vue がない
                 '/reference_warabenture/team-mirai-supporter',
-                '/reference_warabenture/wara-city', // index.vue がない
+                //'/reference_warabenture/wara-city', // index.vue がない
                 '/reference_warabenture/wara-city/map',
             ],
             failOnError: false, // エラーで止まらない
