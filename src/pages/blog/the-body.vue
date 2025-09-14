@@ -38,16 +38,19 @@
     // # オブジェクト #
     // ################
 
+    console.log(`DEBUG: useRuntimeConfig().public.apiBase=${useRuntimeConfig().public.apiBase}`);
+
     let pageList: string[] = [];
 
     // JSONファイルを読み込みたい。
     // なんだかよくわからないが、 useFetch は、サーバーサイド・レンダリングのエラーになりにくいらしい。
     const {
-        data
+        data,
+        error
     } = await useFetch<string[]>(
         jsonFilePath,   // public フォルダー下のファイルへのパス
         {
-            baseURL: '/',   // ？
+            baseURL: useRuntimeConfig().public.apiBase, // 詳しくは、 nuxt.config.ts ファイルを見てください
             transform: (jsonObj: unknown): string[] => {    // やりたければ、データの変換処理
                 // JSONが配列であることを確認し、配列ならそのまま返す、そうでなければ、エラー時の記事２を返す
                 return Array.isArray(jsonObj) ? jsonObj : ['1970-01/02-fri'];
@@ -55,6 +58,10 @@
             default: () => ['1970-01/01-thu'], // エラー時の記事１
         }
     );
+
+    if (error.value) {
+        console.error('Fetch error:', error.value);
+    }    
 
     pageList = data.value;
 

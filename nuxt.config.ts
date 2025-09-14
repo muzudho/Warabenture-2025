@@ -15,4 +15,9 @@ export default defineNuxtConfig({
         plugins: 'plugins', // src/plugins
         public: '../public', // src から見て ../public
     },
+    runtimeConfig: {
+        public: {
+            apiBase: process.env.VITE_BASE_URL || 'http://localhost:3000/', // デフォルト値として開発環境のURLを設定
+        },
+    },
 })
