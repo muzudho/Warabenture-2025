@@ -26,9 +26,10 @@ export default defineNuxtConfig({
                 '/minigames',
                 '/quiz',
                 '/reference',
-                //'/reference_warabenture',   // index がない
+                //'/reference_warabenture',   // index.vue がない
                 '/reference_warabenture/team-mirai-supporter',
-                '/reference_warabenture/wara-city',
+                '/reference_warabenture/wara-city', // index.vue がない
+                '/reference_warabenture/wara-city/map',
             ],
             failOnError: false, // エラーで止まらない
         },
