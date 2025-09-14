@@ -373,7 +373,7 @@
     import CompatibleDevice from '@/components/CompatibleDevice.vue'
     import TalkBalloon from '@/components/TalkBalloon.vue';
     import TalkImage from '@/components/TalkImage.vue';
-    import TheAppHeader from '../the-app-header.vue';
+    import TheAppHeader from '../../the-app-header.vue';
 
 
     // ##########
