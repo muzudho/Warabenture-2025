@@ -49,11 +49,17 @@
     import TheAppHeader from '../../the-app-header.vue';
 
 
-    // ##############
-    // # 共有データ #
-    // ##############
+    // ################
+    // # 外部ファイル #
+    // ################
 
-    const jsonFilePath = "/sample.json";
+    const jsonFilePath = "/sample.json";    // public/sample.json
+
+
+    // ################
+    // # オブジェクト #
+    // ################
+
     const jsonStr = ref("読み込み中...");
 
 

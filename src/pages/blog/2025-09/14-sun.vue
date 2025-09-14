@@ -38,6 +38,22 @@
                 分かったぜ、直すぜ。
         </talk-balloon>
 
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device">
+                お～、v-for="x in X" を使っているところには必ず :key="x" を付けるとエラーが取れたぜ（＾▽＾）！
+        </talk-balloon>
+
+        <talk-balloon
+            :src="kurokichi1Src"
+            :alt="kurokichi1Alt"
+            :name="kurokichi1Name"
+            :device="compatibleDevice1Ref?.device">
+                おお、ナイス！（＾▽＾） :key="x" を v-for に付けたらハイドレーションエラーが解消したんだね！VueがDOMをちゃんと追跡できるようになって、バッチリ動いたってわけだ。さすが、素早く対応したな！何か他に質問やハマったポイントがあったら、気軽に教えてくれよ～（＾～＾）
+        </talk-balloon>
+
         <!--
         <talk-balloon
             :src="hiyoko2Src"
