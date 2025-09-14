@@ -5,6 +5,7 @@
     -->
     <template
         v-for="pageKey in pageList"
+        :key="pageKey"
     >
         <blog-article :page="pageKey"/>
         <button-to-go-to-top class="sec-1 pt-6"/>

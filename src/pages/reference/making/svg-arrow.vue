@@ -395,7 +395,8 @@
                 color="#ff0080"/>
 
             <div
-                v-for="index in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]" :key="index"
+                v-for="index in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]"
+                :key="index"
                 :style="hitboxPositions[index] + ' ' +  hitboxStyles[index]"
                 style="position: absolute; border: solid 4px gray;">{{ index }}</div>
 

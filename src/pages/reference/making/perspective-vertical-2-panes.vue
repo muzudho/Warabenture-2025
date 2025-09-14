@@ -26,7 +26,10 @@
                 <v-card class="pa-4 scrollable-content">
                     <v-card-title>Scrollable Text Content</v-card-title>
                     <v-card-text>
-                    <p v-for="i in 20" :key="i">
+                    <p
+                        v-for="i in 20"
+                        :key="i"
+                    >
                         This is some sample text content. You can scroll through this section while the image above stays fixed. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                     </p>
                     </v-card-text>

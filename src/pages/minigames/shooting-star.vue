@@ -148,7 +148,9 @@
                 グリッド
                 NOTE: ループカウンターは 1 から始まるので、1～9の9個のセルを作成。
             -->
-            <div v-for="i in board1Area" :key="i"
+            <div
+                v-for="i in board1Area"
+                :key="i"
                 :style="`position:absolute; top: ${Math.floor((i - 1) / board1.files) * board1.squareHeight}px; left: ${((i - 1) % board1.files) * board1.squareWidth}px; width:${board1.squareWidth}px; height:${board1.squareHeight}px; border: solid 1px gray;`"></div>
 
             <!-- 星 -->

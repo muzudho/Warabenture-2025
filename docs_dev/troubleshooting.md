@@ -18,3 +18,21 @@ file: /home/ubuntu/warabenture-2025/src/pages/reference_warabenture/team-mirai-s
 
 `import TheAppHeader from '../the-app-header.vue';` を  
 `import TheAppHeader from '../../the-app-header.vue';` に修正。  
+
+
+## Hydration エラー１
+
+```
+Hydration completed but contains mismatches.
+```
+
+動的に生成されるコンポーネントを置くと、このエラーになる？  
+
+
+## Hydration エラー２ on ブラウザー
+
+```
+Hydration completed but contains mismatches.
+```
+
+v-for に対応する `:key=""` が付いていないときなど。  

@@ -528,7 +528,8 @@
                 <p>👇 盤の各マス</p>
                 <div
                     v-for="i in board1Area"
-                    :key="i">
+                    :key="i"
+                >
                     tile-index: {{ i - 1 }} | 
                     fix-index: {{
                         imageBoard1GetFixedTileSqFromTileSq(i - 1)
