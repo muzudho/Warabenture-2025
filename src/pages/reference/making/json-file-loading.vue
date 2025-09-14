@@ -268,7 +268,7 @@
     const compatibleDevice1Ref = ref<InstanceType<typeof CompatibleDevice> | null>(null);
 
     // ++++++++++++++++++++++++++++++++++++
-    // + オブジェクト　＞　JSONファイル２ +
+    // + オブジェクト　＞　JSONファイル１ +
     // ++++++++++++++++++++++++++++++++++++
 
     const json1Str = ref("上のボタンを押してください...");

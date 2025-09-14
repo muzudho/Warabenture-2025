@@ -21,6 +21,8 @@ import Blog20250603Tue from '@/pages/blog/2025-06/03-tue.vue';
 import Blog20250602Mon from '@/pages/blog/2025-06/02-mon.vue';    
 import Blog20250601Sun from '@/pages/blog/2025-06/01-sun.vue';
 import Blog20250524Sat from '@/pages/blog/2025-05/24-sat.vue';
+import Blog19700102Fri from '@/pages/blog/1970-01/02-fri.vue';
+import Blog19700101Thu from '@/pages/blog/1970-01/01-thu.vue';
 
 // 日付が新しい順：
 export const pageMap : Readonly<Record<string, any>> = {
@@ -41,4 +43,6 @@ export const pageMap : Readonly<Record<string, any>> = {
     '2025-06/02-mon': Blog20250602Mon,
     '2025-06/01-sun': Blog20250601Sun,
     '2025-05/24-sat': Blog20250524Sat,
+    '1970-01/02-fri': Blog19700102Fri,
+    '1970-01/01-thu': Blog19700101Thu,
 };

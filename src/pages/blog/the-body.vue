@@ -31,7 +31,7 @@
     // # 外部ファイル #
     // ################
 
-    const jsonFilePath = "/blog-articles.json";    // public/blog-articles.json
+    const jsonFilePath = "/data/blog-articles.json";    // public/data/blog-articles.json
 
 
     // ################
@@ -49,10 +49,10 @@
         {
             baseURL: '/',   // ？
             transform: (jsonObj: unknown): string[] => {    // やりたければ、データの変換処理
-                // JSONが配列であることを確認し、配列ならそのまま返す、そうでなければ空配列を返す
-                return Array.isArray(jsonObj) ? jsonObj : [];
+                // JSONが配列であることを確認し、配列ならそのまま返す、そうでなければ、エラー時の記事２を返す
+                return Array.isArray(jsonObj) ? jsonObj : ['1970-01/02-fri'];
             },
-            default: () => [], // エラー時のデフォルト値
+            default: () => ['1970-01/01-thu'], // エラー時の記事１
         }
     );
 
