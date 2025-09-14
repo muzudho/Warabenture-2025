@@ -3,6 +3,14 @@
         静的インポート・動的コンポーネント
         router/page-map.ts, router/articles.json も編集してください（TODO: ここらへん自動生成化したい）
     -->
+    <template
+        v-for="pageKey in pageList"
+    >
+        <blog-article :page="pageKey"/>
+        <button-to-go-to-top class="sec-1 pt-6"/>
+    </template>
+
+    <!--
     <blog-article page="2025-09/13-sat"/>
     <button-to-go-to-top class="sec-1 pt-6"/>
 
@@ -50,6 +58,7 @@
 
     <blog-article page="2025-05/24-sat"/>
     <button-to-go-to-top class="sec-1 pt-6"/>
+    -->
 
 </template>
 
@@ -65,5 +74,29 @@
 
     import BlogArticle from '@/components/BlogArticle.vue';
     import ButtonToGoToTop from '@/components/ButtonToGoToTop.vue';
+
+
+    // ################
+    // # オブジェクト #
+    // ################
+
+    const pageList = [
+        '2025-09/13-sat',
+        '2025-09/12-fri',
+        '2025-09/11-thu',
+        '2025-09/10-wed',
+        '2025-08/11-mon',
+        '2025-07/25-fri',
+        '2025-07/12-sat',
+        '2025-06/19-thu',
+        '2025-06/15-sun',
+        '2025-06/12-thu',
+        '2025-06/05-thu',
+        '2025-06/04-wed',
+        '2025-06/03-tue',
+        '2025-06/02-mon',
+        '2025-06/01-sun',
+        '2025-05/24-sat',
+    ];
 
 </script>

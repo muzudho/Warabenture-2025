@@ -15,7 +15,7 @@
     // + インポート　＞　ページ +
     // ++++++++++++++++++++++++++
 
-    import TheAppHeader from '../the-app-header.vue';
-    import TheContents from '@/pages/team-mirai-supporter/the-contents.vue';
+    import TheAppHeader from '../../the-app-header.vue';
+    import TheContents from '@/pages/reference_warabenture/team-mirai-supporter/the-contents.vue';
 
 </script>

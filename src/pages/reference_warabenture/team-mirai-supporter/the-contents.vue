@@ -16,6 +16,6 @@
     // + コンポーザブル +
     // ++++++++++++++++++
 
-    import { getLinkHighlight } from '../../composables/link-highlight';
+    import { getLinkHighlight } from '../../../composables/link-highlight';
 
 </script>
