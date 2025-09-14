@@ -1,7 +1,7 @@
 <template>
     <section class="sec-1 sec-contents mt-6">
         <ul>
-            <li>📖 <NuxtLink to="/team-mirai-supporter/heat-map" :class="getLinkHighlight('/team-mirai-supporter/heat-map')">Heat Map</NuxtLink></li>
+            <li>📖 <NuxtLink to="/reference_warabenture/team-mirai-supporter/heat-map" :class="getLinkHighlight('/reference_warabenture/team-mirai-supporter/heat-map')">Heat Map</NuxtLink></li>
         </ul>
     </section>
 </template>
