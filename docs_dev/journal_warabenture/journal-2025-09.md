@@ -122,3 +122,44 @@ ubuntu@os3-288-33577:~/warabenture-2025$ sudo tail -f /var/log/nginx/error.log
 2025/09/15 03:29:57 [debug] 1930602#1930602: *80662 free: 0000582CA4FA9F80, unused: 0
 2025/09/15 03:29:57 [debug] 1930602#1930602: *80662 free: 0000582CA501F5E0, unused: 400
 ```
+
+
+### process.server 変数を定義
+
+Node.jsの型をインストール:  
+
+```shell
+pnpm add -D @types/node
+```
+
+型定義ファイルを作成:  
+
+```shell
+mkdir -p types
+nano types/nuxt.d.ts
+```
+
+```ts
+declare global {
+  namespace NodeJS {
+    interface Process {
+      server: boolean;
+    }
+  }
+}
+
+export {};
+```
+
+以下が含まれているか：  
+
+📄 `tsconfig.json`:  
+```json
+{
+    "extends": "./.nuxt/tsconfig.json",
+    "compilerOptions": {
+        "types": ["@types/node", "@nuxt/types"],
+        "typeRoots": ["./types"]
+    }
+}
+```

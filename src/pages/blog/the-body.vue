@@ -19,6 +19,8 @@
     // # インポート #
     // ##############
 
+    import { resolve } from 'path';
+
     // ++++++++++++++++++++++++++++++++++
     // + インポート　＞　コンポーネント +
     // ++++++++++++++++++++++++++++++++++
@@ -40,30 +42,47 @@
 
     console.log(`DEBUG: useRuntimeConfig().public.baseUrl=${useRuntimeConfig().public.baseUrl}`);
 
-    let pageList: string[] = [];
+    const pageList = ref<string[]>([]);
 
     // JSONファイルを読み込みたい。
     // なんだかよくわからないが、 useFetch は、サーバーサイド・レンダリングのエラーになりにくいらしい。
-    const {
-        data,
-        error
-    } = await useFetch<string[]>(
-        jsonFilePath,   // public フォルダー下のファイルへのパス
-        {
-            baseURL: useRuntimeConfig().public.baseUrl, // 詳しくは、 nuxt.config.ts ファイルを見てください
-            transform: (jsonObj: unknown): string[] => {    // やりたければ、データの変換処理
-                // JSONが配列であることを確認し、配列ならそのまま返す、そうでなければ、エラー時の記事２を返す
-                console.log(`DEBUG: JSON.stringify(jsonObj, null, 4)=${JSON.stringify(jsonObj, null, 4)}`);
-                return Array.isArray(jsonObj) ? jsonObj : ['1970-01/02-fri'];
-            },
-            default: () => ['1970-01/01-thu'], // エラー時の記事１
+    if (process.server) {
+        // プリレンダリング時はローカルファイル
+        const localPath = resolve('public/data/blog-articles.json');
+        try {
+            const jsonData = await import(localPath).then(module => module.default);
+            pageList.value = Array.isArray(jsonData) ? jsonData : ['1970-01/02-fri'];
+            console.log('Local fetch success:', pageList.value);
+        } catch (err) {
+            console.error('Local fetch error:', err);
+            pageList.value = ['1970-01/01-thu'];
         }
-    );
 
-    if (error.value) {
-        console.error('Fetch error:', error.value);
-    }    
+    } else {
+        // クライアントサイドはuseFetch
+        const {
+            data,
+            error
+        } = await useFetch<string[]>(
+            jsonFilePath,   // public フォルダー下のファイルへのパス
+            {
+                baseURL: useRuntimeConfig().public.baseUrl, // 詳しくは、 nuxt.config.ts ファイルを見てください
+                headers: { 'Accept': 'application/json' },
+                key: 'blog-articles',
+                transform: (jsonObj: unknown): string[] => {    // やりたければ、データの変換処理
+                    // JSONが配列であることを確認し、配列ならそのまま返す、そうでなければ、エラー時の記事２を返す
+                    console.log(`DEBUG: JSON.stringify(jsonObj, null, 4)=${JSON.stringify(jsonObj, null, 4)}`);
+                    return Array.isArray(jsonObj) ? jsonObj : ['1970-01/02-fri'];
+                },
+                default: () => ['1970-01/01-thu'], // エラー時の記事１
+            }
+        );
 
-    pageList = data.value;
+        if (error.value) {
+            console.error('Fetch error:', error.value);
+        }    
+
+        pageList.value = data.value;
+    }
 
 </script>
