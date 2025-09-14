@@ -38,7 +38,7 @@ export default defineNuxtConfig({
     },
     runtimeConfig: {
         public: {
-            apiBase: process.env.VITE_BASE_URL || 'http://localhost:3000/', // デフォルト値として開発環境のURLを設定
+            baseUrl: process.env.VITE_BASE_URL || 'http://localhost:3000/', // デフォルト値として開発環境のURLを設定
         },
     },
     srcDir: 'src/', // srcフォルダをルートに設定

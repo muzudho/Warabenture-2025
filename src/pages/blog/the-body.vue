@@ -38,7 +38,7 @@
     // # オブジェクト #
     // ################
 
-    console.log(`DEBUG: useRuntimeConfig().public.apiBase=${useRuntimeConfig().public.apiBase}`);
+    console.log(`DEBUG: useRuntimeConfig().public.baseUrl=${useRuntimeConfig().public.baseUrl}`);
 
     let pageList: string[] = [];
 
@@ -50,7 +50,7 @@
     } = await useFetch<string[]>(
         jsonFilePath,   // public フォルダー下のファイルへのパス
         {
-            baseURL: useRuntimeConfig().public.apiBase, // 詳しくは、 nuxt.config.ts ファイルを見てください
+            baseURL: useRuntimeConfig().public.baseUrl, // 詳しくは、 nuxt.config.ts ファイルを見てください
             transform: (jsonObj: unknown): string[] => {    // やりたければ、データの変換処理
                 // JSONが配列であることを確認し、配列ならそのまま返す、そうでなければ、エラー時の記事２を返す
                 console.log(`DEBUG: JSON.stringify(jsonObj, null, 4)=${JSON.stringify(jsonObj, null, 4)}`);
