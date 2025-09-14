@@ -165,7 +165,7 @@
             :alt="hiyoko2Alt"
             :name="hiyoko2Name"
             :device="compatibleDevice1Ref?.device">
-            前者と後者では、何が違うの？
+            前者の fetch() と後者の useFetch() では、何が違うの？
         </talk-balloon>
 
 
@@ -175,7 +175,7 @@
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device"
         >
-            前者は、静的ページの初期値として使えない。<br/>
+            前者の fetch() は、静的ページの初期値として使えない。<br/>
             だから、ページの読込完了のタイミングや、ボタンを押したタイミングで使うことになるぜ。
         </talk-balloon>
 
@@ -186,7 +186,7 @@
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device"
         >
-            後者は、静的ページの初期値として使える。<br/>
+            後者の useFetch() は、静的ページの初期値として使える。<br/>
             だから、サーバーサイドでプリレンダリングできる。
         </talk-balloon>
 
