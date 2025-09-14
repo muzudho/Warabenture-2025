@@ -19,7 +19,13 @@
     // # インポート #
     // ##############
 
-    import { resolve } from 'path';
+    // FIXME: ここでエラー： import { resolve } from 'path';
+
+    // ++++++++++++++++++++++++++++++
+    // + インポート　＞　パブリック +
+    // ++++++++++++++++++++++++++++++
+
+    //import jsonData from '../../../public/data/blog-articles.json';
 
     // ++++++++++++++++++++++++++++++++++
     // + インポート　＞　コンポーネント +
@@ -33,7 +39,8 @@
     // # 外部ファイル #
     // ################
 
-    const jsonFilePath = "/data/blog-articles.json";    // public/data/blog-articles.json
+    // FIXME: とりあえず静的に読み込んでみる。ブログを追加するたび、ウェブアプリケーションの再生成が必要か？
+    //const jsonFilePath = "/data/blog-articles.json";    // public/data/blog-articles.json
 
 
     // ################
@@ -44,13 +51,23 @@
 
     const pageList = ref<string[]>([]);
 
+    if (process.server) {
+        console.log('サーバーサイドで実行されています');
+    } else {
+        console.log('実行しているのはサーバーサイドではありません');
+    }
+
+    /*
     // JSONファイルを読み込みたい。
     // なんだかよくわからないが、 useFetch は、サーバーサイド・レンダリングのエラーになりにくいらしい。
     if (process.server) {
+    */
         // プリレンダリング時はローカルファイル
-        const localPath = resolve('public/data/blog-articles.json');
+        //console.log('プリレンダリング時はローカルファイル');
         try {
-            const jsonData = await import(localPath).then(module => module.default);
+            // 動的インポート、ただし、ファイルパスは埋込み。
+            const jsonData = await import('#public/data/blog-articles.json').then(module => module.default);
+
             pageList.value = Array.isArray(jsonData) ? jsonData : ['1970-01/02-fri'];
             console.log('Local fetch success:', pageList.value);
         } catch (err) {
@@ -58,8 +75,10 @@
             pageList.value = ['1970-01/01-thu'];
         }
 
+    /*
     } else {
         // クライアントサイドはuseFetch
+        console.log('クライアントサイドはuseFetch');
         const {
             data,
             error
@@ -84,5 +103,6 @@
 
         pageList.value = data.value;
     }
+    */
 
 </script>
