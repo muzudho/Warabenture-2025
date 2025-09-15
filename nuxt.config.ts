@@ -7,7 +7,12 @@ export default defineNuxtConfig({
         transpile: ["vuetify"],
     },
     compatibilityDate: '2025-05-15',
-    css: ["vuetify/styles", "@mdi/font/css/materialdesignicons.css"],
+    css: [
+        //"vuetify/styles",
+        'vuetify/lib/styles/main.sass',
+        //"@mdi/font/css/materialdesignicons.css",
+        '@mdi/font/css/materialdesignicons.min.css'
+    ],
     devtools: { enabled: true },
     dir: {  // マッピングか？
         assets: 'assets', // src/assets

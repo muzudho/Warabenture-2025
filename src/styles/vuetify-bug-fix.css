@@ -1,0 +1,16 @@
+/**
+ * Vuetify のスタイル設定がコンポーネントを透明にしてしまうので、その対策
+ * ======================================================================
+ */
+
+button, input, select, textarea {
+    padding-left: 8px;
+    padding-top: 4px;
+    padding-right: 8px;
+    padding-bottom: 4px;
+    border: solid 4px black !important;
+    border-radius: 10px;
+    background-color: white !important;
+    box-shadow: inset 3px 3px 3px rgba(255, 102, 204, 0.5);
+    /* box-shadow: inset 3px 3px 3px rgba(0, 153, 51, 0.5); */
+}

@@ -1,11 +1,11 @@
 <template>
-    <label for="yearMonthSelect">Filter by Year-Month:</label>
+    <label for="yearMonthSelect">年月：</label>
     <select
         id="yearMonthSelect"
         v-model="selectedYearMonth"
         @change="filterByYearMonth"
     >
-        <option value="">All</option>
+        <option value="">ぜんぶ</option>
         <option
             v-for="ym in yearMonthList"
             :key="ym"
