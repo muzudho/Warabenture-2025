@@ -1,9 +1,10 @@
 <template>
 
-    <!-- デバイス互換機能 -->
+    <!-- 機能 -->
     <compatible-device ref="compatibleDevice1Ref"/>
 
-    <h1><router-link to="/blog/2025-09/13-sat">[2025-09-13_Sat]</router-link></h1>
+    <!-- 以降、ページ -->
+    <h1><router-link to="/blog/2025-09/15-mon">[2025-09-15_Mon]</router-link></h1>
     <section class="sec-1 pt-6">
 
 
@@ -11,32 +12,37 @@
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
-            :device="compatibleDevice1Ref?.device">
-                👇 変更前のスタイルがこうで……、
+            :device="compatibleDevice1Ref?.device"
+        >
+                👇 ブログ記事を年月で絞り込めるリストボックスを付けたぜ。
         </talk-balloon>
 
 
         <talk-image
             expandable
             :href="journal1png"
-            alt="階層が深くなったWebサイトのレイアウト"
+            alt="ブログ記事を年月で絞り込めるリストボックス"
         />
+
+
+        <talk-balloon
+            :src="hiyoko2Src"
+            :alt="hiyoko2Alt"
+            :name="hiyoko2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            こんなけ機能があればブログサイトとして十分なんじゃないの？            
+        </talk-balloon>
 
 
         <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
-            :device="compatibleDevice1Ref?.device">
-                👇 変更後のスタイルがこう。
+            :device="compatibleDevice1Ref?.device"
+        >
+            リストボックスを付けるかどうかより、サーバーサイドで起きるプリレンダー・エラーがわけわからんかった。
         </talk-balloon>
-
-
-        <talk-image
-            expandable
-            :href="journal2png"
-            alt="階層が深くなったWebサイトのレイアウト"
-        />
 
 
         <talk-balloon
@@ -44,17 +50,9 @@
             :alt="kifuwarabe2Alt"
             :name="kifuwarabe2Name"
             :device="compatibleDevice1Ref?.device">
-                すっきりしたな。
+                ブログはしばらく、これを使っていこうぜ？
         </talk-balloon>
 
-
-        <talk-balloon
-            :src="hiyoko2Src"
-            :alt="hiyoko2Alt"
-            :name="hiyoko2Name"
-            :device="compatibleDevice1Ref?.device">
-                ❌ ボタンも要らなくない？
-        </talk-balloon>
 
     </section>
 </template>
@@ -93,8 +91,7 @@
     const hiyoko2Alt = "ひよこ２";
     const hiyoko2Name = "ひよこ";
 
-    import journal1png from '@/assets/img/journal/2025-09/202509__warabenture__12-1640-hierarchy-o1o0.png';
-    import journal2png from '@/assets/img/journal/2025-09/202509__warabenture__13-1406-style-o1o0.png';
+    import journal1png from '@/assets/img/journal/2025-09/202509__warabenture__15-2213-blogUpdate-o1o0.png';
 
 
     // ################

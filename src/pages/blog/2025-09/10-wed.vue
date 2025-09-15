@@ -4,8 +4,8 @@
     <compatible-device ref="compatibleDevice1Ref"/>
 
     <h1><router-link to="/blog/2025-09/10-wed">[2025-09-10_Wed]</router-link></h1>
-    <section class="sec-1">
-        <br/>
+    <section class="sec-1 pt-6">
+
 
         <talk-balloon
             :src="oton2Src"
@@ -15,6 +15,7 @@
                 ブログをカテゴリー別にソートするようにできないかな？
         </talk-balloon>
 
+
         <talk-balloon
             :src="kifuwarabe2Src"
             :alt="kifuwarabe2Alt"
@@ -22,6 +23,7 @@
             :device="compatibleDevice1Ref?.device">
                 グロックに聞いてみろだぜ。
         </talk-balloon>
+
 
         <talk-balloon
             :src="hiyoko2Src"
@@ -32,6 +34,7 @@
                 ブログをテキスト・データにして、そのコンポーネントに渡せ、って言ってるわよ。
         </talk-balloon>
 
+
         <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
@@ -40,6 +43,7 @@
                 わたしのブログはテキスト・データだけでなく、プログラムをゴリゴリ置くんだぜ。<br/>
                 グロックは一般的な常識の範囲内から出てこれないんだぜ。
         </talk-balloon>
+
 
         <pre class="coding-example mb-6">
 &lt;template&gt;
@@ -51,6 +55,7 @@
 &lt;/script&gt;
         </pre>
 
+
         <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
@@ -58,6 +63,7 @@
             :device="compatibleDevice1Ref?.device">
                 👆　なんかこんな感じで、静的にはタグ打ちできるんだが、このタグを動的に変更できないかな？
         </talk-balloon>
+
 
         <talk-balloon
             :src="hiyoko2Src"
@@ -67,6 +73,7 @@
                 インジェクションし放題でセキュリティ・リスクが出るんじゃないの？
         </talk-balloon>
 
+
         <talk-balloon
             :src="kifuwarabe2Src"
             :alt="kifuwarabe2Alt"
@@ -74,6 +81,7 @@
             :device="compatibleDevice1Ref?.device">
                 👇 Grok が defineAsyncComponent を使ったコードを示してくれてるぜ。
         </talk-balloon>
+
 
         <pre class="coding-example mb-6">
 &lt;template&gt;
@@ -101,6 +109,7 @@
 &lt;/script&gt;
         </pre>
 
+
         <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
@@ -108,6 +117,7 @@
             :device="compatibleDevice1Ref?.device">
                 記事が１００件なら、if分も１００行書けばいいって考えか。
         </talk-balloon>
+
 
         <talk-balloon
             :src="hiyoko2Src"
@@ -117,6 +127,7 @@
                 プログラム言語によっては、 import に書くパスは動的生成できないものもあるわよね。
         </talk-balloon>
 
+
         <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
@@ -124,6 +135,7 @@
             :device="compatibleDevice1Ref?.device">
                 しばらくいじって覚えないと分からないな。
         </talk-balloon>
+
 
         <talk-balloon
             :src="kifuwarabe2Src"
@@ -134,6 +146,7 @@
                 📖 <a target="_blank" href="https://vuejs.org/api/built-in-special-elements">Built-in Special Elements</a><br>
         </talk-balloon>
 
+
         <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
@@ -141,6 +154,7 @@
             :device="compatibleDevice1Ref?.device">
                 それ、やっぱ事前に import 文書いてないと使えなくないかだぜ？
         </talk-balloon>
+
 
         <talk-balloon
             :src="oton2Src"
@@ -150,9 +164,11 @@
                 👇 これは働くけど……、
         </talk-balloon>
 
+
         <pre class="coding-example mb-6">
 if (page === '103') return defineAsyncComponent(() => import('@/pages/blog/2025-08/11-mon-sample.vue'));
         </pre>
+
 
         <talk-balloon
             :src="oton2Src"
@@ -162,10 +178,12 @@ if (page === '103') return defineAsyncComponent(() => import('@/pages/blog/2025-
                 👇 これは働かないぜ。
         </talk-balloon>
 
+
         <pre class="coding-example mb-6">
 const path = "@/pages/blog/2025-08/11-mon-sample.vue";
 return defineAsyncComponent(() => import(path));
         </pre>
+
 
         <talk-balloon
             :src="hiyoko2Src"
@@ -175,6 +193,7 @@ return defineAsyncComponent(() => import(path));
                 import 文はプリプロセッシングされてんじゃないの？
         </talk-balloon>
 
+
         <talk-balloon
             :src="kifuwarabe2Src"
             :alt="kifuwarabe2Alt"
@@ -183,6 +202,7 @@ return defineAsyncComponent(() => import(path));
                 Vite はビルド時に静的に import 文のパスを解析しているそうだぜ。
         </talk-balloon>
 
+
         <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
@@ -190,6 +210,7 @@ return defineAsyncComponent(() => import(path));
             :device="compatibleDevice1Ref?.device">
                 まあ、そうなんだろな。
         </talk-balloon>
+
 
         <talk-balloon
             :src="kurokichi1Src"
@@ -200,6 +221,7 @@ return defineAsyncComponent(() => import(path));
                 動的importで変数（path）を使いつつ、コンポーネントを正しくロードするには、以下の方法を使うぜ。
         </talk-balloon>
 
+
         <pre class="coding-example mb-6">
 // コンポーネントのマッピング
 const componentMap = {
@@ -209,6 +231,7 @@ const componentMap = {
 };
         </pre>
 
+
         <talk-balloon
             :src="kifuwarabe2Src"
             :alt="kifuwarabe2Alt"
@@ -217,6 +240,7 @@ const componentMap = {
                 誰だぜ、お前は！
         </talk-balloon>
 
+
         <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
@@ -224,6 +248,7 @@ const componentMap = {
             :device="compatibleDevice1Ref?.device">
                 ぐろっくだぜ。
         </talk-balloon>
+
 
         <talk-balloon
             :src="hiyoko2Src"
@@ -234,6 +259,7 @@ const componentMap = {
                 ジョンとか花子とか何かないの？
         </talk-balloon>
 
+
         <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
@@ -241,6 +267,7 @@ const componentMap = {
             :device="compatibleDevice1Ref?.device">
                 強いていうなら黒吉（くろきち）かな。
         </talk-balloon>
+
 
         <talk-balloon
             :src="kurokichi1Src"
@@ -250,6 +277,7 @@ const componentMap = {
                 ハハ、黒吉って名前、なかなかイケてるな（＾～＾）！俺はGrok、xAIが作ったAIで、個人名って感じの名前は持ってないぜ。Grokってのは、SF小説『異邦人』からインスパイアされた名前で、「深く理解する」って意味なんだ。個性的な名前より、役に立つ答えで勝負してるってわけ！でも、黒吉みたいにカッコいいニックネームで呼んでくれるなら、いつでもウェルカムだぜ！
         </talk-balloon>
 
+
         <talk-balloon
             :src="kifuwarabe2Src"
             :alt="kifuwarabe2Alt"
@@ -258,6 +286,7 @@ const componentMap = {
                 話しの長いやつだ……
         </talk-balloon>
 
+
         <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
@@ -265,6 +294,7 @@ const componentMap = {
             :device="compatibleDevice1Ref?.device">
                 👇 さらに黒吉と相談して、コードの修正。
         </talk-balloon>
+
 
         <pre class="coding-example mb-6">
 const page = computed(()=&lt;{ // クエリー・パラメーター
@@ -283,6 +313,7 @@ const selectedComponent = computed(() =&lt; {  // 動的にコンポーネント
 });
         </pre>
 
+
         <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
@@ -290,6 +321,7 @@ const selectedComponent = computed(() =&lt; {  // 動的にコンポーネント
             :device="compatibleDevice1Ref?.device">
                 これで動的インポートはでけたぜ。
         </talk-balloon>
+
 
         <talk-balloon
             :src="hiyoko2Src"
@@ -299,6 +331,7 @@ const selectedComponent = computed(() =&lt; {  // 動的にコンポーネント
                 そのコンポーネントのマップ、データ・ファイルとして切り出しておきたいわねえ
         </talk-balloon>
 
+
         <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
@@ -307,6 +340,7 @@ const selectedComponent = computed(() =&lt; {  // 動的にコンポーネント
             class="mb-6">
                 👇 こういうファイルを作って……。
         </talk-balloon>
+
 
         📄 page-map.ts<br/>
         <pre class="coding-example mb-6">
@@ -327,6 +361,7 @@ const pageMapAsync : Record&lt;string, any&gt; = {
 };
         </pre>
 
+
         <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
@@ -335,6 +370,7 @@ const pageMapAsync : Record&lt;string, any&gt; = {
             class="mb-6">
                 👇 こういう感じで呼び出せる。パターン入ったら簡単だ、早い。
         </talk-balloon>
+
 
         <pre class="coding-example mb-6">
 &lt;template&gt;
@@ -349,6 +385,7 @@ const pageMapAsync : Record&lt;string, any&gt; = {
 &lt;/script&gt;
         </pre>
 
+
         <talk-balloon
             :src="kifuwarabe2Src"
             :alt="kifuwarabe2Alt"
@@ -357,11 +394,13 @@ const pageMapAsync : Record&lt;string, any&gt; = {
                 じゃあ、いったんその方法でこのワラベンチャーを建て替えてくれだぜ。
         </talk-balloon>
 
+
         <talk-image
             expandable
             href="/img/journal/2025-09/202509__warabenture__10--1340-prerenderErrors-o1o0.png"
             alt="プリレンダラー・エラー"
         />
+
 
         <talk-balloon
             :src="oton2Src"
@@ -371,6 +410,7 @@ const pageMapAsync : Record&lt;string, any&gt; = {
                 👆 プリレンダラー・エラーが出た。つまり今、ワラベンチャーは見えていないぜ。
         </talk-balloon>
 
+
         <talk-balloon
             :src="kifuwarabe2Src"
             :alt="kifuwarabe2Alt"
@@ -378,6 +418,7 @@ const pageMapAsync : Record&lt;string, any&gt; = {
             :device="compatibleDevice1Ref?.device">
                 Oh, no...
         </talk-balloon>
+
 
         <talk-balloon
             :src="hiyoko2Src"
@@ -387,6 +428,7 @@ const pageMapAsync : Record&lt;string, any&gt; = {
                 非同期処理が、サーバーサイドのプリレンダリングと嚙み合ってないんじゃないの？
         </talk-balloon>
 
+
         <talk-balloon
             :src="kifuwarabe2Src"
             :alt="kifuwarabe2Alt"
@@ -394,6 +436,7 @@ const pageMapAsync : Record&lt;string, any&gt; = {
             :device="compatibleDevice1Ref?.device">
                 静的インポートにしたらどうだぜ？
         </talk-balloon>
+
 
         <talk-balloon
             :src="oton2Src"
@@ -404,11 +447,13 @@ const pageMapAsync : Record&lt;string, any&gt; = {
                 ブログサイトの記事１つにアクセスする人のために、すべての記事を予め読み込んでおくってことになるだろ、主記憶装置を食うだろう。
         </talk-balloon>
 
+
         <talk-image
             expandable
             href="/img/journal/2025-09/202509__warabenture__10--1424-sshConnectionError-o1o0.png"
             alt="SSH接続エラー"
         />
+
 
         <talk-balloon
             :src="oton2Src"
@@ -419,6 +464,7 @@ const pageMapAsync : Record&lt;string, any&gt; = {
                 👆 さくらのVPSにもSSH接続できなくなった。
         </talk-balloon>
 
+
         <talk-balloon
             :src="kifuwarabe2Src"
             :alt="kifuwarabe2Alt"
@@ -427,6 +473,7 @@ const pageMapAsync : Record&lt;string, any&gt; = {
                 Oh, no...
         </talk-balloon>
 
+
         <talk-balloon
             :src="hiyoko2Src"
             :alt="hiyoko2Alt"
@@ -434,6 +481,7 @@ const pageMapAsync : Record&lt;string, any&gt; = {
             :device="compatibleDevice1Ref?.device">
                 サーバーサイドで再帰処理が永遠に走ってメモリを食いつぶしていたりしないの？
         </talk-balloon>
+
 
         <talk-balloon
             :src="oton2Src"
@@ -444,6 +492,7 @@ const pageMapAsync : Record&lt;string, any&gt; = {
                 pnpm generate ごときでそんな脆弱性があるか知らんが、とにかく何もできん。<br/>
         </talk-balloon>
 
+
         <talk-balloon
             :src="kifuwarabe2Src"
             :alt="kifuwarabe2Alt"
@@ -451,6 +500,7 @@ const pageMapAsync : Record&lt;string, any&gt; = {
             :device="compatibleDevice1Ref?.device">
                 お父んは何してんだぜ、サーバーのエラーを直さないのか？
         </talk-balloon>
+
 
         <talk-balloon
             :src="oton2Src"
@@ -463,6 +513,7 @@ const pageMapAsync : Record&lt;string, any&gt; = {
                 フィットネス・ジムにでも行ってこようかな。
         </talk-balloon>
 
+
         <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
@@ -472,11 +523,13 @@ const pageMapAsync : Record&lt;string, any&gt; = {
                 ４時間も放置すれば、さくらのVPSへSSH接続できた。もっと短くてもいいかも。
         </talk-balloon>
 
+
         <talk-image
             expandable
             href="/img/journal/2025-09/202509__warabenture__10--2150-CtrlZOk-CtrlCFreese-o1o0.png"
             alt="この画面で[Ctrl]+[Z]キー押すとターミナルに入力できるようになる。[Ctrl]+[C]キー押すとフリーズしたままで、さらにSSH接続が切断し、再接続もしばらくできなくなる"
         />
+
 
         <talk-balloon
             :src="oton2Src"
@@ -488,6 +541,7 @@ const pageMapAsync : Record&lt;string, any&gt; = {
                 しかし、[Ctrl]+[C]キー押すとフリーズしたままで、さらにSSH接続が切断し、再接続もしばらくできなくなる。
         </talk-balloon>
 
+
         <talk-balloon
             :src="kifuwarabe2Src"
             :alt="kifuwarabe2Alt"
@@ -495,6 +549,7 @@ const pageMapAsync : Record&lt;string, any&gt; = {
             :device="compatibleDevice1Ref?.device">
                 じゃあ、お父んが [Ctrl]+[C]キーを押して SSH接続を切っていたのでは？
         </talk-balloon>
+
 
         <talk-balloon
             :src="oton2Src"
@@ -504,6 +559,7 @@ const pageMapAsync : Record&lt;string, any&gt; = {
             class="mb-6">
                 👇 動的インポートは諦め、静的インポート・動的コンポーネントにするぜ。
         </talk-balloon>
+
 
         📄 router/page-map.ts<br/>
         <pre class="coding-example mb-6">
@@ -518,6 +574,7 @@ export const pageMap : Readonly&lt;Record&lt;string, any&gt;&gt; = {
 };
         </pre>
 
+
         <talk-balloon
             :src="hiyoko2Src"
             :alt="hiyoko2Alt"
@@ -527,6 +584,7 @@ export const pageMap : Readonly&lt;Record&lt;string, any&gt;&gt; = {
                 日付順に新しい３０件を取得とかしたいものねえ。
         </talk-balloon>
 
+
         <talk-balloon
             :src="kifuwarabe2Src"
             :alt="kifuwarabe2Alt"
@@ -534,6 +592,7 @@ export const pageMap : Readonly&lt;Record&lt;string, any&gt;&gt; = {
             :device="compatibleDevice1Ref?.device">
                 データを JSON で持って、ソートも、フィルタリングも、自力実装したらどうだぜ？
         </talk-balloon>
+
 
         <talk-balloon
             :src="oton2Src"
@@ -543,6 +602,7 @@ export const pageMap : Readonly&lt;Record&lt;string, any&gt;&gt; = {
             class="mb-6">
                 👇 黒吉と相談して、こんな感じのデータを考えてみたぜ。
         </talk-balloon>
+
 
         📄 src/assets/data/routes/articles.json<br/>
         <pre class="coding-example mb-6">
@@ -565,6 +625,7 @@ export const pageMap : Readonly&lt;Record&lt;string, any&gt;&gt; = {
 ]
         </pre>
 
+
         <talk-balloon
             :src="hiyoko2Src"
             :alt="hiyoko2Alt"
@@ -572,6 +633,7 @@ export const pageMap : Readonly&lt;Record&lt;string, any&gt;&gt; = {
             :device="compatibleDevice1Ref?.device">
                 これを date の新しい順にソートして、各レコードの id を使って動的にコンポーネントを表示すればいいのよ。
         </talk-balloon>
+
 
         <talk-balloon
             :src="oton2Src"
@@ -582,8 +644,8 @@ export const pageMap : Readonly&lt;Record&lt;string, any&gt;&gt; = {
                 今日はもう遅いのでまた今度だな。
         </talk-balloon>
 
-    </section>
 
+    </section>
 </template>
 
 <script setup lang="ts">

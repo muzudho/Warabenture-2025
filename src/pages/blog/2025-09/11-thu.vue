@@ -4,8 +4,8 @@
     <compatible-device ref="compatibleDevice1Ref"/>
 
     <h1><router-link to="/blog/2025-09/11-thu">[2025-09-11_Thu]</router-link></h1>
-    <section class="sec-1">
-        <br/>
+    <section class="sec-1 pt-6">
+
 
         <talk-balloon
             :src="oton2Src"
@@ -15,6 +15,7 @@
                 昨日の続きだぜ。JSONを読み込んで、そこに入っている配列の要素をレコードと見立て、そのレコードの各フィールドを個別の配列に入れるところまでまずやってみるか。
         </talk-balloon>
 
+
         <talk-balloon
             :src="hiyoko2Src"
             :alt="hiyoko2Alt"
@@ -22,6 +23,7 @@
             :device="compatibleDevice1Ref?.device">
                 技術的な話は長くなるから、リファレンスというブログのカテゴリーを作って、細かい話しは全部そっちにまとめて、こっちではリファレンスを引用するという建付けにしない？
         </talk-balloon>
+
 
         <talk-balloon
             :src="kifuwarabe2Src"
@@ -31,6 +33,7 @@
                 おっ、テクニカルな話題か？
         </talk-balloon>
 
+
         <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
@@ -39,8 +42,8 @@
                 じゃあ、普段は［ブログ］カテゴリー（Blog）を普段使いして、技術的なやつは［リファレンス］カテゴリー（References）を新設して、その中に再編成するか。
         </talk-balloon>
 
-    </section>
 
+    </section>
 </template>
 
 <script setup lang="ts">

@@ -117,6 +117,7 @@
             )].sort((a, b) => b.localeCompare(a));  // 降順ソート
             console.log(`yearMonthList.value=${yearMonthList.value}`)
 
+            // 初期表示を最新の［年月］で絞り込み
             if (yearMonthList.value.length > 0) {
                 selectedYearMonth.value = yearMonthList.value[0];
                 filterByYearMonth();
