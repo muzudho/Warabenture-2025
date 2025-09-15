@@ -33,14 +33,22 @@
             :name="kifuwarabe2Name"
             :device="compatibleDevice1Ref?.device"
         >
-            👇 じゃあ、以下の JSON ファイルを置いておくぜ。
+            👇 じゃあ、以下の２か所に JSON ファイルを置いておくぜ。
         </talk-balloon>
 
 
-        <p>📄 <a target="_blank" :href="jsonFilePath">public{{jsonFilePath}}</a>:</p>
+        <p>📄 <a target="_blank" :href="jsonFilePathPublic">public{{jsonFilePathPublic}}</a>:</p>
         <pre class="coding-example mb-6">
 {
-    "#this-file": "JSONのサンプルだぜ（＾▽＾）"
+    "#this-file": "publicフォルダー下に置いたJSONのサンプルだぜ（＾▽＾）"
+}
+        </pre>
+
+
+        <p>📄 src{{jsonFilePathAssets}}:</p>
+        <pre class="coding-example mb-6">
+{
+    "#this-file": "アセットフォルダー下に置いたJSONのサンプルだぜ（＾▽＾）"
 }
         </pre>
 
@@ -64,22 +72,23 @@
 &lt;/template&gt;
 
 &lt;script setup lang="ts"&gt;
-    import { ref } from 'vue';
+    import &#123; ref &#125; from 'vue';
 
     const jsonStr = ref("読み込み中...");
 
-    async function loadJson1() {
-        try {
-            const response = <span class="red-marker">await fetch</span>("/data/making/sample.json");   // publicフォルダ下のパス
+    async function loadJson1() &#123;
+        try &#123;
+            const response = <span class="red-marker">await fetch</span>("{{ jsonFilePathPublic }}");   // publicフォルダに置いたファイルにアクセスできる。
             if (!response.ok) throw new Error("Failed to fetch JSON");
             const data: any = await response.json();
 
             jsonStr.value = JSON.stringify(data, null, 4);
 
-        } catch (error) {
-            alert(`ERROR: sample.jsonファイル読込時。 ${error}`);
-        }
-    };
+        &#125; catch (error: unknown) &#123;
+            const errorMessage = error instanceof Error ? error.message : String(error);
+            jsonStr.value = `ERROR: "${jsonFilePathPublic}" ファイル読込時。 $&#123;errorMessage&#125;`;
+        &#125;
+    &#125;;
 &lt;/script&gt;
         </pre>
 
@@ -126,9 +135,9 @@
     const {
         data
     } = <span class="red-marker">await useFetch</span>&lt;any&gt;(
-        jsonFilePath,   // public フォルダー下のファイルへのパス
+        '{{ jsonFilePathPublic }}',   // public フォルダー下のファイルへのパス
         {
-            baseURL: '/',   // ？
+            baseURL: '/',   // ここは開発環境なら例えば "http://localhost:3000/" 、本番環境なら例えば "https://www.warabenture.com/" といった風に入れてください
             transform: (jsonObj: unknown): any => {    // やりたければ、データの変換処理
 
                 // JSON がオブジェクト（辞書型）かどうかのチェック
@@ -161,6 +170,9 @@
         <pre class="coding-example mb-6">
 {{ json2Str }}
         </pre>
+<!--
+        <v-alert type="warning" title="免責！" text="useFetch() は Nuxt3 用です。 Tauri では使えません。" closable />
+-->
 
 
         <talk-balloon
@@ -179,7 +191,9 @@
             :device="compatibleDevice1Ref?.device"
         >
             前者の fetch() は、静的ページの初期値として使えない。<br/>
-            だから、ページの読込完了のタイミングや、ボタンを押したタイミングで使うことになるぜ。
+            だから、ページの読込完了のタイミングや、ボタンを押したタイミングで使うことになるぜ。<br/>
+            <br/>
+            public フォルダー下にアクセスできるのがメリットかな。
         </talk-balloon>
 
 
@@ -190,7 +204,9 @@
             :device="compatibleDevice1Ref?.device"
         >
             後者の useFetch() は、静的ページの初期値として使える。<br/>
-            だから、サーバーサイドでプリレンダリングできる。
+            だから、サーバーサイドでプリレンダリングできる。<br/>
+            <br/>
+            Tauri で使えないので、ウェブアプリとデスクトップアプリを同じコードで書けないのがデメリットだな。
         </talk-balloon>
 
 
@@ -210,8 +226,28 @@
             第３の方法を説明する。<br/>
             まず、以下の設定をしておいてくれだぜ。<br/>
             <br/>
-            プロジェクト・フォルダーの直下に public フォルダーと、 nuxt.config.ts ファイルがあるとするぜ。
+            プロジェクト・フォルダーの直下に public フォルダーがあって、また、<br/>
+            Tauri デスクトップアプリには vite.config.ts が、<br/>
+            Nuxt ウェブアプリには nuxt.config.ts ファイルがあるとするぜ。
         </talk-balloon>
+
+
+        <p class="mt-6">📄 vite.config.ts（抜粋）:</p>
+        <pre class="coding-example mb-6">
+export default defineConfig(async () => ({
+    resolve: {
+        alias: {    // Tauri と Nuxt でエイリアスを合わせたい
+            '@': path.resolve(__dirname, './src'),  // @ が src のエイリアスなのは Vue、特に Vite の習慣。
+                                                    // 使用例： import Tile from '@/components/Tile.vue';
+
+            // ~ が プロジェクトフォルダー全体のエイリアスなのは Nuxt の習慣。ここでは使わず、 @ の方に統一する。
+
+            '/assets': path.resolve(__dirname, './src/assets'),
+            '#public': path.resolve(__dirname, './public'), // #public が public のエイリアスなのは Nuxt の習慣。
+        },
+    },
+}))
+        </pre>
 
 
         <p class="mt-6">📄 nuxt.config.ts（抜粋）:</p>
@@ -219,6 +255,12 @@
 export default defineNuxtConfig({
     alias: {
         '#public': './public', // public/ フォルダをエイリアス
+    },
+    dir: {
+        assets: 'assets', // src/assets
+        pages: 'pages', // src/pages
+        plugins: 'plugins', // src/plugins
+        public: '../public', // src から見て ../public
     },
 })
         </pre>
@@ -240,17 +282,21 @@ export default defineNuxtConfig({
 &lt;/template&gt;
 
 &lt;script setup lang="ts"&gt;
+    import { onMounted, ref } from 'vue';
+
     const jsonStr = ref("読み込み中...");
 
-    try {
-        // 動的インポート、ただし、ファイルパスは埋込み。
-        const jsonObj = <span class="red-marker">await import</span>('#public/data/making/sample.json').then(module => module.default);
-        json3Str.value = jsonObj;
+    onMounted(async () => {
+        try {
+            // 動的インポート、ただし、ファイルパスは埋込み。
+            const jsonObj = <span class="red-marker">await import</span>('/assets/data/making/sample-assets.json').then(module => module.default);
+            json3Str.value = JSON.stringify(jsonObj, null, 4);
 
-    } catch (err: unknown) {
-        const errorMessage = err instanceof Error ? err.message : String(err);
-        json3Str.value = `ERROR: ${errorMessage}`;
-    }
+        } catch (err: unknown) {
+            const errorMessage = err instanceof Error ? err.message : String(err);
+            json3Str.value = `ERROR: ${errorMessage}`;
+        }
+    });
 &lt;/script&gt;
         </pre>
 
@@ -316,7 +362,7 @@ export default defineNuxtConfig({
     // # インポート #
     // ##############
 
-    import { ref } from 'vue';
+    import { onMounted, ref } from 'vue';
 
     // ++++++++++++++++++++++++++++++++++
     // + インポート　＞　コンポーネント +
@@ -362,7 +408,8 @@ export default defineNuxtConfig({
     // + コモン　＞　外部ファイル +
     // ++++++++++++++++++++++++++++
 
-    const jsonFilePath = "/data/making/sample.json";    // public/data/making/sample.json
+    const jsonFilePathPublic = "/data/making/sample-public.json";  // public/data/making/sample-public.json
+    const jsonFilePathAssets = "/assets/data/making/sample-assets.json";   // src/assets/data/making/sample-assets.json
 
 
     // ################
@@ -383,14 +430,17 @@ export default defineNuxtConfig({
 
     async function loadJson1() {
         try {
-            const response = await fetch(jsonFilePath);   // publicフォルダに置いたファイルにアクセスできる。
-            if (!response.ok) throw new Error("Failed to fetch JSON");
+            const response = await fetch(jsonFilePathPublic);   // publicフォルダに置いたファイルにアクセスできる。
+            if (!response.ok) {
+                throw new Error("Failed to fetch JSON");
+            }
             const data: any = await response.json();
 
             json1Str.value = JSON.stringify(data, null, 4);
 
-        } catch (error) {
-            alert(`ERROR: sample.jsonファイル読込時。 ${error}`);
+        } catch (error: unknown) {
+            const errorMessage = error instanceof Error ? error.message : String(error);
+            json1Str.value = `ERROR: "${jsonFilePathPublic}" ファイル読込時。 ${errorMessage}`;
         }
     }
 
@@ -398,16 +448,15 @@ export default defineNuxtConfig({
     // + オブジェクト　＞　JSONファイル２ +
     // ++++++++++++++++++++++++++++++++++++
 
+    // useFetch は Nuxt3 用。 Tauri では使えない。
     const json2Str = ref("読み込み中...");
 
-    // JSONファイルを読み込みたい。
-    // なんだかよくわからないが、 useFetch は、サーバーサイド・レンダリングのエラーになりにくいらしい。
     const {
         data
     } = await useFetch<any>(
-        jsonFilePath,   // public フォルダー下のファイルへのパス
+        jsonFilePathPublic, // public フォルダー下のファイルへのパス
         {
-            baseURL: '/',   // ？
+            baseURL: '/',   // ここは開発環境なら例えば "http://localhost:3000/" 、本番環境なら例えば "https://www.warabenture.com/" といった風に入れてください
             transform: (jsonObj: unknown): any => {    // やりたければ、データの変換処理
 
                 // JSON がオブジェクト（辞書型）かどうかのチェック
@@ -429,15 +478,17 @@ export default defineNuxtConfig({
 
     const json3Str = ref("読み込み中...");
 
-    try {
-        // 動的インポート、ただし、ファイルパスは埋込み。
-        const jsonObj = await import('#public/data/making/sample.json').then(module => module.default);
+    onMounted(async () => {
+        try {
+            // 動的インポート、ただし、ファイルパスは埋込み。
+            const jsonObj = await import('/assets/data/making/sample-assets.json').then(module => module.default);
 
-        json3Str.value = jsonObj;
-    } catch (err: unknown) {
-        const errorMessage = err instanceof Error ? err.message : String(err);
-        json3Str.value = `ERROR: ${errorMessage}`;
-    }
+            json3Str.value = JSON.stringify(jsonObj, null, 4);
+        } catch (err: unknown) {
+            const errorMessage = err instanceof Error ? err.message : String(err);
+            json3Str.value = `ERROR: ${errorMessage}`;
+        }
+    });
 
 </script>
 

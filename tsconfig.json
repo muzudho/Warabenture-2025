@@ -3,8 +3,8 @@
     // https://nuxt.com/docs/guide/concepts/typescript
     "extends": "./.nuxt/tsconfig.json",
     
-    // types フォルダーに型定義を入れるため：
     "compilerOptions": {
+        // types フォルダーに型定義を入れるため：
         "types": ["@types/node", "@nuxt/types"],
         "typeRoots": ["./types"]
     }
