@@ -56,7 +56,7 @@
 <style>
     @import '@/styles/application.css';
     @import '@/styles/talk-scene.css';
-    @import '@/styles/vuetify-bug-fix.css';
+    @import '@/styles/vuetify-canceller.css';
 
     /**
      * ワラベンチャー用の設定：

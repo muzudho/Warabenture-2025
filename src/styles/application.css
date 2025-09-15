@@ -72,6 +72,12 @@ h6::before {
     background-position: 0px 0;
 }
 
+pre {
+    overflow-x: auto;   /* 行が長すぎて横に飛び出る前に、水平スクロールバーを表示する */
+    max-width: 100%;    /* 親要素の横幅を超えないようにする */
+    box-sizing: border-box; /* パディングやボーダーを幅に含める */
+}
+
 section.sec-contents {  /* 目次 */
     padding: 20px;
     border: dashed 4px #FF66CC;
