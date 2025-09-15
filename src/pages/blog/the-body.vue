@@ -114,7 +114,7 @@
                 allArticlesJsonObj.value
                     .filter(article => !article.category.includes('System'))    // カテゴリーに "System" を含むものは除外
                     .map(article => article.date.slice(0, 7)) // YYYY-MM-DD -> YYYY-MM
-            )].sort(); // オプション: ソート
+            )].sort((a, b) => b.localeCompare(a));  // 降順ソート
             console.log(`yearMonthList.value=${yearMonthList.value}`)
 
 
