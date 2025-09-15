@@ -6,6 +6,10 @@
     <the-sakura-vps-contents/>
     <button-to-go-to-top class="sec-1 pt-6"/>
 
+    <div class="contents-header-1 mt-6">Nuxtの設定</div>
+    <the-nuxt-config-contents/>
+    <button-to-go-to-top class="sec-1 pt-6"/>
+
     <div class="contents-header-1">コーディング・スタイル</div>
     <the-coding-style-contents/>
     <button-to-go-to-top class="sec-1 pt-6"/>
@@ -34,6 +38,7 @@
     import TheAppHeader from '@/pages/the-app-header.vue';
     import TheCodingStyleContents from '@/pages/reference/coding-style/the-contents.vue';
     import TheMakingContents from '@/pages/reference/making/the-contents.vue';
+    import TheNuxtConfigContents from '@/pages/reference/nuxt-config/the-contents.vue';
     import TheSakuraVpsContents from '@/pages/reference/sakura-vps/the-contents.vue';
     import TheWelcome from '@/pages/reference/the-welcome.vue';
 </script>
