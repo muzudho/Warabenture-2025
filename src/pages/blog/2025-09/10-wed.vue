@@ -544,7 +544,7 @@ export const pageMap : Readonly&lt;Record&lt;string, any&gt;&gt; = {
                 👇 黒吉と相談して、こんな感じのデータを考えてみたぜ。
         </talk-balloon>
 
-        📄 router/articles.json<br/>
+        📄 src/assets/data/routes/articles.json<br/>
         <pre class="coding-example mb-6">
 [
     {

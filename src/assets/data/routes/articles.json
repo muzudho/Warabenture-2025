@@ -87,11 +87,11 @@
     {
         "id": "1970-01/02-fri",
         "date": "1970-01-02",
-        "category": ["Error"]
+        "category": ["System", "Error"]
     },
     {
         "id": "1970-01/01-thu",
         "date": "1970-01-01",
-        "category": ["Error"]
+        "category": ["System", "Error"]
     }
 ]
