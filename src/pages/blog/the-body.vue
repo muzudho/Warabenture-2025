@@ -117,6 +117,10 @@
             )].sort((a, b) => b.localeCompare(a));  // 降順ソート
             console.log(`yearMonthList.value=${yearMonthList.value}`)
 
+            if (yearMonthList.value.length > 0) {
+                selectedYearMonth.value = yearMonthList.value[0];
+                filterByYearMonth();
+            }
 
         } catch (err: unknown) {
             const errorMessage = err instanceof Error ? err.message : String(err);
