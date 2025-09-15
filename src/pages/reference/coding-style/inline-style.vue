@@ -35,12 +35,14 @@
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
-            :device="compatibleDevice1Ref?.device">
+            :device="compatibleDevice1Ref?.device"
+            class="mb-6"
+        >
                 👇 例えば、以下のような青い長方形を描きたいときは……、<br/>
         </talk-balloon>
-        <br/>
 
         <div
+            class="mb-6"
             style="
                 width: 200px;
                 height: 100px;
@@ -48,7 +50,6 @@
                 border: solid 4px blue;
             ">
         </div>
-        <br/>
 
         <talk-balloon
             :src="oton2Src"

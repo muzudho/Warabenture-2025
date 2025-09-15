@@ -36,3 +36,15 @@ Hydration completed but contains mismatches.
 ```
 
 v-for に対応する `:key=""` が付いていないときなど。  
+
+
+## ワラベンチャーで Tauri エラー
+
+```
+C:\Users\muzud\OneDrive\ドキュメント\GitHub\Warabenture-2025>pnpm tauri dev
+thread '<unnamed>' panicked at crates\tauri-cli\src\helpers\app_paths.rs:117:5:
+Couldn't recognize the current folder as a Tauri project. It must contain a `tauri.conf.json`, `tauri.conf.json5` or `Tauri.toml` file in any subfolder.
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+```
+
+👆 `pnpm tauri dev` と打鍵したのが間違い。 `pnpm dev` が開発モードで起動。  
