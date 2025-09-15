@@ -1,132 +1,163 @@
 <template>
-    <section class="sec-1 pt-6">
+    <section class="sec-1 pt-6 mb-6">
 
 
         <talk-balloon
             :src="commonOton2Src"
             :alt="commonOton2Alt"
             :name="commonOton2Name"
-            :device="compatibleDevice1Ref?.device">
+            :device="compatibleDevice1Ref?.device"
+        >
             マイ・ホームページを作ってみようぜ？
         </talk-balloon>
+
 
         <talk-balloon
             :src="commonKifuwarabe2Src"
             :alt="commonKifuwarabe2Alt"
             :name="commonKifuwarabe2Name"
-            :device="compatibleDevice1Ref?.device">
+            :device="compatibleDevice1Ref?.device"
+        >
             えっ、今さらホームページ！？
         </talk-balloon>
+
 
         <talk-balloon
             :src="commonHiyoko2Src"
             :alt="commonHiyoko2Alt"
             :name="commonHiyoko2Name"
-            :device="compatibleDevice1Ref?.device">
-            あんたのお父んは２００２年ぐらいで脳が止まってるのよ。<br/>
+            :device="compatibleDevice1Ref?.device"
+        >
+            あんたのお父んは２００２年ぐらいで脳が止まってるのよ。
         </talk-balloon>
 
+        
         <talk-balloon
             :src="commonKifuwarabe2Src"
             :alt="commonKifuwarabe2Alt"
             :name="commonKifuwarabe2Name"
-            :device="compatibleDevice1Ref?.device">
+            :device="compatibleDevice1Ref?.device"
+        >
             Ｏｈ．．．！　ユー　ゴッタ　メール……。<br/>
             <br/>
             ちょっと待ってくれだぜ。<br/>
             今、このホームページを作っているのは西暦何年だぜ？
         </talk-balloon>
 
+
         <talk-balloon
             :src="commonOton2Src"
             :alt="commonOton2Alt"
             :name="commonOton2Name"
-            :device="compatibleDevice1Ref?.device">
+            :device="compatibleDevice1Ref?.device"
+        >
             ２０２５年だけど……？
         </talk-balloon>
+
 
         <talk-balloon
             :src="commonKifuwarabe2Src"
             :alt="commonKifuwarabe2Alt"
             :name="commonKifuwarabe2Name"
-            :device="compatibleDevice1Ref?.device">
+            :device="compatibleDevice1Ref?.device"
+        >
             ぜったい２００６年のブログブームから更新が止まって放置されてると思われてるぜ……。<br/>
             <br/>
             このホームページ、どこでホストされてんだぜ？　自宅サーバー？
         </talk-balloon>
 
+
         <talk-balloon
             :src="commonOton2Src"
             :alt="commonOton2Alt"
             :name="commonOton2Name"
-            :device="compatibleDevice1Ref?.device">
+            :device="compatibleDevice1Ref?.device"
+        >
             いや、さくらのＶＰＳだぜ。
         </talk-balloon>
 
+
         <talk-balloon
             :src="commonKifuwarabe2Src"
             :alt="commonKifuwarabe2Alt"
             :name="commonKifuwarabe2Name"
-            :device="compatibleDevice1Ref?.device">
+            :device="compatibleDevice1Ref?.device"
+        >
             そこは新しいんだ……
         </talk-balloon>
+
 
         <talk-balloon
             :src="commonHiyoko2Src"
             :alt="commonHiyoko2Alt"
             :name="commonHiyoko2Name"
-            :device="compatibleDevice1Ref?.device">
-            あんたのお父んは技術は更新するけど、脳は２００２年ぐらいで止まってるのよ。<br/>
+            :device="compatibleDevice1Ref?.device"
+        >
+            あんたのお父んは技術は更新するけど、脳は２００２年ぐらいで止まってるのよ。
         </talk-balloon>
+
 
         <talk-balloon
             :src="commonOton2Src"
             :alt="commonOton2Alt"
             :name="commonOton2Name"
-            :device="compatibleDevice1Ref?.device">
+            :device="compatibleDevice1Ref?.device"
+        >
             わたしの脳、止まってるんだ……。
         </talk-balloon>
+
 
         <talk-balloon
             :src="commonKifuwarabe2Src"
             :alt="commonKifuwarabe2Alt"
             :name="commonKifuwarabe2Name"
-            :device="compatibleDevice1Ref?.device">
+            :device="compatibleDevice1Ref?.device"
+        >
             しかし、懐古ホームページなんか作っても、なんも技術のアピールにもならないのでは……？
         </talk-balloon>
+
 
         <talk-balloon
             :src="commonHiyoko2Src"
             :alt="commonHiyoko2Alt"
             :name="commonHiyoko2Name"
-            :device="compatibleDevice1Ref?.device">
-            技術なんかアピールしなくていいのよ、技術はＡＩがやるのだから人類は雑用をしていればいいのよ。<br/>
+            :device="compatibleDevice1Ref?.device"
+        >
+            技術なんかアピールしなくていいのよ、技術はＡＩがやるのだから人類は雑用をしていればいいのよ。
         </talk-balloon>
+
 
         <talk-balloon
             :src="commonKifuwarabe2Src"
             :alt="commonKifuwarabe2Alt"
             :name="commonKifuwarabe2Name"
-            :device="compatibleDevice1Ref?.device">
+            :device="compatibleDevice1Ref?.device"
+        >
             そこは未来を先取りしてんだ……。
         </talk-balloon>
 
+
         <talk-balloon
             :src="commonKifuwarabe2Src"
             :alt="commonKifuwarabe2Alt"
             :name="commonKifuwarabe2Name"
-            :device="compatibleDevice1Ref?.device">
+            :device="compatibleDevice1Ref?.device"
+        >
             じゃあ、なんか知らんけど、お父んがセッセと作っているこのサイトの内容を円グラフにまとめておいたぜ。<br/>
             <br/>
             以下の円グラフをクリックするとそのページへ飛べるぜ
         </talk-balloon>
 
-	    <canvas id="pieChart" class="pieChartStyle" style="border:dashed 4px gray; background-color: white;"></canvas>
+
+	    <canvas
+            id="pieChart"
+            class="pieChartStyle"
+            style="border: dashed 4px gray;
+            background-color: white;"
+        ></canvas>
     </section>
 
-    <!-- ホームには［上の部を閉じる］ボタンはありません。 -->
 
-    <br/>
     <section class="sec-1">
         <talk-balloon
             :src="commonKifuwarabe2Src"
@@ -175,12 +206,11 @@
 
     // 円グラフのための、SPA用のルートパス
     const routes = [
-        "/blog",    // ブログのURL
-        "/reference/making",    // メイキングのURL
+        "/reference",   // リファレンス
+        "/blog",    // ブログ
+        "/quiz",    // クイズ
         "/minigames",   // ミニゲーム
-        "/reference-warabenture/team-mirai-supporter",  // チームみらいサポーター活動のURL
-        "/reference/coding-style",  // コーディング・スタイル
-        //"/reference-warabenture/wara-city/map", // わらシティのURL
+        "/about",   // このホームについて
     ];
 
 
@@ -218,7 +248,7 @@
         chart = new Chart(ctx, {
             type: 'pie',
             data: {
-                labels: ['ブログ', 'メイキング', 'ミニゲーム', 'コーディング・スタイル', 'チームみらいサポーター活動'],
+                labels: ['リファレンス', 'ブログ', 'クイズ', 'ミニゲーム', 'このサイトについて'],
                 // , 'わらシティ'
                 datasets: [{
                     data: [86, 10, 2, 1, 1],
@@ -285,10 +315,10 @@
 
 <style scoped>
     canvas.pieChartStyle {
-        min-width: 400px;
-        min-height: 400px;
-        width: 400px;
-        height: 400px;
+        min-width: 300px;
+        min-height: 300px;
+        width: 300px;
+        height: 300px;
         margin: 0 auto;
     }
 </style>
