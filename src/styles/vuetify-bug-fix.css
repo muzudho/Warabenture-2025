@@ -3,7 +3,8 @@
  * ======================================================================
  */
 
-button, input, select, textarea {
+/* button, input, select, textarea */
+select {
     padding-left: 8px;
     padding-top: 4px;
     padding-right: 8px;
