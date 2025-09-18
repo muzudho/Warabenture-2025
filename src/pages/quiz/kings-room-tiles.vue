@@ -162,31 +162,27 @@
         </game-machine-waratch2>
 
 
-        <ul class="mb-6">
-            <li>
-                <!-- お好み設定パネル１ -->
-                <v-btn
-                    class="code-key"
-                    @touchstart.prevent="button1Ref?.press($event, onPreferences1ButtonPressed);"
-                    @touchend="button1Ref?.release();"
-                    @touchcancel="button1Ref?.release();"
-                    @touchleave="button1Ref?.release();"
-                    @mousedown.prevent="button1Ref?.handleMouseDown($event, onPreferences1ButtonPressed)"
-                    @mouseup="button1Ref?.release();"
-                    @mouseleave="button1Ref?.release();"
-                >{{ preferences1IsShowing ? '⚙️お好み設定を終わる' : '⚙️お好み設定を表示' }}</v-btn>
-                <section v-if="preferences1IsShowing" class="sec-1 pt-6 pb-6">
-                    <v-slider
-                        label="ズーム"
-                        v-model="appZoom"
-                        :min="1"
-                        :max="4"
-                        step="0.5"
-                        showTicks="always"
-                        thumbLabel="always" />
-                </section>
-            </li>
-        </ul>
+        <!-- お好み設定パネル１ -->
+        <v-btn
+            class="code-key"
+            @touchstart.prevent="button1Ref?.press($event, onPreferences1ButtonPressed);"
+            @touchend="button1Ref?.release();"
+            @touchcancel="button1Ref?.release();"
+            @touchleave="button1Ref?.release();"
+            @mousedown.prevent="button1Ref?.handleMouseDown($event, onPreferences1ButtonPressed)"
+            @mouseup="button1Ref?.release();"
+            @mouseleave="button1Ref?.release();"
+        >{{ preferences1IsShowing ? '⚙️お好み設定を終わる' : '⚙️お好み設定を表示' }}</v-btn>
+        <section v-if="preferences1IsShowing" class="sec-1 pt-6 pb-6">
+            <v-slider
+                label="ズーム"
+                v-model="appZoom"
+                :min="1"
+                :max="4"
+                step="0.25"
+                showTicks="always"
+                thumbLabel="always" />
+        </section>
 
 
         <talk-balloon
@@ -194,6 +190,7 @@
             :alt="commonPapepoKingAlt"
             :name="commonPapepoKingName"
             :device="compatibleDevice1Ref?.device"
+            class="mt-6"
         >
             ＰＣであればキーボード入力を、<br/>
             スマホであれば👆上のボタンをタップすることで、<br/>
