@@ -17,14 +17,14 @@
 
         <talk-image
             expandable
-            href="/img/journal/2025-06/202506__program__04-2248-tauri-o2oA15o0.png"
+            src="/img/journal/2025-06/202506__program__04-2248-tauri-o2oA15o0.png"
             alt="snake_case を camelCase に変換"
         />
 
 
         <talk-image
             expandable
-            href="/img/journal/2025-06/202506__program__04-2249-tauri-o2oA16o0.png"
+            src="/img/journal/2025-06/202506__program__04-2249-tauri-o2oA16o0.png"
             alt="snake_case を camelCase に変換"
         />
 

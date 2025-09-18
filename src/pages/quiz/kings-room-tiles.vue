@@ -19,8 +19,7 @@
     <section class="sec-1 pt-6 mb-6">
         
         <!-- 免責 -->
-        <v-alert type="warning" title="免責！" text="画面は開発中のものだぜ（＾▽＾）！" closable />
-        <br/>
+        <v-alert type="warning" class="mb-6" title="免責！" text="画面は開発中のものだぜ（＾▽＾）！" closable />
 
         <!-- ストップウォッチ。デバッグに使いたいときは、 display: none; を消してください。 -->
         <stopwatch
@@ -34,12 +33,11 @@
             alt="パペポ王国"
             caption="グラフィッカー：　Grok" />
 
-        <p>
+        <p class="mb-6">
             ここはパペポ王国。<br/>
             王様はある悩みを持っていました。<br/>
             勇者　キフワラニャン　は呼び出されました。<br/>
         </p>
-        <br/>
 
         <talk-illustration
             src="/img/quiz/by-grok/202508__grok__30-1229-kifuwaranyan-o2o0.png"
@@ -47,7 +45,9 @@
         
         <talk-novel
             name="キフワラニャン"
-            :device="compatibleDevice1Ref?.device">
+            :device="compatibleDevice1Ref?.device"
+            class="mb-6"
+        >
             わたしは勇者キフワラニャン、<br/>
             この世界の神がブラウザーで動くフリーゲームを<br/>
             作ろうとしていると聞いて馳せ参じたぜ。<br/>
@@ -55,7 +55,6 @@
             顔や背景がコロコロ変わるかもしれないが、<br/>
             気にしないでくれだぜ
         </talk-novel>
-        <br/>
 
         <!-- パペポ王１ -->
         <talk-illustration
@@ -83,125 +82,87 @@
             :src="commonPapepoKingSrc"
             :alt="commonPapepoKingAlt"
             :name="commonPapepoKingName"
-            :device="compatibleDevice1Ref?.device">
+            :device="compatibleDevice1Ref?.device"
+            class="mb-6"
+        >
             我が城の床タイルを市松模様にしろと<br/>
-            リフォーム会社に命じたのだが……<br/>
+            リフォーム会社に命じたのだが……
         </talk-balloon>
-        <br/>
 
-        <!-- 盤領域 -->
-        <div
-            class="board"
-            :style="board1Style">
 
-            <!-- 新・タイル盤１ -->
-            <board-made-of-tile
-                :boardArea="board1Area"
-                :tileWidth="tileBoard1TileWidth"
-                :tileHeight="tileBoard1TileHeight"
-                :tilemapUrl="'/img/quiz/kings-room-tiles.png'"
-                :getFixedTileSqFromTileSq="imageBoard1GetFixedTileSqFromTileSq"
-                :getImageSqByFixedTileSq="imageBoard1GetImageSqByFixedTileSq"
-                :getTileStyleByTileSq="imageBoard1GetTileStyleByTileSq"
-                :getSourceTileLeftByImageSq="imageBoard1GetResourceTileLeftByImageSq"
-            >
-            </board-made-of-tile
+        <!-- ゲームマシン -->
+        <game-machine-waratch2
+            :hardLocationStyle="{
+                left: '0px',
+                top: '0px',
+            }"
+            :screenWidth="appZoom * (board1FileNum - 2 * board1WithMaskFrSize) * tileBoard1TileWidth"
+            :screenHeight="appZoom * (board1RankNum - 2 * board1WithMaskFrSize) * tileBoard1TileHeight"
+            v-on:onLeftButtonPressed="onLeftButtonPressed"
+            v-on:onLeftButtonReleased="onLeftButtonReleased"
+            v-on:onUpButtonPressed="onUpButtonPressed"
+            v-on:onUpButtonReleased="onUpButtonReleased"
+            v-on:onRightButtonPressed="onRightButtonPressed"
+            v-on:onRightButtonReleased="onRightButtonReleased"
+            v-on:onDownButtonPressed="onDownButtonPressed"
+            v-on:onDownButtonReleased="onDownButtonReleased"
+            v-on:onSpaceButtonPressed="onSpaceButtonPressed"
+            v-on:onSpaceButtonReleased="onSpaceButtonReleased"
+        >
+            <template #default>
+                <!-- 盤の全体サイズと、切り抜き領域 -->
+                <div
+                    :style="{
+                        position: 'relative',
+                        left: `${-tileBoard1TileWidth}px`,
+                        top: `${-tileBoard1TileHeight}px`,
+                        width: `${board1FileNum * tileBoard1TileWidth}px`,
+                        height: `${board1RankNum * tileBoard1TileHeight}px`,
+                        zoom: appZoom,
+                        clipPath: `inset(
+                            ${tileBoard1TileHeight}px
+                            ${tileBoard1TileWidth}px
+                            ${tileBoard1TileHeight}px
+                            ${tileBoard1TileWidth}px
+                        )`, // 四隅の切り落とし。上、右、下、左
+                    }"
+                >
 
-            <!-- 自機１ -->
-            <tile-animation
-                :frames="player1Frames"
-                tilemapUrl="/img/making/202508__warabenture__15-1612-kifuwarabe-o1o0.png"
-                :slow="player1AnimationSlow"
-                :time="stopwatch1Count"
-                class="player"
-                :style="player1Style" />
+                    <!-- 新・タイル盤１ -->
+                    <board-made-of-tile
+                        :boardArea="board1Area"
+                        :tileWidth="tileBoard1TileWidth"
+                        :tileHeight="tileBoard1TileHeight"
+                        :tilemapUrl="'/img/quiz/kings-room-tiles.png'"
+                        :getFixedTileSqFromTileSq="imageBoard1GetFixedTileSqFromTileSq"
+                        :getImageSqByFixedTileSq="imageBoard1GetImageSqByFixedTileSq"
+                        :getTileStyleByTileSq="imageBoard1GetTileStyleByTileSq"
+                        :getSourceTileLeftByImageSq="imageBoard1GetResourceTileLeftByImageSq"
+                    />
 
-            <!-- 視界の外１ -->
-            <out-of-sight
-                ref="outOfSight1Ref"
-                :tileBoard1TileWidth="tileBoard1TileWidth"
-                :tileBoard1TileHeight="tileBoard1TileHeight"
-                :board1FileNum="board1FileNum"
-                :board1RankNum="board1RankNum"
-                class="parent-mask" />
-        </div>
-        <br/>
+                    <!-- 自機１ -->
+                    <tile-animation
+                        :frames="player1Frames"
+                        tilemapUrl="/img/making/202508__warabenture__15-1612-kifuwarabe-o1o0.png"
+                        :slow="player1AnimationSlow"
+                        :time="stopwatch1Count"
+                        class="player"
+                        :style="player1Style" />
 
-        <!-- タッチパネルでも操作できるように、ボタンを置いておきます。キーボードの操作説明も兼ねます。 -->
-        <p>キーボード操作方法</p>
-        <ul>
-            <li>
-                <v-btn class="code-key hidden"/>
-                <v-btn
-                    class="code-key"
-                    @touchstart.prevent="button1Ref?.press($event, onUpButtonPressed, {repeat: true});"
-                    @touchend="button1Ref?.release(onUpButtonReleased);"
-                    @touchcancel="button1Ref?.release(onUpButtonReleased);"
-                    @touchleave="button1Ref?.release(onUpButtonReleased);"
-                    @mousedown.prevent="button1Ref?.handleMouseDown($event, onUpButtonPressed, {repeat: true})"
-                    @mouseup="button1Ref?.release(onUpButtonReleased);"
-                    @mouseleave="button1Ref?.release(onUpButtonReleased);"
-                >↑</v-btn>
-                <br/>
-                <v-btn
-                    class="code-key"
-                    @touchstart.prevent="button1Ref?.press($event, onLeftButtonPressed, {repeat: true});"
-                    @touchend="button1Ref?.release(onLeftButtonReleased);"
-                    @touchcancel="button1Ref?.release(onLeftButtonReleased);"
-                    @touchleave="button1Ref?.release(onLeftButtonReleased);"
-                    @mousedown.prevent="button1Ref?.handleMouseDown($event, onLeftButtonPressed, {repeat: true})"
-                    @mouseup="button1Ref?.release(onLeftButtonReleased);"
-                    @mouseleave="button1Ref?.release(onLeftButtonReleased);"
-                >←</v-btn>
-                <v-btn class="code-key hidden"/>
-                <v-btn
-                    class="code-key"
-                    @touchstart.prevent="button1Ref?.press($event, onRightButtonPressed, {repeat: true});"
-                    @touchend="button1Ref?.release(onRightButtonReleased);"
-                    @touchcancel="button1Ref?.release(onRightButtonReleased);"
-                    @touchleave="button1Ref?.release(onRightButtonReleased);"
-                    @mousedown.prevent="button1Ref?.handleMouseDown($event, onRightButtonPressed, {repeat: true})"
-                    @mouseup="button1Ref?.release(onRightButtonReleased);"
-                    @mouseleave="button1Ref?.release(onRightButtonReleased);"
-                >→</v-btn>
-                <br/>
-                <v-btn class="code-key hidden"/>
-                <v-btn
-                    class="code-key"
-                    @touchstart.prevent="button1Ref?.press($event, onDownButtonPressed, {repeat: true});"
-                    @touchend="button1Ref?.release(onDownButtonReleased);"
-                    @touchcancel="button1Ref?.release(onDownButtonReleased);"
-                    @touchleave="button1Ref?.release(onDownButtonReleased);"
-                    @mousedown.prevent="button1Ref?.handleMouseDown($event, onDownButtonPressed, {repeat: true})"
-                    @mouseup="button1Ref?.release(onDownButtonReleased);"
-                    @mouseleave="button1Ref?.release(onDownButtonReleased);"
-                >↓</v-btn>
-                　…　自機を上下左右へ、印字を逆方向へ動かすぜ！
-                <br/>
-            </li>
-            <!--
-            <li>
-                <v-btn
-                    class="code-key"
-                    @touchstart.prevent="button1Ref?.press($event, onSpaceButtonPressed, {repeat: true});"
-                    @touchend="button1Ref?.release(onSpaceButtonReleased);"
-                    @touchcancel="button1Ref?.release(onSpaceButtonReleased);"
-                    @touchleave="button1Ref?.release(onSpaceButtonReleased);"
-                    @mousedown.prevent="button1Ref?.handleMouseDown($event, onSpaceButtonPressed, {repeat: true})"
-                    @mouseup="button1Ref?.release(onSpaceButtonReleased);"
-                    @mouseleave="button1Ref?.release(onSpaceButtonReleased);"
-                >（スペース）</v-btn>
-                　…　自機、印字の位置を最初に有ったところに戻すぜ。
-            </li>
-            -->
-            <li>
-                <!-- フォーカスを外すためのダミー・ボタンです -->
-                <v-btn
-                    class="noop-key"
-                    ref="noopButton"
-                    v-tooltip="'PCでのマウス操作で、フォーカスがコントロールに残って邪魔になるときは、このボタンを押してくれだぜ'"
-                >何もしないボタン</v-btn><br/>
-            </li>
+                    <!-- 視界の外１ -->
+                    <out-of-sight
+                        ref="outOfSight1Ref"
+                        :tileBoard1TileWidth="tileBoard1TileWidth"
+                        :tileBoard1TileHeight="tileBoard1TileHeight"
+                        :board1FileNum="board1FileNum"
+                        :board1RankNum="board1RankNum"
+                        class="parent-mask" />
+                </div>
+            </template>
+        </game-machine-waratch2>
+
+
+        <ul class="mb-6">
             <li>
                 <!-- お好み設定パネル１ -->
                 <v-btn
@@ -214,73 +175,72 @@
                     @mouseup="button1Ref?.release();"
                     @mouseleave="button1Ref?.release();"
                 >{{ preferences1IsShowing ? '⚙️お好み設定を終わる' : '⚙️お好み設定を表示' }}</v-btn>
-                <section v-if="preferences1IsShowing" class="sec-1">
-                    <br/>
+                <section v-if="preferences1IsShowing" class="sec-1 pt-6 pb-6">
                     <v-slider
                         label="ズーム"
                         v-model="appZoom"
-                        :min="0.5"
+                        :min="1"
                         :max="4"
                         step="0.5"
                         showTicks="always"
                         thumbLabel="always" />
-                    <br/>
                 </section>
             </li>
         </ul>
-        <br/>
+
 
         <talk-balloon
             :src="commonPapepoKingSrc"
             :alt="commonPapepoKingAlt"
             :name="commonPapepoKingName"
-            :device="compatibleDevice1Ref?.device">
+            :device="compatibleDevice1Ref?.device"
+        >
             ＰＣであればキーボード入力を、<br/>
             スマホであれば👆上のボタンをタップすることで、<br/>
-            自機を歩かせることができるんじゃ。<br/>
+            自機を歩かせることができるんじゃ。
         </talk-balloon>
+
+
         <talk-balloon
             :src="commonPapepoKingSrc"
             :alt="commonPapepoKingAlt"
             :name="commonPapepoKingName"
-            :device="compatibleDevice1Ref?.device">
+            :device="compatibleDevice1Ref?.device"
+        >
             盤がでかすぎるときは［お好み設定を表示］ボタンをクリックして<br/>
             出てくる［ズーム］スライダーボックスを左右に動かして<br/>
-            盤の大きさを調整してほしい。<br/>
+            盤の大きさを調整してほしい。
         </talk-balloon>
-        <talk-balloon
-            :src="commonPapepoKingSrc"
-            :alt="commonPapepoKingAlt"
-            :name="commonPapepoKingName"
-            :device="compatibleDevice1Ref?.device">
-            もしＰＣ版で例えばスライダーバーにフォーカスが残ってしまい、<br/>
-            左右キーを入力したら自機ではなくスライダーバーが動いてしまい腹が立ったときは<br/>
-            ［何もしないボタン］を押せ。<br/>
-        </talk-balloon>
+
+
         <talk-balloon
             :src="commonKifuwaranyanSrc"
             :alt="commonKifuwaranyanAlt"
             :name="commonKifuwaranyanName"
-            :device="compatibleDevice1Ref?.device">
+            :device="compatibleDevice1Ref?.device"
+        >
             おおー、説明的なセリフありがとうございますだぜ。<br/>
             <br/>
-            なってるなってる、王よ、床、市松模様になってる。<br/>
+            なってるなってる、王よ、床、市松模様になってる。
         </talk-balloon>
+
+
         <talk-balloon
             :src="commonPapepoKingSrc"
             :alt="commonPapepoKingAlt"
             :name="commonPapepoKingName"
-            :device="compatibleDevice1Ref?.device">
+            :device="compatibleDevice1Ref?.device"
+            class="mb-6"
+        >
             では、👇下の［⚙問題設定を表示］ボタンをクリックして、<br/>
             出てくる［水平方向のタイル数］スライダーバーを横に１つ動かして例えば１０にし、<br/>
-            もう１回［⚙問題設定を終わる］に名前の変わっているボタンを押して設定を閉じ……<br/>
+            もう１回［⚙問題設定を終わる］に名前の変わっているボタンを押して設定を閉じ……
         </talk-balloon>
-        <br/>
-        <br/>
+
 
         <!-- 問題設定パネル１ -->
         <v-btn
-            class="code-key"
+            class="code-key mb-6"
             @touchstart.prevent="button1Ref?.press($event, onProblem1ButtonPressed);"
             @touchend="button1Ref?.release();"
             @touchcancel="button1Ref?.release();"
@@ -289,8 +249,7 @@
             @mouseup="button1Ref?.release();"
             @mouseleave="button1Ref?.release();"
         >{{ problem1IsShowing ? '⚙️問題設定を終わる' : '⚙️問題設定を表示' }}</v-btn>
-        <section v-if="problem1IsShowing" class="sec-1">
-            <br/>
+        <section v-if="problem1IsShowing" class="sec-1 pt-6 pb-6 mb-6">
             <!-- マスクが被っているところも含めた盤のサイズ： -->
             <v-slider
                 label="水平方向のタイル数"
@@ -300,6 +259,8 @@
                 step="1"
                 showTicks="always"
                 thumbLabel="always" />
+
+
             <v-slider
                 label="垂直方向のタイル数"
                 v-model="board1RankNum"
@@ -308,9 +269,7 @@
                 step="1"
                 showTicks="always"
                 thumbLabel="always" />
-            <br/>
         </section>
-        <br/>
 
         <!-- デバッグ情報パネル１ -->
         <!--
@@ -362,7 +321,6 @@
         -->
 
         <br/>
-        <br/>
 
         <talk-balloon
             :src="commonPapepoKingSrc"
@@ -370,8 +328,9 @@
             :name="commonPapepoKingName"
             :device="compatibleDevice1Ref?.device">
             そして一度画面を👆上にスクロールし、先ほどの床を見てから<br/>
-            ここに戻ってきてほしい。<br/>
+            ここに戻ってきてほしい。
         </talk-balloon>
+
         <talk-balloon
             :src="commonKifuwaranyanSrc"
             :alt="commonKifuwaranyanAlt"
@@ -379,7 +338,7 @@
             :device="compatibleDevice1Ref?.device">
             フーム……、床がストライプになっている……<br/>
             <br/>
-            これはバグだぜ！<br/>
+            これはバグだぜ！
         </talk-balloon>
         <!--
             <p>
@@ -404,7 +363,7 @@
             class="mb-6"
         >
             リフォーム会社が残した、床のタイルの色を決める魔法の呪文は<br/>
-            👇これじゃ」<br/>
+            👇これじゃ」
         </talk-balloon>
 
         <pre
@@ -429,21 +388,24 @@ color = i % 2;
             :src="commonPapepoKingSrc"
             :alt="commonPapepoKingAlt"
             :name="commonPapepoKingName"
-            :device="compatibleDevice1Ref?.device">
-            この呪文を、チョチョイと直してほしい！」<br/>
+            :device="compatibleDevice1Ref?.device"
+        >
+            この呪文を、チョチョイと直してほしい！」
         </talk-balloon>
+
         <talk-balloon
             :src="commonKifuwaranyanSrc"
             :alt="commonKifuwaranyanAlt"
             :name="commonKifuwaranyanName"
-            :device="compatibleDevice1Ref?.device">
+            :device="compatibleDevice1Ref?.device"
+            class="mb-6"
+        >
             おー、お安い御用だぜ。<br/>
             <br/>
-            どう直したらいいか、👇下の選択肢から選んでくれだぜ！」<br/>
+            どう直したらいいか、👇下の選択肢から選んでくれだぜ！」
         </talk-balloon>
-        <br/>
 
-        <p>
+        <p class="mb-6">
             <!--
             <v-checkbox
                 :hideDetails="true">
@@ -518,26 +480,19 @@ color = i % 2;
                 @mouseup="button1Ref?.release();"
                 @mouseleave="button1Ref?.release();"
             >未選択にする</v-btn>
-            <!-- フォーカスを外すためのダミー・ボタンです -->
-            <v-btn
-                class="noop-key"
-                ref="noopButton"
-                v-tooltip="'PCでのマウス操作で、フォーカスがコントロールに残って邪魔になるときは、このボタンを押してくれだぜ'"
-            >何もしないボタン</v-btn>
         </p>
-        <br/>
-        <br/>
 
         <talk-balloon
             :src="commonKifuwaranyanSrc"
             :alt="commonKifuwaranyanAlt"
             :name="commonKifuwaranyanName"
-            :device="compatibleDevice1Ref?.device">
+            :device="compatibleDevice1Ref?.device"
+            class="mb-6"
+        >
             上の選択肢を選んだら、<br/>
             画面を👆上にスクロールしてさっきの床を確認して、これで合ってると思ったら、<br/>
             👇下の［この答えで確定する］ボタンを押してくれだぜ！」<br/>
         </talk-balloon>
-        <br/>
 
         <v-btn
             class="code-key"
@@ -550,36 +505,43 @@ color = i % 2;
             @mouseleave="button1Ref?.release();"
         ><span class="font-x2">{{ answer1IsShowing ? '' : '🆗' }}</span>{{ answer1IsShowing ? '答えを隠す' : 'この答えで確定する' }}</v-btn>
         <section v-if="answer1IsShowing" class="sec-1">
-            <section v-if="choices1Num==0">
-                <br/>
+            <section
+                v-if="choices1Num==0"
+                class="pt-6 pb-6"
+            >
                 <span class="font-x2">😑</span>答えを選べだぜ<br/>
-                <br/>
             </section>
-            <section v-if="choices1Num==1 || choices1Num==2">
-                <br/>
-                <span class="font-x2">😄</span>正解<br/>
-                <br/>
+            <section
+                v-if="choices1Num==1 || choices1Num==2"
+                class="pt-6 pb-6"
+            >
+                <p class="mb-6"><span class="font-x2">😄</span>正解<br/></p>
+
 
                 <talk-balloon
                     :src="commonPapepoKingSrc"
                     :alt="commonPapepoKingAlt"
                     :name="commonPapepoKingName"
                     :device="compatibleDevice1Ref?.device">
-                    おお、さすがキフワラニャン　床が市松模様になったわい。<br/>
+                    おお、さすがキフワラニャン　床が市松模様になったわい。
                 </talk-balloon>
+
+
                 <talk-balloon
                     :src="commonKifuwaranyanSrc"
                     :alt="commonKifuwaranyanAlt"
                     :name="commonKifuwaranyanName"
                     :device="compatibleDevice1Ref?.device">
-                    やったぜ！<br/>
+                    やったぜ！
                 </talk-balloon>
-                <br/>
             </section>
-            <section v-if="choices1Num==3 || choices1Num==4">
-                <br/>
-                <span class="font-x2">😭</span>間違い<br/>
-                <br/>
+
+
+            <section
+                v-if="choices1Num==3 || choices1Num==4"
+                class="pt-6 pb-6"
+            >
+                <p class="mb-6"><span class="font-x2">😭</span>間違い</p>
 
                 <talk-balloon
                     :src="commonPapepoKingSrc"
@@ -588,6 +550,8 @@ color = i % 2;
                     :device="compatibleDevice1Ref?.device">
                     全ての部屋の床がストライプになってしまったのう。<br/>
                 </talk-balloon>
+
+
                 <talk-balloon
                     :src="commonKifuwaranyanSrc"
                     :alt="commonKifuwaranyanAlt"
@@ -595,12 +559,9 @@ color = i % 2;
                     :device="compatibleDevice1Ref?.device">
                     なんということだぜ……。<br/>
                 </talk-balloon>
-                <br/>
             </section>
         </section>
-
     </section>
-
 
     <button-to-go-to-top class="sec-1 pt-6"/>
     <h2>ソースコード</h2>
@@ -643,6 +604,7 @@ color = i % 2;
     import ButtonToBackToContents from '@/components/ButtonToBackToContents.vue';
     import ButtonToGoToTop from '@/components/ButtonToGoToTop.vue';
     import CompatibleDevice from '@/components/CompatibleDevice.vue'
+    import GameMachineWaratch2 from '@/components/GameMachineWaratch2.vue';
     import OutOfSight from '@/components/OutOfSightMaking.vue';
     import SourceLink from '@/components/SourceLink.vue';
     import Stopwatch from '@/components/Stopwatch.vue';
@@ -697,7 +659,8 @@ color = i % 2;
     // 今動いているアプリケーションの状態を記録しているデータ。特に可変のもの。
     //
 
-    const appZoom = ref<number>(2);    // ズーム
+    //const appZoom = ref<number>(2);    // ズーム
+    const appZoom = ref<number>(1);    // ズーム
 
 
     // ################
@@ -765,21 +728,13 @@ color = i % 2;
     const board1RankMin = 6;
     const board1FileMax = 16;
     const board1RankMax = 16;
-    const board1FileNum = ref<number>(9);   // 筋の数。ただし、右側と下側に１マス余分に付いているマスクは含まない。
-    const board1RankNum = ref<number>(9);   // 段の数
+    const board1FileNum = ref<number>(7);   // 筋の数。ただし、右側と下側に１マス余分に付いているマスクは含まない。
+    const board1RankNum = ref<number>(7);   // 段の数
     const board1Area = computed(()=> {  // 盤のマス数
         return board1FileNum.value * board1RankNum.value;
     });
     // ※　盤およびその各タイルは、決まりきった位置でラップアラウンドを繰り返すだけです。座標が大きく移動することはありません。
-    const board1WithMaskSizeSquare: number = 1; // マスクの幅（単位：マス）
-    const board1Style = computed<CompatibleStyleValue>(()=>{    // ボードとマスクを含んでいる領域のスタイル
-        return {
-            width: `${(board1FileNum.value + outOfSight1WithMaskSquareCount.value) * tileBoard1TileWidth}px`,
-            height: `${(board1RankNum.value + outOfSight1WithMaskSquareCount.value) * tileBoard1TileHeight}px`,
-            zoom: appZoom.value,
-        };
-    });
-    //const board1FloorTilemapTileNum = 3;  // 床のタイルマップの、左上隅から数えたタイル数
+    const board1WithMaskFrSize: number = 1; // マスクの幅（単位：マス）
 
     // ++++++++++++++++++++++++++++
     // + オブジェクト　＞　像盤１ +
@@ -925,8 +880,8 @@ color = i % 2;
     // ［自機１］に紐づくホームというわけではなく、［自機のホーム］の１つです。
     //
 
-    const playerHome1File = ref<number>(4);    // ホーム
-    const playerHome1Rank = ref<number>(4);
+    const playerHome1File = ref<number>(3);    // ホーム
+    const playerHome1Rank = ref<number>(3);
     const playerHome1Left = computed(()=>{
         return playerHome1File.value * tileBoard1TileWidth;
     });
@@ -1112,10 +1067,10 @@ color = i % 2;
                 player1Motion,
                 player1MotionWait.value,
                 player1CanBoardEdgeWalking.value,
-                ()=>{ return checkOutOfSightLeftIsLook(tileBoard1TileWidth, board1WithMaskSizeSquare, printing1Left.value); },    // ここで進むと、左側に外側が見えるなら。
-                ()=>{ return checkOutOfSightRightIsLook(tileBoard1TileWidth, board1WithMaskSizeSquare, board1FileNum.value, printing1FileNum.value, printing1Left.value); },  // ここで進むと、右側に外側が見えるなら。
-                ()=>{ return checkOutOfSightTopIsLook(tileBoard1TileHeight, board1WithMaskSizeSquare, printing1Top.value); }, // ここで進むと、上側に外側が見えるなら。
-                ()=>{ return checkOutOfSightBottomIsLook(tileBoard1TileHeight, board1WithMaskSizeSquare, board1RankNum.value, printing1RankNum.value, printing1Top.value); }, // ここで進むと、下側に外側が見えるなら。
+                ()=>{ return checkOutOfSightLeftIsLook(tileBoard1TileWidth, board1WithMaskFrSize, printing1Left.value); },    // ここで進むと、左側に外側が見えるなら。
+                ()=>{ return checkOutOfSightRightIsLook(tileBoard1TileWidth, board1WithMaskFrSize, board1FileNum.value, printing1FileNum.value, printing1Left.value); },  // ここで進むと、右側に外側が見えるなら。
+                ()=>{ return checkOutOfSightTopIsLook(tileBoard1TileHeight, board1WithMaskFrSize, printing1Top.value); }, // ここで進むと、上側に外側が見えるなら。
+                ()=>{ return checkOutOfSightBottomIsLook(tileBoard1TileHeight, board1WithMaskFrSize, board1RankNum.value, printing1RankNum.value, printing1Top.value); }, // ここで進むと、下側に外側が見えるなら。
             );
 
             // ++++++++++++++++++++++++++++++
@@ -1214,6 +1169,21 @@ color = i % 2;
 
 
     /**
+     * スペース・キー。
+     */
+    function onSpaceButtonPressed() : void {
+        player1Input[" "] = true;
+        printing1Input[" "] = true;
+    }
+
+
+    function onSpaceButtonReleased() : void {
+        player1Input[" "] = false;
+        printing1Input[" "] = false;
+    }
+
+
+    /**
      * ［問題設定パネル１］を開くボタン。
      */
     function onProblem1ButtonPressed() : void {
@@ -1266,9 +1236,6 @@ color = i % 2;
      */
     section.sec-3 > div.board > :deep(.mask) {
         border-color: rgba(32, 32, 32, 0.9) !important;
-    }
-    div.board { /* 盤１ */
-        position: relative;
     }
     div.square {    /* マス */
         position: absolute;

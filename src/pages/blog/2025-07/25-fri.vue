@@ -8,7 +8,7 @@
 
         <talk-image
             expandable
-            href="/img/journal/2025-07/202507__warabenture__25-1412-csvCleaning2OnTauri-o1o0.png"
+            src="/img/journal/2025-07/202507__warabenture__25-1412-csvCleaning2OnTauri-o1o0.png"
             alt="レイアウトがスカスカなデスクトップ・アプリの画面"
         />
 
@@ -33,7 +33,7 @@
 
         <talk-image
             expandable
-            href="/img/journal/2025-07/202507__warabenture__25-1437-csvCleaning2OnTauri-o1o0.png"
+            src="/img/journal/2025-07/202507__warabenture__25-1437-csvCleaning2OnTauri-o1o0.png"
             alt="頑張って隙間を詰めたデスクトップ・アプリの画面"
         />
 
@@ -67,7 +67,7 @@
 
         <talk-image
             expandable
-            href="/img/journal/2025-07/202507__warabenture__25-1749-waraCity-o1o0.png"
+            src="/img/journal/2025-07/202507__warabenture__25-1749-waraCity-o1o0.png"
             alt="わらシティの画面"
         />
 

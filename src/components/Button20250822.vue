@@ -9,7 +9,6 @@
 -->
 
 <template>
-    <!-- とくに表示物はありません -->
 </template>
 
 <script setup lang="ts">

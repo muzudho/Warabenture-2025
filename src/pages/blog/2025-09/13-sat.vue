@@ -18,7 +18,7 @@
 
         <talk-image
             expandable
-            :href="journal1png"
+            :src="journal1png"
             alt="階層が深くなったWebサイトのレイアウト"
         />
 
@@ -34,7 +34,7 @@
 
         <talk-image
             expandable
-            :href="journal2png"
+            :src="journal2png"
             alt="階層が深くなったWebサイトのレイアウト"
         />
 

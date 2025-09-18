@@ -42,7 +42,6 @@
                 じゃあ、普段は［ブログ］カテゴリー（Blog）を普段使いして、技術的なやつは［リファレンス］カテゴリー（References）を新設して、その中に再編成するか。
         </talk-balloon>
 
-
     </section>
 </template>
 

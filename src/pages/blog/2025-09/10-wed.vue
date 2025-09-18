@@ -397,7 +397,7 @@ const pageMapAsync : Record&lt;string, any&gt; = {
 
         <talk-image
             expandable
-            href="/img/journal/2025-09/202509__warabenture__10--1340-prerenderErrors-o1o0.png"
+            src="/img/journal/2025-09/202509__warabenture__10--1340-prerenderErrors-o1o0.png"
             alt="プリレンダラー・エラー"
         />
 
@@ -450,7 +450,7 @@ const pageMapAsync : Record&lt;string, any&gt; = {
 
         <talk-image
             expandable
-            href="/img/journal/2025-09/202509__warabenture__10--1424-sshConnectionError-o1o0.png"
+            src="/img/journal/2025-09/202509__warabenture__10--1424-sshConnectionError-o1o0.png"
             alt="SSH接続エラー"
         />
 
@@ -526,7 +526,7 @@ const pageMapAsync : Record&lt;string, any&gt; = {
 
         <talk-image
             expandable
-            href="/img/journal/2025-09/202509__warabenture__10--2150-CtrlZOk-CtrlCFreese-o1o0.png"
+            src="/img/journal/2025-09/202509__warabenture__10--2150-CtrlZOk-CtrlCFreese-o1o0.png"
             alt="この画面で[Ctrl]+[Z]キー押すとターミナルに入力できるようになる。[Ctrl]+[C]キー押すとフリーズしたままで、さらにSSH接続が切断し、再接続もしばらくできなくなる"
         />
 
@@ -643,7 +643,6 @@ export const pageMap : Readonly&lt;Record&lt;string, any&gt;&gt; = {
             class="mb-6">
                 今日はもう遅いのでまた今度だな。
         </talk-balloon>
-
 
     </section>
 </template>

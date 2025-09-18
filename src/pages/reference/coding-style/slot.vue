@@ -368,7 +368,7 @@
 
         <talk-image
             expandable
-            href="/img/coding-style/202509__warabenture__08-2136-slotError-o1o0.jpg"
+            src="/img/coding-style/202509__warabenture__08-2136-slotError-o1o0.jpg"
             alt="Property 'author' does not exist on type '{}'. ts-plugin(2339) [Ln 349, Col 28]"
         />
 

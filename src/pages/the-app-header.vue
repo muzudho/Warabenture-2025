@@ -10,6 +10,8 @@
         <router-link to="/" :class="home1Class">ホーム</router-link> |
         <router-link to="/about" :class="about1Class">このサイトについて</router-link> |
 
+
+
         <router-link to="/blog" :class="blog1Class">ブログ</router-link> |
         <router-link to="/quiz" :class="quiz1Class">クイズ</router-link> |
         <router-link to="/minigames" :class="minigames1Class">ミニゲーム</router-link> |

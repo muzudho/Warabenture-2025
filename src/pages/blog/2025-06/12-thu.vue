@@ -34,7 +34,7 @@
 
         <talk-image
             expandable
-            href="/img/journal/2025-06/202506__tauri__12-2156-csvCleaning-o1o0.png"
+            src="/img/journal/2025-06/202506__tauri__12-2156-csvCleaning-o1o0.png"
             alt="file-list-on-tauri リポジトリーから自動生成ファイルを削除して、それ以外をコピーした csv-cleaning-on-tauri リポジトリー"
         />
 

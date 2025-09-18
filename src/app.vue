@@ -13,7 +13,7 @@
         <v-app-bar app fixed density="compact">
 
             <img
-                src="@/assets/img/reference/application/202509__warabenture__12-1833-logo-since20220507.png"
+                src="@/assets/img/reference/warabenture/202509__warabenture__12-1833-logo-since20220507.png"
                 class="ml-2"
                 style="
                     width: 32px;

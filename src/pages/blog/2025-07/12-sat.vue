@@ -134,7 +134,7 @@ pnpm tauri dev</pre>
 
         <talk-image
             expandable
-            href="/img/journal/2025-07/202507__warabenture__12-1713-csvCleaningOnTauri-o1o0.png"
+            src="/img/journal/2025-07/202507__warabenture__12-1713-csvCleaningOnTauri-o1o0.png"
             alt="デスクトップ・アプリケーションの画面"
         />
 

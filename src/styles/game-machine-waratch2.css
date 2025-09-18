@@ -1,0 +1,61 @@
+/* シャーシ */
+div.waratch2-shassis {
+    /* position: absolute; */
+    border: solid 4px black;
+    box-sizing: border-box;
+    border-radius: 64px;
+    background-color: crimson;
+}
+
+/* 表面 */
+div.waratch2-surface {
+    /* position: absolute; */
+    margin: 4px;    /* ボーダー分 */
+    box-sizing: border-box;
+}
+
+div.waratch2-clickable {
+    pointer-events: none;   /* クリックを透過させます */
+}
+
+div.waratch2-trim-screen {
+    /* マスクで画面の部分を透過 */
+    -webkit-mask-image: url(#waratch2-mask-rect);
+    mask-image: url(#waratch2-mask-rect);
+}
+
+/* 画面枠 */
+div.waratch2-screen-frame {
+    position: absolute;
+    box-sizing: border-box;
+    border: solid 2px brown;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5) inset;
+}
+
+/* ハード銘領域 */
+div.waratch2-name-area {
+    position: absolute;
+    box-sizing: border-box;
+    color: goldenrod;
+    background-color: brown;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+span.waratch2-name-1 {
+    padding-left: 4px;
+}
+
+/* ボタン配置領域 */
+div.waratch2-buttons-area {
+    position: absolute;
+    display: inline-block;
+}
+
+/* v-btn に効きます */
+button.waratch2-button {
+    position: absolute;
+    min-width: 32px;
+    z-index: 10;    /* 視覚的に見えていても、クリック・イベントはそうでないケースがあるので、前面に出す */
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+    pointer-events: auto;   /* イベントを拾うよう設定 */
+}

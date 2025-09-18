@@ -33,6 +33,9 @@
                 </ul>
             </li>
 
+            <li>📖 <router-link to="/reference/making/game-machine-test-1" :class="getLinkHighlight('/reference/making/game-machine-test-1')">ゲームマシン・テスト１：　ゲーム画面はめ込み無し</router-link></li>
+            <li>📖 <router-link to="/reference/making/game-machine-test-2" :class="getLinkHighlight('/reference/making/game-machine-test-2')">ゲームマシン・テスト２：　ゲーム画面はめ込み有り</router-link></li>
+
             <li>📖 <router-link to="/reference/making/sprite-routine" :class="getLinkHighlight('/reference/making/sprite-routine')">スプライト　＞　ルーチンの章だぜ！</router-link></li>
 
 

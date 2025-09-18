@@ -26,7 +26,7 @@
 
         <talk-image
             expandable
-            href="/img/journal/2025-06/202506__teamMirai__09-1610-heatMap16-o1o0.png"
+            src="/img/journal/2025-06/202506__teamMirai__09-1610-heatMap16-o1o0.png"
             alt="Excel で作ったヒートマップ"
         />
 
@@ -43,7 +43,7 @@
 
         <talk-image
             expandable
-            href="/img/journal/2025-06/202506__teamMirai__09-1730-heatMap23-o1o0.png"
+            src="/img/journal/2025-06/202506__teamMirai__09-1730-heatMap23-o1o0.png"
             alt="Excel で作ったヒートマップ"
         />
 
@@ -59,7 +59,7 @@
 
         <talk-image
             expandable
-            href="/img/journal/2025-06/202506__teamMirai__10-0814-heatMap28-o2o0.png"
+            src="/img/journal/2025-06/202506__teamMirai__10-0814-heatMap28-o2o0.png"
             alt="Excel で作ったヒートマップ"
         />
 
@@ -75,7 +75,7 @@
 
         <talk-image
             expandable
-            href="/img/journal/2025-06/202506__teamMirai__09-1729-heatMap22-o1o0.png"
+            src="/img/journal/2025-06/202506__teamMirai__09-1729-heatMap22-o1o0.png"
             alt="Excel で作った文字数の少ないメモ"
         />
 
@@ -91,7 +91,7 @@
 
         <talk-image
             expandable
-            href="/img/journal/2025-06/202506__teamMirai__09-1750-heatMap25-o1o0.png"
+            src="/img/journal/2025-06/202506__teamMirai__09-1750-heatMap25-o1o0.png"
             alt="Excel の罫線で作った地図"
         />
 
@@ -113,7 +113,7 @@
 
         <talk-image
             expandable
-            href="/img/journal/2025-06/202506__teamMirai__09-1619-heatMap16-o3o0.png"
+            src="/img/journal/2025-06/202506__teamMirai__09-1619-heatMap16-o3o0.png"
             alt="Excel で開いた国勢調査のデータ"
         />
 
@@ -131,7 +131,7 @@
 
         <talk-image
             expandable
-            href="/img/journal/2025-06/202506__teamMirai__09-1740-heatMap24-o1o0.png"
+            src="/img/journal/2025-06/202506__teamMirai__09-1740-heatMap24-o1o0.png"
             alt="Excel で作った制御画面"
         />
 
@@ -187,7 +187,7 @@
 
         <talk-image
             expandable
-            href="/img/journal/2025-06/202506__teamMirai__09-1657-heatMap20-o1o0-mark.png"
+            src="/img/journal/2025-06/202506__teamMirai__09-1657-heatMap20-o1o0-mark.png"
             alt="マクロの入ってる Excel ファイルのアイコン"
         />
 
@@ -204,7 +204,7 @@
 
         <talk-image
             expandable
-            href="/img/journal/2025-06/202506__teamMirai__09-1700-heatMap21-o1o0-mark.png"
+            src="/img/journal/2025-06/202506__teamMirai__09-1700-heatMap21-o1o0-mark.png"
             alt="許可するチェックボックス"
         />
 

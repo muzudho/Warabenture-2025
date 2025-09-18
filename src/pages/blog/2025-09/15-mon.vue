@@ -20,7 +20,7 @@
 
         <talk-image
             expandable
-            :href="journal1png"
+            :src="journal1png"
             alt="ブログ記事を年月で絞り込めるリストボックス"
         />
 

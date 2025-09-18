@@ -6,7 +6,7 @@
     <section class="sec-1 pt-6">
 
         <talk-image
-            :href="reference1Png"
+            :src="reference1Png"
             alt="書庫"
         />
 

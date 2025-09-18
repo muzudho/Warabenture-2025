@@ -3,7 +3,7 @@
     <a
         v-if="expandable"
         target="_blank"
-        :href="props.href"
+        :href="props.src"
     >
         <!--
             img タグに比べ、 v-img タグは
@@ -13,7 +13,7 @@
         <v-img
             contain
             class="talk-image mb-6"
-            :src="props.href"
+            :src="props.src"
             :alt="props.alt"
         />
     </a>
@@ -22,7 +22,7 @@
         v-else
         contain
         class="talk-image mb-6"
-        :src="props.href"
+        :src="props.src"
         :alt="props.alt"
     />
 </template>
@@ -34,7 +34,7 @@
     // ####################################
     
     interface Props {
-        href: string;
+        src: string;
         alt: string;
         expandable?: boolean;    /* 画像の元ファイルに飛ぶリンクを付けるかの有無。画像の拡大を意図 */
     }
