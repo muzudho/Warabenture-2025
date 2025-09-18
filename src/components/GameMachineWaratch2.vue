@@ -111,6 +111,7 @@
                         width: `${2 * gridUnit}px`,
                         height: `${2 * gridUnit}px`,
                     }"
+                    :disabled="!props.powerOn"
                     @touchstart.prevent="button1Ref?.press($event, emit('onUpButtonPressed'), {repeat: true});"
                     @touchend="button1Ref?.release(emit('onUpButtonReleased'));"
                     @touchcancel="button1Ref?.release(emit('onUpButtonReleased'));"
@@ -130,6 +131,7 @@
                         width: `${2 * gridUnit}px`,
                         height: `${2 * gridUnit}px`,
                     }"
+                    :disabled="!props.powerOn"
                     @touchstart.prevent="button1Ref?.press($event, emit('onLeftButtonPressed'), {repeat: true});"
                     @touchend="button1Ref?.release(emit('onLeftButtonReleased'));"
                     @touchcancel="button1Ref?.release(emit('onLeftButtonReleased'));"
@@ -149,6 +151,7 @@
                         width: `${2 * gridUnit}px`,
                         height: `${2 * gridUnit}px`,
                     }"
+                    :disabled="!props.powerOn"
                     @touchstart.prevent="button1Ref?.press($event, emit('onRightButtonPressed'), {repeat: true});"
                     @touchend="button1Ref?.release(emit('onRightButtonReleased'));"
                     @touchcancel="button1Ref?.release(emit('onRightButtonReleased'));"
@@ -168,6 +171,7 @@
                         width: `${2 * gridUnit}px`,
                         height: `${2 * gridUnit}px`,
                     }"
+                    :disabled="!props.powerOn"
                     @touchstart.prevent="button1Ref?.press($event, emit('onDownButtonPressed'), {repeat: true});"
                     @touchend="button1Ref?.release(emit('onDownButtonReleased'));"
                     @touchcancel="button1Ref?.release(emit('onDownButtonReleased'));"
@@ -199,6 +203,7 @@
                         width: `${5 * gridUnit}px`,
                         height: `${2 * gridUnit}px`,
                     }"
+                    :disabled="!props.powerOn"
                     @touchstart.prevent="button1Ref?.press($event, emit('onSpaceButtonPressed'), {repeat: true});"
                     @touchend="button1Ref?.release(emit('onSpaceButtonReleased'));"
                     @touchcancel="button1Ref?.release(emit('onSpaceButtonReleased'));"
@@ -277,13 +282,14 @@
         style?: CompatibleStyleValue;
         screenWidth: number;
         screenHeight: number;
+        powerOn?: boolean;  // 電源は演出です
     }
     // デフォルト値を設定
     const props = defineProps<Props>();
 
 
     // ################################################
-    // # このコンポーネントが受け取るイベントハンドラ #
+    // # このコンポーネントが起こすイベントのハンドラ #
     // ################################################
 
     interface Emits {
@@ -298,7 +304,6 @@
         (event: 'onDownButtonReleased'): void;
         (event: 'onSpaceButtonPressed'): void;
         (event: 'onSpaceButtonReleased'): void;
-        
     }
     const emit = defineEmits<Emits>();
 

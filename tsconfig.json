@@ -5,7 +5,7 @@
     
     "compilerOptions": {
         // types フォルダーに型定義を入れるため：
-        "types": ["@types/node", "@nuxt/types"],
+        //"types": ["@types/node", "@nuxt/types"],
         "typeRoots": ["./types"]
     }
 }

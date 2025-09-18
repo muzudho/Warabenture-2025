@@ -45,6 +45,7 @@
                 }"
                 :screenWidth="appZoom * 3 * tileBoard1TileWidth"
                 :screenHeight="appZoom * 3 * tileBoard1TileHeight"
+                :powerOn="true"
                 v-on:onLeftButtonPressed="onLeftButtonPressed"
                 v-on:onLeftButtonReleased="onLeftButtonReleased"
                 v-on:onUpButtonPressed="onUpButtonPressed"

@@ -20,6 +20,7 @@
             }"
             :screenWidth="3 * 64"
             :screenHeight="3 * 64"
+            :powerOn="true"
             v-on:onLeftButtonPressed="onLeftButtonPressed"
             v-on:onLeftButtonReleased="onLeftButtonReleased"
             v-on:onUpButtonPressed="onUpButtonPressed"

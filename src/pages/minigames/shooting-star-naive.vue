@@ -10,178 +10,212 @@
         pagePath="."
     />
 
-    <h1>シューティング・スター（初級者向けのソースコード）</h1>
-    <section class="sec-1 mb-6">
+    <h1>シューティング・スター</h1>
+    <section class="sec-1 pt-6 mb-6">
 
         <!-- ゲームの操作方法 -->
-        <v-btn @click="appManualIsShowing = !appManualIsShowing">{{ appManualIsShowing ? 'ゲームの遊び方閉じる' : 'ゲームの遊び方を表示' }}</v-btn>
-        <section class="sec-0" v-if="appManualIsShowing">
-            <br>
+        <v-btn @click="gameMachine1ManualIsShowing = !gameMachine1ManualIsShowing">{{ gameMachine1ManualIsShowing ? 'ゲームの遊び方を閉じる' : 'ゲームの遊び方を表示' }}</v-btn>
+        <section class="sec-1 pt-6 pb-6" v-if="gameMachine1ManualIsShowing">
             <p>
                 このゲームは、星を撮影する、という状況を見立てたゲームだぜ。<br/>
                 <br/>
                 下に黒い画面が見えるように、ウィンドウを広げてくれだぜ。<br/>
                 この黒い画面は宇宙な。<br/>
-                ［ゲームスタート］ボタンを押すと、ゲームが始まるぜ。<br/>
+                ［▶］ボタンを押すと、ゲームが始まるぜ。<br/>
                 たまに星が流れてくる。<br/>
-                60秒の間に、カメラのファインダーを上下左右に動かして、星をファインダーの中に入っているときに、エンターキーを押してくれだぜ。これで 100点 だぜ。<br/>
+                60秒の間に、カメラのファインダー（点線の長方形だ）を上下左右に動かして、星をファインダーの中に入っているときに、［（スペース）］キーを押してくれだぜ。これで 100点 だぜ。<br/>
                 <br/>
                 飽きたら終わりだぜ。<br/>
+                <br/>
+                じゃあ、［ゲームの遊び方を閉じる］ボタンをクリックしてくれだぜ。
             </p>
-        </section><br/>
-        <br/>
-        <p>ボタン</p>
-        <ul>
-            <li>
-                <!-- ボタンを並べる -->
-                <v-btn
-                    class="code-key"
-                    @touchstart.prevent="button1Ref?.press($event, onGameStartOrEndButtonPushed, {repeat: true});"
-                    @touchend="button1Ref?.release();"
-                    @touchcancel="button1Ref?.release();"
-                    @touchleave="button1Ref?.release();"
-                    @mousedown.prevent="button1Ref?.handleMouseDown($event, onGameStartOrEndButtonPushed, {repeat: true})"
-                    @mouseup="button1Ref?.release();"
-                    @mouseleave="button1Ref?.release();"
-                >{{ appGameIsPlaying ? "ゲーム終了" : "ゲームスタート" }}</v-btn>
-                <v-btn
-                    class="code-key"
-                    @touchstart.prevent="button1Ref?.press($event, onGamePauseOrRestartButtonPushed, {repeat: true});"
-                    @touchend="button1Ref?.release();"
-                    @touchcancel="button1Ref?.release();"
-                    @touchleave="button1Ref?.release();"
-                    @mousedown.prevent="button1Ref?.handleMouseDown($event, onGamePauseOrRestartButtonPushed, {repeat: true})"
-                    @mouseup="button1Ref?.release();"
-                    @mouseleave="button1Ref?.release();"
-                >{{ appGameIsPause ? "再開" : "一時停止" }}</v-btn>
+        </section>
 
-                <!-- フォーカスを外すためのダミー・ボタンです -->
-                <v-btn
-                    class="noop-key"
-                    ref="noopButton"
-                    v-tooltip="'PCでのマウス操作で、フォーカスがコントロールに残って邪魔になるときは、このボタンを押してくれだぜ'"
-                >何もしないボタン</v-btn>
-            </li>
-        </ul>
-        <br/>
-        <p>キーボード操作方法</p>
-        <ul>
-            <li>ＰＣならボタンをマウスクリックか、キーボード操作、スマホならボタンをタッチ。</li>
-            <li>
-                <v-btn class="code-key hidden"/>
-                <v-btn
-                    class="code-key"
-                    @touchstart.prevent="button1Ref?.press($event, onUpButtonPressed, {repeat: true});"
-                    @touchend="button1Ref?.release(onUpButtonReleased);"
-                    @touchcancel="button1Ref?.release(onUpButtonReleased);"
-                    @touchleave="button1Ref?.release(onUpButtonReleased);"
-                    @mousedown.prevent="button1Ref?.handleMouseDown($event, onUpButtonPressed, {repeat: true})"
-                    @mouseup="button1Ref?.release(onUpButtonReleased);"
-                    @mouseleave="button1Ref?.release(onUpButtonReleased);"
-                >↑</v-btn>
-                <br/>
-                <v-btn
-                    class="code-key"
-                    @touchstart.prevent="button1Ref?.press($event, onLeftButtonPressed, {repeat: true});"
-                    @touchend="button1Ref?.release(onLeftButtonReleased);"
-                    @touchcancel="button1Ref?.release(onLeftButtonReleased);"
-                    @touchleave="button1Ref?.release(onLeftButtonReleased);"
-                    @mousedown.prevent="button1Ref?.handleMouseDown($event, onLeftButtonPressed, {repeat: true})"
-                    @mouseup="button1Ref?.release(onLeftButtonReleased);"
-                    @mouseleave="button1Ref?.release(onLeftButtonReleased);"
-                >←</v-btn>
-                <v-btn class="code-key hidden"/>
-                <v-btn
-                    class="code-key"
-                    @touchstart.prevent="button1Ref?.press($event, onRightButtonPressed, {repeat: true});"
-                    @touchend="button1Ref?.release(onRightButtonReleased);"
-                    @touchcancel="button1Ref?.release(onRightButtonReleased);"
-                    @touchleave="button1Ref?.release(onRightButtonReleased);"
-                    @mousedown.prevent="button1Ref?.handleMouseDown($event, onRightButtonPressed, {repeat: true})"
-                    @mouseup="button1Ref?.release(onRightButtonReleased);"
-                    @mouseleave="button1Ref?.release(onRightButtonReleased);"
-                >→</v-btn>
-                　…　カメラのファインダー（点線の長方形だ）を上下左右に移動
-                <br/>
-                <v-btn class="code-key hidden"/>
-                <v-btn
-                    class="code-key"
-                    @touchstart.prevent="button1Ref?.press($event, onDownButtonPressed, {repeat: true});"
-                    @touchend="button1Ref?.release(onDownButtonReleased);"
-                    @touchcancel="button1Ref?.release(onDownButtonReleased);"
-                    @touchleave="button1Ref?.release(onDownButtonReleased);"
-                    @mousedown.prevent="button1Ref?.handleMouseDown($event, onDownButtonPressed, {repeat: true})"
-                    @mouseup="button1Ref?.release(onDownButtonReleased);"
-                    @mouseleave="button1Ref?.release(onDownButtonReleased);"
-                >↓</v-btn>
-                <br/>
-            </li>
-            <li>
-                <v-btn
-                    class="code-key"
-                    @touchstart.prevent="button1Ref?.press($event, onEnterButtonPressed, {repeat: true});"
-                    @touchend="button1Ref?.release(onEnterButtonReleased);"
-                    @touchcancel="button1Ref?.release(onEnterButtonReleased);"
-                    @touchleave="button1Ref?.release(onEnterButtonReleased);"
-                    @mousedown.prevent="button1Ref?.handleMouseDown($event, onEnterButtonPressed, {repeat: true})"
-                    @mouseup="button1Ref?.release(onEnterButtonReleased);"
-                    @mouseleave="button1Ref?.release(onEnterButtonReleased);"
-                >（エンター）</v-btn>
-                　…　撮影。
-            </li>
-        </ul>
-        <br/>
-        <div>
-            <p style="font-size: x-large; margin-top: 8px; margin-bottom: 8px;">
-            スコア： {{ appGameScore }}　　残り時間: {{ Math.floor((appGameMaxCount - stopwatch1Count) / commonSeconds) }} . {{ (appGameMaxCount - stopwatch1Count) % commonSeconds }}
-            </p>
-        </div>
+        <p class="mt-6">ボタン</p>
+        <section class="sec-0 mb-6">
+            <!-- ボタンを並べる -->
+
+            
+            <v-btn
+                class="code-key"
+                @touchstart.prevent="button1Ref?.press($event, onPowerOnButtonPushed, {repeat: false});"
+                @touchend="button1Ref?.release();"
+                @touchcancel="button1Ref?.release();"
+                @touchleave="button1Ref?.release();"
+                @mousedown.prevent="button1Ref?.handleMouseDown($event, onPowerOnButtonPushed, {repeat: false})"
+                @mouseup="button1Ref?.release();"
+                @mouseleave="button1Ref?.release();"
+            >{{ gameMachine1IsPowerOn ? "Off" : "On" }}</v-btn>
+
+            
+            <v-btn
+                class="code-key"
+                :disabled="!startButton1Enabled"
+                @touchstart.prevent="button1Ref?.press($event, onGameStartOrEndButtonPushed, {repeat: false});"
+                @touchend="button1Ref?.release();"
+                @touchcancel="button1Ref?.release();"
+                @touchleave="button1Ref?.release();"
+                @mousedown.prevent="button1Ref?.handleMouseDown($event, onGameStartOrEndButtonPushed, {repeat: false})"
+                @mouseup="button1Ref?.release();"
+                @mouseleave="button1Ref?.release();"
+            >{{ gameMachine1IsPlaying ? "⏹" : "▶" }}</v-btn>
+
+
+            <v-btn
+                class="code-key"
+                :disabled="!pauseButton1Enabled"
+                @touchstart.prevent="button1Ref?.press($event, onGamePauseOrRestartButtonPushed, {repeat: false});"
+                @touchend="button1Ref?.release();"
+                @touchcancel="button1Ref?.release();"
+                @touchleave="button1Ref?.release();"
+                @mousedown.prevent="button1Ref?.handleMouseDown($event, onGamePauseOrRestartButtonPushed, {repeat: false})"
+                @mouseup="button1Ref?.release();"
+                @mouseleave="button1Ref?.release();"
+            >{{ gameMachine1IsPause ? "⏯" : "⏸" }}</v-btn>
+
+
+        </section>
+        <p style="font-size: x-large; margin-top: 8px; margin-bottom: 8px;">
+            スコア： {{ gameMachine1Score }}　　残り時間: {{ Math.floor((gameMachine1MaxCount - stopwatch1Count) / commonSeconds) }} . {{ (gameMachine1MaxCount - stopwatch1Count) % commonSeconds }}
+        </p>
 
         <!-- ストップウォッチ。デバッグに使いたいときは、 display: none; を消してください。 -->
         <stopwatch
             ref="stopwatch1Ref"
-            v-on:countUp="(countNum) => { stopwatch1Count = countNum; }"
+            v-on:countUp="(countNum: number) => { stopwatch1Count = countNum; }"
             style="display: none;" />
 
-        <!-- ゲーム画面領域（宇宙） -->
-        <div style="position:relative; left: 0; top: 0; width:512px; height:384px; background-color: #303030;">
-            <!--
-                グリッド
-                NOTE: ループカウンターは 1 から始まるので、1～9の9個のセルを作成。
-            -->
-            <div
-                v-for="i in board1Area"
-                :key="i"
-                :style="`position:absolute; top: ${Math.floor((i - 1) / board1Files) * tileBoard1TileHeight}px; left: ${((i - 1) % board1Files) * tileBoard1TileWidth}px; width:${tileBoard1TileWidth}px; height:${tileBoard1TileHeight}px; border: solid 1px gray;`"></div>
+        
+        <!-- ゲームマシン１ -->
+        <game-machine-waratch2
+            :hardLocationStyle="{
+                left: '0px',
+                top: '0px',
+            }"
+            :screenWidth="gameMachine1Zoom * board1FileNum * tileBoard1TileWidth"
+            :screenHeight="gameMachine1Zoom * board1RankNum * tileBoard1TileHeight"
+            :powerOn="gameMachine1IsPowerOn"
+            v-on:onLeftButtonPressed="onLeftButtonPressed"
+            v-on:onLeftButtonReleased="onLeftButtonReleased"
+            v-on:onUpButtonPressed="onUpButtonPressed"
+            v-on:onUpButtonReleased="onUpButtonReleased"
+            v-on:onRightButtonPressed="onRightButtonPressed"
+            v-on:onRightButtonReleased="onRightButtonReleased"
+            v-on:onDownButtonPressed="onDownButtonPressed"
+            v-on:onDownButtonReleased="onDownButtonReleased"
+            v-on:onSpaceButtonPressed="onSpaceButtonPressed"
+            v-on:onSpaceButtonReleased="onSpaceButtonReleased"
+        >
+            <template #default>
+                <!-- ゲーム画面の全体サイズと、切り抜き領域 -->
+                <div
+                    :style="{
+                        visibility: gameMachine1Visibility,
+                        width: `${board1FileNum * tileBoard1TileWidth}px`,
+                        height: `${board1RankNum * tileBoard1TileHeight}px`,
+                        zoom: gameMachine1Zoom,
+                    }"
+                    style="
+                        position:relative;
+                        left: 0;
+                        top: 0;
+                        background-color: #303030;
+                    "
+                >
+                    <!--
+                        グリッド
+                        NOTE: ループカウンターは 1 から始まるので、1～9の9個のセルを作成。
+                    -->
+                    <div
+                        v-for="i in board1Area"
+                        :key="i"
+                        :style="{
+                            top: `${Math.floor((i - 1) / board1FileNum) * tileBoard1TileHeight}px`,
+                            left: `${((i - 1) % board1FileNum) * tileBoard1TileWidth}px`,
+                            width: `${tileBoard1TileWidth}px`,
+                            height: `${tileBoard1TileHeight}px`,
+                        }"
+                        style="
+                            position: absolute;
+                            border: solid 1px gray;
+                        "
+                        ></div>
 
-            <!-- 星 -->
-            <Tile
-                :srcLeft="0"
-                :srcTop="0"
-                :srcWidth="tileBoard1TileWidth"
-                :srcHeight="tileBoard1TileHeight"
-                tilemapUrl="/img/making/sprite-objects-001.png"
-                :style="starStyle"
-                style="position:absolute;" /><br/>
+                    <!-- 星 -->
+                    <Tile
+                        :srcLeft="0"
+                        :srcTop="0"
+                        :srcWidth="tileBoard1TileWidth"
+                        :srcHeight="tileBoard1TileHeight"
+                        tilemapUrl="/img/making/sprite-objects-001.png"
+                        :style="starStyle"
+                        style="position:absolute;" /><br/>
 
-            <!-- カメラのファインダー（点線の枠） -->
-            <div
-                class="player"
-                :style="playerStyle"
-                style="position:absolute;" ></div>
+                    <!-- カメラのファインダー（点線の枠） -->
+                    <div
+                        class="player"
+                        :style="playerStyle"
+                        style="position:absolute;" ></div>
 
-            <!-- リロードのカウントダウン（パイみたいなやつ） -->
-            <Tile
-                :srcLeft="reloadPie1TileLeft"
-                :srcTop="reloadPie1TileTop"
-                :srcWidth="tileBoard1TileWidth"
-                :srcHeight="tileBoard1TileHeight"
-                tilemapUrl="/img/making/202508__warabenture__16-2357-8counts-red.png"
-                :style="reloadPieStyle"
-                style="position:absolute;" /><br/>
-                
-        </div>
+                    <!-- リロードのカウントダウン（パイみたいなやつ） -->
+                    <Tile
+                        :srcLeft="reloadPie1TileLeft"
+                        :srcTop="reloadPie1TileTop"
+                        :srcWidth="tileBoard1TileWidth"
+                        :srcHeight="tileBoard1TileHeight"
+                        tilemapUrl="/img/making/202508__warabenture__16-2357-8counts-red.png"
+                        :style="reloadPieStyle"
+                        style="position:absolute;" /><br/>
+                        
+                    <!-- メッセージ -->
+                    <p
+                        v-if="!gameMachine1IsPlaying"
+                        :style="{
+                            left: `${tileBoard1TileWidth}px`,
+                            top: `${8 * tileBoard1TileHeight}px`,
+                            width: `${14 * tileBoard1TileHeight}px`,
+                        }"
+                        style="
+                            position: absolute;
+                            font-size: 28px;
+                            color: white;
+                        "
+                    >ボタン操作の練習ができます。ゲームを開始するには、ゲーム機の上の［▶］ボタンを押してください。</p>
+                </div>
 
+            </template>
+        </game-machine-waratch2>
+
+
+        <section class="sec-0 mt-6 mb-6">
+            <!-- お好み設定パネル１ -->
+            <v-btn
+                class="code-key"
+                @touchstart.prevent="button1Ref?.press($event, onPreferences1ButtonPressed);"
+                @touchend="button1Ref?.release();"
+                @touchcancel="button1Ref?.release();"
+                @touchleave="button1Ref?.release();"
+                @mousedown.prevent="button1Ref?.handleMouseDown($event, onPreferences1ButtonPressed)"
+                @mouseup="button1Ref?.release();"
+                @mouseleave="button1Ref?.release();"
+            >{{ gameMachine1PreferencesIsShowing ? '⚙️お好み設定を終わる' : '⚙️お好み設定を表示' }}</v-btn>
+            <section
+                v-if="gameMachine1PreferencesIsShowing"
+                class="sec-0 pt-6 pb-6"
+                style="background-color: rgb(0, 0, 0, 0.1);"
+            >
+                <v-slider
+                    label="ズーム"
+                    v-model="gameMachine1Zoom"
+                    :min="0.375"
+                    :max="4"
+                    step="0.125"
+                    showTicks="always"
+                    thumbLabel="always" />
+            </section>
+        </section>
+
+        
         <!-- デバッグ用 -->
         <!--
             <p>スケジュール・ステップ: {{ appGameScheduleStep.value }}</p>
@@ -223,12 +257,13 @@
     // ++++++++++++++++++++++++++++++++++
 
     // アルファベット順
-    import Button20250822 from '../../components/Button20250822.vue';
+    import Button20250822 from '@/components/Button20250822.vue';
     import ButtonToBackToContents from '@/components/ButtonToBackToContents.vue';
     import ButtonToGoToTop from '@/components/ButtonToGoToTop.vue';
-    import SourceLink from '../../components/SourceLink.vue';
-    import Stopwatch from '../../components/Stopwatch.vue';
-    import Tile from '../../components/Tile.vue';
+    import GameMachineWaratch2 from '@/components/GameMachineWaratch2.vue';
+    import SourceLink from '@/components/SourceLink.vue';
+    import Stopwatch from '@/components/Stopwatch.vue';
+    import Tile from '@/components/Tile.vue';
 
     // ++++++++++++++++++++++++++
     // + インポート　＞　ページ +
@@ -249,21 +284,6 @@
     const commonSpriteMotionRight = 1;
     const commonSpriteMotionUp = -1;
     const commonSpriteMotionDown = 1;
-
-
-    // ############################
-    // # アプリケーション・データ #
-    // ############################
-    //
-    // 今動いているアプリケーションの状態を記録しているデータ。特に可変のもの。
-    //
-
-    const appManualIsShowing = ref<boolean>(false);     // ゲームの操作方法・遊び方説明書を表示中
-    const appGameScore = ref<number>(0);                // 得点
-    const appGameIsPlaying = ref<boolean>(false);       // ゲーム中
-    const appGameIsPause = ref<boolean>(false);         // ゲームは一時停止中
-    const appGameMaxCount = computed(()=>60 * commonSeconds);   // ゲーム時間は１分
-    const appGameScheduleStep = ref<number>(0);         // 星の出現スケジュール
 
 
     // ################
@@ -311,17 +331,43 @@
     // # オブジェクト #
     // ################
 
-    // ++++++++++++++++++++++++++++++++++++++
-    // + オブジェクト　＞　何もしないボタン +
-    // ++++++++++++++++++++++++++++++++++++++
-
-    const noopButton = ref<InstanceType<typeof VBtn> | null>(null);
-
-    // ++++++++++++++++++++++++++++++++++++++++++++
-    // + オブジェクト　＞　ボタン押しっぱなし機能 +
-    // ++++++++++++++++++++++++++++++++++++++++++++
+    // ++++++++++++++++++++++++++++++
+    // + オブジェクト　＞　拡張機能 +
+    // ++++++++++++++++++++++++++++++
 
     const button1Ref = ref<InstanceType<typeof Button20250822> | null>(null);
+
+    // ++++++++++++++++++++++++++++++++++++
+    // + オブジェクト　＞　ゲームマシン１ +
+    // ++++++++++++++++++++++++++++++++++++
+
+    const gameMachine1ManualIsShowing = ref<boolean>(false);    // ゲームの操作方法・遊び方説明書を表示中
+    const gameMachine1IsPowerOn = ref<boolean>(false);  // 電源ボタンは演出です
+    const gameMachine1Visibility = ref<string>('hidden');
+    const gameMachine1IsPlaying = ref<boolean>(false);  // ゲーム中
+    const gameMachine1IsPause = ref<boolean>(false);    // ゲームは一時停止中
+    const gameMachine1Zoom = ref<number>(0.375);    // ズーム
+    const gameMachine1Score = ref<number>(0);   // 得点
+    const gameMachine1MaxCount = computed(()=>60 * commonSeconds);  // ゲーム時間は１分
+    const gameMachine1ScheduleStep = ref<number>(0);    // 星の出現スケジュール
+
+    // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    // + オブジェクト　＞　ゲームマシン１　＞　開始／終了ボタン +
+    // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+    const startButton1Enabled = ref<boolean>(false);
+
+    // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    // + オブジェクト　＞　ゲームマシン１　＞　一時停止／再開ボタン +
+    // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+    const pauseButton1Enabled = ref<boolean>(false);
+
+    // ++++++++++++++++++++++++++++++++++++++++++++++++++++
+    // + オブジェクト　＞　ゲームマシン１　＞　お好み設定 +
+    // ++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+    const gameMachine1PreferencesIsShowing = ref<boolean>(false);
 
     // ++++++++++++++++++++++++++++++++++++++++
     // + オブジェクト　＞　ストップウォッチ１ +
@@ -336,7 +382,7 @@
         // - オブジェクト　＞　ストップウォッチ１　＞　スケジュール -
         // ----------------------------------------------------------
 
-        switch (appGameScheduleStep.value) {
+        switch (gameMachine1ScheduleStep.value) {
             case 0:
                 // ゲーム開始から1秒後、星表示
                 if (newCount >= 1 * commonSeconds) {
@@ -344,14 +390,14 @@
                     star1StartFiles.value = 5;
                     star1StartRanks.value = 3;
                     star1Visibility.value = 'visible';
-                    appGameScheduleStep.value += 1;                    
+                    gameMachine1ScheduleStep.value += 1;                    
                 }
                 break;
             case 1:
                 // ゲーム開始から3秒後、星非表示
                 if (newCount >= 3 * commonSeconds) {
                     star1Visibility.value = 'hidden';
-                    appGameScheduleStep.value += 1;
+                    gameMachine1ScheduleStep.value += 1;
                 }
                 break;
             case 2:
@@ -361,14 +407,14 @@
                     star1StartFiles.value = 9;
                     star1StartRanks.value = 9;
                     star1Visibility.value = 'visible';
-                    appGameScheduleStep.value += 1;
+                    gameMachine1ScheduleStep.value += 1;
                 }
                 break;
             case 3:
                 // ゲーム開始から6秒後、星非表示
                 if (newCount >= 6 * commonSeconds) {
                     star1Visibility.value = 'hidden';
-                    appGameScheduleStep.value += 1;
+                    gameMachine1ScheduleStep.value += 1;
                 }
                 break;
             case 4:
@@ -378,14 +424,14 @@
                     star1StartFiles.value = 0;
                     star1StartRanks.value = 8;
                     star1Visibility.value = 'visible';
-                    appGameScheduleStep.value += 1;
+                    gameMachine1ScheduleStep.value += 1;
                 }
                 break;
             case 5:
                 // ゲーム開始から10秒後、星非表示
                 if (newCount >= 10 * commonSeconds) {
                     star1Visibility.value = 'hidden';
-                    appGameScheduleStep.value += 1;
+                    gameMachine1ScheduleStep.value += 1;
                 }
                 break;
             case 6:
@@ -395,14 +441,14 @@
                     star1StartFiles.value = 12;
                     star1StartRanks.value = 5;
                     star1Visibility.value = 'visible';
-                    appGameScheduleStep.value += 1;
+                    gameMachine1ScheduleStep.value += 1;
                 }
                 break;
             case 7:
                 // ゲーム開始から15秒後、星非表示
                 if (newCount >= 15 * commonSeconds) {
                     star1Visibility.value = 'hidden';
-                    appGameScheduleStep.value += 1;
+                    gameMachine1ScheduleStep.value += 1;
                 }
                 break;
             case 8:
@@ -412,14 +458,14 @@
                     star1StartFiles.value = 3;
                     star1StartRanks.value = 3;
                     star1Visibility.value = 'visible';
-                    appGameScheduleStep.value += 1;
+                    gameMachine1ScheduleStep.value += 1;
                 }
                 break;
             case 9:
                 // ゲーム開始から21秒後、星非表示
                 if (newCount >= 21 * commonSeconds) {
                     star1Visibility.value = 'hidden';
-                    appGameScheduleStep.value += 1;
+                    gameMachine1ScheduleStep.value += 1;
                 }
                 break;
             case 10:
@@ -429,14 +475,14 @@
                     star1StartFiles.value = 6;
                     star1StartRanks.value = 11;
                     star1Visibility.value = 'visible';
-                    appGameScheduleStep.value += 1;
+                    gameMachine1ScheduleStep.value += 1;
                 }
                 break;
             case 11:
                 // ゲーム開始から29秒後、星非表示
                 if (newCount >= 29 * commonSeconds) {
                     star1Visibility.value = 'hidden';
-                    appGameScheduleStep.value += 1;
+                    gameMachine1ScheduleStep.value += 1;
                 }
                 break;
             case 12:
@@ -446,14 +492,14 @@
                     star1StartFiles.value = 4;
                     star1StartRanks.value = 6;
                     star1Visibility.value = 'visible';
-                    appGameScheduleStep.value += 1;
+                    gameMachine1ScheduleStep.value += 1;
                 }
                 break;
             case 13:
                 // ゲーム開始から36秒後、星非表示
                 if (newCount >= 36 * commonSeconds) {
                     star1Visibility.value = 'hidden';
-                    appGameScheduleStep.value += 1;
+                    gameMachine1ScheduleStep.value += 1;
                 }
                 break;
             case 14:
@@ -463,14 +509,14 @@
                     star1StartFiles.value = 5;
                     star1StartRanks.value = 0;
                     star1Visibility.value = 'visible';
-                    appGameScheduleStep.value += 1;
+                    gameMachine1ScheduleStep.value += 1;
                 }
                 break;
             case 15:
                 // ゲーム開始から41秒後、星非表示
                 if (newCount >= 41 * commonSeconds) {
                     star1Visibility.value = 'hidden';
-                    appGameScheduleStep.value += 1;
+                    gameMachine1ScheduleStep.value += 1;
                 }
                 break;
             case 16:
@@ -480,14 +526,14 @@
                     star1StartFiles.value = 6;
                     star1StartRanks.value = 7;
                     star1Visibility.value = 'visible';
-                    appGameScheduleStep.value += 1;
+                    gameMachine1ScheduleStep.value += 1;
                 }
                 break;
             case 17:
                 // ゲーム開始から48秒後、星非表示
                 if (newCount >= 48 * commonSeconds) {
                     star1Visibility.value = 'hidden';
-                    appGameScheduleStep.value += 1;
+                    gameMachine1ScheduleStep.value += 1;
                 }
                 break;
             case 18:
@@ -497,14 +543,14 @@
                     star1StartFiles.value = 7;
                     star1StartRanks.value = 3;
                     star1Visibility.value = 'visible';
-                    appGameScheduleStep.value += 1;
+                    gameMachine1ScheduleStep.value += 1;
                 }
                 break;
             case 19:
                 // ゲーム開始から54秒後、星非表示
                 if (newCount >= 54 * commonSeconds) {
                     star1Visibility.value = 'hidden';
-                    appGameScheduleStep.value += 1;
+                    gameMachine1ScheduleStep.value += 1;
                 }
                 break;
             case 20:
@@ -514,19 +560,19 @@
                     star1StartFiles.value = 8;
                     star1StartRanks.value = 9;
                     star1Visibility.value = 'visible';
-                    appGameScheduleStep.value += 1;
+                    gameMachine1ScheduleStep.value += 1;
                 }
                 break;
             case 21:
                 // ゲーム開始から60秒後、星非表示
                 if (newCount >= 59 * commonSeconds) {
                     star1Visibility.value = 'hidden';
-                    appGameScheduleStep.value += 1;
+                    gameMachine1ScheduleStep.value += 1;
                 }
                 break;
         }
 
-        if (newCount >= appGameMaxCount.value) {
+        if (newCount >= gameMachine1MaxCount.value) {
             // ゲーム停止
             stopwatch1Ref.value?.timerStop();  // タイマーをストップ
         }
@@ -536,12 +582,13 @@
     // + オブジェクト　＞　タイル盤１ +
     // ++++++++++++++++++++++++++++++++
 
+    // NOTE: ソース画像マップと、表示画面のスケールは等倍とします。変えると難しい。
     const tileBoard1TileWidth = ref<number>(32);  // マスの横幅（ピクセル）
     const tileBoard1TileHeight = ref<number>(32); // マスの縦幅（ピクセル）
-    const board1Files = ref<number>(16);        // 盤が横に何マスか
-    const board1Ranks = ref<number>(12);        // 盤が縦に何マスか
+    const board1FileNum = ref<number>(16);        // 盤が横に何マスか
+    const board1RankNum = ref<number>(12);        // 盤が縦に何マスか
     const board1Area = computed(()=>{           // 盤のマス数
-        return board1Files.value * board1Ranks.value;
+        return board1FileNum.value * board1RankNum.value;
     });
 
     // ++++++++++++++++++++++++
@@ -580,13 +627,14 @@
     const player1Top = ref<number>(4 * tileBoard1TileHeight.value);     // スプライトのY座標
     const player1FileNum = ref<number>(4);                            // スプライトの列数
     const player1RankNum = ref<number>(3);                            // スプライトの行数
-    const player1Speed = ref<number>(4);                              // 移動速度
     const player1Input = <Record<string, boolean>>{                     // 入力
         // アルファベット順
-        ArrowDown: false, ArrowLeft: false, ArrowUp: false, ArrowRight: false, Enter: false,
+        " ": false, ArrowDown: false, ArrowLeft: false, ArrowUp: false, ArrowRight: false,
     };
-    const player1AnimationWalkingFrames = 8;                        // 歩行フレーム数
     const player1MotionWait = ref<number>(0);   // 排他的モーション時間。
+    const player1AnimationWalkingFrames = 8;                        // 歩行フレーム数
+    const player1SpeedHorizontal = ref<number>(tileBoard1TileWidth.value / player1AnimationWalkingFrames);  // 移動速度。割り切れるようにすること
+    const player1SpeedVertical = ref<number>(tileBoard1TileHeight.value / player1AnimationWalkingFrames);
     const player1Motion = ref<Record<string, number>>({             // 入力
         xAxis: 0,   // 負なら左、正なら右
         yAxis: 0,   // 負なら上、正なら下
@@ -647,12 +695,13 @@
     });
 
 
-    // ##########
-    // # 開始時 #
-    // ##########
+    // ###############
+    // # 開始 / 終了 #
+    // ###############
 
     onMounted(() => {
         sfxLoad();
+        powerOn();  // 電源を入れる演出
         gameInit();
         gameLoopStart();
 
@@ -661,8 +710,8 @@
         //      window はブラウザーのオブジェクトなので、（サーバー側ではプリレンダリングできないので）マウント後にアクセスします。
         //
         window.addEventListener('keydown', (e: KeyboardEvent) => {
-            // 上下キーの場合
-            if (e.key === 'ArrowUp' || e.key === 'ArrowDown') {
+            // スペース、上下キーの場合
+            if (e.key == ' ' || e.key === 'ArrowUp' || e.key === 'ArrowDown') {
                 // ブラウザーのデフォルトの上下スクロール動作をキャンセル
                 e.preventDefault();
             }
@@ -708,36 +757,74 @@
     // ################
 
     /**
-     * ［ゲームスタート］または［ゲーム終了］ボタン押下時。（状態により切り替わります）
+     * 電源ボタン押下時
      */
-    function onGameStartOrEndButtonPushed() : void {
-        focusRemove();  // フォーカスを外す
-
-        if(appGameIsPlaying.value) {
-            // ゲームを終了させます
-            gameInit();
+    function onPowerOnButtonPushed() : void {
+        if(gameMachine1IsPowerOn.value) {
+            powerOff();
             return;
         }
 
-        stopwatch1Ref.value?.timerStart();  // タイマーをスタート
-
-        appGameIsPlaying.value = !appGameIsPlaying.value;
+        powerOn();
     }
 
 
     /**
-     * ［一時停止］または［再開］ボタン押下時。（状態により切り替わります）
+     * ［▶］（再生）または［⏹］（停止）ボタン押下時。（状態により切り替わります）
+     */
+    function onGameStartOrEndButtonPushed() : void {
+        if(gameMachine1IsPlaying.value) {
+            gameStop();
+            return;
+        }
+
+        gameStart();
+    }
+
+
+    function powerOn() : void {
+        startButton1Enabled.value = true;
+        gameMachine1Visibility.value = 'visible';
+        gameMachine1IsPowerOn.value = true;
+    }
+
+
+    function powerOff() : void {
+        if(gameMachine1IsPlaying.value) {    // ゲーム中なら、停止させます
+            gameStop();
+        }
+
+        startButton1Enabled.value = false;
+        gameMachine1Visibility.value = 'hidden';
+        gameMachine1IsPowerOn.value = false;
+    }
+
+
+    function gameStart() : void {
+        stopwatch1Ref.value?.timerStart();  // タイマーをスタート
+        pauseButton1Enabled.value = true;
+        gameMachine1IsPlaying.value = !gameMachine1IsPlaying.value;
+    }
+
+
+    function gameStop() : void {
+        pauseButton1Enabled.value = false;
+        gameInit(); // ゲームは終了したので、初期状態に戻します
+    }
+
+
+    /**
+     * ［⏸］（一時停止）または［⏯］（再開）ボタン押下時。（状態により切り替わります）
      */
     function onGamePauseOrRestartButtonPushed() : void {
-        focusRemove();  // フォーカスを外す
-
-        if(appGameIsPause.value) {
+        if(gameMachine1IsPause.value) {
+            // FIXME: ゲーム終了時にリスタートすると、タイマーが負に進んでしまう。
             stopwatch1Ref.value?.timerStart();  // タイマーをスタート
         } else {
             stopwatch1Ref.value?.timerStop();  // タイマーをストップ
         }
 
-        appGameIsPause.value = !appGameIsPause.value;
+        gameMachine1IsPause.value = !gameMachine1IsPause.value;
     }
 
 
@@ -747,10 +834,10 @@
     function gameInit() : void {
         stopwatch1Ref.value?.timerReset();  // タイマーをリセット
 
-        appGameScore.value = 0;
-        appGameIsPlaying.value = false;
-        appGameIsPause.value = false;
-        appGameScheduleStep.value = 0;
+        gameMachine1Score.value = 0;
+        gameMachine1IsPlaying.value = false;
+        gameMachine1IsPause.value = false;
+        gameMachine1ScheduleStep.value = 0;
 
         star1Visibility.value = 'hidden';
     }
@@ -779,7 +866,7 @@
             // ++++++++++++++++++++++++++++++
             if (player1MotionWait.value<=0) {   // ウェイトが無ければ、入力を受け付ける。
 
-                if (player1Input.Enter) {
+                if (player1Input[" "]) {
                     cameraShot();   // 撮影
                 }
 
@@ -807,22 +894,22 @@
             // 移動処理
             // 斜め方向の場合、上下を優先する。
             if (player1Motion.value["xAxis"]==1) {   // 右
-                if (player1Left.value < (board1Files.value - player1FileNum.value) * tileBoard1TileWidth.value) {    // 境界チェック
-                    player1Left.value += player1Speed.value;
+                if (player1Left.value < (board1FileNum.value - player1FileNum.value) * tileBoard1TileWidth.value) {    // 境界チェック
+                    player1Left.value += player1SpeedHorizontal.value;
                 }
             } else if (player1Motion.value["xAxis"]==-1) {  // 左
                 if (0 < player1Left.value) {    // 境界チェック
-                    player1Left.value -= player1Speed.value;
+                    player1Left.value -= player1SpeedHorizontal.value;
                 }
             }
 
             if (player1Motion.value["yAxis"]==-1) {  // 上
                 if (0 < player1Top.value) {    // 境界チェック
-                    player1Top.value -= player1Speed.value;
+                    player1Top.value -= player1SpeedVertical.value;
                 }
             } else if (player1Motion.value["yAxis"]==1) {   // 下
-                if (player1Top.value < (board1Ranks.value - player1RankNum.value) * tileBoard1TileHeight.value) {    // 境界チェック
-                    player1Top.value += player1Speed.value;
+                if (player1Top.value < (board1RankNum.value - player1RankNum.value) * tileBoard1TileHeight.value) {    // 境界チェック
+                    player1Top.value += player1SpeedVertical.value;
                 }
             }
 
@@ -885,17 +972,7 @@
             sfxCameraShutterAudio.play();
         }
 
-        appGameScore.value += 100;
-    }
-
-
-    /**
-     * フォーカスを外すのが上手くいかないため、［何もしないボタン］にフォーカスを合わせます。
-     */
-    function focusRemove() : void {
-        if (noopButton.value) {
-            noopButton.value.$el.focus();    // $el は、<v-btn> 要素の中の <button> 要素。
-        }
+        gameMachine1Score.value += 100;
     }
 
 
@@ -952,15 +1029,23 @@
 
 
     /**
-     * エンター・キー。
+     * スペース・キー。
      */
-    function onEnterButtonPressed() : void {
-        player1Input.Enter = true;
+    function onSpaceButtonPressed() : void {
+        player1Input[" "] = true;
     }
 
 
-    function onEnterButtonReleased() : void {
-        player1Input.Enter = false;
+    function onSpaceButtonReleased() : void {
+        player1Input[" "] = false;
+    }
+
+
+    /**
+     * ［お好み設定パネル１］を開くボタン。
+     */
+    function onPreferences1ButtonPressed() : void {
+        gameMachine1PreferencesIsShowing.value = !gameMachine1PreferencesIsShowing.value;
     }
 
 </script>

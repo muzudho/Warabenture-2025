@@ -4,10 +4,15 @@
         <!-- 他のページと縦幅を揃えるために、何の働きもしない空ボタンを置いています。 -->
 
         <ul>
-            <li>📖 <router-link to="/minigames/shooting-star" :class="getLinkHighlight('/minigames/shooting-star')">シューティングスター</router-link> - 一瞬流れる星に狙いを付けろだぜ！</li>
+            <li>📖 <router-link to="/minigames/shooting-star-naive" :class="getLinkHighlight('/minigames/shooting-star-naive')">シューティングスター</router-link> - 一瞬流れる星に狙いを付けろだぜ！</li>
+            <!--
             <ul>
-                <li>📖 <router-link to="/minigames/shooting-star-naive" :class="getLinkHighlight('/minigames/shooting-star-naive')">同上</router-link> - ソースコードが初級者向けの書き方版</li>
+                <li>📖 <router-link to="/minigames/shooting-star-reactive" :class="getLinkHighlight('/minigames/shooting-star-reactive')">同上</router-link> - ソースコードにリアクティブを用いた書き方</li>
             </ul>
+            -->
+            <!--
+            <li>📖 <router-link to="/minigames/maze" :class="getLinkHighlight('/minigames/maze')">迷路</router-link> - ただ歩くだけ！</li>
+            -->
         </ul>
     </section>
 </template>
