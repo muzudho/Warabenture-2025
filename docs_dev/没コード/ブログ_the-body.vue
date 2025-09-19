@@ -8,7 +8,7 @@
         :key="pageKey"
     >
         <blog-article :page="pageKey"/>
-        <button-to-go-to-top class="sec-1 pt-6"/>
+        <button-to-back-to-top class="sec-1 pt-6"/>
     </template>
 </template>
 
@@ -23,7 +23,7 @@
     // ++++++++++++++++++++++++++++++++++
 
     import BlogArticle from '@/components/BlogArticle.vue';
-    import ButtonToGoToTop from '@/components/ButtonToGoToTop.vue';
+    import ButtonToBackToTop from '@/components/ButtonToBackToTop.vue';
 
 
     // ################

@@ -112,13 +112,13 @@
                         height: `${2 * gridUnit}px`,
                     }"
                     :disabled="!props.powerOn"
-                    @touchstart.prevent="button1Ref?.press($event, emit('onUpButtonPressed'), {repeat: true});"
-                    @touchend="button1Ref?.release(emit('onUpButtonReleased'));"
-                    @touchcancel="button1Ref?.release(emit('onUpButtonReleased'));"
-                    @touchleave="button1Ref?.release(emit('onUpButtonReleased'));"
-                    @mousedown.prevent="button1Ref?.handleMouseDown($event, emit('onUpButtonPressed'), {repeat: true})"
-                    @mouseup="button1Ref?.release(emit('onUpButtonReleased'));"
-                    @mouseleave="button1Ref?.release(emit('onUpButtonReleased'));"
+                    @touchstart.prevent="button1Ref?.press($event, ()=>emit('onUpButtonPressed'), {repeat: true});"
+                    @touchend="button1Ref?.release(()=>emit('onUpButtonReleased'));"
+                    @touchcancel="button1Ref?.release(()=>emit('onUpButtonReleased'));"
+                    @touchleave="button1Ref?.release(()=>emit('onUpButtonReleased'));"
+                    @mousedown.prevent="button1Ref?.handleMouseDown($event, ()=>emit('onUpButtonPressed'), {repeat: true})"
+                    @mouseup="button1Ref?.release(()=>emit('onUpButtonReleased'));"
+                    @mouseleave="button1Ref?.release(()=>emit('onUpButtonReleased'));"
                 >↑</v-btn>
                 <!-- v-tooltip="'自機を上へ、像を逆向きへ動かすぜ！'" -->
 
@@ -132,13 +132,13 @@
                         height: `${2 * gridUnit}px`,
                     }"
                     :disabled="!props.powerOn"
-                    @touchstart.prevent="button1Ref?.press($event, emit('onLeftButtonPressed'), {repeat: true});"
-                    @touchend="button1Ref?.release(emit('onLeftButtonReleased'));"
-                    @touchcancel="button1Ref?.release(emit('onLeftButtonReleased'));"
-                    @touchleave="button1Ref?.release(emit('onLeftButtonReleased'));"
-                    @mousedown.prevent="button1Ref?.handleMouseDown($event, emit('onLeftButtonPressed'), {repeat: true})"
-                    @mouseup="button1Ref?.release(emit('onLeftButtonReleased'));"
-                    @mouseleave="button1Ref?.release(emit('onLeftButtonReleased'));"
+                    @touchstart.prevent="button1Ref?.press($event, ()=>emit('onLeftButtonPressed'), {repeat: true});"
+                    @touchend="button1Ref?.release(()=>emit('onLeftButtonReleased'));"
+                    @touchcancel="button1Ref?.release(()=>emit('onLeftButtonReleased'));"
+                    @touchleave="button1Ref?.release(()=>emit('onLeftButtonReleased'));"
+                    @mousedown.prevent="button1Ref?.handleMouseDown($event, ()=>emit('onLeftButtonPressed'), {repeat: true})"
+                    @mouseup="button1Ref?.release(()=>emit('onLeftButtonReleased'));"
+                    @mouseleave="button1Ref?.release(()=>emit('onLeftButtonReleased'));"
                 >←</v-btn>
                 <!-- v-tooltip="'自機を左へ、像を逆向きへ動かすぜ！'" -->
 
@@ -152,13 +152,13 @@
                         height: `${2 * gridUnit}px`,
                     }"
                     :disabled="!props.powerOn"
-                    @touchstart.prevent="button1Ref?.press($event, emit('onRightButtonPressed'), {repeat: true});"
-                    @touchend="button1Ref?.release(emit('onRightButtonReleased'));"
-                    @touchcancel="button1Ref?.release(emit('onRightButtonReleased'));"
-                    @touchleave="button1Ref?.release(emit('onRightButtonReleased'));"
-                    @mousedown.prevent="button1Ref?.handleMouseDown($event, emit('onRightButtonPressed'), {repeat: true})"
-                    @mouseup="button1Ref?.release(emit('onRightButtonReleased'));"
-                    @mouseleave="button1Ref?.release(emit('onRightButtonReleased'));"
+                    @touchstart.prevent="button1Ref?.press($event, ()=>emit('onRightButtonPressed'), {repeat: true});"
+                    @touchend="button1Ref?.release(()=>emit('onRightButtonReleased'));"
+                    @touchcancel="button1Ref?.release(()=>emit('onRightButtonReleased'));"
+                    @touchleave="button1Ref?.release(()=>emit('onRightButtonReleased'));"
+                    @mousedown.prevent="button1Ref?.handleMouseDown($event, ()=>emit('onRightButtonPressed'), {repeat: true})"
+                    @mouseup="button1Ref?.release(()=>emit('onRightButtonReleased'));"
+                    @mouseleave="button1Ref?.release(()=>emit('onRightButtonReleased'));"
                 >→</v-btn>
                 <!-- v-tooltip="'自機を右へ、像を逆向きへ動かすぜ！'" -->
 
@@ -172,13 +172,13 @@
                         height: `${2 * gridUnit}px`,
                     }"
                     :disabled="!props.powerOn"
-                    @touchstart.prevent="button1Ref?.press($event, emit('onDownButtonPressed'), {repeat: true});"
-                    @touchend="button1Ref?.release(emit('onDownButtonReleased'));"
-                    @touchcancel="button1Ref?.release(emit('onDownButtonReleased'));"
-                    @touchleave="button1Ref?.release(emit('onDownButtonReleased'));"
-                    @mousedown.prevent="button1Ref?.handleMouseDown($event, emit('onDownButtonPressed'), {repeat: true})"
-                    @mouseup="button1Ref?.release(emit('onDownButtonReleased'));"
-                    @mouseleave="button1Ref?.release(emit('onDownButtonReleased'));"
+                    @touchstart.prevent="button1Ref?.press($event, ()=>emit('onDownButtonPressed'), {repeat: true});"
+                    @touchend="button1Ref?.release(()=>emit('onDownButtonReleased'));"
+                    @touchcancel="button1Ref?.release(()=>emit('onDownButtonReleased'));"
+                    @touchleave="button1Ref?.release(()=>emit('onDownButtonReleased'));"
+                    @mousedown.prevent="button1Ref?.handleMouseDown($event, ()=>emit('onDownButtonPressed'), {repeat: true})"
+                    @mouseup="button1Ref?.release(()=>emit('onDownButtonReleased'));"
+                    @mouseleave="button1Ref?.release(()=>emit('onDownButtonReleased'));"
                 >↓</v-btn>
                 <!-- v-tooltip="'自機を下へ、像を逆向きへ動かすぜ！'" -->
             </div>
@@ -204,13 +204,13 @@
                         height: `${2 * gridUnit}px`,
                     }"
                     :disabled="!props.powerOn"
-                    @touchstart.prevent="button1Ref?.press($event, emit('onSpaceButtonPressed'), {repeat: true});"
-                    @touchend="button1Ref?.release(emit('onSpaceButtonReleased'));"
-                    @touchcancel="button1Ref?.release(emit('onSpaceButtonReleased'));"
-                    @touchleave="button1Ref?.release(emit('onSpaceButtonReleased'));"
-                    @mousedown.prevent="button1Ref?.handleMouseDown($event, emit('onSpaceButtonPressed'), {repeat: true})"
-                    @mouseup="button1Ref?.release(emit('onSpaceButtonReleased'));"
-                    @mouseleave="button1Ref?.release(emit('onSpaceButtonReleased'));"
+                    @touchstart.prevent="button1Ref?.press($event, ()=>emit('onSpaceButtonPressed'), {repeat: true});"
+                    @touchend="button1Ref?.release(()=>emit('onSpaceButtonReleased'));"
+                    @touchcancel="button1Ref?.release(()=>emit('onSpaceButtonReleased'));"
+                    @touchleave="button1Ref?.release(()=>emit('onSpaceButtonReleased'));"
+                    @mousedown.prevent="button1Ref?.handleMouseDown($event, ()=>emit('onSpaceButtonPressed'), {repeat: true})"
+                    @mouseup="button1Ref?.release(()=>emit('onSpaceButtonReleased'));"
+                    @mouseleave="button1Ref?.release(()=>emit('onSpaceButtonReleased'));"
                 >（スペース）</v-btn>
                 <!-- v-tooltip="'自機、印字の位置を最初に有ったところに戻すぜ。'" -->
 

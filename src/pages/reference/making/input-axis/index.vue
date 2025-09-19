@@ -35,7 +35,7 @@
 
     </section>
 
-    <button-to-go-to-top class="sec-1 pt-6"/>
+    <button-to-back-to-top class="sec-1 pt-6"/>
     <input-axis-target-accumulate-moveaway-1/>
 
     <section class="sec-1">
@@ -65,7 +65,7 @@
 
     </section>
 
-    <button-to-go-to-top class="sec-1 pt-6"/>
+    <button-to-back-to-top class="sec-1 pt-6"/>
     <input-axis-rpg-walk-player-accumulate-moveaway-1/>
 
     <section class="sec-1">
@@ -81,7 +81,7 @@
         </talk-balloon>
     </section>
 
-    <button-to-go-to-top class="sec-1 pt-6"/>
+    <button-to-back-to-top class="sec-1 pt-6"/>
     <input-axis-rpg-walk-player-grid-moveaway-1/>
 
     <section class="sec-1">
@@ -98,7 +98,7 @@
         </talk-balloon>
     </section>
 
-    <button-to-go-to-top class="sec-1 pt-6"/>
+    <button-to-back-to-top class="sec-1 pt-6"/>
     <input-axis-rpg-walk-player-grid-bounded-1/>
 
     <section class="sec-1">
@@ -115,7 +115,7 @@
         </talk-balloon>
     </section>
 
-    <button-to-go-to-top class="sec-1 pt-6"/>
+    <button-to-back-to-top class="sec-1 pt-6"/>
     <input-axis-rpg-walk-board-grid-moveaway-1/>
 
     <section class="sec-1">
@@ -132,7 +132,7 @@
         </talk-balloon>
     </section>
 
-    <button-to-go-to-top class="sec-1 pt-6"/>
+    <button-to-back-to-top class="sec-1 pt-6"/>
     <input-axis-rpg-walk-tiles-immovable-projection-moveaway-1/>
 
     <section class="sec-1">
@@ -173,7 +173,7 @@
         </talk-balloon>
     </section>
 
-    <button-to-go-to-top class="sec-1 pt-6"/>
+    <button-to-back-to-top class="sec-1 pt-6"/>
     <input-axis-rpg-walk-tiles-immovable-projection-boundary-1/>
 
     <section class="sec-1">
@@ -188,7 +188,7 @@
         </talk-balloon>
     </section>
 
-    <button-to-go-to-top class="sec-1 pt-6"/>
+    <button-to-back-to-top class="sec-1 pt-6"/>
     <input-axis-rpg-walk-tiles-immovable-projection-loop-1/>
 
     <section class="sec-1">
@@ -204,7 +204,7 @@
         </talk-balloon>
     </section>
 
-    <button-to-go-to-top class="sec-1 pt-6"/>
+    <button-to-back-to-top class="sec-1 pt-6"/>
     <input-axis-rpg-walk-tiles-immovable-projection-moveaway-size-variable-1/>
 
     <section class="sec-1">
@@ -219,7 +219,7 @@
         </talk-balloon>
     </section>
 
-    <button-to-go-to-top class="sec-1 pt-6"/>
+    <button-to-back-to-top class="sec-1 pt-6"/>
     <input-axis-rpg-walk-tiles-wraparound-projection-loop-outofsight-1/>
 
     <section class="sec-1">
@@ -257,7 +257,7 @@
         </talk-balloon>
     </section>
 
-    <button-to-go-to-top class="sec-1 pt-6"/>
+    <button-to-back-to-top class="sec-1 pt-6"/>
     <input-axis-rpg-walk-tiles-wraparound-projection-loop-outofsight-maptileimage-1/>
 
     <h2><span class="parent-header">上下左右に移動しようぜ！　＞　</span>ソースコード</h2>
@@ -265,7 +265,7 @@
         <source-link/>
     </section>
 
-    <button-to-go-to-top class="sec-0 pt-6"/>
+    <button-to-back-to-top class="sec-0 pt-6"/>
 </template>
 
 <script setup lang="ts">
@@ -284,7 +284,7 @@
     //
 
     import ButtonToBackToContents from '@/components/ButtonToBackToContents.vue';
-    import ButtonToGoToTop from '@/components/ButtonToGoToTop.vue';
+    import ButtonToBackToTop from '@/components/ButtonToBackToTop.vue';
     import CompatibleDevice from '@/components/CompatibleDevice.vue'
     import InputAxisRpgWalkTilesWraparoundProjectionLoopOutofsightMaptileimage1 from './rpg-walk-tiles-wraparound-projection-loop-outofsight-maptileimage-1.vue';
     import InputAxisRpgWalkBoardGridMoveaway1 from './rpg-walk-board-grid-moveaway-1.vue';

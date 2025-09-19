@@ -12,7 +12,7 @@
 
     <h1>JSONファイルを読込もうぜ！</h1>
 
-    <button-to-go-to-top class="sec-1 pt-6"/>
+    <button-to-back-to-top class="sec-1 pt-6"/>
     <h2>fetch() と useFetch()</h2>
     <section class="sec-2 pt-6">
 
@@ -212,7 +212,7 @@
 
     </section>
 
-    <button-to-go-to-top class="sec-1 pt-6"/>
+    <button-to-back-to-top class="sec-1 pt-6"/>
     <h2>import()</h2>
     <section class="sec-2 pt-6">
 
@@ -353,7 +353,7 @@ export default defineNuxtConfig({
         <source-link/>
     </section>
 
-    <button-to-go-to-top class="sec-0 pt-6"/>
+    <button-to-back-to-top class="sec-0 pt-6"/>
 </template>
 
 <script setup lang="ts">
@@ -380,7 +380,7 @@ export default defineNuxtConfig({
     // ++++++++++++++++++++++++++
 
     import ButtonToBackToContents from '@/components/ButtonToBackToContents.vue';
-    import ButtonToGoToTop from '@/components/ButtonToGoToTop.vue';
+    import ButtonToBackToTop from '@/components/ButtonToBackToTop.vue';
     import TheAppHeader from '../../the-app-header.vue';
 
 

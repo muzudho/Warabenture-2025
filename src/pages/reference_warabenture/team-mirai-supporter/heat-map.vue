@@ -19,7 +19,7 @@
         </ul>
     </section>
 
-    <button-to-go-to-top class="sec-1 pt-6"/>
+    <button-to-back-to-top class="sec-1 pt-6"/>
     <h2 id="functions">機能紹介</h2>
     <section class="sec-2">
 
@@ -148,7 +148,7 @@
 
     </section>
 
-    <button-to-go-to-top class="sec-1 pt-6"/>
+    <button-to-back-to-top class="sec-1 pt-6"/>
     <h2 id="download">ダウンロードはこちらから</h2>
     <section class="sec-2">
 
@@ -219,7 +219,7 @@
 
     </section>
 
-    <button-to-go-to-top class="sec-1 pt-6"/>
+    <button-to-back-to-top class="sec-1 pt-6"/>
     <h2 id="chatting">雑談</h2>
     <section class="sec-2">
 
@@ -355,7 +355,7 @@
 
     </section>
 
-    <button-to-go-to-top class="sec-0 pt-6"/>
+    <button-to-back-to-top class="sec-0 pt-6"/>
 </template>
 
 <script setup lang="ts">
@@ -364,12 +364,12 @@
     // # インポート #
     // ##############
 
-    // ++++++++++++++++++
-    // + コンポーネント +
-    // ++++++++++++++++++
+    // ++++++++++++++++++++++++++++++++++
+    // + インポート　＞　コンポーネント +
+    // ++++++++++++++++++++++++++++++++++
 
     import ButtonToBackToContents from '@/components/ButtonToBackToContents.vue';
-    import ButtonToGoToTop from '@/components/ButtonToGoToTop.vue';
+    import ButtonToBackToTop from '@/components/ButtonToBackToTop.vue';
     import CompatibleDevice from '@/components/CompatibleDevice.vue'
     import TalkBalloon from '@/components/TalkBalloon.vue';
     import TalkImage from '@/components/TalkImage.vue';

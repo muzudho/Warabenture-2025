@@ -604,7 +604,7 @@ pnpm add -D @tauri-apps/cli@latest
         <source-link/>
     </section>
 
-    <button-to-go-to-top class="sec-0 pt-6"/>
+    <button-to-back-to-top class="sec-0 pt-6"/>
 </template>
 
 <script setup lang="ts">
@@ -623,7 +623,7 @@ pnpm add -D @tauri-apps/cli@latest
     //
 
     import ButtonToBackToContents from '@/components/ButtonToBackToContents.vue';
-    import ButtonToGoToTop from '@/components/ButtonToGoToTop.vue';
+    import ButtonToBackToTop from '@/components/ButtonToBackToTop.vue';
     import CompatibleDevice from '@/components/CompatibleDevice.vue'
     import No1o0Child from '@/components/coding-style/no-1-0-child.vue';
     import No1o2o0Child from '@/components/coding-style/no-1-2-0-child.vue';

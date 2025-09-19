@@ -4,7 +4,6 @@
         <!-- 他のページと縦幅を揃えるために、何の働きもしない空ボタンを置いています。 -->
 
         <ul>
-
             <li>📖 <router-link to="/quiz/kings-room-tiles" :class="getLinkHighlight('/quiz/kings-room-tiles')">王の間のタイルを市松模様にしようぜ！</router-link></li>
         </ul>
     </section>

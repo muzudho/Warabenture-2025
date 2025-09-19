@@ -389,7 +389,7 @@ Swap:          1.0Gi        86Mi       937Mi
         <source-link/>
     </section>
 
-    <button-to-go-to-top class="sec-0 pt-6"/>
+    <button-to-back-to-top class="sec-0 pt-6"/>
 </template>
 
 <script setup lang="ts">
@@ -408,7 +408,7 @@ Swap:          1.0Gi        86Mi       937Mi
     //
 
     import ButtonToBackToContents from '@/components/ButtonToBackToContents.vue';
-    import ButtonToGoToTop from '@/components/ButtonToGoToTop.vue';
+    import ButtonToBackToTop from '@/components/ButtonToBackToTop.vue';
     import CompatibleDevice from '@/components/CompatibleDevice.vue'
     import SourceLink from '@/components/SourceLink.vue';
     import TalkBalloon from '@/components/TalkBalloon.vue';

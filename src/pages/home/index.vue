@@ -2,7 +2,7 @@
     <the-app-header/>
 
     <the-home-body/>
-    <button-to-go-to-top class="sec-1 pt-6"/>
+    <button-to-back-to-top class="sec-1 pt-6"/>
 </template>
 
 <script setup lang="ts">
@@ -15,7 +15,7 @@
     // + インポート　＞　コンポーネント +
     // ++++++++++++++++++++++++++++++++++
 
-    import ButtonToGoToTop from '@/components/ButtonToGoToTop.vue';
+    import ButtonToBackToTop from '@/components/ButtonToBackToTop.vue';
 
     // ++++++++++++++++++++++++++
     // + インポート　＞　ページ +

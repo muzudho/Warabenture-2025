@@ -185,7 +185,7 @@
                 pagePath="/reference/making/input-axis-rpg-walk-using-background-image-1"/>
         </section>
 
-        <button-to-go-to-top class="sec-0 pt-6"/>
+        <button-to-back-to-top class="sec-0 pt-6"/>
     </div>
 
     <!-- オーバーラップ画面 -->
@@ -584,7 +584,7 @@
     import BoardMadeOfTile from '@/components/BoardMadeOfTile.vue';
     import Button20250822 from '@/components/Button20250822.vue';
     import ButtonToBackToContents from '@/components/ButtonToBackToContents.vue';
-    import ButtonToGoToTop from '@/components/ButtonToGoToTop.vue';
+    import ButtonToBackToTop from '@/components/ButtonToBackToTop.vue';
     import CompatibleDevice from '@/components/CompatibleDevice.vue'
     import OutOfSightMaking from '@/components/OutOfSightMaking.vue';
     import PreferencesExplanation from '@/components/talk/PreferencesExplanation.vue'

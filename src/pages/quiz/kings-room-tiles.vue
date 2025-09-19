@@ -19,7 +19,9 @@
     <section class="sec-1 pt-6 mb-6">
         
         <!-- 免責 -->
+        <!--
         <v-alert type="warning" class="mb-6" title="免責！" text="画面は開発中のものだぜ（＾▽＾）！" closable />
+        -->
 
         <!-- ストップウォッチ。デバッグに使いたいときは、 display: none; を消してください。 -->
         <stopwatch
@@ -92,12 +94,12 @@
 
         <!-- ゲームマシン -->
         <game-machine-waratch2
-            :hardLocationStyle="{
+            :style="{
                 left: '0px',
                 top: '0px',
             }"
-            :screenWidth="gameMachine1Zoom * (board1FileNum - 2 * board1WithMaskFrSize) * tileBoard1TileWidth"
-            :screenHeight="gameMachine1Zoom * (board1RankNum - 2 * board1WithMaskFrSize) * tileBoard1TileHeight"
+            :screenWidth="gameMachine1Zoom * (tileBoard1FileNum - 2 * board1WithMaskFrSize) * tileBoard1TileWidth"
+            :screenHeight="gameMachine1Zoom * (tileBoard1RankNum - 2 * board1WithMaskFrSize) * tileBoard1TileHeight"
             :powerOn="true"
             v-on:onLeftButtonPressed="onLeftButtonPressed"
             v-on:onLeftButtonReleased="onLeftButtonReleased"
@@ -117,8 +119,8 @@
                         position: 'relative',
                         left: `${-tileBoard1TileWidth}px`,
                         top: `${-tileBoard1TileHeight}px`,
-                        width: `${board1FileNum * tileBoard1TileWidth}px`,
-                        height: `${board1RankNum * tileBoard1TileHeight}px`,
+                        width: `${tileBoard1FileNum * tileBoard1TileWidth}px`,
+                        height: `${tileBoard1RankNum * tileBoard1TileHeight}px`,
                         zoom: gameMachine1Zoom,
                         clipPath: `inset(
                             ${tileBoard1TileHeight}px
@@ -155,8 +157,8 @@
                         ref="outOfSight1Ref"
                         :tileBoard1TileWidth="tileBoard1TileWidth"
                         :tileBoard1TileHeight="tileBoard1TileHeight"
-                        :board1FileNum="board1FileNum"
-                        :board1RankNum="board1RankNum"
+                        :board1FileNum="tileBoard1FileNum"
+                        :board1RankNum="tileBoard1RankNum"
                         class="parent-mask" />
                 </div>
             </template>
@@ -186,6 +188,43 @@
                     :min="1"
                     :max="4"
                     step="0.125"
+                    showTicks="always"
+                    thumbLabel="always" />
+            </section>
+
+            <!-- 問題設定パネル１ -->
+            <v-btn
+                class="code-key"
+                @touchstart.prevent="button1Ref?.press($event, onProblem1ButtonPressed);"
+                @touchend="button1Ref?.release();"
+                @touchcancel="button1Ref?.release();"
+                @touchleave="button1Ref?.release();"
+                @mousedown.prevent="button1Ref?.handleMouseDown($event, onProblem1ButtonPressed)"
+                @mouseup="button1Ref?.release();"
+                @mouseleave="button1Ref?.release();"
+            >{{ problem1IsShowing ? '⚙️問題設定を終わる' : '⚙️問題設定を表示' }}</v-btn>
+            <section
+                v-if="problem1IsShowing"
+                class="sec-0 pt-6 pb-6 mb-6"
+                style="background-color: rgb(0, 0, 0, 0.1);"
+            >
+                <!-- マスクが被っているところも含めた盤のサイズ： -->
+                <v-slider
+                    label="水平方向のタイル数"
+                    v-model="tileBoard1WithoutMaskFileNum"
+                    :min="tileBoard1FileMin - 2 * board1WithMaskFrSize"
+                    :max="tileBoard1FileMax - 2 * board1WithMaskFrSize"
+                    step="1"
+                    showTicks="always"
+                    thumbLabel="always" />
+
+
+                <v-slider
+                    label="垂直方向のタイル数"
+                    v-model="tileBoard1WithoutMaskRankNum"
+                    :min="tileBoard1RankMin - 2 * board1WithMaskFrSize"
+                    :max="tileBoard1RankMax - 2 * board1WithMaskFrSize"
+                    step="1"
                     showTicks="always"
                     thumbLabel="always" />
             </section>
@@ -235,44 +274,10 @@
             :device="compatibleDevice1Ref?.device"
             class="mb-6"
         >
-            では、👇下の［⚙問題設定を表示］ボタンをクリックして、<br/>
+            では、👆上に戻って［⚙問題設定を表示］ボタンをクリックして、<br/>
             出てくる［水平方向のタイル数］スライダーバーを横に１つ動かして例えば１０にし、<br/>
-            もう１回［⚙問題設定を終わる］に名前の変わっているボタンを押して設定を閉じ……
+            もう１回［⚙問題設定を終わる］に名前の変わっているボタンを押して設定を閉じてほしい。
         </talk-balloon>
-
-
-        <!-- 問題設定パネル１ -->
-        <v-btn
-            class="code-key mb-6"
-            @touchstart.prevent="button1Ref?.press($event, onProblem1ButtonPressed);"
-            @touchend="button1Ref?.release();"
-            @touchcancel="button1Ref?.release();"
-            @touchleave="button1Ref?.release();"
-            @mousedown.prevent="button1Ref?.handleMouseDown($event, onProblem1ButtonPressed)"
-            @mouseup="button1Ref?.release();"
-            @mouseleave="button1Ref?.release();"
-        >{{ problem1IsShowing ? '⚙️問題設定を終わる' : '⚙️問題設定を表示' }}</v-btn>
-        <section v-if="problem1IsShowing" class="sec-1 pt-6 pb-6 mb-6">
-            <!-- マスクが被っているところも含めた盤のサイズ： -->
-            <v-slider
-                label="水平方向のタイル数"
-                v-model="board1FileNum"
-                :min="board1FileMin"
-                :max="board1FileMax"
-                step="1"
-                showTicks="always"
-                thumbLabel="always" />
-
-
-            <v-slider
-                label="垂直方向のタイル数"
-                v-model="board1RankNum"
-                :min="board1RankMin"
-                :max="board1RankMax"
-                step="1"
-                showTicks="always"
-                thumbLabel="always" />
-        </section>
 
         <!-- デバッグ情報パネル１ -->
         <!--
@@ -323,17 +328,6 @@
         </section>
         -->
 
-        <br/>
-
-        <talk-balloon
-            :src="commonPapepoKingSrc"
-            :alt="commonPapepoKingAlt"
-            :name="commonPapepoKingName"
-            :device="compatibleDevice1Ref?.device">
-            そして一度画面を👆上にスクロールし、先ほどの床を見てから<br/>
-            ここに戻ってきてほしい。
-        </talk-balloon>
-
         <talk-balloon
             :src="commonKifuwaranyanSrc"
             :alt="commonKifuwaranyanAlt"
@@ -343,16 +337,6 @@
             <br/>
             これはバグだぜ！
         </talk-balloon>
-        <!--
-            <p>
-                <section v-if="choices1Num==0 || choices1Num==3 || choices1Num==4">
-                </section>
-                <section v-if="choices1Num==1 || choices1Num==2">
-                    キフワラニャン　「おお……、市松模様になっているような……」<br/>
-                </section>
-            </p>
-            <br/>
-        -->
 
         <talk-illustration
             src="/img/quiz/by-grok/202508__grok__30-2023-spellScroll-o1o0.png"
@@ -366,12 +350,12 @@
             class="mb-6"
         >
             リフォーム会社が残した、床のタイルの色を決める魔法の呪文は<br/>
-            👇これじゃ」
+            👇これじゃ
         </talk-balloon>
 
         <pre
             class="coding-example mb-6">
-// i はタイル番号。左上から右に向かって 0, 1, 2 ... 右端から１段下の左端に続く。
+// sq はタイル番号（Square）。左上から右に向かって 0, 1, 2 ... 右端から１段下の左端に続く。
 //
 // そして、
 // color が 0 なら白い床、
@@ -384,7 +368,7 @@
 // % 記号は、この記号の左側の数を、右側の数で割った余りを求める。 例） 3 % 2 なら 1。
 //
 
-color = i % 2;
+color = sq % 2;
         </pre>
 
         <talk-balloon
@@ -393,7 +377,7 @@ color = i % 2;
             :name="commonPapepoKingName"
             :device="compatibleDevice1Ref?.device"
         >
-            この呪文を、チョチョイと直してほしい！」
+            この呪文を、チョチョイと直してほしい！
         </talk-balloon>
 
         <talk-balloon
@@ -405,49 +389,15 @@ color = i % 2;
         >
             おー、お安い御用だぜ。<br/>
             <br/>
-            どう直したらいいか、👇下の選択肢から選んでくれだぜ！」
+            どう直したらいいか、👇下の選択肢から選んでくれだぜ！
         </talk-balloon>
 
         <p class="mb-6">
-            <!--
-            <v-checkbox
-                :hideDetails="true">
-                <template v-slot:label>
-                    <span style="margin-right: 16px;">（１）</span>水平方向のタイル数が偶数のとき、偶数段は color の 0, 1 を反転するようにすればよい。
-                </template>
-            </v-checkbox>
-            <v-checkbox
-                :hideDetails="true">
-                <template v-slot:label>
-                    <span style="margin-right: 16px;">（２）</span>水平方向のタイル数が偶数のとき、奇数段は color の 0, 1 を反転するようにすればよい。
-                </template>
-            </v-checkbox>
-            <v-checkbox
-                :hideDetails="true">
-                <template v-slot:label>
-                    <span style="margin-right: 16px;">（３）</span>水平方向のタイル数が奇数のとき、偶数段は color の 0, 1 を反転するようにすればよい。
-                </template>
-            </v-checkbox>
-            <v-checkbox
-                :hideDetails="true">
-                <template v-slot:label>
-                    <span style="margin-right: 16px;">（４）</span>水平方向のタイル数が奇数のとき、奇数段は color の 0, 1 を反転するようにすればよい。
-                </template>
-            </v-checkbox>
-            -->
             <!--
             {{ choices1Num }}
             -->
             <v-radio-group
                 v-model="choices1Num">
-                <!--
-                <v-radio
-                    :value="0">
-                    <template v-slot:label>
-                        <span style="margin-right: 16px;">（０）</span>未選択
-                    </template>
-                </v-radio>
-                -->
                 <v-radio
                     :value="1">
                     <template v-slot:label>
@@ -472,6 +422,12 @@ color = i % 2;
                         <span style="margin-right: 16px;">（４）</span>水平方向のタイル数が奇数のとき、奇数段は color の 0, 1 を反転するようにすればよい。
                     </template>
                 </v-radio>
+                <v-radio
+                    :value="5">
+                    <template v-slot:label>
+                        <span style="margin-right: 16px;">（５）</span>sq の水平位置を左から file=0, 1, 2...、垂直位置を上から rank=0, 1, 2...、盤の水平方向のタイル数を width とするとき、color = (file + rank) % 2 とする。
+                    </template>
+                </v-radio>
             </v-radio-group>
             <v-btn
                 class="code-key"
@@ -494,7 +450,7 @@ color = i % 2;
         >
             上の選択肢を選んだら、<br/>
             画面を👆上にスクロールしてさっきの床を確認して、これで合ってると思ったら、<br/>
-            👇下の［この答えで確定する］ボタンを押してくれだぜ！」<br/>
+            👇下の［この答えで確定する］ボタンを押してくれだぜ！<br/>
         </talk-balloon>
 
         <v-btn
@@ -515,7 +471,7 @@ color = i % 2;
                 <span class="font-x2">😑</span>答えを選べだぜ<br/>
             </section>
             <section
-                v-if="choices1Num==1 || choices1Num==2"
+                v-if="choices1Num==1 || choices1Num==2 || choices1Num==5"
                 class="pt-6 pb-6"
             >
                 <p class="mb-6"><span class="font-x2">😄</span>正解<br/></p>
@@ -526,7 +482,7 @@ color = i % 2;
                     :alt="commonPapepoKingAlt"
                     :name="commonPapepoKingName"
                     :device="compatibleDevice1Ref?.device">
-                    おお、さすがキフワラニャン　床が市松模様になったわい。
+                    おお、さすがキフワラニャン。どの部屋も床が市松模様になったわい。
                 </talk-balloon>
 
 
@@ -566,13 +522,13 @@ color = i % 2;
         </section>
     </section>
 
-    <button-to-go-to-top class="sec-1 pt-6"/>
+    <button-to-back-to-top class="sec-1 pt-6"/>
     <h2>ソースコード</h2>
     <section class="sec-2">
         <source-link/>
     </section>
 
-    <button-to-go-to-top class="sec-0 pt-6"/>
+    <button-to-back-to-top class="sec-0 pt-6"/>
 </template>
 
 <script setup lang="ts">
@@ -605,7 +561,7 @@ color = i % 2;
     import BoardMadeOfTile from '@/components/BoardMadeOfTile.vue';
     import Button20250822 from '@/components/Button20250822.vue';
     import ButtonToBackToContents from '@/components/ButtonToBackToContents.vue';
-    import ButtonToGoToTop from '@/components/ButtonToGoToTop.vue';
+    import ButtonToBackToTop from '@/components/ButtonToBackToTop.vue';
     import CompatibleDevice from '@/components/CompatibleDevice.vue'
     import GameMachineWaratch2 from '@/components/GameMachineWaratch2.vue';
     import OutOfSight from '@/components/OutOfSightMaking.vue';
@@ -722,17 +678,29 @@ color = i % 2;
 
     const tileBoard1TileWidth = 32;
     const tileBoard1TileHeight = 32;
-    const board1FileMin = 6;
-    const board1RankMin = 6;
-    const board1FileMax = 16;
-    const board1RankMax = 16;
-    const board1FileNum = ref<number>(7);   // 筋の数。ただし、右側と下側に１マス余分に付いているマスクは含まない。
-    const board1RankNum = ref<number>(7);   // 段の数
+    const tileBoard1FileMin = 6;
+    const tileBoard1RankMin = 6;
+    const tileBoard1FileMax = 16;
+    const tileBoard1RankMax = 16;
+    const tileBoard1FileNum = ref<number>(7);   // 筋の数。ただし、右側と下側に１マス余分に付いているマスクは含まない。
+    const tileBoard1RankNum = ref<number>(7);   // 段の数
     const board1Area = computed(()=> {  // 盤のマス数
-        return board1FileNum.value * board1RankNum.value;
+        return tileBoard1FileNum.value * tileBoard1RankNum.value;
     });
     // ※　盤およびその各タイルは、決まりきった位置でラップアラウンドを繰り返すだけです。座標が大きく移動することはありません。
     const board1WithMaskFrSize: number = 1; // マスクの幅（単位：マス）
+    const tileBoard1WithoutMaskFileNum = computed<number>({
+        get: ()=> tileBoard1FileNum.value - 2 * board1WithMaskFrSize,
+        set: (newValue: number) => {
+            tileBoard1FileNum.value = newValue + 2 * board1WithMaskFrSize;
+        }
+    });
+    const tileBoard1WithoutMaskRankNum = computed<number>({
+        get: ()=> tileBoard1RankNum.value - 2 * board1WithMaskFrSize,
+        set: (newValue: number) => {
+            tileBoard1RankNum.value = newValue + 2 * board1WithMaskFrSize;
+        }
+    });
 
     // ++++++++++++++++++++++++++++
     // + オブジェクト　＞　像盤１ +
@@ -746,16 +714,16 @@ color = i % 2;
     watch(printing1OutOfSightIsLock, (newValue: boolean)=>{
         player1CanBoardEdgeWalkingIsEnabled.value = newValue;
     });
-    const printing1FileMax = board1FileMax;
-    const printing1RankMax = board1RankMax;
+    const printing1FileMax = tileBoard1FileMax;
+    const printing1RankMax = tileBoard1RankMax;
     const printing1AreaMax = printing1FileMax * printing1RankMax;
     const printing1FileNum = computed<number>({ // 列数。印字表のサイズを、盤と同期。
-        get: () => { return board1FileNum.value; },
-        set: (value) => { board1FileNum.value = value; }
+        get: () => { return tileBoard1FileNum.value; },
+        set: (value) => { tileBoard1FileNum.value = value; }
     });
     const printing1RankNum = computed<number>({ // 行数。印字表のサイズを、盤と同期。
-        get: () => { return board1RankNum.value; },
-        set: (value) => { board1RankNum.value = value; }
+        get: () => { return tileBoard1RankNum.value; },
+        set: (value) => { tileBoard1RankNum.value = value; }
     });
     // のちのち自機を１ドットずつ動かすことを考えると、 File, Rank ではデジタルになってしまうので、 Left, Top で指定したい。
     const printing1Left = ref<number>(0);
@@ -770,44 +738,49 @@ color = i % 2;
         const height = printing1RankNum.value;
 
         // マップデータを生成。盤サイズが変わるたび更新
-        for (let i=0; i<width * height; i++) {
-            // i: タイル番号。左上から右に向かって 0, 1, 2 ...
+        for (let sq=0; sq<width * height; sq++) {
+            // sq: タイル番号。左上から右に向かって 0, 1, 2 ...
             // color = 0: 白い床
             // color = 1: 赤い床
             // とする。
 
             // 計算式：　タイルの偶数盤を白い床、奇数盤を赤い床にする。
-            let color = i % 2;
+            let color = sq % 2;
 
             // ここから　クイズの答え：
             if (choices1Num.value == 1) {
                 // これは正解。
                 // 水平方向のタイル数が偶数のとき、偶数段は color の 0, 1 を反転するようにすればよい。
-                const rank = Math.floor(i / width); // タイル番号を分解して rank を抽出
+                const rank = Math.floor(sq / width); // タイル番号を分解して rank を抽出
                 if (width % 2 == 0) {
                     color = (color + 1 * ((rank) % 2)) % 2;
                 }
             } else if (choices1Num.value == 2) {
                 // これも正解。
                 // 水平方向のタイル数が偶数のとき、奇数段は color の 0, 1 を反転するようにすればよい。
-                const rank = Math.floor(i / width);
+                const rank = Math.floor(sq / width);
                 if (width % 2 == 0) {
                     color = (color + 1 * ((rank + 1) % 2)) % 2;
                 }
             } else if (choices1Num.value == 3) {
                 // 間違い。常にストライプになる。
                 // 水平方向のタイル数が奇数のとき、偶数段は color の 0, 1 を反転するようにすればよい。
-                const rank = Math.floor(i / width); // タイル番号を分解して rank を抽出
+                const rank = Math.floor(sq / width); // タイル番号を分解して rank を抽出
                 if (width % 2 == 1) {
                     color = (color + 1 * ((rank) % 2)) % 2;
                 }
             } else if (choices1Num.value == 4) {
                 // 間違い。常にストライプになる。
                 // 水平方向のタイル数が奇数のとき、奇数段は color の 0, 1 を反転するようにすればよい。
-                const rank = Math.floor(i / width); // タイル番号を分解して rank を抽出
+                const rank = Math.floor(sq / width); // タイル番号を分解して rank を抽出
                 if (width % 2 == 1) {
                     color = (color + 1 * ((rank + 1) % 2)) % 2;
                 }
+            } else if (choices1Num.value == 5) {
+                // これも正解。
+                const file = sq % width;
+                const rank = Math.floor(sq / width);
+                color = (file + rank) % 2;
             }
             // ：ここまで　クイズの答え
 
@@ -829,9 +802,9 @@ color = i % 2;
     const printing1MotionWait = ref<number>(0);   // 排他的モーション時間。
     const printing1MotionWalkingFrames = 16;       // 歩行フレーム数
     const sourceTilemapRectangles : Rectangle[] = [];
-    for (let i = 0; i < printing1AreaMax; i++) {   // 最大サイズで作っておく。
-        const files = i % board1FileNum.value;
-        const ranks = Math.floor(i / board1FileNum.value);
+    for (let sq = 0; sq < printing1AreaMax; sq++) {   // 最大サイズで作っておく。
+        const files = sq % tileBoard1FileNum.value;
+        const ranks = Math.floor(sq / tileBoard1FileNum.value);
         sourceTilemapRectangles.push({
             top: ranks * tileBoard1TileHeight,
             left: files * tileBoard1TileWidth,
@@ -842,8 +815,8 @@ color = i % 2;
     const imageBoard1GetTileStyleByTileSq = createGetTileStyleByTileSq(
         tileBoard1TileWidth,
         tileBoard1TileHeight,
-        board1FileNum,
-        board1RankNum,
+        tileBoard1FileNum,
+        tileBoard1RankNum,
         printing1Left,
         printing1Top,
     );
@@ -854,15 +827,15 @@ color = i % 2;
     const imageBoard1GetFixedTileSqFromTileSq: (tileSq: number) => number = createGetFixedTileSqFromTileSq(
         tileBoard1TileWidth,
         tileBoard1TileHeight,
-        board1FileNum,
-        board1RankNum,
+        tileBoard1FileNum,
+        tileBoard1RankNum,
         printing1Left,
         printing1Top,
     );
     const imageBoard1GetImageSqByFixedTileSq: (fixedTileSq: number) => number = createGetImageSqByFixedTileSq(
         tileBoard1TileWidth,
         tileBoard1TileHeight,
-        board1FileNum,
+        tileBoard1FileNum,
         printing1Left,
         printing1Top,
         printing1FileNum,
@@ -988,7 +961,7 @@ color = i % 2;
             }
         });
 
-        gameLoopStart();
+        gameLoopStart();    // 入力受付、描画を行います
         stopwatch1Ref.value?.timerStart();  // タイマーをスタート
     });
 
@@ -1035,8 +1008,8 @@ color = i % 2;
                 printing1OutOfSightIsLock.value,
                 tileBoard1TileWidth,
                 tileBoard1TileHeight,
-                board1FileNum.value,
-                board1RankNum.value,
+                tileBoard1FileNum.value,
+                tileBoard1RankNum.value,
                 outOfSight1WithMaskSquareCount.value,
                 printing1FileNum.value,
                 printing1RankNum.value,
@@ -1054,8 +1027,8 @@ color = i % 2;
                 printing1OutOfSightIsLock.value,
                 tileBoard1TileWidth,
                 tileBoard1TileHeight,
-                board1FileNum.value,
-                board1RankNum.value,
+                tileBoard1FileNum.value,
+                tileBoard1RankNum.value,
                 outOfSight1Ref.value?.outOfSight1WithMaskSquareCount ?? 1,
                 playerHome1File.value,
                 playerHome1Rank.value,
@@ -1066,9 +1039,9 @@ color = i % 2;
                 player1MotionWait.value,
                 player1CanBoardEdgeWalking.value,
                 ()=>{ return checkOutOfSightLeftIsLook(tileBoard1TileWidth, board1WithMaskFrSize, printing1Left.value); },    // ここで進むと、左側に外側が見えるなら。
-                ()=>{ return checkOutOfSightRightIsLook(tileBoard1TileWidth, board1WithMaskFrSize, board1FileNum.value, printing1FileNum.value, printing1Left.value); },  // ここで進むと、右側に外側が見えるなら。
+                ()=>{ return checkOutOfSightRightIsLook(tileBoard1TileWidth, board1WithMaskFrSize, tileBoard1FileNum.value, printing1FileNum.value, printing1Left.value); },  // ここで進むと、右側に外側が見えるなら。
                 ()=>{ return checkOutOfSightTopIsLook(tileBoard1TileHeight, board1WithMaskFrSize, printing1Top.value); }, // ここで進むと、上側に外側が見えるなら。
-                ()=>{ return checkOutOfSightBottomIsLook(tileBoard1TileHeight, board1WithMaskFrSize, board1RankNum.value, printing1RankNum.value, printing1Top.value); }, // ここで進むと、下側に外側が見えるなら。
+                ()=>{ return checkOutOfSightBottomIsLook(tileBoard1TileHeight, board1WithMaskFrSize, tileBoard1RankNum.value, printing1RankNum.value, printing1Top.value); }, // ここで進むと、下側に外側が見えるなら。
             );
 
             // ++++++++++++++++++++++++++++++
