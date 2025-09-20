@@ -49,6 +49,14 @@
             <router-view />
             -->
 
+            <section class="mt-6" style="text-align: center;">
+                <p><a href="http://warabenture.com/"><img
+                    src="@/assets/img/reference/warabenture/202509__warabenture__20-2016-banner-o1o2o0-since20220507.png"
+                    alt="ホームページのバナー"
+                /></a></p>
+                (C) 2013 同人ソフトサークルぐれーすけーる
+            </section>
+
         </v-main>
     </v-app>
 </template>
