@@ -54,7 +54,7 @@
                     src="@/assets/img/reference/warabenture/202509__warabenture__20-2016-banner-o1o2o0-since20220507.png"
                     alt="ホームページのバナー"
                 /></a></p>
-                (C) 2013 同人ソフトサークルぐれーすけーる
+                (C) 2013 - 2025 同人ソフトサークルぐれーすけーる
             </section>
 
         </v-main>
