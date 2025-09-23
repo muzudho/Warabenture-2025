@@ -38,7 +38,7 @@
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device"
         >
-            プログラミングする前に、名前を決めておきたいので決めるぜ。
+            プログラミングする前に、用語を決めておきたいので決めるぜ。
         </talk-balloon>
 
 
@@ -64,62 +64,7 @@
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device"
         >
-            このブログでは、<br/>
-            <span class="yellow-marker">空点（Empty；エンプティ）</span>を <span class="code-w">.</span>、<br/>
-            <span class="yellow-marker">黒石（Black；ブラック）</span>を <span class="code-w">x</span>、<br/>
-            <span class="yellow-marker">白石（White；ホワイト）</span>を <span class="code-w">o</span> と書くことにするぜ。
-        </talk-balloon>
-
-
-        <talk-balloon
-            :src="hiyoko2Src"
-            :alt="hiyoko2Alt"
-            :name="hiyoko2Name"
-            :device="compatibleDevice1Ref?.device"
-        >
-            人間対人間で通信対戦していた頃の<span class="blue-marker">囲碁（Go；いご）</span>プログラミングで伝統的な記法よね。<br/>
-            重要ではない用語には黄色いマーカーを引いていくわよ。
-        </talk-balloon>
-
-
-        <talk-balloon
-            :src="kifuwarabe2Src"
-            :alt="kifuwarabe2Alt"
-            :name="kifuwarabe2Name"
-            :device="compatibleDevice1Ref?.device"
-        >
-                五目並べと囲碁は似たような道具使うしな……。
-        </talk-balloon>
-
-
-        <talk-balloon
-            :src="oton2Src"
-            :alt="oton2Alt"
-            :name="oton2Name"
-            :device="compatibleDevice1Ref?.device"
-        >
-            で、黒石と白石の総称を<span class="yellow-marker">石（Stone；ストーン）</span>と呼び、<br/>
-            空点、黒石、白石の総称を<span class="yellow-marker">色（Color；カラー）</span>と呼ぶぜ。
-        </talk-balloon>
-
-
-        <talk-balloon
-            :src="kifuwarabe2Src"
-            :alt="kifuwarabe2Alt"
-            :name="kifuwarabe2Name"
-            :device="compatibleDevice1Ref?.device"
-        >
-            物が突然属性に変わるの面白。
-        </talk-balloon>
-
-
-        <talk-balloon
-            :src="oton2Src"
-            :alt="oton2Alt"
-            :name="oton2Name"
-            :device="compatibleDevice1Ref?.device"
-        >
-            また、五目並べでは石を線が交わっているところに置くことから、<br/>
+            五目並べでは盤上の線が交わっているところに石を置くことから、<br/>
             石を置く場所のことを<span class="yellow-marker">交点（Node；こうてん、ノード）</span>とも呼ぶ。
         </talk-balloon>
 
@@ -151,6 +96,62 @@
             :device="compatibleDevice1Ref?.device"
         >
             プログラミングでは、Node という用語を使うのが都合が悪いときは、 Square という用語で代用する。
+        </talk-balloon>
+        
+
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            また、このブログでは、盤の絵を描くのが大変なため、テキストで盤を書く。<br/>
+            <br/>
+            交点に石を置いていないところを<span class="yellow-marker">空点（Empty；エンプティ）</span>と呼び <span class="code-w">.</span>を、<br/>
+            黒石を置いているとき<span class="yellow-marker">黒石（Black；ブラック）</span>と呼び <span class="code-w">x</span>を、<br/>
+            白石を置いているとき<span class="yellow-marker">白石（White；ホワイト）</span>と呼び <span class="code-w">o</span> を書くことにするぜ。
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="hiyoko2Src"
+            :alt="hiyoko2Alt"
+            :name="hiyoko2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            人間対人間で通信対戦していた頃の<span class="blue-marker">囲碁（Go；いご）</span>プログラミングで伝統的な記法よね。<br/>
+            重要ではない用語には青いマーカーを引いていくわよ。
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="kifuwarabe2Src"
+            :alt="kifuwarabe2Alt"
+            :name="kifuwarabe2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+                五目並べと囲碁は似たような道具使うしな……。
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            で、黒石と白石の総称を<span class="yellow-marker">石（Stone；ストーン）</span>と呼び、<br/>
+            空点、黒石、白石の総称を<span class="yellow-marker">色（Color；カラー）</span>と呼ぶぜ。
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="kifuwarabe2Src"
+            :alt="kifuwarabe2Alt"
+            :name="kifuwarabe2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            物が突然属性に変わるの面白。
         </talk-balloon>
     
     
@@ -213,6 +214,16 @@
             :device="compatibleDevice1Ref?.device"
         >
             将棋には<span class="blue-marker">上手（White;うわて）</span>、<span class="blue-marker">下手（Black;したて）</span>もあるぜ。</br>
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            先手と後手を総称して、これも色と呼ぶことにするぜ。
         </talk-balloon>
 
 
@@ -401,6 +412,16 @@
         >
             自分（Friend）、相手（Opponent）という言葉は廃止よ廃止！<br/>
             手番（Turn）か、相手番（Opposite turn）を使いなさい！
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            手番と相手番を総称して、これも色と呼ぶことにするぜ。
         </talk-balloon>
 
 
