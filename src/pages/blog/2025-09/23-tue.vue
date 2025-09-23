@@ -150,6 +150,12 @@
         >
             プログラミングでは、Node という用語を使うのが都合が悪いときは、 Square という用語で代用する。
         </talk-balloon>
+    
+    
+    </section>
+
+    <h2>対局者から手番</h2>
+    <section class="sec-2 pt-6 mb-6">
 
 
         <talk-balloon
@@ -198,9 +204,21 @@
         </talk-balloon>
 
 
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            また、自分から見て、反対側のプレイヤーを<span class="yellow-marker">相手（Opponent；あいて、オポネント）</span>と呼ぶぜ。<br/>
+            <br/>
+            そこからさらにひっくり返って、オポネントと対局しているプレイヤー自身を<span class="yellow-marker">味方（Friend；みかた、フレンド）</span>と呼ぶこともあるぜ。
+        </talk-balloon>
+
+
     </section>
 
-    <h2>盤</h2>
+    <h2>並びと盤</h2>
     <section class="sec-2 pt-6 mb-6">
 
 
@@ -210,6 +228,8 @@
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device"
         >
+            次に、五目並べは石を並べるゲームだが、<br/>
+            <br/>
             例えば左から右へ空点を並べた <span class="code-w">......</span>とか、<br/>
             適当に複数の石を置いてみた <span class="code-w">ox..xox.o.x..</span>といった並びを本書では<span class="yellow-marker">ランズ（Runs）</span>と呼ぶことにするぜ。<br/>
             <br/>
