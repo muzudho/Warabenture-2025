@@ -152,7 +152,7 @@ x....
 xxxxx
 .....
 .....
-</pre>これは<span class="yellow-marker">ホリゾンタル（水平）</span>、<br/>
+</pre>これは<span class="yellow-marker">ホリゾンタル（Horizontal；水平）</span>、<br/>
                 <br/>
                 <pre class="code-w">
 ..x..
@@ -160,7 +160,7 @@ xxxxx
 ..x..
 ..x..
 ..x..
-</pre>これは<span class="yellow-marker">バーティカル（垂直）</span>、<br/>
+</pre>これは<span class="yellow-marker">バーティカル（Vertical；垂直）</span>、<br/>
                 <br/>
                 <pre class="code-w">
 ....x
@@ -168,7 +168,7 @@ xxxxx
 ..x..
 .x...
 x....
-</pre>これは<span class="yellow-marker">バロック・ダイアゴナル（右肩上がりの対角線）</span>、<br/>
+</pre>これは<span class="yellow-marker">バロック・ダイアゴナル（Baroque Diagonal；右肩上がりの対角線）</span>、<br/>
                 <br/>
                 <pre class="code-w">
 x....
@@ -176,7 +176,7 @@ x....
 ..x..
 ...x.
 ....x
-</pre>これは<span class="yellow-marker">シニスター・ダイアゴナル（右肩下がりの対角線）</span>、<br/>
+</pre>これは<span class="yellow-marker">シニスター・ダイアゴナル（Sinister Diagonal；右肩下がりの対角線）</span>、<br/>
         </talk-balloon>
 
 
@@ -203,7 +203,10 @@ x.x.x
 xx.xx
 .xxx.
 x.x.x
-</pre>は、真ん中に黒石を置けば、４ウェイ決まるぜ。
+</pre>は、真ん中に黒石を置けば、４ウェイ決まるぜ。<br/>
+            <br/>
+            真ん中の空点をシューティング・ゲームの自機だと思うと８ウェイに見えるが、<br/>
+            五目並べは盤面を見る指揮官の視点なんで……
         </talk-balloon>
 
 
@@ -213,11 +216,73 @@ x.x.x
             :name="kifuwarabe2Name"
             :device="compatibleDevice1Ref?.device"
         >
-                囲碁の盤は１９路盤（19x19 Board；ろばん）、<br/>
-                <span class="yellow-marker">連珠（Renju；れんじゅ）</span>の盤は１５道盤（15x15 Board；どうばん）と呼ぶそうだぜ、<br/>
-                面白いよな。<br/>
-                <br/>
-                連珠ってのは競技五目並べだぜ。
+            囲碁の盤は１９路盤（19x19 Board；ろばん）、<br/>
+            <span class="yellow-marker">連珠（Renju；れんじゅ）</span>の盤は１５道盤（15x15 Board；どうばん）と呼ぶそうだぜ、<br/>
+            面白いよな。<br/>
+            <br/>
+            連珠ってのは競技五目並べだぜ。
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            ロードは点と点を結ぶ主たる１本の線で、ウェイは点と点を結ぶ考えうる複数の線みたいだな。<br/>
+            本書では使い分けないけど。
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            次に、<span class="yellow-marker">向き（Orientation；オリエンテーション）</span>だぜ。<br/>
+            <br/>
+            日本語では：<br/>
+            <pre class="code-w">
+北西　北　北東
+　西　　　　東
+南西　南　南東</pre><br/>
+            <br/>
+            英語では：<br/>
+            <pre class="code-w">
+northwest  north  northeast
+     west              east
+southwest  south  southeast</pre>
+            <br/>
+            と書き、進むべき<span class="yellow-marker">前方（Forward；フォワード）</span>がどちらかを表す。</br>
+            つながっている隣の石の向きを示すときに使う。
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="kifuwarabe2Src"
+            :alt="kifuwarabe2Alt"
+            :name="kifuwarabe2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            五目並べは８ウェイだけでいいよな。
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            また、前方の反対の向きを<span class="yellow-marker">後方（Backward；バックワード）</span>と呼ぶ。<br/>
+            <br/>
+            <span class="yellow-marker">～の前（fore of；フォワ　オブ）</span>とか、<span class="yellow-marker">～の後ろ（back of；バック　オブ）</span>という言い回しもよく使う。<br/>
+            <br/>
+            前方と後方を総称して<span class="yellow-marker">次（Next；ネクスト）</span>と呼ぶ。<br/>
+            <br/>
+            向きに注目せず、単に真横にあるなら<span class="yellow-marker">隣（Adjacent；アジェイセント）</span>と呼ぶこともある。
         </talk-balloon>
 
 
