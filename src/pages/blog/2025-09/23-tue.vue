@@ -17,7 +17,8 @@
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device"
         >
-                <span class="yellow-marker">五目並べ（Gomoku；ごもくならべ）</span>作ってるんだが。
+                <span class="yellow-marker">五目並べ（Gomoku；ごもくならべ）</span>作ってるんだが……。<br/>
+                重要な用語には黄色いマーカーを引いていくぜ。
         </talk-balloon>
 
 
@@ -76,7 +77,8 @@
             :name="hiyoko2Name"
             :device="compatibleDevice1Ref?.device"
         >
-            人間対人間で通信対戦していた頃の<span class="yellow-marker">囲碁（Go；いご）</span>プログラミングで伝統的な記法よね。
+            人間対人間で通信対戦していた頃の<span class="blue-marker">囲碁（Go；いご）</span>プログラミングで伝統的な記法よね。<br/>
+            重要ではない用語には黄色いマーカーを引いていくわよ。
         </talk-balloon>
 
 
@@ -164,7 +166,7 @@
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device"
         >
-            五目並べは２人で石を置いて遊ぶゲームで、遊ぶ人のことを<span class="yellow-marker">対局者（Player；プレイヤー）</span>と呼ぶぜ。<br/>
+            五目並べは２人で石を置いて遊ぶ<span class="yellow-marker">対局（Game；ゲーム）</span>で、遊ぶ人のことを<span class="yellow-marker">対局者（Player；プレイヤー）</span>と呼ぶぜ。<br/>
             <br/>
             先に石を置く対局者を<span class="yellow-marker">先手（Earlier move；せんて）</span>、<br/>
             後に石を置く対局者を<span class="yellow-marker">後手（Later move；ごて）</span>と呼ぶぜ。
@@ -205,14 +207,200 @@
 
 
         <talk-balloon
+            :src="kifuwarabe2Src"
+            :alt="kifuwarabe2Alt"
+            :name="kifuwarabe2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            将棋には<span class="blue-marker">上手（White;うわて）</span>、<span class="blue-marker">下手（Black;したて）</span>もあるぜ。</br>
+        </talk-balloon>
+
+
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device"
         >
-            また、自分から見て、反対側のプレイヤーを<span class="yellow-marker">相手（Opponent；あいて、オポネント）</span>と呼ぶぜ。<br/>
+            また、自分から見て、反対側のプレイヤーを<span class="blue-marker">相手（Opponent；あいて、オポネント）</span>と呼ぶぜ。<br/>
             <br/>
-            そこからさらにひっくり返って、オポネントと対局しているプレイヤー自身を<span class="yellow-marker">味方（Friend；みかた、フレンド）</span>と呼ぶこともあるぜ。
+            そこからさらにひっくり返って、オポネントと対局しているプレイヤー自身を<span class="blue-marker">味方（Friend；みかた、フレンド）</span>と呼ぶこともあるぜ。
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="kifuwarabe2Src"
+            :alt="kifuwarabe2Alt"
+            :name="kifuwarabe2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            黒番と白番は対局の間に変わることはないが、<br/>
+            <br/>
+            自分が黒白どちらの側を指すかは、対局の間に変わらないプログラムと、石を１回置くたびにひっくり返るプログラムがあるぜ。</br>
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="hiyoko2Src"
+            :alt="hiyoko2Alt"
+            :name="hiyoko2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            罪深い……。
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            これから石を置くプレイヤーの側を<span class="yellow-marker">手番（Turn；てばん、ターン）</span>と呼ぶぜ。<br/>
+            <br/>
+            <span class="blue-marker">私の番（My turn；マイ・ターン）</span>や、<span class="blue-marker">あなたの番（Your turn；ユワ・ターン）</span>という言い回しもあるが、<br/>
+            わたしはマイ・ターンと呼び、相手はわたしのことをユワ・ターンと呼ぶので、どちらも同じ意味だぜ<br/>
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="kifuwarabe2Src"
+            :alt="kifuwarabe2Alt"
+            :name="kifuwarabe2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            対義語同意というレアケース。</br>
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="hiyoko2Src"
+            :alt="hiyoko2Alt"
+            :name="hiyoko2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            フレンドは常にターンなの？
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="kifuwarabe2Src"
+            :alt="kifuwarabe2Alt"
+            :name="kifuwarabe2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            手番を持ってない方のプレイヤーから見たら、オポネントがターンだぜ。
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="hiyoko2Src"
+            :alt="hiyoko2Alt"
+            :name="hiyoko2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            度し難い……。
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="kifuwarabe2Src"
+            :alt="kifuwarabe2Alt"
+            :name="kifuwarabe2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            関西弁ではあなたと自分は対義語同意だしな。<br/>
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            <span class="yellow-marker">ログインしたユーザー（Log-in user）</span>、<br/>
+            <span class="yellow-marker">その他の利用者（Other user）</span>、<br/>
+            黒番（Black）、<br/>
+            白番（White）、<br/>
+            手番（Turn）、<br/>
+            <span class="yellow-marker">相手番（Opposite turn）</span>の６つでカバーできるはずだぜ。
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="hiyoko2Src"
+            :alt="hiyoko2Alt"
+            :name="hiyoko2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            フレンドとオポネントはいつ使うの？
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            ターンとフレンドが一致していれば、ターンの代わりにフレンドを使えばいいし、<br/>
+            <br/>
+            ログイン・ユーザーとフレンドが一致してれば、ログイン・ユーザーの代わりにフレンドを使えばいいぜ。
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="hiyoko2Src"
+            :alt="hiyoko2Alt"
+            :name="hiyoko2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            フレンドがターンと一致しているか、ログイン・ユーザーと一致しているかはどうやって調べるの？
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            ソースコードの雰囲気から気付けだぜ。
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="hiyoko2Src"
+            :alt="hiyoko2Alt"
+            :name="hiyoko2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            解せない……。
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="kifuwarabe2Src"
+            :alt="kifuwarabe2Alt"
+            :name="kifuwarabe2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            相手の相手は自分だろ。<br/>
+            じゃあ、ソースコードに相手と書いてある箇所は、ログイン・ユーザー、またはその他のユーザーのどちらかだぜ。<br/>
+            <br/>
+            そんな相反する言葉がトグルになって入っている概念をソースコードの中で使うなだぜ。
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="hiyoko2Src"
+            :alt="hiyoko2Alt"
+            :name="hiyoko2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            自分（Friend）、相手（Opponent）という言葉は廃止よ廃止！<br/>
+            手番（Turn）か、相手番（Opposite turn）を使いなさい！
         </talk-balloon>
 
 
@@ -503,7 +691,7 @@ southwest  south  southeast</pre>
             :name="kifuwarabe2Name"
             :device="compatibleDevice1Ref?.device"
         >
-                <span class="yellow-marker">駒（Piece；こま、ピース）</span>は動くが、石は動かないけどな。
+                <span class="blue-marker">駒（Piece；こま、ピース）</span>は動くが、石は動かないけどな。
         </talk-balloon>
 
 
