@@ -112,12 +112,12 @@
             :device="compatibleDevice1Ref?.device"
         >
             例えば <span class="code-w">......</span>とか、
-            <span class="code-w">ox..xox.o.x..</span>みたいな、複数の石の一直線の並びを<span class="yellow-marker">bar（バー）</span>、<br/>
+            <span class="code-w">ox..xox.o.x..</span>みたいな、複数の石の一直線の並びを<span class="yellow-marker">バー（bar）</span>、<br/>
             <br/>
             <pre class="code-w">
 ......
 ..ox..</pre>
-            みたいな、複数行の並びを<span class="yellow-marker">board（ボード）</span>と呼ぶことにするぜ。
+            みたいな、複数行の並びを<span class="yellow-marker">盤（Board；ボード）</span>と呼ぶことにするぜ。
         </talk-balloon>
 
 
@@ -283,6 +283,141 @@ southwest  south  southeast</pre>
             前方と後方を総称して<span class="yellow-marker">次（Next；ネクスト）</span>と呼ぶ。<br/>
             <br/>
             向きに注目せず、単に真横にあるなら<span class="yellow-marker">隣（Adjacent；アジェイセント）</span>と呼ぶこともある。
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="hiyoko2Src"
+            :alt="hiyoko2Alt"
+            :name="hiyoko2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            将棋には、引（ひき）、寄（より）、上（あがる）、左（ひだり）、直（すぐ）、右（みぎ）、打（うつ）、成（なり）、成（ならず）の９ウェイがあるのよ。
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            次に、盤があるとして……、<br/>
+            <pre class="code-w">
+.....
+.....
+.....
+.....
+.....</pre><br/>
+<br/>
+            下図のように石を１個置くことを、<br/>
+            <pre class="code-w">
+.....
+.....
+..x..
+.....
+.....</pre><br/>
+            <span class="yellow-marker">着手（Move；ちゃくしゅ、ムーブ）</span>と呼ぶ。<br/>
+            <br/>
+            着手した交点は、<span class="yellow-marker">着手点（Move Point）</span>。<br/>
+            <br/>
+            プログラミング上の都合で、平易に<span class="yellow-marker">石を置く（Put a stone）</span>と呼ぶこともある。
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="hiyoko2Src"
+            :alt="hiyoko2Alt"
+            :name="hiyoko2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            石は動かないのに、なんでムーブなの？
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="kifuwarabe2Src"
+            :alt="kifuwarabe2Alt"
+            :name="kifuwarabe2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+                チェスで駒を動かすことをムーブと呼ぶから、<br/>
+                コンピューターゲームの方でもムーブという言葉が使われるようになったんじゃないかな。
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            次に、石を１個置いたとして……、<br/>
+            <pre class="code-w">
+.....
+.....
+..x..
+.....
+.....</pre><br/>
+<br/>
+            五目並べの盤上では、下図の、着手点を含まない４ウェイ上の数で表した場所になんらかの影響がある。<br/>
+            <pre class="code-w">
+...........
+.4...4...4.
+..3..3..3..
+...2.2.2...
+....111....
+.4321.1234.
+....111....
+...2.2.2...
+..3..3..3..
+.4...4...4.
+...........</pre><br/>
+            本書ではチェスに倣ってこの位置を<span class="yellow-marker">駒の動き（Piece movement；ピース・ムーブメント）</span>と呼ぶことにするぜ。
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="kifuwarabe2Src"
+            :alt="kifuwarabe2Alt"
+            :name="kifuwarabe2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+                <span class="yellow-marker">駒（Piece；こま、ピース）</span>は動くが、石は動かないけどな。
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            数字は読む順を表す。つまり、途中に石が置いてあったら、その先には駒の動きは届かないぜ。<br/>
+            <pre class="code-w">
+...........
+.........o.
+..x.....3..
+...2...2...
+....1o1....
+.4321.1x...
+....111....
+...2.2.2...
+..o..3..3..
+.....4...4.
+...........</pre><br/>
+            本書ではこの不定な形で表される数の位置を<span class="yellow-marker">利き（Control；きき、コントロール）</span>と呼ぶことにするぜ。
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="kifuwarabe2Src"
+            :alt="kifuwarabe2Alt"
+            :name="kifuwarabe2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+                チェスではコントロール、<br/>
+                コンピューター将棋ではエフェクトと呼ぶな。誰かが効きと誤字ったのを直訳したんだろうな。
         </talk-balloon>
 
 
