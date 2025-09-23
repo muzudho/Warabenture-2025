@@ -11,14 +11,16 @@ span.font-x2 {  /* 文字サイズ２倍 */
 
 div.code-b, pre.code-b {
     display:inline-block;
-    background-color: #222222;
-    color:#DDD;
+    width: fit-content;
     margin-top: 12px;
     margin-bottom: 12px;
     padding-left: 20px;
     padding-top: 16px;
     padding-right: 20px;
     padding-bottom: 20px;
+    border-radius: 8px;
+    background-color: #222222;
+    color:#DDD;
     border: 1px solid;
     border-color: #888888 #DDDDDD #DDDDDD #888888;
     box-shadow: inset 1px 1px 0px #111111, inset -1px -1px 0px #DDDDDD;
@@ -37,12 +39,20 @@ span.code-b {
     font-size: smaller; /** ドロップシャドウを付けた見た目が大きくなるため、文字サイズを小さくしてバランスを取ります */
 }
 
-div.code-w {
+div.code-w, pre.code-w {
+    display:inline-block;
+    width: fit-content;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    padding-left: 20px;
+    padding-top: 16px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    border-radius: 8px;
     background-color: #EEEEEE;
     color:#111111;
-    border-radius: 8px;
-    padding-left: 8px;
-    padding-right: 8px;
+    border: 1px solid;
+    border-color: #888888 #DDDDDD #DDDDDD #888888;
     box-shadow: inset 2px 2px 5px rgba(0,0,0,.5);
 }
 

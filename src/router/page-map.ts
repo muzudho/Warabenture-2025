@@ -1,9 +1,11 @@
 /**
  * TODO: 手入力は大変なので、自動生成するデータ・ファイルにしたい。
  * NOTE: 動的インポートを使ったら、サーバーサイドのプリレンダリングでエラーになるということがあった。そこで、静的インポートを使うことにする。
+ * NOTE: src/assets/data/routes/articles.json も編集してください。
  */
 
 // 日付が新しい順：
+import Blog20250923Tue from '@/pages/blog/2025-09/23-tue.vue';
 import Blog20250915Mon from '@/pages/blog/2025-09/15-mon.vue';
 import Blog20250914Sun from '@/pages/blog/2025-09/14-sun.vue';
 import Blog20250913Sat from '@/pages/blog/2025-09/13-sat.vue';
@@ -27,6 +29,7 @@ import Blog19700101Thu from '@/pages/blog/1970-01/01-thu.vue';
 
 // 日付が新しい順：
 export const pageMap : Readonly<Record<string, any>> = {
+    '2025-09/23-tue': Blog20250923Tue,
     '2025-09/15-mon': Blog20250915Mon,
     '2025-09/14-sun': Blog20250914Sun,
     '2025-09/13-sat': Blog20250913Sat,
