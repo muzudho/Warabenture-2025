@@ -55,13 +55,13 @@ div.markup-example {    /* マークアップされたテキスト例 */
 }
 
 span.red-marker {   /* 強調 */
-    background-color: hotpink;
+    background-color: lightpink;
     color: brown;
     font-weight: bolder;
 }
 
 span.green-marker {   /* 強調 */
-    background-color: yellowgreen;
+    background-color: mediumaquamarine;
     color: darkgreen;
     font-weight: bolder;
 }

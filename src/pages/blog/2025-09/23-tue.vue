@@ -393,18 +393,18 @@ southwest  south  southeast</pre>
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device"
         >
-            数字は読む順を表す。つまり、途中に石が置いてあったら、その先には駒の動きは届かないぜ。<br/>
+            数字は読む順を表す。つまり、途中に相手の石<span class="code-w">o</span>が置いてあったら、その先には駒の動きは届かないぜ。<br/>
             <pre class="code-w">
 ...........
-.........o.
-..x.....3..
-...2...2...
-....1o1....
-.4321.1x...
-....111....
-...2.2.2...
-..o..3..3..
-.....4...4.
+.....<span class="red-marker">4</span>...<span class="blue-marker">o</span>.
+..<span class="yellow-marker">o</span>..<span class="red-marker">3</span>..<span class="blue-marker">3</span>..
+...<span class="yellow-marker">2</span>.<span class="red-marker">2</span>.<span class="blue-marker">x</span>...
+....<span class="yellow-marker">1</span><span class="red-marker">x</span><span class="blue-marker">1</span>....
+.<span class="green-marker">4</span><span class="green-marker">3</span><span class="green-marker">2</span><span class="green-marker">1</span>.<span class="green-marker">1</span><span class="green-marker">2</span><span class="green-marker">3</span><span class="green-marker">4</span>.
+....<span class="blue-marker">1</span><span class="red-marker">1</span><span class="yellow-marker">o</span>....
+...<span class="blue-marker">2</span>.<span class="red-marker">2</span>.....
+..<span class="blue-marker">x</span>..<span class="red-marker">3</span>.....
+.<span class="blue-marker">4</span>...<span class="red-marker">4</span>.....
 ...........</pre><br/>
             本書ではこの不定な形で表される数の位置を<span class="yellow-marker">利き（Control；きき、コントロール）</span>と呼ぶことにするぜ。
         </talk-balloon>
@@ -418,6 +418,23 @@ southwest  south  southeast</pre>
         >
                 チェスではコントロール、<br/>
                 コンピューター将棋ではエフェクトと呼ぶな。誰かが効きと誤字ったのを直訳したんだろうな。
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            さっきの図の利きをバーに分解すると以下の通り。<br/>
+            <br/>
+            <span class="code-w"><span class="red-marker">4321.1234</span></span>水平<br/>
+            <span class="code-w"><span class="green-marker">432x.1234</span></span>垂直<br/>
+            <span class="code-w"><span class="blue-marker">4x21.123</span></span>バロック・ダイアゴナル<br/>
+            <span class="code-w"><span class="yellow-marker">21.</span></span>シニスター・ダイアゴナル<br/>
+            <br/>
+            とりあえず、左から右へ、<br/>それが無理なら上から下へ並べた。</br>
         </talk-balloon>
 
 
