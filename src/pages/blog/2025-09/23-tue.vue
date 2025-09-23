@@ -8,7 +8,7 @@
 
     <!-- 以降、ページ -->
     <h1><router-link to="/blog/2025-09/23-tue">[2025-09-23_Tue]</router-link></h1>
-    <section class="sec-1 pt-6">
+    <section class="sec-1 pt-6 mb-6">
 
 
         <talk-balloon
@@ -49,6 +49,12 @@
         >
                 好きにしてくれだぜ。
         </talk-balloon>
+
+
+    </section>
+
+    <h2>石から色</h2>
+    <section class="sec-2 pt-6 mb-6">
 
 
         <talk-balloon
@@ -101,7 +107,7 @@
             :name="kifuwarabe2Name"
             :device="compatibleDevice1Ref?.device"
         >
-                物が突然属性に変わるの面白。
+            物が突然属性に変わるの面白。
         </talk-balloon>
 
 
@@ -111,13 +117,107 @@
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device"
         >
-            例えば <span class="code-w">......</span>とか、
-            <span class="code-w">ox..xox.o.x..</span>みたいな、複数の石の一直線の並びを<span class="yellow-marker">バー（bar）</span>、<br/>
+            また、五目並べでは石を線が交わっているところに置くことから、<br/>
+            石を置く場所のことを<span class="yellow-marker">交点（Node；こうてん、ノード）</span>とも呼ぶ。
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="kifuwarabe2Src"
+            :alt="kifuwarabe2Alt"
+            :name="kifuwarabe2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            チェスでは正方形の線で囲まれた内側に駒を置くことから<span class="yellow-marker">ます（Square；スクウェア）</span>って呼ぶぜ。
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="hiyoko2Src"
+            :alt="hiyoko2Alt"
+            :name="hiyoko2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            将棋のますは正方形ではなくて長方形だそうよ。
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            プログラミングでは、Node という用語を使うのが都合が悪いときは、 Square という用語で代用する。
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            五目並べは２人で石を置いて遊ぶゲームで、遊ぶ人のことを<span class="yellow-marker">対局者（Player；プレイヤー）</span>と呼ぶぜ。<br/>
             <br/>
+            先に石を置く対局者を<span class="yellow-marker">先手（Earlier move；せんて）</span>、<br/>
+            後に石を置く対局者を<span class="yellow-marker">後手（Later move；ごて）</span>と呼ぶぜ。
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="hiyoko2Src"
+            :alt="hiyoko2Alt"
+            :name="hiyoko2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            Sente、 Gote で通じるみたいよ。
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            先手は黒石、後手は白石を持つことが決まってるから、<br/>
+            <br/>
+            先手を<span class="yellow-marker">黒番（Black；くろばん）</span>、<br/>
+            後手を<span class="yellow-marker">白番（White；しろばん）</span>という呼び方もするぜ。
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="hiyoko2Src"
+            :alt="hiyoko2Alt"
+            :name="hiyoko2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            チェスでは白番が先手のようよ。
+        </talk-balloon>
+
+
+    </section>
+
+    <h2>盤</h2>
+    <section class="sec-2 pt-6 mb-6">
+
+
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            例えば左から右へ空点を並べた <span class="code-w">......</span>とか、<br/>
+            適当に複数の石を置いてみた <span class="code-w">ox..xox.o.x..</span>といった並びを本書では<span class="yellow-marker">ランズ（Runs）</span>と呼ぶことにするぜ。<br/>
+            <br/>
+            そして、<br/>
             <pre class="code-w">
 ......
 ..ox..</pre>
-            みたいな、複数行の並びを<span class="yellow-marker">盤（Board；ボード）</span>と呼ぶことにするぜ。
+            みたいな、縦横に格子状に並んだものを<span class="yellow-marker">盤（Board；ボード）</span>と呼ぶことにするぜ。
         </talk-balloon>
 
 
@@ -134,7 +234,7 @@ x....
 ...x.
 ....x
 </pre>
-                はボードだが、５つの石 x に着目すればバーだな。
+                はボードだが、５つの石 x に着目すればランズだな。
         </talk-balloon>
 
 
@@ -144,7 +244,7 @@ x....
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device"
         >
-                そして、ボードの上に置かれたバーには４つの<span class="yellow-marker">方向（Direction；ディレクション）</span>がある。
+                そして、ボードの上に置かれたランズには４つの<span class="yellow-marker">方向（Direction；ディレクション）</span>がある。
                 <br/>
                 <pre class="code-w">
 .....
@@ -427,7 +527,7 @@ southwest  south  southeast</pre>
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device"
         >
-            さっきの図の利きをバーに分解すると以下の通り。<br/>
+            さっきの図の利きをランズに分解すると以下の通り。<br/>
             <br/>
             <span class="code-w"><span class="red-marker">4321.1234</span></span>水平<br/>
             <span class="code-w"><span class="green-marker">432x.1234</span></span>垂直<br/>
