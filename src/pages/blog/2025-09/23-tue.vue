@@ -330,7 +330,7 @@
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device"
         >
-            <span class="yellow-marker">ログインしたユーザー（Log-in user）</span>、<br/>
+            <span class="yellow-marker">ログインした利用者（Log-in user）</span>、<br/>
             <span class="yellow-marker">その他の利用者（Other user）</span>、<br/>
             黒番（Black）、<br/>
             白番（White）、<br/>
@@ -440,13 +440,70 @@
             次に、五目並べは石を並べるゲームだが、<br/>
             <br/>
             例えば左から右へ空点を並べた <span class="code-w">......</span>とか、<br/>
-            適当に複数の石を置いてみた <span class="code-w">ox..xox.o.x..</span>といった並びを本書では<span class="yellow-marker">ランズ（Runs）</span>と呼ぶことにするぜ。<br/>
             <br/>
+            石と空点を混ぜて並べた <span class="code-w">ox..xox.o.x..</span>といった並びを<br/>
+            <br/>
+            本書では<span class="yellow-marker">フィールド（Field）</span>と呼ぶことにするぜ。<br/>
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="hiyoko2Src"
+            :alt="hiyoko2Alt"
+            :name="hiyoko2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            コンピューター・チェスには<span class="blue-marker">ビット・フィールド（Bit Field）</span>っていう似たものがあって、そこからの用語の借用ねえ。
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            特に、<br/>
+            <br/>
+            同じ色の石と空点だけでできた<span class="code-w">...<span class="red-marker">x..xx.x</span>...</span>とか、<br/>
+            <br/>
+            <span class="code-w">...<span class="red-marker">ooo.....oo.o</span>....</span> のようなフィールドのうち、<br/>
+            <br/>
+            端と端の石を結ぶ区間を本書では<span class="blue-marker">ランズ（Runs）</span>と呼ぶことにするぜ。<br/>
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="kifuwarabe2Src"
+            :alt="kifuwarabe2Alt"
+            :name="kifuwarabe2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            お父ん、定義しておいて、後からやっぱ要らねって使わない用語あるよな。
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
             そして、<br/>
             <pre class="code-w">
 ......
 ..ox..</pre>
             みたいな、縦横に格子状に並んだものを<span class="yellow-marker">盤（Board；ボード）</span>と呼ぶことにするぜ。
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="hiyoko2Src"
+            :alt="hiyoko2Alt"
+            :name="hiyoko2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            コンピューター・チェスには<span class="blue-marker">ビット・ボード（Bit Board）</span>っていう似たものがあって、そこから用語を借用するまでもなく、一般名詞ねえ。
         </talk-balloon>
 
 
@@ -463,7 +520,7 @@ x....
 ...x.
 ....x
 </pre>
-                はボードだが、５つの石 x に着目すればランズだな。
+                はボードだが、５つの石 x に着目すればフィールドだな。
         </talk-balloon>
 
 
@@ -473,7 +530,7 @@ x....
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device"
         >
-                そして、ボードの上に置かれたランズには４つの<span class="yellow-marker">方向（Direction；ディレクション）</span>がある。
+                そして、ボードの上に見立てたフィールドには４つの<span class="yellow-marker">方向（Direction；ディレクション）</span>がある。
                 <br/>
                 <pre class="code-w">
 .....
@@ -621,7 +678,7 @@ southwest  south  southeast</pre>
             :name="hiyoko2Name"
             :device="compatibleDevice1Ref?.device"
         >
-            将棋には、引（ひき）、寄（より）、上（あがる）、左（ひだり）、直（すぐ）、右（みぎ）、打（うつ）、成（なり）、成（ならず）の９ウェイがあるのよ。
+            将棋には、引（ひき）、寄（より）、上（あがる）、左（ひだり）、直（すぐ）、右（みぎ）、打（うつ）、成（なり）、成（ならず）の９ウェイがあって、その一部には組み合わせがあるのよ。
         </talk-balloon>
 
 
@@ -671,7 +728,7 @@ southwest  south  southeast</pre>
             :device="compatibleDevice1Ref?.device"
         >
                 チェスで駒を動かすことをムーブと呼ぶから、<br/>
-                コンピューターゲームの方でもムーブという言葉が使われるようになったんじゃないかな。
+                コンピューター囲碁の方でもムーブという言葉が使われるようになったんじゃないかな。
         </talk-balloon>
 
 
@@ -717,19 +774,21 @@ southwest  south  southeast</pre>
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device"
         >
-            着手点から外側に向かって、ランズが８つ伸びているとしよう。８ウェイだぜ。<br/>
+            着手点から外側に向かって、フィールドが８つ伸びているとしよう。８ウェイだぜ。<br/>
             <pre class="code-w">
-...........
-.4...4...4.
-..3..3..3..
-...2.2.2...
-....111....
-.4321.1234.
-....111....
-...2.2.2...
-..3..3..3..
-.4...4...4.
-...........</pre><br/>
+(4)    (3)    (2)
+   ...........
+   .4...4...4.
+   ..3..3..3..
+   ...2.2.2...
+   ....111....
+(5).4321.1234.(1)
+   ....111....
+   ...2.2.2...
+   ..3..3..3..
+   .4...4...4.
+   ...........
+(6)    (7)    (8)</pre><br/>
             本書ではチェスに倣ってこの位置を<span class="yellow-marker">駒の動き（Piece movement；ピース・ムーブメント）</span>と呼ぶことにするぜ。
         </talk-balloon>
 
@@ -781,12 +840,34 @@ southwest  south  southeast</pre>
 
 
         <talk-balloon
+            :src="hiyoko2Src"
+            :alt="hiyoko2Alt"
+            :name="hiyoko2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            将棋の利きは<span class="blue-marker">相手の駒も含む</span>けど、本書では利きに<span class="yellow-marker">相手の石を含まない</span>の？
+        </talk-balloon>
+
+
+        <talk-balloon
             :src="oton2Src"
             :alt="oton2Alt"
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device"
         >
-            さっきの図の利きを、着手点を含まずに、ランズに分解すると以下の通り。<br/>
+            含まないぜ。<br/>
+            <br/>
+            新しい用語を造語してもいいのかもしれないが、ひとまず、必要になるまでは、既に有るものを借用しようぜ。
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            さっきの図の利きを、着手点を含まずに、ウェイごとにフィールドに分解すると以下の通り。<br/>
             <br/>
             (1)<span class="code-w"><span class="red-marker">1234</span></span>水平に東へ<br/>
             (2)<span class="code-w"><span class="blue-marker">1x3</span></span>バロック・ダイアゴナルに北東へ<br/>
