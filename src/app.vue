@@ -51,7 +51,7 @@
 
             <section class="mt-6 mb-12" style="text-align: center;">
                 <p><a href="http://warabenture.com/"><img
-                    src="@/assets/img/reference/warabenture/202509__warabenture__20-2016-banner-o1o2o0-since20220507.png"
+                    src="@/assets/img/reference/warabenture/202509__warabenture__24-2215-bannerTwo-o2o2o0.png"
                     alt="ホームページのバナー"
                 /></a></p>
                 (C) 2013 - 2025 同人ソフトサークルぐれーすけーる
