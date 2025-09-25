@@ -17,8 +17,8 @@
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device"
         >
-                <router-link to="/blog/2025-09/23-tue">[2025-09-23_Tue]</router-link>の記事に引き続いて、<br/>
-                五目並べ（Gomoku；ごもくならべ）を作っていくぜ。
+            <router-link to="/blog/2025-09/23-tue">[2025-09-23_Tue]</router-link>の記事に引き続いて、<br/>
+            五目並べ（Gomoku；ごもくならべ）を作っていくぜ。
         </talk-balloon>
 
 
@@ -35,7 +35,7 @@
             :name="kifuwarabe2Name"
             :device="compatibleDevice1Ref?.device"
         >
-                どこでつまづいているんだぜ？
+            どこでつまづいているんだぜ？
         </talk-balloon>
 
 

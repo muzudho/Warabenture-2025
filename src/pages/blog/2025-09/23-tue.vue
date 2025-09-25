@@ -17,8 +17,8 @@
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device"
         >
-                <span class="yellow-marker">五目並べ（Gomoku；ごもくならべ）</span>作ってるんだが……。<br/>
-                重要な用語には黄色いマーカーを引いていくぜ。
+            <span class="yellow-marker">五目並べ（Gomoku；ごもくならべ）</span>作ってるんだが……。<br/>
+            重要な用語には黄色いマーカーを引いていくぜ。
         </talk-balloon>
 
 
@@ -28,7 +28,7 @@
             :name="kifuwarabe2Name"
             :device="compatibleDevice1Ref?.device"
         >
-                あの石を５つ並べるやつ。
+            あの石を５つ並べるやつ。
         </talk-balloon>
 
 
@@ -48,7 +48,7 @@
             :name="kifuwarabe2Name"
             :device="compatibleDevice1Ref?.device"
         >
-                好きにしてくれだぜ。
+            好きにしてくれだぜ。
         </talk-balloon>
 
 
@@ -130,7 +130,7 @@
             :name="kifuwarabe2Name"
             :device="compatibleDevice1Ref?.device"
         >
-                五目並べと囲碁は似たような道具使うしな……。
+            五目並べと囲碁は似たような道具使うしな……。
         </talk-balloon>
 
 

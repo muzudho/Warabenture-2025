@@ -1,5 +1,10 @@
 [
     {
+        "id": "2025-09/25-thu",
+        "date": "2025-09-25",
+        "category": ["Talking", "Gomoku"]
+    },
+    {
         "id": "2025-09/24-wed",
         "date": "2025-09-24",
         "category": ["Talking", "Gomoku"]
