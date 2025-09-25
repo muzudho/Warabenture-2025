@@ -1,2 +1,6 @@
 # このエグザンプルのファイル名は .env に変えてください
-VITE_BASE_URL=https://www.warabenture.com/
+
+# 黒吉によると、本番環境では、 www が付いているか、付いていないかで表記が揺れるのは良くないので、 / の方がよいらしい
+#VITE_BASE_URL=https://www.warabenture.com/
+
+VITE_BASE_URL=/
