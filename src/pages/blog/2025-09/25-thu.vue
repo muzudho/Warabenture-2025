@@ -173,6 +173,85 @@
         </talk-balloon>
 
 
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            そうか、やってみよ。
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            <pre class="code-w">
+..<span class="green-marker">1122</span>x<span class="green-marker">2</span>x<span class="green-marker">2211</span>..</pre><br/>
+            👆 この盤面から、真ん中に相手の石を置くと。<br/>
+            <br/>
+
+            <pre class="code-w">
+..<span class="green-marker">1111</span>xox<span class="green-marker">1111</span>..</pre><br/>
+            👆 空点の最長は上図のように更新されてほしいが、<br/>
+            <br/>
+            
+            <pre class="code-w">
+..<span class="green-marker">1</span><span class="red-marker">...</span>xox<span class="red-marker">...</span><span class="green-marker">1</span>..</pre><br/>
+            👆 o 石から見て x 石の向こうの各空点は 0 扱いになってしまうぜ。<br/>
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="kifuwarabe2Src"
+            :alt="kifuwarabe2Alt"
+            :name="kifuwarabe2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            利きの各交点ごとに［最長］を再計算しろだぜ。
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            じゃあ、ひとまず、<br/>
+            <pre class="code-w">
+...<span class="green-marker">....x....</span>...</pre><br/>
+            👆 着手点の石と、その前後の４連続の交点の計９交点を、<span class="yellow-marker">方向フィールド（Direction field）</span>と呼ぶことにするぜ。
+            <br/>
+
+        </talk-balloon>
+
+
+       <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            （カタカタカタ……　※キーボードを打つ音）<br/>
+            <br/>
+            よし、直った。
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="kifuwarabe2Src"
+            :alt="kifuwarabe2Alt"
+            :name="kifuwarabe2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            なんだ、もう直ったのか。
+        </talk-balloon>
+
+
     </section>
 </template>
 
