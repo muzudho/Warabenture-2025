@@ -23,7 +23,7 @@
             style="position: relative; left:0; top:0; border: dashed 4px lightgray;">
 
             <!-- 0 -->
-            <Line
+            <graph-line
                 :startX="startX * cellWidth"
                 :startY="startY * cellHeight"
                 :width="0 * cellWidth"
@@ -32,7 +32,7 @@
                 color="#ff0000"/>
 
             <!-- 1 -->
-            <Line
+            <graph-line
                 :startX="startX * cellWidth"
                 :startY="startY * cellHeight"
                 :width="2.5 * cellWidth"
@@ -41,7 +41,7 @@
                 color="#ff4000"/>
 
             <!-- 2 -->
-            <Line
+            <graph-line
                 :startX="startX * cellWidth"
                 :startY="startY * cellHeight"
                 :width="5 * cellWidth"
@@ -50,7 +50,7 @@
                 color="#ff8000"/>
 
             <!-- 3 -->
-            <Line
+            <graph-line
                 :startX="startX * cellWidth"
                 :startY="startY * cellHeight"
                 :width="5 * cellWidth"
@@ -59,7 +59,7 @@
                 color="#ffc000"/>
 
             <!-- 4 -->
-            <Line
+            <graph-line
                 :startX="startX * cellWidth"
                 :startY="startY * cellHeight"
                 :width="5 * cellWidth"
@@ -68,7 +68,7 @@
                 color="#ffff00"/>
 
             <!-- 5 -->
-            <Line
+            <graph-line
                 :startX="startX * cellWidth"
                 :startY="startY * cellHeight"
                 :width="5 * cellWidth"
@@ -77,7 +77,7 @@
                 color="#c0ff00"/>
 
             <!-- 6 -->
-            <Line
+            <graph-line
                 :startX="startX * cellWidth"
                 :startY="startY * cellHeight"
                 :width="5 * cellWidth"
@@ -86,7 +86,7 @@
                 color="#80ff00"/>
 
             <!-- 7 -->
-            <Line
+            <graph-line
                 :startX="startX * cellWidth"
                 :startY="startY * cellHeight"
                 :width="2.5 * cellWidth"
@@ -95,7 +95,7 @@
                 color="#40ff00"/>
 
             <!-- 8 -->
-            <Line
+            <graph-line
                 :startX="startX * cellWidth"
                 :startY="startY * cellHeight"
                 :width="0 * cellWidth"
@@ -104,7 +104,7 @@
                 color="#00ff00"/>
 
             <!-- 9 -->
-            <Line
+            <graph-line
                 :startX="startX * cellWidth"
                 :startY="startY * cellHeight"
                 :width="-2.5 * cellWidth"
@@ -113,7 +113,7 @@
                 color="#00ff80"/>
 
             <!-- 10 -->
-            <Line
+            <graph-line
                 :startX="startX * cellWidth"
                 :startY="startY * cellHeight"
                 :width="-5 * cellWidth"
@@ -122,7 +122,7 @@
                 color="#00ffff"/>
 
             <!-- 11 -->
-            <Line
+            <graph-line
                 :startX="startX * cellWidth"
                 :startY="startY * cellHeight"
                 :width="-5 * cellWidth"
@@ -131,7 +131,7 @@
                 color="#0080ff"/>
 
             <!-- 12 -->
-            <Line
+            <graph-line
                 :startX="startX * cellWidth"
                 :startY="startY * cellHeight"
                 :width="-5 * cellWidth"
@@ -140,7 +140,7 @@
                 color="#0000ff"/>
 
             <!-- 13 -->
-            <Line
+            <graph-line
                 :startX="startX * cellWidth"
                 :startY="startY * cellHeight"
                 :width="-5 * cellWidth"
@@ -149,7 +149,7 @@
                 color="#8000ff"/>
 
             <!-- 14 -->
-            <Line
+            <graph-line
                 :startX="startX * cellWidth"
                 :startY="startY * cellHeight"
                 :width="-5 * cellWidth"
@@ -158,7 +158,7 @@
                 color="#ff00ff"/>
 
             <!-- 15 -->
-            <Line
+            <graph-line
                 :startX="startX * cellWidth"
                 :startY="startY * cellHeight"
                 :width="-2.5 * cellWidth"
@@ -181,7 +181,7 @@
             style="position: relative; left:0; top:0; border: dashed 4px lightgray;">
 
             <!-- 0 -->
-            <Rectangle
+            <graph-rectangle
                 :left="startX * cellWidth"
                 :top="(startY + 1) * cellHeight"
                 :width="4 * cellWidth"
@@ -190,7 +190,7 @@
                 color="#ff3300"/>
 
             <!-- 0 -->
-            <Rectangle
+            <graph-rectangle
                 :left="(startX - 3) * cellWidth"
                 :top="(startY - 4) * cellHeight"
                 :width="3 * cellWidth"
@@ -213,7 +213,7 @@
             style="position: relative; left:0; top:0; border: dashed 4px lightgray;">
 
             <!-- 0 -->
-            <Ellipse
+            <graph-ellipse
                 :left="startX * cellWidth"
                 :top="(startY + 1) * cellHeight"
                 :width="4 * cellWidth"
@@ -222,10 +222,10 @@
                 color="#ff3300"
                 class="d-flex align-center justify-center">
                 １番
-            </Ellipse>
+            </graph-ellipse>
 
             <!-- 0 -->
-            <Ellipse
+            <graph-ellipse
                 :left="(startX - 3) * cellWidth"
                 :top="(startY - 4) * cellHeight"
                 :width="3 * cellWidth"
@@ -234,7 +234,7 @@
                 color="#00ff33"
                 class="d-flex align-center justify-center">
                 ２番
-            </Ellipse>
+            </graph-ellipse>
         </div>
         <br/>
     </section>
@@ -251,7 +251,7 @@
             style="position: relative; left:0; top:0; border: dashed 4px lightgray;">
 
             <!-- 0 -->
-            <Arrow
+            <graph-arrow
                 :startX="startX * cellWidth"
                 :startY="startY * cellHeight"
                 :width="0 * cellWidth"
@@ -260,7 +260,7 @@
                 color="#ff0000"/>
 
             <!-- 1 -->
-            <Arrow
+            <graph-arrow
                 :startX="startX * cellWidth"
                 :startY="startY * cellHeight"
                 :width="2.5 * cellWidth"
@@ -269,7 +269,7 @@
                 color="#ff4000"/>
 
             <!-- 2 -->
-            <Arrow
+            <graph-arrow
                 :startX="startX * cellWidth"
                 :startY="startY * cellHeight"
                 :width="5 * cellWidth"
@@ -278,7 +278,7 @@
                 color="#ff8000"/>
 
             <!-- 3 -->
-            <Arrow
+            <graph-arrow
                 :startX="startX * cellWidth"
                 :startY="startY * cellHeight"
                 :width="5 * cellWidth"
@@ -287,7 +287,7 @@
                 color="#ffc000"/>
 
             <!-- 4 -->
-            <Arrow
+            <graph-arrow
                 :startX="startX * cellWidth"
                 :startY="startY * cellHeight"
                 :width="5 * cellWidth"
@@ -296,7 +296,7 @@
                 color="#ffff00"/>
 
             <!-- 5 -->
-            <Arrow
+            <graph-arrow
                 :startX="startX * cellWidth"
                 :startY="startY * cellHeight"
                 :width="5 * cellWidth"
@@ -305,7 +305,7 @@
                 color="#c0ff00"/>
 
             <!-- 6 -->
-            <Arrow
+            <graph-arrow
                 :startX="startX * cellWidth"
                 :startY="startY * cellHeight"
                 :width="5 * cellWidth"
@@ -314,7 +314,7 @@
                 color="#80ff00"/>
 
             <!-- 7 -->
-            <Arrow
+            <graph-arrow
                 :startX="startX * cellWidth"
                 :startY="startY * cellHeight"
                 :width="2.5 * cellWidth"
@@ -323,7 +323,7 @@
                 color="#40ff00"/>
 
             <!-- 8 -->
-            <Arrow
+            <graph-arrow
                 :startX="startX * cellWidth"
                 :startY="startY * cellHeight"
                 :width="0 * cellWidth"
@@ -332,7 +332,7 @@
                 color="#00ff00"/>
 
             <!-- 9 -->
-            <Arrow
+            <graph-arrow
                 :startX="startX * cellWidth"
                 :startY="startY * cellHeight"
                 :width="-2.5 * cellWidth"
@@ -341,7 +341,7 @@
                 color="#00ff80"/>
 
             <!-- 10 -->
-            <Arrow
+            <graph-arrow
                 :startX="startX * cellWidth"
                 :startY="startY * cellHeight"
                 :width="-5 * cellWidth"
@@ -350,7 +350,7 @@
                 color="#00ffff"/>
 
             <!-- 11 -->
-            <Arrow
+            <graph-arrow
                 :startX="startX * cellWidth"
                 :startY="startY * cellHeight"
                 :width="-5 * cellWidth"
@@ -359,7 +359,7 @@
                 color="#0080ff"/>
 
             <!-- 12 -->
-            <Arrow
+            <graph-arrow
                 :startX="startX * cellWidth"
                 :startY="startY * cellHeight"
                 :width="-5 * cellWidth"
@@ -368,7 +368,7 @@
                 color="#0000ff"/>
 
             <!-- 13 -->
-            <Arrow
+            <graph-arrow
                 :startX="startX * cellWidth"
                 :startY="startY * cellHeight"
                 :width="-5 * cellWidth"
@@ -377,7 +377,7 @@
                 color="#8000ff"/>
 
             <!-- 14 -->
-            <Arrow
+            <graph-arrow
                 :startX="startX * cellWidth"
                 :startY="startY * cellHeight"
                 :width="-5 * cellWidth"
@@ -386,7 +386,7 @@
                 color="#ff00ff"/>
 
             <!-- 15 -->
-            <Arrow
+            <graph-arrow
                 :startX="startX * cellWidth"
                 :startY="startY * cellHeight"
                 :width="-2.5 * cellWidth"
@@ -430,7 +430,7 @@
             style="position: relative; left:0; top:0; border: dashed 4px lightgray;">
 
             <!-- 始まり箱 -->
-            <Ellipse
+            <graph-ellipse
                 :left="1 * cellWidth"
                 :top="1 * cellHeight"
                 :width="4 * cellWidth"
@@ -439,10 +439,10 @@
                 color="#3333ff"
                 class="d-flex align-center justify-center">
                 はじまり
-            </Ellipse>
+            </graph-ellipse>
 
             <!-- 直線 -->
-            <Line
+            <graph-line
                 :startX="3 * cellWidth"
                 :startY="4 * cellHeight"
                 :width="0 * cellWidth"
@@ -450,7 +450,7 @@
                 :stroke-width="8"
                 color="#8000ff"/>
 
-            <Arrow
+            <graph-arrow
                 :startX="3 * cellWidth"
                 :startY="7 * cellHeight"
                 :width="3 * cellWidth"
@@ -459,7 +459,7 @@
                 color="#ff00ff"/>
 
             <!-- 終わり箱 -->
-            <Rectangle
+            <graph-rectangle
                 :left="6 * cellWidth"
                 :top="5 * cellHeight"
                 :width="3 * cellWidth"
@@ -468,7 +468,7 @@
                 color="#cc0066"
                 class="d-flex align-center justify-center">
                 おわり
-            </Rectangle>
+            </graph-rectangle>
         </div>
         <br/>
     </section>
@@ -496,11 +496,11 @@
     // Tauri なら明示的にインポートを指定する必要がある。 Nuxt なら自動でインポートしてくれる場合がある。
     //
 
-    import Arrow from '../../../components/Arrow.vue';
-    import Ellipse from '../../../components/Ellipse.vue';
-    import Line from '../../../components/Line.vue';
-    import Rectangle from '../../../components/Rectangle.vue';
-    import SourceLink from '../../../components/SourceLink.vue';
+    import GraphArrow from '@/components/GraphArrow.vue';
+    import GraphEllipse from '@/components/GraphEllipse.vue';
+    import GraphLine from '@/components/GraphLine.vue';
+    import GraphRectangle from '@/components/GraphRectangle.vue';
+    import SourceLink from '@/components/SourceLink.vue';
 
     // ++++++++++++++++++++++++++
     // + インポート　＞　ページ +

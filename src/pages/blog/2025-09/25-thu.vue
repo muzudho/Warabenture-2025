@@ -252,7 +252,108 @@
         </talk-balloon>
 
 
-    </section>
+       <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            不具合……、というか実装がまだのものはいくつもある。手数が必要だぜ。次の不具合は、<br/>
+            <pre class="code-w">
+.....xoox......</pre><br/>
+            👆 自石に相手石が挟まれているときだぜ。<br/>
+            <br/>
+            <pre class="code-w">
+.....1<span class="green-marker">-1-1</span>1......</pre><br/>
+            👆 石が挟まれていて［五］に伸ばせないときは、［最長］は -1 にしてほしい。<br/>
+            <br/>
+            <pre class="code-w">
+.....1<span class="red-marker">22</span>1......</pre><br/>
+            👆 しかし現状、［最長］は更新されずに残っているぜ。
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="hiyoko2Src"
+            :alt="hiyoko2Alt"
+            :name="hiyoko2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            ［フィールド］上の石を数える前に、［コントロール］の長さが５未満かどうか調べればいいんじゃないの？
+        </talk-balloon>
+
+
+       <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            ［フィールド］の長さではなく、［コントロール］の長さを調べればいいのか。ソースを直したろ。
+        </talk-balloon>
+
+
+       <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            ああーっ。
+        </talk-balloon>
+
+
+       <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            <pre class="code-w">
+.....xoox......</pre><br/>
+            👆 こういう風に石が並んでも、<br/>
+            <br/>
+            <pre class="code-w">
+.....1<span class="red-marker">-1-1</span>1......</pre><br/>
+            👆 こうはならないんだ。
+            <br/>
+            <pre class="code-w">
+.....1<span class="green-marker">11</span>1......</pre><br/>
+            👆 こうなる。なぜなら、盤ではタテもナナメも残ってるから。
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="kifuwarabe2Src"
+            :alt="kifuwarabe2Alt"
+            :name="kifuwarabe2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            お父んが、成立しない完成予想図を思い浮かべてただけか。
+        </talk-balloon>
+
+
+       <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            <pre class="code-w">
+.....xxxx......
+.....xoox......
+.....xxxx......</pre><br/>
+            👆 こう並べれば、<br/>
+            <br/>
+            <pre class="code-w">
+.....1111......
+.....1<span class="green-marker">-1-1</span>1......
+.....1111......</pre><br/>
+            👆 こうなるけど、実践であんま出てこないし、こんな仕様有っても嬉しくないな……
+        </talk-balloon>
+
+
+</section>
 </template>
 
 <script setup lang="ts">

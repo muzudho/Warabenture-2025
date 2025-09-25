@@ -80,7 +80,7 @@ pre {
 
 section.sec-contents {  /* 目次 */
     padding: 20px;
-    border: dashed 4px #FF66CC;
+    border: dashed 4px #FF66CC; /* ワラベンチャー用 */
     color: var(--text-light, #282828);
     background-color: antiquewhite;
 }

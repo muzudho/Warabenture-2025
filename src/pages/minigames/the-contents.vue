@@ -14,6 +14,7 @@
             <li>📖 <router-link to="/minigames/maze" :class="getLinkHighlight('/minigames/maze')">迷路</router-link> - ただ歩くだけ！</li>
             -->
             <li>📖 <router-link to="/minigames/reversi" :class="getLinkHighlight('/minigames/reversi')">リバーシ</router-link> - 挟んだ石をひっくり返すぜ！</li>
+            <li>📖 <router-link to="/minigames/gomoku" :class="getLinkHighlight('/minigames/gomoku')">五目並べ（🚧試作機）</router-link> - 石を５つ真っすぐ並べろだぜ！</li>
         </ul>
     </section>
 </template>

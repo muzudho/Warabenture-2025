@@ -135,20 +135,20 @@
             </template>
         </game-machine-waratch2>
 
-        <!-- お好み設定パネル１ -->
+        <!-- 環境設定パネル１ -->
         <section class="sec-0 mt-6 mb-6">
             <v-btn
                 class="code-key"
-                @touchstart.prevent="button1Ref?.press($event, onGamePreferences1ButtonPressed);"
+                @touchstart.prevent="button1Ref?.press($event, onEnvironmentConfig1ButtonPressed);"
                 @touchend="button1Ref?.release();"
                 @touchcancel="button1Ref?.release();"
                 @touchleave="button1Ref?.release();"
-                @mousedown.prevent="button1Ref?.handleMouseDown($event, onGamePreferences1ButtonPressed)"
+                @mousedown.prevent="button1Ref?.handleMouseDown($event, onEnvironmentConfig1ButtonPressed)"
                 @mouseup="button1Ref?.release();"
                 @mouseleave="button1Ref?.release();"
-            >{{ gameMachine1PreferencesIsShowing ? '⚙️お好み設定を終わる' : '⚙️お好み設定を表示' }}</v-btn>
+            >{{ gameMachine1EnvironmentConfigIsShowing ? '⚙️環境設定を終わる' : '⚙️環境設定を表示' }}</v-btn>
             <section
-                v-if="gameMachine1PreferencesIsShowing"
+                v-if="gameMachine1EnvironmentConfigIsShowing"
                 class="sec-0 pt-6 pb-6"
                 style="background-color: rgb(0, 0, 0, 0.1);"
             >
@@ -274,11 +274,11 @@
 
     const gameMachine1GamePauseButton1Enabled = ref<boolean>(false);
 
-    // ++++++++++++++++++++++++++++++++++++++++++++++++++++
-    // + オブジェクト　＞　ゲームマシン１　＞　お好み設定 +
-    // ++++++++++++++++++++++++++++++++++++++++++++++++++++
+    // ++++++++++++++++++++++++++++++++++++++++++++++++++
+    // + オブジェクト　＞　ゲームマシン１　＞　環境設定 +
+    // ++++++++++++++++++++++++++++++++++++++++++++++++++
 
-    const gameMachine1PreferencesIsShowing = ref<boolean>(false);
+    const gameMachine1EnvironmentConfigIsShowing = ref<boolean>(false);
 
     // ++++++++++++++++++++++++++++
     // + オブジェクト　＞　自機１ +
@@ -311,11 +311,11 @@
     const gameBoard1Area = computed(()=>{
         return gameBoard1FileNum.value * gameBoard1RankNum.value;
     })
-    const gameBoard1StoneShapeArray = ref<string[]>(new Array(64).fill(''));    // 石の形
+    const gameBoard1StoneShapeArray = ref<string[]>(new Array(gameBoard1Area.value).fill(''));    // 石の形
     for(let sq: number=0; sq<gameBoard1Area.value; sq++){
         gameBoard1StoneShapeArray.value[sq] = '●'
     }
-    const gameBoard1StoneColorArray = ref<number[]>(new Array(64).fill(0));    // 石の色
+    const gameBoard1StoneColorArray = ref<number[]>(new Array(gameBoard1Area.value).fill(0));    // 石の色
     const gameBoard1StoneColorNameMap: Record<number, string> = {
         0: 'transparent',
         1: '#C86868', // 明るい茶色
@@ -509,10 +509,10 @@
 
 
     /**
-     * ［お好み設定パネル１］を開くボタン。
+     * ［環境設定パネル１］を開くボタン。
      */
-    function onGamePreferences1ButtonPressed() : void {
-        gameMachine1PreferencesIsShowing.value = !gameMachine1PreferencesIsShowing.value;
+    function onEnvironmentConfig1ButtonPressed() : void {
+        gameMachine1EnvironmentConfigIsShowing.value = !gameMachine1EnvironmentConfigIsShowing.value;
     }
 
     // ++++++++++++++++++++++++++++++++++++++
@@ -527,7 +527,7 @@
         //gameBoard1DebugMessage.value = `sq=${sq}`;
 
         const color = gameBoard1Turn.value;   // Math.floor(Math.random() * 2) + 1;
-        const itsOk = putStone(sq, color);
+        putStone(sq, color);  // 石を置くのに失敗しても何もしません
     }
 
 
@@ -859,7 +859,7 @@
         
         let nextSq = nextOf(startSq);   // 隣のマス番号
         while (true) {
-            if (nextSq == -1) { // 番外なら、リストを空にしてループを抜ける
+            if (nextSq == -1) { // 盤外なら、リストを空にしてループを抜ける
                 reverseSqArray.length = 0;
                 break;
             }

@@ -183,20 +183,20 @@
         </game-machine-waratch2>
 
 
-        <!-- お好み設定パネル１ -->
+        <!-- 環境設定パネル１ -->
         <section class="sec-0 mt-6 mb-6">
             <v-btn
                 class="code-key"
-                @touchstart.prevent="button1Ref?.press($event, onGamePreferences1ButtonPressed);"
+                @touchstart.prevent="button1Ref?.press($event, onEnvironmentConfig1ButtonPressed);"
                 @touchend="button1Ref?.release();"
                 @touchcancel="button1Ref?.release();"
                 @touchleave="button1Ref?.release();"
-                @mousedown.prevent="button1Ref?.handleMouseDown($event, onGamePreferences1ButtonPressed)"
+                @mousedown.prevent="button1Ref?.handleMouseDown($event, onEnvironmentConfig1ButtonPressed)"
                 @mouseup="button1Ref?.release();"
                 @mouseleave="button1Ref?.release();"
-            >{{ gameMachine1PreferencesIsShowing ? '⚙️お好み設定を終わる' : '⚙️お好み設定を表示' }}</v-btn>
+            >{{ gameMachine1EnvironmentConfigIsShowing ? '⚙️環境設定を終わる' : '⚙️環境設定を表示' }}</v-btn>
             <section
-                v-if="gameMachine1PreferencesIsShowing"
+                v-if="gameMachine1EnvironmentConfigIsShowing"
                 class="sec-0 pt-6 pb-6"
                 style="background-color: rgb(0, 0, 0, 0.1);"
             >
@@ -573,11 +573,11 @@
 
     const gameMachine1GamePauseButton1Enabled = ref<boolean>(false);
 
-    // ++++++++++++++++++++++++++++++++++++++++++++++++++++
-    // + オブジェクト　＞　ゲームマシン１　＞　お好み設定 +
-    // ++++++++++++++++++++++++++++++++++++++++++++++++++++
+    // ++++++++++++++++++++++++++++++++++++++++++++++++++
+    // + オブジェクト　＞　ゲームマシン１　＞　環境設定 +
+    // ++++++++++++++++++++++++++++++++++++++++++++++++++
 
-    const gameMachine1PreferencesIsShowing = ref<boolean>(false);
+    const gameMachine1EnvironmentConfigIsShowing = ref<boolean>(false);
 
     // ++++++++++++++++++++++++++++++++
     // + オブジェクト　＞　タイル盤１ +
@@ -870,10 +870,10 @@
 
 
     /**
-     * ［お好み設定パネル１］を開くボタン。
+     * ［環境設定パネル１］を開くボタン。
      */
-    function onGamePreferences1ButtonPressed() : void {
-        gameMachine1PreferencesIsShowing.value = !gameMachine1PreferencesIsShowing.value;
+    function onEnvironmentConfig1ButtonPressed() : void {
+        gameMachine1EnvironmentConfigIsShowing.value = !gameMachine1EnvironmentConfigIsShowing.value;
     }
 
 

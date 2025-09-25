@@ -166,19 +166,19 @@
 
 
         <section class="sec-0 mt-6 mb-6">
-            <!-- お好み設定パネル１ -->
+            <!-- 環境設定パネル１ -->
             <v-btn
                 class="code-key"
-                @touchstart.prevent="button1Ref?.press($event, onPreferences1ButtonPressed);"
+                @touchstart.prevent="button1Ref?.press($event, onEnvironmentConfig1ButtonPressed);"
                 @touchend="button1Ref?.release();"
                 @touchcancel="button1Ref?.release();"
                 @touchleave="button1Ref?.release();"
-                @mousedown.prevent="button1Ref?.handleMouseDown($event, onPreferences1ButtonPressed)"
+                @mousedown.prevent="button1Ref?.handleMouseDown($event, onEnvironmentConfig1ButtonPressed)"
                 @mouseup="button1Ref?.release();"
                 @mouseleave="button1Ref?.release();"
-            >{{ gameMachine1PreferencesIsShowing ? '⚙️お好み設定を終わる' : '⚙️お好み設定を表示' }}</v-btn>
+            >{{ gameMachine1EnvironmentConfigIsShowing ? '⚙️環境設定を終わる' : '⚙️環境設定を表示' }}</v-btn>
             <section
-                v-if="gameMachine1PreferencesIsShowing"
+                v-if="gameMachine1EnvironmentConfigIsShowing"
                 class="sec-0 pt-6 pb-6"
                 style="background-color: rgb(0, 0, 0, 0.1);"
             >
@@ -249,7 +249,7 @@
             :name="commonPapepoKingName"
             :device="compatibleDevice1Ref?.device"
         >
-            盤がでかすぎるときは［お好み設定を表示］ボタンをクリックして<br/>
+            盤がでかすぎるときは［環境設定を表示］ボタンをクリックして<br/>
             出てくる［ズーム］スライダーボックスを左右に動かして<br/>
             盤の大きさを調整してほしい。
         </talk-balloon>
@@ -646,11 +646,11 @@ color = sq % 2;
 
     const problem1IsShowing = ref<boolean>(false);    // 設定を表示中
 
-    // ++++++++++++++++++++++++++++++++++++++++++++++++++++
-    // + オブジェクト　＞　ゲームマシン１　＞　お好み設定 +
-    // ++++++++++++++++++++++++++++++++++++++++++++++++++++
+    // ++++++++++++++++++++++++++++++++++++++++++++++++++
+    // + オブジェクト　＞　ゲームマシン１　＞　環境設定 +
+    // ++++++++++++++++++++++++++++++++++++++++++++++++++
 
-    const gameMachine1PreferencesIsShowing = ref<boolean>(false);
+    const gameMachine1EnvironmentConfigIsShowing = ref<boolean>(false);
 
     // ++++++++++++++++++++++++++++++++++++++++++
     // + オブジェクト　＞　デバッグ情報パネル１ +
@@ -1163,10 +1163,10 @@ color = sq % 2;
 
 
     /**
-     * ［お好み設定パネル１］を開くボタン。
+     * ［環境設定パネル１］を開くボタン。
      */
-    function onPreferences1ButtonPressed() : void {
-        gameMachine1PreferencesIsShowing.value = !gameMachine1PreferencesIsShowing.value;
+    function onEnvironmentConfig1ButtonPressed() : void {
+        gameMachine1EnvironmentConfigIsShowing.value = !gameMachine1EnvironmentConfigIsShowing.value;
     }
 
 
