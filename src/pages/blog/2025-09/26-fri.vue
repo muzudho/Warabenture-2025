@@ -313,6 +313,49 @@
             よし直した、次。
         </talk-balloon>
 
+
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            <pre class="code-w">
+....xxx...x....</pre><br/>
+            👆 こういう風に石を置いてみたんだが、石の［最長］を見てみると、<br/>
+            <br/>
+
+            <pre class="code-w">
+....333...2....</pre><br/>
+            👆 こうなることを期待しているんだが、<br/>
+            <br/>
+
+            <pre class="code-w">
+....33<span class="red-marker">4</span>...2....</pre><br/>
+            👆 ４つ隣の石までカウントに入れてるみたいなんだぜ。<br/>
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="kifuwarabe2Src"
+            :alt="kifuwarabe2Alt"
+            :name="kifuwarabe2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            じゃあ、カウントに入れてるんじゃないか？
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="hiyoko2Src"
+            :alt="hiyoko2Alt"
+            :name="hiyoko2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            石の［最長］を調べるのも、スライディング・ウィンドウを使う必要があるんじゃない？
+        </talk-balloon>
+
+        
     </section>
 </template>
 
