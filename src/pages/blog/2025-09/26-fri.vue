@@ -56,7 +56,9 @@
             :name="hiyoko2Name"
             :device="compatibleDevice1Ref?.device"
         >
-            隙間なく５つ並んでいるかどうかは、<span class="yellow-marker">スライディング・ウィンドウ（Sliding Window）</span>を使うしかなくない？
+            <pre class="code-w">
+.....<span class="green-marker">++x++</span>.....</pre><br/>
+            👆 隙間なく５つ並んでいるかどうかは、半径３のフィールドに自石が５つあるか数えればいいんじゃない？
         </talk-balloon>
 
 
@@ -66,11 +68,47 @@
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device"
         >
-            えっ？　じゃあ、［最長］が 5 の石とは別に、［五］の石があるってことかだぜ？<br/>
+            えっ？　じゃあ、半径５のフィールドの［最長］が 5 であるかどうかとは別に、［五］であるかどうかの判定が必要ってことかだぜ？<br/>
             <br/>
             見た目上の表示を区別したいな。スライディング・ウィンドウを実装するより、そっちの方が大変だ。
-            
         </talk-balloon>
+
+
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            ここで定義を増やすぜ。
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            <pre class="code-w">
+.....<span class="green-marker">++x</span><span class="yellow-marker">++</span>.....</pre><br/>
+            👆 上図の石 x をコンパスの針の位置と見立てたとき、<br/>
+            <span class="green-marker">半径（Radius；レイディアス）</span>は 3。<br/>
+            <span class="blue-marker">直径（Diameter；ダイアメター）</span>は 5。<br/>
+            そして造語だが、<span class="yellow-marker">半開半径（Half open radius）</span>は 2 とする。<br/>
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="kifuwarabe2Src"
+            :alt="kifuwarabe2Alt"
+            :name="kifuwarabe2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            原点は重なって不便なことがあるし、原点抜きの概念が欲しいときがあるからな。
+        </talk-balloon>
+
+
     </section>
 </template>
 
