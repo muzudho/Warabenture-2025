@@ -618,25 +618,35 @@ x<span class="red-marker">-1</span>111..........
             <br/>
 
             <pre class="code-w">
- ...++++x+o<span class="green-marker">+</span><span class="yellow-marker">+</span><span class="green-marker">... </span>
+ .o.++++x+o<span class="green-marker">+</span><span class="yellow-marker">+</span><span class="green-marker">... </span>
            <span class="black-marker">&lt;+---&gt;</span>
- ...++++x<span class="green-marker">+o+</span><span class="yellow-marker">+</span><span class="green-marker">... </span>
+ .o.++++x<span class="green-marker">+o+</span><span class="yellow-marker">+</span><span class="green-marker">... </span>
          <span class="white-marker">&lt;--+---&gt;</span></pre><br/>
 
             <pre class="code-w">
- ...++++x+o<span class="yellow-marker">+</span><span class="green-marker">+...</span>
+ .o.++++x+o<span class="yellow-marker">+</span><span class="green-marker">+...</span>
            <span class="black-marker">|---&gt;</span>
- ...++++x<span class="green-marker">+o</span><span class="yellow-marker">+</span><span class="green-marker">+...</span>
+ .o.++++x<span class="green-marker">+o</span><span class="yellow-marker">+</span><span class="green-marker">+...</span>
          <span class="white-marker">&lt;-|---&gt;</span></pre><br/>
 
-<!--
             <pre class="code-w">
- ...++++x<span class="green-marker">+</span><span class="yellow-marker">o</span><span class="green-marker">++..</span>.
-         &lt;+---&gt;   </pre><br/>
+ .o.++++x+<span class="yellow-marker">o</span>++...
+          0
+ .o.++++x<span class="green-marker">+</span><span class="yellow-marker">o</span><span class="green-marker">++..</span>.
+         <span class="white-marker">&lt;|---&gt;</span></pre><br/>
+
             <pre class="code-w">
- ...+<span class="green-marker">+++x</span><span class="yellow-marker">+</span><span class="green-marker">+++.</span>..
-     &lt;---+---&gt;   </pre><br/>
+ .o.+<span class="green-marker">+++x</span><span class="yellow-marker">+</span>o++...
+     <span class="black-marker">&lt;---|</span>
+ .o.++++x<span class="yellow-marker">+</span><span class="green-marker">o++.</span>..
+         <span class="white-marker">|---&gt;</span></pre><br/>
+
             <pre class="code-w">
+ .o<span class="green-marker">.+++</span><span class="yellow-marker">+</span><span class="green-marker">x+</span>o++...
+   <span class="black-marker">&lt;---|-&gt;</span>
+ .o<span class="green-marker">.+++</span><span class="yellow-marker">+</span>x+o++...
+   <span class="white-marker">&lt;---|</span></pre><br/>
+         <!--
  ..<span class="green-marker">.+++</span><span class="yellow-marker">+</span><span class="green-marker">x+++</span>+...
    &lt;---+---&gt;   </pre><br/>
             <pre class="code-w">
