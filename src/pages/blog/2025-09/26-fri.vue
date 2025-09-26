@@ -289,6 +289,30 @@
             盤外にはマス番号が振ってないから……？　フーム
         </talk-balloon>
 
+
+        <talk-balloon
+            :src="kifuwarabe2Src"
+            :alt="kifuwarabe2Alt"
+            :name="kifuwarabe2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            ウィンドウを全て埋めているかどうかではなく、自石が５つあるかで判定したらどうだぜ？
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            それはそう。<br/>
+            <br/>
+            （カタカタカタカタ　※ＰＣのキーボードを打鍵する音）<br/>
+            <br/>
+            よし直した、次。
+        </talk-balloon>
+
     </section>
 </template>
 
