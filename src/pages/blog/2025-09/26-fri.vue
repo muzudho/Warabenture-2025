@@ -505,7 +505,164 @@ x<span class="red-marker">-1</span>111..........
             それはそう……、［死に石］判定の実行順を下げてみるか。
         </talk-balloon>
 
+
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            実行順は関係ないか。スライディング・ウィンドウは［利き］ではないから［死に石］判定には使えないなあ。
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="kifuwarabe2Src"
+            :alt="kifuwarabe2Alt"
+            :name="kifuwarabe2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            ［スライディング利き］が要るのでは？
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            じゃあ、［スライディング利き］の仕様を固めるかだぜ。<br/>
+            <br/>
+
+            <pre class="code-w">
+.......x.......</pre><br/>
+            👆 石を置くとするだろ。<br/>
+            <br/>
+
+            <pre class="code-w">
+...<span class="green-marker">++++</span>x<span class="green-marker">++++</span>...
+   &lt;--| |--&gt;   </pre><br/>
+            👆 ［最長］が更新される交点は半開半径４のところだぜ。
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="kifuwarabe2Src"
+            :alt="kifuwarabe2Alt"
+            :name="kifuwarabe2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            そこが inputArray だな。
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            <pre class="code-w">
+ ...++++<span class="green-marker">x+++</span><span class="yellow-marker">+</span><span class="green-marker">... </span>
+        &lt;---+---&gt;   </pre><br/>
+            <pre class="code-w">
+ ...+++<span class="green-marker">+x++</span><span class="yellow-marker">+</span><span class="green-marker">+...</span>
+       &lt;---+---&gt;   </pre><br/>
+            <pre class="code-w">
+ ...++<span class="green-marker">++x+</span><span class="yellow-marker">+</span><span class="green-marker">++..</span>.
+      &lt;---+---&gt;   </pre><br/>
+            <pre class="code-w">
+ ...+<span class="green-marker">+++x</span><span class="yellow-marker">+</span><span class="green-marker">+++.</span>..
+     &lt;---+---&gt;   </pre><br/>
+            <!--
+            <pre class="code-w">
+ ...<span class="green-marker">++++</span><span class="yellow-marker">x</span><span class="green-marker">++++</span>...
+    &lt;---+---&gt;   </pre><br/>
+            -->
+            <pre class="code-w">
+ ..<span class="green-marker">.+++</span><span class="yellow-marker">+</span><span class="green-marker">x+++</span>+...
+   &lt;---+---&gt;   </pre><br/>
+            <pre class="code-w">
+ .<span class="green-marker">..++</span><span class="yellow-marker">+</span><span class="green-marker">+x++</span>++...
+  &lt;---+---&gt;   </pre><br/>
+            <pre class="code-w">
+ <span class="green-marker">...+</span><span class="yellow-marker">+</span><span class="green-marker">++x+</span>+++...
+ &lt;---+---&gt;   </pre><br/>
+            <pre class="code-w">
+<span class="green-marker"> ...</span><span class="yellow-marker">+</span><span class="green-marker">+++x</span>++++...
+&lt;---+---&gt;   </pre><br/>
+            👆 スライディング・ウィンドウはこんな感じ。
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="hiyoko2Src"
+            :alt="hiyoko2Alt"
+            :name="hiyoko2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            ウィンドウと違って、［利き］を見る必要があるのよ。
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            <pre class="code-w">
+ .<span class="red-marker">o</span>.++++x+<span class="red-marker">o</span>++...</pre><br/>
+            👆 例えば、相手の石が置いてるとする。 + はまあ、空点としよう。<br/>
+            <br/>
+
+            <pre class="code-w">
+ ...++++x+o<span class="green-marker">+</span><span class="yellow-marker">+</span><span class="green-marker">... </span>
+           <span class="black-marker">&lt;+---&gt;</span>
+ ...++++x<span class="green-marker">+o+</span><span class="yellow-marker">+</span><span class="green-marker">... </span>
+         <span class="white-marker">&lt;--+---&gt;</span></pre><br/>
+
+            <pre class="code-w">
+ ...++++x+o<span class="yellow-marker">+</span><span class="green-marker">+...</span>
+           <span class="black-marker">|---&gt;</span>
+ ...++++x<span class="green-marker">+o</span><span class="yellow-marker">+</span><span class="green-marker">+...</span>
+         <span class="white-marker">&lt;-|---&gt;</span></pre><br/>
+
+<!--
+            <pre class="code-w">
+ ...++++x<span class="green-marker">+</span><span class="yellow-marker">o</span><span class="green-marker">++..</span>.
+         &lt;+---&gt;   </pre><br/>
+            <pre class="code-w">
+ ...+<span class="green-marker">+++x</span><span class="yellow-marker">+</span><span class="green-marker">+++.</span>..
+     &lt;---+---&gt;   </pre><br/>
+            <pre class="code-w">
+ ..<span class="green-marker">.+++</span><span class="yellow-marker">+</span><span class="green-marker">x+++</span>+...
+   &lt;---+---&gt;   </pre><br/>
+            <pre class="code-w">
+ .<span class="green-marker">..++</span><span class="yellow-marker">+</span><span class="green-marker">+x++</span>++...
+  &lt;---+---&gt;   </pre><br/>
+            <pre class="code-w">
+ <span class="green-marker">...+</span><span class="yellow-marker">+</span><span class="green-marker">++x+</span>+++...
+ &lt;---+---&gt;   </pre><br/>
+            <pre class="code-w">
+<span class="green-marker"> ...</span><span class="yellow-marker">+</span><span class="green-marker">+++x</span>++++...
+&lt;---+---&gt;   </pre><br/>
+-->
+            👆 ［スライディング利き］はこんな感じで、手番と相手番で利きの範囲が違う。
+        </talk-balloon>
+
         
+        <talk-balloon
+            :src="kifuwarabe2Src"
+            :alt="kifuwarabe2Alt"
+            :name="kifuwarabe2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            うわ、めんどくさそうだ。実装にまだ数日かかりそうだ。
+        </talk-balloon>
+
+
     </section>
 </template>
 
