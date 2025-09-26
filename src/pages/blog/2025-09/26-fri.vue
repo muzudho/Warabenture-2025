@@ -256,6 +256,39 @@
 }
         </pre>
 
+
+        <talk-balloon
+            :src="kifuwarabe2Src"
+            :alt="kifuwarabe2Alt"
+            :name="kifuwarabe2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            じゃあ、スライディング・ウィンドウの配列を与えたら、<br/>
+            ウィンドウが全て自石でできているか確認し、<br/>
+            そのようなウィンドウが１つでも有れば真となるような関数を作ってくれだぜ。<br/>
+            <br/>
+            関数名は containsAnyBingoWindow とかでどうだぜ？
+        </talk-balloon>
+
+        
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            （カタカタカタカタ　※ＰＣのキーボードを打鍵する音）<br/>
+            <br/>
+            あれっ？　隅に置いただけでビンゴになってしまう、何故……？<br/>
+            <br/>
+            盤の端はウィンドウが飛び出るぜ。<br/>
+            ナナメは１交点で全部満たすのか。<br/>
+            そこを修正して。<br/>
+            <br/>
+            あれっ、修正できね。何故……？<br/>
+            盤外にはマス番号が振ってないから……？　フーム
+        </talk-balloon>
+
     </section>
 </template>
 

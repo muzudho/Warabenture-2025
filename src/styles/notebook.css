@@ -16,8 +16,12 @@ pre.coding-paper {    /* ソースコード例 */
     padding-top: 16px;
     padding-right: 24px;
     border: dashed 4px hotpink; /* ワラベンチャー用 */
+    /*
     color: #303030;
     background-color: #f0f0f0;
+     */
+    color: var(--text-light, #282828);
+    background-color: antiquewhite; /* 吹き出しとは見分けが付くように違う色にする */
 }
 
 pre.coding-paper-bad {    /* 悪いソースコード例 */
@@ -27,7 +31,10 @@ pre.coding-paper-bad {    /* 悪いソースコード例 */
     padding-top: 16px;
     padding-right: 24px;
     border: dashed 4px hotpink; /* ワラベンチャー用 */
+    /*
     color: #303030;
+     */
+    color: var(--text-light, #282828);
     background-color: #f8c0c0;
 }
 
@@ -38,7 +45,10 @@ pre.coding-paper-good {    /* 良いソースコード例 */
     padding-top: 16px;
     padding-right: 24px;
     border: dashed 4px hotpink; /* ワラベンチャー用 */
+    /*
     color: #303030;
+     */
+    color: var(--text-light, #282828);
     background-color: #c0f8c0;
 }
 
