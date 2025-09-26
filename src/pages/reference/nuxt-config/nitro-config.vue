@@ -70,12 +70,12 @@
         </talk-balloon>
 
 
-        <pre class="terminal-example mb-6">
+        <pre class="terminal-paper mb-6">
 free -h
         </pre>
 
 
-        <pre class="coding-example mb-6">
+        <pre class="coding-paper mb-6">
                total        used        free      shared  buff/cache   available
 Mem:           3.8Gi       3.0Gi       350Mi       1.0Mi       777Mi       874Mi
 Swap:             0B          0B          0B
@@ -106,7 +106,7 @@ Swap:             0B          0B          0B
 
 
         <p>📄 nuxt.config.ts（抜粋）:</p>
-        <pre class="coding-example mb-6">
+        <pre class="coding-paper mb-6">
 export default defineNuxtConfig({
     nitro: {
         prerender: {

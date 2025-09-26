@@ -60,7 +60,7 @@
         </talk-balloon>
 
         📄 a .vue file:<br/>
-        <pre class="coding-example mb-6">
+        <pre class="coding-paper mb-6">
 &lt;template&gt;
     &lt;div
         style=<span class="green-marker">"width: 100px; height: 200px; background-color: skyblue; border: solid 4px blue;"</span>&gt;
@@ -85,7 +85,7 @@
         </talk-balloon>
         <br/>
 
-        <pre class="coding-example mb-6">
+        <pre class="coding-paper mb-6">
 &lt;template&gt;
     &lt;div
         style=<span class="green-marker">"
@@ -121,7 +121,7 @@
         </div>
 
         📄 example.vue ：<br/>
-        <pre class="coding-example-good">
+        <pre class="coding-paper-good">
 &lt;template&gt;
     &lt;div <span class="green-marker">class="blue-rectangle-1"</span>&gt;
     &lt;/div&gt;
@@ -160,7 +160,7 @@
         </div>
 
         📄 example.vue ：<br/>
-        <pre class="coding-example-bad">
+        <pre class="coding-paper-bad">
 &lt;template&gt;
     &lt;div <span class="red-marker">class="blue-rectangle-2"</span>&gt;
     &lt;/div&gt;
@@ -219,7 +219,7 @@
         </div>
 
         📄 example.vue ：<br/>
-        <pre class="coding-example mb-6">
+        <pre class="coding-paper mb-6">
 &lt;template&gt;
     &lt;div
         <span class="green-marker">:style="`
@@ -265,7 +265,7 @@
         </div>
 
         📄 example.vue ：<br/>
-        <pre class="coding-example">
+        <pre class="coding-paper">
 &lt;template&gt;
     &lt;div
         <span class="green-marker">:style="getRectangle4()"</span>&gt;
@@ -312,7 +312,7 @@
         </div>
 
         📄 example.vue ：<br/>
-        <pre class="coding-example-good">
+        <pre class="coding-paper-good">
 &lt;template&gt;
     &lt;div
         <span class="yellow-marker">:style="getRectangle5"</span>&gt;
@@ -374,7 +374,7 @@
         </div>
 
         📄 example.vue ：<br/>
-        <pre class="coding-example-good">
+        <pre class="coding-paper-good">
 &lt;template&gt;
     &lt;div
         <span class="brown-pen">:style="getRectangle6(100)"</span>&gt;

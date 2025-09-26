@@ -51,12 +51,12 @@
         </talk-balloon>
 
 
-        <pre class="terminal-example mb-6">
+        <pre class="terminal-paper mb-6">
 lscpu
         </pre>
 
 
-        <pre class="coding-example mb-6">
+        <pre class="coding-paper mb-6">
 Architecture:             x86_64
   CPU op-mode(s):         32-bit, 64-bit
   Address sizes:          46 bits physical, 48 bits virtual
@@ -177,7 +177,7 @@ Vulnerabilities:
         </talk-balloon>
 
 
-        <pre class="terminal-example mb-6">
+        <pre class="terminal-paper mb-6">
 free -h
         </pre>
 
@@ -194,7 +194,7 @@ free -h
         </talk-balloon>
 
 
-        <pre class="coding-example mb-6">
+        <pre class="coding-paper mb-6">
                total        used        free      shared  buff/cache   available
 Mem:           3.8Gi       3.0Gi       350Mi       1.0Mi       777Mi       874Mi
 Swap:             0B          0B          0B
@@ -258,7 +258,7 @@ Swap:             0B          0B          0B
         </talk-balloon>
 
 
-        <pre class="terminal-example mb-6">
+        <pre class="terminal-paper mb-6">
 # 1GBのSwapファイルを作成
 sudo fallocate -l 1G /swapfile
 sudo chmod 600 /swapfile
@@ -275,7 +275,7 @@ free -h
         </pre>
 
 
-        <pre class="coding-example mb-6">
+        <pre class="coding-paper mb-6">
 期待出力:
 
                total        used        free      shared  buff/cache   available
@@ -296,12 +296,12 @@ free -h
         </talk-balloon>
 
 
-        <pre class="terminal-example mb-6">
+        <pre class="terminal-paper mb-6">
 free -h
         </pre>
 
 
-        <pre class="coding-example mb-6">
+        <pre class="coding-paper mb-6">
                total        used        free      shared  buff/cache   available
 Mem:           3.8Gi       3.0Gi       350Mi       1.0Mi       777Mi       874Mi
 Swap:          1.0Gi        86Mi       937Mi
@@ -329,7 +329,7 @@ Swap:          1.0Gi        86Mi       937Mi
         </talk-balloon>
 
 
-        <pre class="terminal-example mb-6">
+        <pre class="terminal-paper mb-6">
 sudo sync; echo 3 | sudo tee /proc/sys/vm/drop_caches
 free -h  # 確認
         </pre>
@@ -355,7 +355,7 @@ free -h  # 確認
         </talk-balloon>
 
 
-        <pre class="coding-example mb-6">
+        <pre class="coding-paper mb-6">
                total        used        free      shared  buff/cache   available
 Mem:           3.8Gi       1.4Gi       2.2Gi       220Ki       566Mi       2.5Gi
 Swap:          1.0Gi        86Mi       937Mi

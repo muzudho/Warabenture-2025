@@ -38,7 +38,7 @@
 
 
         <p>📄 <a target="_blank" :href="jsonFilePathPublic">public{{jsonFilePathPublic}}</a>:</p>
-        <pre class="coding-example mb-6">
+        <pre class="coding-paper mb-6">
 {
     "#this-file": "publicフォルダー下に置いたJSONのサンプルだぜ（＾▽＾）"
 }
@@ -46,7 +46,7 @@
 
 
         <p>📄 src{{jsonFilePathAssets}}:</p>
-        <pre class="coding-example mb-6">
+        <pre class="coding-paper mb-6">
 {
     "#this-file": "アセットフォルダー下に置いたJSONのサンプルだぜ（＾▽＾）"
 }
@@ -64,7 +64,7 @@
         </talk-balloon>
 
 
-        <pre class="coding-example mb-6">
+        <pre class="coding-paper mb-6">
 &lt;template&gt;
     &lt;v-btn @click="loadJson1" class="mt-6 mb-6"&gt;JSONファイル読込&lt;/v-btn&gt;
 
@@ -107,7 +107,7 @@
         <v-btn @click="loadJson1" class="mt-6 mb-6">JSONファイル読込</v-btn>
 
 
-        <pre class="coding-example mb-6">
+        <pre class="coding-paper mb-6">
 {{ json1Str }}
         </pre>
 
@@ -122,7 +122,7 @@
         </talk-balloon>
 
 
-        <pre class="coding-example mb-6">
+        <pre class="coding-paper mb-6">
 &lt;template&gt;
     &lt;pre&gt;&#123;&#123; jsonStr &#125;&#125;&lt;/pre&gt;
 &lt;/template&gt;
@@ -167,7 +167,7 @@
         </talk-balloon>
 
 
-        <pre class="coding-example mb-6">
+        <pre class="coding-paper mb-6">
 {{ json2Str }}
         </pre>
 <!--
@@ -233,7 +233,7 @@
 
 
         <p class="mt-6">📄 vite.config.ts（抜粋）:</p>
-        <pre class="coding-example mb-6">
+        <pre class="coding-paper mb-6">
 export default defineConfig(async () => ({
     resolve: {
         alias: {    // Tauri と Nuxt でエイリアスを合わせたい
@@ -251,7 +251,7 @@ export default defineConfig(async () => ({
 
 
         <p class="mt-6">📄 nuxt.config.ts（抜粋）:</p>
-        <pre class="coding-example mb-6">
+        <pre class="coding-paper mb-6">
 export default defineNuxtConfig({
     alias: {
         '#public': './public', // public/ フォルダをエイリアス
@@ -276,7 +276,7 @@ export default defineNuxtConfig({
         </talk-balloon>
 
 
-        <pre class="coding-example mb-6">
+        <pre class="coding-paper mb-6">
 &lt;template&gt;
     &lt;pre&gt;&#123;&#123; jsonStr &#125;&#125;&lt;/pre&gt;
 &lt;/template&gt;
@@ -311,7 +311,7 @@ export default defineNuxtConfig({
         </talk-balloon>
 
 
-        <pre class="coding-example mb-6">
+        <pre class="coding-paper mb-6">
 {{ json3Str }}
         </pre>
 

@@ -3,8 +3,15 @@
  * ========================
  */
 
-pre.coding-example {    /* ソースコード例 */
+/**
+ * +------+
+ * | 紙類 |
+ * +------+
+ */
+
+pre.coding-paper {    /* ソースコード例 */
     display: block;
+    width: fit-content;
     padding-left: 24px;
     padding-top: 16px;
     padding-right: 24px;
@@ -13,8 +20,9 @@ pre.coding-example {    /* ソースコード例 */
     background-color: #f0f0f0;
 }
 
-pre.coding-example-bad {    /* 悪いソースコード例 */
-    display: inline-block;
+pre.coding-paper-bad {    /* 悪いソースコード例 */
+    display: block;
+    width: fit-content;
     padding-left: 24px;
     padding-top: 16px;
     padding-right: 24px;
@@ -23,36 +31,45 @@ pre.coding-example-bad {    /* 悪いソースコード例 */
     background-color: #f8c0c0;
 }
 
-pre.coding-example-good {    /* 良いソースコード例 */
+pre.coding-paper-good {    /* 良いソースコード例 */
+    display: block;
+    width: fit-content;
     padding-left: 24px;
     padding-top: 16px;
     padding-right: 24px;
-    display: inline-block;
     border: dashed 4px hotpink; /* ワラベンチャー用 */
     color: #303030;
     background-color: #c0f8c0;
 }
 
-pre.terminal-example {    /* ターミナル例 */
+pre.terminal-paper {    /* ターミナル例 */
+    display: block;
+    width: fit-content;
     padding-left: 24px;
     padding-top: 16px;
     padding-right: 24px;
-    display: inline-block;
     border: dashed 4px #909090;
     color: #f0f0f0;
     background-color: #303030;
 }
 
-div.markup-example {    /* マークアップされたテキスト例 */
+div.markup-paper {    /* マークアップされたテキスト例 */
+    display: block;
+    width: fit-content;
     padding-left: 24px;
     padding-top: 16px;
     padding-right: 24px;
     padding-bottom: 16px;
-    display: inline-block;
     border: dashed 4px hotpink; /* ワラベンチャー用 */
     color: #303030;
     background-color: #f0f0f0;
 }
+
+/**
+ * +------------+
+ * | マーカー類 |
+ * +------------+
+ */
 
 span.red-marker {   /* 強調 */
     background-color: lightpink;

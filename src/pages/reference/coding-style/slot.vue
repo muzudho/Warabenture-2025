@@ -41,7 +41,7 @@
         <br/>
 
         expected:<br/>
-        <div class="markup-example">
+        <div class="markup-paper">
             <div style="background-color: skyblue;">
                 名前：　すっぽん<br/>
                 体力：　100<br/>
@@ -67,7 +67,7 @@
         <br/>
 
         📄 a child .vue file:<br/>
-        <pre class="coding-example mb-6">
+        <pre class="coding-paper mb-6">
 &lt;template&gt;
     &lt;div style="background-color: skyblue;"&gt;
         名前：　すっぽん&lt;br/&gt;
@@ -92,7 +92,7 @@
         </talk-balloon>
         <br/>
 
-        <div class="markup-example">
+        <div class="markup-paper">
             <div style="background-color: skyblue;">
                 名前：　<span style="background-color: yellowgreen;">ここを穴にしたい</span><br/>
                 体力：　100<br/>
@@ -118,7 +118,7 @@
         <br/>
 
         📄 a child .vue file:<br/>
-        <pre class="coding-example mb-6">
+        <pre class="coding-paper mb-6">
 &lt;template&gt;
     &lt;div style="background-color: skyblue;"&gt;
         名前：　<span style="background-color: yellowgreen;">&#123;&#123; name &#125;&#125;</span>&lt;br/&gt;
@@ -151,7 +151,7 @@
         </talk-balloon>
         <br/>
 
-        <div class="markup-example">
+        <div class="markup-paper">
             <div style="background-color: skyblue;">
                 名前：　すっぽん<br/>
                 体力：　100<br/>
@@ -173,7 +173,7 @@
         <br/>
 
         📄 no-1-child.vue:<br/>
-        <pre class="coding-example mb-6">
+        <pre class="coding-paper mb-6">
 &lt;template&gt;
     &lt;div style="background-color: skyblue;"&gt;
         名前：　すっぽん&lt;br/&gt;
@@ -205,7 +205,7 @@
         <br/>
 
         📄 a parent .vue file:<br/>
-        <pre class="coding-example mb-6">
+        <pre class="coding-paper mb-6">
 &lt;template&gt;
     &lt;no-1-child&gt;
         わたしはオークです。よろしくねえ。
@@ -231,7 +231,7 @@
         </talk-balloon>
 
         actual:<br/>
-        <div class="markup-example">
+        <div class="markup-paper">
             <no-1o0-child>
                 わたしはオークです。よろしくねえ。
                 <v-img
@@ -253,7 +253,7 @@
         </talk-balloon>
 
         expected:<br/>
-        <div class="markup-example">
+        <div class="markup-paper">
             <div style="background-color: skyblue;">
                 名前：　すっぽん<br/>
                 体力：　100<br/>
@@ -285,7 +285,7 @@
         <br/>
 
         📄 no-1-2-child.vue:<br/>
-        <pre class="coding-example mb-6">
+        <pre class="coding-paper mb-6">
 &lt;template&gt;
     &lt;div style="background-color: skyblue;"&gt;
         名前：　すっぽん&lt;br/&gt;
@@ -298,7 +298,7 @@
         </pre>
 
         📄 a parent vue file:<br/>
-        <pre class="coding-example mb-6">
+        <pre class="coding-paper mb-6">
 &lt;template&gt;
     &lt;no-2-child&gt;
         わたしはオークです。よろしくねえ。
@@ -333,7 +333,7 @@
         <br/>
 
         actual:<br/>
-        <div class="markup-example">
+        <div class="markup-paper">
             <no-1o2o0-child>
                 わたしはオークです。よろしくねえ。
                 <v-img
@@ -372,7 +372,7 @@
             alt="Property 'author' does not exist on type '{}'. ts-plugin(2339) [Ln 349, Col 28]"
         />
 
-        <pre class="terminal-example">
+        <pre class="terminal-paper">
 Property 'author' does not exist on type '{}'. ts-plugin(2339) [Ln 349, Col 28]
         </pre>
         <br/>
@@ -421,7 +421,7 @@ Property 'author' does not exist on type '{}'. ts-plugin(2339) [Ln 349, Col 28]
         </talk-balloon>
         <br/>
 
-        <pre class="terminal-example">
+        <pre class="terminal-paper">
 pnpm add -D @tauri-apps/cli@latest
         </pre>
         <br/>
@@ -471,7 +471,7 @@ pnpm add -D @tauri-apps/cli@latest
                 ターミナルのフィルター欄に以下のようにかけば、該当するメッセージを非表示にできるぜ。
         </talk-balloon>
 
-        <pre class="terminal-example">
+        <pre class="terminal-paper">
 !Property '*' does not exist on type '{}'.
         </pre>
         <br/>
@@ -509,7 +509,7 @@ pnpm add -D @tauri-apps/cli@latest
         <br/>
 
         expected:<br/>
-        <div class="markup-example">
+        <div class="markup-paper">
             <div style="background-color: skyblue;">
                 名前：　すっぽん<br/>
                 ヒットポイント：　100<br/>
@@ -529,7 +529,7 @@ pnpm add -D @tauri-apps/cli@latest
         <br/>
 
         📄 no-1-3-child.vue:<br/>
-        <pre class="coding-example mb-6">
+        <pre class="coding-paper mb-6">
 &lt;template&gt;
     &lt;div style="background-color: skyblue;"&gt;
         名前：　すっぽん&lt;br/&gt;
@@ -557,7 +557,7 @@ pnpm add -D @tauri-apps/cli@latest
         <br/>
 
         📄 a parent .vue file:<br/>
-        <pre class="coding-example mb-6">
+        <pre class="coding-paper mb-6">
 &lt;template&gt;
     &lt;no-1o3o0-child&gt;
         &lt;v-slot <span class="red-marker">#hp="slotProps"</span>&gt;
@@ -575,7 +575,7 @@ pnpm add -D @tauri-apps/cli@latest
         </pre>
 
         actual:<br/>
-        <div class="markup-example">
+        <div class="markup-paper">
             <no-1o3o0-child>
                 <template #hp="slotProps">
                     ヒットポイント：　{{ slotProps.hitPoint }}

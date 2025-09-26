@@ -109,6 +109,153 @@
         </talk-balloon>
 
 
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            あっ、ダメだ。
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            <pre class="code-w">
+...<span class="green-marker">++++x</span>.......</pre><br/>
+            👆 上図のような、［五］の端に着手点があたるとき、半開半径 2 では、最長 3 しか拾えないぜ。
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="hiyoko2Src"
+            :alt="hiyoko2Alt"
+            :name="hiyoko2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            <pre class="code-w">
+.......<span class="green-marker">x++++</span>...
+   &lt;-------&gt;</pre><br/>
+            <pre class="code-w">
+......<span class="green-marker">+x+++</span>....
+   &lt;-------&gt;</pre><br/>
+            <pre class="code-w">
+.....<span class="green-marker">++x++</span>.....
+   &lt;-------&gt;</pre><br/>
+            <pre class="code-w">
+....<span class="green-marker">+++x+</span>......
+   &lt;-------&gt;</pre><br/>
+            <pre class="code-w">
+...<span class="green-marker">++++x</span>.......
+   &lt;-------&gt;</pre><br/>
+            👆 じゃあ、<span class="yellow-marker">スライディング・ウィンドウ（Sliding Window）</span>を使ったらいいんじゃない？
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            <pre class="code-w">
+...<span class="green-marker">++++x++++</span>...</pre><br/>
+            👆 任意の点 x を中心として半開半径 4 、つまり直径 9 のフィールドを inputArray として、<br/>
+            そのスライディング・ウィンドウのうち１つでも石５つを満たせば［五］かだぜ。
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="kifuwarabe2Src"
+            :alt="kifuwarabe2Alt"
+            :name="kifuwarabe2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            任意の点 x の位置と、 inputArray の半開半径と、ウィンドウの半開半径を指定すると、<br/>
+            ウィンドウの各マスの位置が入った配列を複数返すような関数が要るかだぜ？
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            フム、ぱっと見た感じ前後への振り幅の片側は inputArray の半径 - window の半径って感じかな。<br/>
+            んで、ウィンドウの数は 2 × 振り幅 + 1 だな。<br/>
+            疑似コードは以下みたいな感じになるかな。
+        </talk-balloon>
+
+
+        <pre class="coding-paper">
+スライディング・ウィンドウ作成関数(
+    着手点,
+    inputArrayの半開半径,
+    windowの半開半径,
+    foreOf関数,
+    backOf関数,
+)
+{
+    振り幅の片側 = inputArrayの半開半径 - windowの半開半径
+    ウィンドウ数 = 2 * 振り幅の片側 + 1;
+
+    for (let i: number=0; i < ウィンドウ数; i++) {
+        ウィンドウの配列.push(
+            ウィンドウ作成関数(
+                着手点,
+                inputArrayの半開半径 - i,
+                i,
+                foreOf関数,
+                backOf関数
+            )
+        )
+    }
+    return ウィンドウの配列
+}
+
+ウィンドウ作成関数(
+    着手点,
+    前方の長さ,
+    後方の長さ,
+    foreOf関数,
+    backOf関数,
+) : number[] {
+
+    // ウィンドウの前方（起点を含まない）
+    let backSq = startSq;
+    for (let i=0; i&gt;前方の長さ; i++) {
+        backSq = backOf関数(backSq);
+        if (盤外か判定関数(backSq)) {
+            break;
+        }
+
+        後方配列.push(backSq);
+    }
+
+    // ウィンドウの後方（起点を含まない）
+    let foreSq = startSq;
+    for(let i=0; i&lt;後方の長さ; i++){
+        foreSq = foreOf関数(foreSq);
+        if (盤外か判定関数(foreSqは)) {
+            break;
+        }
+
+        前方配列.push(foreSq);
+    }
+
+    return [
+        ...後方配列.reverse(),
+        着手点,
+        ...前方配列
+    ];
+}
+        </pre>
+
     </section>
 </template>
 

@@ -354,7 +354,7 @@
         </talk-balloon>
 
         <pre
-            class="coding-example mb-6">
+            class="coding-paper mb-6">
 // sq はタイル番号（Square）。左上から右に向かって 0, 1, 2 ... 右端から１段下の左端に続く。
 //
 // そして、

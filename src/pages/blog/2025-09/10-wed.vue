@@ -45,7 +45,7 @@
         </talk-balloon>
 
 
-        <pre class="coding-example mb-6">
+        <pre class="coding-paper mb-6">
 &lt;template&gt;
     <span class="red-marker">&lt;Blog20250910Wed /&gt;</span>
 &lt;/template&gt;
@@ -83,7 +83,7 @@
         </talk-balloon>
 
 
-        <pre class="coding-example mb-6">
+        <pre class="coding-paper mb-6">
 &lt;template&gt;
     &lt;component
         :is="selectedComponent"
@@ -165,7 +165,7 @@
         </talk-balloon>
 
 
-        <pre class="coding-example mb-6">
+        <pre class="coding-paper mb-6">
 if (page === '103') return defineAsyncComponent(() => import('@/pages/blog/2025-08/11-mon-sample.vue'));
         </pre>
 
@@ -179,7 +179,7 @@ if (page === '103') return defineAsyncComponent(() => import('@/pages/blog/2025-
         </talk-balloon>
 
 
-        <pre class="coding-example mb-6">
+        <pre class="coding-paper mb-6">
 const path = "@/pages/blog/2025-08/11-mon-sample.vue";
 return defineAsyncComponent(() => import(path));
         </pre>
@@ -222,7 +222,7 @@ return defineAsyncComponent(() => import(path));
         </talk-balloon>
 
 
-        <pre class="coding-example mb-6">
+        <pre class="coding-paper mb-6">
 // コンポーネントのマッピング
 const componentMap = {
   '101': defineAsyncComponent(() => import('~/components/Child101.vue')),
@@ -296,7 +296,7 @@ const componentMap = {
         </talk-balloon>
 
 
-        <pre class="coding-example mb-6">
+        <pre class="coding-paper mb-6">
 const page = computed(()=&lt;{ // クエリー・パラメーター
     // Nuxt 3（Vue Router）のuseRoute().queryは、クエリパラメータをRecord&gt;string, string | LocationQueryValue[]&lt;として返す。
     const queryPage = route.query.page || '';
@@ -343,7 +343,7 @@ const selectedComponent = computed(() =&lt; {  // 動的にコンポーネント
 
 
         📄 page-map.ts<br/>
-        <pre class="coding-example mb-6">
+        <pre class="coding-paper mb-6">
 import { defineAsyncComponent } from 'vue';
 
 export function getPageMapAsync(key: string) : Record&lt;string, any&gt; | null {
@@ -372,7 +372,7 @@ const pageMapAsync : Record&lt;string, any&gt; = {
         </talk-balloon>
 
 
-        <pre class="coding-example mb-6">
+        <pre class="coding-paper mb-6">
 &lt;template&gt;
     &lt;component
         :is="getPageMapAsync('2025-09/10-wed')"
@@ -562,7 +562,7 @@ const pageMapAsync : Record&lt;string, any&gt; = {
 
 
         📄 router/page-map.ts<br/>
-        <pre class="coding-example mb-6">
+        <pre class="coding-paper mb-6">
 import Blog20250524Sat from '@/pages/blog/2025-05/24-sat.vue';
 import Blog20250601Sun from '@/pages/blog/2025-06/01-sun.vue';
 import Blog20250602Mon from '@/pages/blog/2025-06/02-mon.vue';    
@@ -605,7 +605,7 @@ export const pageMap : Readonly&lt;Record&lt;string, any&gt;&gt; = {
 
 
         📄 src/assets/data/routes/articles.json<br/>
-        <pre class="coding-example mb-6">
+        <pre class="coding-paper mb-6">
 [
     {
         "id": "2025-05/24-sat",
