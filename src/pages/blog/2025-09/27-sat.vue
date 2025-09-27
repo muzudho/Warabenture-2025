@@ -187,6 +187,76 @@ putStoneOneDirection(シニスター対角線);
         </talk-balloon>
 
 
+        <talk-balloon
+            :src="hiyoko2Src"
+            :alt="hiyoko2Alt"
+            :name="hiyoko2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            ［利き］と［補利き］の総称は何て呼ぶの？
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="kifuwarabe2Src"
+            :alt="kifuwarabe2Alt"
+            :name="kifuwarabe2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            もし［利き］と［補利き］の総称が［利き］なら、［利き］の中に［利き］があることになるぜ？
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            ［利き］と［補利き］の総称は［直径－１］だぜ。
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="hiyoko2Src"
+            :alt="hiyoko2Alt"
+            :name="hiyoko2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            チョッケイ　マイナス　イチ？　そこに用語は無いの？
+        </talk-balloon>
+        
+
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            その理論で進めると、新しい用語が１つ増えるたびに既存の用語との組み合わせの総称を造語するのかだぜ？！
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="kifuwarabe2Src"
+            :alt="kifuwarabe2Alt"
+            :name="kifuwarabe2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            <span class="yellow-marker">非零直径（Non-zero Diameter；ノン・ゼロ　ダイアメター）</span>とかどうだぜ？
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            なんかカッコいいが、そんな用語要るかなあ？
+        </talk-balloon>
+
+
     </section>
 </template>
 
