@@ -58,7 +58,6 @@ putStoneOneDirection(シニスター対角線);
             :device="compatibleDevice1Ref?.device"
         >
             のように、方向で分けたものだぜ。
-            <br/>
         </talk-balloon>
 
 
@@ -79,6 +78,112 @@ putStoneOneDirection(シニスター対角線);
             :device="compatibleDevice1Ref?.device"
         >
             if 文を４つ読まされるの見づらかったですからね
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            ここで次の定義。<br/>
+            <br/>
+
+            <pre class="code-w">
+..<span class="green-marker">x</span>..<span class="green-marker">xx</span>...<span class="green-marker">x</span>....</pre><br/>
+            👆 上図のように左から 2, 5, 6, 10 の交点に自石があるとき、<br/>
+            <br/>
+            stones、または turnStones と呼ぶことにするぜ。
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="kifuwarabe2Src"
+            :alt="kifuwarabe2Alt"
+            :name="kifuwarabe2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            手番を turn と訳すの気持ち悪いよな。手番は turn ではないよな。
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="hiyoko2Src"
+            :alt="hiyoko2Alt"
+            :name="hiyoko2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            this turn とでも呼びますか。
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            じゃあ、<span class="yellow-marker">石配置（Stones）</span>、または <span class="yellow-marker">自石配置（This turn stones）</span> で。<br/>
+            要は空点を除いた交点だぜ。
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            次の定義。<br/>
+            <br/>
+
+            <pre class="code-w">
+....o.....x....</pre><br/>
+            👆 こういうフィールドがあるとき……、<br/>
+            <br/>
+
+
+            <pre class="code-w">
+....o..X..x....</pre><br/>
+            👆 真ん中に着手 X したら……、<br/>
+            <br/>
+
+
+            <pre class="code-w">
+....o<span class="green-marker">..</span>X<span class="green-marker">..x.</span>...</pre><br/>
+            👆 真ん中からスタートして最初に見つかる相手の石の手前までの半開半径４、ここで両サイドの半径を含めて<span class="green-marker">利き（Control）</span>と呼ぶのは以前定義したが……、<br/>
+            <br/>
+
+
+            <pre class="code-w">
+..<span class="yellow-marker">..</span>o..X..x....</pre><br/>
+            👆 両サイドの半開半径４のうち、利きの外側の、つまり相手の石を含むその残りを<span class="yellow-marker">補利き（Complementary Control；ほきき）</span>と呼ぶことにするぜ。
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="kifuwarabe2Src"
+            :alt="kifuwarabe2Alt"
+            :name="kifuwarabe2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            サルの鳴き声みたいだな。
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            以上により、<br/>
+            <pre class="code-w">
+...<span class="blue-marker">.o</span><span class="green-marker">..</span><span class="red-marker">X</span><span class="green-marker">..x.</span>...
+   <span class="yellow-marker">&lt;-------&gt;</span>
+</pre><br/>
+            👆 <span class="red-marker">着手点</span>、<span class="green-marker">利き</span>、<span class="blue-marker">補利き</span>を合わせて<span class="yellow-marker">直径９（Diameter Nine）</span>という用語を定義することができた。
         </talk-balloon>
 
 
