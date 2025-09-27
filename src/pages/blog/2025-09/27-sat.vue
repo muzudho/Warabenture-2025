@@ -257,6 +257,67 @@ putStoneOneDirection(シニスター対角線);
         </talk-balloon>
 
 
+        <talk-balloon
+            :src="kifuwarabe2Src"
+            :alt="kifuwarabe2Alt"
+            :name="kifuwarabe2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            プログラミング的には、ｎを奇数とし、<br/>
+            ［非零直径ｎ］と［両側利きｎ］を求める２つの関数があれば、その関数から返ってくる集合同士を引き算すれば［両側補利きｎ］も求まるはずだぜ。
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="hiyoko2Src"
+            :alt="hiyoko2Alt"
+            :name="hiyoko2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            ［両側］って付けるの名前がイケてないけど、ｎで揃えるにはそう言うしかないのか。
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            やってみるか……。
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            ［両側利き］や、［両側補利き］の各交点って、順序や、並びの向きが必要になることってある？
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="kifuwarabe2Src"
+            :alt="kifuwarabe2Alt"
+            :name="kifuwarabe2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            無いのでは？
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            じゃあ凝らなくていいか。順序や並びは無しで。
+        </talk-balloon>
+
+
     </section>
 </template>
 
