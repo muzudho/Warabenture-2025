@@ -538,7 +538,7 @@ x....
 xxxxx
 .....
 .....
-</pre>これは<span class="yellow-marker">ホリゾンタル（Horizontal；水平）</span>、<br/>
+</pre>これは<span class="yellow-marker">ホリゾンタル（Horizontal；水平）</span>、略してH。<br/>
                 <br/>
                 <pre class="code-w">
 ..x..
@@ -546,7 +546,7 @@ xxxxx
 ..x..
 ..x..
 ..x..
-</pre>これは<span class="yellow-marker">バーティカル（Vertical；垂直）</span>、<br/>
+</pre>これは<span class="yellow-marker">バーティカル（Vertical；垂直）</span>、略してV。<br/>
                 <br/>
                 <pre class="code-w">
 ....x
@@ -554,7 +554,7 @@ xxxxx
 ..x..
 .x...
 x....
-</pre>これは<span class="yellow-marker">バロック・ダイアゴナル（Baroque Diagonal；右肩上がりの対角線）</span>、<br/>
+</pre>これは<span class="yellow-marker">バロック・ダイアゴナル（Baroque Diagonal；右肩上がりの対角線）</span>、略してB。<br/>
                 <br/>
                 <pre class="code-w">
 x....
@@ -562,7 +562,7 @@ x....
 ..x..
 ...x.
 ....x
-</pre>これは<span class="yellow-marker">シニスター・ダイアゴナル（Sinister Diagonal；右肩下がりの対角線）</span>、<br/>
+</pre>これは<span class="yellow-marker">シニスター・ダイアゴナル（Sinister Diagonal；右肩下がりの対角線）</span>、略してS。<br/>
         </talk-balloon>
 
 
