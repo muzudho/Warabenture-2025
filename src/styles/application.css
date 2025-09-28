@@ -3,7 +3,7 @@
  */
 
 html {
-  scroll-behavior: smooth;  /* <a href="#top"> アンカーで飛ぶときのスクロールをスムーズにする */
+    scroll-behavior: smooth;    /* <a href="#top"> アンカーで飛ぶときのスクロールをスムーズにする */
 }
 
 div.v-toolbar__content {    /* アプリケーション・バー */

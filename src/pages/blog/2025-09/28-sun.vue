@@ -151,7 +151,9 @@
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device"
         >
-            じゃあそれで。
+            じゃあそれで。<br/>
+            <br/>
+            いや、やめた。［交点］のリストを返す関数を locate で統一してるんで、  locateParseControl にするぜ。
         </talk-balloon>
 
         

@@ -123,9 +123,9 @@
                             width: `${gameBoard1SquareSrcTilemapRect(sq).width}px`,
                             height: `${gameBoard1SquareSrcTilemapRect(sq).height}px`,
                             color: gameBoard1StoneColorNameMap[gameBoard1StoneColorArray[sq]],    /* 石の色 */
-                            backgroundImage: `url('${spriteBoard001Png}')`,
-                            backgroundPosition: gameBoard1SquareBackgroundPosition(sq),   // 元画像のスケールで逆向きシフトする
-                            backgroundRepeat: 'no-repeat',
+                            backgroundImage: `url('${spriteBoard003Png}'), url('${spriteBoard002Png}')`,
+                            backgroundPosition: `${gameBoard1SquaresBingoMarkerSrcTilemapPosition(sq)}, ${gameBoard1SquareBackgroundPosition(sq)}`,   // 元画像のスケールで逆向きシフトする。カンマリストの左の方が前景
+                            backgroundRepeat: 'no-repeat, no-repeat',
                             pointerEvents: gameBoard1StoneClickable(sq) ? 'auto' : 'none',  /* 石が置いてあったら、クリックを無視する */
                         }"
                         style="
@@ -178,7 +178,7 @@
         </game-machine-waratch2>
         <!--
             NOTE: src属性は Vite が @/ を解決してくれるが、style="" の中までは解決してくれない。style="" の中を解決するのはブラウザー。だから、 import文を使う。
-            <img src="@/assets/img/references/Sprite_Board_001.png" />
+            <img src="@/assets/img/reference/Sprite_Board_001.png" />
             <v-btn :style="{
                 backgroundImage: `url('${spriteBoard001Png}')`,
             }"></v-btn>
@@ -285,7 +285,7 @@
                 </p>
             </div>
             
-            <p>石の状態:</p>
+            <p>ビンゴ:</p>
             <div
                 class="mb-6"
             >
@@ -297,7 +297,7 @@
                         v-for="sq in range(rank * 15, (rank + 1) * 15)"
                         :key="sq"
                     >
-                        {{ gameBoard1StoneStateArray[sq].toString().padStart(2, '0') }}&nbsp;
+                        {{ gameBoard1SquaresBingo[sq] }}&nbsp;
                     </span><br/>
                 </p>
             </div>
@@ -314,7 +314,7 @@
                         v-for="sq in range(rank * 15, (rank + 1) * 15)"
                         :key="sq"
                     >
-                        {{ gameBoard1ColorsAndStonesMaxLengthHorizontal[COLOR_BLACK][sq].toString().padStart(2, '0') }}&nbsp;
+                        {{ gameBoard1MaxLengthArray[DIRECTION_HORIZONTAL][COLOR_BLACK][sq].toString().padStart(2, '0') }}&nbsp;
                     </span><br/>
                 </p>
             </div>
@@ -331,7 +331,7 @@
                         v-for="sq in range(rank * 15, (rank + 1) * 15)"
                         :key="sq"
                     >
-                        {{ gameBoard1ColorsAndStonesMaxLengthHorizontal[COLOR_WHITE][sq].toString().padStart(2, '0') }}&nbsp;
+                        {{ gameBoard1MaxLengthArray[DIRECTION_HORIZONTAL][COLOR_WHITE][sq].toString().padStart(2, '0') }}&nbsp;
                     </span><br/>
                 </p>
             </div>
@@ -348,7 +348,7 @@
                         v-for="sq in range(rank * 15, (rank + 1) * 15)"
                         :key="sq"
                     >
-                        {{ gameBoard1ColorsAndStonesMaxLengthVertical[COLOR_BLACK][sq].toString().padStart(2, '0') }}&nbsp;
+                        {{ gameBoard1MaxLengthArray[DIRECTION_VERTICAL][COLOR_BLACK][sq].toString().padStart(2, '0') }}&nbsp;
                     </span><br/>
                 </p>
             </div>
@@ -365,7 +365,7 @@
                         v-for="sq in range(rank * 15, (rank + 1) * 15)"
                         :key="sq"
                     >
-                        {{ gameBoard1ColorsAndStonesMaxLengthVertical[COLOR_WHITE][sq].toString().padStart(2, '0') }}&nbsp;
+                        {{ gameBoard1MaxLengthArray[DIRECTION_VERTICAL][COLOR_WHITE][sq].toString().padStart(2, '0') }}&nbsp;
                     </span><br/>
                 </p>
             </div>
@@ -382,7 +382,7 @@
                         v-for="sq in range(rank * 15, (rank + 1) * 15)"
                         :key="sq"
                     >
-                        {{ gameBoard1ColorsAndStonesMaxLengthBaroqueDiagonal[COLOR_BLACK][sq].toString().padStart(2, '0') }}&nbsp;
+                        {{ gameBoard1MaxLengthArray[DIRECTION_BAROQUE_DIAGONAL][COLOR_BLACK][sq].toString().padStart(2, '0') }}&nbsp;
                     </span><br/>
                 </p>
             </div>
@@ -399,7 +399,7 @@
                         v-for="sq in range(rank * 15, (rank + 1) * 15)"
                         :key="sq"
                     >
-                        {{ gameBoard1ColorsAndStonesMaxLengthBaroqueDiagonal[COLOR_WHITE][sq].toString().padStart(2, '0') }}&nbsp;
+                        {{ gameBoard1MaxLengthArray[DIRECTION_BAROQUE_DIAGONAL][COLOR_WHITE][sq].toString().padStart(2, '0') }}&nbsp;
                     </span><br/>
                 </p>
             </div>
@@ -416,7 +416,7 @@
                         v-for="sq in range(rank * 15, (rank + 1) * 15)"
                         :key="sq"
                     >
-                        {{ gameBoard1ColorsAndStonesMaxLengthSinisterDiagonal[COLOR_BLACK][sq].toString().padStart(2, '0') }}&nbsp;
+                        {{ gameBoard1MaxLengthArray[DIRECTION_SINISTER_DIAGONAL][COLOR_BLACK][sq].toString().padStart(2, '0') }}&nbsp;
                     </span><br/>
                 </p>
             </div>
@@ -433,7 +433,7 @@
                         v-for="sq in range(rank * 15, (rank + 1) * 15)"
                         :key="sq"
                     >
-                        {{ gameBoard1ColorsAndStonesMaxLengthSinisterDiagonal[COLOR_WHITE][sq].toString().padStart(2, '0') }}&nbsp;
+                        {{ gameBoard1MaxLengthArray[DIRECTION_SINISTER_DIAGONAL][COLOR_WHITE][sq].toString().padStart(2, '0') }}&nbsp;
                     </span><br/>
                 </p>
             </div>
@@ -457,13 +457,13 @@
     // ##############
 
     import { computed, onMounted, ref } from 'vue';
-    import type { Ref } from 'vue';
 
     // ++++++++++++++++++++++++++++
     // + インポート　＞　アセット +
     // ++++++++++++++++++++++++++++
 
-    import spriteBoard001Png from '@/assets/img/reference/202509__warabenture__21-0649-spriteBoard002-o1o0.png';
+    import spriteBoard002Png from '@/assets/img/reference/202509__warabenture__21-0649-spriteBoard002-o1o0.png';
+    import spriteBoard003Png from '@/assets/img/reference/202509__warabenture__26-0959-spriteBoard003-bingoMarker-o1o0.png';
 
     // ++++++++++++++++++++++++++++++++++
     // + インポート　＞　コンポーネント +
@@ -578,21 +578,50 @@
     // + オブジェクト　＞　ゲーム盤１ +
     // ++++++++++++++++++++++++++++++++
 
-    const ONE_WING_MAX_LENGTH = 4;  // 片翼（着手点を含まない）の最大長さ
+    const NONZERO_RADIUS_OF_DIAMETER_NINE = 4;  // ［直径９の非零半径］。直径 9 から原点（着手点）の 1 引いて 2 で割ったもの。原点を抜いた半径。片翼
     const FIVE_LENGTH = 5;  // ［五］の長さ
+    const NONZERO_RADIUS_OF_DIAMETER_FIVE = 2; // ［直径５の非零半径］。直径 5 から原点（着手点）の 1 引いて 2 で割ったもの。原点を抜いた半径
     const gameBoard1FileNameArray = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O'];
     const COLOR_EMPTY = 0;  // 空きマス。石の色無し
     const COLOR_BLACK = 1;  // 黒石
     const COLOR_WHITE = 2;  // 白石
+    type Color = typeof COLOR_EMPTY | typeof COLOR_BLACK | typeof COLOR_WHITE;
+    const DIRECTION_EMPTY = 0;
+    const DIRECTION_HORIZONTAL = 1;
+    const DIRECTION_VERTICAL = 2;
+    const DIRECTION_BAROQUE_DIAGONAL = 3;
+    const DIRECTION_SINISTER_DIAGONAL = 4;
+    const DIRECTION_SIZE = 5;   // Empty 含む
+
+    // 方向を絞ってデバッグできるように配慮してある。
+    //const activeDirections = [DIRECTION_HORIZONTAL, /*DIRECTION_VERTICAL, DIRECTION_BAROQUE_DIAGONAL, DIRECTION_SINISTER_DIAGONAL*/] as Direction[];
+    const activeDirections = [DIRECTION_HORIZONTAL, DIRECTION_VERTICAL, DIRECTION_BAROQUE_DIAGONAL, DIRECTION_SINISTER_DIAGONAL] as Direction[];
+
+    type Direction = typeof DIRECTION_EMPTY | typeof DIRECTION_HORIZONTAL | typeof DIRECTION_VERTICAL | typeof DIRECTION_BAROQUE_DIAGONAL | typeof DIRECTION_SINISTER_DIAGONAL;
+    const allDirectionsForeOf = [
+        (_sq: number) => { return 0; }, // 不使用
+        eastOf,
+        northOf,
+        northeastOf,
+        southeastOf,
+    ];
+    const allDirectionsBackOf = [
+        (_sq: number) => { return 0; }, // 不使用
+        westOf,
+        southOf,
+        southwestOf,
+        northwestOf,
+    ];
+    const MOVE_STONE_NUM = 1;   // 着手点の石１個
     const gameBoard1FileNum = ref<number>(15);  // 盤が横に何マスか
     const gameBoard1RankNum = ref<number>(15);  // 盤が縦に何マスか
     const gameBoard1Area = computed(()=>{
         return gameBoard1FileNum.value * gameBoard1RankNum.value;
     })
-    const gameBoard1StoneShapeArray = ref<string[]>(new Array(gameBoard1Area.value).fill(''));    // 石の形
-    for(let sq: number=0; sq<gameBoard1Area.value; sq++){
-        gameBoard1StoneShapeArray.value[sq] = '●'
-    }
+    // const gameBoard1StoneShapeArray = ref<string[]>(new Array(gameBoard1Area.value).fill(''));    // 石の形
+    // for(let sq: number=0; sq<gameBoard1Area.value; sq++){
+    //     gameBoard1StoneShapeArray.value[sq] = '●'
+    // }
     const gameBoard1StoneColorArray = ref<number[]>(new Array(gameBoard1Area.value).fill(0));    // 石の色
     const gameBoard1StoneColorNameMap: Record<number, string> = {
         0: 'transparent',
@@ -604,6 +633,9 @@
         (sq: number) => boolean
     >(()=>{    // マスをクリック可能か
         return (sq: number)=>{
+            if (isOutOfBoard(sq)){  // 盤外なら
+                return false;
+            }
             const isEmptySquare = gameBoard1StoneColorArray.value[sq] == 0; // 空マスだ
             return isEmptySquare && !gameBoard1IsEnd.value;
         }
@@ -614,42 +646,31 @@
     const gameBoard1PassCount = ref<number>(0); // 連続パス回数
     const gameBoard1IsEnd = ref<boolean>(false);    // 終局しているか
 
-    const gameBoard1ColorsAndStonesMaxLengthHorizontal = ref<number[][]>([  // 石の最長数。水平方向
+    const gameBoard1MaxLengthArray = ref<number[][][]>( // 石の最長［方向］［色］［交点］
+        new Array(DIRECTION_SIZE)
+    );
+    gameBoard1MaxLengthArray.value[DIRECTION_HORIZONTAL] = [  // 水平方向
         new Array(gameBoard1Area.value).fill(0),
         new Array(gameBoard1Area.value).fill(0),
         new Array(gameBoard1Area.value).fill(0),
-    ]);
-    const gameBoard1ColorsAndStonesMaxLengthVertical = ref<number[][]>([    // 石の最長数。垂直方向
+    ];
+    gameBoard1MaxLengthArray.value[DIRECTION_VERTICAL] = [    // 垂直方向
         new Array(gameBoard1Area.value).fill(0),
         new Array(gameBoard1Area.value).fill(0),
         new Array(gameBoard1Area.value).fill(0),
-    ]);
-    const gameBoard1ColorsAndStonesMaxLengthBaroqueDiagonal = ref<number[][]>([ // 石の最長数。右上に上がる対角線方向
+    ];
+    gameBoard1MaxLengthArray.value[DIRECTION_BAROQUE_DIAGONAL] = [    // 右肩上がりの対角線方向
         new Array(gameBoard1Area.value).fill(0),
         new Array(gameBoard1Area.value).fill(0),
         new Array(gameBoard1Area.value).fill(0),
-    ]);
-    const gameBoard1ColorsAndStonesMaxLengthSinisterDiagonal = ref<number[][]>([    // 石の最長数。右下に下がる体格線方向
+    ];
+    gameBoard1MaxLengthArray.value[DIRECTION_SINISTER_DIAGONAL] = [    // 右肩下がりの体格線方向
         new Array(gameBoard1Area.value).fill(0),
         new Array(gameBoard1Area.value).fill(0),
         new Array(gameBoard1Area.value).fill(0),
-    ]);
+    ];
 
-    // 水平方向に並ぶ［五］の一部の石なら 1 を、
-    // 垂直方向に並ぶ［五］の一部の石なら 2 を、
-    // バロック対角線方向に並ぶ［五］の一部の石なら 4 を、
-    // シニスター対角線方向に並ぶ［五］の一部の石なら 8 を、
-    // ［死に石］なら 16 を入れる。
-    const STONE_STATE_NONE = 0;
-    const STONE_STATE_ALIVE_HORIZONTAL = 1;
-    const STONE_STATE_ALIVE_VERTICAL = 2;
-    const STONE_STATE_ALIVE_BAROQUE_DIAGONAL = 4;
-    const STONE_STATE_ALIVE_SINISTER_DIAGONAL = 8;
     const MAX_LENGTH_DEAD = -1;
-    function isAliveStone(sq: number) : boolean {
-        return 1 <= gameBoard1StoneStateArray.value[sq] && gameBoard1StoneStateArray.value[sq] <= 15;
-    }
-    const gameBoard1StoneStateArray = ref<Array<number>>(new Array(gameBoard1Area.value).fill(STONE_STATE_NONE));
 
     // ボタンの背景画像（のタイル位置の矩形）
     const gameBoard1SquareSrcTilemapRect = computed<
@@ -673,46 +694,12 @@
                 }
 
                 // 水平、垂直、バロック対角線、シニスター対角線のうち、最も接続数の多いもの：
-                const bXBlackMaxLength = Math.max(
-                    gameBoard1ColorsAndStonesMaxLengthHorizontal.value[COLOR_BLACK][sq], // 水平
-                    gameBoard1ColorsAndStonesMaxLengthVertical.value[COLOR_BLACK][sq],   // 垂直
-                    gameBoard1ColorsAndStonesMaxLengthBaroqueDiagonal.value[COLOR_BLACK][sq],    // バロック対角線
-                    gameBoard1ColorsAndStonesMaxLengthSinisterDiagonal.value[COLOR_BLACK][sq],   // シニスター対角線
-                );
-                const bYWhiteMaxLength = Math.max(
-                    gameBoard1ColorsAndStonesMaxLengthHorizontal.value[COLOR_WHITE][sq], // 水平
-                    gameBoard1ColorsAndStonesMaxLengthVertical.value[COLOR_WHITE][sq],   // 垂直
-                    gameBoard1ColorsAndStonesMaxLengthBaroqueDiagonal.value[COLOR_WHITE][sq],    // バロック対角線
-                    gameBoard1ColorsAndStonesMaxLengthSinisterDiagonal.value[COLOR_WHITE][sq],   // シニスター対角線
-                );
-
-                // function getMarkerCode(conn: number) : string {
-                //     if (conn <= 0) { return '00'; }
-                //     if (conn <= 1) { return '01'; }
-                //     if (conn <= 2) { return '02'; }
-                //     if (conn <= 3) { return '03'; }
-
-                //     if (isAliveStone(sq)) {
-                //         return '05';
-                //     }
-
-                //     if (
-                //         // TODO 4方向が［死に方向］なら、［死に石］だ
-                //         gameBoard1StonesMaxLengthOfSlidingWindowHorizontal.value[sq] == RUNS_SLIDING_WINDOW_DEAD
-                //         && gameBoard1StonesMaxLengthOfSlidingWindowVertical.value[sq] == RUNS_SLIDING_WINDOW_DEAD
-                //         && gameBoard1StonesMaxLengthOfSlidingWindowBaroqueDiagonal.value[sq] == RUNS_SLIDING_WINDOW_DEAD
-                //         && gameBoard1StonesMaxLengthOfSlidingWindowSinisterDiagonal.value[sq] == RUNS_SLIDING_WINDOW_DEAD
-                //     ) {
-                //         return '06';
-                //     }
-
-                //     return '04';    // 連続していることが確認できなければ［五］にはなりません。
-                // }
-
-                // const markerCode = getMarkerCode(conn);
-
-                // `-${markerCode}-${}`
-               
+                let bXBlackMaxLength = MAX_LENGTH_DEAD;
+                let bYWhiteMaxLength = MAX_LENGTH_DEAD;
+                for (const direction of activeDirections) {
+                    bXBlackMaxLength = Math.max(bXBlackMaxLength, gameBoard1MaxLengthArray.value[direction][COLOR_BLACK][sq]);
+                    bYWhiteMaxLength = Math.max(bYWhiteMaxLength, gameBoard1MaxLengthArray.value[direction][COLOR_WHITE][sq]);
+                }
 
                 const aGridNumber = getBoardGridNumber(sq);
                 const imageKey = makeImageKey(stoneColor, bYWhiteMaxLength, bXBlackMaxLength, aGridNumber);
@@ -725,6 +712,7 @@
 
             } catch (err: unknown) {
                 const errorMessage = err instanceof Error ? err.message : String(err);
+                console.log('ERROR: GomokuError:', errorMessage);
                 console.error('GomokuError:', errorMessage);
                 return {
                     left: 0,
@@ -744,6 +732,25 @@
 
             const rect = gameBoard1SquareSrcTilemapRect.value(sq);
             return `${-rect.left}px ${-rect.top}px`;
+        };
+    });
+    const gameBoard1SquaresBingo = ref<Array<Color>>(new Array(gameBoard1Area.value).fill(COLOR_EMPTY));
+    /**
+     * ビンゴならマーカーを可視化させます
+     */
+    const gameBoard1SquaresBingoMarkerSrcTilemapPosition = computed<
+        (sq: number)=>string
+    >(()=>{
+        return (sq: number)=>{
+            if (gameBoard1SquaresBingo.value[sq] == COLOR_EMPTY) {
+                return '0 0';
+            }
+
+            if (gameBoard1SquaresBingo.value[sq] == COLOR_BLACK) {
+                return `-32px 0px`;
+            }
+
+            return `-64px 0px`; // COLOR_WHITE
         };
     });
 
@@ -769,8 +776,8 @@
 
     function getByBxMaxLength(bYWhiteMaxLength:number, bXBlackMaxLength:number) : [number, number] {
         return [
-            Math.min(6, bYWhiteMaxLength + 1), // ［死に石］が -1 なので、下駄を１履かせている
-            Math.min(6, bXBlackMaxLength + 1), // ［死に石］が -1 なので、下駄を１履かせている
+            Math.min(7, bYWhiteMaxLength + 1), // ［死に石］が -1 なので、下駄を１履かせている。内部的には 最長6 まで画像を用意している。
+            Math.min(7, bXBlackMaxLength + 1),
         ];
     }
 
@@ -782,6 +789,9 @@
     }
 
 
+    const MAX_MAX_LENGTH = 6;   // 長連を判定できるように、［六］も内部的に用意している
+
+
     function makeImageKey(cColor: number, bYWhiteMaxLength:number, bXBlackMaxLength:number, aGridNumber:number) : string {
         const [cY, cX] = getCColorCode(cColor);
         const [bY, bX] = getByBxMaxLength(bYWhiteMaxLength, bXBlackMaxLength);
@@ -791,8 +801,8 @@
         if (cY<0 || 1<cY) { console.log(`ERROR: cY=${cY}`)}
         if (cX<0 || 1<cX) { console.log(`ERROR: cX=${cX}`)}
         if (0==cY && cX==1) { console.log(`ERROR: cY=${cY} cx=${cX}`)}
-        if (bY<0 || 6<bY) { console.log(`ERROR: bY=${bY}`)}
-        if (bX<0 || 6<bX) { console.log(`ERROR: bX=${bX}`)}
+        if (bY<0 || (MAX_MAX_LENGTH + 1)<bY) { console.log(`ERROR: bY=${bY}`)}
+        if (bX<0 || (MAX_MAX_LENGTH + 1)<bX) { console.log(`ERROR: bX=${bX}`)}
         if (aY<0 || 4<aY) { console.log(`ERROR: aY=${aY}`)}
         if (aX<0 || 3<aX) { console.log(`ERROR: aX=${aX}`)}
         if ((1<=aX && aX<=2) && aY==0) { console.log(`ERROR: aY=${aY} aX=${aX}`)}
@@ -913,12 +923,12 @@
 
     const gameBoard1SourceTilemap1Frames : Record<string, Rectangle> = {};
     for(let cColor=0; cColor<3; cColor++) {
-        for(let bYWhiteMaxLength=-1; bYWhiteMaxLength<6; bYWhiteMaxLength++) {
-            for(let bXBlackMaxLength=-1; bXBlackMaxLength<6; bXBlackMaxLength++) {
-                [0, 6, 14, 12, 7, 15, 13, 3, 11, 9].forEach((aGridNumber, _index, _array)=>{
+        for(let bYWhiteMaxLength=MAX_LENGTH_DEAD; bYWhiteMaxLength<=MAX_MAX_LENGTH; bYWhiteMaxLength++) {
+            for(let bXBlackMaxLength=MAX_LENGTH_DEAD; bXBlackMaxLength<=MAX_MAX_LENGTH; bXBlackMaxLength++) {
+                for (const aGridNumber of [0, 6, 14, 12, 7, 15, 13, 3, 11, 9]) {
                     const [key, rect] = makeKeyAndRectangle(cColor, bYWhiteMaxLength, bXBlackMaxLength, aGridNumber);
                     gameBoard1SourceTilemap1Frames[key] = rect;
-                });
+                }
             }
         }
     }
@@ -1188,232 +1198,243 @@
     /**
      * 石を置く
      * @param moveSq 
+     * @returns 石を置けたら true、石を置けなかったら false。不明なら null
+     */
+    function putStoneOnDirection(
+        moveSq: number,
+        direction: Direction,
+    ) : Elements1 {
+
+        // ++++++++++
+        // + 仕込み +
+        // ++++++++++
+
+        // 着手点を中心とする直径９のスライディング・ウィンドウ。［五］を判定するのに使う
+        const slidingWindowArray = locateSlidingWindowArray(
+            moveSq,
+            NONZERO_RADIUS_OF_DIAMETER_NINE,
+            NONZERO_RADIUS_OF_DIAMETER_FIVE,
+            direction,
+        );
+        // console.log(`DEBUG: [putStone] slidingWindowArrayH.length=[${slidingWindowArrayH.length}]`);
+        // slidingWindowArrayH.forEach((oneWindow, index, _array)=>{
+        //     console.log(`DEBUG: [putStone] window[${index}] ${oneWindow}`);
+        // });
+
+        const turnColor = gameBoard1Turn.value as Color;
+
+        // ビンゴ
+        const bingoStones : Set<number> = locateBingo(slidingWindowArray, turnColor, FIVE_LENGTH);
+
+        const [
+            thisTurnFieldStonesNonzero,
+            oppositeTurnFieldStones,
+            bothTurnFieldEmpties,
+        ] = locateParseControl(
+            moveSq, // 着手点
+            NONZERO_RADIUS_OF_DIAMETER_NINE,    // 直径９の非零半径の長さ
+            direction,
+        );
+
+        console.log(`DEBUG: [putStoneOnDirection] bingoStones=${[...bingoStones]} thisTurnFieldStonesNonzero=${thisTurnFieldStonesNonzero} oppositeTurnFieldStones=${oppositeTurnFieldStones} bothTurnFieldEmpties=${bothTurnFieldEmpties}`);
+        return [
+            null,
+            bingoStones,
+            thisTurnFieldStonesNonzero,
+            oppositeTurnFieldStones,
+            bothTurnFieldEmpties,
+        ];
+    }
+
+    type Elements1 = [any, Set<number>, number[], number[], number[]];
+    //const ELEMENT_EMPTY = 0;
+    const ELEMENT_BINGO_STONES = 1;
+    const ELEMENT_THIS_TURN_FIELD_STONES = 2;
+    const ELEMENT_OPPOSITE_TURN_FIELD_STONES = 3;
+    const ELEMENT_BOTH_TURN_FIELD_EMPTIES = 4;
+
+
+    /**
+     * 石を置く
+     * @param moveSq 
      */
     function putStone(moveSq: number) : boolean {
-        const turnColor = gameBoard1Turn.value;
-        const oppositeTurnColor1 = oppositeTurnColor(gameBoard1Turn.value);
+       
+        // sq を符号に変換したい。
+        console.log(`DEBUG: [putStone] code=${sqToCode(moveSq)} moveSq=${moveSq} turn=${gameBoard1Turn.value}`);
 
-        if (!gameBoard1StoneClickable.value(moveSq)) {  // 石を置けないマスなら
+        if (!gameBoard1StoneClickable.value(moveSq)) {  // 石を置けないマスなら（盤外含む）
             return false;
         }
 
-        // sq を符号に変換したい。
-        console.log(`DEBUG: [putStone] code=${sqToCode(moveSq)} moveSq=${moveSq} turnColor=${turnColor}`);
-
+        const turnColor = gameBoard1Turn.value as Color;    // 手番の色　＝　置く石の色
         gameBoard1StoneColorArray.value[moveSq] = turnColor;    // 盤上に石を置く
 
-        // 着手点の［最長］を記入します
-        gameBoard1ColorsAndStonesMaxLengthHorizontal.value[turnColor][moveSq] = aLocationsCountingMaxLength(    // 水平方向フィールド
-            locateDirectionFromCenter(
-                moveSq,
-                ONE_WING_MAX_LENGTH,
-                eastOf,
-                westOf,
-                makeIsOutOfBoardOrColor(oppositeTurnColor1),    // break 条件
-            ),
-            locateDirectionFromCenter(
-                moveSq,
-                ONE_WING_MAX_LENGTH,
-                eastOf,
-                westOf,
-                isOutOfBoard,   // break 条件
-            ),
-            turnColor
-        );
-        gameBoard1ColorsAndStonesMaxLengthVertical.value[turnColor][moveSq] = aLocationsCountingMaxLength(  // 垂直方向フィールド
-            locateDirectionFromCenter(
-                moveSq,
-                ONE_WING_MAX_LENGTH,
-                northOf,
-                southOf,
-                makeIsOutOfBoardOrColor(oppositeTurnColor1),    // break 条件
-            ),
-            locateDirectionFromCenter(
-                moveSq,
-                ONE_WING_MAX_LENGTH,
-                northOf,
-                southOf,
-                isOutOfBoard,   // break 条件
-            ),
-            turnColor
-        );
-        gameBoard1ColorsAndStonesMaxLengthBaroqueDiagonal.value[turnColor][moveSq] = aLocationsCountingMaxLength(   // バロック対角線方向フィールド
-            locateDirectionFromCenter(
-                moveSq,
-                ONE_WING_MAX_LENGTH,
-                northeastOf,
-                southwestOf,
-                makeIsOutOfBoardOrColor(oppositeTurnColor1),    // break 条件
-            ),
-            locateDirectionFromCenter(
-                moveSq,
-                ONE_WING_MAX_LENGTH,
-                northeastOf,
-                southwestOf,
-                isOutOfBoard,   // break 条件
-            ),
-            turnColor
-        );
-        gameBoard1ColorsAndStonesMaxLengthSinisterDiagonal.value[turnColor][moveSq] = aLocationsCountingMaxLength(  // シニスター対角線方向フィールド
-            locateDirectionFromCenter(
-                moveSq,
-                ONE_WING_MAX_LENGTH,
-                southeastOf,
-                northwestOf,
-                makeIsOutOfBoardOrColor(oppositeTurnColor1),    // break 条件
-            ),
-            locateDirectionFromCenter(
-                moveSq,
-                ONE_WING_MAX_LENGTH,
-                southeastOf,
-                northwestOf,
-                isOutOfBoard,   // break 条件
-            ),
-            turnColor
-        );
-        gameBoard1ColorsAndStonesMaxLengthHorizontal.value[oppositeTurnColor1][moveSq] = 0; // 相手の［最長］に 0 を記入
-        gameBoard1ColorsAndStonesMaxLengthVertical.value[oppositeTurnColor1][moveSq] = 0;   // 相手の［最長］に 0 を記入
-        gameBoard1ColorsAndStonesMaxLengthBaroqueDiagonal.value[oppositeTurnColor1][moveSq] = 0;    // 相手の［最長］に 0 を記入
-        gameBoard1ColorsAndStonesMaxLengthSinisterDiagonal.value[oppositeTurnColor1][moveSq] = 0;   // 相手の［最長］に 0 を記入
+        const oppositeTurnColor1 = oppositeColor(turnColor) as Color;
 
-        // 利きマスを取得。着手点を含まない
-        const turnStoneHalfDirectionFieldArray = locateRadialEightHalfDirectionFieldArray(
-            moveSq,
-            ONE_WING_MAX_LENGTH,
-            (_sq: number) => false, // continue 条件
-            (sq: number) => isOutOfBoard(sq),   // break 条件
-        );
+        // １方向だけのテストができるように配慮している。
+        for (const direction of activeDirections) {
 
-        // フィールドの各空点の［最長］を記入します
-        // 水平方向フィールド
-        [
-            ...turnStoneHalfDirectionFieldArray[0],
-            ...turnStoneHalfDirectionFieldArray[4],
-        ].forEach((resonanceSq, _index, _array)=>{
-            // 空点なら自分、相手ともに［最長］を更新。
-            // 手番の石なら、手番の［最長］だけを更新。
-            // 相手番の石なら、相手番の［最長］だけを更新。
-            [turnColor, oppositeTurnColor1].forEach((color, _index, _array)=>{
-                const stoneColor = gameBoard1StoneColorArray.value[resonanceSq];
-                if ([COLOR_EMPTY, color].includes(stoneColor)) {
-                    // TODO: ここで inputArray の長さが 4 以下なら［死に方向］判定にできないか？
-                    gameBoard1ColorsAndStonesMaxLengthHorizontal.value[color][resonanceSq] = aLocationsCountingMaxLength(
-                        locateDirectionFromCenter(
-                            resonanceSq,
-                            ONE_WING_MAX_LENGTH,
-                            eastOf,
-                            westOf,
-                            makeIsOutOfBoardOrColor(oppositeTurnColor(color)),    // break 条件
-                        ),
-                        locateDirectionFromCenter(
-                            resonanceSq,
-                            ONE_WING_MAX_LENGTH,
-                            eastOf,
-                            westOf,
-                            isOutOfBoard,   // break 条件
-                        ),
-                        color,
+            const directionData: Elements1 = putStoneOnDirection(moveSq, direction);
+
+            // ++++++++++++++++++++++++++++++++++++++++++++++
+            // + 着手石と、それに隣接する自石が［五］か記入 +
+            // ++++++++++++++++++++++++++++++++++++++++++++++
+
+            // ［五］を作れた石の集合
+            for (const stoneSq of directionData[ELEMENT_BINGO_STONES]) {
+                gameBoard1SquaresBingo.value[stoneSq] = turnColor as Color; // どちらのプレイヤーのビンゴか記入
+            }
+
+            // ++++++++++
+            // + 着手点 +
+            // ++++++++++
+
+            {
+                // 影響点を中心とする直径９のスライディング・ウィンドウ　＞　水平方向
+                const slidingWindowArray: number[][] = locateSlidingWindowArray(
+                    moveSq,
+                    NONZERO_RADIUS_OF_DIAMETER_NINE,
+                    NONZERO_RADIUS_OF_DIAMETER_FIVE,
+                    direction,
+                );
+                const bestLength = countMaxColors(
+                    slidingWindowArray,
+                    [COLOR_EMPTY, turnColor],
+                );
+
+                let maxLength: number;
+                if (bestLength < FIVE_LENGTH) { // ［五］を作れない方向なら［死に方向］です
+                    maxLength = MAX_LENGTH_DEAD;
+
+                } else {
+                    const control = locateFieldNonzeroFromCenter(
+                        moveSq,
+                        NONZERO_RADIUS_OF_DIAMETER_NINE,
+                        direction,
+                        (_sq: number) => false,  // continue 条件
+                        makeIsOutOfBoardOrColor(oppositeTurnColor1),    // break 条件
                     );
-                }
-            });
-        });
 
-        // 垂直方向フィールド
-        [
-            ...turnStoneHalfDirectionFieldArray[2],
-            ...turnStoneHalfDirectionFieldArray[6],
-        ].forEach((resonanceSq, _index, _array)=>{
-            [turnColor, oppositeTurnColor1].forEach((color, _index, _array)=>{
-                const stoneColor = gameBoard1StoneColorArray.value[resonanceSq];
-                if ([COLOR_EMPTY, color].includes(stoneColor)) {
-                    gameBoard1ColorsAndStonesMaxLengthVertical.value[color][resonanceSq] = aLocationsCountingMaxLength(
-                        locateDirectionFromCenter(
-                            resonanceSq,
-                            ONE_WING_MAX_LENGTH,
-                            northOf,
-                            southOf,
-                            makeIsOutOfBoardOrColor(oppositeTurnColor(color)),    // break 条件
-                        ),
-                        locateDirectionFromCenter(
-                            resonanceSq,
-                            ONE_WING_MAX_LENGTH,
-                            northOf,
-                            southOf,
-                            isOutOfBoard,   // break 条件
-                        ),
-                        color,
+                    maxLength = MOVE_STONE_NUM + countStones(control, turnColor);
+                }
+                gameBoard1MaxLengthArray.value[direction][turnColor][moveSq] = maxLength;
+
+                gameBoard1MaxLengthArray.value[direction][oppositeTurnColor1][moveSq] = 0; // 手番の石が置いてあるところに、相手番は石を置けない。
+            }
+
+            // ++++++++++++
+            // + 手番野石 +
+            // ++++++++++++
+
+            for (const stoneSq of directionData[ELEMENT_THIS_TURN_FIELD_STONES]) {
+                // 影響点を中心とする直径９のスライディング・ウィンドウ　＞　水平方向
+                const slidingWindowArray: number[][] = locateSlidingWindowArray(
+                    stoneSq,
+                    NONZERO_RADIUS_OF_DIAMETER_NINE,
+                    NONZERO_RADIUS_OF_DIAMETER_FIVE,
+                    direction,
+                );
+                const bestLength = countMaxColors(
+                    slidingWindowArray,
+                    [COLOR_EMPTY, turnColor],
+                );
+
+                let maxLength: number;
+                if (bestLength < FIVE_LENGTH) { // ［五］を作れない方向なら［死に方向］です
+                    maxLength = MAX_LENGTH_DEAD;
+
+                } else {
+                    const control = locateFieldNonzeroFromCenter(
+                        stoneSq,
+                        NONZERO_RADIUS_OF_DIAMETER_NINE,
+                        direction,
+                        (_sq: number) => false,  // continue 条件
+                        makeIsOutOfBoardOrColor(oppositeTurnColor1),    // break 条件
                     );
-                }
-            });
-        });
 
-        // バロック対角線方向フィールド
-        [
-            ...turnStoneHalfDirectionFieldArray[1],
-            ...turnStoneHalfDirectionFieldArray[5],
-        ].forEach((resonanceSq, _index, _array)=>{
-            [turnColor, oppositeTurnColor1].forEach((color, _index, _array)=>{
-                const stoneColor = gameBoard1StoneColorArray.value[resonanceSq];
-                if ([COLOR_EMPTY, color].includes(stoneColor)) {
-                    gameBoard1ColorsAndStonesMaxLengthBaroqueDiagonal.value[color][resonanceSq] = aLocationsCountingMaxLength(
-                        locateDirectionFromCenter(
-                            resonanceSq,
-                            ONE_WING_MAX_LENGTH,
-                            northeastOf,
-                            southwestOf,
-                            makeIsOutOfBoardOrColor(oppositeTurnColor(color)),    // break 条件
-                        ),
-                        locateDirectionFromCenter(
-                            resonanceSq,
-                            ONE_WING_MAX_LENGTH,
-                            northeastOf,
-                            southwestOf,
-                            isOutOfBoard,   // break 条件
-                        ),
-                        color,
+                    maxLength = MOVE_STONE_NUM + countStones(control, turnColor);
+                }
+                gameBoard1MaxLengthArray.value[direction][turnColor][stoneSq] = maxLength;
+            }
+
+            // ++++++++++++++
+            // + 相手番野石 +
+            // ++++++++++++++
+
+            //*
+            for (const stoneSq of directionData[ELEMENT_OPPOSITE_TURN_FIELD_STONES]) {
+                // 影響点を中心とする直径９のスライディング・ウィンドウ
+                const slidingWindowArray: number[][] = locateSlidingWindowArray(
+                    stoneSq,
+                    NONZERO_RADIUS_OF_DIAMETER_NINE,
+                    NONZERO_RADIUS_OF_DIAMETER_FIVE,
+                    direction,
+                );
+                const bestLength = countMaxColors(
+                    slidingWindowArray,
+                    [COLOR_EMPTY, oppositeTurnColor1],
+                );
+
+                let maxLength: number;
+                if (bestLength < FIVE_LENGTH) { // ［五］を作れない方向なら［死に方向］です
+                    maxLength = MAX_LENGTH_DEAD;
+
+                } else {
+                    const control = locateFieldNonzeroFromCenter(
+                        stoneSq,
+                        NONZERO_RADIUS_OF_DIAMETER_NINE,
+                        direction,
+                        (_sq: number) => false,  // continue 条件
+                        makeIsOutOfBoardOrColor(turnColor),    // break 条件
                     );
-                }
-            });
-        });
 
-        // シニスター対角線方向フィールド
-        [
-            ...turnStoneHalfDirectionFieldArray[3],
-            ...turnStoneHalfDirectionFieldArray[7],
-        ].forEach((resonanceSq, _index, _array)=>{
-            [turnColor, oppositeTurnColor1].forEach((color, _index, _array)=>{
-                const stoneColor = gameBoard1StoneColorArray.value[resonanceSq];
-                if ([COLOR_EMPTY, color].includes(stoneColor)) {
-                    gameBoard1ColorsAndStonesMaxLengthSinisterDiagonal.value[color][resonanceSq] = aLocationsCountingMaxLength(
-                        locateDirectionFromCenter(
-                            resonanceSq,
-                            ONE_WING_MAX_LENGTH,
-                            southeastOf,
-                            northwestOf,
-                            makeIsOutOfBoardOrColor(oppositeTurnColor(color)),    // break 条件
-                        ),
-                        locateDirectionFromCenter(
-                            resonanceSq,
-                            ONE_WING_MAX_LENGTH,
-                            southeastOf,
-                            northwestOf,
-                            isOutOfBoard,   // break 条件
-                        ),
-                        color,
+                    maxLength = MOVE_STONE_NUM + countStones(control, oppositeTurnColor1);
+                }
+                gameBoard1MaxLengthArray.value[direction][oppositeTurnColor1][stoneSq] = maxLength;
+            }
+            // */
+
+            // ++++++++++++++++
+            // + 両手番野空点 +
+            // ++++++++++++++++
+
+            for (const emptySq of directionData[ELEMENT_BOTH_TURN_FIELD_EMPTIES]) {
+                // 影響点を中心とする直径９のスライディング・ウィンドウ
+                const slidingWindowArray: number[][] = locateSlidingWindowArray(
+                    emptySq,
+                    NONZERO_RADIUS_OF_DIAMETER_NINE,
+                    NONZERO_RADIUS_OF_DIAMETER_FIVE,
+                    direction,
+                );
+
+                for (const color of [COLOR_BLACK, COLOR_WHITE] as Color[]) {   // 空点の［最長］は、黒番側、白番側の両方が有ります。
+                    const bestLength = countMaxColors(
+                        slidingWindowArray,
+                        [COLOR_EMPTY, color],
                     );
+
+                    let maxLength: number;
+                    if (bestLength < FIVE_LENGTH) { // ［五］を作れない方向なら［死に方向］です
+                        maxLength = MAX_LENGTH_DEAD;
+
+                    } else {
+                        const control = locateFieldNonzeroFromCenter(
+                            emptySq,
+                            NONZERO_RADIUS_OF_DIAMETER_NINE,
+                            direction,
+                            (_sq: number) => false,  // continue 条件
+                            makeIsOutOfBoardOrColor(oppositeColor(color)),    // break 条件
+                        );
+
+                        maxLength = countStones(control, color);
+                    }
+                    gameBoard1MaxLengthArray.value[direction][color][emptySq] = maxLength;
                 }
-            });
-        });
+            }
+        }
 
-        // ［割り打ち］処理
-        executeWariuchi(moveSq);
-
-        // ［五］の処理
-        fiveStonesProcessingAllDirections(
-            moveSq,
-        );
-
-        gameBoard1Turn.value = oppositeTurnColor(gameBoard1Turn.value); // （チェック後に）相手の色に変更
+        gameBoard1Turn.value = oppositeTurnColor1; // （チェック後に）相手の色に変更
         gameBoard1Times.value += 1;
         gameBoard1StoneCount.value[turnColor] += 1;
         gameBoard1PassCount.value = 0;  // リセット
@@ -1484,15 +1505,14 @@
             gameBoard1StoneColorArray.value[sq] = 0;    // 空マス
 
             // マス上で自石が（飛び飛びでも）続いている数
-            [COLOR_BLACK, COLOR_WHITE].forEach((color, _index, _array)=>{
-                gameBoard1ColorsAndStonesMaxLengthHorizontal.value[color][sq] = 0;
-                gameBoard1ColorsAndStonesMaxLengthVertical.value[color][sq] = 0;
-                gameBoard1ColorsAndStonesMaxLengthBaroqueDiagonal.value[color][sq] = 0;
-                gameBoard1ColorsAndStonesMaxLengthSinisterDiagonal.value[color][sq] = 0;
-            });
+            for (const color of [COLOR_BLACK, COLOR_WHITE]) {
+                for (const direction of activeDirections) {
+                    gameBoard1MaxLengthArray.value[direction][color][sq] = 0;
+                }
+            }
 
             // マス上で自石が（隙間なく）連続しているとみたときの状態
-            gameBoard1StoneStateArray.value[sq] = STONE_STATE_NONE;
+            gameBoard1SquaresBingo.value[sq] = COLOR_EMPTY as Color;
         }
 
         gameBoard1Times.value = 0;
@@ -1501,10 +1521,6 @@
         gameBoard1StoneCount.value[2] = 0;
         gameBoard1PassCount.value = 0;
         gameBoard1IsEnd.value = false;
-
-        //gameMachine1Score.value = 0;
-        //gameMachine1ScheduleStep.value = 0;
-        //star1Visibility.value = 'hidden';
     }
 
 
@@ -1591,345 +1607,53 @@
      * 相手の石の色に変更
      * @param color 自分の石の色
      */
-    function oppositeTurnColor(color: number) : number {
+    function oppositeColor(color: number) : number {
         return color % 2 + 1;   // 1 なら 2 に、2 なら 1 に
     }
 
 
     /**
-     * ［五］ができているかどうかは、手番でだけ確認すれば構いません。
-     * @param aStoneSq 
+     * 石を数えます
+     * @param locations 
+     * @param color 
      */
-    function fiveStonesProcessingAllDirections(
-        aStoneSq: number,   // 打った場所。自石が置いている前提。 FIXME: 空点の場所のケースもある
-    ) : void {
-        fiveStonesProcessingOneDirection(    // 水平方向
-            aStoneSq,
-            eastOf,
-            westOf,
-            gameBoard1StoneStateArray,
-            STONE_STATE_ALIVE_HORIZONTAL,
-        );
-        fiveStonesProcessingOneDirection(    // 垂直方向
-            aStoneSq,
-            northOf,
-            southOf,
-            gameBoard1StoneStateArray,
-            STONE_STATE_ALIVE_VERTICAL,
-        );
-        fiveStonesProcessingOneDirection(    // バロック対角線方向
-            aStoneSq,
-            northeastOf,
-            southwestOf,
-            gameBoard1StoneStateArray,
-            STONE_STATE_ALIVE_BAROQUE_DIAGONAL,
-        );
-        fiveStonesProcessingOneDirection(    // シニスター対角線方向
-            aStoneSq,
-            southeastOf,
-            northwestOf,
-            gameBoard1StoneStateArray,
-            STONE_STATE_ALIVE_SINISTER_DIAGONAL,
-        );
-    }
+    function countStones(
+        locations: number[],
+        color: number,
+    ) : number {
+        let count = 0;
 
-    /**
-     * ［五］の処理。
-     * 内訳は、走査（スキャン）、判定（ジャッジメント）、記入（チェック）
-     * 
-     * @param startSq 
-     * @param foreOf 
-     * @param backOf 
-     * @param directionalStoneStateArray 
-     * @param aliveDirection 
-     */
-    function fiveStonesProcessingOneDirection(
-        startSq: number,    // 打った場所。自石が置いている前提。 FIXME: 空点の場所のケースもある
-        foreOf: (sq: number)=>number,
-        backOf: (sq: number)=>number,
-        directionalStoneStateArray: Ref<Array<number>>,
-        aliveDirection: number,
-    ) : void {
-        const runsNineSquares = locateFieldCapacity(
-            startSq,
-            foreOf,
-            backOf,
-            (_sq: number) => false,  // continue 条件
-            (sq: number) => isOutOfBoardOrColor(oppositeTurnColor(gameBoard1Turn.value), sq),   // break 条件
-        );
-
-        const continuityStones: number[] = [];  // 連続している自石のマス番号
-
-        function processingContinuityStones() : void {
-            if (5 <= continuityStones.length) {   // ［五］ができていたら
-                continuityStones.forEach((sq, _index, _array)=>{
-                    directionalStoneStateArray.value[sq] |= aliveDirection; // 論理和
-                });
+        for (const sq of locations) {
+            if (gameBoard1StoneColorArray.value[sq] == color) {
+                count += 1;
             }
-
-            continuityStones.length = 0;    // クリアー
         }
 
-        runsNineSquares.forEach((sq, _index, _array)=>{
-            // 盤外、相手の石は含まない
-
-            // 手番の石なら
-            if (gameBoard1StoneColorArray.value[sq] == gameBoard1Turn.value) {
-                continuityStones.push(sq);
-
-            // 自石でなければ
-            } else {
-                processingContinuityStones();
-            }
-        });
-
-        processingContinuityStones();
+        return count;
     }
 
 
     /**
-     * 各石の［飛び石］の長さの数え上げ
+     * 各ウィンドウの内、色の最大数を返す
      */
-    function countingMaxLength(
+    function countMaxColors(
         slidingWindowArray: number[][],
-        color: number,
+        colors: Color[],
     ) : number {
         let maxCount = 0;
 
-        slidingWindowArray.forEach((slidingWindow, _index, _array)=>{
+        for (const slidingWindow of slidingWindowArray) {
             let count = 0;
-            slidingWindow.forEach((sq, _index, _array)=>{
-                if (gameBoard1StoneColorArray.value[sq] == color) {
+            for (const sq of slidingWindow) {
+                if (colors.includes(gameBoard1StoneColorArray.value[sq] as Color)) {
                     count += 1;
                 }
-            });
+            }
             maxCount = Math.max(count, maxCount);
-        });
-
-        return maxCount;
-    }
-
-
-    /**
-     * ［割り打ちの石］処理
-     *
-     * 例えば、相手に次のような［四］ができているところへ、
-     *
-     *  0 1 2 3 4 5 6 7 8
-     * +-+-+-+-+-+-+-+-+-+
-     * |.|o|o|o|.|o|.|.|.|
-     * +-+-+-+-+-+-+-+-+-+
-     *
-     * 以下のように [4] に割り打てば、［三］と［一］に減らせるはずです。
-     *
-     *  0 1 2 3 4 5 6 7 8
-     * +-+-+-+-+-+-+-+-+-+
-     * |.|o|o|o|x|o|.|.|.|
-     * +-+-+-+-+-+-+-+-+-+
-     * 
-     * この仕掛けとしては、
-     *
-     *          0 1 2 3 4 5 6 7 8
-     *         +-+-+-+-+-+-+-+-+-+
-     *         |.|o|o|o|x|o|.|.|.|
-     *         +-+-+-+-+-+-+-+-+-+
-     * -4-3-2-1 0 1 2 3 4
-     * +-+-+-+-+-+-+-+-+-+
-     * |.|.|.|.|O|.|.|.|.|
-     * +-+-+-+-+-+-+-+-+-+
-     *                    5 6 7 8 9101112
-     *                 +-+-+-+-+-+-+-+-+-+
-     *                 |.|.|.|.|O|.|.|.|.|
-     *                 +-+-+-+-+-+-+-+-+-+
-     *
-     * [0] と [8] のマスを起点に相手側の［飛び石スライディング・ウィンドウ］の最長数を更新すればよいはずです。
-     * ただし、以下の局面では：
-     *
-     *  0 1 2 3 4 5 6 7 8
-     * +-+-+-+-+-+-+-+-+-+
-     * |.|x|o|o|.|o|.|.|.|
-     * +-+-+-+-+-+-+-+-+-+
-     *
-     * [4] に割り打てば、［零］と［一］に減らせるはずです。
-     * この仕掛けとしては、
-     *
-     *          0 1 2 3 4 5 6 7 8
-     *         +-+-+-+-+-+-+-+-+-+
-     *         |.|x|o|o|x|o|.|.|.|
-     *         +-+-+-+-+-+-+-+-+-+
-     *     -2-1 0 1 2 3 4 5 6
-     *     +-+-+-+-+-+-+-+-+-+
-     *     |.|.|.|.|O|.|.|.|.|
-     *     +-+-+-+-+-+-+-+-+-+
-     *
-     * [0] ではなく、例えば [2] を起点とするべきです。
-     * [0] では肝心の [2], [3] が更新されません。
-     *
-     * @param moveSq 着手点 
-     */
-    function executeWariuchi(
-        moveSq: number
-    ) : void {
-        const oppositeTurnColor1 = oppositeTurnColor(gameBoard1Turn.value);
-
-        // ++++++++++++++++++++++++++++++++++++++++++++++++++
-        // + （途切れた）相手の石のつながりをチェックします +
-        // ++++++++++++++++++++++++++++++++++++++++++++++++++
-
-        function oppositeTurnStonesCheckField(
-            foreOppositeTurnStones: number[],
-            backOppositeTurnStones: number[],
-            foreOf: (sq: number)=>number,
-            backOf: (sq: number)=>number,
-            colorsAndStonesDirectionalFieldArray: Ref<number[][]>,
-        ) : void {
-            //console.log(`DEBUG: [oppositeTurnStonesCheckFieldOneDirection] startSq=${startSq}`);
-
-            foreOppositeTurnStones.forEach((oppositeTurnStoneSq, _index, _array)=>{
-                colorsAndStonesDirectionalFieldArray.value[oppositeTurnColor1][oppositeTurnStoneSq] = aLocationsCountingMaxLength(
-                    locateDirectionFromCenter(
-                        oppositeTurnStoneSq,
-                        ONE_WING_MAX_LENGTH,
-                        foreOf,
-                        backOf,
-                        makeIsOutOfBoardOrColor(gameBoard1Turn.value),  // break 条件
-                    ),
-                    locateDirectionFromCenter(
-                        oppositeTurnStoneSq,
-                        ONE_WING_MAX_LENGTH,
-                        foreOf,
-                        backOf,
-                        isOutOfBoard,   // break 条件
-                    ),
-                    oppositeTurnColor1,
-                );;
-            });
-
-
-            backOppositeTurnStones.forEach((oppositeTurnStoneSq, _index, _array)=>{
-                colorsAndStonesDirectionalFieldArray.value[oppositeTurnColor1][oppositeTurnStoneSq] = aLocationsCountingMaxLength(
-                    locateDirectionFromCenter(
-                        oppositeTurnStoneSq,
-                        ONE_WING_MAX_LENGTH,
-                        foreOf,
-                        backOf,
-                        makeIsOutOfBoardOrColor(gameBoard1Turn.value),  // break 条件
-                    ),
-                    locateDirectionFromCenter(
-                        oppositeTurnStoneSq,
-                        ONE_WING_MAX_LENGTH,
-                        foreOf,
-                        backOf,
-                        isOutOfBoard,   // break 条件
-                    ),
-                    oppositeTurnColor1,
-                );;
-            });
         }
 
-        // 水平方向の相手番の石
-        let foreOppositeTurnStones = locateDirectionFromEdge(   // 順ウィング側。着手点と、挟んでいる自石の間にある相手石を探す
-            moveSq,
-            ONE_WING_MAX_LENGTH,
-            eastOf,
-            (sq: number) => isEmptyPoint(sq),   // continue 条件
-            (sq: number) => isOutOfBoardOrColor(gameBoard1Turn.value, sq),   // break 条件
-        );
-        let backOppositeTurnStones = locateDirectionFromEdge(   // 逆ウィング側。着手点と、挟んでいる自石の間にある相手石を探す
-            moveSq,
-            ONE_WING_MAX_LENGTH,
-            westOf,
-            (sq: number) => isEmptyPoint(sq),   // continue 条件
-            (sq: number) => isOutOfBoardOrColor(gameBoard1Turn.value, sq),   // break 条件
-        );
-        oppositeTurnStonesCheckField(
-            foreOppositeTurnStones,
-            backOppositeTurnStones,
-            eastOf,
-            westOf,
-            gameBoard1ColorsAndStonesMaxLengthHorizontal,
-        );
-        // 相手の［死に石］を記入
-        oppositeTurnStonesCheckDeadHorizontal(foreOppositeTurnStones);
-        oppositeTurnStonesCheckDeadHorizontal(backOppositeTurnStones);
-
-        // 垂直方向
-        foreOppositeTurnStones = locateDirectionFromEdge(   // 順ウィング側。着手点と、挟んでいる自石の間にある相手石を探す
-            moveSq,
-            ONE_WING_MAX_LENGTH,
-            southOf,
-            (sq: number) => isEmptyPoint(sq),   // continue 条件
-            (sq: number) => isOutOfBoardOrColor(gameBoard1Turn.value, sq),   // break 条件
-        );
-        backOppositeTurnStones = locateDirectionFromEdge(   // 逆ウィング側。着手点と、挟んでいる自石の間にある相手石を探す
-            moveSq,
-            ONE_WING_MAX_LENGTH,
-            northOf,
-            (sq: number) => isEmptyPoint(sq),   // continue 条件
-            (sq: number) => isOutOfBoardOrColor(gameBoard1Turn.value, sq),   // break 条件
-        );
-        oppositeTurnStonesCheckField(
-            foreOppositeTurnStones,
-            backOppositeTurnStones,
-            southOf,
-            northOf,
-            gameBoard1ColorsAndStonesMaxLengthVertical,
-        );
-        // 相手の［死に石］を記入
-        oppositeTurnStonesCheckDeadVertical(foreOppositeTurnStones);
-        oppositeTurnStonesCheckDeadVertical(backOppositeTurnStones);
-
-        // バロック対角線方向
-        foreOppositeTurnStones = locateDirectionFromEdge(   // 順ウィング側。着手点と、挟んでいる自石の間にある相手石を探す
-            moveSq,
-            ONE_WING_MAX_LENGTH,
-            northeastOf,
-            (sq: number) => isEmptyPoint(sq),   // continue 条件
-            (sq: number) => isOutOfBoardOrColor(gameBoard1Turn.value, sq),   // break 条件
-        );
-        backOppositeTurnStones = locateDirectionFromEdge(   // 逆ウィング側。着手点と、挟んでいる自石の間にある相手石を探す
-            moveSq,
-            ONE_WING_MAX_LENGTH,
-            southwestOf,
-            (sq: number) => isEmptyPoint(sq),   // continue 条件
-            (sq: number) => isOutOfBoardOrColor(gameBoard1Turn.value, sq),   // break 条件
-        );
-        oppositeTurnStonesCheckField(
-            foreOppositeTurnStones,
-            backOppositeTurnStones,
-            northeastOf,
-            southwestOf,
-            gameBoard1ColorsAndStonesMaxLengthBaroqueDiagonal,
-        );
-        // 相手の［死に石］を記入
-        oppositeTurnStonesCheckDeadBaroqueDiagonal(foreOppositeTurnStones);
-        oppositeTurnStonesCheckDeadBaroqueDiagonal(backOppositeTurnStones);
-
-        // シニスター対角線方向
-        foreOppositeTurnStones = locateDirectionFromEdge(   // 順ウィング側。着手点と、挟んでいる自石の間にある相手石を探す
-            moveSq,
-            ONE_WING_MAX_LENGTH,
-            southeastOf,
-            (sq: number) => isEmptyPoint(sq),   // continue 条件
-            (sq: number) => isOutOfBoardOrColor(gameBoard1Turn.value, sq),   // break 条件
-        );
-        backOppositeTurnStones = locateDirectionFromEdge(   // 逆ウィング側。着手点と、挟んでいる自石の間にある相手石を探す
-            moveSq,
-            ONE_WING_MAX_LENGTH,
-            northwestOf,
-            (sq: number) => isEmptyPoint(sq),   // continue 条件
-            (sq: number) => isOutOfBoardOrColor(gameBoard1Turn.value, sq),   // break 条件
-        );
-        oppositeTurnStonesCheckField(
-            foreOppositeTurnStones,
-            backOppositeTurnStones,
-            southeastOf,
-            northwestOf,
-            gameBoard1ColorsAndStonesMaxLengthSinisterDiagonal,
-        );
-        // 相手番の［死に石］を記入。石を置いて［死に石］になるのは、相手番の石だけ。
-        oppositeTurnStonesCheckDeadSinisterDiagonal(foreOppositeTurnStones);
-        oppositeTurnStonesCheckDeadSinisterDiagonal(backOppositeTurnStones);
+        console.log(`DEBUG: [countMaxColors] maxCount=${maxCount}`);
+        return maxCount;
     }
 
 
@@ -1939,7 +1663,7 @@
     function gamePass() : void {
         gameBoard1Times.value += 1;
         gameBoard1PassCount.value += 1;
-        gameBoard1Turn.value = oppositeTurnColor(gameBoard1Turn.value);
+        gameBoard1Turn.value = oppositeColor(gameBoard1Turn.value);
     }
 
 
@@ -1949,271 +1673,6 @@
     function gameIsFullCapacity() : boolean {
         return gameBoard1Area.value <= gameBoard1StoneCount.value[1] + gameBoard1StoneCount.value[2];
     }
-
-    // ++++++++++++++++++++++++++++++++++++++++++++++++++++
-    // + サブルーチン　＞　ゲーム盤１　＞　複数の石を処理 +
-    // ++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-    /**
-     * ［死に石］の記入
-     * @param locations 
-     */
-    function oppositeTurnStonesCheckDeadHorizontal(
-        locations: number[],
-    ) : void {
-        const oppositeTurnColor1 = oppositeTurnColor(gameBoard1Turn.value);
-        locations.forEach((sq, _index, _array)=>{
-            if (oppositeTurnStoneIsDeadHorizontal(sq)) {
-                gameBoard1ColorsAndStonesMaxLengthHorizontal.value[oppositeTurnColor1][sq] = MAX_LENGTH_DEAD;    // 論理和ではなくて、上書き。
-            }
-        });
-    }
-
-
-    /**
-     * ［死に石］の記入
-     * @param locations 
-     */
-    function oppositeTurnStonesCheckDeadVertical(
-        locations: number[],
-    ) : void {
-        const oppositeTurnColor1 = oppositeTurnColor(gameBoard1Turn.value);
-        locations.forEach((sq, _index, _array)=>{
-            if (oppositeTurnStoneIsDeadVertical(sq)) {
-                gameBoard1ColorsAndStonesMaxLengthHorizontal.value[oppositeTurnColor1][sq] = MAX_LENGTH_DEAD;
-            }
-        });
-    }
-
-
-    /**
-     * ［死に石］の記入
-     * @param locations 
-     */
-    function oppositeTurnStonesCheckDeadBaroqueDiagonal(
-        locations: number[],
-    ) : void {
-        const oppositeTurnColor1 = oppositeTurnColor(gameBoard1Turn.value);
-        locations.forEach((sq, _index, _array)=>{
-            if (oppositeTurnStoneIsDeadBaroqueDiagonal(sq)) {
-                gameBoard1ColorsAndStonesMaxLengthHorizontal.value[oppositeTurnColor1][sq] = MAX_LENGTH_DEAD;
-            }
-        });
-    }
-
-
-    /**
-     * ［死に石］の記入
-     * @param locations
-     */
-    function oppositeTurnStonesCheckDeadSinisterDiagonal(
-        locations: number[],
-    ) : void {
-        const oppositeTurnColor1 = oppositeTurnColor(gameBoard1Turn.value);
-        locations.forEach((sq, _index, _array)=>{
-            if (oppositeTurnStoneIsDeadSinisterDiagonal(sq)) {
-                gameBoard1ColorsAndStonesMaxLengthHorizontal.value[oppositeTurnColor1][sq] = MAX_LENGTH_DEAD;
-            }
-        });
-    }
-
-    
-    // ++++++++++++++++++++++++++++++++++++++++++++++++++++
-    // + サブルーチン　＞　ゲーム盤１　＞　１つの石を処理 +
-    // ++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-    /**
-     * ［飛び石］チェック。一方向
-     * 
-     * 
-     *          ここに石を置いたら（仮定なので、空点でも構わない）
-     *          v
-     * +-+-+-+-+-+-+-+-+-+
-     * |.|.|.|.|o|.|.|.|.|
-     * +-+-+-+-+-+-+-+-+-+
-     *
-     * 少なくとも：
-     *
-     * +-+-+-+-+-+-+-+-+-+
-     * |w|w|w|w|w|.|.|.|.|  ウィンドウ０
-     * +-+-+-+-+-+-+-+-+-+
-     *
-     * +-+-+-+-+-+-+-+-+-+
-     * |.|w|w|w|w|w|.|.|.|  ウィンドウ１
-     * +-+-+-+-+-+-+-+-+-+
-     *
-     * +-+-+-+-+-+-+-+-+-+
-     * |.|.|w|w|w|w|w|.|.|  ウィンドウ２
-     * +-+-+-+-+-+-+-+-+-+
-     *
-     * +-+-+-+-+-+-+-+-+-+
-     * |.|.|.|w|w|w|w|w|.|  ウィンドウ３
-     * +-+-+-+-+-+-+-+-+-+
-     *
-     * +-+-+-+-+-+-+-+-+-+
-     * |.|.|.|.|w|w|w|w|w|  ウィンドウ４
-     * +-+-+-+-+-+-+-+-+-+
-     *
-     * 以上の５つの範囲で、連の長さを数えなおす必要がある。
-     * ［累積和］か何か高速化技法が使えそうだが、とりあえず高速化せずに愚直に書いてみる。
-     *
-     *
-     * とりあえず長さ９の配列を用意し、[4] を打った石のマス番号とし、
-     *
-     *  0 1 2 3 4 5 6 7 8
-     * +-+-+-+-+-+-+-+-+-+
-     * |.|.|.|.|o|.|.|.|.|  スクウェア・マップ
-     * +-+-+-+-+-+-+-+-+-+
-     *            1 2 3 4   順方向へ４つ
-     *  4 3 2 1             逆方向へ４つ
-     *
-     * 以上の９つのマス番号を探索する。
-     * 予めすべての９つのマスを作ってテーブルにしておけば高速化できそうだが、とりあえず高速化せずに愚直に書いてみる。
-     *
-     * （１）ウィンドウ１～５のランズ数を調べる
-     * （２）各マスには、ウィンドウ１～５の中の最大ランズ数を入れる。
-     *
-     * このとき、[4] を起点に端に向かって探索し、途中で［盤外］または［相手の石］とぶつかった場合は、そこで探索を終了する。
-     * foreLength, backLength のようなカウントをしておくといいかも。
-     * 例えば、相手の石（または盤外）が [1], [8] の位置にあるとき：
-     *
-     *  0 1 2 3 4 5 6 7 8
-     * +-+-+-+-+-+-+-+-+-+
-     * |.|x|.|.|o|.|.|.|x|
-     * +-+-+-+-+-+-+-+-+-+
-     *
-     *      - - 
-     *       A    - - -
-     *              B
-     *
-     * B を foreLength、
-     * A を backLength と呼ぶとし、
-     * foreLength + backLength + 1 が 5 未満のとき、ランズ数は 0 とする。
-     * [dead] マーカーを付けてもいいかも。
-     *
-     * ウィンドウは３と４だけ調べれよい：
-     *
-     * +-+-+-+-+-+-+-+-+-+
-     * |.|.|w|w|w|w|w|.|.|  ウィンドウ２
-     * +-+-+-+-+-+-+-+-+-+
-     * +-+-+-+-+-+-+-+-+-+
-     * |.|.|.|w|w|w|w|w|.|  ウィンドウ３
-     * +-+-+-+-+-+-+-+-+-+
-     * 
-     * @param fieldLocations 
-     * @param color 
-     */
-    function aLocationsCountingMaxLength(
-        controlLocations: number[],
-        fieldLocations: number[],
-        color: number,
-    ) : number {
-
-        // ある［飛び石］の長さを数えたいとします。
-        // 長さは 5 以上は数えなくてよいものとします。
-        //
-        // 👇 ある［飛び石］がマス [4] にあるとします。
-        //
-        //  0 1 2 3 4 5 6 7 8
-        // +-+-+-+-+-+-+-+-+-+
-        // | | | | |x| | | | |
-        // +-+-+-+-+-+-+-+-+-+
-        //
-        // 👇 この x は、右端かもしれませんし、左端かもしれませんし、中ほどかもしれません。
-        //
-        //  0 1 2 3 4 5 6 7 8
-        // +-+-+-+-+-+-+-+-+-+
-        // |.|.|.|.|x| | | | |
-        // +-+-+-+-+-+-+-+-+-+
-        //
-        //  0 1 2 3 4 5 6 7 8
-        // +-+-+-+-+-+-+-+-+-+
-        // | | | | |x|.|.|.|.|
-        // +-+-+-+-+-+-+-+-+-+
-        //
-        // いずれにしても、 [0] 未満や、 [8] より上は見なくてよさそうです。
-        // スキャニング・レンジは 0～8 の 9 マスあれば十分です。
-        //
-        // そこで：
-        //
-        //  0 1 2 3 4 5 6 7 8
-        // +-+-+-+-+-+-+-+-+-+
-        // |w|w|w|w|w| | | | |  スライディング・ウィンドウ０
-        // +-+-+-+-+-+-+-+-+-+
-        //
-        //  0 1 2 3 4 5 6 7 8
-        // +-+-+-+-+-+-+-+-+-+
-        // | |w|w|w|w|w| | | |  スライディング・ウィンドウ１
-        // +-+-+-+-+-+-+-+-+-+
-        //
-        //  0 1 2 3 4 5 6 7 8
-        // +-+-+-+-+-+-+-+-+-+
-        // | | |w|w|w|w|w| | |  スライディング・ウィンドウ２
-        // +-+-+-+-+-+-+-+-+-+
-        //
-        //  0 1 2 3 4 5 6 7 8
-        // +-+-+-+-+-+-+-+-+-+
-        // | | | |w|w|w|w|w| |  スライディング・ウィンドウ３
-        // +-+-+-+-+-+-+-+-+-+
-        //
-        //  0 1 2 3 4 5 6 7 8
-        // +-+-+-+-+-+-+-+-+-+
-        // | | | | |w|w|w|w|w|  スライディング・ウィンドウ４
-        // +-+-+-+-+-+-+-+-+-+
-        //
-        // 👆 スライディング・ウィンドウは上記の５つあることが分かります。
-        //
-        // 次に：
-        //
-        //  0 1 2 3 4 5 6 7 8
-        // +-+-+-+-+-+-+-+-+-+
-        // | | |o| |x| | | | |
-        // +-+-+-+-+-+-+-+-+-+
-        //
-        // 👆 o は相手の石とします。この時点でスライディング・ウィンドウの０、１、２は見なくてよいことが分かります。
-        //
-        // 加えて：
-        //
-        //  0 1 2 3 4 5 6 7 8
-        // +-+-+-+-+-+-+-+-+-+
-        // | | |o| |x| |o| | |
-        // +-+-+-+-+-+-+-+-+-+
-        //
-        // 👆 o は相手の石とします。この時点でスライディング・ウィンドウの３、４は、[5] まで見ればよいことが分かります。
-        // 調べる長さは、下記の式で求められます。
-        //
-        // 調べる長さ = スライディング・ウィンドウ番号 - 2
-        //            = スライディング・ウィンドウ番号 - ( 右にある相手の石の位置"6" - xの位置"4" )
-        //
-        // 結果：
-        //
-        // 以下の２つのマス番号の配列を返します。
-        //
-        //  0 1 2 3 4 5 6 7 8
-        // +-+-+-+-+-+-+-+-+-+
-        // | | | |w|w|w| | | |  スライディング・ウィンドウ３
-        // +-+-+-+-+-+-+-+-+-+
-        //
-        //  0 1 2 3 4 5 6 7 8
-        // +-+-+-+-+-+-+-+-+-+
-        // | | | | |w|w| | | |  スライディング・ウィンドウ４
-        // +-+-+-+-+-+-+-+-+-+
-        //
-
-        console.log(`DEBUG: [aLocationsCountingMaxLength] controlLocations.length=${controlLocations.length}`);
-        if (controlLocations.length < FIVE_LENGTH) { // ［五］を作れないなら［死に石］です
-            return MAX_LENGTH_DEAD;
-        }
-
-        return countingMaxLength(
-            aStoneWingsLocateSlidingWindowArray(
-                fieldLocations,
-                (sq: number) => isOutOfBoardOrColor(oppositeTurnColor(color), sq),  // break 条件
-            ),
-            color
-        );
-    }
-
 
     // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     // + サブルーチン　＞　ゲーム盤１　＞　マス番号を取得する +
@@ -2356,6 +1815,42 @@
     // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
     /**
+     * ［片翼］取得
+     * 
+     * 指定の向きの各マスをスキャン。
+     * 着手点を含めない（Non-zero）。
+     * 
+     * @returns マス番号の配列
+     */
+    function locateFieldNonzeroOneWay(
+        startSq: number,
+        maxLength: number,
+        nextOf: (sq: number)=>number,
+        isContinue: (sq: number)=>boolean,
+        isBreak: (sq: number)=>boolean,
+    ) : number[] {
+        const locations: number[] = [];
+
+        let nextSq: number = startSq;;  // 隣
+        for(let i:number=0; i<maxLength; i++){
+            nextSq = nextOf(nextSq);
+
+            if (isContinue(nextSq)) {   // 無視条件
+                continue;
+            }
+
+            if (isBreak(nextSq)) {   // 終了条件
+                break;
+            }
+
+            locations.push(nextSq);
+        }
+
+        return locations;
+    }
+
+
+    /**
      * ［飛び石］の位置を調べるために。
      * 
      *  0 1 2 3 4 5 6 7 8
@@ -2363,267 +1858,256 @@
      * | | | | |x| | | | |
      * +-+-+-+-+-+-+-+-+-+
      * 
-     * 着手点を含めた前後４マス、計９つのマスの番号の配列を返します。
+     * 着手点を含めない（Non-zero）。
+     * 中央から両端へ向かって（From center）。
      * 
      * @param centerSq 
+     * @param nonzeroRadius 
      * @param foreOf 
      * @param backOf 
      */
-    function locateDirectionFromCenter(
+    function locateFieldNonzeroFromCenter(
         centerSq: number,
-        maxLength: number,
-        foreOf: (sq: number)=>number,
-        backOf: (sq: number)=>number,
+        nonzeroRadius: number,
+        direction: Direction,
+        isContinue: (sq: number)=>boolean,
         isBreak: (sq: number)=>boolean,
     ) : number[] {
-        // 逆ウィング（起点を含まない）を戻る
-        const backSqArray: number[] = [];
-        let backSq = centerSq;  // 隣
-        for(let i:number=0; i<maxLength; i++){
-            backSq = backOf(backSq);
-            if (isBreak(backSq)) {  // break 条件
-                break;
-            }
+        const foreOf = allDirectionsForeOf[direction];
+        const backOf = allDirectionsBackOf[direction];
 
-            backSqArray.push(backSq);
-        }
-
-        // 順ウィング（起点を含まない）を進む
-        const foreSqArray: number[] = [];
-        let foreSq = centerSq;  // 隣
-        for(let i:number=0; i<maxLength; i++){
-            foreSq = foreOf(foreSq);
-            if (isBreak(foreSq)) {  // break 条件
-                break;
-            }
-
-            foreSqArray.push(foreSq);
-        }
-
-        return [
-            ...backSqArray.reverse(),
+        // ［後方非零半径］を戻る
+        const backLocations: number[] = locateFieldNonzeroOneWay(
             centerSq,
-            ...foreSqArray,
-        ];
-    }
-
-
-    /**
-     * ［片翼］取得
-     * 
-     * 指定の向きの各マスをスキャン。起点を含まない。
-     * 
-     * @returns マス番号の配列
-     */
-    function locateDirectionFromEdge(
-        edgeSq: number,
-        maxLength: number,
-        foreOf: (sq: number)=>number,
-        isContinue: (sq: number)=>boolean,
-        isBreak: (sq: number)=>boolean,
-    ) : number[] {
-        const sqArray: number[] = [];
-
-        let foreSq: number = edgeSq;;  // 隣
-        for(let i:number=0; i<maxLength; i++){
-            foreSq = foreOf(foreSq);
-
-            if (isContinue(foreSq)) {   // 無視条件
-                continue;
-            }
-
-            if (isBreak(foreSq)) {   // 終了条件
-                break;
-            }
-
-            sqArray.push(foreSq);
-        }
-
-        return sqArray;
-    }
-
-
-    /**
-     * 以下の数字の位置（x を含まない）のマス番号を取得。
-     * 
-     * (4)             (3)              (2)
-     *     +--+--+--+--+--+--+--+--+--+
-     *     |15|  |  |  |11|  |  |  | 7|
-     *     +--+--+--+--+--+--+--+--+--+
-     *     |  |14|  |  |10|  |  | 6|  |
-     *     +--+--+--+--+--+--+--+--+--+
-     *     |  |  |13|  | 9|  | 5|  |  |
-     *     +--+--+--+--+--+--+--+--+--+
-     *     |  |  |  |12| 8| 4|  |  |  |
-     *     +--+--+--+--+--+--+--+--+--+
-     * (5) |19|18|17|16| x| 0| 1| 2| 3| (1)
-     *     +--+--+--+--+--+--+--+--+--+
-     *     |  |  |  |20|24|28|  |  |  |
-     *     +--+--+--+--+--+--+--+--+--+
-     *     |  |  |21|  |25|  |29|  |  |
-     *     +--+--+--+--+--+--+--+--+--+
-     *     |  |22|  |  |26|  |  |30|  |
-     *     +--+--+--+--+--+--+--+--+--+
-     *     |23|  |  |  |27|  |  |  |31|
-     *     +--+--+--+--+--+--+--+--+--+
-     * (6)             (7)              (8)
-     * 
-     * 👆  [0]を自分の着手のマスとする。例では片翼の長さを 4 とした。
-     * この図形に名前はないが、４ウェイ（4t-way）とでも呼ぶとする。
-     * 
-     */
-    function locateRadialEightHalfDirectionFieldArray(
-        startSq: number,
-        oneWingMaxLength: number,
-        isContinue: (sq: number)=>boolean, 
-        isBreak: (sq: number)=>boolean,
-    ) : number[][] {
-        const eastWayField = locateDirectionFromEdge( // (1)
-            startSq,
-            oneWingMaxLength,
-            eastOf,
-            isContinue,
-            isBreak,
-        );
-        const northeastWayField = locateDirectionFromEdge(    // (2)
-            startSq,
-            oneWingMaxLength,
-            northeastOf,
-            isContinue,
-            isBreak,
-        );
-        const northWayField = locateDirectionFromEdge(    // (3)
-            startSq,
-            oneWingMaxLength,
-            northOf,
-            isContinue,
-            isBreak,
-        );
-        const northwestWayField = locateDirectionFromEdge(    // (4)
-            startSq,
-            oneWingMaxLength,
-            northwestOf,
-            isContinue,
-            isBreak,
-        );
-        const westWayField = locateDirectionFromEdge( // (5)
-            startSq,
-            oneWingMaxLength,
-            westOf,
-            isContinue,
-            isBreak,
-        );
-        const southwestWayField = locateDirectionFromEdge(    // (6)
-            startSq,
-            oneWingMaxLength,
-            southwestOf,
-            isContinue,
-            isBreak,
-        );
-        const southWayField = locateDirectionFromEdge(    // (7)
-            startSq,
-            oneWingMaxLength,
-            southOf,
-            isContinue,
-            isBreak,
-        );
-        const southeastWayField = locateDirectionFromEdge(    // (8)
-            startSq,
-            oneWingMaxLength,
-            southeastOf,
-            isContinue,
-            isBreak,
-        );
-        return [
-            // startSq を含まない
-            eastWayField,
-            northeastWayField,
-            northWayField,
-            northwestWayField,
-            westWayField,
-            southwestWayField,
-            southWayField,
-            southeastWayField
-        ];
-    }
-
-
-    /**
-     * ［飛び石］取得
-     * 
-     * ［逆ウィング］の逆順、着手点、順ウィングを合わせたものが［飛び石］だ。
-     * ９マス以下。
-     * 
-     * @returns ９つのマスの番号の配列
-     */
-    function locateFieldCapacity(
-        startSq: number,    // 着手点
-        foreOf: (sq: number)=>number,
-        backOf: (sq: number)=>number,
-        isContinue: (sq: number)=>boolean,
-        isBreak: (sq: number)=>boolean,
-    ) : number[] {
-
-        // 順ウィング
-        const fwdWing = locateDirectionFromEdge(
-            startSq,
-            ONE_WING_MAX_LENGTH,
-            foreOf,
-            isContinue,
-            isBreak,
-        );
-
-        // 逆ウィング
-        const revWing = locateDirectionFromEdge(
-            startSq,
-            ONE_WING_MAX_LENGTH,
+            nonzeroRadius,
             backOf,
             isContinue,
             isBreak,
         );
 
-        return [...revWing.reverse(), startSq, ...fwdWing]; // 向きを揃えて１つの配列にする
+        // ［前方非零半径］を進む
+        const foreLocations: number[] = locateFieldNonzeroOneWay(
+            centerSq,
+            nonzeroRadius,
+            foreOf,
+            isContinue,
+            isBreak,
+        );
+
+        return [    // 向きを揃えて１つの配列にする
+            ...backLocations.reverse(),
+            // centerSq を含まない,
+            ...foreLocations,
+        ];
     }
 
 
-    function aStoneWingsLocateSlidingWindowArray(
-        locations: number[],
-        isBreak: (sq: number) => boolean,
+    /**
+     * スライディング・ウィンドウの１ウィンドウ分
+     * @param startSq 
+     * @param foreOf 
+     * @param backOf 
+     */
+    function locateOneWindow(
+        startSq: number,
+        foreLength: number,
+        backLength: number,
+        direction: Direction,
+    ) : number[] {
+        const foreOf = allDirectionsForeOf[direction];
+        const backOf = allDirectionsBackOf[direction];
+        const backLocations : number[] = [];
+        const foreLocations : number[] = [];
+
+        // ウィンドウの後方（起点を含まない）
+        let backSq = startSq;
+        for (let i:number=0; i<foreLength; i++) {
+            backSq = backOf(backSq);
+            if (isOutOfBoard(backSq)) { // break 条件
+                break;
+            }
+
+            backLocations.push(backSq);
+        }
+
+        // ウィンドウの前方（起点を含まない）
+        let foreSq = startSq;
+        for (let i:number=0; i<backLength; i++) {
+            foreSq = foreOf(foreSq);
+            if (isOutOfBoard(foreSq)) { // break 条件
+                break;
+            }
+
+            foreLocations.push(foreSq);
+        }
+
+        return [
+            ...backLocations.reverse(),
+            startSq,
+            ...foreLocations
+        ];
+    }
+
+
+    /**
+     * スライディング・ウィンドウ作成
+     * ［五］を判定するのに使う。
+     * 
+     * @param inputArray 
+     * @param isBreak 
+     */
+    function locateSlidingWindowArray(
+        startSq: number,
+        halfOpenRadiusOfInputArray: number,
+        halfOpenRadiusOfWindow: number,
+        direction: Direction,
     ) : number[][] {
         const slidingWindowArray : number[][] = [];
+        const amplitude = halfOpenRadiusOfInputArray - halfOpenRadiusOfWindow;  // 前後の振り幅
+        const slidingWindowNum = 2 * amplitude + 1;
+        //console.log(`DEBUG: [makeSlidingWindowArray] amplitude=${amplitude} slidingWindowNum=${slidingWindowNum}`);
 
-        for(let slidingWindowNum: number=0; slidingWindowNum < 5; slidingWindowNum++){
-            const backWingArray : number[] = [];
-            const foreWingArray : number[] = [];
-
-            // 逆ウィング（起点を含まない）を戻る
-            for(let i:number=3; 0<=i; i--){ // 3 ～ 0
-                const sq = locations[i];
-                if (isBreak(sq)) {
-                    break;
-                }
-
-                backWingArray.push(sq);
-            }
-
-            // 順ウィング（起点を含まない）を進む
-            for(let i:number=5; i<9; i++){  // 5 ～ 8
-                const sq = locations[i];
-                if (isBreak(sq)) {
-                    break;
-                }
-
-                foreWingArray.push(sq);
-            }
-
-            slidingWindowArray.push([
-                ...backWingArray.reverse(),
-                locations[4],
-                ...foreWingArray
-            ])
+        for (let iSlidingWindow: number=0; iSlidingWindow < slidingWindowNum; iSlidingWindow++) {
+            const oneWindow = locateOneWindow(
+                startSq,
+                halfOpenRadiusOfInputArray - iSlidingWindow,
+                iSlidingWindow,
+                direction,
+            );
+            console.log(`DEBUG: [makeSlidingWindowArray] (${iSlidingWindow}) oneWindow=${oneWindow} startSq=${startSq}`);
+            slidingWindowArray.push(oneWindow)
         }
 
         return slidingWindowArray;
+    }
+
+
+    /**
+     * スライディング・ウィンドウの配列を与えたら、
+     * ウィンドウが全て自石でできているか確認し、
+     * そのようなウィンドウが１つでも有れば真となるような関数。
+     */
+    function locateBingo(
+        slidingWindowArray: number[][],
+        stoneColor: Color,
+        bingoNum: number,
+    ) : Set<number> {
+        let bingoLocations = new Set<number>();
+
+        for (const aWindow of slidingWindowArray) {
+            console.log(`DEBUG: [getBingoLocations] aWindow.length=${aWindow.length} bingoNum=${bingoNum}`);
+            if (aWindow.length < bingoNum) {    // 長さが足りないからビンゴを作れない
+                continue;
+            }
+            
+            const stones = new Set<number>();
+            for (const sq of aWindow) {
+                if (!isOutOfBoard(sq) && gameBoard1StoneColorArray.value[sq] == stoneColor) {
+                    stones.add(sq);
+                }
+            }
+
+            if (bingoNum <= stones.size) {
+                bingoLocations = new Set<number>([...bingoLocations, ...stones]);
+            }
+        }
+
+        return bingoLocations;
+    }
+
+
+    function locateParseControlOneWay(
+        moveSq: number, // 着手点
+        nonzeroRadiusLength: number,    // 非零半径の長さ
+        nextOf: (sq: number)=>number,
+    ) : [number[], number[], number[]] {
+        const thisTurnFieldStones: number[] = []; // 手番野石
+        const oppositeTurnFieldStones: number[] = []; // 相手番野石
+        const bothTurnFieldEmpties: number[] = [];    // 両手番野空点
+        const oppositeTurnColor1 = oppositeColor(gameBoard1Turn.value);
+
+        let nextSq = moveSq;
+        let i: number=0;
+        let isOppositeTurnField = false;
+        for (; i<nonzeroRadiusLength; i++) {
+            nextSq = nextOf(nextSq);
+
+            const iStone = gameBoard1StoneColorArray.value[nextSq];
+            if (isOutOfBoard(nextSq)) { // 盤外
+                break;
+
+            } else if (iStone == COLOR_EMPTY) {    // 両手番野空点
+                bothTurnFieldEmpties.push(nextSq);
+
+            } else if (iStone == gameBoard1Turn.value) {  // 手番野石
+                thisTurnFieldStones.push(nextSq);
+
+            } else if (iStone == oppositeTurnColor1) {  // 相手番野石
+                oppositeTurnFieldStones.push(nextSq);
+                isOppositeTurnField = true;
+                break;
+            }
+        }
+
+        if (isOppositeTurnField) {
+            for (; i<nonzeroRadiusLength; i++) {
+                nextSq = nextOf(nextSq);
+
+                const iStone = gameBoard1StoneColorArray.value[nextSq];
+                if (isOutOfBoard(nextSq)) { // 盤外
+                    break;
+
+                } else if (iStone == COLOR_EMPTY) {    // 両手番野空点
+                    bothTurnFieldEmpties.push(nextSq);
+
+                } else if (iStone == oppositeTurnColor1) {  // 相手番野石
+                    oppositeTurnFieldStones.push(nextSq);
+
+                } else if (iStone == gameBoard1Turn.value) {  // 手番野石
+                    break;
+                }
+            }
+        }
+
+        return [
+            thisTurnFieldStones,
+            oppositeTurnFieldStones,
+            bothTurnFieldEmpties,
+        ];
+    }
+
+
+    function locateParseControl(
+        moveSq: number, // 着手点
+        nonzeroRadiusLength: number,    // 非零半径の長さ
+        direction: Direction,
+    ) : [number[], number[], number[]] {
+
+        const foreField = locateParseControlOneWay(
+            moveSq,
+            nonzeroRadiusLength,
+            allDirectionsForeOf[direction],
+        );
+        const backField = locateParseControlOneWay(
+            moveSq,
+            nonzeroRadiusLength,
+            allDirectionsBackOf[direction],
+        );
+
+        return [
+            [
+                ...foreField[0],
+                ...backField[0],
+            ],
+            [
+                ...foreField[1],
+                ...backField[1],
+            ],
+            [
+                ...foreField[2],
+                ...backField[2],
+            ],
+        ];
     }
 
     // ++++++++++++++++++++++++++++++++++++++++++++++
@@ -2703,107 +2187,12 @@
 
 
     /**
-     * ［死に方向］判定
-     * @param aStoneSq 
-     */
-    function oppositeTurnStoneIsDeadHorizontal(
-        aStoneSq: number,
-    ) : boolean {
-        const horizontalFieldCapacity = locateFieldCapacity(
-            aStoneSq,
-            eastOf,
-            westOf,
-            (_sq: number) => false,  // continue 条件
-            (sq: number) => isOutOfBoardOrColor(gameBoard1Turn.value, sq),   // break 条件
-        );
-
-        return isDeadCapacity(horizontalFieldCapacity);
-    }
-
-
-    /**
-     * ［死に方向］判定
-     * @param aStoneSq 
-     */
-    function oppositeTurnStoneIsDeadVertical(
-        aStoneSq: number,
-    ) : boolean {
-        const verticalFieldCapacity = locateFieldCapacity(
-            aStoneSq,
-            southOf,
-            northOf,
-            (_sq: number) => false,  // continue 条件
-            (sq: number) => isOutOfBoardOrColor(gameBoard1Turn.value, sq),   // break 条件
-        );
-
-        return isDeadCapacity(verticalFieldCapacity);
-    }
-
-
-    /**
-     * ［死に方向］判定
-     * @param aStoneSq 
-     */
-    function oppositeTurnStoneIsDeadBaroqueDiagonal(
-        aStoneSq: number,
-    ) : boolean {
-        const baroqueDiagonalFieldCapacity = locateFieldCapacity(
-            aStoneSq,
-            northeastOf,
-            southwestOf,
-            (_sq: number) => false,  // continue 条件
-            (sq: number) => isOutOfBoardOrColor(gameBoard1Turn.value, sq),   // break 条件
-        );
-
-        return isDeadCapacity(baroqueDiagonalFieldCapacity);
-    }
-
-
-    /**
-     * ［死に方向］判定
-     * @param aStoneSq 
-     */
-    function oppositeTurnStoneIsDeadSinisterDiagonal(
-        aStoneSq: number,
-    ) : boolean {
-        const sinisterDiagonalFieldCapacity = locateFieldCapacity(
-            aStoneSq,
-            southeastOf,
-            northwestOf,
-            (_sq: number) => false,  // continue 条件
-            (sq: number) => isOutOfBoardOrColor(gameBoard1Turn.value, sq),   // break 条件
-        );
-
-        return isDeadCapacity(sinisterDiagonalFieldCapacity);;
-    }
-
-
-    /**
      * 盤の外か
      * @param color 
      * @param sq 
      */
     function isOutOfBoard(sq: number) : boolean {
         return sq == -1;
-    }
-
-
-    /**
-     * 空点か
-     * @param sq 
-     */
-    function isEmptyPoint(sq: number) : boolean {
-        return sq != -1 && gameBoard1StoneColorArray.value[sq] == COLOR_EMPTY;
-    }
-
-
-    /**
-     * 盤の外、または指定の石の色か
-     * @param color 
-     * @param sq 
-     */
-    function isOutOfBoardOrColor(color: number, sq: number) : boolean {
-        return sq == -1 || gameBoard1StoneColorArray.value[sq] == color;
     }
 
 
@@ -2817,18 +2206,6 @@
         return (sq: number)=>{
             return sq == -1 || gameBoard1StoneColorArray.value[sq] == endColor;
         }
-    }
-
-
-    /**
-     * ［死に飛び石］判定
-     * 
-     * ［飛び石］の長さが５に満たないとき、［死に飛び石］だ。
-     */
-    function isDeadCapacity(
-        runsCapacity: number[],
-    ) : boolean {
-        return runsCapacity.length < FIVE_LENGTH;
     }
 
 </script>
