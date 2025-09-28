@@ -6,6 +6,7 @@
  */
 
 // 日付が新しい順：
+import Blog20250928Sun from '@/pages/blog/2025-09/28-sun.vue';
 import Blog20250927Sat from '@/pages/blog/2025-09/27-sat.vue';
 import Blog20250926Fri from '@/pages/blog/2025-09/26-fri.vue';
 import Blog20250925Thu from '@/pages/blog/2025-09/25-thu.vue';
@@ -34,6 +35,7 @@ import Blog19700101Thu from '@/pages/blog/1970-01/01-thu.vue';
 
 // 日付が新しい順：
 export const pageMap : Readonly<Record<string, any>> = {
+    '2025-09/28-sun': Blog20250928Sun,
     '2025-09/27-sat': Blog20250927Sat,
     '2025-09/26-fri': Blog20250926Fri,
     '2025-09/25-thu': Blog20250925Thu,
