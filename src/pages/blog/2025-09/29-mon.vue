@@ -63,7 +63,7 @@
             <pre class="code-w">
 ...xo<span class="red-marker">X</span>...
     <span class="green-marker">&lt;</span>|</pre><br/>
-            👆 どっちへでもいいが、どっちかを向いて順に盤上を読んでいくぜ。これをとりあえず<span class="green-marker">前送り（Forward；フォワード）</span><br/>と呼ぼうぜ。
+            👆 どっちへでもいいが、どっちかを向いて順に盤上を読んでいくぜ。この向きを<span class="green-marker">左翼手（Left fielder；レフト・フィルダー、さよくしゅ）</span><br/>と呼ぼうぜ。
         </talk-balloon>
 
 
@@ -73,7 +73,7 @@
             :name="kifuwarabe2Name"
             :device="compatibleDevice1Ref?.device"
         >
-            どっちへでもいいのか……。
+            野球みたいだな。
         </talk-balloon>
 
 
@@ -86,10 +86,10 @@
             <pre class="code-w">
 ...x<span class="green-marker">o</span>X...
     <span class="green-marker">&lt;</span>|</pre><br/>
-            👆 ［前送り］は、<br/>
+            👆 ［左翼手］は、<br/>
             ［相手番石］で始まれば［相手番石］を連続で読み進んでいくぜ。<br/>
             <br/>
-            これらの石を、<span class="green-marker">跨いだ相手番石（Stepping over opposite turn stones）</span>と呼ぶことにするぜ。<br/>
+            この連続で読み進んでいく［相手番石］を、<span class="green-marker">内野（Infield；インフィールド）</span>と呼ぶことにするぜ。<br/>
             <br/>
             この場合は、［相手番石］があったマスは１個だけなので、１個だけマスを覚えておけだぜ。
         </talk-balloon>
@@ -101,7 +101,7 @@
             :name="hiyoko2Name"
             :device="compatibleDevice1Ref?.device"
         >
-            ひっくり返せるかどうかに関わらず、覚えるのね。
+            左翼で内野なんだったらショート（遊撃手）なんじゃないの？
         </talk-balloon>
 
 
@@ -114,13 +114,13 @@
             <pre class="code-w">
 ...<span class="blue-marker">x</span>oX...
    <span class="blue-marker">&lt;</span>|</pre><br/>
-            👆 ［跨いだ相手番石］が、何で途切れたか覚えておいてくれだぜ。<br/>
+            👆 ［内野］が、何にぶつかって途切れたか覚えておいてくれだぜ。<br/>
             <br/>
-            ［手番石］によって途切れたら、［跨いだ相手番石］はひっくり返せるぜ。<br/>
+            ［手番石］によって［内野］が途切れたら、［内野］の石はひっくり返せるぜ。<br/>
             <br/>
-            ［盤外］、［空きマス］によって途切れたら、［跨いだ相手番石］のことは忘れろだぜ。<br/>
+            ［盤外］、［空きマス］によって［内野］が途切れたら、［内野］の石はそのまんまだぜ。<br/>
             <br/>
-            この途切れさせたマスを<span class="blue-marker">蓋（Cap；キャップ、ふた）</span>と呼ぶことにするぜ。
+            この何にぶつかって途切れさせたかのマスを<span class="blue-marker">外野（Outfield；アウトフィールド）</span>と呼ぶことにするぜ。
         </talk-balloon>
 
 
@@ -130,7 +130,42 @@
             :name="kifuwarabe2Name"
             :device="compatibleDevice1Ref?.device"
         >
-            フタなんか覚えておいて、いいことあるのかだぜ？
+            ［内野］は［非手番石］、［外野］は［非相手番石］だな。
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            <pre class="code-w">
+..<span class="yellow-marker">.</span>xoX...
+  <span class="yellow-marker">&lt;</span>|</pre><br/>
+            👆 そして、［外野］が［手番石］だったケースでは、［外野］を続けて読んでくれだぜ。<br/>
+            <br/>
+            そして、次に違うものとぶつかったところを<span class="yellow-marker">観客席（Stand；スタンド）</span>とでも呼ぶことにするぜ。<br/>
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="hiyoko2Src"
+            :alt="hiyoko2Alt"
+            :name="hiyoko2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            ［内野］が［相手番石］で、［外野］が［手番石］だったときだけ、［観客席］まで進めるわねぇ。
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="kifuwarabe2Src"
+            :alt="kifuwarabe2Alt"
+            :name="kifuwarabe2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            ［スタンド］は［非手番石］だな。
         </talk-balloon>
 
 
@@ -143,10 +178,12 @@
             <pre class="code-w">
 ...xoX<span class="green-marker">.</span>..
      |<span class="green-marker">&gt;</span></pre><br/>
-            👆 次は反対方向に読んでいくぜ。これを<span class="green-marker">後方送り（Backward；バックワード）</span>と呼ぶことにするぜ。<br/>
+            👆 次は反対方向に読んでいくぜ。こっちの向きを<span class="green-marker">右翼手（Right fielder；ライト・フィルダー、うよくしゅ）</span>と呼ぶことにするぜ。<br/>
             <br/>
-            とりあえずやることは前送りと同じだが、今回は［空マス］というキャップにぶつかったぜ。<br/>
-            ［後方送り］での［跨いだ相手番石］は無しだぜ。
+            とりあえずやることは［左翼手］と同じだぜ。<br/>
+            <br/>
+            今回の例では［空マス］というキャップにぶつかったぜ。<br/>
+            ［右翼手］での［内野］は無しだぜ。
         </talk-balloon>
 
 
@@ -156,7 +193,7 @@
             :name="hiyoko2Name"
             :device="compatibleDevice1Ref?.device"
         >
-            キャップを２つ覚えたわねえ。
+            左と右の［内野］、［外野］、［観客席］を覚えればいいのね。
         </talk-balloon>
 
 
@@ -166,21 +203,33 @@
             :name="oton2Name"
             :device="compatibleDevice1Ref?.device"
         >
-            キャップの組み合わせは、下表のようになる。
+            ［内野］、［外野］、［観客席］の組み合わせは、下表のようになる。<br/>
+            ［左翼手］、［右翼手］で違いは無いぜ。
         </talk-balloon>
 
 
-        <pre class="coding-paper">
-      前送りのキャップ  後方送りのキャップ  コメント
-----  ----------------  -------------------  -------
-( 1)              盤外                 盤外  こうはならない。石をひっくり返せないとこには置けないから
-( 2)              盤外               空マス  こうはならない。石をひっくり返せないとこには置けないから
-( 3)              盤外               手番石  ［後方送り］で［跨いだ相手番石］はひっくり返せる
-( 4)            空マス               空マス  こうはならない。石をひっくり返せないとこには置けないから
-( 5)            空マス               手番石  ［後方送り］で［跨いだ相手番石］はひっくり返せる
-( 6)            手番石               手番石  ［前送り］、［後方送り］のどちらの［跨いだ相手番石］もひっくり返せる
-        </pre>
-        
+        <pre class="coding-paper mb-6">
+        内野    外野        観客席               コメント
+----  --------  ----------  -------------------  --------
+( 1)  盤外                                       盤端だ。ひっくり返る石は無い
+( 2)  空マス                                     ひっくり返る石は無い
+( 3)  相手番石  盤外                             盤端だ。ひっくり返る石は無い。また、逆側の［ｘ翼手］にはひっくり返る石がある必要がある
+( 4)  相手番石  空マス                           ひっくり返る石は無い。また、逆側の［ｘ翼手］にはひっくり返る石がある必要がある
+( 5)  相手番石  手番石      盤外                 盤端だ。内野はひっくり返る。盤端なので、この方向では相手番に挟み返される心配がない
+( 6)  相手番石  手番石      空マス               内野はひっくり返る。この方向には相手番に挟み返される空マスがある
+( 7)  相手番石  手番石      相手番石             内野はひっくり返る。観客席は既に相手番石で埋まっているので、この方向では外野は相手番に挟み返される心配がない</pre>
+
+
+        <talk-balloon
+            :src="kifuwarabe2Src"
+            :alt="kifuwarabe2Alt"
+            :name="kifuwarabe2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            オセロを［内野］、［外野］、［観客席］で分けて何が嬉しいんだぜ？
+        </talk-balloon>
+
+
     </section>
 </template>
 
