@@ -133,6 +133,53 @@
             フタなんか覚えておいて、いいことあるのかだぜ？
         </talk-balloon>
 
+
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            <pre class="code-w">
+...xoX<span class="green-marker">.</span>..
+     |<span class="green-marker">&gt;</span></pre><br/>
+            👆 次は反対方向に読んでいくぜ。これを<span class="green-marker">後方送り（Backward；バックワード）</span>と呼ぶことにするぜ。<br/>
+            <br/>
+            とりあえずやることは前送りと同じだが、今回は［空マス］というキャップにぶつかったぜ。<br/>
+            ［後方送り］での［跨いだ相手番石］は無しだぜ。
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="hiyoko2Src"
+            :alt="hiyoko2Alt"
+            :name="hiyoko2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            キャップを２つ覚えたわねえ。
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            キャップの組み合わせは、下表のようになる。
+        </talk-balloon>
+
+
+        <pre class="coding-paper">
+      前送りのキャップ  後方送りのキャップ  コメント
+----  ----------------  -------------------  -------
+( 1)              盤外                 盤外  こうはならない。石をひっくり返せないとこには置けないから
+( 2)              盤外               空マス  こうはならない。石をひっくり返せないとこには置けないから
+( 3)              盤外               手番石  ［後方送り］で［跨いだ相手番石］はひっくり返せる
+( 4)            空マス               空マス  こうはならない。石をひっくり返せないとこには置けないから
+( 5)            空マス               手番石  ［後方送り］で［跨いだ相手番石］はひっくり返せる
+( 6)            手番石               手番石  ［前送り］、［後方送り］のどちらの［跨いだ相手番石］もひっくり返せる
+        </pre>
         
     </section>
 </template>
