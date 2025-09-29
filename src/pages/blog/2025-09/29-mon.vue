@@ -501,6 +501,85 @@ o..o..o.
         </talk-balloon>
 
 
+        <talk-balloon
+            :src="kifuwarabe2Src"
+            :alt="kifuwarabe2Alt"
+            :name="kifuwarabe2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            そのとか、このとかではなく、名前を付けてくれだぜ。
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            <span class="yellow-marker">指し手生成（Move Generation；ムーブ・ジェネレーション）</span>かな。<br/>
+            関数の名前にするなら generateMove。
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="hiyoko2Src"
+            :alt="hiyoko2Alt"
+            :name="hiyoko2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            <pre class="code-w">
+oxx.xxx.
+</pre><br/>
+            👆 上図のようなフィールドがあるとして、
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="hiyoko2Src"
+            :alt="hiyoko2Alt"
+            :name="hiyoko2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            <pre class="code-w">
+oxx<span class="red-marker">X</span>xxx.
+</pre><br/>
+            👆 ［手番石］の隙間に着手して、
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="hiyoko2Src"
+            :alt="hiyoko2Alt"
+            :name="hiyoko2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            <pre class="code-w">
+oxxXxxx<span class="blue-marker">+</span>
+</pre><br/>
+            👆 相手番の着手点が増える、という振る舞いが要るのよ。
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="kifuwarabe2Src"
+            :alt="kifuwarabe2Alt"
+            :name="kifuwarabe2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            お父んの［内野］、［外野］、［観客席］という分け方にはこの動きは無かったな。
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            端っこまで行って、また返ってくるソナー（sonar）みたいな動きすればいいのか。
+        </talk-balloon>
+
 
 
     </section>
