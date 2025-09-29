@@ -137,9 +137,6 @@
                         "
                         @click="onGameBoard1Clicked(sq)"
                     ></v-btn>
-                    <!--
-                        TODO 廃止： {{ gameBoard1StoneShapeArray[sq] }}
-                    -->
 
                     <!-- 筋の符号 -->
                     <span
@@ -147,8 +144,8 @@
                         :key="file"
                         :style="{
                             position: 'absolute',
-                            left: `${file * 32 + 6}px`,
-                            top: '510px',
+                            left: `${file * tileBoard1TileWidth + 6}px`,
+                            top: `${16 * tileBoard1TileHeight - 2}px`,
                             width: '20px',
                             color: 'white',
                             fontSize: '24px',
@@ -164,7 +161,7 @@
                         :style="{
                             position: 'absolute',
                             left: '3px',
-                            top: `${(16-rank) * 32}px`,
+                            top: `${(16-rank) * tileBoard1TileHeight}px`,
                             width: '20px',
                             color: 'white',
                             fontSize: '24px',
@@ -578,10 +575,10 @@
     // + オブジェクト　＞　ゲーム盤１ +
     // ++++++++++++++++++++++++++++++++
 
+    const gameBoard1FileNameArray = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O'];
     const NONZERO_RADIUS_OF_DIAMETER_NINE = 4;  // ［直径９の非零半径］。直径 9 から原点（着手点）の 1 引いて 2 で割ったもの。原点を抜いた半径。片翼
     const FIVE_LENGTH = 5;  // ［五］の長さ
     const NONZERO_RADIUS_OF_DIAMETER_FIVE = 2; // ［直径５の非零半径］。直径 5 から原点（着手点）の 1 引いて 2 で割ったもの。原点を抜いた半径
-    const gameBoard1FileNameArray = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O'];
     const COLOR_EMPTY = 0;  // 空きマス。石の色無し
     const COLOR_BLACK = 1;  // 黒石
     const COLOR_WHITE = 2;  // 白石
@@ -1183,7 +1180,7 @@
 
 
     /**
-     * TODO: sq を符号に変換
+     * sq を符号に変換
      * @param sq 
      */
     function sqToCode(sq: number) : string {
