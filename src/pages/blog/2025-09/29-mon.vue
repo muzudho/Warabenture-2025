@@ -265,9 +265,242 @@
             :name="hiyoko2Name"
             :device="compatibleDevice1Ref?.device"
         >
-            👆 １つの方向に限ってみると、取ったつもりで取り返される可能性があるのは (2) と (6) のケースなんだ。<br/>
-            
+            👆 １つの方向に限ってみると、取ったつもりで取り返される可能性がある空マスがあるのは (2) と (6) のケースなんだ。            
         </talk-balloon>
+
+
+        <talk-balloon
+            :src="kifuwarabe2Src"
+            :alt="kifuwarabe2Alt"
+            :name="kifuwarabe2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            X の反対側の［ｘ翼手］が (3)、(4)、(7) だった場合、そうだな。
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="hiyoko2Src"
+            :alt="hiyoko2Alt"
+            :name="hiyoko2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            じゃあ、 (1) と (5) だけが、１方向に限っての話しでは、 X が取り返されないことが確定で、それ以外は取り返される可能性があるんだ。
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            端まで［手番石］で詰まってるからな。
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="kifuwarabe2Src"
+            :alt="kifuwarabe2Alt"
+            :name="kifuwarabe2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            組み合わせを見てみようぜ？
+        </talk-balloon>
+
+
+        <pre class="coding-paper mb-6">
+  左    右  フィールド         コメント
+----  ----  -----------------  --------
+( 1)  ( 1)   X                 １マス・フィールドでしか起こりえない。挟まれず
+( 1)  ( 2)   X..............   挟まれず
+( 1)  ( 3)   Xoooooooooooooo   挟まれず
+( 1)  ( 4)   Xooooooooooooo.   挟まれず
+( 1)  ( 5)   X<span class="green-marker">oooooooooooo</span>xx   挟まれず
+( 1)  ( 6)   X<span class="green-marker">ooooooooooo</span>xx.   挟まれず
+( 1)  ( 7)   X<span class="green-marker">oooooooooo</span>xxoo   挟まれず
+( 2)  ( 2)   .......X.......   ただちには挟まれず
+( 2)  ( 3)   ......<span class="red-marker">.</span><span class="yellow-marker">X</span><span class="red-marker">o</span>oooooo   挟み返される
+( 2)  ( 4)   ......<span class="red-marker">.</span><span class="yellow-marker">X</span><span class="red-marker">o</span>ooooo.   挟み返される
+( 2)  ( 5)   .......X<span class="green-marker">ooooo</span>xx   挟まれず
+( 2)  ( 6)   .......X<span class="green-marker">oooo</span>xx.   ただちには挟まれず
+( 2)  ( 7)   ......<span class="red-marker">.</span><span class="yellow-marker">X</span><span class="green-marker">ooo</span><span class="yellow-marker">xx</span><span class="red-marker">o</span>o   挟み返される
+( 3)  ( 3)   oooooooXooooooo   挟まれず
+( 3)  ( 4)   oooooooXoooooo.   挟まれず
+( 3)  ( 5)   oooooooX<span class="green-marker">ooooo</span>xx   挟まれず
+( 3)  ( 6)   oooooo<span class="red-marker">o</span><span class="yellow-marker">X</span><span class="green-marker">oooo</span><span class="yellow-marker">xx</span><span class="red-marker">.</span>   挟み返される
+( 3)  ( 7)   oooooooX<span class="green-marker">ooo</span>xxoo   挟まれず
+( 4)  ( 4)   .ooooooXoooooo.   ただちには挟まれず
+( 4)  ( 5)   .ooooooX<span class="green-marker">ooooo</span>xx   挟まれず
+( 4)  ( 6)   .ooooo<span class="red-marker">o</span><span class="yellow-marker">X</span><span class="green-marker">oooo</span><span class="yellow-marker">xx</span><span class="red-marker">.</span>   挟み返される
+( 4)  ( 7)   .ooooooX<span class="green-marker">ooo</span>xxoo   挟まれず
+( 5)  ( 5)   xx<span class="green-marker">ooooo</span>X<span class="green-marker">ooooo</span>xx   挟まれず
+( 5)  ( 6)   xx<span class="green-marker">ooooo</span>X<span class="green-marker">oooo</span>xx.   挟まれず
+( 5)  ( 7)   xx<span class="green-marker">ooooo</span>X<span class="green-marker">ooo</span>xxoo   挟まれず
+( 6)  ( 6)   <span class="red-marker">.</span><span class="yellow-marker">xx</span><span class="green-marker">oooo</span><span class="yellow-marker">X</span><span class="green-marker">oooo</span><span class="yellow-marker">xx</span><span class="red-marker">.</span>   挟み返される
+( 6)  ( 7)   <span class="red-marker">.</span><span class="yellow-marker">xx</span><span class="green-marker">oooo</span><span class="yellow-marker">X</span><span class="green-marker">ooo</span><span class="yellow-marker">xx</span><span class="red-marker">o</span>o   挟み返される
+( 7)  ( 7)   ooxx<span class="green-marker">ooo</span>X<span class="green-marker">ooo</span>xxoo   挟まれず
+</pre><br/>
+
+
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            うわっ、なんだこりゃ　むずっ！
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="hiyoko2Src"
+            :alt="hiyoko2Alt"
+            :name="hiyoko2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            こんな定理作って何が嬉しいの？
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            相手番が次に石を置ける場所が分かるわけだぜ。
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="kifuwarabe2Src"
+            :alt="kifuwarabe2Alt"
+            :name="kifuwarabe2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            (2), (3) の (2) 側の空点、<br/>
+            (2), (4) の (2) 側の空点、<br/>
+            (2), (7) の (2) 側の空点、<br/>
+            (3), (6) の (6) 側の空点、<br/>
+            (4), (6) の (6) 側の空点、<br/>
+            (6), (6) の両側の空点、<br/>
+            (6), (7) の (6) 側の空点、<br/>
+            <br/>
+            の７ケースがあるな。
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="hiyoko2Src"
+            :alt="hiyoko2Alt"
+            :name="hiyoko2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            先に石をひっくり返してから、ひっくり返した石１個１個について［手番石］［相手番石］が置ける場所を更新した方がシンプルじゃない？
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            それをやってるんだぜ。
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="hiyoko2Src"
+            :alt="hiyoko2Alt"
+            :name="hiyoko2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            <pre class="code-w">
+........
+...x....
+.x.x.x..
+..xxx...
+xoooooo.
+..xxx...
+.x.x.x..
+o..o..o.
+</pre><br/>
+            👆 仮に上図のような盤があったとして……
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="hiyoko2Src"
+            :alt="hiyoko2Alt"
+            :name="hiyoko2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            <pre class="code-w">
+........
+...x....
+.x.x.x..
+..xxx...
+xoooooo<span class="red-marker">X</span>
+..xxx...
+.x.x.x..
+o..o..o.
+</pre><br/>
+            👆 上図のように着手したら……
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="hiyoko2Src"
+            :alt="hiyoko2Alt"
+            :name="hiyoko2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            <pre class="code-w">
+........
+...x....
+.x.x.x..
+..xxx...
+x<span class="green-marker">xxxxxx</span>X
+..xxx...
+.x.x.x..
+o..o..o.
+</pre><br/>
+            👆 上図のように石がひっくり返って……
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="hiyoko2Src"
+            :alt="hiyoko2Alt"
+            :name="hiyoko2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            <pre class="code-w">
+...<span class="blue-marker">+</span>....
+<span class="blue-marker">+</span>..x..<span class="blue-marker">+</span>.
+.x.x.x..
+..xxx...
+xxxxxxxX
+..xxx...
+.x.x.x..
+o..o..o.
+</pre><br/>
+            👆 石が置ける箇所が増えるけど、この動きには対応してないわよね。
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            その動きだけあればいいのか……。
+        </talk-balloon>
+
+
 
 
     </section>
