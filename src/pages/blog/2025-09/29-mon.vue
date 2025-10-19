@@ -581,6 +581,103 @@ oxxXxxx<span class="blue-marker">+</span>
         </talk-balloon>
 
 
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            ひとまず、ひっくり返す石の見分け方を、まとめ直そう。
+        </talk-balloon>
+
+
+        <pre class="coding-paper mb-6">
+locateTargetStones 関数
+=======================
+
+・着手点から、［前方］へ読み進める
+・ループ
+    ・［盤外］に突き当たったらループから抜ける。覚えた［相手番石］のリストはクリアー
+    ・［空マス］に突き当たってもループから抜ける。覚えた［相手番石］のリストはクリアー
+    ・［手番石］に突き当たってもループから抜ける。覚えた［相手番石］のリストは保持する
+    ・［相手番石］に突き当たったら、その場所を覚える
+着手点                      前方      コメント
+------      ----------      --------  --------
+手番石  →  盤外                      対象無し
+手番石  →  空マス                    対象無し
+手番石  →  手番石                    対象無し
+手番石  →  相手番石    →  盤端      対象無し
+手番石  →  相手番石    →  空マス    対象無し
+手番石  →  相手番石Ａ  →  手番石    ［相手番石Ａ］は対象
+        </pre>
+
+
+        <pre class="coding-paper mb-6">
+reverseStones 関数
+==================
+
+指定したマス番号の石をひっくり返す。
+        </pre>
+
+
+        <pre class="coding-paper mb-6">
+generateMoveOnDirection 関数
+============================
+
+・着手点から、［前方］へ読み進める
+・［前向きループ］処理
+    ・［着手点］の前方からスタート
+    ・［盤外］に突き当たったら、処理終了
+    ・［空マス］に突き当たったら、［前方キャップ］に［空マス］とそのマス番号を記録して［後ろ向きループ］処理へ
+    ・［手番石］に突き当たったら、続行
+    ・［相手番石］に突き当たったら、［前方キャップ］に［相手番石］とそのマス番号を記録して［後ろ向きループ］処理へ
+・［後ろ向きループ］処理
+    ・［着手点］の後方からスタート
+    ・［盤外］に突き当たったら、処理終了
+    ・［空マス］に突き当たったら、［後方キャップ］に［空マス］とそのマス番号を記録して処理終了
+    ・［手番石］に突き当たったら、続行
+    ・［相手番石］に突き当たったら、［後方キャップ］に［相手番石］とそのマス番号を記録して処理終了
+
+組み合わせ：
+
+前方キャップ  後方キャップ  コメント
+------------  ------------  --------
+空マス        空マス        指し手変更無し
+空マス        相手番石      ［前方キャップ］のマスを指し手に追加
+相手番石      相手番石      指し手変更無し
+        </pre>
+
+
+        <talk-balloon
+            :src="oton2Src"
+            :alt="oton2Alt"
+            :name="oton2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            👆 これって指し手が追加されるパターンなんだが、<br/>
+            逆に、指し手が削除されるパターンってないのかだぜ？
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="kifuwarabe2Src"
+            :alt="kifuwarabe2Alt"
+            :name="kifuwarabe2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            手番が石をひっくり返すことで、相手番の石が置けるマスが減るケースか。
+        </talk-balloon>
+
+
+        <talk-balloon
+            :src="hiyoko2Src"
+            :alt="hiyoko2Alt"
+            :name="hiyoko2Name"
+            :device="compatibleDevice1Ref?.device"
+        >
+            そりゃ、有るんじゃないの？　ひっくり返されて石が消えてくんだから。
+        </talk-balloon>
+
 
     </section>
 </template>

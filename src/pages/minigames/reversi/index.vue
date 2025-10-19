@@ -124,13 +124,156 @@
         <p><span
             :style="{
                 color: gameSoft1Ref?.game1StoneColorNameMap[1],
-            }">●</span>の数={{ gameSoft1Ref?.game1StoneCount[1] }}</p>
+            }">●</span>の数={{ gameSoft1Ref?.gameBoardContentModel1Ref?.stoneCounts[1] }}</p>
         <p><span
             :style="{
                 color: gameSoft1Ref?.game1StoneColorNameMap[2],
-            }">●</span>の数={{ gameSoft1Ref?.game1StoneCount[2] }}</p>
+            }">●</span>の数={{ gameSoft1Ref?.gameBoardContentModel1Ref?.stoneCounts[2] }}</p>
         <p>連続パス回数={{ gameSoft1Ref?.game1PassCount }}</p>
         <p>{{ gameSoft1Ref?.game1IsEnd ? (gameSoft1Ref?.gameIsFullCapacity() ? '満局' : '終局') : '' }}</p>
+
+        <!-- デバッグ情報 -->
+        <v-btn
+            class="code-key"
+            @touchstart.prevent="button1Ref?.press($event, onDebugInfoButtonPressed);"
+            @touchend="button1Ref?.release();"
+            @touchcancel="button1Ref?.release();"
+            @touchleave="button1Ref?.release();"
+            @mousedown.prevent="button1Ref?.handleMouseDown($event, onDebugInfoButtonPressed)"
+            @mouseup="button1Ref?.release();"
+            @mouseleave="button1Ref?.release();"
+        >{{ debugInfo1IsShowing ? '⚙️デバッグ情報を終わる' : '⚙️デバッグ情報を表示' }}</v-btn>
+        <section v-if="debugInfo1IsShowing" class="sec-1">
+            <p>デバッグ：</p>
+
+            <v-text-field
+                label="着手点"
+                v-model="debug1MoveSq"
+            />
+
+            <p class="mb-6">{{ debug1MoveSq }}（着手点）はマス番号で言うと {{ makeCodeToSq(gameSoft1Ref?.gameBoardIndexModel1Ref?.fileNum ?? 0)(debug1MoveSq) }}。</p>
+
+            <p class="mb-6">{{ debug1MoveSq }}（着手点）から東方向へ手番石をスキップした先は {{
+                makeSqToCode(
+                    gameSoft1Ref?.gameBoardIndexModel1Ref?.fileNum ?? 0,
+                )(
+                    locateThisTurnStonesSkipped(
+                        gameSoft1Ref?.gameBoardContentModel1Ref?.stonesColor ?? [],
+                        gameSoft1Ref?.game1Turn ?? 0,
+                        (gameSoft1Ref?.gameBoardIndexModel1Ref?.getForeOf(DIRECTION_HORIZONTAL) ?? ((_sq) => SQ_OUT_OF_BOARD))(
+                            makeCodeToSq(gameSoft1Ref?.gameBoardIndexModel1Ref?.fileNum ?? 0)(debug1MoveSq)
+                        ),
+                        gameSoft1Ref?.gameBoardIndexModel1Ref?.getForeOf(DIRECTION_HORIZONTAL) ?? ((_sq) => SQ_OUT_OF_BOARD)
+                    )
+                )}}（スキップ点）。</p>
+            <p class="mb-6">{{ debug1MoveSq }}（着手点）から西方向へ手番石をスキップした先は {{
+                makeSqToCode(
+                    gameSoft1Ref?.gameBoardIndexModel1Ref?.fileNum ?? 0,
+                )(
+                    locateThisTurnStonesSkipped(
+                        gameSoft1Ref?.gameBoardContentModel1Ref?.stonesColor ?? [],
+                        gameSoft1Ref?.game1Turn ?? 0,
+                        (gameSoft1Ref?.gameBoardIndexModel1Ref?.getBackOf(DIRECTION_HORIZONTAL) ?? ((_sq) => SQ_OUT_OF_BOARD))(
+                            makeCodeToSq(gameSoft1Ref?.gameBoardIndexModel1Ref?.fileNum ?? 0)(debug1MoveSq)
+                        ),
+                        gameSoft1Ref?.gameBoardIndexModel1Ref?.getBackOf(DIRECTION_HORIZONTAL) ?? ((_sq) => SQ_OUT_OF_BOARD)
+                    )
+                )}}（スキップ点）。</p>
+            
+            <p class="mb-6">{{ debug1MoveSq }}（着手点）から東方向へ跨いだ相手番石（…a）は {{
+                locateHoppedoverOppositeTurnStones(
+                    gameSoft1Ref?.gameBoardContentModel1Ref?.stonesColor ?? [],
+                    gameSoft1Ref?.game1Turn ?? 0,
+                    (gameSoft1Ref?.gameBoardIndexModel1Ref?.getForeOf(DIRECTION_HORIZONTAL) ?? ((_sq) => SQ_OUT_OF_BOARD))(
+                        makeCodeToSq(gameSoft1Ref?.gameBoardIndexModel1Ref?.fileNum ?? 0)(debug1MoveSq)
+                    ),
+                    gameSoft1Ref?.gameBoardIndexModel1Ref?.getForeOf(DIRECTION_HORIZONTAL) ?? ((_sq) => SQ_OUT_OF_BOARD)
+                )[0].map((sq: number) =>
+                    makeSqToCode(gameSoft1Ref?.gameBoardIndexModel1Ref?.fileNum ?? 0)(sq)
+                )}}。</p>
+
+            <p class="mb-6"> a のキャップは {{
+                makeSqToCode(gameSoft1Ref?.gameBoardIndexModel1Ref?.fileNum ?? 0)(
+                    getCap(
+                        gameSoft1Ref?.gameBoardContentModel1Ref?.stonesColor ?? [],
+                        makeCodeToSq(gameSoft1Ref?.gameBoardIndexModel1Ref?.fileNum ?? 0)(debug1MoveSq),
+                        locateHoppedoverOppositeTurnStones(
+                            gameSoft1Ref?.gameBoardContentModel1Ref?.stonesColor ?? [],
+                            gameSoft1Ref?.game1Turn ?? 0,
+                            (gameSoft1Ref?.gameBoardIndexModel1Ref?.getForeOf(DIRECTION_HORIZONTAL) ?? ((_sq) => SQ_OUT_OF_BOARD))(
+                                makeCodeToSq(gameSoft1Ref?.gameBoardIndexModel1Ref?.fileNum ?? 0)(debug1MoveSq)
+                            ),
+                            gameSoft1Ref?.gameBoardIndexModel1Ref?.getForeOf(DIRECTION_HORIZONTAL) ?? ((_sq) => SQ_OUT_OF_BOARD)
+                        )[0],
+                        gameSoft1Ref?.gameBoardIndexModel1Ref?.getForeOf(DIRECTION_HORIZONTAL) ?? ((_sq) => SQ_OUT_OF_BOARD)
+                    )[0]
+                )}}（マス） 色は {{
+                getCap(
+                    gameSoft1Ref?.gameBoardContentModel1Ref?.stonesColor ?? [],
+                    makeCodeToSq(gameSoft1Ref?.gameBoardIndexModel1Ref?.fileNum ?? 0)(debug1MoveSq),
+                    locateHoppedoverOppositeTurnStones(
+                        gameSoft1Ref?.gameBoardContentModel1Ref?.stonesColor ?? [],
+                        gameSoft1Ref?.game1Turn ?? 0,
+                        (gameSoft1Ref?.gameBoardIndexModel1Ref?.getForeOf(DIRECTION_HORIZONTAL) ?? ((_sq) => SQ_OUT_OF_BOARD))(
+                            makeCodeToSq(gameSoft1Ref?.gameBoardIndexModel1Ref?.fileNum ?? 0)(debug1MoveSq)
+                        ),
+                        gameSoft1Ref?.gameBoardIndexModel1Ref?.getForeOf(DIRECTION_HORIZONTAL) ?? ((_sq) => SQ_OUT_OF_BOARD)
+                    )[0],
+                    gameSoft1Ref?.gameBoardIndexModel1Ref?.getForeOf(DIRECTION_HORIZONTAL) ?? ((_sq) => SQ_OUT_OF_BOARD)
+                )[1]}}。</p>
+
+            <p>マス番号:</p>
+            <div
+                class="mb-6"
+            >
+                <p
+                    v-for="rank in range(0, (gameSoft1Ref?.gameBoardIndexModel1Ref?.rankNum ?? 1))"
+                    :key="rank"
+                >
+                    <span
+                        v-for="sq in range(rank * (gameSoft1Ref?.gameBoardIndexModel1Ref?.fileNum ?? 1), (rank + 1) * (gameSoft1Ref?.gameBoardIndexModel1Ref?.fileNum ?? 1))"
+                        :key="sq"
+                    >
+                        {{ sq.toString().padStart(2, '0') }}&nbsp;
+                    </span><br/>
+                </p>
+            </div>
+
+            <p>水平方向　＞　可動　＞　黒番:</p>
+            <div
+                class="mb-6"
+            >
+                <p
+                    v-for="rank in range(0, (gameSoft1Ref?.gameBoardIndexModel1Ref?.rankNum ?? 1))"
+                    :key="rank"
+                >
+                    <span
+                        v-for="sq in range(rank * (gameSoft1Ref?.gameBoardIndexModel1Ref?.fileNum ?? 1), (rank + 1) * (gameSoft1Ref?.gameBoardIndexModel1Ref?.fileNum ?? 1))"
+                        :key="sq"
+                    >
+                        {{ gameSoft1Ref?.generationMoveModel1Ref?.gameBoard1CanMove[DIRECTION_HORIZONTAL][COLOR_BLACK][sq].toString().padEnd(5, ' ') }}&nbsp;
+                    </span><br/>
+                </p>
+            </div>
+
+            <p>水平方向　＞　可動　＞　白番:</p>
+            <div
+                class="mb-6"
+            >
+                <p
+                    v-for="rank in range(0, (gameSoft1Ref?.gameBoardIndexModel1Ref?.rankNum ?? 1))"
+                    :key="rank"
+                >
+                    <span
+                        v-for="sq in range(rank * (gameSoft1Ref?.gameBoardIndexModel1Ref?.fileNum ?? 1), (rank + 1) * (gameSoft1Ref?.gameBoardIndexModel1Ref?.fileNum ?? 1))"
+                        :key="sq"
+                    >
+                        {{ gameSoft1Ref?.generationMoveModel1Ref?.gameBoard1CanMove[DIRECTION_HORIZONTAL][COLOR_WHITE][sq].toString().padEnd(5, ' ') }}&nbsp;
+                    </span><br/>
+                </p>
+            </div>
+
+        </section>
 
     </section>
 
@@ -164,14 +307,34 @@
     import GameMachineWaratch2 from '@/components/GameMachineWaratch2.vue';
     import SourceLink from '@/components/SourceLink.vue';
 
+    // ++++++++++++++++++++++++++++++++++
+    // + インポート　＞　コンポーザブル +
+    // ++++++++++++++++++++++++++++++++++
+
+    // from 部分のアルファベット順
+    import { range } from '@/composables/range';
+
     // ++++++++++++++++++++++++++
     // + インポート　＞　ページ +
     // ++++++++++++++++++++++++++
 
     import GameSoft from '@/pages/minigames/reversi/game-soft.vue';
     import type { Player1Input } from '@/pages/minigames/reversi/game-soft.vue';
+    import {
+        // 色
+        COLOR_BLACK, COLOR_WHITE,
+        
+        // 方角
+        DIRECTION_HORIZONTAL,
+
+        // マス番号
+        makeCodeToSq, SQ_OUT_OF_BOARD,
+    } from '@/pages/minigames/reversi/spec';
 
     import TheAppHeader from '@/pages/the-app-header.vue';
+
+    import { makeSqToCode } from '@/pages/minigames/reversi/game-board-index-util';
+    import { getCap, locateHoppedoverOppositeTurnStones, locateThisTurnStonesSkipped } from '@/pages/minigames/reversi/game-board-content-util';
 
 
     // ####################
@@ -191,6 +354,12 @@
     // ++++++++++++++++++++++++++++++
 
     const button1Ref = ref<InstanceType<typeof Button20250822> | null>(null);
+
+    // ++++++++++++++++++++++++++++++++++++
+    // + オブジェクト　＞　デバッグ用変数 +
+    // ++++++++++++++++++++++++++++++++++++
+
+    const debug1MoveSq = ref<string>('D4');  // デバッグ用：着手点
 
     // ++++++++++++++++++++++++++++++++++++
     // + オブジェクト　＞　ゲームマシン１ +
@@ -226,6 +395,13 @@
     };
 
 
+    // ++++++++++++++++++++++++++++++++++++++++++
+    // + オブジェクト　＞　デバッグ情報パネル１ +
+    // ++++++++++++++++++++++++++++++++++++++++++
+
+    const debugInfo1IsShowing = ref<boolean>(false);  // デバッグ情報を表示中
+
+
     // ######################
     // # イベントハンドラー #
     // ######################
@@ -235,6 +411,7 @@
     // ++++++++++++++++++++++++++++++++++++++
 
     onMounted(()=>{
+        console.log(`DEBUG: [onMounted] 開始。`);
         gameMachine1PowerOn();  // 電源を入れる演出
     });
 
@@ -305,6 +482,14 @@
 
     function onSpaceButtonReleased() : void {
         gameMachine1Player1Input[" "] = false;
+    }
+
+
+    /**
+     * ［デバッグ情報を表示］ボタン。
+     */
+    function onDebugInfoButtonPressed() : void {
+        debugInfo1IsShowing.value = !debugInfo1IsShowing.value;
     }
 
     // ++++++++++++++++++++++++++++++++++++++++++++++++
@@ -381,6 +566,7 @@
         }
         gameMachine1IsPowerOn.value = true;
 
+        console.log(`DEBUG: [gameMachine1PowerOn] ゲームの初期化を行いたい。`);
         gameSoft1Ref.value?.gameInit(); // ゲームの初期化
     }
 
